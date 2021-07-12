@@ -1,0 +1,97 @@
+{
+  "name": "react-native-xiaoshu",
+  "version": "0.0.1",
+  "private": true,
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "ncu": "npx npm-check-updates -u -x react,react-native,react-test-renderer",
+    "lint:ts": "tsc --noEmit && eslint src --ext .ts,.tsx",
+    "prettier": "prettier --write '{src,demo}/**/*.{js,json,yml,yaml,ts,tsx,md}'",
+    "lint-staged": "lint-staged --allow-empty",
+    "doc": "dumi dev",
+    "doc:build": "dumi build",
+    "doc:commit": "git add docs-dist && git commit -n -m 'commit doc file'",
+    "doc:pulish-safe": "git subtree push --prefix docs-dist origin gh-pages",
+    "doc:pulish": "git push origin `git subtree split --prefix docs-dist master`:gh-pages --force",
+    "doc:reset": "git reset --hard HEAD^",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "17.0.1",
+    "react-native": "0.64.2",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-svg": "^12.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/runtime": "^7.14.6",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@fruits-chain/eslint-config-rn": "^0.0.3",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^5.11.11",
+    "@react-navigation/native": "^5.9.4",
+    "@react-navigation/stack": "^5.14.5",
+    "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.171",
+    "@types/react-native": "^0.64.12",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^27.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "core-js": "^3.15.2",
+    "dumi": "^1.1.23",
+    "dumi-theme-mobile": "^1.1.6",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.0.0",
+    "metro-react-native-babel-preset": "^0.66.1",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-keyboard-aware-scroll-view": "^0.9.4",
+    "react-native-reanimated": "^2.2.0",
+    "react-native-screens": "^3.4.0",
+    "react-test-renderer": "17.0.1",
+    "typescript": "^4.3.5",
+    "umi-plugin-react-native": "^0.5.0"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "lint-staged": {
+    "*.{yml,yaml,md}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "bash -c tsc --noEmit",
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
