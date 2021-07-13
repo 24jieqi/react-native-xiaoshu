@@ -70,6 +70,18 @@ group:  ## 当前页面在某个分类下面
 ---
 ```
 
-`<code />` 引用示例代码，也可以直接在 md 文件里写 DMO，参考 `https://d.umijs.org/zh-CN/guide/basic`
+`<code />` 引用示例代码，也可以直接在 md 文件里写 DMO，参考 dumi 文档学习。
 
 `<API />` 或 `<API src="./xxx/tsx" />` 组件用来暴露组件的 props 描述。
+
+## 打包
+
+```bash
+yarn build
+```
+
+构建工具使用的是 `react-native-builder-bob`
+
+## 待优化
+
+- [ ] 构建产物不包含 `demo`、`_demo`
