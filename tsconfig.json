@@ -1,12 +1,12 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true,
-    "baseUrl": "demo",
-    "paths": {
-      "@/*": ["./*"],
-      "react-native-xiaoshu": ["../src"]
-    }
+    "noEmit": true
+    // "baseUrl": "demo",
+    // "paths": {
+    //   "@/*": ["./*"],
+    //   "react-native-xiaoshu": ["../src"]
+    // }
   },
   "include": ["./src", "./demo"]
 }
