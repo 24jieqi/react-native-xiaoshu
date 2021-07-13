@@ -8,5 +8,11 @@
     //   "react-native-xiaoshu": ["../src"]
     // }
   },
-  "include": ["./src", "./demo"]
+  "include": ["./src", "./demo"],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }
