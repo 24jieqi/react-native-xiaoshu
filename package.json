@@ -2,12 +2,13 @@
   "name": "react-native-xiaoshu",
   "version": "0.0.1",
   "private": true,
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.ts",
+  "types": "lib/typescript/index.d.ts",
   "files": [
-    "lib",
-    "es"
+    "lib/",
+    "src/"
   ],
   "scripts": {
     "android": "react-native run-android",
@@ -25,12 +26,11 @@
     "doc:pulish-safe": "git subtree push --prefix docs-dist origin gh-pages",
     "doc:pulish": "git push origin `git subtree split --prefix docs-dist master`:gh-pages --force",
     "doc:reset": "git reset --hard HEAD^",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "bob build"
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "react": "17.0.1",
-    "react-native": "0.64.2",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-svg": "^12.1.1"
   },
@@ -58,6 +58,9 @@
     "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "metro-react-native-babel-preset": "^0.66.1",
+    "react": "17.0.1",
+    "react-native": "0.64.2",
+    "react-native-builder-bob": "^0.18.1",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.4",
     "react-native-reanimated": "^2.2.0",
@@ -78,6 +81,9 @@
       "jsx",
       "json",
       "node"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
     ]
   },
   "lint-staged": {
@@ -92,6 +98,20 @@
       "bash -c tsc --noEmit",
       "eslint --fix",
       "prettier --write"
+    ]
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
     ]
   }
 }
