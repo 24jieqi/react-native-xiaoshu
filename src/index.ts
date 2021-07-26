@@ -10,6 +10,10 @@ export type { CellProps, CellGroupProps } from './cell/interface'
 export { default as Cell } from './cell'
 export { default as CellGroup } from './cell/group'
 
+export type { CheckboxIconProps, CheckboxProps } from './checkbox/interface'
+export { default as Checkbox } from './checkbox'
+export { default as CheckboxIcon } from './checkbox/icon'
+
 export type { DividerProps } from './divider/interface'
 export { default as Divider } from './divider'
 
@@ -37,6 +41,7 @@ export { default as Overlay } from './overlay'
 
 export type { PopupProps, PopupPosition } from './popup/interface'
 export { default as Popup } from './popup'
+export { default as PopupHeader } from './popup/header'
 
 export { default as Portal } from './portal'
 

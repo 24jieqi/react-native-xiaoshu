@@ -38,7 +38,7 @@ const Overlay: React.FC<OverlayProps> = ({
       fadeAnim.current, // 动画中的变量值
       {
         toValue: show ? 1 : 0,
-        duration: +duration,
+        duration: duration,
         useNativeDriver: true,
       },
     )

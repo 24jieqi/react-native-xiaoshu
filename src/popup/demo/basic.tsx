@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
 import type { PopupPosition } from 'react-native-xiaoshu'
-import { Popup, Button } from 'react-native-xiaoshu'
+import { Popup, PopupHeader, Button } from 'react-native-xiaoshu'
 
 const Styles = StyleSheet.create({
   hint: {
@@ -125,6 +125,16 @@ const BasicPopup: React.FC = () => {
           return true
         }}
         round>
+        <PopupHeader
+          title="这里是一个标题"
+          onClose={() => {
+            setState(s => ({
+              ...s,
+              show: false,
+            }))
+          }}
+        />
+
         <View style={Styles.card}>
           <Text>内容</Text>
           {/* <Button

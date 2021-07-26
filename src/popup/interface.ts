@@ -1,3 +1,4 @@
+import type React from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center'
@@ -14,7 +15,7 @@ export interface PopupPropsCommon {
    * 动画时长，单位毫秒秒
    * @default animation_duration_base
    */
-  duration?: number | string
+  duration?: number
 
   /**
    * 是否显示遮罩层
@@ -96,4 +97,22 @@ export type State = {
   overlayShow: boolean
   zIndex: number
   lazyRender: boolean
+}
+
+export interface PopupHeaderProps {
+  /**
+   * 标题
+   */
+  title?: React.ReactNode
+
+  /**
+   * 点击关闭
+   */
+  onClose?: () => void
+
+  /**
+   * 是否显示关闭按钮
+   * @default true
+   */
+  showClose?: boolean
 }

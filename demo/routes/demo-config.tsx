@@ -26,6 +26,7 @@ import DemoSwitch from '../../src/switch/demo/basic'
 import DemoTextInput from '../../src/text-input/demo/basic'
 // import DemoField from '../../src/field/demo/basic'
 import DemoDropdown from '../../src/dropdown/demo/basic'
+import DemoCheckbox from '../../src/checkbox/demo/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -51,6 +52,7 @@ export type DemoPaths =
   | 'DemoTextInput'
   | 'DemoField'
   | 'DemoDropdown'
+  | 'DemoCheckbox'
 
 const pageStyle: ViewStyle = {
   flex: 1,
@@ -225,6 +227,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoDropdown />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoCheckbox',
+    page: () => (
+      <DemoWrapper>
+        <DemoCheckbox />
       </DemoWrapper>
     ),
   },

@@ -22,7 +22,7 @@ export interface OverlayProps {
    * 动画时长，单位毫秒
    * @default 300
    */
-  duration?: number | string
+  duration?: number
 
   /**
    * 点击弹层

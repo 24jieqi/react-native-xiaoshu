@@ -190,6 +190,14 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
           }}
         />
 
+        <Cell
+          isLink
+          title="Checkbox"
+          onPress={() => {
+            navigation.navigate('DemoCheckbox')
+          }}
+        />
+
         <View style={CStyles.ctxSplit} />
       </ScrollView>
     </Layout.Page>

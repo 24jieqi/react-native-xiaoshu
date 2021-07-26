@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Overlay from '../overlay/overlay'
 import { useTheme } from '../theme'
-import useState from '../hooks/use-state-update'
+import useState from '../hooks/useStateUpdate'
 import { isDef } from '../helpers/typeof'
 import * as helpers from '../helpers'
 import { getPosition, getTransform } from './helper'
@@ -98,8 +98,11 @@ const Popup: React.FC<PopupProps> = ({
         fadeAnim, // 动画中的变量值
         {
           toValue: getPosition(show, position),
-          duration: +(duration as number),
+          duration: duration,
           useNativeDriver: true,
+          easing: show
+            ? helpers.easing.easeOutCirc
+            : helpers.easing.easeInCubic,
         },
       )
 

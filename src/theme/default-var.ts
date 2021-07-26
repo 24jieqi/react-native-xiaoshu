@@ -121,6 +121,15 @@ export const cell_title_color = text_color_1
 export const cell_value_color = text_color_2
 export const cell_required_color = error
 
+// Checkbox
+export const checkbox_icon_border_color = text_color_3
+export const checkbox_icon_size: number = 20
+export const checkbox_disabled_background_color = border_color
+export const checkbox_checked_icon_color = primary
+export const checkbox_label_color = text_color_1
+export const checkbox_label_margin = padding_xs
+export const checkbox_disabled_label_color = text_color_3
+
 // Divider
 export const divider_vertical_margin = padding_md
 export const divider_horizontal_margin = padding_md
@@ -176,8 +185,12 @@ export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 // Popup
 export const popup_background_color = white
 export const popup_round_border_radius = border_radius_lg
-// export const popup_close_icon_size = font_size_h1
-// export const popup_close_icon_color = text_color_1
+export const popup_header_height: number = 50
+export const popup_header_font_size = font_size_h3
+export const popup_header_text_color = text_color_1
+export const popup_header_horizontal_padding = padding_xs
+export const popup_close_icon_size = font_size_h1
+export const popup_close_icon_color = text_color_1
 // export const popup_close_icon_margin = padding_md
 
 // Switch

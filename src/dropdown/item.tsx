@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import useState from '../hooks/use-state-update'
+import useState from '../hooks/useStateUpdate'
 
 import { useTheme } from '../theme'
 import Portal from '../portal'
