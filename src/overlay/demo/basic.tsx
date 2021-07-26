@@ -28,7 +28,7 @@ const BasicOverlay: React.FC = () => {
         />
 
         <Overlay
-          show={state.normal}
+          visible={state.normal}
           onPress={() => {
             setState(s => ({
               ...s,
@@ -65,7 +65,7 @@ const BasicOverlay: React.FC = () => {
         />
 
         <Overlay
-          show={state.inset}
+          visible={state.inset}
           style={{ justifyContent: 'center', alignItems: 'center' }}
           onPress={() => {
             setState(s => ({

@@ -69,7 +69,7 @@ export const createStyles = (
         size === 'large'
           ? themeVar.tag_large_font_size
           : themeVar.tag_font_size,
-      lineHeight: themeVar.tag_line_height,
+      // lineHeight: themeVar.tag_line_height,
     },
   })
 }

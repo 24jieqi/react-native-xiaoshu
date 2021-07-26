@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'react'
-import { Dimensions } from 'react-native'
+import { useWindowDimensions } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface UseSafeHeightParams {
@@ -14,7 +14,7 @@ const useSafeHeight = ({
   const insets = useSafeAreaInsets()
   const insetTop = top ? insets.top : 0
   const insetBottom = bottom ? insets.bottom : 0
-  const dimensionsWindow = Dimensions.get('window')
+  const dimensionsWindow = useWindowDimensions()
   const [height, setHeight] = useState(
     dimensionsWindow.height - insetTop - insetBottom,
   )

@@ -126,7 +126,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
           pointerEvents="box-none"
           onLayout={onLayoutPlace}>
           <Popup
-            show={active}
+            visible={active}
             style={popupStyle}
             lazyRender={lazyRender}
             position={config.direction === 'up' ? 'bottom' : 'top'}

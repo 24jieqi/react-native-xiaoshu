@@ -53,7 +53,7 @@ export interface NotifyProps
   onPress?: () => void
 }
 
-export interface NotifyOptions extends Omit<NotifyProps, 'show'> {
+export interface NotifyOptions extends Omit<NotifyProps, 'visible'> {
   /**
    * 展示时长(ms)，值为 0 时，notify 不会消失
    * @default 3000

@@ -19,7 +19,7 @@ import type { PopupProps, State } from './interface'
 const Popup: React.FC<PopupProps> = ({
   children,
   style,
-  show = false,
+  visible = false,
   overlay = true,
   duration,
   closeOnPressOverlay = true,
@@ -43,15 +43,15 @@ const Popup: React.FC<PopupProps> = ({
   }
 
   const [state, setState] = useState<State>({
-    show,
+    visible,
     // 遮罩层显示、隐藏单独管理，避免弹出层完成后才触发关闭，两个组件应该同时变化
-    overlayShow: show,
+    overlayVisible: visible,
     zIndex: helpers.getNextZIndex(),
     lazyRender,
   })
   const MountedRef = useRef(false)
 
-  const fadeAnim = useRef(new Animated.Value(getPosition(show, position)))
+  const fadeAnim = useRef(new Animated.Value(getPosition(visible, position)))
     .current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
   const stopShow = useCallback(() => {
@@ -71,10 +71,10 @@ const Popup: React.FC<PopupProps> = ({
 
   // 监听状态变化，执行动画
   useEffect(() => {
-    if (show) {
+    if (visible) {
       // 弹出弹出，立即响应
       setState({
-        show,
+        visible,
         zIndex: helpers.getNextZIndex(),
         lazyRender: false,
       })
@@ -82,13 +82,13 @@ const Popup: React.FC<PopupProps> = ({
 
     // 遮罩层状态实时显示
     setState({
-      overlayShow: show,
+      overlayVisible: visible,
     })
 
     if (MountedRef.current) {
-      fadeAnim.setValue(getPosition(!show, position))
+      fadeAnim.setValue(getPosition(!visible, position))
 
-      if (show) {
+      if (visible) {
         onOpenFN && onOpenFN()
       } else {
         onCloseFN && onCloseFN()
@@ -97,10 +97,10 @@ const Popup: React.FC<PopupProps> = ({
       fadeInstance.current = Animated.timing(
         fadeAnim, // 动画中的变量值
         {
-          toValue: getPosition(show, position),
+          toValue: getPosition(visible, position),
           duration: duration,
           useNativeDriver: true,
-          easing: show
+          easing: visible
             ? helpers.easing.easeOutCirc
             : helpers.easing.easeInCubic,
         },
@@ -108,8 +108,8 @@ const Popup: React.FC<PopupProps> = ({
 
       fadeInstance.current.start(() => {
         fadeInstance.current = null
-        if (!show) {
-          setState({ show })
+        if (!visible) {
+          setState({ visible })
           onClosedFN && onClosedFN()
         } else {
           onOpenedFN && onOpenedFN()
@@ -122,7 +122,7 @@ const Popup: React.FC<PopupProps> = ({
       stopShow()
     }
   }, [
-    show,
+    visible,
     duration,
     fadeAnim,
     stopShow,
@@ -141,7 +141,7 @@ const Popup: React.FC<PopupProps> = ({
   // Android 返回按钮
   useEffect(() => {
     const backAction = () => {
-      if (typeof onRequestClose === 'function' && show) {
+      if (typeof onRequestClose === 'function' && visible) {
         return onRequestClose()
       }
 
@@ -154,18 +154,18 @@ const Popup: React.FC<PopupProps> = ({
     )
 
     return () => backHandler.remove()
-  }, [onRequestClose, show])
+  }, [onRequestClose, visible])
 
   const popupStyleSummary: ViewStyle = StyleSheet.flatten([
     Styles.popup,
     style,
-    state.show ? Styles.popupActive : null,
+    state.visible ? Styles.popupActive : null,
     {
       paddingBottom: safeAreaInsetBottom ? insets.bottom : 0,
       zIndex: state.zIndex,
     },
-    state.show ? getTransform(position, fadeAnim) : null,
-    state.show ? PopupPositionMap[position] : null,
+    state.visible ? getTransform(position, fadeAnim) : null,
+    state.visible ? PopupPositionMap[position] : null,
   ])
 
   if (state.lazyRender) {
@@ -176,7 +176,7 @@ const Popup: React.FC<PopupProps> = ({
     <>
       {overlay ? (
         <Overlay
-          show={state.overlayShow}
+          visible={state.overlayVisible}
           zIndex={state.zIndex}
           duration={duration}
           onPress={onPressOverlay}

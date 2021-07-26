@@ -109,7 +109,7 @@ const BasicPopup: React.FC = () => {
       />
 
       <Popup
-        show={state.show}
+        visible={state.show}
         position={state.position}
         onPressOverlay={() => {
           setState(s => ({

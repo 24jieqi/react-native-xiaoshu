@@ -3,7 +3,7 @@ import type { ViewStyle } from 'react-native'
 import { View, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { useTheme } from '../theme'
-import IconSuccess from '../icon/success'
+import { IconSuccessOutLine } from '../icon'
 import { isDef } from '../helpers/typeof'
 import { createStyles } from './style.icon'
 import type { CheckboxIconProps } from './interface'
@@ -37,7 +37,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
     style,
   ])
   const iconJSX = active ? (
-    <IconSuccess
+    <IconSuccessOutLine
       size={size}
       color={disabled ? themeVar.checkbox_icon_border_color : '#fff'}
       style={Styles.iconStyle}

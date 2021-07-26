@@ -8,7 +8,7 @@
     //   "react-native-xiaoshu": ["../src"]
     // }
   },
-  "include": ["./src", "./demo"],
+  "include": ["./src", "./demo", "typing.d.ts"],
   "exclude": [
     "node_modules",
     "babel.config.js",

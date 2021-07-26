@@ -104,7 +104,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
     return (
       <Popup
         {...reset}
-        show={show}
+        visible={show}
         overlay={overlay}
         onPressOverlay={onPressOverlay}>
         <TouchableWithoutFeedback onPress={onPressContent}>

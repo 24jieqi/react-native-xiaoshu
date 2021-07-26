@@ -127,7 +127,7 @@ const BasicNotify: React.FC = () => {
       </CellGroup>
 
       <Notify.Component
-        show={state.cNotify1.show}
+        visible={state.cNotify1.show}
         message="哈哈哈哈哈哈哈嗝"
         type="error"
         onPress={() => {

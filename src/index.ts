@@ -22,6 +22,9 @@ export { default as DropdownMenu } from './dropdown/menu'
 export { default as DropdownItem } from './dropdown/item'
 export { default as DropdownText } from './dropdown/text'
 
+export type { EmptyProps } from './empty/interface'
+export { default as Empty } from './empty'
+
 export type { RowProps, ColProps } from './grid/interface'
 export { Row, Col } from './grid'
 

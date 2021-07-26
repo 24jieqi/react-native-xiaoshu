@@ -10,7 +10,7 @@ export interface OverlayProps {
    * 是否展示遮罩层
    * @default false
    */
-  show: boolean
+  visible: boolean
 
   /**
    * z-index 层级

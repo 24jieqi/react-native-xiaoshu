@@ -15,18 +15,18 @@ import Notify from './notify'
  */
 const NotifyMethod = forwardRef<NotifyMethods, NotifyMethodProps>(
   ({ duration = 3000, message, ...restProps }, ref) => {
-    const [show, setShow] = useState(false)
+    const [visible, setVisible] = useState(false)
     const [msg, setMsg] = useState(message)
 
     useEffect(() => {
-      setShow(true)
+      setVisible(true)
 
       let timer: ReturnType<typeof setTimeout>
 
       if (duration !== 0) {
         timer = setTimeout(() => {
           // 隐藏弹窗
-          setShow(false)
+          setVisible(false)
         }, +duration)
       }
 
@@ -38,14 +38,14 @@ const NotifyMethod = forwardRef<NotifyMethods, NotifyMethodProps>(
     // 向外暴露函数
     useImperativeHandle(ref, () => ({
       close: () => {
-        setShow(false)
+        setVisible(false)
       },
       setMessage: s => {
         setMsg(s)
       },
     }))
 
-    return <Notify {...restProps} show={show} message={msg} />
+    return <Notify {...restProps} visible={visible} message={msg} />
   },
 )
 

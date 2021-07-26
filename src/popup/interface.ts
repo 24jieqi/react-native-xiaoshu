@@ -3,13 +3,15 @@ import type { ViewStyle, StyleProp } from 'react-native'
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center'
 
+type PopupPropsCommonCallback = () => void
+
 /** popup 通用的 props */
 export interface PopupPropsCommon {
   /**
    * 是否展示遮罩层
    * @default false
    */
-  show: boolean
+  visible: boolean
 
   /**
    * 动画时长，单位毫秒秒
@@ -32,27 +34,27 @@ export interface PopupPropsCommon {
   /**
    * 点击遮罩层时触发
    */
-  onPressOverlay?: Function
+  onPressOverlay?: PopupPropsCommonCallback
 
   /**
    * 打开弹出层时触发
    */
-  onOpen?: Function
+  onOpen?: PopupPropsCommonCallback
 
   /**
    * 打开弹出层且动画结束后触发
    */
-  onOpened?: Function
+  onOpened?: PopupPropsCommonCallback
 
   /**
    * 关闭弹出层时触发，And
    */
-  onClose?: Function
+  onClose?: PopupPropsCommonCallback
 
   /**
    * 关闭弹出层且动画结束后触发
    */
-  onClosed?: Function
+  onClosed?: PopupPropsCommonCallback
 
   /**
    * 当点击返回按钮时触发
@@ -93,8 +95,8 @@ export interface PopupProps extends PopupPropsCommon {
 }
 
 export type State = {
-  show: boolean
-  overlayShow: boolean
+  visible: boolean
+  overlayVisible: boolean
   zIndex: number
   lazyRender: boolean
 }

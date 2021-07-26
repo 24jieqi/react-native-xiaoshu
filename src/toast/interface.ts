@@ -8,7 +8,10 @@ export type ToastMethods = {
 }
 
 export interface ToastProps
-  extends Omit<PopupPropsCommon, 'show' | 'duration' | 'closeOnPressOverlay'> {
+  extends Omit<
+    PopupPropsCommon,
+    'visible' | 'duration' | 'closeOnPressOverlay'
+  > {
   /**
    * 提示类型，可选值为 `'text' | 'loading' | 'success' | 'fail'`
    * @default 'text'

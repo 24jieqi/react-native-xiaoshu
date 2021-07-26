@@ -152,6 +152,13 @@ export const dropdown_menu_title_padding_horizontal = padding_base
 export const dropdown_menu_title_line_height = line_height_lg
 export const dropdown_menu_option_active_color = primary
 
+// Empty
+export const empty_image_width: number = 130
+export const empty_image_height: number = 115
+export const empty_text_color = text_color_3
+export const empty_text_font_size = font_size_text
+export const empty_text_line_height: number = 20
+
 // Loading
 export const loading_text_color = text_color_1
 export const loading_text_font_size = font_size_h5
@@ -193,6 +200,10 @@ export const popup_close_icon_size = font_size_h1
 export const popup_close_icon_color = text_color_1
 // export const popup_close_icon_margin = padding_md
 
+// SelectPopup
+export const select_popup_min_height: number = 270
+export const select_popup_option_text_line_height: number = 50
+
 // Switch
 export const switch_size: number = 30
 export const switch_width_ratio: number = 2 // 原变量中使用了 em，这里改成对应的比例
@@ -212,7 +223,7 @@ export const tag_horizontal_padding = padding_base
 export const tag_text_color = white
 export const tag_font_size = font_size_subtitle
 export const tag_border_radius: number = 2
-export const tag_line_height: number = 16
+// export const tag_line_height: number = 16
 export const tag_medium_vertical_padding: number = 2
 export const tag_medium_horizontal_padding: number = 6
 export const tag_large_vertical_padding = padding_base

@@ -19,25 +19,25 @@ const Overlay: React.FC<OverlayProps> = ({
   children,
   style,
   zIndex,
-  show = false,
+  visible = false,
   duration = 300,
   onPress,
   onRequestClose,
 }) => {
   const themeVar = useTheme()
-  const [localShow, setShow] = useState(show)
+  const [localVisible, setVisible] = useState(visible)
   const fadeAnim = useRef(new Animated.Value(0))
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
 
   // 监听状态变化，执行动画
   useEffect(() => {
-    if (show) {
-      setShow(true)
+    if (visible) {
+      setVisible(true)
     }
     fadeInstance.current = Animated.timing(
       fadeAnim.current, // 动画中的变量值
       {
-        toValue: show ? 1 : 0,
+        toValue: visible ? 1 : 0,
         duration: duration,
         useNativeDriver: true,
       },
@@ -45,8 +45,8 @@ const Overlay: React.FC<OverlayProps> = ({
 
     fadeInstance.current.start(() => {
       fadeInstance.current = null
-      if (!show) {
-        setShow(false)
+      if (!visible) {
+        setVisible(false)
       }
     })
 
@@ -57,12 +57,12 @@ const Overlay: React.FC<OverlayProps> = ({
         fadeInstance.current = null
       }
     }
-  }, [show, duration])
+  }, [visible, duration])
 
   // Android 返回按钮
   useEffect(() => {
     const backAction = () => {
-      if (typeof onRequestClose === 'function' && show) {
+      if (typeof onRequestClose === 'function' && visible) {
         return onRequestClose()
       }
 
@@ -75,11 +75,11 @@ const Overlay: React.FC<OverlayProps> = ({
     )
 
     return () => backHandler.remove()
-  }, [show, onRequestClose])
+  }, [visible, onRequestClose])
 
   const overlayStyleSummary: ViewStyle = StyleSheet.flatten([
     Styles.overlay,
-    localShow ? Styles.overlayActive : null,
+    localVisible ? Styles.overlayActive : null,
     {
       opacity: (fadeAnim.current as unknown) as number,
       backgroundColor: themeVar.overlay_background_color,
@@ -91,7 +91,7 @@ const Overlay: React.FC<OverlayProps> = ({
     style,
   ])
 
-  if (!localShow) {
+  if (!localVisible) {
     // TODO 优化文档报错
     // 直接返回 null dumi 报错 -、-
     return <></>
