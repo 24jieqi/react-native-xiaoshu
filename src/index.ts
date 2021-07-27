@@ -51,6 +51,16 @@ export { default as Portal } from './portal'
 export type { ProviderProps } from './provider/interface'
 export { default as Provider } from './provider'
 
+export type {
+  SelectPopupValue,
+  SelectPopupOption,
+  SelectPopupProps,
+} from './select-popup/interface'
+export {
+  default as SelectPopup,
+  conversionSelectPopupOptions,
+} from './select-popup'
+
 export type { SwitchProps } from './switch/interface'
 export { default as Switch } from './switch'
 

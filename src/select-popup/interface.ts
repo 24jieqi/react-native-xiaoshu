@@ -1,22 +1,22 @@
 import type React from 'react'
 import type { PopupPropsCommon } from '../popup/interface'
 
-export type SelectPopupKey = number | string
+export type SelectPopupValue = number | string
 
 export type SelectPopupOption = {
   /**
    * 显示的文案
    */
-  text: string
+  label: string
 
   /**
    * 唯一标识
    */
-  key: SelectPopupKey
+  value: SelectPopupValue
 }
 
 export interface SelectPopupProps
-  extends Omit<PopupPropsCommon, 'closeOnPressOverlay'> {
+  extends Omit<PopupPropsCommon, 'closeOnPressOverlay' | 'onPressOverlay'> {
   /**
    * 点击遮罩层关闭
    * @default true
@@ -43,7 +43,7 @@ export interface SelectPopupProps
   /**
    * 当前选中的值
    */
-  value?: SelectPopupKey[] | SelectPopupKey
+  value?: SelectPopupValue[] | SelectPopupValue
 
   /**
    * 当前的选项
@@ -54,7 +54,7 @@ export interface SelectPopupProps
    * 选择后的回调
    */
   onChange: (
-    value: SelectPopupKey[] | SelectPopupKey,
+    value: SelectPopupValue[] | SelectPopupValue,
     options: SelectPopupOption | SelectPopupOption[],
   ) => void
 }
@@ -66,12 +66,12 @@ export interface SelectPopupOptions
   extends Omit<SelectPopupMethodProps, 'onChange'> {
   // 是否可以删了，函数的方式直接用 .then 操作
   onChange?: (
-    value: SelectPopupKey[] | SelectPopupKey,
+    value: SelectPopupValue[] | SelectPopupValue,
     options: SelectPopupOption | SelectPopupOption[],
   ) => void
 }
 
 export interface SelectPopupInstance {
-  (p: SelectPopupOptions): Promise<SelectPopupKey[] | SelectPopupKey>
+  (p: SelectPopupOptions): Promise<SelectPopupValue[] | SelectPopupValue>
   Component: React.FC<SelectPopupProps>
 }

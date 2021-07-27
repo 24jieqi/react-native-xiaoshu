@@ -1,7 +1,12 @@
-import React, { memo } from 'react'
+import React, { useEffect, memo } from 'react'
 
 import useState from '../hooks/useStateUpdate'
-import type { SelectPopupMethodProps } from './interface'
+import usePersistFn from '../hooks/usePersistFn'
+import type {
+  SelectPopupMethodProps,
+  SelectPopupValue,
+  SelectPopupOption,
+} from './interface'
 import SelectPopup from './select-popup'
 
 /**
@@ -12,20 +17,32 @@ const SelectPopupMethod: React.FC<SelectPopupMethodProps> = ({
   onClose,
   ...restProps
 }) => {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
+  const onChangePersistFn = usePersistFn(
+    (
+      v: SelectPopupValue | SelectPopupValue[],
+      o: SelectPopupOption | SelectPopupOption[],
+    ) => {
+      onChange && onChange(v, o)
+      setVisible(false)
+    },
+  )
+  const onClosePersistFn = usePersistFn(() => {
+    onClose && onClose()
+    setVisible(false)
+  })
+
+  // 节点加载好后显示
+  useEffect(() => {
+    setVisible(true)
+  }, [])
 
   return (
     <SelectPopup
       {...restProps}
       visible={visible}
-      onChange={(v, o) => {
-        onChange && onChange(v, o)
-        setVisible(false)
-      }}
-      onClose={() => {
-        onClose && onClose()
-        setVisible(false)
-      }}
+      onChange={onChangePersistFn}
+      onClose={onClosePersistFn}
     />
   )
 }

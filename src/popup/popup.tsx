@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Overlay from '../overlay/overlay'
 import { useTheme } from '../theme'
 import useState from '../hooks/useStateUpdate'
+import usePersistFn from '../hooks/usePersistFn'
 import { isDef } from '../helpers/typeof'
 import * as helpers from '../helpers'
 import { getPosition, getTransform } from './helper'
@@ -27,15 +28,20 @@ const Popup: React.FC<PopupProps> = ({
   round = false,
   safeAreaInsetBottom = false,
   lazyRender = true,
-  onPressOverlay: onPressOverlayFN,
-  onOpen: onOpenFN,
-  onOpened: onOpenedFN,
-  onClose: onCloseFN,
-  onClosed: onClosedFN,
+  onPressOverlay: onPressOverlayFn,
+  onOpen: onOpenFn,
+  onOpened: onOpenedFn,
+  onClose: onCloseFn,
+  onClosed: onClosedFn,
   onRequestClose,
 }) => {
   const insets = useSafeAreaInsets()
   const themeVar = useTheme()
+  const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn)
+  const onOpenPersistFn = usePersistFn(onOpenFn)
+  const onOpenedPersistFn = usePersistFn(onOpenedFn)
+  const onClosePersistFn = usePersistFn(onCloseFn)
+  const onClosedPersistFn = usePersistFn(onClosedFn)
   const Styles = createStyles(themeVar, { round, position })
 
   if (!isDef(duration)) {
@@ -65,9 +71,9 @@ const Popup: React.FC<PopupProps> = ({
   const onPressOverlay = useCallback(() => {
     if (closeOnPressOverlay) {
       // 关闭弹层
-      onPressOverlayFN && onPressOverlayFN()
+      onPressOverlayPersistFn()
     }
-  }, [closeOnPressOverlay, onPressOverlayFN])
+  }, [closeOnPressOverlay, onPressOverlayPersistFn])
 
   // 监听状态变化，执行动画
   useEffect(() => {
@@ -89,9 +95,9 @@ const Popup: React.FC<PopupProps> = ({
       fadeAnim.setValue(getPosition(!visible, position))
 
       if (visible) {
-        onOpenFN && onOpenFN()
+        onOpenPersistFn()
       } else {
-        onCloseFN && onCloseFN()
+        onClosePersistFn()
       }
 
       fadeInstance.current = Animated.timing(
@@ -110,9 +116,9 @@ const Popup: React.FC<PopupProps> = ({
         fadeInstance.current = null
         if (!visible) {
           setState({ visible })
-          onClosedFN && onClosedFN()
+          onClosedPersistFn()
         } else {
-          onOpenedFN && onOpenedFN()
+          onOpenedPersistFn()
         }
       })
     }
@@ -127,10 +133,10 @@ const Popup: React.FC<PopupProps> = ({
     fadeAnim,
     stopShow,
     position,
-    onOpenFN,
-    onOpenedFN,
-    onCloseFN,
-    onClosedFN,
+    onOpenPersistFn,
+    onOpenedPersistFn,
+    onClosePersistFn,
+    onClosedPersistFn,
   ])
 
   // 初始化好组件

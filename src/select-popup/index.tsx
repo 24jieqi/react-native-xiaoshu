@@ -2,15 +2,15 @@ import React, { memo } from 'react'
 
 import Portal from '../portal'
 import type { SelectPopupInstance } from './interface'
-import SelectBase from './select-popup'
-import SelectMethod from './select-popup-method'
+import SelectPopupBase from './select-popup'
+import SelectPopupMethod from './select-popup-method'
 
 export { conversionSelectPopupOptions } from './helper'
 
-const Picker: SelectPopupInstance = opt =>
+const SelectPopup: SelectPopupInstance = opt =>
   new Promise((resolve, reject) => {
     const key = Portal.add(
-      <SelectMethod
+      <SelectPopupMethod
         {...opt}
         onChange={(v, o) => {
           opt.onChange && opt.onChange(v, o)
@@ -29,12 +29,12 @@ const Picker: SelectPopupInstance = opt =>
     )
   })
 
-Picker.Component = memo(props => {
+SelectPopup.Component = memo(props => {
   return (
     <Portal>
-      <SelectBase {...props} />
+      <SelectPopupBase {...props} />
     </Portal>
   )
 })
 
-export default Picker
+export default SelectPopup

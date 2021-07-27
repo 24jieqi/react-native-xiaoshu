@@ -203,6 +203,7 @@ export const popup_close_icon_color = text_color_1
 // SelectPopup
 export const select_popup_min_height: number = 270
 export const select_popup_option_text_line_height: number = 50
+export const select_popup_body_horizontal_padding = padding_sm
 
 // Switch
 export const switch_size: number = 30

@@ -16,8 +16,7 @@ import Button from '../button'
 import CheckboxIcon from '../checkbox/icon'
 import { IconSuccessOutLine } from '../icon'
 import { useTheme } from '../theme'
-// import { isDef } from '../helpers/typeof'
-import type { SelectPopupProps, SelectPopupKey } from './interface'
+import type { SelectPopupProps, SelectPopupValue } from './interface'
 import { createStyles } from './style'
 
 const SelectPopup: React.FC<SelectPopupProps> = ({
@@ -37,13 +36,13 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   const insets = useSafeAreaInsets()
   const windowDimensions = useWindowDimensions()
   const ScrollViewRef = useRef<ScrollView>(null)
-  const [selectedKeys, setSelectedKeys] = useState<SelectPopupKey[]>(
+  const [selectedKeys, setSelectedKeys] = useState<SelectPopupValue[]>(
     multiple
       ? value
-        ? ([] as SelectPopupKey[]).concat(value as SelectPopupKey[])
+        ? ([] as SelectPopupValue[]).concat(value as SelectPopupValue[])
         : []
       : value
-      ? [value as SelectPopupKey]
+      ? [value as SelectPopupValue]
       : [],
   )
   const Styles = createStyles(themeVar)
@@ -86,10 +85,10 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
     setSelectedKeys(
       multiple
         ? value
-          ? ([] as SelectPopupKey[]).concat(value as SelectPopupKey[])
+          ? ([] as SelectPopupValue[]).concat(value as SelectPopupValue[])
           : []
         : value
-        ? [value as SelectPopupKey]
+        ? [value as SelectPopupValue]
         : [],
     )
   }, [value, multiple])
@@ -97,7 +96,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   /**
    * 生成每次点击的回调
    */
-  const genOnPressOption = (key: SelectPopupKey) => () => {
+  const genOnPressOption = (key: SelectPopupValue) => () => {
     if (multiple) {
       // 多选维护内部变量
       setSelectedKeys(v => {
@@ -111,7 +110,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       })
     } else {
       // 单选直接出发回调
-      onChange && onChange(key, options.filter(opt => opt.key === key)[0])
+      onChange && onChange(key, options.filter(opt => opt.value === key)[0])
     }
   }
 
@@ -122,7 +121,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
     onChange &&
       onChange(
         selectedKeys,
-        options.filter(opt => selectedKeys.indexOf(opt.key) > -1),
+        options.filter(opt => selectedKeys.indexOf(opt.value) > -1),
       )
   }
 
@@ -131,38 +130,43 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       {...restProps}
       visible={visible}
       onClose={onClose}
-      closeOnPressOverlay={closeOnPressOverlay}>
+      closeOnPressOverlay={closeOnPressOverlay}
+      onPressOverlay={onClose}
+      position="bottom"
+      round>
       <View style={selectStyle}>
         <PopupHeader title={title} onClose={onClose} />
 
-        <ScrollView style={Styles.options} ref={ScrollViewRef}>
-          {options.length === 0 ? <Empty /> : null}
+        <View style={Styles.body}>
+          <ScrollView ref={ScrollViewRef}>
+            {options.length === 0 ? <Empty /> : null}
 
-          {options?.map(item => {
-            const isSelected =
-              selectedKeys.findIndex(key => key === item.key) >= 0
+            {options?.map(item => {
+              const isSelected =
+                selectedKeys.findIndex(key => key === item.value) >= 0
 
-            return (
-              <TouchableOpacity
-                key={item.key}
-                onPress={genOnPressOption(item.key)}>
-                <View style={Styles.optionItem}>
-                  <Text style={Styles.optionItemText} numberOfLines={1}>
-                    {item.text}
-                  </Text>
+              return (
+                <TouchableOpacity
+                  key={item.value}
+                  onPress={genOnPressOption(item.value)}>
+                  <View style={Styles.optionItem}>
+                    <Text style={Styles.optionItemText} numberOfLines={1}>
+                      {item.label}
+                    </Text>
 
-                  {multiple ? (
-                    <CheckboxIcon active={isSelected} />
-                  ) : isSelected ? (
-                    <IconSuccessOutLine
-                      color={themeVar.primary}
-                      size={themeVar.checkbox_icon_size}
-                    />
-                  ) : null}
-                </View>
-              </TouchableOpacity>
-            )
-          })}
+                    {multiple ? (
+                      <CheckboxIcon active={isSelected} />
+                    ) : isSelected ? (
+                      <IconSuccessOutLine
+                        color={themeVar.primary}
+                        size={themeVar.checkbox_icon_size}
+                      />
+                    ) : null}
+                  </View>
+                </TouchableOpacity>
+              )
+            })}
+          </ScrollView>
 
           {multiple ? (
             <View style={Styles.btn}>
@@ -171,7 +175,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
               </Button>
             </View>
           ) : null}
-        </ScrollView>
+        </View>
       </View>
     </Popup>
   )

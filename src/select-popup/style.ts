@@ -4,8 +4,9 @@ import type { ThemeVarType } from '../theme'
 
 export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
-    options: {
+    body: {
       flex: 1,
+      paddingHorizontal: themeVar.select_popup_body_horizontal_padding,
     },
 
     optionItem: {

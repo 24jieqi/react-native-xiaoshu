@@ -206,6 +206,14 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
           }}
         />
 
+        <Cell
+          isLink
+          title="SelectPopup"
+          onPress={() => {
+            navigation.navigate('DemoSelectPopup')
+          }}
+        />
+
         <View style={CStyles.ctxSplit} />
       </ScrollView>
     </Layout.Page>
