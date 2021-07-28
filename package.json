@@ -70,7 +70,8 @@
     "umi-plugin-react-native": "^0.5.0"
   },
   "resolutions": {
-    "@types/react": "^17"
+    "@types/react": "^17",
+    "prettier": "^2.3.2"
   },
   "jest": {
     "preset": "react-native",
