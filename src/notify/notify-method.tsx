@@ -27,7 +27,7 @@ const NotifyMethod = forwardRef<NotifyMethods, NotifyMethodProps>(
         timer = setTimeout(() => {
           // 隐藏弹窗
           setVisible(false)
-        }, +duration)
+        }, duration)
       }
 
       return () => {

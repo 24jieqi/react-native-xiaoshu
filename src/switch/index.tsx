@@ -69,7 +69,7 @@ const Switch: React.FC<SwitchProps> = ({
       translateX.current, // 动画中的变量值
       {
         toValue: active ? translateXValueEnd : translateXValueStart,
-        duration: +duration,
+        duration: duration,
         useNativeDriver: false,
       },
     )
@@ -103,7 +103,7 @@ const Switch: React.FC<SwitchProps> = ({
     {
       transform: [
         {
-          translateX: (translateX.current as unknown) as number,
+          translateX: translateX.current as unknown as number,
         },
       ],
     },

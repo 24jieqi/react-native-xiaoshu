@@ -81,7 +81,7 @@ const Overlay: React.FC<OverlayProps> = ({
     Styles.overlay,
     localVisible ? Styles.overlayActive : null,
     {
-      opacity: (fadeAnim.current as unknown) as number,
+      opacity: fadeAnim.current as unknown as number,
       backgroundColor: themeVar.overlay_background_color,
       zIndex: zIndex ? +zIndex : themeVar.overlay_z_index,
     },

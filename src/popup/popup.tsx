@@ -57,8 +57,9 @@ const Popup: React.FC<PopupProps> = ({
   })
   const MountedRef = useRef(false)
 
-  const fadeAnim = useRef(new Animated.Value(getPosition(visible, position)))
-    .current
+  const fadeAnim = useRef(
+    new Animated.Value(getPosition(visible, position)),
+  ).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
   const stopShow = useCallback(() => {
     if (fadeInstance.current) {
