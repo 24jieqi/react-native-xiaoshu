@@ -15,7 +15,7 @@ import DemoBadge from '../../src/badge/__fixtures__/basic'
 import DemoPopup from '../../src/popup/__fixtures__/basic'
 import DemoCell from '../../src/cell/__fixtures__/basic'
 import DemoToast from '../../src/toast/__fixtures__/basic'
-// import DemoActionSheet from '../../src/action-sheet/__fixtures__/basic'
+import DemoActionSheet from '../../src/action-sheet/__fixtures__/basic'
 import DemoNotify from '../../src/notify/__fixtures__/basic'
 // import DemoImage from '../../src/image/__fixtures__/basic'
 import DemoTag from '../../src/tag/__fixtures__/basic'
@@ -144,14 +144,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
       </DemoWrapper>
     ),
   },
-  // {
-  //   path: 'DemoActionSheet',
-  //   page: () => (
-  //     <DemoWrapper>
-  //       <DemoActionSheet />
-  //     </DemoWrapper>
-  //   ),
-  // },
+  {
+    path: 'DemoActionSheet',
+    page: () => (
+      <DemoWrapper>
+        <DemoActionSheet />
+      </DemoWrapper>
+    ),
+  },
   {
     path: 'DemoNotify',
     page: () => (

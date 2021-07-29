@@ -1,5 +1,11 @@
 import * as IconAll from './icon'
 
+export type {
+  ActionSheetProps,
+  ActionSheetOptions,
+} from './action-sheet/interface'
+export { default as ActionSheet } from './action-sheet'
+
 export type { BadgeProps } from './badge/interface'
 export { default as Badge } from './badge'
 
@@ -17,7 +23,11 @@ export { default as CheckboxIcon } from './checkbox/icon'
 export type { DividerProps } from './divider/interface'
 export { default as Divider } from './divider'
 
-export type { DropdownMenuProps } from './dropdown/interface'
+export type {
+  DropdownMenuProps,
+  DropdownItemOption,
+  DropdownTextProps,
+} from './dropdown/interface'
 export { default as DropdownMenu } from './dropdown/menu'
 export { default as DropdownItem } from './dropdown/item'
 export { default as DropdownText } from './dropdown/text'
@@ -36,7 +46,7 @@ export { default as LoadingSpinner } from './loading/spinner'
 export type { NavBarProps } from './nav-bar/interface'
 export { default as NavBar } from './nav-bar'
 
-export type { NotifyInstance } from './notify/interface'
+export type { NotifyProps, NotifyOptions } from './notify/interface'
 export { default as Notify } from './notify'
 
 export type { OverlayProps } from './overlay/interface'
@@ -73,7 +83,7 @@ export { default as TextInput } from './text-input'
 export type { ThemeVarType } from './theme'
 export { default as Theme, useTheme } from './theme'
 
-export type { ToastInstance } from './toast/interface'
+export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'
 
 export const Icon = IconAll

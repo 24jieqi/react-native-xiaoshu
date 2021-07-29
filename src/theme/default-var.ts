@@ -58,6 +58,23 @@ export const border_radius_md: number = 8
 export const border_radius_lg: number = 16
 export const border_radius_max: number = 999
 
+// ActionSheet
+export const action_sheet_header_height: number = 48
+export const action_sheet_header_font_size = font_size_h4
+export const action_sheet_description_color = text_color_2
+export const action_sheet_description_font_size = font_size_text
+export const action_sheet_description_line_height = line_height_md
+export const action_sheet_item_background = white
+export const action_sheet_item_font_size = font_size_h5
+export const action_sheet_item_disabled_text_color = text_color_3
+export const action_sheet_subname_color = text_color_1
+export const action_sheet_subname_font_size = font_size_text
+export const action_sheet_subname_line_height = line_height_sm
+export const action_sheet_cancel_text_color = text_color_2
+export const action_sheet_cancel_padding_top = padding_xs
+export const action_sheet_cancel_padding_color = background_color_1
+export const action_sheet_loading_icon_size: number = 22
+
 // Badge
 export const badge_size: number = 16
 export const badge_color = white

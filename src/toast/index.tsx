@@ -2,23 +2,23 @@ import React, { createRef } from 'react'
 
 import Portal from '../portal'
 import type {
-  ToastProps,
+  ToastOptions,
   ToastType,
   ToastInstance,
   ToastMethods,
 } from './interface'
 import ToastView from './toast'
 
-type OptionsMap = Record<ToastType, ToastProps | undefined | null>
+type OptionsMap = Record<ToastType, ToastOptions | undefined | null>
 
-const parseOptions = (message: ToastProps | string) => {
+const parseOptions = (message: ToastOptions | string) => {
   if (typeof message === 'object') {
     return message
   }
   return { message }
 }
 
-const defaultOptions: ToastProps = {
+const defaultOptions: ToastOptions = {
   type: 'text',
   duration: 2000,
   message: '',
@@ -39,7 +39,7 @@ let currentOptions = {
  * 提示
  */
 const Toast: ToastInstance = options => {
-  let opts: ToastProps =
+  let opts: ToastOptions =
     typeof options === 'string' ? { message: options } : options
 
   const type = opts.type || currentOptions.type

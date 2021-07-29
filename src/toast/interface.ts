@@ -67,10 +67,15 @@ export interface ToastProps
   duration?: number
 }
 
+export interface ToastOptions extends ToastProps {}
+
 export interface ToastInstance {
-  (p: ToastProps | string): ToastMethods
-  loading(p: ToastProps | string): ToastMethods
+  (p: ToastOptions | string): ToastMethods
+  loading(p: ToastOptions | string): ToastMethods
   clear(all: boolean | number): void
-  setDefaultOptions(type: ToastType | ToastProps, options?: ToastProps): void
-  resetDefaultOptions(type: ToastType | ToastProps): void
+  setDefaultOptions(
+    type: ToastType | ToastOptions,
+    options?: ToastOptions,
+  ): void
+  resetDefaultOptions(type: ToastType | ToastOptions): void
 }

@@ -1,74 +1,160 @@
 import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
-import { Cell } from 'react-native-xiaoshu'
+import { Cell, CellGroup } from 'react-native-xiaoshu'
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
 
 import FontSize from './font-size'
-import CStyles from './style'
 
 type DemoProps = {} & Routes.RootStackScreenProps<'DemoHome'>
+
+const navDatas: {
+  title: string
+  datas: {
+    title: string
+    name: keyof Routes.RootStackParamList
+  }[]
+}[] = [
+  {
+    title: '案例',
+    datas: [
+      {
+        title: 'FullPage',
+        name: 'DemoFull',
+      },
+    ],
+  },
+  {
+    title: '基础组件',
+    datas: [
+      {
+        title: 'Button',
+        name: 'DemoButton',
+      },
+      {
+        title: 'Cell',
+        name: 'DemoCell',
+      },
+      {
+        title: 'Grid',
+        name: 'DemoGrid',
+      },
+      {
+        title: 'Popup',
+        name: 'DemoPopup',
+      },
+      {
+        title: 'Toast',
+        name: 'DemoToast',
+      },
+      {
+        title: 'TextInput',
+        name: 'DemoTextInput',
+      },
+    ],
+  },
+  {
+    title: '表单组件',
+    datas: [
+      {
+        title: 'Checkbox',
+        name: 'DemoCheckbox',
+      },
+      {
+        title: 'Switch',
+        name: 'DemoSwitch',
+      },
+    ],
+  },
+  {
+    title: '反馈组件',
+    datas: [
+      {
+        title: 'ActionSheet',
+        name: 'DemoActionSheet',
+      },
+      {
+        title: 'Dropdown',
+        name: 'DemoDropdown',
+      },
+      {
+        title: 'Loading',
+        name: 'DemoLoading',
+      },
+      {
+        title: 'Notify',
+        name: 'DemoNotify',
+      },
+      {
+        title: 'Overlay',
+        name: 'DemoOverlay',
+      },
+      {
+        title: 'SelectPopup',
+        name: 'DemoSelectPopup',
+      },
+    ],
+  },
+  {
+    title: '展示组件',
+    datas: [
+      {
+        title: 'Badge',
+        name: 'DemoBadge',
+      },
+      {
+        title: 'Divider',
+        name: 'DemoDivider',
+      },
+      {
+        title: 'Tag',
+        name: 'DemoTag',
+      },
+      {
+        title: 'Empty',
+        name: 'DemoEmpty',
+      },
+    ],
+  },
+  {
+    title: '导航组件',
+    datas: [
+      {
+        title: 'NavBar',
+        name: 'DemoNavBar',
+      },
+    ],
+  },
+]
 
 const Demo: React.FC<DemoProps> = ({ navigation }) => {
   return (
     <Layout.Page title="DEMO 组件">
       <ScrollView>
-        <View>
-          <Text>Demo</Text>
-
+        <CellGroup title="文案粗细">
           <FontSize />
-        </View>
+        </CellGroup>
 
-        <View style={CStyles.ctxSplit} />
-
-        <Cell
-          isLink
-          title="FullPage"
-          onPress={() => {
-            navigation.navigate('DemoFull')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="NavBar"
-          onPress={() => {
-            navigation.navigate('DemoNavBar')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Loading"
-          onPress={() => {
-            navigation.navigate('DemoLoading')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Overlay"
-          onPress={() => {
-            navigation.navigate('DemoOverlay')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Button"
-          onPress={() => {
-            navigation.navigate('DemoButton')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Badge"
-          onPress={() => {
-            navigation.navigate('DemoBadge')
-          }}
-        />
+        {navDatas.map(item => {
+          return (
+            <CellGroup key={item.title} title={item.title}>
+              {item.datas.map((subitem, index) => {
+                return (
+                  <Cell
+                    key={subitem.name}
+                    isLink
+                    title={subitem.title}
+                    onPress={() => {
+                      navigation.navigate(subitem.name)
+                    }}
+                    border={index + 1 !== item.datas.length}
+                  />
+                )
+              })}
+            </CellGroup>
+          )
+        })}
 
         {/* <Cell
           isLink
@@ -78,46 +164,6 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
           }}
         /> */}
 
-        <Cell
-          isLink
-          title="Popup"
-          onPress={() => {
-            navigation.navigate('DemoPopup')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Cell"
-          onPress={() => {
-            navigation.navigate('DemoCell')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Toast"
-          onPress={() => {
-            navigation.navigate('DemoToast')
-          }}
-        />
-
-        {/* <Cell
-          isLink
-          title="ActionSheet"
-          onPress={() => {
-            navigation.navigate('DemoActionSheet')
-          }}
-        /> */}
-
-        <Cell
-          isLink
-          title="Notify"
-          onPress={() => {
-            navigation.navigate('DemoNotify')
-          }}
-        />
-
         {/* <Cell
           isLink
           title="Image"
@@ -125,38 +171,6 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
             navigation.navigate('DemoImage')
           }}
         /> */}
-
-        <Cell
-          isLink
-          title="Tag"
-          onPress={() => {
-            navigation.navigate('DemoTag')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Divider"
-          onPress={() => {
-            navigation.navigate('DemoDivider')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Grid"
-          onPress={() => {
-            navigation.navigate('DemoGrid')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Switch"
-          onPress={() => {
-            navigation.navigate('DemoSwitch')
-          }}
-        />
 
         {/* <Cell
           isLink
@@ -166,14 +180,6 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
           }}
         /> */}
 
-        <Cell
-          isLink
-          title="TextInput"
-          onPress={() => {
-            navigation.navigate('DemoTextInput')
-          }}
-        />
-
         {/* <Cell
           isLink
           title="Field"
@@ -181,40 +187,6 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
             navigation.navigate('DemoField')
           }}
         /> */}
-
-        <Cell
-          isLink
-          title="Dropdown"
-          onPress={() => {
-            navigation.navigate('DemoDropdown')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Checkbox"
-          onPress={() => {
-            navigation.navigate('DemoCheckbox')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="Empty"
-          onPress={() => {
-            navigation.navigate('DemoEmpty')
-          }}
-        />
-
-        <Cell
-          isLink
-          title="SelectPopup"
-          onPress={() => {
-            navigation.navigate('DemoSelectPopup')
-          }}
-        />
-
-        <View style={CStyles.ctxSplit} />
       </ScrollView>
     </Layout.Page>
   )
