@@ -58,7 +58,8 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       (multiple ? 60 : 0) +
       insets.bottom
     const maxHeight =
-      windowDimensions.height - themeVar.nav_bar_height - insets.top
+      windowDimensions.height - themeVar.page_header_height - insets.top
+
     return pickHeight > maxHeight
       ? maxHeight
       : pickHeight < themeVar.select_popup_min_height
@@ -68,7 +69,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
     options.length,
     themeVar.select_popup_option_text_line_height,
     themeVar.popup_round_border_radius,
-    themeVar.nav_bar_height,
+    themeVar.page_header_height,
     themeVar.select_popup_min_height,
     multiple,
     insets.bottom,

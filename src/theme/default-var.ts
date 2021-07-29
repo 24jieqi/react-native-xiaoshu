@@ -58,6 +58,8 @@ export const border_radius_md: number = 8
 export const border_radius_lg: number = 16
 export const border_radius_max: number = 999
 
+export const page_header_height: number = 44
+
 // ActionSheet
 export const action_sheet_header_height: number = 48
 export const action_sheet_header_font_size = font_size_h4
