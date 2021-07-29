@@ -78,8 +78,8 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
-    entryFile: "index.app.js", // 新的入口文件，相对根目录的路径
+    enableHermes: true,  // clean and rebuild if changing
+    entryFile: "index.demo.js", // 新的入口文件，相对根目录的路径
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
