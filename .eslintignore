@@ -1,2 +1,3 @@
-src/**/demo/basic.tsx
+src/**/__fixtures__/basic.tsx
+src/__fixtures__
 lib

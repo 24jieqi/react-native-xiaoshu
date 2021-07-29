@@ -1,13 +1,16 @@
-const isType = (
-  t:
-    | 'Array'
-    | 'Object'
-    | 'Function'
-    | 'String'
-    | 'Number'
-    | 'Null'
-    | 'Undefined',
-) => (v: any) => Object.prototype.toString.call(v) === `[object ${t}]`
+const isType =
+  (
+    t:
+      | 'Array'
+      | 'Object'
+      | 'Function'
+      | 'String'
+      | 'Number'
+      | 'Null'
+      | 'Undefined',
+  ) =>
+  (v: any) =>
+    Object.prototype.toString.call(v) === `[object ${t}]`
 
 /** 已经声明/定义的数据 */
 export function isDef<T>(val: T): val is NonNullable<T> {

@@ -39,9 +39,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
   const labelStyleSummary = StyleSheet.flatten([
     Styles.label,
     {
-      [labelPosition === 'left'
-        ? 'marginRight'
-        : 'marginLeft']: themeVar.checkbox_label_margin,
+      [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
+        themeVar.checkbox_label_margin,
     },
     disabled ? Styles.labelDisabled : null,
     labelStyle,

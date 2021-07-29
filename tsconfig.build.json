@@ -6,7 +6,8 @@
     "metro.config.js",
     "jest.config.js",
     "demo",
-    "_demo"
+    "src/__fixtures__",
+    "src/**/__fixtures__"
   ],
   "include": ["./src"]
 }
