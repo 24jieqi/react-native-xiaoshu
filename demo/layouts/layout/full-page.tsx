@@ -10,9 +10,10 @@ const FullPage: React.FC<FullPageProps> = ({
   children,
   statusBarStyle = 'dark-content',
 }) => {
-  const statusBarProps = useMemo(() => ({ barStyle: statusBarStyle }), [
-    statusBarStyle,
-  ])
+  const statusBarProps = useMemo(
+    () => ({ barStyle: statusBarStyle }),
+    [statusBarStyle],
+  )
 
   return (
     <Page

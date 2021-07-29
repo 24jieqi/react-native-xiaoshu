@@ -9,7 +9,7 @@ export interface PageProps {
   /**
    * 状态栏文字颜色+页头文字颜色
    *
-   * @default 'light-content'
+   * @default 'dark-content'
    */
   barStyle?: StatusBarProps['barStyle']
 

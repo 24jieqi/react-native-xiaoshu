@@ -11,8 +11,8 @@ import {
 } from '@react-navigation/stack'
 import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs'
 
-// import ListView from '@/pages/list/list';
-// import DetailsView from '@/pages/details/details';
+import CustomHeaderRed from '@/pages/demo/custom-header-red'
+import CustomHeaderPrimary from '@/pages/demo/custom-header-primary'
 
 import type { BottomTabParamList } from './bottom-tab'
 import TabsView from './bottom-tab'
@@ -22,10 +22,8 @@ import { demoConfigs } from './demo-config'
 /** 当前所有 Stack 路由的参数 */
 export type RootStackParamList = {
   Home: undefined
-  // List: undefined;
-  // Details: {
-  //   id: number;
-  // };
+  CustomHeaderRed: undefined
+  CustomHeaderPrimary: undefined
 } & Record<DemoPaths, undefined>
 
 /** Stack 路由的 props */
@@ -60,9 +58,12 @@ const NestingNavigators: React.FC = () => {
         }}>
         <Stack.Screen name="Home" component={TabsView} />
 
-        {/* <Stack.Screen name="List" component={ListView} /> */}
+        <Stack.Screen name="CustomHeaderRed" component={CustomHeaderRed} />
 
-        {/* <Stack.Screen name="Details" component={DetailsView} /> */}
+        <Stack.Screen
+          name="CustomHeaderPrimary"
+          component={CustomHeaderPrimary}
+        />
 
         {demoConfigs.map(dc => (
           <Stack.Screen key={dc.path} name={dc.path} component={dc.page} />

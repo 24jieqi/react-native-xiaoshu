@@ -27,14 +27,13 @@ const Page: React.FC<PageProps> = memo(
     const insets = useSafeAreaInsets()
     const themeVar = useTheme()
 
-    /** 主题色 */
-    const primaryColor = headerBackgroundColor || '#fff'
+    const statusBarBackgroundColor = headerBackgroundColor || '#fff'
     const textColor = barStyle === 'dark-content' ? '#000' : '#fff'
-    const wrapperStyle = useMemo<ViewStyle>(
+    const navBarStyle = useMemo<ViewStyle>(
       () => ({
-        backgroundColor: primaryColor,
+        backgroundColor: statusBarBackgroundColor,
       }),
-      [primaryColor],
+      [statusBarBackgroundColor],
     )
     const pageStyles = useMemo<ViewStyle>(
       () =>
@@ -47,9 +46,9 @@ const Page: React.FC<PageProps> = memo(
     const consBarStyle = useMemo<ViewStyle>(
       () => ({
         height: insets.top,
-        backgroundColor: primaryColor,
+        backgroundColor: statusBarBackgroundColor,
       }),
-      [insets.top, primaryColor],
+      [insets.top, statusBarBackgroundColor],
     )
     const textStyle = useMemo<TextStyle>(
       () => ({
@@ -72,12 +71,14 @@ const Page: React.FC<PageProps> = memo(
       <>
         <FocusAwareStatusBar barStyle={barStyle} {...statusBarProps} />
 
-        {primaryColor !== 'transparent' ? <View style={consBarStyle} /> : null}
+        {statusBarBackgroundColor !== 'transparent' ? (
+          <View style={consBarStyle} />
+        ) : null}
 
         <View style={pageStyles}>
           {showHeader ? (
             <NavBar
-              style={wrapperStyle}
+              style={navBarStyle}
               leftArrowStyle={textStyle}
               titleTextStyle={textStyle}
               title={title}
