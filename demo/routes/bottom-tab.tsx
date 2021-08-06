@@ -18,6 +18,7 @@ const BottomTab: React.FC = () => {
         name="Home"
         options={{
           title: '首页',
+          headerShown: false,
           // tabBarIcon: ({ color, size }) => {
           //   return <Icon name="home" size={size} color={color} />;
           // },
@@ -28,6 +29,7 @@ const BottomTab: React.FC = () => {
         name="UserCenter"
         options={{
           title: '我的',
+          headerShown: false,
           // tabBarIcon: ({ color, size }) => {
           //   return <Icon name="user" size={size} color={color} />;
           // },

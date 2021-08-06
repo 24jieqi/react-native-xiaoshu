@@ -10,6 +10,7 @@ import {
   CardStyleInterpolators,
 } from '@react-navigation/stack'
 import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs'
+// import 'react-native-gesture-handler'
 
 import CustomHeaderRed from '@/pages/demo/custom-header-red'
 import CustomHeaderPrimary from '@/pages/demo/custom-header-primary'
@@ -21,7 +22,7 @@ import { demoConfigs } from './demo-config'
 
 /** 当前所有 Stack 路由的参数 */
 export type RootStackParamList = {
-  Home: undefined
+  Index: undefined
   CustomHeaderRed: undefined
   CustomHeaderPrimary: undefined
 } & Record<DemoPaths, undefined>
@@ -48,15 +49,15 @@ const NestingNavigators: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
-        headerMode="none"
+        initialRouteName="Index"
         screenOptions={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           cardStyle: {
             backgroundColor: '#fff',
           },
+          headerShown: false,
         }}>
-        <Stack.Screen name="Home" component={TabsView} />
+        <Stack.Screen name="Index" component={TabsView} />
 
         <Stack.Screen name="CustomHeaderRed" component={CustomHeaderRed} />
 

@@ -1,6 +1,7 @@
 package com.xiaoshu;
 
 import com.facebook.react.ReactActivity;
+import android.os.Bundle; // add by react navigation
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +12,11 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "xiaoshu";
+  }
+
+  // add by react navigation
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 }
