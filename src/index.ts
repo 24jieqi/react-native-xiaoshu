@@ -20,6 +20,9 @@ export type { CheckboxIconProps, CheckboxProps } from './checkbox/interface'
 export { default as Checkbox } from './checkbox'
 export { default as CheckboxIcon } from './checkbox/icon'
 
+export type { DialogInstance, DialogProps } from './dialog/interface'
+export { default as Dialog } from './dialog'
+
 export type { DividerProps } from './divider/interface'
 export { default as Divider } from './divider'
 

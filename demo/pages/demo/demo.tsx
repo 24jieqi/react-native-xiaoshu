@@ -75,6 +75,10 @@ const navDatas: {
         name: 'DemoActionSheet',
       },
       {
+        title: 'Dialog',
+        name: 'DemoDialog',
+      },
+      {
         title: 'Dropdown',
         name: 'DemoDropdown',
       },

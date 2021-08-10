@@ -149,6 +149,29 @@ export const checkbox_label_color = text_color_1
 export const checkbox_label_margin = padding_xs
 export const checkbox_disabled_label_color = text_color_3
 
+// Dialog
+export const dialog_width: number = 320
+// export const dialog_small_screen_width: string = '90%'
+export const dialog_font_size = font_size_h4
+export const dialog_transition = animation_duration_base
+export const dialog_border_radius: number = 16
+export const dialog_background_color = white
+export const dialog_header_font_weight: TextStyle['fontWeight'] = 'bold'
+export const dialog_header_line_height: number = 24
+export const dialog_header_padding_top: number = 26
+// export const dialog_header_isolated_vertical_padding = padding_lg
+export const dialog_message_vertical_padding = padding_lg
+export const dialog_message_horizontal_padding = padding_lg
+export const dialog_message_font_size = font_size_text
+export const dialog_message_line_height = line_height_md
+// export const dialog_message_max_height: number = 60 // 60vh
+export const dialog_has_title_message_text_color = text_color_2
+export const dialog_has_title_message_padding_top = padding_xs
+export const dialog_button_height: number = 50
+// export const dialog_round_button_height: number = 36
+export const dialog_confirm_button_text_color = primary
+export const dialog_cancel_button_text_color = text_color_2
+
 // Divider
 export const divider_vertical_margin = padding_md
 export const divider_horizontal_margin = padding_md

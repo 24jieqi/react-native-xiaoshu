@@ -22,7 +22,7 @@ import DemoTag from '../../src/tag/__fixtures__/basic'
 import DemoDivider from '../../src/divider/__fixtures__/basic'
 import DemoGrid from '../../src/grid/__fixtures__/basic'
 import DemoSwitch from '../../src/switch/__fixtures__/basic'
-// import DemoDialog from '../../src/dialog/__fixtures__/basic'
+import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoTextInput from '../../src/text-input/__fixtures__/basic'
 // import DemoField from '../../src/field/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
@@ -200,14 +200,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
       </DemoWrapper>
     ),
   },
-  // {
-  //   path: 'DemoDialog',
-  //   page: () => (
-  //     <DemoWrapper>
-  //       <DemoDialog />
-  //     </DemoWrapper>
-  //   ),
-  // },
+  {
+    path: 'DemoDialog',
+    page: () => (
+      <DemoWrapper>
+        <DemoDialog />
+      </DemoWrapper>
+    ),
+  },
   {
     path: 'DemoTextInput',
     page: () => (
