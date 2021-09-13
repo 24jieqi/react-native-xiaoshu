@@ -1,3 +1,4 @@
+import type React from 'react'
 import type {
   TextInputProps as RNTextInputProps,
   ViewStyle,
@@ -48,4 +49,20 @@ export interface TextInputProps extends RNTextInputProps {
    * @default false
    */
   showWordLimit?: boolean
+
+  /**
+   * 是否显示边框
+   * @default false
+   */
+  showBorder?: boolean
+
+  /**
+   * 带标签的 input，设置后置标签，textarea 无
+   */
+  addonAfter?: React.ReactNode
+
+  /**
+   * 带标签的 input，设置前置标签，textarea 无
+   */
+  addonBefore?: React.ReactNode
 }

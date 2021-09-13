@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
 
 import { Cell, CellGroup, TextInput } from 'react-native-xiaoshu'
 
@@ -7,9 +6,19 @@ const BasicTextInput: React.FC = () => {
   const [value, setValue] = useState('')
 
   return (
-    <ScrollView keyboardShouldPersistTaps="handled">
+    <>
       <CellGroup title="基础用法">
-        <Cell title="text" value={<TextInput placeholder="不限制输入" />} />
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="不限制输入"
+              addonAfter="AAA"
+              addonBefore="中文"
+              showBorder
+            />
+          }
+        />
 
         <Cell
           title="number"
@@ -25,7 +34,9 @@ const BasicTextInput: React.FC = () => {
 
         <Cell
           title="password"
-          value={<TextInput type="password" placeholder="内容不可见" />}
+          value={
+            <TextInput type="password" placeholder="内容不可见" showBorder />
+          }
         />
 
         <Cell
@@ -63,7 +74,7 @@ const BasicTextInput: React.FC = () => {
           }
         />
       </CellGroup>
-    </ScrollView>
+    </>
   )
 }
 

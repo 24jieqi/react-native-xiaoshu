@@ -1,4 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback, memo } from 'react'
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  memo,
+  isValidElement,
+} from 'react'
 import type {
   ViewStyle,
   TextStyle,
@@ -13,7 +20,6 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   StyleSheet,
-  Platform,
 } from 'react-native'
 
 import IconSvgCross from '../icon/cross'
@@ -40,6 +46,9 @@ const TextInputBase: React.FC<TextInputProps> = ({
   formatter,
   formatTrigger = 'onChangeText',
   showWordLimit = false,
+  showBorder = false,
+  addonAfter,
+  addonBefore,
 
   // TextInput 的属性
   value,
@@ -170,32 +179,42 @@ const TextInputBase: React.FC<TextInputProps> = ({
   const wrapperStyleSummary: ViewStyle = StyleSheet.flatten([
     multiline
       ? {
-          minHeight: themeVar.text_input_min_height * +rows,
+          minHeight:
+            themeVar.text_input_min_height * +rows +
+            themeVar.text_input_padding_vertical * 2,
         }
       : null,
+    showBorder ? Styles.border : null,
     clearable ? Styles.wrapperClearable : null,
     wrapperStyle,
   ])
   const textInputStyleSummary: TextStyle = StyleSheet.flatten([
     Styles.textInput,
-    multiline
-      ? {
-          ...Platform.select({
-            android: {
-              lineHeight: themeVar.text_input_min_height,
-            },
-            ios: {
-              lineHeight: themeVar.text_input_min_height - 8,
-              paddingVertical: 4,
-            },
-          }),
-        }
-      : { height: themeVar.text_input_min_height },
+    showBorder ? Styles.textInputBorder : null,
     clearable ? Styles.textInputClearable : null,
     style,
   ])
 
-  return (
+  const addonAfterJSX = isDef(addonAfter) ? (
+    isValidElement(addonAfter) ? (
+      addonAfter
+    ) : (
+      <Text style={[Styles.addonText, Styles.addonAfterText]}>
+        {addonAfter}
+      </Text>
+    )
+  ) : null
+  const addonBeforeJSX = isDef(addonBefore) ? (
+    isValidElement(addonBefore) ? (
+      addonBefore
+    ) : (
+      <Text style={[Styles.addonText, Styles.addonBeforeText]}>
+        {addonBefore}
+      </Text>
+    )
+  ) : null
+
+  const textInputJSX = (
     <TouchableWithoutFeedback onPress={onPressTextInputWrapper}>
       <View style={wrapperStyleSummary}>
         <RNTextInput
@@ -224,7 +243,8 @@ const TextInputBase: React.FC<TextInputProps> = ({
         localValue.length ? (
           <TouchableOpacity
             style={Styles.clearableWrapper}
-            onPress={onPressClearable}>
+            onPress={onPressClearable}
+          >
             <View style={Styles.clearable}>
               <IconSvgCross
                 color={themeVar.text_input_clearable_color}
@@ -242,6 +262,18 @@ const TextInputBase: React.FC<TextInputProps> = ({
       </View>
     </TouchableWithoutFeedback>
   )
+
+  if (addonAfterJSX || addonBeforeJSX) {
+    return (
+      <View style={Styles.addon}>
+        {addonBeforeJSX}
+        <View style={Styles.addonInput}>{textInputJSX}</View>
+        {addonAfterJSX}
+      </View>
+    )
+  }
+
+  return textInputJSX
 }
 
 export default memo(TextInputBase)
