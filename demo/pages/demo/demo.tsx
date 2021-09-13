@@ -123,6 +123,10 @@ const navDatas: {
         title: 'Progress',
         name: 'DemoProgress',
       },
+      {
+        title: 'Collapse',
+        name: 'DemoCollapse',
+      },
     ],
   },
   {

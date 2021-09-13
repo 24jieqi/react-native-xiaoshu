@@ -30,6 +30,7 @@ import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
 import DemoEmpty from '../../src/empty/__fixtures__/basic'
 import DemoSelectPopup from '../../src/select-popup/__fixtures__/basic'
 import DemoProgress from '../../src/progress/__fixtures__/basic'
+import DemoCollapse from '../../src/collapse/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -59,6 +60,7 @@ export type DemoPaths =
   | 'DemoEmpty'
   | 'DemoSelectPopup'
   | 'DemoProgress'
+  | 'DemoCollapse'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -268,6 +270,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoProgress />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoCollapse',
+    page: () => (
+      <DemoWrapper>
+        <DemoCollapse />
       </DemoWrapper>
     ),
   },

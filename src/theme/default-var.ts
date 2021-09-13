@@ -149,6 +149,20 @@ export const checkbox_label_color = text_color_1
 export const checkbox_label_margin = padding_xs
 export const checkbox_disabled_label_color = text_color_3
 
+// Collapse
+export const collapse_transition_duration = animation_duration_base
+export const collapse_title_font_size = font_size_h4
+export const collapse_title_line_height = 24
+export const collapse_title_padding_vertical: number = 10
+export const collapse_title_padding_horizontal: number = padding_md
+export const collapse_title_text_color = text_color_1
+export const collapse_title_icon_color = text_color_1
+export const collapse_title_icon_size = font_size_h4
+export const collapse_title_border_color = border_color
+export const collapse_title_background_color = white
+export const collapse_content_background_color = white
+export const collapse_content_padding_horizontal = padding_md
+
 // Dialog
 export const dialog_width: number = 320
 // export const dialog_small_screen_width: string = '90%'
