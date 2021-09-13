@@ -1,10 +1,10 @@
 import React from 'react'
-import type { ViewStyle } from 'react-native'
-// import { ScrollView } from 'react-native';
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+// import type { ViewStyle } from 'react-native'
+import { Keyboard } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import DemoHome from '@/pages/demo/demo'
 import DemoFull from '@/pages/demo/full'
+import DemoHome from '@/pages/demo/demo'
 
 import DemoNavBar from '../../src/nav-bar/__fixtures__/basic'
 import DemoLoading from '../../src/loading/__fixtures__/basic'
@@ -58,9 +58,8 @@ export type DemoPaths =
   | 'DemoEmpty'
   | 'DemoSelectPopup'
 
-const pageStyle: ViewStyle = {
-  flex: 1,
-  backgroundColor: '#fff',
+const onScrollBeginDrag = () => {
+  Keyboard.dismiss()
 }
 
 export const demoConfigs: { path: DemoPaths; page: any }[] = [
@@ -179,7 +178,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   {
     path: 'DemoDivider',
     page: () => (
-      <DemoWrapper style={pageStyle}>
+      <DemoWrapper>
         <DemoDivider />
       </DemoWrapper>
     ),
@@ -212,7 +211,12 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     path: 'DemoTextInput',
     page: () => (
       <DemoWrapper>
-        <DemoTextInput />
+        <KeyboardAwareScrollView
+          keyboardShouldPersistTaps="handled"
+          onScrollBeginDrag={onScrollBeginDrag}
+        >
+          <DemoTextInput />
+        </KeyboardAwareScrollView>
       </DemoWrapper>
     ),
   },

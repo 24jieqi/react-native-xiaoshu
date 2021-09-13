@@ -1,15 +1,15 @@
-import type { StatusBarProps, ViewStyle, StyleProp } from 'react-native'
-import type { NavBarProps } from 'react-native-xiaoshu'
+import type { StatusBarProps } from 'react-native'
+// import type { NavBarProps } from 'components';
 
 export interface PageProps {
-  style?: StyleProp<ViewStyle>
+  // style?: StyleProp<ViewStyle>;
 
   statusBarProps?: StatusBarProps
 
   /**
    * 状态栏文字颜色+页头文字颜色
    *
-   * @default 'dark-content'
+   * @default 'light-content'
    */
   barStyle?: StatusBarProps['barStyle']
 
@@ -17,7 +17,13 @@ export interface PageProps {
    * 是否显示页头
    * @default true
    */
-  showHeader?: boolean
+  headerShown?: boolean
+
+  /**
+   * 是否保留 statusBar 边距
+   * @default true
+   */
+  statusBarShown?: boolean
 
   /**
    * 页头背景色+状态栏背景色
@@ -30,14 +36,16 @@ export interface PageProps {
   title?: string
 
   /**
-   * 点击返回 headerProps 中的 onPressLeftArrow，会被后者覆盖
+   * header title text 文案颜色、返回按钮颜色
    */
-  onPressBack?: () => void
-
-  headerProps?: NavBarProps
+  headerTintColor?: string
 }
 
-export interface FullPageProps {
+export interface FullPageProps
+  extends Pick<PageProps, 'barStyle' | 'headerBackgroundColor'> {
+  /**
+   * 是否全屏，状态栏不保留边距
+   * @default false
+   */
   filled?: boolean
-  statusBarStyle?: StatusBarProps['barStyle']
 }

@@ -7,7 +7,7 @@ type ScreenProps = BottomTabScreenProps<'UserCenter'>
 
 const UserCenter: React.FC<ScreenProps> = () => {
   return (
-    <Layout.FullPage statusBarStyle="light-content">
+    <Layout.FullPage filled>
       <Image
         source={{ uri: 'https://img.yzcdn.cn/vant/cat.jpeg' }}
         style={{ width: '100%', height: 200 }}

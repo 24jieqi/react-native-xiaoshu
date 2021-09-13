@@ -11,8 +11,9 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
 
   return (
     <Layout.Page
-      showHeader={false}
-      headerBackgroundColor={themeVar.background_color_1}>
+      headerShown={false}
+      headerBackgroundColor={themeVar.background_color_1}
+    >
       <Text>Home</Text>
 
       <View style={Styles.page}>
@@ -22,7 +23,8 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           style={Styles.demo}
           onPress={() => {
             navigation.navigate('DemoHome')
-          }}>
+          }}
+        >
           GO DEMO
         </Text>
 
@@ -30,7 +32,8 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           style={Styles.demo}
           onPress={() => {
             navigation.navigate('CustomHeaderRed')
-          }}>
+          }}
+        >
           自定义 header 红色
         </Text>
 
@@ -38,7 +41,8 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           style={Styles.demo}
           onPress={() => {
             navigation.navigate('CustomHeaderPrimary')
-          }}>
+          }}
+        >
           自定义 header 主题色
         </Text>
       </View>

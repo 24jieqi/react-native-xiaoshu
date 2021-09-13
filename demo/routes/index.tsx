@@ -5,16 +5,14 @@ import type {
   StackScreenProps,
   StackNavigationProp,
 } from '@react-navigation/stack'
-import {
-  createStackNavigator,
-  CardStyleInterpolators,
-} from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs'
-// import 'react-native-gesture-handler'
 
+import BackArrow from '@/components/back-arrow'
 import CustomHeaderRed from '@/pages/demo/custom-header-red'
 import CustomHeaderPrimary from '@/pages/demo/custom-header-primary'
 
+import { sceneContainerStyle, buildHeaderTitleStyle } from './config'
 import type { BottomTabParamList } from './bottom-tab'
 import TabsView from './bottom-tab'
 import type { DemoPaths } from './demo-config'
@@ -51,13 +49,23 @@ const NestingNavigators: React.FC = () => {
       <Stack.Navigator
         initialRouteName="Index"
         screenOptions={{
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          cardStyle: {
-            backgroundColor: '#fff',
-          },
-          headerShown: false,
-        }}>
-        <Stack.Screen name="Index" component={TabsView} />
+          // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          cardStyle: sceneContainerStyle,
+          headerTitleAlign: 'center',
+          headerTitleStyle: buildHeaderTitleStyle(),
+          headerBackTitleVisible: false,
+          headerLeft: props => BackArrow(props),
+          // 默认所有页面都应该用 Layout.Page 包裹
+          // headerTintColor: '#11151A',
+        }}
+      >
+        <Stack.Screen
+          name="Index"
+          component={TabsView}
+          options={{
+            headerShown: false,
+          }}
+        />
 
         <Stack.Screen name="CustomHeaderRed" component={CustomHeaderRed} />
 

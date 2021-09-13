@@ -1,4 +1,4 @@
-import React, { useMemo, memo } from 'react'
+import React, { memo } from 'react'
 
 import type { FullPageProps } from './interface'
 import Page from './page'
@@ -7,22 +7,10 @@ import Page from './page'
  * 全屏页面
  */
 const FullPage: React.FC<FullPageProps> = ({
-  children,
-  statusBarStyle = 'dark-content',
+  filled = false,
+  ...restProps
 }) => {
-  const statusBarProps = useMemo(
-    () => ({ barStyle: statusBarStyle }),
-    [statusBarStyle],
-  )
-
-  return (
-    <Page
-      headerBackgroundColor="transparent"
-      showHeader={false}
-      statusBarProps={statusBarProps}>
-      {children}
-    </Page>
-  )
+  return <Page {...restProps} headerShown={false} statusBarShown={!filled} />
 }
 
 export default memo<typeof FullPage>(FullPage)
