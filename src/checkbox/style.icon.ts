@@ -15,7 +15,7 @@ export const createStyles = (
     icon: {
       width: size,
       height: size,
-      borderRadius: shape === 'round' ? themeVar.border_radius_sm : size / 2,
+      borderRadius: shape === 'round' ? size / 2 : themeVar.border_radius_sm,
       borderWidth: 1,
       borderColor: themeVar.checkbox_icon_border_color,
       alignContent: 'center',
