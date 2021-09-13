@@ -29,6 +29,7 @@ import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
 import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
 import DemoEmpty from '../../src/empty/__fixtures__/basic'
 import DemoSelectPopup from '../../src/select-popup/__fixtures__/basic'
+import DemoProgress from '../../src/progress/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -57,6 +58,7 @@ export type DemoPaths =
   | 'DemoCheckbox'
   | 'DemoEmpty'
   | 'DemoSelectPopup'
+  | 'DemoProgress'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -213,8 +215,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
       <DemoWrapper>
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
-          onScrollBeginDrag={onScrollBeginDrag}
-        >
+          onScrollBeginDrag={onScrollBeginDrag}>
           <DemoTextInput />
         </KeyboardAwareScrollView>
       </DemoWrapper>
@@ -259,6 +260,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoSelectPopup />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoProgress',
+    page: () => (
+      <DemoWrapper>
+        <DemoProgress />
       </DemoWrapper>
     ),
   },

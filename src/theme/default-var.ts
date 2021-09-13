@@ -247,6 +247,17 @@ export const select_popup_min_height: number = 270
 export const select_popup_option_text_line_height: number = 50
 export const select_popup_body_padding_horizontal = padding_sm
 
+// Progress
+export const progress_height: number = 4
+export const progress_color = primary
+export const progress_background_color = background_color_1
+export const progress_pivot_horizontal_padding: number = 5
+export const progress_pivot_text_color = white
+export const progress_pivot_font_size = font_size_subtitle
+export const progress_pivot_line_height_scale: number = 1.6
+export const progress_pivot_background_color = primary
+export const progress_page_background_color = white
+
 // Switch
 export const switch_size: number = 30
 export const switch_width_ratio: number = 2 // 原变量中使用了 em，这里改成对应的比例

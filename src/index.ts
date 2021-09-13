@@ -61,6 +61,9 @@ export { default as PopupHeader } from './popup/header'
 
 export { default as Portal } from './portal'
 
+export type { ProgressProps } from './progress/interface'
+export { Progress, ProgressPage } from './progress'
+
 export type { ProviderProps } from './provider/interface'
 export { default as Provider } from './provider'
 
