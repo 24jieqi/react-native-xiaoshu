@@ -25,6 +25,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   value,
   multiple = false,
   onChange,
+  onChangeImmediate,
 
   // popup 组件相关属性
   visible,
@@ -104,14 +105,18 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
         const other = v.filter(val => val !== key)
 
         if (other.length === v.length) {
-          return v.concat(key)
+          const newValues = v.concat(key)
+
+          return onChangeImmediate ? onChangeImmediate(newValues) : newValues
         }
 
-        return other
+        return onChangeImmediate ? onChangeImmediate(other) : other
       })
     } else {
+      const newValue = onChangeImmediate ? onChangeImmediate(key) : key
+
       // 单选直接出发回调
-      onChange && onChange(key, options.filter(opt => opt.value === key)[0])
+      onChange(newValue, options.filter(opt => opt.value === newValue)[0])
     }
   }
 
@@ -134,7 +139,8 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       closeOnPressOverlay={closeOnPressOverlay}
       onPressOverlay={onClose}
       position="bottom"
-      round>
+      round
+    >
       <View style={selectStyle}>
         <PopupHeader title={title} onClose={onClose} />
 
@@ -149,14 +155,20 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
               return (
                 <TouchableOpacity
                   key={item.value}
-                  onPress={genOnPressOption(item.value)}>
+                  disabled={item.disabled}
+                  onPress={genOnPressOption(item.value)}
+                  activeOpacity={themeVar.active_opacity}
+                >
                   <View style={Styles.optionItem}>
                     <Text style={Styles.optionItemText} numberOfLines={1}>
                       {item.label}
                     </Text>
 
                     {multiple ? (
-                      <CheckboxIcon active={isSelected} />
+                      <CheckboxIcon
+                        active={isSelected}
+                        disabled={item.disabled}
+                      />
                     ) : isSelected ? (
                       <IconSuccessOutLine
                         color={themeVar.primary}

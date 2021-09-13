@@ -123,6 +123,7 @@ const BasicActionSheet: React.FC = () => {
               v.push({
                 label: `文案_${index}`,
                 value: index,
+                disabled: index < 5,
               })
             }
 

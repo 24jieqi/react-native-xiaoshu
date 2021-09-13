@@ -13,6 +13,12 @@ export type SelectPopupOption = {
    * 唯一标识
    */
   value: SelectPopupValue
+
+  /**
+   * 是否禁用
+   * @default false
+   */
+  disabled?: boolean
 }
 
 export interface SelectPopupProps
@@ -57,6 +63,11 @@ export interface SelectPopupProps
     value: SelectPopupValue[] | SelectPopupValue,
     options: SelectPopupOption | SelectPopupOption[],
   ) => void
+
+  /**
+   * 当值变化的时候立即响应
+   */
+  onChangeImmediate?: (v: any) => any
 }
 
 export interface SelectPopupMethodProps
