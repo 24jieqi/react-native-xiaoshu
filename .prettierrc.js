@@ -1,9 +1,9 @@
 module.exports = {
-  eslintIntegration: true,
-  stylelintIntegration: true,
+  // eslintIntegration: true,
+  // stylelintIntegration: true,
   // printWidth: 180,
   bracketSpacing: true,
-  jsxBracketSameLine: true,
+  bracketSameLine: true,
   singleQuote: true,
   trailingComma: 'all',
   arrowParens: 'avoid',

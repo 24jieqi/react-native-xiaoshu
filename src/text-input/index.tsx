@@ -243,8 +243,7 @@ const TextInputBase: React.FC<TextInputProps> = ({
         localValue.length ? (
           <TouchableOpacity
             style={Styles.clearableWrapper}
-            onPress={onPressClearable}
-          >
+            onPress={onPressClearable}>
             <View style={Styles.clearable}>
               <IconSvgCross
                 color={themeVar.text_input_clearable_color}

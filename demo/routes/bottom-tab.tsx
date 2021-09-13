@@ -17,8 +17,7 @@ const BottomTab: React.FC = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      sceneContainerStyle={sceneContainerStyle}
-    >
+      sceneContainerStyle={sceneContainerStyle}>
       <Tab.Screen
         name="Home"
         options={{

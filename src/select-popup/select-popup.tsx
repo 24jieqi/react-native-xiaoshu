@@ -139,8 +139,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       closeOnPressOverlay={closeOnPressOverlay}
       onPressOverlay={onClose}
       position="bottom"
-      round
-    >
+      round>
       <View style={selectStyle}>
         <PopupHeader title={title} onClose={onClose} />
 
@@ -157,8 +156,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
                   key={item.value}
                   disabled={item.disabled}
                   onPress={genOnPressOption(item.value)}
-                  activeOpacity={themeVar.active_opacity}
-                >
+                  activeOpacity={themeVar.active_opacity}>
                   <View style={Styles.optionItem}>
                     <Text style={Styles.optionItemText} numberOfLines={1}>
                       {item.label}

@@ -57,8 +57,7 @@ const NestingNavigators: React.FC = () => {
           headerLeft: props => BackArrow(props),
           // 默认所有页面都应该用 Layout.Page 包裹
           // headerTintColor: '#11151A',
-        }}
-      >
+        }}>
         <Stack.Screen
           name="Index"
           component={TabsView}
