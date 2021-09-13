@@ -20,8 +20,8 @@ export const createStyles = (
     notify: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: themeVar.notify_horizontal_padding,
-      paddingVertical: themeVar.notify_vertical_padding,
+      paddingHorizontal: themeVar.notify_padding_horizontal,
+      paddingVertical: themeVar.notify_padding_vertical,
       backgroundColor: backgroundColor || typeBackgroundColor,
     },
 

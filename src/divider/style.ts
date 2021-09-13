@@ -15,7 +15,7 @@ export const createStyles = (
     divider: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginVertical: themeVar.divider_vertical_margin,
+      marginVertical: themeVar.divider_margin_vertical,
     },
 
     border: {
@@ -28,7 +28,7 @@ export const createStyles = (
     },
 
     borderLeft: {
-      marginRight: themeVar.divider_horizontal_margin,
+      marginRight: themeVar.divider_margin_horizontal,
       maxWidth:
         contentPosition === 'left'
           ? themeVar.divider_content_left_width
@@ -36,7 +36,7 @@ export const createStyles = (
     },
 
     borderRight: {
-      marginLeft: themeVar.divider_horizontal_margin,
+      marginLeft: themeVar.divider_margin_horizontal,
       maxWidth:
         contentPosition === 'right'
           ? themeVar.divider_content_right_width

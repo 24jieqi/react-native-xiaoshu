@@ -26,8 +26,8 @@ export const createStyles = (
     inner: {
       backgroundColor: themeVar.toast_background_color,
       borderRadius: themeVar.toast_border_radius,
-      paddingHorizontal: themeVar.toast_default_horizontal_padding,
-      paddingVertical: themeVar.toast_default_vertical_padding,
+      paddingHorizontal: themeVar.toast_default_padding_horizontal,
+      paddingVertical: themeVar.toast_default_padding_vertical,
       maxWidth: themeVar.toast_max_width,
       minHeight: themeVar.toast_default_min_height,
       width: themeVar.toast_default_width,
@@ -36,8 +36,8 @@ export const createStyles = (
 
     innerText: {
       lineHeight: themeVar.toast_line_height,
-      paddingHorizontal: themeVar.toast_text_horizontal_padding,
-      paddingVertical: themeVar.toast_text_vertical_padding,
+      paddingHorizontal: themeVar.toast_text_padding_horizontal,
+      paddingVertical: themeVar.toast_text_padding_vertical,
       minWidth: themeVar.toast_text_min_width,
       minHeight: 0,
       width: 'auto',

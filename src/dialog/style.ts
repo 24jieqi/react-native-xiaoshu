@@ -33,8 +33,8 @@ export const createStyles = (
     },
 
     messageText: {
-      paddingHorizontal: themeVar.dialog_message_horizontal_padding,
-      paddingVertical: themeVar.dialog_message_vertical_padding,
+      paddingHorizontal: themeVar.dialog_message_padding_horizontal,
+      paddingVertical: themeVar.dialog_message_padding_vertical,
       fontSize: themeVar.dialog_message_font_size,
       lineHeight: themeVar.dialog_message_line_height,
       textAlign: messageAlign,

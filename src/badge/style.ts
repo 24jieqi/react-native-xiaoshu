@@ -12,8 +12,8 @@ export const createStyles = (
       minWidth: themeVar.badge_size,
       borderRadius: themeVar.border_radius_max,
       backgroundColor: color || themeVar.badge_background_color,
-      paddingHorizontal: themeVar.badge_horizontal_padding,
-      paddingVertical: themeVar.badge_vertical_padding,
+      paddingHorizontal: themeVar.badge_padding_horizontal,
+      paddingVertical: themeVar.badge_padding_vertical,
     },
 
     badgeText: {

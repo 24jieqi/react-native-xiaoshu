@@ -6,7 +6,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     body: {
       flex: 1,
-      paddingHorizontal: themeVar.select_popup_body_horizontal_padding,
+      paddingHorizontal: themeVar.select_popup_body_padding_horizontal,
     },
 
     optionItem: {

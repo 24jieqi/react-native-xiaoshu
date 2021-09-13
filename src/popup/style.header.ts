@@ -7,7 +7,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     header: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingHorizontal: themeVar.popup_header_horizontal_padding,
+      paddingHorizontal: themeVar.popup_header_padding_horizontal,
     },
 
     headerIcon: {
