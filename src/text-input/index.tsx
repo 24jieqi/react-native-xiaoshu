@@ -113,7 +113,10 @@ const TextInputBase: React.FC<TextInputProps> = ({
   )
   const Styles = createStyles(themeVar)
   const keyboardAppearance =
-    resetProps.keyboardAppearance || colorScheme || 'light'
+    !isDef(resetProps.keyboardAppearance) ||
+    resetProps.keyboardAppearance === 'default'
+      ? colorScheme || 'light'
+      : resetProps.keyboardAppearance
 
   /** 点击外边聚焦 */
   const onPressTextInputWrapper = useCallback(() => {
