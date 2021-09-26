@@ -95,5 +95,14 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderColor: themeVar.border_color,
       borderRadius: themeVar.border_radius_md,
     },
+
+    accessory: {
+      width: '100%',
+      height: themeVar.text_input_accessory_height,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      paddingHorizontal: themeVar.text_input_dark_accessory_padding_horizontal,
+    },
   })
 }

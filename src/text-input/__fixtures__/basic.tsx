@@ -35,7 +35,12 @@ const BasicTextInput: React.FC = () => {
         <Cell
           title="password"
           value={
-            <TextInput type="password" placeholder="内容不可见" showBorder />
+            <TextInput
+              type="password"
+              placeholder="内容不可见"
+              showBorder
+              keyboardAppearance="dark"
+            />
           }
         />
 
@@ -47,13 +52,13 @@ const BasicTextInput: React.FC = () => {
         <Cell
           title="clearTrigger"
           value={
-            <TextInput clearable clearTrigger="always" placeholder="多行文本" />
+            <TextInput clearable clearTrigger="always" placeholder="单行文本" />
           }
         />
 
         <Cell
           title="clearTrigger2"
-          value={<TextInput clearable placeholder="多行文本" />}
+          value={<TextInput clearable placeholder="单行文本" />}
         />
 
         <Cell

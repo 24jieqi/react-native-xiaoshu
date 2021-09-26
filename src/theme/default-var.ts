@@ -317,6 +317,13 @@ export const text_input_min_height: number = 20
 export const text_input_clearable_size: number = 16
 export const text_input_clearable_background_color = text_color_4
 export const text_input_clearable_color: string = '#fff'
+export const text_input_light_accessory_background_color: string = '#d5d7de'
+export const text_input_dark_accessory_background_color: string = '#656668'
+export const text_input_dark_accessory_padding_horizontal: number = padding_sm
+export const text_input_accessory_font_size = font_size_h4
+export const text_input_accessory_height: number = 44
+export const text_input_light_accessory_text_color = primary
+export const text_input_dark_accessory_text_color = white
 
 // Toast
 export const toast_max_width: string = '70%'

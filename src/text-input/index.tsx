@@ -3,6 +3,7 @@ import React, {
   useRef,
   useEffect,
   useCallback,
+  useMemo,
   memo,
   isValidElement,
 } from 'react'
@@ -16,10 +17,13 @@ import type {
 import {
   View,
   TextInput as RNTextInput,
+  InputAccessoryView,
   Text,
   TouchableWithoutFeedback,
   TouchableOpacity,
   StyleSheet,
+  Keyboard,
+  useColorScheme,
 } from 'react-native'
 
 import IconSvgCross from '../icon/cross'
@@ -32,6 +36,10 @@ import { createStyles } from './style'
 import type { TextInputProps } from './interface'
 
 const defaultFormatter = <T,>(t: T): T => t
+
+let nextInputAccessoryViewID = 0
+
+const getNextInputAccessoryViewID = () => ++nextInputAccessoryViewID
 
 /**
  * 自定义输入项
@@ -89,6 +97,7 @@ const TextInputBase: React.FC<TextInputProps> = ({
     showWordLimit = false
   }
 
+  const colorScheme = useColorScheme()
   const themeVar = useTheme()
   const onChangeTextPersistFn = usePersistFn(onChangeText || helpers.noop)
   const onEndEditingPersistFn = usePersistFn(onEndEditing || helpers.noop)
@@ -98,7 +107,13 @@ const TextInputBase: React.FC<TextInputProps> = ({
   const [localValue, setLocalValue] = useState(value)
   const [focus, setFocus] = useState(false)
   const TextInputRef = useRef<RNTextInput>(null)
+  const inputAccessoryViewID = useMemo(
+    () => `TextInputBase_${getNextInputAccessoryViewID()}`,
+    [],
+  )
   const Styles = createStyles(themeVar)
+  const keyboardAppearance =
+    resetProps.keyboardAppearance || colorScheme || 'light'
 
   /** 点击外边聚焦 */
   const onPressTextInputWrapper = useCallback(() => {
@@ -147,6 +162,13 @@ const TextInputBase: React.FC<TextInputProps> = ({
     [onEndEditingPersistFn, formatterPersistFn, formatTrigger],
   )
   /**
+   * 点击完成收起软键盘
+   */
+  const onPressFinish = useCallback(() => {
+    Keyboard.dismiss()
+    setFocus(false)
+  }, [])
+  /**
    * 点击清除按钮
    * @description 目前不能在输入框聚焦的时候触发点击，输入框失去焦点后才能触发点击，可能是软键盘的问题？
    */
@@ -194,6 +216,12 @@ const TextInputBase: React.FC<TextInputProps> = ({
     clearable ? Styles.textInputClearable : null,
     style,
   ])
+  const accessoryTextStyle: TextStyle = {
+    color: themeVar[`text_input_${keyboardAppearance}_accessory_text_color`],
+    fontSize: themeVar.text_input_accessory_font_size,
+    fontWeight: 'bold',
+    lineHeight: (themeVar.text_input_accessory_height / 3) * 2,
+  }
 
   const addonAfterJSX = isDef(addonAfter) ? (
     isValidElement(addonAfter) ? (
@@ -214,52 +242,81 @@ const TextInputBase: React.FC<TextInputProps> = ({
     )
   ) : null
 
+  /**
+   * 显示辅助工具栏
+   * @description 单行输入框回车键已具备收起键盘的作用
+   */
+  const showInputAccessoryView = type !== 'text'
+
   const textInputJSX = (
-    <TouchableWithoutFeedback onPress={onPressTextInputWrapper}>
-      <View style={wrapperStyleSummary}>
-        <RNTextInput
-          {...resetProps}
-          ref={TextInputRef}
-          style={textInputStyleSummary}
-          value={isDef(value) ? value : localValue}
-          multiline={multiline}
-          scrollEnabled={scrollEnabled}
-          selectionColor={selectionColor || themeVar.text_input_selection_color}
-          secureTextEntry={secureTextEntry}
-          placeholderTextColor={
-            placeholderTextColor || themeVar.text_input_placeholder_text_color
-          }
-          keyboardType={keyboardType}
-          returnKeyType={returnKeyType}
-          onChangeText={onChangeTextTextInput}
-          onEndEditing={onEndEditingTextInput}
-          onFocus={onFocusTextInput}
-          onBlur={onBlurTextInput}
-        />
+    <>
+      {showInputAccessoryView ? (
+        <InputAccessoryView
+          nativeID={inputAccessoryViewID}
+          backgroundColor={
+            themeVar[
+              `text_input_${keyboardAppearance}_accessory_background_color`
+            ]
+          }>
+          <View style={Styles.accessory}>
+            <Text style={accessoryTextStyle} onPress={onPressFinish}>
+              完成
+            </Text>
+          </View>
+        </InputAccessoryView>
+      ) : null}
+      <TouchableWithoutFeedback onPress={onPressTextInputWrapper}>
+        <View style={wrapperStyleSummary}>
+          <RNTextInput
+            {...resetProps}
+            ref={TextInputRef}
+            style={textInputStyleSummary}
+            value={isDef(value) ? value : localValue}
+            multiline={multiline}
+            scrollEnabled={scrollEnabled}
+            selectionColor={
+              selectionColor || themeVar.text_input_selection_color
+            }
+            secureTextEntry={secureTextEntry}
+            placeholderTextColor={
+              placeholderTextColor || themeVar.text_input_placeholder_text_color
+            }
+            keyboardType={keyboardType}
+            returnKeyType={returnKeyType}
+            onChangeText={onChangeTextTextInput}
+            onEndEditing={onEndEditingTextInput}
+            onFocus={onFocusTextInput}
+            onBlur={onBlurTextInput}
+            inputAccessoryViewID={
+              resetProps.inputAccessoryViewID ||
+              (showInputAccessoryView ? inputAccessoryViewID : undefined)
+            }
+          />
 
-        {clearable &&
-        (clearTrigger === 'focus' ? focus : true) &&
-        localValue &&
-        localValue.length ? (
-          <TouchableOpacity
-            style={Styles.clearableWrapper}
-            onPress={onPressClearable}>
-            <View style={Styles.clearable}>
-              <IconSvgCross
-                color={themeVar.text_input_clearable_color}
-                size={themeVar.text_input_clearable_size / 2}
-              />
-            </View>
-          </TouchableOpacity>
-        ) : null}
+          {clearable &&
+          (clearTrigger === 'focus' ? focus : true) &&
+          localValue &&
+          localValue.length ? (
+            <TouchableOpacity
+              style={Styles.clearableWrapper}
+              onPress={onPressClearable}>
+              <View style={Styles.clearable}>
+                <IconSvgCross
+                  color={themeVar.text_input_clearable_color}
+                  size={themeVar.text_input_clearable_size / 2}
+                />
+              </View>
+            </TouchableOpacity>
+          ) : null}
 
-        {showWordLimit ? (
-          <Text style={Styles.wordLimit}>
-            {localValue?.length}/{maxLength}
-          </Text>
-        ) : null}
-      </View>
-    </TouchableWithoutFeedback>
+          {showWordLimit ? (
+            <Text style={Styles.wordLimit}>
+              {localValue?.length}/{maxLength}
+            </Text>
+          ) : null}
+        </View>
+      </TouchableWithoutFeedback>
+    </>
   )
 
   if (addonAfterJSX || addonBeforeJSX) {
