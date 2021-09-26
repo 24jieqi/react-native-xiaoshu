@@ -217,10 +217,11 @@ const TextInputBase: React.FC<TextInputProps> = ({
     style,
   ])
   const accessoryTextStyle: TextStyle = {
-    color: themeVar[`text_input_${keyboardAppearance}_accessory_text_color`],
+    color: themeVar.text_input_accessory_text_color,
     fontSize: themeVar.text_input_accessory_font_size,
-    fontWeight: 'bold',
+    paddingHorizontal: themeVar.text_input_dark_accessory_padding_horizontal,
     lineHeight: (themeVar.text_input_accessory_height / 3) * 2,
+    fontWeight: 'bold',
   }
 
   const addonAfterJSX = isDef(addonAfter) ? (
@@ -246,7 +247,7 @@ const TextInputBase: React.FC<TextInputProps> = ({
    * 显示辅助工具栏
    * @description 单行输入框回车键已具备收起键盘的作用
    */
-  const showInputAccessoryView = type !== 'text'
+  const showInputAccessoryView = type !== 'text' && type !== 'password'
 
   const textInputJSX = (
     <>
@@ -259,7 +260,10 @@ const TextInputBase: React.FC<TextInputProps> = ({
             ]
           }>
           <View style={Styles.accessory}>
-            <Text style={accessoryTextStyle} onPress={onPressFinish}>
+            <Text
+              style={accessoryTextStyle}
+              onPress={onPressFinish}
+              suppressHighlighting>
               完成
             </Text>
           </View>

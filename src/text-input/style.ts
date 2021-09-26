@@ -102,7 +102,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
-      paddingHorizontal: themeVar.text_input_dark_accessory_padding_horizontal,
+      borderTopColor: themeVar.border_color,
+      borderTopWidth: 1,
     },
   })
 }
