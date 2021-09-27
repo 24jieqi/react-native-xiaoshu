@@ -23,6 +23,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Keyboard,
+  Platform,
   useColorScheme,
 } from 'react-native'
 
@@ -40,6 +41,8 @@ const defaultFormatter = <T,>(t: T): T => t
 let nextInputAccessoryViewID = 0
 
 const getNextInputAccessoryViewID = () => ++nextInputAccessoryViewID
+
+const iOSPlatform = Platform.OS === 'ios'
 
 /**
  * 自定义输入项
@@ -250,7 +253,8 @@ const TextInputBase: React.FC<TextInputProps> = ({
    * 显示辅助工具栏
    * @description 单行输入框回车键已具备收起键盘的作用
    */
-  const showInputAccessoryView = type !== 'text' && type !== 'password'
+  const showInputAccessoryView =
+    iOSPlatform && type !== 'text' && type !== 'password'
 
   const textInputJSX = (
     <>
