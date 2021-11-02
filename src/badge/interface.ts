@@ -17,7 +17,7 @@ export interface BadgeProps {
   countTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 徽标内容
+   * 徽标内容/展示的数字
    */
   count?: number | string
 
@@ -27,7 +27,7 @@ export interface BadgeProps {
   color?: string
 
   /**
-   * 是否展示为小红点
+   * 不展示数字，只有一个小红点
    * @default false
    */
   dot?: boolean
@@ -48,4 +48,14 @@ export interface BadgeProps {
    * @default false
    */
   showZero?: boolean
+
+  /**
+   * 设置状态点的位置偏移
+   */
+  offset?: [number, number]
+
+  /**
+   * 设置 Badge 为状态点
+   */
+  status?: 'primary' | 'success' | 'warning' | 'error'
 }

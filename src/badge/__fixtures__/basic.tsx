@@ -10,10 +10,12 @@ const Styles = StyleSheet.create({
 
   demoWrapper: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 
   demoItemWrapper: {
     marginRight: 16,
+    marginBottom: 12,
   },
 
   demoItem: {
@@ -22,14 +24,23 @@ const Styles = StyleSheet.create({
     backgroundColor: '#f2f3f5',
     borderRadius: 4,
   },
+
+  demoSingle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 4,
+    paddingHorizontal: 4,
+  },
+
+  demoSingleDot: {
+    marginRight: 4,
+  },
 })
 
 const BasicBadge: React.FC = () => {
   return (
     <ScrollView style={Styles.page}>
-      <View>
-        <Text>基础用法</Text>
-      </View>
+      <Text>基础用法</Text>
 
       <View style={{ height: 20 }} />
 
@@ -61,9 +72,7 @@ const BasicBadge: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>最大值</Text>
-      </View>
+      <Text>最大值</Text>
 
       <View style={{ height: 20 }} />
 
@@ -83,9 +92,27 @@ const BasicBadge: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>自定义颜色</Text>
+      <Text>自定义偏移</Text>
+
+      <View style={{ height: 20 }} />
+
+      <View style={Styles.demoWrapper}>
+        <View style={Styles.demoItemWrapper}>
+          <Badge count={9} offset={[8, -16]}>
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge dot offset={[8, -16]}>
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
       </View>
+
+      <View style={{ height: 20 }} />
+
+      <Text>自定义颜色</Text>
 
       <View style={{ height: 20 }} />
 
@@ -101,21 +128,69 @@ const BasicBadge: React.FC = () => {
             <View style={Styles.demoItem} />
           </Badge>
         </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge dot status="primary">
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge dot status="success">
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge dot status="error">
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge dot status="warning">
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
       </View>
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>独立展示</Text>
-      </View>
+      <Text>独立展示</Text>
 
       <View style={{ height: 20 }} />
 
-      <View style={[Styles.demoWrapper, { alignItems: 'center' }]}>
-        <Badge count="999" />
-        <Badge count={999} max={9} />
-        <Badge count="1" />
-        <Badge dot />
+      <View style={Styles.demoSingle}>
+        <Badge count="999" style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge count={999} max={9} style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge count="1" style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge dot style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge dot status="error" style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge dot status="primary" style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge dot status="success" style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
+      </View>
+      <View style={Styles.demoSingle}>
+        <Badge dot status="warning" style={Styles.demoSingleDot} />
+        <Text>测试文案</Text>
       </View>
 
       <View style={{ height: 20 }} />

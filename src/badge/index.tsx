@@ -10,7 +10,6 @@ import { createStyles } from './style'
 /**
  * Badge 徽标
  * @description 在右上角展示徽标数字或小红点。
- * @description RN translateX translateY 无法用百分数，需要通过 onLayout 拿到具体的数字后计算偏移量
  */
 const Badge: React.FC<BadgeProps> = ({
   children,
@@ -23,6 +22,8 @@ const Badge: React.FC<BadgeProps> = ({
   countTextStyle,
   loading = false,
   showZero = false,
+  offset,
+  status,
 }) => {
   const themeVar = useTheme()
   const STYLES = widthStyle(themeVar, createStyles)
@@ -35,12 +36,28 @@ const Badge: React.FC<BadgeProps> = ({
   const badgeStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.badge, style])
   const countStyleSummary = StyleSheet.flatten<ViewStyle>([
     STYLES.count,
-    { backgroundColor: color || themeVar.badge_background_color },
+    {
+      backgroundColor:
+        color || themeVar[status] || themeVar.badge_background_color,
+    },
     dot ? STYLES.count_dot : null,
     isDef(children)
-      ? dot
-        ? [STYLES.count_fixed, STYLES.count_dot_fixed]
-        : STYLES.count_fixed
+      ? [
+          STYLES.count_fixed,
+          dot ? STYLES.count_dot_fixed : null,
+          offset
+            ? {
+                transform: [
+                  {
+                    translateX: offset[0],
+                  },
+                  {
+                    translateY: offset[1],
+                  },
+                ],
+              }
+            : null,
+        ]
       : null,
     countStyle,
   ])
