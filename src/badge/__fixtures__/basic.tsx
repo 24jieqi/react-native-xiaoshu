@@ -3,40 +3,6 @@ import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
 import { Badge } from 'react-native-xiaoshu'
 
-const Styles = StyleSheet.create({
-  page: {
-    backgroundColor: '#fff',
-  },
-
-  demoWrapper: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-
-  demoItemWrapper: {
-    marginRight: 16,
-    marginBottom: 12,
-  },
-
-  demoItem: {
-    width: 40,
-    height: 40,
-    backgroundColor: '#f2f3f5',
-    borderRadius: 4,
-  },
-
-  demoSingle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 4,
-    paddingHorizontal: 4,
-  },
-
-  demoSingleDot: {
-    marginRight: 4,
-  },
-})
-
 const BasicBadge: React.FC = () => {
   return (
     <ScrollView style={Styles.page}>
@@ -197,5 +163,39 @@ const BasicBadge: React.FC = () => {
     </ScrollView>
   )
 }
+
+const Styles = StyleSheet.create({
+  page: {
+    backgroundColor: '#fff',
+  },
+
+  demoWrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+
+  demoItemWrapper: {
+    marginRight: 16,
+    marginBottom: 12,
+  },
+
+  demoItem: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#f2f3f5',
+    borderRadius: 4,
+  },
+
+  demoSingle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 4,
+    paddingHorizontal: 4,
+  },
+
+  demoSingleDot: {
+    marginRight: 4,
+  },
+})
 
 export default BasicBadge
