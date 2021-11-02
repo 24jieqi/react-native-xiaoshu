@@ -1,15 +1,11 @@
-import React, { useState, useCallback, memo } from 'react'
-import type { LayoutChangeEvent, ViewStyle, TextStyle } from 'react-native'
+import React, { memo } from 'react'
+import type { ViewStyle, TextStyle } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { isDef } from '../helpers/typeof'
+import { useTheme, widthStyle } from '../theme'
 import type { BadgeProps } from './interface'
 import { createStyles } from './style'
-
-type State = {
-  width: number
-  height: number
-}
 
 /**
  * Badge 徽标
@@ -18,76 +14,54 @@ type State = {
  */
 const Badge: React.FC<BadgeProps> = ({
   children,
-  content,
+  count,
   dot,
   max,
   color,
   style,
-  textStyle,
-  wrapperStyle,
+  countStyle,
+  countTextStyle,
+  loading = false,
+  showZero = false,
 }) => {
-  const [state, setState] = useState<State>({ width: 0, height: 0 })
-
   const themeVar = useTheme()
-  const Styles = createStyles(themeVar, { color })
+  const STYLES = widthStyle(themeVar, createStyles)
 
-  /** 监听布局 */
-  const onLayout = useCallback((e: LayoutChangeEvent) => {
-    setState(e.nativeEvent.layout)
-  }, [])
-
-  if (max && typeof content === 'number' && content > +max) {
-    content = `${max}+`
+  if (max && typeof count === 'number' && count > max) {
+    count = `${max}+`
   }
 
-  const hasContent = () => !!content || content === 0
-  const badgeStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.badge,
-    dot ? Styles.dot : null,
-    style,
+  const hasCount = isDef(count) && (count === 0 ? showZero : true)
+  const badgeStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.badge, style])
+  const countStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.count,
+    { backgroundColor: color || themeVar.badge_background_color },
+    dot ? STYLES.count_dot : null,
+    isDef(children)
+      ? dot
+        ? [STYLES.count_fixed, STYLES.count_dot_fixed]
+        : STYLES.count_fixed
+      : null,
+    countStyle,
   ])
-  const badgeTextStyleSummary: TextStyle = StyleSheet.flatten([
-    Styles.badgeText,
-    textStyle,
-  ])
-  const badgeWrapperStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.wrapper,
-    wrapperStyle,
-  ])
-  const badgeTextStyleBoxSummary: ViewStyle = StyleSheet.flatten([
-    Styles.fixed,
-    {
-      transform: [
-        {
-          translateX: state.width / 2,
-        },
-        {
-          translateY: -state.height / 2,
-        },
-      ],
-    },
+  const countTextStyleSummary = StyleSheet.flatten<TextStyle>([
+    STYLES.count_text,
+    countTextStyle,
   ])
 
   const badgeJSX =
-    hasContent() || dot ? (
-      <View style={badgeStyleSummary}>
-        <Text style={badgeTextStyleSummary}>{dot ? null : content}</Text>
+    !loading && (hasCount || dot) ? (
+      <View style={countStyleSummary}>
+        {dot ? null : <Text style={countTextStyleSummary}>{count}</Text>}
       </View>
     ) : null
 
-  if (children) {
-    return (
-      <View style={badgeWrapperStyleSummary}>
-        <View style={badgeTextStyleBoxSummary} onLayout={onLayout}>
-          {badgeJSX}
-        </View>
-
-        {children}
-      </View>
-    )
-  }
-
-  return badgeJSX
+  return (
+    <View style={badgeStyleSummary} collapsable={false}>
+      {badgeJSX}
+      {children}
+    </View>
+  )
 }
 
 export default memo<typeof Badge>(Badge)

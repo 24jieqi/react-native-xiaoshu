@@ -35,13 +35,25 @@ const BasicBadge: React.FC = () => {
 
       <View style={Styles.demoWrapper}>
         <View style={Styles.demoItemWrapper}>
-          <Badge content="999">
+          <Badge count="999">
             <View style={Styles.demoItem} />
           </Badge>
         </View>
 
         <View style={Styles.demoItemWrapper}>
           <Badge dot>
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge count="999" loading>
+            <View style={Styles.demoItem} />
+          </Badge>
+        </View>
+
+        <View style={Styles.demoItemWrapper}>
+          <Badge count={0} showZero>
             <View style={Styles.demoItem} />
           </Badge>
         </View>
@@ -57,13 +69,13 @@ const BasicBadge: React.FC = () => {
 
       <View style={Styles.demoWrapper}>
         <View style={Styles.demoItemWrapper}>
-          <Badge content={999} max={99}>
+          <Badge count={999} max={99}>
             <View style={Styles.demoItem} />
           </Badge>
         </View>
 
         <View style={Styles.demoItemWrapper}>
-          <Badge content={9} max={99}>
+          <Badge count={9} max={99}>
             <View style={Styles.demoItem} />
           </Badge>
         </View>
@@ -79,7 +91,7 @@ const BasicBadge: React.FC = () => {
 
       <View style={Styles.demoWrapper}>
         <View style={Styles.demoItemWrapper}>
-          <Badge content={999} max={9} color="#1989fa">
+          <Badge count={999} max={9} color="#1989fa">
             <View style={Styles.demoItem} />
           </Badge>
         </View>
@@ -99,10 +111,10 @@ const BasicBadge: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View style={Styles.demoWrapper}>
-        <Badge content="999" />
-        <Badge content={999} max={9} />
-        <Badge content="1" />
+      <View style={[Styles.demoWrapper, { alignItems: 'center' }]}>
+        <Badge count="999" />
+        <Badge count={999} max={9} />
+        <Badge count="1" />
         <Badge dot />
       </View>
 

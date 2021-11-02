@@ -122,7 +122,7 @@ export const button_plain_underlay_color = border_color // 按钮按下去的颜
 export const button_disabled_opacity = active_opacity
 
 // Cell
-export const cell_group_title_padding_horizontal = padding_md
+export const cell_group_title_padding_horizontal = padding_sm
 export const cell_group_title_padding_top = padding_xs
 export const cell_group_title_padding_bottom = padding_xs
 export const cell_group_title_color = text_color_1

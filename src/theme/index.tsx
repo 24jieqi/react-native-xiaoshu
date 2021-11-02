@@ -4,6 +4,7 @@ import type { ThemeProviderProps, ThemeVarType } from './interface'
 import * as defaultVar from './default-var'
 
 export type { ThemeVarType } from './interface'
+export { widthStyle } from './width-style'
 
 const ThemeVarContext = createContext({} as ThemeVarType)
 
