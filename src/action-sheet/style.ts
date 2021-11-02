@@ -21,12 +21,12 @@ export const createStyles = (themeVar: ThemeVarType) => {
       paddingBottom: 14,
     },
 
-    descriptionBox: {
+    description_box: {
       borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: themeVar.border_color,
     },
 
-    descriptionAlone: {
+    description_alone: {
       paddingTop: 14,
     },
 

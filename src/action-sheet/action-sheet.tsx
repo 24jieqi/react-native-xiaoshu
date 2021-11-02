@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
 import Loading from '../loading/circular'
 import useSafeHeight from '../hooks/useSafeHeight'
@@ -32,7 +32,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
 }) => {
   const safeHeight = useSafeHeight()
   const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const Styles = widthStyle(themeVar, createStyles)
 
   /** 标题部分 纯文字或自定义 JSX */
   const titleJSX = isDef(title) ? (
@@ -63,11 +63,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
     isValidElement(description) ? (
       description
     ) : (
-      <View style={Styles.descriptionBox}>
+      <View style={Styles.description_box}>
         <Text
           style={StyleSheet.flatten([
             Styles.description,
-            titleJSX ? null : Styles.descriptionAlone,
+            titleJSX ? null : Styles.description_alone,
           ])}
           numberOfLines={1}>
           {description}
