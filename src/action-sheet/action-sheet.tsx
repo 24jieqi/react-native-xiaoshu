@@ -91,7 +91,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
       {titleJSX}
       {descriptionJSX}
 
-      <ScrollView style={{ maxHeight: contentHeight }}>
+      <ScrollView style={{ maxHeight: contentHeight }} bounces={false}>
         {actions.map((item, index) => {
           /** 选项的自定义颜色/配置 */
           const customTextStyle: TextStyle = {}
