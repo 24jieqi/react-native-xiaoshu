@@ -1,10 +1,9 @@
 import React, { memo } from 'react'
-import type { GestureResponderEvent } from 'react-native'
-import { Text, TouchableHighlight, StyleSheet } from 'react-native'
+import type { ViewStyle, TextStyle } from 'react-native'
+import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import Loading from '../loading'
-import * as helpers from '../helpers'
 import { createStyles } from './style'
 import type { ButtonProps } from './interface'
 
@@ -28,57 +27,68 @@ const Button: React.FC<ButtonProps> = ({
   round = false,
   icon,
   color,
-  onPress,
+  textColor,
   ...otherProps
 }) => {
   const themeVar = useTheme()
+  const STYLES = widthStyle(themeVar, createStyles)
+  const showDisabled = disabled || loading
 
-  const Styles = createStyles(themeVar, {
-    size,
-    color,
-    type,
-    plain,
-    hairline,
-    square,
-    round,
-    disabled,
-    loading,
-  })
+  const commonButtonStyle = StyleSheet.flatten<ViewStyle>([
+    STYLES.button,
+    STYLES[`button_${type}`],
+    STYLES[`button_${size}`],
+    hairline ? STYLES.button_border_width_hairline : null,
+    square ? STYLES.button_square : null,
+    round ? STYLES.button_round : null,
+    color
+      ? {
+          backgroundColor: color,
+          borderColor: color,
+        }
+      : null,
+    showDisabled ? STYLES.button_disabled : null,
+  ])
+  const commonTextStyle = StyleSheet.flatten<TextStyle>([
+    STYLES.text,
+    STYLES[`text_${type}`],
+    STYLES[`text_${size}`],
+    color || textColor
+      ? {
+          color: textColor || '#fff',
+        }
+      : null,
+  ])
 
-  /**
-   * 点击按钮回调
-   * @param e event 回调事件
-   */
-  const onPressTouchable = (e: GestureResponderEvent) => {
-    if (!disabled && !loading) {
-      onPress && onPress(e)
-    }
+  if (plain) {
+    commonButtonStyle.backgroundColor = 'transparent'
+    commonTextStyle.color = commonButtonStyle.borderColor
   }
 
-  const buttonStyleSummary = StyleSheet.flatten([Styles.button, style])
-  const textStyleSummary = StyleSheet.flatten([Styles.text, textStyle])
+  const buttonStyleSummary = StyleSheet.flatten([commonButtonStyle, style])
+  const textStyleSummary = StyleSheet.flatten([commonTextStyle, textStyle])
+
+  const contextJSX = loading ? (
+    <Loading
+      color={textStyleSummary.color as string}
+      size={textStyleSummary.fontSize}>
+      {loadingText}
+    </Loading>
+  ) : (
+    <>
+      {icon || null}
+      <Text style={textStyleSummary}>{text || children}</Text>
+    </>
+  )
 
   return (
-    <TouchableHighlight
-      underlayColor={helpers.hex2rgba(
-        (Styles.button.backgroundColor === themeVar.white
-          ? themeVar.button_plain_underlay_color
-          : Styles.button.backgroundColor || '') as string,
-      )}
-      onPress={onPressTouchable}
+    <TouchableOpacity
+      disabled={showDisabled}
       style={buttonStyleSummary}
+      activeOpacity={themeVar.active_opacity}
       {...otherProps}>
-      {loading ? (
-        <Loading color={Styles.text.color} size={Styles.text.fontSize}>
-          {loadingText ? loadingText : null}
-        </Loading>
-      ) : (
-        <>
-          {icon || null}
-          <Text style={textStyleSummary}>{text || children}</Text>
-        </>
-      )}
-    </TouchableHighlight>
+      {contextJSX}
+    </TouchableOpacity>
   )
 }
 

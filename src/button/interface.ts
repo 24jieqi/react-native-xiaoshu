@@ -82,7 +82,12 @@ export interface ButtonProps
   icon?: React.ReactNode
 
   /**
-   * 按钮颜色 不支持渐变
+   * 按钮颜色，不支持渐变
    */
   color?: string
+
+  /**
+   * 按钮文案颜色，设置了 color 默认值为 #fff
+   */
+  textColor?: string
 }
