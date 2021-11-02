@@ -18,7 +18,7 @@ export const color_1: string = '#24B356'
 export const color_2: string = '#FE5900'
 export const underlay_color: string = 'transparent'
 export const underlay_color_ddd: string = '#F7F9FC'
-export const active_opacity: number = 0.6
+export const active_opacity: number = 0.8
 
 // 文字颜色
 export const text_color_1: string = '#11151A'
@@ -92,10 +92,12 @@ export const button_mini_height: number = 20
 export const button_mini_font_size = font_size_subtitle
 export const button_small_height: number = 34
 export const button_small_font_size = font_size_text
+export const button_normal_height: number = 40
 export const button_normal_font_size = font_size_h5
 export const button_large_height: number = 44
+export const button_large_font_size = font_size_h4
 export const button_default_height: number = 40
-export const button_default_line_height: number = 1.2
+// export const button_default_line_height: number = 1.2
 export const button_default_font_size = font_size_h4
 export const button_default_color = primary
 export const button_default_background_color = white
