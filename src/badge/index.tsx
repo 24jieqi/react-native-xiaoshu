@@ -25,8 +25,8 @@ const Badge: React.FC<BadgeProps> = ({
   offset,
   status,
 }) => {
-  const themeVar = useTheme()
-  const STYLES = widthStyle(themeVar, createStyles)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   if (max && typeof count === 'number' && count > max) {
     count = `${max}+`
@@ -38,7 +38,7 @@ const Badge: React.FC<BadgeProps> = ({
     STYLES.count,
     {
       backgroundColor:
-        color || themeVar[status] || themeVar.badge_background_color,
+        color || THEME_VAR[status] || THEME_VAR.badge_background_color,
     },
     dot ? STYLES.count_dot : null,
     isDef(children)

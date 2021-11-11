@@ -22,24 +22,24 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   activeOpacity,
   ...restProps
 }) => {
-  const themeVar = useTheme()
+  const THEME_VAR = useTheme()
 
   // 从配置中拿默认值
-  size = getDefaultValue(size, themeVar.checkbox_icon_size)
+  size = getDefaultValue(size, THEME_VAR.checkbox_icon_size)
   activeColor = getDefaultValue(
     activeColor,
-    themeVar.checkbox_checked_icon_color,
+    THEME_VAR.checkbox_checked_icon_color,
   )
-  activeOpacity = getDefaultValue(activeOpacity, themeVar.active_opacity)
+  activeOpacity = getDefaultValue(activeOpacity, THEME_VAR.active_opacity)
 
-  const STYLES = widthStyle(themeVar, createStyles)
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   const styleSummary = StyleSheet.flatten<ViewStyle>([
     STYLES.icon,
     {
       width: size,
       height: size,
-      borderRadius: shape === 'round' ? size / 2 : themeVar.border_radius_sm,
+      borderRadius: shape === 'round' ? size / 2 : THEME_VAR.border_radius_sm,
     },
     active
       ? {
@@ -57,7 +57,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
     ) : (
       <IconSuccessOutLine
         size={size}
-        color={disabled ? themeVar.checkbox_icon_border_color : '#fff'}
+        color={disabled ? THEME_VAR.checkbox_icon_border_color : '#fff'}
       />
     )
   ) : null

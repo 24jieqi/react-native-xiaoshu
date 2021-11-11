@@ -38,11 +38,11 @@ const Cell: React.FC<CellProps> = ({
   style,
   ...restProps
 }) => {
-  const themeVar = useTheme()
-  const STYLES = widthStyle(themeVar, createStyles)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   // 一定要绑定 Press 事件才有这个效果
-  underlayColor = underlayColor || themeVar.cell_active_color
+  underlayColor = underlayColor || THEME_VAR.cell_active_color
 
   if (vertical) {
     textAlign = 'left'
@@ -109,8 +109,8 @@ const Cell: React.FC<CellProps> = ({
   const linkJSX = isLink ? (
     <IconArrow
       direction={arrowDirection}
-      size={themeVar.cell_icon_size}
-      color={themeVar.cell_icon_color}
+      size={THEME_VAR.cell_icon_size}
+      color={THEME_VAR.cell_icon_color}
       onPress={onPressLink || restProps.onPress}
       style={STYLES.icon_link}
     />

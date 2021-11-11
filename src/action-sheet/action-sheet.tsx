@@ -31,15 +31,15 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   ...restProps
 }) => {
   const safeHeight = useSafeHeight()
-  const themeVar = useTheme()
-  const Styles = widthStyle(themeVar, createStyles)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   /** 标题部分 纯文字或自定义 JSX */
   const titleJSX = isDef(title) ? (
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={Styles.title} numberOfLines={1}>
+      <Text style={STYLES.title} numberOfLines={1}>
         {title}
       </Text>
     )
@@ -51,7 +51,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
       cancelText
     ) : (
       <Text
-        style={StyleSheet.flatten([Styles.btn, Styles.cancel])}
+        style={StyleSheet.flatten([STYLES.btn, STYLES.cancel])}
         numberOfLines={1}>
         {cancelText}
       </Text>
@@ -63,11 +63,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
     isValidElement(description) ? (
       description
     ) : (
-      <View style={Styles.description_box}>
+      <View style={STYLES.description_box}>
         <Text
           style={StyleSheet.flatten([
-            Styles.description,
-            titleJSX ? null : Styles.description_alone,
+            STYLES.description,
+            titleJSX ? null : STYLES.description_alone,
           ])}
           numberOfLines={1}>
           {description}
@@ -76,15 +76,17 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
     )
   ) : null
 
-  const navBarHeight = themeVar.nav_bar_height
-  const btnHeight = themeVar.action_sheet_loading_icon_size + 14 * 2
+  const navBarHeight = THEME_VAR.nav_bar_height
+  const btnHeight = THEME_VAR.action_sheet_loading_icon_size + 14 * 2
   const descriptionHeight =
-    themeVar.action_sheet_description_line_height + (titleJSX ? 14 : 14 * 2)
+    THEME_VAR.action_sheet_description_line_height + (titleJSX ? 14 : 14 * 2)
   const contentHeight =
     safeHeight -
     navBarHeight -
-    (titleJSX ? themeVar.action_sheet_header_height : 0) -
-    (cancelTextJSX ? themeVar.action_sheet_cancel_padding_top + btnHeight : 0) -
+    (titleJSX ? THEME_VAR.action_sheet_header_height : 0) -
+    (cancelTextJSX
+      ? THEME_VAR.action_sheet_cancel_padding_top + btnHeight
+      : 0) -
     (descriptionJSX ? descriptionHeight : 0)
   return (
     <Popup {...restProps} safeAreaInsetBottom position="bottom" round={round}>
@@ -102,7 +104,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
 
           if (item.disabled) {
             customTextStyle.color =
-              themeVar.action_sheet_item_disabled_text_color
+              THEME_VAR.action_sheet_item_disabled_text_color
           }
 
           return (
@@ -111,25 +113,25 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
               activeOpacity={1}
               underlayColor={
                 item.disabled || item.loading
-                  ? themeVar.action_sheet_item_background
-                  : themeVar.underlay_color_ddd
+                  ? THEME_VAR.action_sheet_item_background
+                  : THEME_VAR.underlay_color_ddd
               }
               onPress={() => {
                 if (!item.disabled && !item.loading) {
                   onSelect && onSelect(item, index)
                 }
               }}>
-              <View style={Styles.btn}>
+              <View style={STYLES.btn}>
                 {item.loading ? (
                   <Loading
-                    size={themeVar.action_sheet_loading_icon_size}
-                    color={themeVar.action_sheet_item_disabled_text_color}
+                    size={THEME_VAR.action_sheet_loading_icon_size}
+                    color={THEME_VAR.action_sheet_item_disabled_text_color}
                   />
                 ) : (
                   <>
                     <Text
                       style={StyleSheet.flatten([
-                        Styles.item,
+                        STYLES.item,
                         customTextStyle,
                       ])}>
                       {item.name}
@@ -137,8 +139,8 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
                     {item.subname ? (
                       <Text
                         style={StyleSheet.flatten([
-                          Styles.item,
-                          Styles.subname,
+                          STYLES.item,
+                          STYLES.subname,
                         ])}>
                         {item.subname}
                       </Text>
@@ -153,10 +155,10 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
 
       {cancelTextJSX ? (
         <>
-          <View style={Styles.gap} />
+          <View style={STYLES.gap} />
           <TouchableHighlight
             activeOpacity={1}
-            underlayColor={themeVar.underlay_color_ddd}
+            underlayColor={THEME_VAR.underlay_color_ddd}
             onPress={onCancel}>
             {cancelTextJSX}
           </TouchableHighlight>

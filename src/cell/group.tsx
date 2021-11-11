@@ -20,12 +20,12 @@ const CellGroup: React.FC<CellGroupProps> = ({
   onPressTitleText,
   extra,
 }) => {
-  const themeVar = useTheme()
-  const Styles = widthStyle(themeVar, createStyles)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const titleStyleSummary: ViewStyle = StyleSheet.flatten([Styles.title, style])
+  const titleStyleSummary: ViewStyle = StyleSheet.flatten([STYLES.title, style])
   const titleTextStyleSummary: TextStyle = StyleSheet.flatten([
-    Styles.text,
+    STYLES.text,
     textStyle,
   ])
 
@@ -48,7 +48,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
           {extra}
         </View>
       ) : null}
-      {border ? <View style={Styles.body}>{children}</View> : children}
+      {border ? <View style={STYLES.body}>{children}</View> : children}
     </>
   )
 }

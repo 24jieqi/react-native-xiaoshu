@@ -47,8 +47,8 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       ? defaultValue
       : inactiveValue,
   )
-  const themeVar = useTheme()
-  const STYLES = widthStyle(themeVar, createStyles)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   const checkboxStyleSummary = StyleSheet.flatten<ViewStyle>([
     STYLES.checkbox,
@@ -58,7 +58,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
     STYLES.label,
     {
       [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
-        themeVar.checkbox_label_margin,
+        THEME_VAR.checkbox_label_margin,
     },
     disabled ? STYLES.label_disabled : null,
     labelTextStyle,

@@ -30,8 +30,8 @@ const Button: React.FC<ButtonProps> = ({
   textColor,
   ...otherProps
 }) => {
-  const themeVar = useTheme()
-  const STYLES = widthStyle(themeVar, createStyles)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
   const showDisabled = disabled || loading
 
   const commonButtonStyle = StyleSheet.flatten<ViewStyle>([
@@ -85,7 +85,7 @@ const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       disabled={showDisabled}
       style={buttonStyleSummary}
-      activeOpacity={themeVar.active_opacity}
+      activeOpacity={THEME_VAR.active_opacity}
       {...otherProps}>
       {contextJSX}
     </TouchableOpacity>
