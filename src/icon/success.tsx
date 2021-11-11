@@ -2,17 +2,24 @@ import React, { memo } from 'react'
 import { Svg, Path } from 'react-native-svg'
 
 import type { IconCommonOutlineProps } from './interface'
+import * as helper from './helper'
 
 interface IconSuccessOutlineProps extends IconCommonOutlineProps {}
 
 const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
-  size = 24,
-  color = '#666',
-  strokeWidth = 2,
+  size = helper.DEFAULT_SIZE,
+  color = helper.DEFAULT_COLOR,
+  style = helper.ICON_DEFAULT_STYLE,
+  strokeWidth = helper.STROKE_WIDTH,
   ...restProps
 }) => {
   return (
-    <Svg {...restProps} height={size} width={size} viewBox="0 0 24 24">
+    <Svg
+      {...restProps}
+      style={style}
+      height={size}
+      width={size}
+      viewBox="0 0 24 24">
       <Path
         d="M6,12 10,16 18,6"
         fill="none"

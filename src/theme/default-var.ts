@@ -128,18 +128,21 @@ export const cell_group_title_padding_horizontal = padding_sm
 export const cell_group_title_padding_top = padding_xs
 export const cell_group_title_padding_bottom = padding_xs
 export const cell_group_title_color = text_color_1
-export const cell_group_title_font_size = font_size_h4
+export const cell_group_title_font_size = font_size_h5
 export const cell_group_title_line_height: number = 28
 export const cell_border_color = border_color
 export const cell_icon_size = font_size_h5
 export const cell_icon_color = text_color_3
 export const cell_active_color = underlay_color_ddd
-export const cell_large_title_font_size = font_size_h3
 export const cell_font_size = font_size_text
 export const cell_background_color = white
-export const cell_line_height: number = 40
-export const cell_title_color = text_color_1
-export const cell_value_color = text_color_2
+export const cell_padding_vertical = padding_sm
+export const cell_padding_horizontal = padding_sm
+export const cell_mini_height: number = 50
+export const cell_title_text_color = text_color_1
+export const cell_title_height: number = 32
+export const cell_title_line_height: number = 22
+export const cell_value_text_color = text_color_2
 export const cell_required_color = error
 
 // Checkbox

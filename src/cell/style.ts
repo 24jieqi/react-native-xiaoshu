@@ -1,112 +1,89 @@
 import { StyleSheet } from 'react-native'
 
 import type { ThemeVarType } from '../theme'
-import type { CellProps } from './interface'
 
-export const createStyles = (
-  themeVar: ThemeVarType,
-  { size, border }: Pick<CellProps, 'size' | 'border'>,
-) => {
-  const isLarge = size === 'large'
-  const borderWidth: number = border ? 1 : 0
-
-  const titleFontSize = isLarge
-    ? themeVar.cell_large_title_font_size
-    : themeVar.cell_font_size
+export const createStyles = (themeVar: ThemeVarType) => {
+  const innerHeight = themeVar.cell_title_height
 
   return StyleSheet.create({
-    cellTouchable: {
+    cell: {
       backgroundColor: themeVar.cell_background_color,
     },
 
-    cell: {
-      flexDirection: 'row',
-      borderStyle: 'solid',
+    cell_inner: {
       position: 'relative',
-      marginHorizontal: themeVar.padding_sm,
-      paddingVertical: 5,
+      marginHorizontal: themeVar.cell_group_title_padding_horizontal,
+      paddingVertical: (themeVar.cell_mini_height - innerHeight) / 2,
+      borderStyle: 'solid',
       borderBottomColor: themeVar.cell_border_color,
-      borderBottomWidth: borderWidth,
+      borderBottomWidth: 0,
     },
 
-    titleWrapper: {
+    cell_inner_row: {
       flexDirection: 'row',
-      alignItems: 'center',
-      // backgroundColor: '#f30', // to test ui
+    },
+
+    cell_inner_border: {
+      borderBottomWidth: 1,
     },
 
     title: {
-      marginRight: themeVar.padding_md,
-      minHeight: themeVar.cell_line_height,
+      position: 'relative',
+      flexDirection: 'row',
+      // alignItems: 'center',
       // backgroundColor: '#f30', // to test ui
     },
 
-    titleText: {
-      color: themeVar.cell_title_color,
-      fontSize: titleFontSize,
-      paddingVertical: (themeVar.cell_line_height - 22) / 2,
-      lineHeight: 22,
-    },
-
-    value: {
-      minHeight: themeVar.cell_line_height,
-      flex: 1,
-    },
-
-    valueText: {
-      color: themeVar.cell_value_color,
-      fontSize: themeVar.cell_font_size,
-      paddingVertical: (themeVar.cell_line_height - 22) / 2,
-      lineHeight: 22,
-      textAlign: 'right',
-      // backgroundColor: '#f30', // to test ui
-    },
-
-    iconLeft: {
-      marginRight: themeVar.padding_base,
-      color: themeVar.cell_icon_color,
-      fontSize: themeVar.cell_icon_size,
-      lineHeight: themeVar.cell_line_height,
-    },
-
-    arrow: {
-      marginLeft: themeVar.padding_base,
-      color: themeVar.cell_icon_color,
-      fontSize: themeVar.cell_icon_size,
-      lineHeight: themeVar.cell_line_height,
-      height: themeVar.cell_line_height,
-      alignItems: 'center',
-      justifyContent: 'center',
-      // backgroundColor: '#f30', // to test ui
-    },
-
-    required: {
+    title_required: {
       position: 'absolute',
       left: -themeVar.padding_sm,
-      height: themeVar.cell_line_height,
+      height: innerHeight,
       width: themeVar.padding_sm,
       // backgroundColor: '#789', // to test ui
       alignItems: 'center',
       justifyContent: 'center',
     },
 
-    requiredText: {
+    title_required_text: {
       fontSize: themeVar.cell_font_size,
       color: themeVar.cell_required_color,
     },
 
-    verticalWrapper: {
-      flexDirection: 'column',
+    title_icon: {
+      marginRight: themeVar.padding_base,
+      color: themeVar.cell_icon_color,
+      fontSize: themeVar.cell_icon_size,
+      lineHeight: innerHeight,
     },
 
-    verticalHeader: {
-      width: '100%',
-      alignItems: 'center',
-      flexDirection: 'row',
-      // backgroundColor: '#ddd', // to test ui
+    title_text: {
+      marginRight: themeVar.padding_md,
+      minHeight: innerHeight,
+      // backgroundColor: '#f30', // to test ui
+      color: themeVar.cell_title_text_color,
+      lineHeight: themeVar.cell_title_line_height,
+      paddingVertical: (innerHeight - themeVar.cell_title_line_height) / 2,
     },
 
-    verticalBody: {
+    value: {
+      flex: 1,
+    },
+
+    value_text: {
+      color: themeVar.cell_value_text_color,
+      fontSize: themeVar.cell_font_size,
+      lineHeight: themeVar.cell_title_line_height,
+      paddingVertical: (innerHeight - themeVar.cell_title_line_height) / 2,
+      // backgroundColor: '#f30', // to test ui
+    },
+
+    icon_link: {
+      alignSelf: 'center',
+      marginLeft: themeVar.padding_base,
+      // backgroundColor: '#f30',
+    },
+
+    content: {
       flexDirection: 'row',
       alignItems: 'center',
     },

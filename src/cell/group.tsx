@@ -3,7 +3,7 @@ import type { ViewStyle, TextStyle } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
 import { isDef } from '../helpers/typeof'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import type { CellGroupProps } from './interface'
 import { createStyles } from './style.group'
 
@@ -17,9 +17,11 @@ const CellGroup: React.FC<CellGroupProps> = ({
   style,
   textStyle,
   border = true,
+  onPressTitleText,
+  extra,
 }) => {
   const themeVar = useTheme()
-  const Styles = createStyles(themeVar, { border })
+  const Styles = widthStyle(themeVar, createStyles)
 
   const titleStyleSummary: ViewStyle = StyleSheet.flatten([Styles.title, style])
   const titleTextStyleSummary: TextStyle = StyleSheet.flatten([
@@ -32,14 +34,21 @@ const CellGroup: React.FC<CellGroupProps> = ({
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={titleTextStyleSummary}>{title}</Text>
+      <Text style={titleTextStyleSummary} onPress={onPressTitleText}>
+        {title}
+      </Text>
     )
   ) : null
 
   return (
     <>
-      {titleJSX ? <View style={titleStyleSummary}>{titleJSX}</View> : null}
-      <View style={Styles.wrapper}>{children}</View>
+      {titleJSX || isDef(extra) ? (
+        <View style={titleStyleSummary}>
+          {titleJSX}
+          {extra}
+        </View>
+      ) : null}
+      {border ? <View style={Styles.body}>{children}</View> : children}
     </>
   )
 }

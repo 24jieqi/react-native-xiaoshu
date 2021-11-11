@@ -1,14 +1,8 @@
 import React, { isValidElement, memo } from 'react'
 import type { ViewStyle, TextStyle } from 'react-native'
-import {
-  Text,
-  View,
-  TouchableHighlight,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native'
+import { Text, View, TouchableHighlight, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import IconArrow from '../icon/arrow'
 import { isDef } from '../helpers/typeof'
 import { createStyles } from './style'
@@ -20,23 +14,22 @@ import type { CellProps } from './interface'
  */
 const Cell: React.FC<CellProps> = ({
   innerStyle,
-  titleWrapperStyle,
+  title,
   titleStyle,
   titleTextStyle,
+  titleExtra,
+  value,
   valueStyle,
   valueTextStyle,
-  title,
-  value,
-  size,
+  valueExtra,
+  contentStyle,
   border = true,
-  center = false,
-  icon,
   isLink = false,
+  onPressLink,
+  center = false,
   arrowDirection = 'right',
-  rightIcon,
   required = false,
   vertical = false,
-  onPressRightIcon,
   valueTextNumberOfLines,
   textAlign = 'right',
 
@@ -46,7 +39,7 @@ const Cell: React.FC<CellProps> = ({
   ...restProps
 }) => {
   const themeVar = useTheme()
-  const Styles = createStyles(themeVar, { size, border })
+  const STYLES = widthStyle(themeVar, createStyles)
 
   // 一定要绑定 Press 事件才有这个效果
   underlayColor = underlayColor || themeVar.cell_active_color
@@ -55,112 +48,95 @@ const Cell: React.FC<CellProps> = ({
     textAlign = 'left'
   }
 
-  const cellWrapperStyle: ViewStyle = {
-    borderBottomWidth: border ? 1 : 0,
-    alignItems: center ? 'center' : 'flex-start',
-  }
-  const cellValueStyle: TextStyle = {
-    textAlign,
-  }
+  const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : null
 
-  const cellTouchableSummary: ViewStyle = StyleSheet.flatten([
-    Styles.cellTouchable,
-    style,
-  ])
-  const cellStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.cell,
-    cellWrapperStyle,
-    vertical ? Styles.verticalWrapper : null,
+  const cellStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.cell, style])
+  const innerStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.cell_inner,
+    border ? STYLES.cell_inner_border : null,
+    vertical ? null : STYLES.cell_inner_row,
     innerStyle,
   ])
-  const titleWrapperSummary: ViewStyle = StyleSheet.flatten([
-    vertical ? Styles.verticalHeader : Styles.titleWrapper,
-    titleWrapperStyle,
+  const titleStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.title,
+    centerStyle,
+    titleStyle,
   ])
-  const titleSummary: ViewStyle = StyleSheet.flatten([Styles.title, titleStyle])
-  const titleTextSummary: TextStyle = StyleSheet.flatten([
-    Styles.titleText,
+  const titleTextStyleSummary = StyleSheet.flatten<TextStyle>([
+    STYLES.title_text,
     titleTextStyle,
   ])
-  const valueSummary: ViewStyle = StyleSheet.flatten([Styles.value, valueStyle])
-  const valueTextSummary: TextStyle = StyleSheet.flatten([
-    Styles.valueText,
-    cellValueStyle,
+  const valueStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.value,
+    centerStyle,
+    valueStyle,
+  ])
+  const valueTextStyleSummary = StyleSheet.flatten<TextStyle>([
+    STYLES.value_text,
+    {
+      textAlign,
+    },
     valueTextStyle,
   ])
+  const contentStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.content,
+    contentStyle,
+  ])
 
-  /** 左侧标题 可能是自定义 JSX */
+  const requiredJSX = required ? (
+    <View style={STYLES.title_required}>
+      <Text style={STYLES.title_required_text}>*</Text>
+    </View>
+  ) : null
   const titleJSX = isDef(title) ? (
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={titleTextSummary}>{title}</Text>
+      <Text style={titleTextStyleSummary}>{title}</Text>
     )
   ) : null
-  const titleJSXView = titleJSX ? (
-    <View style={titleSummary}>{titleJSX}</View>
-  ) : null
-
-  /** 右侧文案 可能是自定义 JSX */
   const valueJSX = isDef(value) ? (
     isValidElement(value) ? (
       value
     ) : (
-      <Text style={valueTextSummary} numberOfLines={valueTextNumberOfLines}>
+      <Text
+        style={valueTextStyleSummary}
+        numberOfLines={valueTextNumberOfLines}>
         {value}
       </Text>
     )
   ) : null
-  const valueJSXView = <View style={valueSummary}>{valueJSX}</View>
-
-  /** 箭头 */
-  const arrowJSX = isLink ? (
+  const linkJSX = isLink ? (
     <IconArrow
       direction={arrowDirection}
       size={themeVar.cell_icon_size}
       color={themeVar.cell_icon_color}
+      onPress={onPressLink || restProps.onPress}
+      style={STYLES.icon_link}
     />
-  ) : rightIcon ? (
-    rightIcon
-  ) : null
-  const arrowJSXView = arrowJSX ? (
-    <TouchableOpacity style={Styles.arrow} onPress={onPressRightIcon}>
-      {arrowJSX}
-    </TouchableOpacity>
   ) : null
 
-  /** 必填、红点 */
-  const RequiredJSX = required ? (
-    <View style={Styles.required}>
-      <Text style={Styles.requiredText}>*</Text>
-    </View>
-  ) : null
+  const ctxJSX = (
+    <>
+      <View style={valueStyleSummary}>{valueJSX}</View>
+      {valueExtra}
+      {linkJSX}
+    </>
+  )
 
   return (
     <TouchableHighlight
       {...restProps}
       underlayColor={underlayColor}
-      style={cellTouchableSummary}>
-      <View style={cellStyleSummary}>
-        <View style={titleWrapperSummary}>
-          {RequiredJSX}
-
-          {icon ? <Text style={Styles.iconLeft}>{icon}</Text> : null}
-
-          {titleJSXView}
+      style={cellStyleSummary}>
+      <View style={innerStyleSummary}>
+        <View style={titleStyleSummary}>
+          {requiredJSX}
+          {titleExtra}
+          {titleJSX}
         </View>
 
-        {vertical ? (
-          <View style={Styles.verticalBody}>
-            {valueJSXView}
-            {arrowJSXView}
-          </View>
-        ) : (
-          <>
-            {valueJSXView}
-            {arrowJSXView}
-          </>
-        )}
+        {vertical ? <View style={contentStyleSummary}>{ctxJSX}</View> : ctxJSX}
       </View>
     </TouchableHighlight>
   )

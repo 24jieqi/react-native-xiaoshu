@@ -1,48 +1,55 @@
 import React from 'react'
 import { Text, ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Icon } from 'react-native-xiaoshu'
+import { Cell, CellGroup, Icon, Toast } from 'react-native-xiaoshu'
+
+const msg = (t: string) => () => {
+  Toast({ message: t, overlay: false, closeOnPress: true })
+}
 
 const BasicCell: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <CellGroup
+        title="基础用法"
+        textStyle={{
+          flex: 1,
+          backgroundColor: '#ddd',
+        }}
+        onPressTitleText={() => {
+          console.log('onPressTitleText')
+        }}
+        extra={<Text>extra</Text>}>
         <Cell
           titleStyle={{ justifyContent: 'center' }}
-          title={<Text style={{ color: '#f30' }}>单元格</Text>}
+          title={<Text style={{ color: '#f30' }}>自定义单元格 title</Text>}
           value="内容"
         />
 
-        <Cell title="单元格" value="内容" />
+        <Cell
+          title="单元格"
+          value="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+        />
+
+        <Cell
+          title="单元格"
+          value="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+          isLink
+        />
 
         <Cell required title="单元格" />
 
+        <Cell title="单元格" value="内容" onPress={msg('点什么1')} />
+
+        <Cell title="单元格" value="来一段有趣的内容" textAlign="left" />
+
+        <Cell title="单元格" value="来一段有趣的内容" textAlign="center" />
+
         <Cell
-          title="单元格"
+          title={`单\n元\n格`}
           value="内容"
-          onPress={() => {
-            console.log('?0.0')
-          }}
-        />
-
-        <Cell
-          title="单元格"
-          value="内容"
-          onPress={() => {
-            console.log('!0.0')
-          }}
-          border={false}
-        />
-      </CellGroup>
-
-      <CellGroup title="单元格大小">
-        <Cell title="单元格" value="内容" />
-
-        <Cell
-          required
-          title="单元格"
-          value="large"
-          size="large"
+          onPress={msg('点什么2')}
+          isLink
           border={false}
         />
       </CellGroup>
@@ -50,38 +57,28 @@ const BasicCell: React.FC = () => {
       <CellGroup title="垂直布局">
         <Cell vertical title="单元格" value="内容" />
 
-        <Cell
-          required
-          vertical
-          title="单元格"
-          value="large"
-          size="large"
-          border={false}
-        />
+        <Cell required vertical title="单元格" value="large" border={false} />
       </CellGroup>
 
       <CellGroup title="展示图标">
         <Cell
           title="单元格"
           value="内容"
-          icon={<Icon.IconArrowOutline size="14" />}
+          titleExtra={<Icon.IconArrowOutline size="14" />}
           border={false}
         />
       </CellGroup>
 
       <CellGroup title="只设置 value">
-        <Cell value="内容" border={false} />
+        <Cell value="内容" />
+        <Cell value="内容 textAlign='center'" textAlign="center" />
+        <Cell value="内容 textAlign='left'" textAlign="left" />
+        <Cell value="内容" textAlign="left" isLink />
+        <Cell value="内容" textAlign="center" isLink border={false} />
       </CellGroup>
 
       <CellGroup title="展示箭头">
-        <Cell
-          title="单元格"
-          value="内容"
-          isLink
-          onPress={() => {
-            console.log('单元格')
-          }}
-        />
+        <Cell title="单元格" value="内容" isLink onPress={msg('点什么3')} />
 
         <Cell title="单元格" value="内容" isLink arrowDirection="left" />
 
@@ -92,7 +89,7 @@ const BasicCell: React.FC = () => {
         <Cell
           title="单元格"
           value="内容"
-          rightIcon={<Icon.IconArrowOutline />}
+          valueExtra={<Icon.IconArrowOutline />}
           border={false}
         />
       </CellGroup>
@@ -109,15 +106,10 @@ const BasicCell: React.FC = () => {
           value="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
           isLink
         />
+        <Cell title={`单\n元\n格`} value="内容" center isLink border={false} />
       </CellGroup>
 
-      <CellGroup title="分组头">
-        <Cell title="单元格" value="内容" isLink />
-
-        <Cell title="单元格" value="内容" border={false} isLink />
-      </CellGroup>
-
-      <CellGroup title={<Text style={{ color: '#690' }}>分组头</Text>}>
+      <CellGroup title={<Text style={{ color: '#690' }}>自定义分组头</Text>}>
         <Cell title="单元格" value="内容" isLink />
 
         <Cell title="单元格" value="内容" border={false} isLink />

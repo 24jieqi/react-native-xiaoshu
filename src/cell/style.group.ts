@@ -1,19 +1,16 @@
 import { StyleSheet } from 'react-native'
 
 import type { ThemeVarType } from '../theme'
-import type { CellGroupProps } from './interface'
 
-export const createStyles = (
-  themeVar: ThemeVarType,
-  { border }: Pick<CellGroupProps, 'border'>,
-) => {
-  const borderWidth = border ? StyleSheet.hairlineWidth : 0
-
+export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     title: {
       paddingHorizontal: themeVar.cell_group_title_padding_horizontal,
       paddingTop: themeVar.cell_group_title_padding_top,
       paddingBottom: themeVar.cell_group_title_padding_bottom,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     },
 
     text: {
@@ -22,12 +19,12 @@ export const createStyles = (
       lineHeight: themeVar.cell_group_title_line_height,
     },
 
-    wrapper: {
+    body: {
       borderStyle: 'solid',
       // borderColor: '#000', // to test ui
       borderColor: themeVar.cell_border_color,
-      borderTopWidth: borderWidth,
-      borderBottomWidth: borderWidth,
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderBottomWidth: StyleSheet.hairlineWidth,
     },
   })
 }

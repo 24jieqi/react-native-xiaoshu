@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { Svg, Polyline } from 'react-native-svg'
 
 import type { IconCommonOutlineProps } from './interface'
+import * as helper from './helper'
 
 type Direction = 'left' | 'up' | 'right' | 'down'
 
@@ -17,14 +18,20 @@ const PointsMap: Record<Direction, string> = {
 }
 
 const IconArrowOutline: React.FC<IconArrowOutlineProps> = ({
-  size = 24,
-  color = '#666',
-  strokeWidth = 2,
+  size = helper.DEFAULT_SIZE,
+  color = helper.DEFAULT_COLOR,
+  style = helper.ICON_DEFAULT_STYLE,
+  strokeWidth = helper.STROKE_WIDTH,
   direction = 'right',
   ...restProps
 }) => {
   return (
-    <Svg {...restProps} height={size} width={size} viewBox="0 0 24 24">
+    <Svg
+      {...restProps}
+      style={style}
+      height={size}
+      width={size}
+      viewBox="0 0 24 24">
       <Polyline
         points={PointsMap[direction]}
         fill="none"

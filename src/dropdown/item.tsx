@@ -141,7 +141,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
                     <Cell
                       key={opt.value}
                       title={opt.text}
-                      rightIcon={
+                      valueExtra={
                         opt.value === value ? (
                           <IconSuccessOutline
                             size="16"

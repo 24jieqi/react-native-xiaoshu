@@ -4,6 +4,8 @@ import type {
   TextStyle,
   TouchableHighlightProps,
   StyleProp,
+  TextProps,
+  TouchableOpacityProps,
 } from 'react-native'
 
 export type CellGroupProps = {
@@ -24,53 +26,105 @@ export type CellGroupProps = {
 
   /**
    * 是否显示外边框
-   *
-   * @default `true`
+   * @default true
    */
   border?: boolean
+
+  /**
+   * 点击头部文案
+   */
+  onPressTitleText?: TextProps['onPress']
+
+  /**
+   * 头部右侧自定义内容
+   */
+  extra?: React.ReactNode
 }
 
 export interface CellPrivateProps {
+  /**
+   * 内部布局样式
+   */
   innerStyle?: StyleProp<ViewStyle>
 
-  titleWrapperStyle?: StyleProp<ViewStyle>
-
-  titleStyle?: StyleProp<ViewStyle>
-
-  titleTextStyle?: StyleProp<TextStyle>
-
-  valueStyle?: StyleProp<ViewStyle>
-
-  valueTextStyle?: StyleProp<TextStyle>
-
-  /** 左侧标题 */
+  /**
+   * 左侧标题
+   */
   title?: React.ReactNode
 
-  /** 右侧内容 */
+  /**
+   * 左侧标题样式
+   */
+  titleStyle?: StyleProp<ViewStyle>
+
+  /**
+   * 左侧标题样文案式
+   */
+  titleTextStyle?: StyleProp<TextStyle>
+
+  /**
+   * 标题的左侧自定义内容
+   */
+  titleExtra?: React.ReactNode
+
+  /**
+   * 右侧内容
+   */
   value?: React.ReactNode
 
-  /** 单元格大小，可选值为 large */
-  size?: 'large'
+  /**
+   * 右侧内容样式
+   */
+  valueStyle?: StyleProp<ViewStyle>
 
-  /** 左侧图标名称或图片链接 */
-  icon?: React.ReactNode
+  /**
+   * 右侧内容样文案式
+   */
+  valueTextStyle?: StyleProp<TextStyle>
 
-  /** 自定义右侧按钮，默认为 arrow */
-  rightIcon?: React.ReactNode
+  /**
+   * 右侧内容的右侧自定义内容
+   */
+  valueExtra?: React.ReactNode
 
-  /** 是否显示内边框 */
-  border?: Boolean
+  /**
+   * 内容部分的样式 垂直模式模式下有小
+   */
+  contentStyle?: StyleProp<ViewStyle>
 
-  /** 是否展示右侧箭头并开启点击反馈 */
-  isLink?: Boolean
+  /**
+   * 是否显示内边框
+   * @default true
+   */
+  border?: boolean
 
-  /** 是否使内容垂直居中 */
-  center?: Boolean
+  /**
+   * 是否展示右侧箭头并开启点击反馈
+   * @default false
+   */
+  isLink?: boolean
 
-  /** 箭头方向 */
+  /**
+   * 点击右侧图标
+   */
+  onPressLink?: TouchableOpacityProps['onPress']
+
+  /**
+   * 是否使内容垂直居中
+   * @default false
+   */
+  center?: boolean
+
+  /**
+   * 箭头方向
+   * @default 'right'
+   */
   arrowDirection?: 'left' | 'up' | 'right' | 'down'
 
-  /** 是否显示表单必填星号 */
+  /**
+   * 是否显示表单必填星号
+   * @default false
+   */
   required?: boolean
 
   /**
@@ -78,11 +132,6 @@ export interface CellPrivateProps {
    * @default false
    */
   vertical?: boolean
-
-  /**
-   * 点击右侧图标
-   */
-  onPressRightIcon?: () => void
 
   /**
    * value 区域 Text 的 numberOfLines
