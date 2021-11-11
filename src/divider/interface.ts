@@ -17,6 +17,16 @@ export interface DividerProps {
   borderStyle?: StyleProp<ViewStyle>
 
   /**
+   * 左边线的样式
+   */
+  leftBorderStyle?: StyleProp<ViewStyle>
+
+  /**
+   * 右边线的样式
+   */
+  rightBorderStyle?: StyleProp<ViewStyle>
+
+  /**
    * 是否使用虚线
    *
    * @default false

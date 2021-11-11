@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import type { ViewStyle, TextStyle } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import type { DividerProps } from './interface'
 import { createStyles } from './style'
 
@@ -12,30 +12,45 @@ import { createStyles } from './style'
  */
 const Divider: React.FC<DividerProps> = ({
   children,
+  style,
   textStyle,
   borderStyle,
-  style,
+  leftBorderStyle,
+  rightBorderStyle,
   dashed = false,
   hairline = true,
   contentPosition = 'center',
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar, { dashed, hairline, contentPosition })
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const styleSummary: ViewStyle = StyleSheet.flatten([Styles.divider, style])
-  const textStyleSummary: TextStyle = StyleSheet.flatten([
-    Styles.text,
+  const borderCommonStyle: ViewStyle = {
+    ...STYLES.border,
+    borderStyle: dashed ? 'dashed' : 'solid',
+    borderBottomWidth: hairline ? StyleSheet.hairlineWidth : 1,
+  }
+  const styleSummary = StyleSheet.flatten<ViewStyle>([STYLES.divider, style])
+  const textStyleSummary = StyleSheet.flatten<TextStyle>([
+    STYLES.text,
     textStyle,
   ])
-  const leftBorderStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.border,
-    Styles.borderLeft,
+  const leftBorderStyleSummary = StyleSheet.flatten<ViewStyle>([
+    borderCommonStyle,
+    STYLES.border_left,
+    contentPosition === 'left'
+      ? { maxWidth: THEME_VAR.divider_content_left_width }
+      : null,
     borderStyle,
+    leftBorderStyle,
   ])
-  const rightBorderStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.border,
-    Styles.borderRight,
+  const rightBorderStyleSummary = StyleSheet.flatten<ViewStyle>([
+    borderCommonStyle,
+    STYLES.border_right,
+    contentPosition === 'right'
+      ? { maxWidth: THEME_VAR.divider_content_right_width }
+      : null,
     borderStyle,
+    rightBorderStyle,
   ])
 
   if (children) {
@@ -50,7 +65,7 @@ const Divider: React.FC<DividerProps> = ({
 
   return (
     <View style={styleSummary}>
-      <View style={[Styles.border, borderStyle]} />
+      <View style={[borderCommonStyle, borderStyle]} />
     </View>
   )
 }
