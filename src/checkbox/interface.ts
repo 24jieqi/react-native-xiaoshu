@@ -35,32 +35,57 @@ interface CheckboxIconPrivateProps {
    * @default false
    */
   pure?: boolean
+
+  /**
+   * 自定义图标
+   */
+  icon?: React.ReactNode
 }
 
 export interface CheckboxIconProps
   extends TouchableOpacityProps,
     CheckboxIconPrivateProps {}
 
-export interface CheckboxProps
+export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   extends Omit<CheckboxIconPrivateProps, 'active' | 'size' | 'pure'> {
   style?: StyleProp<ViewStyle>
 
-  labelStyle?: StyleProp<TextStyle>
+  /**
+   * 文案样式
+   */
+  labelTextStyle?: StyleProp<TextStyle>
+
+  /**
+   * 图标样式
+   */
+  iconStyle?: StyleProp<ViewStyle>
 
   /**
    * 默认值
    */
-  defaultValue?: boolean
+  defaultValue?: ActiveValueT | InactiveValueT
 
   /**
    * 当前是否选择
    */
-  value?: boolean
+  value?: ActiveValueT | InactiveValueT
 
   /**
    * 状态变化
    */
-  onChange?: (value: boolean) => void
+  onChange?: (value: ActiveValueT | InactiveValueT) => void
+
+  /**
+   * 选中时对应的值
+   * @default true
+   */
+  activeValue?: ActiveValueT
+
+  /**
+   * 未选中时对应的值
+   * @default false
+   */
+  inactiveValue?: InactiveValueT
 
   /**
    * 文案

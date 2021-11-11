@@ -13,7 +13,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       lineHeight: themeVar.checkbox_icon_size,
       minHeight: themeVar.checkbox_icon_size,
     },
-    labelDisabled: {
+    label_disabled: {
       color: themeVar.checkbox_disabled_label_color,
     },
   })

@@ -13,6 +13,8 @@ group:
 
 > 弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作，支持函数调用和组件调用两种方式。
 
+适用于受控、非受控两种方式。
+
 ## DEMO
 
 <code defaultShowCode src="./__fixtures__/doc.tsx"></code>

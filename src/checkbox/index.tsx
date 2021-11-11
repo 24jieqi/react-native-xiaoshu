@@ -1,71 +1,90 @@
-import React, { useCallback, useState, useEffect, memo } from 'react'
+import type { PropsWithChildren } from 'react'
+import React, { useCallback, useState, memo } from 'react'
+import type { ViewStyle, TextStyle } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import usePersistFn from '../hooks/usePersistFn'
-import { isDef } from '../helpers/typeof'
+import useUpdateEffect from '../hooks/useUpdateEffect'
+import { isDef, isValue } from '../helpers/typeof'
 import { noop } from '../helpers'
 import { createStyles } from './style'
 import CheckboxIcon from './icon'
 import type { CheckboxProps } from './interface'
 
-const Checkbox: React.FC<CheckboxProps> = ({
+function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
+  labelTextStyle,
+  iconStyle,
   defaultValue,
   value,
   onChange,
+  activeValue = true as unknown as ActiveValueT,
+  inactiveValue = false as unknown as InactiveValueT,
   label,
   labelDisabled = false,
   labelPosition = 'right',
   iconSize = 20,
+  icon,
 
   shape,
   disabled,
   activeColor,
 
   style,
-  labelStyle,
   children,
-}) => {
+}: PropsWithChildren<CheckboxProps<ActiveValueT, InactiveValueT>>) {
   if (disabled) {
     labelDisabled = disabled
   }
 
   const onChangePersistFn = usePersistFn(onChange || noop)
-  const [currentValue, setCurrentValue] = useState(defaultValue)
+  const [currentValue, setCurrentValue] = useState<
+    ActiveValueT | InactiveValueT
+  >(
+    isValue(value)
+      ? value
+      : isValue(defaultValue)
+      ? defaultValue
+      : inactiveValue,
+  )
   const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const STYLES = widthStyle(themeVar, createStyles)
 
-  const checkboxStyleSummary = StyleSheet.flatten([Styles.checkbox, style])
-  const labelStyleSummary = StyleSheet.flatten([
-    Styles.label,
+  const checkboxStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.checkbox,
+    style,
+  ])
+  const labelTextStyleSummary = StyleSheet.flatten<TextStyle>([
+    STYLES.label,
     {
       [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
         themeVar.checkbox_label_margin,
     },
-    disabled ? Styles.labelDisabled : null,
-    labelStyle,
+    disabled ? STYLES.label_disabled : null,
+    labelTextStyle,
   ])
 
   // 同步状态
-  useEffect(() => {
-    if (typeof value === 'boolean') {
-      setCurrentValue(value)
-    }
+  useUpdateEffect(() => {
+    setCurrentValue(value)
   }, [value])
 
   const onChangeValue = useCallback(() => {
     setCurrentValue(s => {
-      const v = !s
+      const v = s === activeValue ? inactiveValue : activeValue
 
-      onChangePersistFn(v)
+      // 做一个延迟，避免父组件更新的时候子组件也在更新
+      setTimeout(() => {
+        onChangePersistFn(v)
+      }, 0)
 
       return v
     })
-  }, [onChangePersistFn])
+  }, [activeValue, inactiveValue, onChangePersistFn])
 
   const labelJSX = isDef(label) ? (
     <Text
-      style={labelStyleSummary}
+      style={labelTextStyleSummary}
       onPress={labelDisabled ? undefined : onChangeValue}>
       {label}
     </Text>
@@ -77,7 +96,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
     <View style={checkboxStyleSummary}>
       {labelPosition === 'left' ? labelJSX : null}
       <CheckboxIcon
-        active={currentValue}
+        style={iconStyle}
+        icon={icon}
+        active={currentValue === activeValue}
         activeColor={activeColor}
         shape={shape}
         disabled={disabled}

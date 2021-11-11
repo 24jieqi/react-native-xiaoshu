@@ -1,21 +1,10 @@
 import { StyleSheet } from 'react-native'
 
 import type { ThemeVarType } from '../theme'
-import type { CheckboxIconProps } from './interface'
 
-export const createStyles = (
-  themeVar: ThemeVarType,
-  {
-    activeColor,
-    shape,
-    size,
-  }: Required<Pick<CheckboxIconProps, 'activeColor' | 'shape' | 'size'>>,
-) => {
+export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     icon: {
-      width: size,
-      height: size,
-      borderRadius: shape === 'round' ? size / 2 : themeVar.border_radius_sm,
       borderWidth: 1,
       borderColor: themeVar.checkbox_icon_border_color,
       alignContent: 'center',
@@ -23,18 +12,9 @@ export const createStyles = (
       flexDirection: 'row',
     },
 
-    iconActive: {
-      backgroundColor: activeColor,
-      borderColor: activeColor,
-    },
-
-    iconDisabled: {
+    icon_disabled: {
       backgroundColor: themeVar.checkbox_disabled_background_color,
       borderColor: themeVar.checkbox_icon_border_color,
-    },
-
-    iconStyle: {
-      alignSelf: 'center',
     },
   })
 }

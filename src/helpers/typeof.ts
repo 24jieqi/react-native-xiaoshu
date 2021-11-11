@@ -43,3 +43,11 @@ export function isMobile(value: string): boolean {
 export function isNullish(value: any) {
   return ['', undefined, null].includes(value)
 }
+
+/**
+ * 是否是 value 类型
+ * @description 在业务中，null 可以是一个 value 值
+ */
+export function isValue<T>(val: T): val is T extends undefined ? never : T {
+  return val !== undefined
+}
