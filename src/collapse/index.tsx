@@ -1,12 +1,11 @@
 import React, {
   useRef,
-  useEffect,
   useCallback,
   useState,
   memo,
   isValidElement,
 } from 'react'
-import type { LayoutChangeEvent, ViewStyle } from 'react-native'
+import type { LayoutChangeEvent, ViewStyle, TextStyle } from 'react-native'
 import {
   Animated,
   View,
@@ -17,9 +16,10 @@ import {
 
 import IconSVGArrow from '../icon/arrow'
 import usePersistFn from '../hooks/usePersistFn'
-import { isDef } from '../helpers/typeof'
+import useUpdateEffect from '../hooks/useUpdateEffect'
+import { isDef, isValue } from '../helpers/typeof'
 import * as helpers from '../helpers'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import type { CollapseProps } from './interface'
 import { createStyles } from './style'
 
@@ -29,6 +29,12 @@ import { createStyles } from './style'
 const Collapse: React.FC<CollapseProps> = ({
   children,
   title,
+  titleStyle,
+  titleTextStyle,
+  iconStyle,
+  iconColor,
+  iconSize,
+  bodyStyle,
   renderTitle,
   renderBody,
   defaultCollapse,
@@ -36,16 +42,17 @@ const Collapse: React.FC<CollapseProps> = ({
   onAnimationEnd,
   bodyPadding = true,
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   const onAnimationEndPersistFn = usePersistFn((v: boolean) => {
     onAnimationEnd && onAnimationEnd(v)
   })
+  /** 记录当前是否课件，在不断 onLayout 的时候可以有一个判断的依据 */
   const Visible = useRef(
-    isDef(collapse)
+    isValue(collapse)
       ? collapse
-      : isDef(defaultCollapse)
+      : isValue(defaultCollapse)
       ? defaultCollapse
       : false,
   )
@@ -68,7 +75,7 @@ const Collapse: React.FC<CollapseProps> = ({
         toValue: v
           ? HeightMap.current.start + HeightMap.current.end
           : HeightMap.current.start,
-        duration: themeVar.collapse_transition_duration,
+        duration: THEME_VAR.collapse_transition_duration,
         useNativeDriver: false,
         easing: v ? helpers.easing.easeOutCirc : helpers.easing.easeInCubic,
       })
@@ -86,12 +93,12 @@ const Collapse: React.FC<CollapseProps> = ({
     [
       AnimatedValue,
       onAnimationEndPersistFn,
-      themeVar.collapse_transition_duration,
+      THEME_VAR.collapse_transition_duration,
     ],
   )
 
-  useEffect(() => {
-    if (isDef(collapse) && collapse !== Visible.current) {
+  useUpdateEffect(() => {
+    if (collapse !== Visible.current) {
       // 同步外界状态
       setVisible(!Visible.current)
     }
@@ -101,14 +108,6 @@ const Collapse: React.FC<CollapseProps> = ({
   if (renderTitle) {
     title = renderTitle(show)
   }
-
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={Styles.titleText}>{title}</Text>
-    )
-  ) : null
 
   const onPressTitle = useCallback(() => {
     setVisible(!Visible.current)
@@ -138,29 +137,51 @@ const Collapse: React.FC<CollapseProps> = ({
   )
 
   const collapseStyleSummary = StyleSheet.flatten<ViewStyle>([
-    Styles.collapse,
+    STYLES.collapse,
     { height: AnimatedValue as unknown as number },
   ])
-  const bodyStyleSummary = StyleSheet.flatten<ViewStyle>([
-    Styles.body,
-    bodyPadding ? Styles.bodyPadding : null,
+  const titleStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.title,
+    titleStyle,
   ])
+  const titleTextStyleSummary = StyleSheet.flatten<TextStyle>([
+    STYLES.title_text,
+    titleTextStyle,
+  ])
+  const bodyStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.body,
+    bodyPadding ? STYLES.body_padding : null,
+    bodyStyle,
+  ])
+
+  const titleJSX = isDef(title) ? (
+    isValidElement(title) ? (
+      title
+    ) : (
+      <Text style={titleTextStyleSummary}>{title}</Text>
+    )
+  ) : null
 
   return (
     <Animated.View style={collapseStyleSummary}>
       <TouchableHighlight
-        underlayColor={themeVar.cell_active_color}
+        underlayColor={THEME_VAR.cell_active_color}
         onPress={onPressTitle}
         onLayout={onLayoutTitle}>
-        <View style={Styles.title}>
+        <View style={titleStyleSummary}>
           {titleJSX}
-          <View style={Styles.icon}>
-            <IconSVGArrow
-              color={themeVar.collapse_title_icon_color}
-              size={themeVar.collapse_title_icon_size}
-              direction={show ? 'up' : 'down'}
-            />
-          </View>
+          <IconSVGArrow
+            style={iconStyle}
+            color={
+              isValue(iconColor)
+                ? iconColor
+                : THEME_VAR.collapse_title_icon_color
+            }
+            size={
+              isValue(iconSize) ? iconSize : THEME_VAR.collapse_title_icon_size
+            }
+            direction={show ? 'up' : 'down'}
+          />
         </View>
       </TouchableHighlight>
 

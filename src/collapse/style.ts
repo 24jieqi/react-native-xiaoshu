@@ -23,22 +23,18 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderBottomWidth: 1,
       borderBottomColor: themeVar.collapse_title_border_color,
     },
-    titleText: {
+    title_text: {
       lineHeight: themeVar.collapse_title_line_height,
       fontSize: themeVar.collapse_title_font_size,
       fontWeight: 'bold',
       color: themeVar.collapse_title_text_color,
-    },
-    icon: {
-      height: themeVar.collapse_title_line_height,
-      justifyContent: 'center',
     },
     body: {
       backgroundColor: themeVar.collapse_content_background_color,
       borderBottomWidth: 1,
       borderBottomColor: themeVar.collapse_title_border_color,
     },
-    bodyPadding: {
+    body_padding: {
       paddingHorizontal: themeVar.collapse_content_padding_horizontal,
     },
   })
