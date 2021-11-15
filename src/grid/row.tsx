@@ -1,18 +1,19 @@
-import React, { memo } from 'react'
+import React, { useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, StyleSheet } from 'react-native'
 
 import type { RowProps } from './interface'
 import RowContext from './context'
-import Styles from './style'
+import STYLES from './style'
 
 /**
  * Row 布局
  * @description 一组单元格。
  */
 const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
+  const ctx = useMemo(() => ({ gutter }), [gutter])
   const rowStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.row,
+    STYLES.row,
     {
       marginHorizontal: -(+gutter / 2),
     },
@@ -26,7 +27,7 @@ const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
   // console.log(-(+gutter / 2));
 
   return (
-    <RowContext.Provider value={{ gutter }}>
+    <RowContext.Provider value={ctx}>
       <View style={rowStyleSummary}>{children}</View>
     </RowContext.Provider>
   )
