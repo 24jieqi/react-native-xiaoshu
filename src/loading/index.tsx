@@ -2,8 +2,9 @@ import React, { isValidElement, memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 import { useTheme } from '../theme'
+import { getDefaultValue } from '../helpers'
+import { isDef } from '../helpers/typeof'
 import type { LoadingProps } from './interface'
-import { createStyles } from './style'
 import Circular from './circular'
 import Spinner from './spinner'
 
@@ -21,29 +22,60 @@ const Loading: React.FC<LoadingProps> = ({
   vertical = false,
   type = 'circular',
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar, { size, color, textSize, vertical })
+  const THEME_VAR = useTheme()
+  const ICON_COLOR = getDefaultValue(color, THEME_VAR.loading_spinner_color)
+  const ICON_SIZE = getDefaultValue(size, THEME_VAR.loading_spinner_size)
 
-  const textJSX = children ? (
+  const textJSX = isDef(children) ? (
     isValidElement(children) ? (
       children
     ) : (
-      <Text style={StyleSheet.flatten([Styles.text, textStyle])}>
+      <Text
+        style={StyleSheet.flatten([
+          {
+            fontSize: textSize || THEME_VAR.loading_text_font_size,
+            color: color || THEME_VAR.loading_text_color,
+            marginLeft: vertical ? 0 : THEME_VAR.padding_xs,
+            marginTop: vertical ? THEME_VAR.padding_xs : 0,
+          },
+          textStyle,
+        ])}>
         {children}
       </Text>
     )
   ) : null
 
   return (
-    <View style={StyleSheet.flatten([Styles.loading, style])}>
+    <View
+      style={StyleSheet.flatten([
+        STYLES.loading,
+        vertical ? STYLES.loading_vertical : null,
+        style,
+      ])}>
       {type === 'circular' ? (
-        <Circular size={size} color={color} />
+        <Circular size={ICON_SIZE} color={ICON_COLOR} />
       ) : (
-        <Spinner size={size} color={color} />
+        <Spinner size={ICON_SIZE} color={ICON_COLOR} />
       )}
       {textJSX}
     </View>
   )
 }
+
+const STYLES = StyleSheet.create({
+  loading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  loading_vertical: {
+    flexDirection: 'column',
+  },
+
+  icon: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
 
 export default memo<typeof Loading>(Loading)

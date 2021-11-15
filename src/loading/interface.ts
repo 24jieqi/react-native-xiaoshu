@@ -28,7 +28,7 @@ export interface LoadingProps {
   size?: number
 
   /**
-   * 文字大小，默认单位为px
+   * 文字大小
    */
   textSize?: number
 

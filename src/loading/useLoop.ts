@@ -27,8 +27,10 @@ const useLoop = (
 
       AnimatedValue.setValue(initValue)
 
-      action.start(() => {
-        loop()
+      action.start(({ finished }) => {
+        if (finished) {
+          loop()
+        }
       })
     }
 

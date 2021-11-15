@@ -4,6 +4,7 @@ import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 
 import { useTheme } from '../theme'
+import { getDefaultValue } from '../helpers'
 import useLoop from './useLoop'
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle)
@@ -20,62 +21,62 @@ export interface CircularProps {
   color?: string
 }
 
-const strokeWidth = 2
+const STROKE_WIDTH = 2
 
 const Circular: React.FC<CircularProps> = ({ size, color }) => {
-  const themeVar = useTheme()
+  const THEME_VAR = useTheme()
   const AnimatedCircle0Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current
 
-  const resetSize = size || themeVar.loading_spinner_size
-  const resetColor = color || themeVar.primary
+  size = getDefaultValue(size, THEME_VAR.loading_spinner_size)
+  color = getDefaultValue(color, THEME_VAR.primary)
 
   const circle1Props = useMemo(() => {
-    const center = Math.floor(resetSize / 2)
-    const radios = Math.floor(center - strokeWidth / 2)
+    const center = Math.floor(size / 2)
+    const radios = Math.floor(center - STROKE_WIDTH / 2)
 
     return {
       cy: center,
       cx: center,
       r: radios,
     }
-  }, [resetSize])
+  }, [size])
 
   const circle2Props = useMemo(() => {
-    const center = Math.floor(resetSize / 2)
-    const radios = Math.floor(center - strokeWidth / 2 - center / 2)
+    const center = Math.floor(size / 2)
+    const radios = Math.floor(center - STROKE_WIDTH / 2 - center / 2)
 
     return {
       cy: center,
       cx: center,
       r: radios,
     }
-  }, [resetSize])
+  }, [size])
 
   const half1Circle = useMemo(() => circle1Props.r * Math.PI, [circle1Props.r])
   const half2Circle = useMemo(() => circle2Props.r * Math.PI, [circle2Props.r])
 
   useLoop(AnimatedCircle0Value, 0, {
     toValue: 1,
-    duration: themeVar.loading_spinner_animation_duration * 1000,
+    duration: THEME_VAR.loading_spinner_animation_duration * 1000,
   })
 
   useLoop(AnimatedCircle1Value, half1Circle, {
     toValue: -half1Circle * 2,
-    duration: themeVar.loading_spinner_animation_duration * 1000 * 1.5,
+    duration: THEME_VAR.loading_spinner_animation_duration * 1000 * 1.5,
   })
 
   useLoop(AnimatedCircle2Value, half2Circle, {
     toValue: -half2Circle * 2,
-    duration: themeVar.loading_spinner_animation_duration * 1000 * 2.5,
+    duration: THEME_VAR.loading_spinner_animation_duration * 1000 * 2.5,
   })
 
-  const wrapperStyleSummary: ViewStyle = {
+  const iconStyleSummary: ViewStyle = {
     justifyContent: 'center',
     alignItems: 'center',
-    width: resetSize,
-    height: resetSize,
+    width: size,
+    height: size,
     transform: [
       {
         rotateZ: AnimatedCircle0Value.interpolate({
@@ -87,7 +88,7 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
   }
 
   return (
-    <Animated.View style={wrapperStyleSummary}>
+    <Animated.View style={iconStyleSummary}>
       <Svg
         width="100%"
         height="100%"
@@ -95,8 +96,8 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
       >
         <AnimatedCircle
           {...circle1Props}
-          stroke={resetColor}
-          strokeWidth={strokeWidth}
+          stroke={color}
+          strokeWidth={STROKE_WIDTH}
           strokeDasharray={`${half1Circle},${half1Circle * 2}`}
           strokeLinecap="round"
           // strokeDashoffset={half1Circle - half1Circle - half1Circle - 10}
@@ -106,8 +107,8 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
 
         <AnimatedCircle
           {...circle2Props}
-          stroke={resetColor}
-          strokeWidth={strokeWidth}
+          stroke={color}
+          strokeWidth={STROKE_WIDTH}
           strokeDasharray={`${half2Circle},${half2Circle * 2}`}
           strokeLinecap="round"
           // strokeDashoffset={half1Circle - half1Circle - half1Circle - 10}

@@ -3,6 +3,7 @@ import type { ViewStyle } from 'react-native'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
 import { useTheme } from '../theme'
+import { getDefaultValue } from '../helpers'
 import useLoop from './useLoop'
 
 export interface SpinnerProps {
@@ -17,27 +18,29 @@ export interface SpinnerProps {
   color?: string
 }
 
-const petalCount = 12
-const petals = new Array(petalCount).fill(0)
+const PETAL_COUNT = 12
+const PETALS = new Array(PETAL_COUNT).fill(0)
+const A_OPACITY = 1 / PETAL_COUNT
+const A_ROTATE = 360 / PETAL_COUNT
 
 const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
-  const themeVar = useTheme()
+  const THEME_VAR = useTheme()
   const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
 
-  const resetSize = size || themeVar.loading_spinner_size
-  const resetColor = color || themeVar.primary
+  size = getDefaultValue(size, THEME_VAR.loading_spinner_size)
+  color = getDefaultValue(color, THEME_VAR.primary)
 
   useLoop(AnimatedSpinnerValue, 0, {
     toValue: 1,
-    duration: themeVar.loading_spinner_animation_duration * 1000,
+    duration: THEME_VAR.loading_spinner_animation_duration * 1000,
     easing: Easing.linear,
   })
 
-  const wrapperStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.wrapperStyle,
+  const iconStyleSummary: ViewStyle = StyleSheet.flatten([
+    STYLES.icon,
     {
-      width: resetSize,
-      height: resetSize,
+      width: size,
+      height: size,
       transform: [
         {
           rotateZ: AnimatedSpinnerValue.interpolate({
@@ -49,31 +52,31 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
     },
   ])
 
-  const petalInnerStyleSummary = StyleSheet.flatten([
-    Styles.petalInnerStyle,
+  const innerStyleSummary = StyleSheet.flatten([
+    STYLES.inner,
     {
-      backgroundColor: resetColor,
+      backgroundColor: color,
     },
   ])
 
   return (
-    <Animated.View style={wrapperStyleSummary}>
-      {petals.map((_, i) => {
+    <Animated.View style={iconStyleSummary}>
+      {PETALS.map((_, i) => {
         return (
           <View
             key={i}
             style={StyleSheet.flatten([
-              Styles.petalStyle,
+              STYLES.petal,
               {
-                opacity: (1 / petalCount) * (i + 1),
+                opacity: A_OPACITY * (i + 1),
                 transform: [
                   {
-                    rotate: `${(360 / petalCount) * i}deg`,
+                    rotate: `${A_ROTATE * i}deg`,
                   },
                 ],
               },
             ])}>
-            <View style={petalInnerStyleSummary} />
+            <View style={innerStyleSummary} />
           </View>
         )
       })}
@@ -81,8 +84,8 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
   )
 }
 
-const Styles = StyleSheet.create({
-  wrapperStyle: {
+const STYLES = StyleSheet.create({
+  icon: {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
@@ -94,7 +97,7 @@ const Styles = StyleSheet.create({
     // ],
   },
 
-  petalStyle: {
+  petal: {
     position: 'absolute',
     left: 0,
     right: 0,
@@ -104,11 +107,11 @@ const Styles = StyleSheet.create({
     // backgroundColor: '#f30', // to test ui
   },
 
-  petalInnerStyle: {
+  inner: {
     width: 2,
     height: '25%',
     borderRadius: 1,
-    backgroundColor: '#000',
+    // backgroundColor: '#000',
   },
 })
 

@@ -6,20 +6,14 @@ import { Loading, LoadingCircular, LoadingSpinner } from 'react-native-xiaoshu'
 const BasicLoading: React.FC = () => {
   return (
     <ScrollView>
-      <View>
-        <Text>单独使用图标</Text>
-      </View>
+      <Text>单独使用图标</Text>
 
-      <View>
-        <LoadingCircular />
-        <LoadingSpinner />
-      </View>
+      <LoadingCircular />
+      <LoadingSpinner />
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>加载类型</Text>
-      </View>
+      <Text>加载类型</Text>
 
       <View style={{ flexDirection: 'row' }}>
         <Loading />
@@ -28,9 +22,7 @@ const BasicLoading: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>自定义颜色</Text>
-      </View>
+      <Text>自定义颜色</Text>
 
       <View style={{ flexDirection: 'row' }}>
         <Loading color="#f30" />
@@ -39,9 +31,7 @@ const BasicLoading: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>自定义大小</Text>
-      </View>
+      <Text>自定义大小</Text>
 
       <View style={{ flexDirection: 'row' }}>
         <Loading size={18} />
@@ -50,23 +40,15 @@ const BasicLoading: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>加载文案</Text>
-      </View>
+      <Text>加载文案</Text>
 
-      <View>
-        <Loading>加载文案...</Loading>
-      </View>
+      <Loading>加载文案...</Loading>
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>垂直排列</Text>
-      </View>
+      <Text>垂直排列</Text>
 
-      <View>
-        <Loading vertical>加载文案...</Loading>
-      </View>
+      <Loading vertical>加载文案...</Loading>
 
       <View style={{ height: 20 }} />
     </ScrollView>
