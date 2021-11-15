@@ -1,11 +1,5 @@
-import type {
-  StyleProp,
-  ViewStyle,
-  TextStyle,
-  ImageStyle,
-  ImageProps,
-  ImageSourcePropType,
-} from 'react-native'
+import type React from 'react'
+import type { StyleProp, ViewStyle, TextStyle } from 'react-native'
 
 export interface EmptyProps {
   /**
@@ -19,24 +13,18 @@ export interface EmptyProps {
   textStyle?: StyleProp<TextStyle>
 
   /**
-   * 图片样式
+   * 图标样式
    */
-  imageStyle?: StyleProp<ImageStyle>
+  iconStyle?: StyleProp<ViewStyle>
 
   /**
-   * 空数据图片 Image 的 props，除去 style、source，暂时开放所有，应该只需要有几个改动就好了
+   * 自定义图标
    */
-  imageProps?: Omit<ImageProps, 'style' | 'source'>
+  icon?: React.ReactNode
 
   /**
    * 空数据提示文案
    * @default '暂无数据'
    */
   text?: string
-
-  /**
-   * 自定义图片
-   * @default '默认图片'
-   */
-  source?: ImageSourcePropType
 }

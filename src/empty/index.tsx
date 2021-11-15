@@ -1,46 +1,38 @@
 import React from 'react'
-import type { ViewStyle, TextStyle, ImageStyle } from 'react-native'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import type { ViewStyle, TextStyle } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
+import { isDef } from '../helpers/typeof'
 import type { EmptyProps } from './interface'
 import { createStyles } from './style'
-import emptyImage from './imgs/default_empty.png'
+import IconEmpty from './icon'
 
 const Empty: React.FC<EmptyProps> = ({
   text = '暂无数据',
-  source,
   style,
-  imageStyle,
-  imageProps,
   textStyle,
+  iconStyle,
+  icon,
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const emptyStyleSummary = StyleSheet.flatten<ViewStyle>([Styles.empty, style])
-  const imageStyleSummary = StyleSheet.flatten<ImageStyle>([
-    Styles.img,
-    {
-      // 修复图片偏移问题
-      // TODO 应该给一个不会出现偏移的图片
-      position: 'relative',
-      left: 8,
-    },
-    imageStyle,
+  const emptyStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.empty, style])
+  const iconStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.icon,
+    iconStyle,
   ])
   const textStyleSummary = StyleSheet.flatten<TextStyle>([
-    Styles.text,
+    STYLES.text,
     textStyle,
   ])
 
+  const iconJSX = isDef(icon) ? icon : <IconEmpty style={iconStyleSummary} />
+
   return (
     <View style={emptyStyleSummary}>
-      <Image
-        {...imageProps}
-        source={source || emptyImage}
-        style={imageStyleSummary}
-      />
+      {iconJSX}
       <Text style={textStyleSummary}>{text}</Text>
     </View>
   )

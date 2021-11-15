@@ -10,9 +10,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
       alignItems: 'center',
     },
 
-    img: {
-      width: themeVar.empty_image_width,
-      height: themeVar.empty_image_height,
+    icon: {
+      left: 16,
+      alignSelf: 'center',
     },
 
     text: {
