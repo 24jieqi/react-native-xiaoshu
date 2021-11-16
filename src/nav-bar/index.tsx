@@ -2,50 +2,65 @@ import React, { isValidElement, memo } from 'react'
 import type { ViewStyle, TextStyle } from 'react-native'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import { IconArrowOutline } from '../icon'
+import { getDefaultValue } from '../helpers'
 import { isDef } from '../helpers/typeof'
 import { createStyles } from './style'
 import type { NavBarProps } from './interface'
+
+const BACK_ARROW_HIT_SLOP = {
+  left: 10,
+  right: 10,
+  // top: 0,
+  // bottom: 0,
+}
 
 /**
  * NavBar 导航栏
  */
 const NavBar: React.FC<NavBarProps> = ({
   style,
-  leftArrowStyle,
+  leftStyle,
+  rightStyle,
   titleTextStyle,
   title,
-  leftText,
-  rightText,
-  leftArrow = true,
+  leftExtra,
+  rightExtra,
+  showBackArrow = true,
+  backArrowColor,
+  backArrowSize,
   border = true,
-  onPressLeftArrow,
-  onPressLeftText,
+  onPressBackArrow,
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const wrapperStyleSummary = StyleSheet.flatten<ViewStyle>([
-    Styles.wrapper,
+  backArrowColor = getDefaultValue(backArrowColor, THEME_VAR.nav_bar_icon_color)
+  backArrowSize = getDefaultValue(backArrowSize, THEME_VAR.nav_bar_arrow_size)
+
+  const barStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.bar,
     border
       ? {
-          borderBottomColor: themeVar.border_color,
+          borderBottomColor: THEME_VAR.border_color,
           borderBottomWidth: StyleSheet.hairlineWidth,
         }
       : null,
     style,
   ])
-  const leftWrapperStyleSummary: ViewStyle = Styles.leftWrapper
-  const leftArrowStyleSummary = StyleSheet.flatten<TextStyle>([
-    Styles.leftArrow,
-    leftArrowStyle,
+  const leftStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.left,
+    leftStyle,
+  ])
+  const rightStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.right,
+    rightStyle,
   ])
   const titleTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    Styles.titleText,
+    STYLES.title_text,
     titleTextStyle,
   ])
-  const rightWrapperStyleSummary: ViewStyle = Styles.rightWrapper
 
   /** 标题部分 纯文字或自定义 JSX */
   const titleJSX = isDef(title) ? (
@@ -56,45 +71,31 @@ const NavBar: React.FC<NavBarProps> = ({
     )
   ) : null
 
-  /** 左侧文字 纯文字或自定义 JSX */
-  const leftTextJSX = isDef(leftText) ? (
-    isValidElement(leftText) ? (
-      leftText
-    ) : (
-      <Text style={Styles.leftText} onPress={onPressLeftText}>
-        {leftText}
-      </Text>
-    )
-  ) : null
-
-  /** 右侧文字 纯文字或自定义 JSX */
-  const rightTextJSX = isDef(rightText) ? (
-    isValidElement(rightText) ? (
-      rightText
-    ) : (
-      <Text style={Styles.rightText}>{rightText}</Text>
-    )
-  ) : null
-
   return (
-    <View style={wrapperStyleSummary}>
-      <View style={leftWrapperStyleSummary}>
-        {leftArrow ? (
-          <TouchableOpacity
-            style={leftArrowStyleSummary}
-            onPress={onPressLeftArrow}>
-            <IconArrowOutline
-              size={themeVar.nav_bar_arrow_size}
-              color={leftArrowStyleSummary.color as string}
-              direction="left"
-            />
-          </TouchableOpacity>
-        ) : null}
+    <View style={barStyleSummary}>
+      {showBackArrow || isDef(leftExtra) ? (
+        <View style={leftStyleSummary}>
+          {showBackArrow ? (
+            <TouchableOpacity
+              style={STYLES.back_arrow}
+              onPress={onPressBackArrow}
+              activeOpacity={THEME_VAR.active_opacity}
+              hitSlop={BACK_ARROW_HIT_SLOP}>
+              <IconArrowOutline
+                size={backArrowSize}
+                color={backArrowColor}
+                direction="left"
+              />
+            </TouchableOpacity>
+          ) : null}
 
-        {leftTextJSX}
-      </View>
+          {leftExtra}
+        </View>
+      ) : null}
 
-      <View style={rightWrapperStyleSummary}>{rightTextJSX}</View>
+      {isDef(rightExtra) ? (
+        <View style={rightStyleSummary}>{rightExtra}</View>
+      ) : null}
 
       {titleJSX}
     </View>

@@ -4,36 +4,26 @@ import type { ThemeVarType } from '../theme'
 
 export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
-    wrapper: {
+    bar: {
       height: themeVar.nav_bar_height,
       justifyContent: 'center',
       position: 'relative',
       backgroundColor: themeVar.nav_bar_background_color,
-      paddingHorizontal: themeVar.padding_md,
+      paddingHorizontal: themeVar.padding_sm,
     },
 
-    titleText: {
-      color: themeVar.nav_bar_title_text_color,
-      textAlign: 'center',
-      fontSize: themeVar.nav_bar_title_font_size,
-    },
-
-    leftWrapper: {
+    left: {
       position: 'absolute',
       top: 0,
       bottom: 0,
-      left: themeVar.padding_md,
+      left: themeVar.padding_sm,
       flexDirection: 'row',
       alignItems: 'center',
       zIndex: 3,
+      // backgroundColor: '#f30', // to test ui
     },
 
-    leftText: {
-      color: themeVar.nav_bar_icon_color,
-      fontSize: 14,
-    },
-
-    leftArrow: {
+    back_arrow: {
       color: themeVar.nav_bar_icon_color,
       // marginRight: themeVar.padding_base,
       height: themeVar.nav_bar_height,
@@ -42,19 +32,20 @@ export const createStyles = (themeVar: ThemeVarType) => {
       // backgroundColor: '#000', // to test ui
     },
 
-    rightWrapper: {
+    right: {
       position: 'absolute',
       top: 0,
       bottom: 0,
-      right: themeVar.padding_md,
+      right: themeVar.padding_sm,
       flexDirection: 'row',
       alignItems: 'center',
       zIndex: 3,
     },
 
-    rightText: {
-      color: themeVar.nav_bar_icon_color,
-      fontSize: 14,
+    title_text: {
+      color: themeVar.nav_bar_title_text_color,
+      textAlign: 'center',
+      fontSize: themeVar.nav_bar_title_font_size,
     },
   })
 }

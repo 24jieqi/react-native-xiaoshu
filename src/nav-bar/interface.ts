@@ -8,12 +8,27 @@ export interface NavBarProps {
   style?: StyleProp<ViewStyle>
 
   /**
-   * 左箭头样式
+   * 左侧布局的样式
    */
-  leftArrowStyle?: StyleProp<TextStyle>
+  leftStyle?: StyleProp<ViewStyle>
 
   /**
-   * 标题样式
+   * 左侧自定义内容
+   */
+  leftExtra?: React.ReactNode
+
+  /**
+   * 右侧布局的样式
+   */
+  rightStyle?: StyleProp<ViewStyle>
+
+  /**
+   * 右侧自定义内容
+   */
+  rightExtra?: React.ReactNode
+
+  /**
+   * 标题文案样式
    */
   titleTextStyle?: StyleProp<TextStyle>
 
@@ -23,21 +38,20 @@ export interface NavBarProps {
   title?: React.ReactNode
 
   /**
-   * 左侧文字或自定义 JSX
-   */
-  leftText?: React.ReactNode
-
-  /**
-   * 右侧文字或自定义 JSX
-   */
-  rightText?: React.ReactNode
-
-  /**
-   * 是否显示左箭头
-   *
+   * 显示返回箭头
    * @default true
    */
-  leftArrow?: boolean
+  showBackArrow?: boolean
+
+  /**
+   * 自定义返回按钮颜色
+   */
+  backArrowColor?: string
+
+  /**
+   * 自定义返回按钮尺寸
+   */
+  backArrowSize?: number
 
   /**
    * 是否显示下边框
@@ -46,12 +60,7 @@ export interface NavBarProps {
   border?: boolean
 
   /**
-   * 点击左侧按钮
+   * 点击返回按钮的回调
    */
-  onPressLeftArrow?: () => void
-
-  /**
-   * 点击右侧按钮文字
-   */
-  onPressLeftText?: () => void
+  onPressBackArrow?: () => void
 }

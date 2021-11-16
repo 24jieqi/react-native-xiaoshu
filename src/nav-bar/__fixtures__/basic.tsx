@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { NavBar } from 'react-native-xiaoshu'
 
@@ -8,19 +8,28 @@ const BasicNavBar: React.FC = () => {
     <>
       <View style={{ height: 20 }} />
 
-      <NavBar title="普通的" />
+      <NavBar
+        title="普通的"
+        onPressBackArrow={() => {
+          console.log('点击返回')
+        }}
+      />
 
       <View style={{ height: 20 }} />
 
-      <NavBar title="隐藏返回按钮" leftArrow={false} />
+      <NavBar title="隐藏返回按钮" showBackArrow={false} />
 
       <View style={{ height: 20 }} />
 
-      <NavBar title="标题" leftText="左侧文案" />
+      <NavBar title="标题" leftExtra={<Text>左侧内容区域</Text>} />
 
       <View style={{ height: 20 }} />
 
-      <NavBar title="标题" leftText="左侧文案" rightText="右侧文案" />
+      <NavBar
+        title="标题"
+        leftExtra={<Text>左侧内容区域</Text>}
+        rightExtra={<Text>右侧内容区域</Text>}
+      />
 
       <View style={{ height: 20 }} />
     </>
