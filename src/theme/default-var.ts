@@ -18,7 +18,7 @@ export const color_1: string = '#24B356'
 export const color_2: string = '#FE5900'
 export const underlay_color: string = 'transparent'
 export const underlay_color_ddd: string = '#F7F9FC'
-export const active_opacity: number = 0.8
+export const active_opacity: number = 0.6
 
 // 文字颜色
 export const text_color_1: string = '#11151A'
@@ -120,8 +120,9 @@ export const button_info_border_color = '#EFF5FE'
 export const button_border_width = border_width_base
 export const button_border_radius = border_radius_sm
 export const button_plain_background_color = white
-export const button_plain_underlay_color = border_color // 按钮按下去的颜色
+// export const button_plain_underlay_color = border_color // 按钮按下去的颜色
 export const button_disabled_opacity = active_opacity
+export const button_active_opacity: number = 0.8
 
 // Cell
 export const cell_group_title_padding_horizontal = padding_sm

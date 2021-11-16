@@ -85,7 +85,7 @@ const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       disabled={showDisabled}
       style={buttonStyleSummary}
-      activeOpacity={THEME_VAR.active_opacity}
+      activeOpacity={THEME_VAR.button_active_opacity}
       {...otherProps}>
       {contextJSX}
     </TouchableOpacity>
