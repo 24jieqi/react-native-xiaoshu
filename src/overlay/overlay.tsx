@@ -8,6 +8,8 @@ import {
 } from 'react-native'
 
 import { useTheme } from '../theme'
+import { getDefaultValue } from '../helpers'
+import { isValue } from '../helpers/typeof'
 import type { OverlayProps } from './interface'
 
 /**
@@ -20,19 +22,21 @@ const Overlay: React.FC<OverlayProps> = ({
   style,
   zIndex,
   visible = false,
-  duration = 300,
+  duration,
   onPress,
   onRequestClose,
 }) => {
-  const themeVar = useTheme()
-  const [localVisible, setVisible] = useState(visible)
   const fadeAnim = useRef(new Animated.Value(0))
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
+  const [localVisible, setLocalVisible] = useState(visible)
+  const THEME_VAR = useTheme()
+
+  duration = getDefaultValue(duration, THEME_VAR.animation_duration_base)
 
   // 监听状态变化，执行动画
   useEffect(() => {
     if (visible) {
-      setVisible(true)
+      setLocalVisible(true)
     }
     fadeInstance.current = Animated.timing(
       fadeAnim.current, // 动画中的变量值
@@ -43,10 +47,12 @@ const Overlay: React.FC<OverlayProps> = ({
       },
     )
 
-    fadeInstance.current.start(() => {
-      fadeInstance.current = null
-      if (!visible) {
-        setVisible(false)
+    fadeInstance.current.start(({ finished }) => {
+      if (finished) {
+        fadeInstance.current = null
+        if (!visible) {
+          setLocalVisible(false)
+        }
       }
     })
 
@@ -61,33 +67,31 @@ const Overlay: React.FC<OverlayProps> = ({
 
   // Android 返回按钮
   useEffect(() => {
-    const backAction = () => {
-      if (typeof onRequestClose === 'function' && visible) {
-        return onRequestClose()
-      }
-
-      return false
-    }
-
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
-      backAction,
+      () => {
+        if (typeof onRequestClose === 'function' && visible) {
+          return onRequestClose()
+        }
+
+        return false
+      },
     )
 
     return () => backHandler.remove()
   }, [visible, onRequestClose])
 
-  const overlayStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.overlay,
-    localVisible ? Styles.overlayActive : null,
+  const overlayStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.overlay,
+    localVisible ? STYLES.overlay_active : null,
     {
       opacity: fadeAnim.current as unknown as number,
-      backgroundColor: themeVar.overlay_background_color,
-      zIndex: zIndex ? +zIndex : themeVar.overlay_z_index,
+      backgroundColor: THEME_VAR.overlay_background_color,
+      zIndex: isValue(zIndex) ? zIndex : THEME_VAR.overlay_z_index,
     },
   ])
-  const touchableStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.touchable,
+  const touchableStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.touchable,
     style,
   ])
 
@@ -109,7 +113,7 @@ const Overlay: React.FC<OverlayProps> = ({
   )
 }
 
-const Styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   overlay: {
     position: 'relative',
     left: 0,
@@ -118,7 +122,7 @@ const Styles = StyleSheet.create({
     bottom: 0,
   },
 
-  overlayActive: {
+  overlay_active: {
     position: 'absolute',
   },
 

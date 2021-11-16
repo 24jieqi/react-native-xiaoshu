@@ -11,84 +11,76 @@ const BasicOverlay: React.FC = () => {
 
   return (
     <ScrollView>
-      <View>
-        <Text>单独使用图标</Text>
-      </View>
+      <Text>单独使用图标</Text>
 
-      <View>
-        <Button
-          text="显示遮罩层 Android 返回关闭"
-          type="primary"
-          onPress={() => {
-            setState(s => ({
-              ...s,
-              normal: true,
-            }))
-          }}
-        />
+      <Button
+        text="显示遮罩层 Android 返回关闭"
+        type="primary"
+        onPress={() => {
+          setState(s => ({
+            ...s,
+            normal: true,
+          }))
+        }}
+      />
 
-        <Overlay
-          visible={state.normal}
-          onPress={() => {
-            setState(s => ({
-              ...s,
-              normal: false,
-            }))
-          }}
-          onRequestClose={() => {
-            console.log('???')
-            setState(s => ({
-              ...s,
-              normal: false,
-            }))
-            return true
-          }}
-        />
-      </View>
+      <Overlay
+        visible={state.normal}
+        onPress={() => {
+          setState(s => ({
+            ...s,
+            normal: false,
+          }))
+        }}
+        onRequestClose={() => {
+          console.log('???')
+          setState(s => ({
+            ...s,
+            normal: false,
+          }))
+          return true
+        }}
+      />
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>嵌入内容</Text>
-      </View>
+      <Text>嵌入内容</Text>
 
-      <View>
-        <Button
-          text="嵌入内容"
-          type="primary"
-          onPress={() => {
-            setState(s => ({
-              ...s,
-              inset: true,
-            }))
-          }}
-        />
+      <Button
+        text="嵌入内容"
+        type="primary"
+        onPress={() => {
+          setState(s => ({
+            ...s,
+            inset: true,
+          }))
+        }}
+      />
 
-        <Overlay
-          visible={state.inset}
-          style={{ justifyContent: 'center', alignItems: 'center' }}
+      <Overlay
+        visible={state.inset}
+        style={{ justifyContent: 'center', alignItems: 'center' }}
+        onPress={() => {
+          setState(s => ({
+            ...s,
+            inset: false,
+          }))
+        }}>
+        <TouchableWithoutFeedback
           onPress={() => {
-            setState(s => ({
-              ...s,
-              inset: false,
-            }))
+            console.log('????====')
           }}>
-          <TouchableWithoutFeedback
-            onPress={() => {
-              console.log('????====')
-            }}>
-            <View
-              style={{
-                backgroundColor: '#fff',
-                width: 200,
-                height: 300,
-                zIndex: 4,
-                borderRadius: 4,
-              }}
-            />
-          </TouchableWithoutFeedback>
-        </Overlay>
-      </View>
+          <View
+            style={{
+              backgroundColor: '#fff',
+              width: 200,
+              height: 300,
+              zIndex: 4,
+              borderRadius: 4,
+            }}
+          />
+        </TouchableWithoutFeedback>
+      </Overlay>
     </ScrollView>
   )
 }

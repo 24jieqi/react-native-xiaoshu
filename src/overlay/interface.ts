@@ -16,11 +16,11 @@ export interface OverlayProps {
    * z-index 层级
    * @default 1
    */
-  zIndex?: number | string
+  zIndex?: number
 
   /**
-   * 动画时长，单位毫秒
-   * @default 300
+   * 动画时长，单位毫秒，默认值 300
+   * @default animation_duration_base
    */
   duration?: number
 

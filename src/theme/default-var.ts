@@ -248,7 +248,7 @@ export const notify_error_background_color = error
 export const notify_warning_background_color = warning
 
 // Overlay
-export const overlay_z_index: number = 1
+export const overlay_z_index: number = 10
 export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 
 // Popup
