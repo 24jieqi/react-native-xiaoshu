@@ -56,6 +56,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           animated
           animationDuration={state.duration}
           onAnimationEnd={onAnimationEnd}
+          square
         />
       </View>
     )

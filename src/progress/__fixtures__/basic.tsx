@@ -20,7 +20,7 @@ const BasicProgress: React.FC = () => {
 
   return (
     <ProgressPage loading={state.loading}>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: '#fff' }}>
         <View style={{ paddingHorizontal: 30 }}>
           <View style={{ height: 20 }} />
 

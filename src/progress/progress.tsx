@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect, memo } from 'react'
-import type { LayoutChangeEvent, ViewStyle, TextStyle } from 'react-native'
+import type { LayoutChangeEvent, ViewStyle } from 'react-native'
 import { View, Text, Animated } from 'react-native'
 
 import { useTheme } from '../theme'
@@ -88,12 +88,6 @@ const Progress: React.FC<ProgressProps> = ({
     onAnimationEndPersistFn,
   ])
 
-  const progressStyle: ViewStyle = {
-    position: 'relative',
-    height: strokeWidth,
-    backgroundColor: trackColor,
-    borderRadius: borderRadius,
-  }
   const barStyle: ViewStyle = {
     position: 'absolute',
     left: 0,
@@ -121,13 +115,6 @@ const Progress: React.FC<ProgressProps> = ({
       },
     ],
   }
-  const textStyle: TextStyle = {
-    color: textColor,
-    fontSize: themeVar.progress_pivot_font_size,
-    lineHeight:
-      themeVar.progress_pivot_line_height_scale *
-      themeVar.progress_pivot_font_size,
-  }
 
   const onLayoutProgress = useCallback((e: LayoutChangeEvent) => {
     setProgressLayout(e.nativeEvent.layout)
@@ -138,11 +125,26 @@ const Progress: React.FC<ProgressProps> = ({
   }, [])
 
   return (
-    <View onLayout={onLayoutProgress} style={progressStyle}>
+    <View
+      onLayout={onLayoutProgress}
+      style={{
+        height: strokeWidth,
+        backgroundColor: trackColor,
+        borderRadius: borderRadius,
+      }}>
       <Animated.View style={barStyle} />
       {showPivot ? (
         <Animated.View onLayout={onLayoutText} style={textBoxStyle}>
-          <Text style={textStyle}>{pivotText}</Text>
+          <Text
+            style={{
+              color: textColor,
+              fontSize: themeVar.progress_pivot_font_size,
+              lineHeight:
+                themeVar.progress_pivot_line_height_scale *
+                themeVar.progress_pivot_font_size,
+            }}>
+            {pivotText}
+          </Text>
         </Animated.View>
       ) : null}
     </View>
