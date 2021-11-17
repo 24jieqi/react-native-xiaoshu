@@ -1,6 +1,5 @@
 import React, { isValidElement, memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { isDef } from '../helpers/typeof'
 import { useTheme, widthStyle } from '../theme'
@@ -23,18 +22,12 @@ const CellGroup: React.FC<CellGroupProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const titleStyleSummary: ViewStyle = StyleSheet.flatten([STYLES.title, style])
-  const titleTextStyleSummary: TextStyle = StyleSheet.flatten([
-    STYLES.text,
-    textStyle,
-  ])
-
   /** 标题 可能是自定义 JSX */
   const titleJSX = isDef(title) ? (
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={titleTextStyleSummary} onPress={onPressTitleText}>
+      <Text style={[STYLES.text, textStyle]} onPress={onPressTitleText}>
         {title}
       </Text>
     )
@@ -43,7 +36,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
   return (
     <>
       {titleJSX || isDef(extra) ? (
-        <View style={titleStyleSummary}>
+        <View style={[STYLES.title, style]}>
           {titleJSX}
           {extra}
         </View>

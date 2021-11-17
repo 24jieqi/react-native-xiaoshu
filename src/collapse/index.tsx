@@ -5,14 +5,8 @@ import React, {
   memo,
   isValidElement,
 } from 'react'
-import type { LayoutChangeEvent, ViewStyle, TextStyle } from 'react-native'
-import {
-  Animated,
-  View,
-  Text,
-  TouchableHighlight,
-  StyleSheet,
-} from 'react-native'
+import type { LayoutChangeEvent } from 'react-native'
+import { Animated, View, Text, TouchableHighlight } from 'react-native'
 
 import IconSVGArrow from '../icon/arrow'
 import usePersistFn from '../hooks/usePersistFn'
@@ -136,39 +130,21 @@ const Collapse: React.FC<CollapseProps> = ({
     [setVisible],
   )
 
-  const collapseStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.collapse,
-    { height: AnimatedValue as unknown as number },
-  ])
-  const titleStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.title,
-    titleStyle,
-  ])
-  const titleTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.title_text,
-    titleTextStyle,
-  ])
-  const bodyStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.body,
-    bodyPadding ? STYLES.body_padding : null,
-    bodyStyle,
-  ])
-
   const titleJSX = isDef(title) ? (
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={titleTextStyleSummary}>{title}</Text>
+      <Text style={[STYLES.title_text, titleTextStyle]}>{title}</Text>
     )
   ) : null
 
   return (
-    <Animated.View style={collapseStyleSummary}>
+    <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>
       <TouchableHighlight
         underlayColor={THEME_VAR.cell_active_color}
         onPress={onPressTitle}
         onLayout={onLayoutTitle}>
-        <View style={titleStyleSummary}>
+        <View style={[STYLES.title, titleStyle]}>
           {titleJSX}
           <IconSVGArrow
             style={iconStyle}
@@ -188,7 +164,11 @@ const Collapse: React.FC<CollapseProps> = ({
       <View
         collapsable={false}
         onLayout={onLayoutBody}
-        style={bodyStyleSummary}>
+        style={[
+          STYLES.body,
+          bodyPadding ? STYLES.body_padding : null,
+          bodyStyle,
+        ]}>
         {renderBody ? renderBody(show) : children}
       </View>
     </Animated.View>

@@ -1,6 +1,6 @@
 import React, { memo, isValidElement } from 'react'
-import type { ViewStyle } from 'react-native'
-import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import { IconSuccessOutLine } from '../icon'
@@ -34,7 +34,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
 
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const styleSummary = StyleSheet.flatten<ViewStyle>([
+  const iconStyles: StyleProp<ViewStyle> = [
     STYLES.icon,
     {
       width: size,
@@ -49,7 +49,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
       : null,
     disabled ? STYLES.icon_disabled : null,
     style,
-  ])
+  ]
 
   const iconJSX = active ? (
     isDef(icon) && isValidElement(icon) ? (
@@ -63,13 +63,13 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   ) : null
 
   if (pure) {
-    return <View style={styleSummary}>{iconJSX}</View>
+    return <View style={iconStyles}>{iconJSX}</View>
   }
 
   return (
     <TouchableOpacity
       {...restProps}
-      style={styleSummary}
+      style={iconStyles}
       disabled={disabled}
       activeOpacity={activeOpacity}>
       {iconJSX}

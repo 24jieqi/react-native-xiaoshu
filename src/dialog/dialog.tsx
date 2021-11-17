@@ -1,6 +1,5 @@
 import React, { useRef, useCallback, memo, isValidElement } from 'react'
-import type { TextStyle } from 'react-native'
-import { View, Text, Animated, StyleSheet } from 'react-native'
+import { View, Text, Animated } from 'react-native'
 
 import Popup from '../popup/popup'
 import Button from '../button'
@@ -77,28 +76,6 @@ const Dialog: React.FC<DialogProps> = ({
     onCloseFn && onCloseFn()
   })
 
-  const dialogStyleSummary = StyleSheet.flatten([
-    STYLES.dialog,
-    {
-      width,
-      transform: [
-        {
-          scale: fadeAnim.interpolate({
-            inputRange: [0, 0.01, 0.98, 1],
-            outputRange: [0, 0.9, 1.02, 1],
-          }),
-        },
-      ],
-    },
-  ])
-  const messageTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.message_text,
-    {
-      textAlign: messageAlign,
-    },
-    title ? STYLES.message_text_has_title : null,
-  ])
-
   /** 标题部分 纯文字或自定义 JSX */
   const titleJSX = isDef(title) ? (
     isValidElement(title) ? (
@@ -112,7 +89,16 @@ const Dialog: React.FC<DialogProps> = ({
     isValidElement(message) ? (
       message
     ) : (
-      <Text style={messageTextStyleSummary}>{message}</Text>
+      <Text
+        style={[
+          STYLES.message_text,
+          {
+            textAlign: messageAlign,
+          },
+          title ? STYLES.message_text_has_title : null,
+        ]}>
+        {message}
+      </Text>
     )
   ) : (
     children
@@ -138,7 +124,21 @@ const Dialog: React.FC<DialogProps> = ({
       duration={duration}
       onOpen={onOpenPersistFn}
       onClose={onClosePersistFn}>
-      <Animated.View style={dialogStyleSummary}>
+      <Animated.View
+        style={[
+          STYLES.dialog,
+          {
+            width,
+            transform: [
+              {
+                scale: fadeAnim.interpolate({
+                  inputRange: [0, 0.01, 0.98, 1],
+                  outputRange: [0, 0.9, 1.02, 1],
+                }),
+              },
+            ],
+          },
+        ]}>
         {titleJSX}
 
         {titleJSX ? (
@@ -161,10 +161,10 @@ const Dialog: React.FC<DialogProps> = ({
               {...confirmButtonProps}
               plain
               size="large"
-              style={StyleSheet.flatten([
+              style={[
                 STYLES.btn,
                 showCancelButton ? STYLES.btn_border_left : null,
-              ])}
+              ]}
             />
           ) : null}
         </View>

@@ -37,7 +37,7 @@ export interface DividerProps {
   /**
    * 是否使用 0.5px 线
    *
-   * @default true
+   * @default false
    */
   hairline?: boolean
 

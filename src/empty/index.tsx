@@ -1,6 +1,5 @@
 import React from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import { isDef } from '../helpers/typeof'
@@ -18,22 +17,16 @@ const Empty: React.FC<EmptyProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const emptyStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.empty, style])
-  const iconStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.icon,
-    iconStyle,
-  ])
-  const textStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.text,
-    textStyle,
-  ])
-
-  const iconJSX = isDef(icon) ? icon : <IconEmpty style={iconStyleSummary} />
+  const iconJSX = isDef(icon) ? (
+    icon
+  ) : (
+    <IconEmpty style={[STYLES.icon, iconStyle]} />
+  )
 
   return (
-    <View style={emptyStyleSummary}>
+    <View style={[STYLES.empty, style]}>
       {iconJSX}
-      <Text style={textStyleSummary}>{text}</Text>
+      <Text style={[STYLES.text, textStyle]}>{text}</Text>
     </View>
   )
 }

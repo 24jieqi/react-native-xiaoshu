@@ -1,5 +1,4 @@
 import React, { isValidElement, memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
@@ -31,6 +30,7 @@ const NavBar: React.FC<NavBarProps> = ({
   backArrowColor,
   backArrowSize,
   border = true,
+  hairline = false,
   onPressBackArrow,
 }) => {
   const THEME_VAR = useTheme()
@@ -39,42 +39,31 @@ const NavBar: React.FC<NavBarProps> = ({
   backArrowColor = getDefaultValue(backArrowColor, THEME_VAR.nav_bar_icon_color)
   backArrowSize = getDefaultValue(backArrowSize, THEME_VAR.nav_bar_arrow_size)
 
-  const barStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.bar,
-    border
-      ? {
-          borderBottomColor: THEME_VAR.border_color,
-          borderBottomWidth: StyleSheet.hairlineWidth,
-        }
-      : null,
-    style,
-  ])
-  const leftStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.left,
-    leftStyle,
-  ])
-  const rightStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.right,
-    rightStyle,
-  ])
-  const titleTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.title_text,
-    titleTextStyle,
-  ])
-
   /** 标题部分 纯文字或自定义 JSX */
   const titleJSX = isDef(title) ? (
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={titleTextStyleSummary}>{title}</Text>
+      <Text style={[STYLES.title_text, titleTextStyle]}>{title}</Text>
     )
   ) : null
 
+  const borderBottomWidth = hairline ? StyleSheet.hairlineWidth : 1
+
   return (
-    <View style={barStyleSummary}>
+    <View
+      style={[
+        STYLES.bar,
+        border
+          ? {
+              borderBottomColor: THEME_VAR.border_color,
+              borderBottomWidth,
+            }
+          : null,
+        style,
+      ]}>
       {showBackArrow || isDef(leftExtra) ? (
-        <View style={leftStyleSummary}>
+        <View style={[STYLES.left, leftStyle]}>
           {showBackArrow ? (
             <TouchableOpacity
               style={STYLES.back_arrow}
@@ -94,7 +83,7 @@ const NavBar: React.FC<NavBarProps> = ({
       ) : null}
 
       {isDef(rightExtra) ? (
-        <View style={rightStyleSummary}>{rightExtra}</View>
+        <View style={[STYLES.right, rightStyle]}>{rightExtra}</View>
       ) : null}
 
       {titleJSX}

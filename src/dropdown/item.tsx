@@ -4,7 +4,6 @@ import {
   TouchableWithoutFeedback,
   View,
   ScrollView,
-  StyleSheet,
   useWindowDimensions,
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -126,7 +125,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     onChange && onChange(o.value)
   }
 
-  const shadeStyle = StyleSheet.flatten<ViewStyle>([
+  const shadeStyle: ViewStyle[] = [
     {
       position: 'absolute',
       left: 0,
@@ -135,8 +134,8 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
       // backgroundColor: '#f30', // to test ui
     },
     state.shadeStyle,
-  ])
-  const boxStyle = StyleSheet.flatten<ViewStyle>([
+  ]
+  const boxStyle: ViewStyle[] = [
     {
       position: 'absolute',
       left: 0,
@@ -146,7 +145,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
       // backgroundColor: '#000', // to test ui
     },
     state.ctxStyle,
-  ])
+  ]
 
   const text = (options.filter(op => op.value === state.value)[0] || {}).text
   const isContextTop = state.position === 'bottom'

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
+import type { ViewStyle, StyleProp } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
@@ -18,7 +18,7 @@ const Divider: React.FC<DividerProps> = ({
   leftBorderStyle,
   rightBorderStyle,
   dashed = false,
-  hairline = true,
+  hairline = false,
   contentPosition = 'center',
 }) => {
   const THEME_VAR = useTheme()
@@ -29,12 +29,8 @@ const Divider: React.FC<DividerProps> = ({
     borderStyle: dashed ? 'dashed' : 'solid',
     borderBottomWidth: hairline ? StyleSheet.hairlineWidth : 1,
   }
-  const styleSummary = StyleSheet.flatten<ViewStyle>([STYLES.divider, style])
-  const textStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.text,
-    textStyle,
-  ])
-  const leftBorderStyleSummary = StyleSheet.flatten<ViewStyle>([
+  const styleSummary: StyleProp<ViewStyle> = [STYLES.divider, style]
+  const leftBorderStyleSummary: StyleProp<ViewStyle> = [
     borderCommonStyle,
     STYLES.border_left,
     contentPosition === 'left'
@@ -42,8 +38,8 @@ const Divider: React.FC<DividerProps> = ({
       : null,
     borderStyle,
     leftBorderStyle,
-  ])
-  const rightBorderStyleSummary = StyleSheet.flatten<ViewStyle>([
+  ]
+  const rightBorderStyleSummary: StyleProp<ViewStyle> = [
     borderCommonStyle,
     STYLES.border_right,
     contentPosition === 'right'
@@ -51,13 +47,13 @@ const Divider: React.FC<DividerProps> = ({
       : null,
     borderStyle,
     rightBorderStyle,
-  ])
+  ]
 
   if (children) {
     return (
       <View style={styleSummary}>
         <View style={leftBorderStyleSummary} />
-        <Text style={textStyleSummary}>{children}</Text>
+        <Text style={[STYLES.text, textStyle]}>{children}</Text>
         <View style={rightBorderStyleSummary} />
       </View>
     )

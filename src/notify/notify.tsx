@@ -1,6 +1,5 @@
 import React, { isValidElement, memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import { View, Text, TouchableWithoutFeedback } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Popup from '../popup/popup'
@@ -30,30 +29,19 @@ const Notify: React.FC<NotifyProps> = ({
 
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const notifyStyleSummary: ViewStyle = StyleSheet.flatten([
-    STYLES.notify,
-    {
-      backgroundColor: isDef(backgroundColor)
-        ? backgroundColor
-        : THEME_VAR[`notify_${type}_background_color`] ||
-          THEME_VAR.notify_primary_background_color,
-      paddingTop: insets.top,
-    },
-    style,
-  ])
-  const textStyleSummary: TextStyle = StyleSheet.flatten([
-    STYLES.text,
-    {
-      color: isDef(color) ? color : THEME_VAR.notify_text_color,
-    },
-    textStyle,
-  ])
-
   const messageJSX = isDef(message) ? (
     isValidElement(message) ? (
       message
     ) : (
-      <Text style={textStyleSummary} numberOfLines={1}>
+      <Text
+        style={[
+          STYLES.text,
+          {
+            color: isDef(color) ? color : THEME_VAR.notify_text_color,
+          },
+          textStyle,
+        ]}
+        numberOfLines={1}>
         {message}
       </Text>
     )
@@ -64,7 +52,20 @@ const Notify: React.FC<NotifyProps> = ({
   return (
     <Popup {...restProps} overlay={false} position="top">
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={notifyStyleSummary}>{messageJSX}</View>
+        <View
+          style={[
+            STYLES.notify,
+            {
+              backgroundColor: isDef(backgroundColor)
+                ? backgroundColor
+                : THEME_VAR[`notify_${type}_background_color`] ||
+                  THEME_VAR.notify_primary_background_color,
+              paddingTop: insets.top,
+            },
+            style,
+          ]}>
+          {messageJSX}
+        </View>
       </TouchableWithoutFeedback>
     </Popup>
   )

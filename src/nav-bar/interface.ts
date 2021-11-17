@@ -60,6 +60,12 @@ export interface NavBarProps {
   border?: boolean
 
   /**
+   * 细边框
+   * @default false
+   */
+  hairline?: boolean
+
+  /**
    * 点击返回按钮的回调
    */
   onPressBackArrow?: () => void

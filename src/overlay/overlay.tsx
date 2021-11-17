@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, memo } from 'react'
-import type { ViewStyle } from 'react-native'
 import {
   TouchableOpacity,
   Animated,
@@ -81,20 +80,6 @@ const Overlay: React.FC<OverlayProps> = ({
     return () => backHandler.remove()
   }, [visible, onRequestClose])
 
-  const overlayStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.overlay,
-    localVisible ? STYLES.overlay_active : null,
-    {
-      opacity: fadeAnim.current as unknown as number,
-      backgroundColor: THEME_VAR.overlay_background_color,
-      zIndex: isValue(zIndex) ? zIndex : THEME_VAR.overlay_z_index,
-    },
-  ])
-  const touchableStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.touchable,
-    style,
-  ])
-
   if (!localVisible) {
     // TODO 优化文档报错
     // 直接返回 null dumi 报错 -、-
@@ -102,9 +87,18 @@ const Overlay: React.FC<OverlayProps> = ({
   }
 
   return (
-    <Animated.View style={overlayStyleSummary}>
+    <Animated.View
+      style={[
+        STYLES.overlay,
+        localVisible ? STYLES.overlay_active : null,
+        {
+          opacity: fadeAnim.current,
+          backgroundColor: THEME_VAR.overlay_background_color,
+          zIndex: isValue(zIndex) ? zIndex : THEME_VAR.overlay_z_index,
+        },
+      ]}>
       <TouchableOpacity
-        style={touchableStyleSummary}
+        style={[STYLES.touchable, style]}
         activeOpacity={1}
         onPress={onPress}>
         {children}

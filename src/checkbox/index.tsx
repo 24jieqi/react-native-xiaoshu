@@ -1,7 +1,6 @@
 import type { PropsWithChildren } from 'react'
 import React, { useCallback, useState, memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import usePersistFn from '../hooks/usePersistFn'
@@ -50,20 +49,6 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const checkboxStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.checkbox,
-    style,
-  ])
-  const labelTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.label,
-    {
-      [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
-        THEME_VAR.checkbox_label_margin,
-    },
-    disabled ? STYLES.label_disabled : null,
-    labelTextStyle,
-  ])
-
   // 同步状态
   useUpdateEffect(() => {
     setCurrentValue(value)
@@ -84,7 +69,15 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
 
   const labelJSX = isDef(label) ? (
     <Text
-      style={labelTextStyleSummary}
+      style={[
+        STYLES.label,
+        {
+          [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
+            THEME_VAR.checkbox_label_margin,
+        },
+        disabled ? STYLES.label_disabled : null,
+        labelTextStyle,
+      ]}
       onPress={labelDisabled ? undefined : onChangeValue}>
       {label}
     </Text>
@@ -93,7 +86,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   )
 
   return (
-    <View style={checkboxStyleSummary}>
+    <View style={[STYLES.checkbox, style]}>
       {labelPosition === 'left' ? labelJSX : null}
       <CheckboxIcon
         style={iconStyle}

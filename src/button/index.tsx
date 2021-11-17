@@ -65,8 +65,10 @@ const Button: React.FC<ButtonProps> = ({
     commonTextStyle.color = commonButtonStyle.borderColor
   }
 
-  const buttonStyleSummary = StyleSheet.flatten([commonButtonStyle, style])
-  const textStyleSummary = StyleSheet.flatten([commonTextStyle, textStyle])
+  const textStyleSummary = StyleSheet.flatten<TextStyle>([
+    commonTextStyle,
+    textStyle,
+  ])
 
   const contextJSX = loading ? (
     <Loading
@@ -84,7 +86,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       disabled={showDisabled}
-      style={buttonStyleSummary}
+      style={[commonButtonStyle, style]}
       activeOpacity={THEME_VAR.button_active_opacity}
       {...otherProps}>
       {contextJSX}

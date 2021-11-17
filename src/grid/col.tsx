@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import { View, StyleSheet } from 'react-native'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { View } from 'react-native'
 
 import type { ColProps } from './interface'
 import { useRow } from './context'
@@ -16,7 +16,7 @@ const Col: React.FC<ColProps> = ({ children, style, span, offset = 0 }) => {
   const width = `${+span * BASE_SPAN_WIDTH}%`
   const left = `${+offset * BASE_SPAN_WIDTH}%`
 
-  const colStyles: ViewStyle = StyleSheet.flatten([
+  const colStyles: StyleProp<ViewStyle> = [
     {
       flexGrow: 0,
       flexShrink: 0,
@@ -29,7 +29,7 @@ const Col: React.FC<ColProps> = ({ children, style, span, offset = 0 }) => {
     // {
     //   backgroundColor: '#000',
     // },
-  ])
+  ]
 
   return <View style={colStyles}>{children}</View>
 }

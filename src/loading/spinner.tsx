@@ -1,5 +1,4 @@
 import React, { useRef, memo } from 'react'
-import type { ViewStyle } from 'react-native'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
 import { useTheme } from '../theme'
@@ -36,31 +35,23 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
     easing: Easing.linear,
   })
 
-  const iconStyleSummary: ViewStyle = StyleSheet.flatten([
-    STYLES.icon,
-    {
-      width: size,
-      height: size,
-      transform: [
-        {
-          rotateZ: AnimatedSpinnerValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['0deg', '360deg'],
-          }) as any,
-        },
-      ],
-    },
-  ])
-
-  const innerStyleSummary = StyleSheet.flatten([
-    STYLES.inner,
-    {
-      backgroundColor: color,
-    },
-  ])
-
   return (
-    <Animated.View style={iconStyleSummary}>
+    <Animated.View
+      style={[
+        STYLES.icon,
+        {
+          width: size,
+          height: size,
+          transform: [
+            {
+              rotateZ: AnimatedSpinnerValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: ['0deg', '360deg'],
+              }),
+            },
+          ],
+        },
+      ]}>
       {PETALS.map((_, i) => {
         return (
           <View
@@ -76,7 +67,14 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
                 ],
               },
             ])}>
-            <View style={innerStyleSummary} />
+            <View
+              style={[
+                STYLES.inner,
+                {
+                  backgroundColor: color,
+                },
+              ]}
+            />
           </View>
         )
       })}

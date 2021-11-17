@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { isDef } from '../helpers/typeof'
 import { useTheme, widthStyle } from '../theme'
@@ -33,8 +33,7 @@ const Badge: React.FC<BadgeProps> = ({
   }
 
   const hasCount = isDef(count) && (count === 0 ? showZero : true)
-  const badgeStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.badge, style])
-  const countStyleSummary = StyleSheet.flatten<ViewStyle>([
+  const countStyles: StyleProp<ViewStyle> = [
     STYLES.count,
     {
       backgroundColor:
@@ -58,23 +57,21 @@ const Badge: React.FC<BadgeProps> = ({
               }
             : null,
         ]
-      : null,
+      : [],
     countStyle,
-  ])
-  const countTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.count_text,
-    countTextStyle,
-  ])
+  ]
 
   const badgeJSX =
     !loading && (hasCount || dot) ? (
-      <View style={countStyleSummary}>
-        {dot ? null : <Text style={countTextStyleSummary}>{count}</Text>}
+      <View style={countStyles}>
+        {dot ? null : (
+          <Text style={[STYLES.count_text, countTextStyle]}>{count}</Text>
+        )}
       </View>
     ) : null
 
   return (
-    <View style={badgeStyleSummary} collapsable={false}>
+    <View style={[STYLES.badge, style]} collapsable={false}>
       {badgeJSX}
       {children}
     </View>

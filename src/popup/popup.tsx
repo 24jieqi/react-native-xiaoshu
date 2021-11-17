@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback, memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import { Animated, BackHandler, StyleSheet } from 'react-native'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { Animated, BackHandler } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Overlay from '../overlay/overlay'
@@ -159,7 +159,7 @@ const Popup: React.FC<PopupProps> = ({
     return () => backHandler.remove()
   }, [onRequestClose, visible])
 
-  const popupStyleSummary = StyleSheet.flatten<ViewStyle>([
+  const popupStyleSummary: StyleProp<ViewStyle> = [
     STYLES.popup,
     getBorderRadius(THEME_VAR, position, round),
     {
@@ -174,7 +174,7 @@ const Popup: React.FC<PopupProps> = ({
           PopupPositionMap[position],
         ]
       : null,
-  ])
+  ]
 
   if (state.lazyRender) {
     return null

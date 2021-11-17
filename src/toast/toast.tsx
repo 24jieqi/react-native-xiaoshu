@@ -5,8 +5,8 @@ import React, {
   forwardRef,
   memo,
 } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { Text, View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
@@ -96,7 +96,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
       [],
     )
 
-    const toastStyleSummary = StyleSheet.flatten<ViewStyle>([
+    const toastStyleSummary: StyleProp<ViewStyle> = [
       STYLES.toast,
       {
         justifyContent:
@@ -106,15 +106,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
             ? 'flex-end'
             : 'center',
       },
-    ])
-    const innerStyleSummary = StyleSheet.flatten<ViewStyle>([
-      STYLES.inner,
-      type === 'text' ? STYLES.inner_type_text : null,
-    ])
-    const textStyleSummary = StyleSheet.flatten<TextStyle>([
-      STYLES.text,
-      type === 'text' ? STYLES.text_top_0 : null,
-    ])
+    ]
 
     return (
       <Popup
@@ -127,7 +119,11 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
             style={toastStyleSummary}
             pointerEvents={forbidPress ? undefined : 'box-none'}
             collapsable={false}>
-            <View style={innerStyleSummary}>
+            <View
+              style={[
+                STYLES.inner,
+                type === 'text' ? STYLES.inner_type_text : null,
+              ]}>
               {type === 'loading' ? (
                 <View style={STYLES.loading}>
                   {loadingType === 'circular' ? (
@@ -144,7 +140,13 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                 </View>
               ) : null}
 
-              <Text style={textStyleSummary}>{msg}</Text>
+              <Text
+                style={[
+                  STYLES.text,
+                  type === 'text' ? STYLES.text_top_0 : null,
+                ]}>
+                {msg}
+              </Text>
             </View>
           </View>
         </TouchableWithoutFeedback>

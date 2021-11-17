@@ -1,6 +1,6 @@
 import React, { isValidElement, memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
-import { Text, View, TouchableHighlight, StyleSheet } from 'react-native'
+import type { ViewStyle } from 'react-native'
+import { Text, View, TouchableHighlight } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import IconArrow from '../icon/arrow'
@@ -50,39 +50,6 @@ const Cell: React.FC<CellProps> = ({
 
   const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : null
 
-  const cellStyleSummary = StyleSheet.flatten<ViewStyle>([STYLES.cell, style])
-  const innerStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.cell_inner,
-    border ? STYLES.cell_inner_border : null,
-    vertical ? null : STYLES.cell_inner_row,
-    innerStyle,
-  ])
-  const titleStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.title,
-    centerStyle,
-    titleStyle,
-  ])
-  const titleTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.title_text,
-    titleTextStyle,
-  ])
-  const valueStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.value,
-    centerStyle,
-    valueStyle,
-  ])
-  const valueTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    STYLES.value_text,
-    {
-      textAlign,
-    },
-    valueTextStyle,
-  ])
-  const contentStyleSummary = StyleSheet.flatten<ViewStyle>([
-    STYLES.content,
-    contentStyle,
-  ])
-
   const requiredJSX = required ? (
     <View style={STYLES.title_required}>
       <Text style={STYLES.title_required_text}>*</Text>
@@ -92,7 +59,7 @@ const Cell: React.FC<CellProps> = ({
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={titleTextStyleSummary}>{title}</Text>
+      <Text style={[STYLES.title_text, titleTextStyle]}>{title}</Text>
     )
   ) : null
   const valueJSX = isDef(value) ? (
@@ -100,7 +67,13 @@ const Cell: React.FC<CellProps> = ({
       value
     ) : (
       <Text
-        style={valueTextStyleSummary}
+        style={[
+          STYLES.value_text,
+          {
+            textAlign,
+          },
+          valueTextStyle,
+        ]}
         numberOfLines={valueTextNumberOfLines}>
         {value}
       </Text>
@@ -118,7 +91,7 @@ const Cell: React.FC<CellProps> = ({
 
   const ctxJSX = (
     <>
-      <View style={valueStyleSummary}>{valueJSX}</View>
+      <View style={[STYLES.value, centerStyle, valueStyle]}>{valueJSX}</View>
       {valueExtra}
       {linkJSX}
     </>
@@ -128,15 +101,25 @@ const Cell: React.FC<CellProps> = ({
     <TouchableHighlight
       {...restProps}
       underlayColor={underlayColor}
-      style={cellStyleSummary}>
-      <View style={innerStyleSummary}>
-        <View style={titleStyleSummary}>
+      style={[STYLES.cell, style]}>
+      <View
+        style={[
+          STYLES.cell_inner,
+          border ? STYLES.cell_inner_border : null,
+          vertical ? null : STYLES.cell_inner_row,
+          innerStyle,
+        ]}>
+        <View style={[STYLES.title, centerStyle, titleStyle]}>
           {requiredJSX}
           {titleExtra}
           {titleJSX}
         </View>
 
-        {vertical ? <View style={contentStyleSummary}>{ctxJSX}</View> : ctxJSX}
+        {vertical ? (
+          <View style={[STYLES.content, contentStyle]}>{ctxJSX}</View>
+        ) : (
+          ctxJSX
+        )}
       </View>
     </TouchableHighlight>
   )
