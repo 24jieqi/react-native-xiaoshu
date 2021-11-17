@@ -37,9 +37,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   }
 
   const onChangePersistFn = usePersistFn(onChange || noop)
-  const [currentValue, setCurrentValue] = useState<
-    ActiveValueT | InactiveValueT
-  >(
+  const [localValue, setLocalValue] = useState<ActiveValueT | InactiveValueT>(
     isValue(value)
       ? value
       : isValue(defaultValue)
@@ -51,11 +49,11 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
 
   // 同步状态
   useUpdateEffect(() => {
-    setCurrentValue(value)
+    setLocalValue(value)
   }, [value])
 
   const onChangeValue = useCallback(() => {
-    setCurrentValue(s => {
+    setLocalValue(s => {
       const v = s === activeValue ? inactiveValue : activeValue
 
       // 做一个延迟，避免父组件更新的时候子组件也在更新
@@ -91,7 +89,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       <CheckboxIcon
         style={iconStyle}
         icon={icon}
-        active={currentValue === activeValue}
+        active={localValue === activeValue}
         activeColor={activeColor}
         shape={shape}
         disabled={disabled}

@@ -29,8 +29,12 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
   beforeChange,
 }: SwitchProps<ActiveValueT, InactiveValueT>) {
   const translateX = useRef(new Animated.Value(0))
-  const [localValue, setLocalValue] = useState(
-    getDefaultValue(value, defaultValue),
+  const [localValue, setLocalValue] = useState<ActiveValueT | InactiveValueT>(
+    isValue(value)
+      ? value
+      : isValue(defaultValue)
+      ? defaultValue
+      : inactiveValue,
   )
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
