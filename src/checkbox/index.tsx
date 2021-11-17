@@ -103,4 +103,9 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   )
 }
 
-export default memo<typeof Checkbox>(Checkbox)
+export default memo(Checkbox) as <
+  ActiveValueT = boolean,
+  InactiveValueT = boolean,
+>(
+  p: PropsWithChildren<CheckboxProps<ActiveValueT, InactiveValueT>>,
+) => JSX.Element
