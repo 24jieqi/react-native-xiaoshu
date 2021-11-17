@@ -1,9 +1,14 @@
-export interface SwitchProps {
+export interface SwitchProps<ActiveValueT = any, InactiveValueT = any> {
   /**
    * 开关选中状态
    * @default false
    */
-  value: any
+  value?: ActiveValueT | InactiveValueT
+
+  /**
+   * 默认值
+   */
+  defaultValue?: ActiveValueT | InactiveValueT
 
   /**
    * 是否为加载状态
@@ -36,13 +41,13 @@ export interface SwitchProps {
    * 打开时对应的值
    * @default true
    */
-  activeValue?: any
+  activeValue?: ActiveValueT
 
   /**
    * 关闭时对应的值
    * @default false
    */
-  inactiveValue?: any
+  inactiveValue?: InactiveValueT
 
   /**
    * 点击时触发
@@ -52,11 +57,13 @@ export interface SwitchProps {
   /**
    * 开关状态切换时触发
    */
-  onChange?: (v: any) => void
+  onChange?: (v: ActiveValueT | InactiveValueT) => void
 
   /**
    * 切换状态前，返回 false 可阻止关闭，支持返回 Promise
    * @param v 切换后的值
    */
-  beforeChange?: (v: any) => boolean | Promise<boolean>
+  beforeChange?: (
+    v: ActiveValueT | InactiveValueT,
+  ) => ActiveValueT | InactiveValueT | Promise<ActiveValueT | InactiveValueT>
 }

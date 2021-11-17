@@ -9,9 +9,7 @@ const BasicSwitch: React.FC = () => {
 
   return (
     <ScrollView>
-      <View>
-        <Text>基础用法</Text>
-      </View>
+      <Text>基础用法</Text>
 
       <Switch
         value={state}
@@ -26,25 +24,28 @@ const BasicSwitch: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>禁用状态</Text>
-      </View>
+      <Switch
+        defaultValue={true}
+        onChange={p => {
+          console.log(p)
+        }}
+      />
+
+      <View style={{ height: 20 }} />
+
+      <Text>禁用状态</Text>
 
       <Switch disabled value={state} />
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>加载状态</Text>
-      </View>
+      <Text>加载状态</Text>
 
       <Switch loading value={state} />
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>自定义大小</Text>
-      </View>
+      <Text>自定义大小</Text>
 
       <Switch
         value={state}
@@ -57,9 +58,7 @@ const BasicSwitch: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>自定义颜色</Text>
-      </View>
+      <Text>自定义颜色</Text>
 
       <Switch
         value={state}
@@ -73,16 +72,14 @@ const BasicSwitch: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <View>
-        <Text>异步控制</Text>
-      </View>
+      <Text>异步控制</Text>
 
       <Switch
         loading={loading}
         value={state}
         onChange={setState}
         beforeChange={() =>
-          new Promise(resolve => {
+          new Promise<boolean>(resolve => {
             setLoading(true)
             setTimeout(() => {
               setLoading(false)
