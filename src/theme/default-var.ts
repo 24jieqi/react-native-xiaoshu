@@ -306,10 +306,10 @@ export const tag_large_padding_horizontal = padding_xs
 export const tag_large_border_radius = border_radius_md
 export const tag_large_font_size = font_size_h5
 export const tag_round_border_radius = border_radius_max
-export const tag_danger_color = error
 export const tag_primary_color = primary
 export const tag_success_color = success
 export const tag_warning_color = warning
+export const tag_error_color = error
 export const tag_default_color = text_color_2
 export const tag_plain_background_color = white
 

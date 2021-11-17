@@ -109,6 +109,22 @@ const BasicTag: React.FC = () => {
         <Cell
           title="空心颜色"
           value={
+            <Tag color="#7232dd" textColor="#f30" plain>
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="空心颜色"
+          value={
+            <Tag color="#7232dd" textColor="#f30" plain closeable>
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="空心颜色"
+          value={
             <Tag color="#7232dd" plain>
               标签
             </Tag>
