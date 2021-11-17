@@ -16,7 +16,6 @@ import IconSuccessOutline from '../icon/success'
 import useState from '../hooks/useStateUpdate'
 import useUpdateEffect from '../hooks/useUpdateEffect'
 import { getDefaultValue } from '../helpers'
-import { isValue } from '../helpers/typeof'
 import { useDropdownConfig } from './context'
 import DropdownText from './text'
 import type { DropdownItemProps, DropdownItemOption } from './interface'
@@ -59,11 +58,9 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
 
   // 同步值
   useUpdateEffect(() => {
-    if (isValue(value)) {
-      setState({
-        value,
-      })
-    }
+    setState({
+      value,
+    })
   }, [value])
 
   const onPressText = useCallback(() => {
