@@ -4,13 +4,12 @@ import { Animated, BackHandler, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Overlay from '../overlay/overlay'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import useState from '../hooks/useStateUpdate'
 import usePersistFn from '../hooks/usePersistFn'
-import { isDef } from '../helpers/typeof'
 import * as helpers from '../helpers'
 import { getPosition, getTransform } from './helper'
-import { createStyles, PopupPositionMap } from './style'
+import { createStyles, getBorderRadius, PopupPositionMap } from './style'
 import type { PopupProps, State } from './interface'
 
 /**
@@ -36,17 +35,18 @@ const Popup: React.FC<PopupProps> = ({
   onRequestClose,
 }) => {
   const insets = useSafeAreaInsets()
-  const themeVar = useTheme()
   const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn)
   const onOpenPersistFn = usePersistFn(onOpenFn)
   const onOpenedPersistFn = usePersistFn(onOpenedFn)
   const onClosePersistFn = usePersistFn(onCloseFn)
   const onClosedPersistFn = usePersistFn(onClosedFn)
-  const Styles = createStyles(themeVar, { round, position })
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  if (!isDef(duration)) {
-    duration = themeVar.animation_duration_base
-  }
+  duration = helpers.getDefaultValue(
+    duration,
+    THEME_VAR.animation_duration_base,
+  )
 
   const [state, setState] = useState<State>({
     visible,
@@ -61,12 +61,6 @@ const Popup: React.FC<PopupProps> = ({
     new Animated.Value(getPosition(visible, position)),
   ).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
-  const stopShow = useCallback(() => {
-    if (fadeInstance.current) {
-      fadeInstance.current.stop()
-      fadeInstance.current = null
-    }
-  }, [fadeInstance])
 
   /** 点击遮罩层 */
   const onPressOverlay = useCallback(() => {
@@ -113,26 +107,30 @@ const Popup: React.FC<PopupProps> = ({
         },
       )
 
-      fadeInstance.current.start(() => {
-        fadeInstance.current = null
-        if (!visible) {
-          setState({ visible })
-          onClosedPersistFn()
-        } else {
-          onOpenedPersistFn()
+      fadeInstance.current.start(({ finished }) => {
+        if (finished) {
+          fadeInstance.current = null
+          if (!visible) {
+            setState({ visible })
+            onClosedPersistFn()
+          } else {
+            onOpenedPersistFn()
+          }
         }
       })
     }
 
     return () => {
       // 停止动画
-      stopShow()
+      if (fadeInstance.current) {
+        fadeInstance.current.stop()
+        fadeInstance.current = null
+      }
     }
   }, [
     visible,
     duration,
     fadeAnim,
-    stopShow,
     position,
     onOpenPersistFn,
     onOpenedPersistFn,
@@ -147,32 +145,35 @@ const Popup: React.FC<PopupProps> = ({
 
   // Android 返回按钮
   useEffect(() => {
-    const backAction = () => {
-      if (typeof onRequestClose === 'function' && visible) {
-        return onRequestClose()
-      }
-
-      return false
-    }
-
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
-      backAction,
+      () => {
+        if (typeof onRequestClose === 'function' && visible) {
+          return onRequestClose()
+        }
+
+        return false
+      },
     )
 
     return () => backHandler.remove()
   }, [onRequestClose, visible])
 
-  const popupStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.popup,
-    style,
-    state.visible ? Styles.popupActive : null,
+  const popupStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.popup,
+    getBorderRadius(THEME_VAR, position, round),
     {
       paddingBottom: safeAreaInsetBottom ? insets.bottom : 0,
       zIndex: state.zIndex,
     },
-    state.visible ? getTransform(position, fadeAnim) : null,
-    state.visible ? PopupPositionMap[position] : null,
+    style,
+    state.visible
+      ? [
+          STYLES.popup_active,
+          getTransform(position, fadeAnim),
+          PopupPositionMap[position],
+        ]
+      : null,
   ])
 
   if (state.lazyRender) {

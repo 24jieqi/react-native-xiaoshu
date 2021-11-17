@@ -8,7 +8,7 @@ import React, {
 import type { ViewStyle, TextStyle } from 'react-native'
 import { Text, View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
@@ -31,8 +31,8 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
     },
     ref,
   ) => {
-    const themeVar = useTheme()
-    const Styles = createStyles(themeVar, { position })
+    const THEME_VAR = useTheme()
+    const STYLES = widthStyle(THEME_VAR, createStyles)
 
     const [show, setShow] = useState(false)
     const [msg, setMsg] = useState(message)
@@ -83,22 +83,37 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
     }, [duration])
 
     // 向外暴露方法
-    useImperativeHandle(ref, () => ({
-      close: () => {
-        setShow(false)
-      },
-      setMessage: s => {
-        setMsg(s)
-      },
-    }))
+    useImperativeHandle(
+      ref,
+      () => ({
+        close: () => {
+          setShow(false)
+        },
+        setMessage: s => {
+          setMsg(s)
+        },
+      }),
+      [],
+    )
 
-    const toastInnerStyleSummary: ViewStyle = StyleSheet.flatten([
-      Styles.inner,
-      type === 'text' ? Styles.innerText : null,
+    const toastStyleSummary = StyleSheet.flatten<ViewStyle>([
+      STYLES.toast,
+      {
+        justifyContent:
+          position === 'top'
+            ? 'flex-start'
+            : position === 'bottom'
+            ? 'flex-end'
+            : 'center',
+      },
     ])
-    const toastTextStyleSummary: TextStyle = StyleSheet.flatten([
-      Styles.text,
-      type === 'text' ? Styles.textTop0 : null,
+    const innerStyleSummary = StyleSheet.flatten<ViewStyle>([
+      STYLES.inner,
+      type === 'text' ? STYLES.inner_type_text : null,
+    ])
+    const textStyleSummary = StyleSheet.flatten<TextStyle>([
+      STYLES.text,
+      type === 'text' ? STYLES.text_top_0 : null,
     ])
 
     return (
@@ -109,27 +124,27 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
         onPressOverlay={onPressOverlay}>
         <TouchableWithoutFeedback onPress={onPressContent}>
           <View
-            style={Styles.toast}
+            style={toastStyleSummary}
             pointerEvents={forbidPress ? undefined : 'box-none'}
             collapsable={false}>
-            <View style={toastInnerStyleSummary}>
+            <View style={innerStyleSummary}>
               {type === 'loading' ? (
-                <View style={Styles.loading}>
+                <View style={STYLES.loading}>
                   {loadingType === 'circular' ? (
                     <Circular
-                      color={themeVar.toast_loading_icon_color}
-                      size={themeVar.toast_icon_size}
+                      color={THEME_VAR.toast_loading_icon_color}
+                      size={THEME_VAR.toast_icon_size}
                     />
                   ) : (
                     <Spinner
-                      color={themeVar.toast_loading_icon_color}
-                      size={themeVar.toast_icon_size}
+                      color={THEME_VAR.toast_loading_icon_color}
+                      size={THEME_VAR.toast_icon_size}
                     />
                   )}
                 </View>
               ) : null}
 
-              <Text style={toastTextStyleSummary}>{msg}</Text>
+              <Text style={textStyleSummary}>{msg}</Text>
             </View>
           </View>
         </TouchableWithoutFeedback>

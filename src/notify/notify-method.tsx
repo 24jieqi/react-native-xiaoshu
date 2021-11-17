@@ -36,14 +36,18 @@ const NotifyMethod = forwardRef<NotifyMethods, NotifyMethodProps>(
     }, [duration])
 
     // 向外暴露函数
-    useImperativeHandle(ref, () => ({
-      close: () => {
-        setVisible(false)
-      },
-      setMessage: s => {
-        setMsg(s)
-      },
-    }))
+    useImperativeHandle(
+      ref,
+      () => ({
+        close: () => {
+          setVisible(false)
+        },
+        setMessage: s => {
+          setMsg(s)
+        },
+      }),
+      [],
+    )
 
     return <Notify {...restProps} visible={visible} message={msg} />
   },

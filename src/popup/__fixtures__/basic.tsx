@@ -27,9 +27,19 @@ const BasicPopup: React.FC = () => {
 
   return (
     <ScrollView>
-      <View>
-        <Text>基础用法</Text>
-      </View>
+      <PopupHeader title="弹窗头部" />
+
+      <View style={{ height: 20 }} />
+
+      <PopupHeader
+        title="弹窗头部"
+        leftExtra={<Text>左侧内容</Text>}
+        rightExtra={<Text>右侧内容</Text>}
+      />
+
+      <View style={{ height: 20 }} />
+
+      <Text>基础用法</Text>
 
       <View style={{ height: 20 }} />
 
@@ -45,12 +55,10 @@ const BasicPopup: React.FC = () => {
         }}
       />
 
-      <View>
-        <Text>
-          弹出位置
-          <Text style={Styles.hint}>共用一个弹层，切换不同位置会闪烁</Text>
-        </Text>
-      </View>
+      <Text>
+        弹出位置
+        <Text style={Styles.hint}>共用一个弹层，切换不同位置会闪烁</Text>
+      </Text>
 
       <View style={{ height: 20 }} />
 

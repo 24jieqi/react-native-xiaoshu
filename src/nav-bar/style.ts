@@ -46,6 +46,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       color: themeVar.nav_bar_title_text_color,
       textAlign: 'center',
       fontSize: themeVar.nav_bar_title_font_size,
+      fontWeight: 'bold',
     },
   })
 }

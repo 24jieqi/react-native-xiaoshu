@@ -4,7 +4,7 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Popup from '../popup/popup'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import { isDef } from '../helpers/typeof'
 import { createStyles } from './style'
 import type { NotifyProps } from './interface'
@@ -26,23 +26,26 @@ const Notify: React.FC<NotifyProps> = ({
   ...restProps
 }) => {
   const insets = useSafeAreaInsets()
-  const themeVar = useTheme()
+  const THEME_VAR = useTheme()
 
-  const Styles = createStyles(themeVar, {
-    type,
-    color,
-    backgroundColor,
-  })
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const messageStyleSummary: ViewStyle = StyleSheet.flatten([
-    Styles.notify,
+  const notifyStyleSummary: ViewStyle = StyleSheet.flatten([
+    STYLES.notify,
     {
+      backgroundColor: isDef(backgroundColor)
+        ? backgroundColor
+        : THEME_VAR[`notify_${type}_background_color`] ||
+          THEME_VAR.notify_primary_background_color,
       paddingTop: insets.top,
     },
     style,
   ])
-  const messageTextStyleSummary: TextStyle = StyleSheet.flatten([
-    Styles.text,
+  const textStyleSummary: TextStyle = StyleSheet.flatten([
+    STYLES.text,
+    {
+      color: isDef(color) ? color : THEME_VAR.notify_text_color,
+    },
     textStyle,
   ])
 
@@ -50,7 +53,7 @@ const Notify: React.FC<NotifyProps> = ({
     isValidElement(message) ? (
       message
     ) : (
-      <Text style={messageTextStyleSummary} numberOfLines={1}>
+      <Text style={textStyleSummary} numberOfLines={1}>
         {message}
       </Text>
     )
@@ -61,7 +64,7 @@ const Notify: React.FC<NotifyProps> = ({
   return (
     <Popup {...restProps} overlay={false} position="top">
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={messageStyleSummary}>{messageJSX}</View>
+        <View style={notifyStyleSummary}>{messageJSX}</View>
       </TouchableWithoutFeedback>
     </Popup>
   )

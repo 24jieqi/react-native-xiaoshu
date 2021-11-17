@@ -58,6 +58,7 @@ export const border_radius_md: number = 8
 export const border_radius_lg: number = 16
 export const border_radius_max: number = 999
 
+// 似乎需要调用的时候传入比较合适
 export const page_header_height: number = 44
 
 // ActionSheet
@@ -254,11 +255,11 @@ export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 // Popup
 export const popup_background_color = white
 export const popup_round_border_radius = border_radius_lg
-export const popup_header_height: number = 50
-export const popup_header_font_size = font_size_h3
-export const popup_header_text_color = text_color_1
-export const popup_header_padding_horizontal = padding_xs
-export const popup_close_icon_size = font_size_h1
+// export const popup_header_height: number = 50
+// export const popup_header_font_size = font_size_h3
+// export const popup_header_text_color = text_color_1
+// export const popup_header_padding_horizontal = padding_xs
+export const popup_close_icon_size: number = 16
 export const popup_close_icon_color = text_color_1
 // export const popup_close_icon_margin = padding_md
 

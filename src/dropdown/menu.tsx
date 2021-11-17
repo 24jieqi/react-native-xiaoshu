@@ -1,7 +1,8 @@
-import React, { useMemo, memo } from 'react'
+import React, { useMemo, useRef, memo } from 'react'
 import { View } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
+import { getDefaultValue } from '../helpers'
 import type { DropdownMenuProps } from './interface'
 import { DropdownConfig } from './context'
 import { createStyles } from './style.menu'
@@ -10,47 +11,59 @@ import { createStyles } from './style.menu'
  * DropdownMenu 下拉菜单的横条
  */
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
-  top,
+  titleStyle,
+  titleTextStyle,
+  iconStyle,
   activeColor,
   direction = 'down',
+  lazyRender = true,
+  duration,
   zIndex = 10,
-  duration = 200,
-  overlay = true,
-  closeOnPressOverlay = true,
+  // overlay = true,
+  // closeOnPressOverlay = true,
   closeOnPressOutside = true,
-  children,
+  style,
+  ...restProps
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const MenuRef = useRef<View>(null)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
+
+  activeColor = getDefaultValue(
+    activeColor,
+    THEME_VAR.dropdown_menu_title_active_text_color,
+  )
+  duration = getDefaultValue(duration, THEME_VAR.animation_duration_fast)
 
   const config = useMemo(
     () => ({
-      top,
-      activeColor:
-        activeColor || themeVar.dropdown_menu_title_active_text_color,
-      direction,
-      zIndex,
-      duration,
-      overlay,
-      closeOnPressOverlay,
-      closeOnPressOutside,
-    }),
-    [
-      themeVar.dropdown_menu_title_active_text_color,
-      top,
+      titleStyle,
+      titleTextStyle,
+      iconStyle,
       activeColor,
       direction,
-      zIndex,
+      lazyRender,
       duration,
-      overlay,
-      closeOnPressOverlay,
+      zIndex,
       closeOnPressOutside,
+      MenuRef,
+    }),
+    [
+      activeColor,
+      closeOnPressOutside,
+      direction,
+      duration,
+      iconStyle,
+      lazyRender,
+      titleStyle,
+      titleTextStyle,
+      zIndex,
     ],
   )
 
   return (
     <DropdownConfig.Provider value={config}>
-      <View style={Styles.menu}>{children}</View>
+      <View {...restProps} ref={MenuRef} style={[STYLES.menu, style]} />
     </DropdownConfig.Provider>
   )
 }

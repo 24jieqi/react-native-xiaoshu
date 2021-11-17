@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 
-// import type { TextInputProps } from './interface';
 import type { ThemeVarType } from '../theme'
 
 export const createStyles = (themeVar: ThemeVarType) => {

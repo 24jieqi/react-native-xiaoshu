@@ -1,5 +1,6 @@
-import type React from 'react'
+// import type React from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
+import type { NavBarProps } from '../nav-bar/interface'
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center'
 
@@ -101,12 +102,15 @@ export type State = {
   lazyRender: boolean
 }
 
-export interface PopupHeaderProps {
-  /**
-   * 标题
-   */
-  title?: React.ReactNode
-
+export interface PopupHeaderProps
+  extends Omit<
+    NavBarProps,
+    | 'showBackArrow'
+    | 'backArrowColor'
+    | 'backArrowSize'
+    | 'onPressBackArrow'
+    | 'border'
+  > {
   /**
    * 点击关闭
    */

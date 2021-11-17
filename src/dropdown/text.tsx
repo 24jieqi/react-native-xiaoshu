@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
-import type { TextStyle } from 'react-native'
+import type { TextStyle, ViewStyle } from 'react-native'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import IconArrowFill from '../icon/arrow.fill'
-import { isDef } from '../helpers/typeof'
+import { getDefaultValue } from '../helpers'
 import type { DropdownTextProps } from './interface'
 import { useDropdownConfig } from './context'
 import { createStyles } from './style.text'
@@ -12,13 +12,14 @@ import { createStyles } from './style.text'
 const ICON_SIZE = 10
 
 const DropdownText: React.FC<DropdownTextProps> = ({
-  title,
-  titleTextStyle,
-  activeColor,
-  active = false,
+  textStyle,
+  iconStyle,
   disabled = false,
-  direction = 'down',
+  title,
+  active = false,
   pressable = true,
+  activeColor,
+  direction,
 
   // TouchableOpacity 属性
   style,
@@ -26,36 +27,40 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ...restProps
 }) => {
   const config = useDropdownConfig()
-  const themeVar = useTheme()
-
-  const Styles = createStyles(themeVar)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   // 修正数据
-  if (!activeColor) {
-    activeColor = config.activeColor
-  }
-  if (!isDef(activeOpacity)) {
-    activeOpacity = themeVar.active_opacity
-  }
+  activeColor = getDefaultValue(activeColor, config.activeColor)
+  activeOpacity = getDefaultValue(activeOpacity, THEME_VAR.active_opacity)
+  direction = getDefaultValue(direction, config.direction)
+
   const textColor = disabled
-    ? themeVar.dropdown_menu_title_disabled_text_color
+    ? THEME_VAR.dropdown_menu_title_disabled_text_color
     : active
     ? activeColor
-    : themeVar.dropdown_menu_title_text_color
+    : THEME_VAR.dropdown_menu_title_text_color
 
-  const itemStyleSummary = StyleSheet.flatten([Styles.item, style])
+  const itemStyleSummary = StyleSheet.flatten<ViewStyle>([
+    STYLES.item,
+    config.titleStyle,
+    style,
+  ])
   const textStyleSummary = StyleSheet.flatten<TextStyle>([
-    Styles.text,
+    STYLES.text,
+    config.titleTextStyle,
     {
       color: textColor,
     },
-    titleTextStyle,
+    textStyle,
   ])
+  const iconStyles = [config.iconStyle, iconStyle].filter(Boolean)
 
   const ctxJSX = (
     <>
       <Text style={textStyleSummary}>{title}</Text>
       <IconArrowFill
+        style={iconStyles.length ? StyleSheet.flatten(iconStyles) : undefined}
         size={ICON_SIZE}
         direction={active ? (direction === 'up' ? 'down' : 'up') : direction}
         color={active ? activeColor : textColor}
@@ -65,7 +70,11 @@ const DropdownText: React.FC<DropdownTextProps> = ({
 
   if (pressable) {
     return (
-      <TouchableOpacity {...restProps} style={itemStyleSummary}>
+      <TouchableOpacity
+        {...restProps}
+        disabled={disabled}
+        style={itemStyleSummary}
+        activeOpacity={activeOpacity}>
         {ctxJSX}
       </TouchableOpacity>
     )

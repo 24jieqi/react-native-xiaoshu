@@ -4,7 +4,7 @@ import { View, Text, Animated, StyleSheet } from 'react-native'
 
 import Popup from '../popup/popup'
 import Button from '../button'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import usePersistFn from '../hooks/usePersistFn'
 import { isDef } from '../helpers/typeof'
 import * as helpers from '../helpers'
@@ -37,15 +37,14 @@ const Dialog: React.FC<DialogProps> = ({
   onClose: onCloseFn,
   ...resetProps
 }) => {
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar, { messageAlign, width })
-
-  if (!isDef(duration)) {
-    duration = themeVar.dialog_transition
-  }
-
   const fadeAnim = useRef(new Animated.Value(0)).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
+
+  width = helpers.getDefaultValue(width, THEME_VAR.dialog_width)
+  duration = helpers.getDefaultValue(duration, THEME_VAR.dialog_transition)
+
   const showDialog = useCallback(
     (show: boolean) => {
       if (fadeInstance.current) {
@@ -79,8 +78,9 @@ const Dialog: React.FC<DialogProps> = ({
   })
 
   const dialogStyleSummary = StyleSheet.flatten([
-    Styles.dialog,
+    STYLES.dialog,
     {
+      width,
       transform: [
         {
           scale: fadeAnim.interpolate({
@@ -92,8 +92,11 @@ const Dialog: React.FC<DialogProps> = ({
     },
   ])
   const messageTextStyleSummary = StyleSheet.flatten<TextStyle>([
-    Styles.messageText,
-    title ? Styles.messageTextHasTitle : null,
+    STYLES.message_text,
+    {
+      textAlign: messageAlign,
+    },
+    title ? STYLES.message_text_has_title : null,
   ])
 
   /** 标题部分 纯文字或自定义 JSX */
@@ -101,7 +104,7 @@ const Dialog: React.FC<DialogProps> = ({
     isValidElement(title) ? (
       title
     ) : (
-      <Text style={Styles.titleText}>{title}</Text>
+      <Text style={STYLES.title_text}>{title}</Text>
     )
   ) : null
 
@@ -116,14 +119,14 @@ const Dialog: React.FC<DialogProps> = ({
   )
 
   const cancelButtonProps = {
-    color: cancelButtonColor || themeVar.dialog_cancel_button_text_color,
+    color: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
     text: cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
-    color: confirmButtonColor || themeVar.dialog_confirm_button_text_color,
+    color: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
     text: confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
@@ -141,16 +144,16 @@ const Dialog: React.FC<DialogProps> = ({
         {titleJSX ? (
           messageJSX
         ) : (
-          <View style={Styles.contentIsolated}>{messageJSX}</View>
+          <View style={STYLES.content_isolated}>{messageJSX}</View>
         )}
 
-        <View style={Styles.footer}>
+        <View style={STYLES.footer}>
           {showCancelButton ? (
             <Button
               {...cancelButtonProps}
               plain
               size="large"
-              style={Styles.btn}
+              style={STYLES.btn}
             />
           ) : null}
           {showConfirmButton ? (
@@ -159,8 +162,8 @@ const Dialog: React.FC<DialogProps> = ({
               plain
               size="large"
               style={StyleSheet.flatten([
-                Styles.btn,
-                showCancelButton ? Styles.btnLeft : null,
+                STYLES.btn,
+                showCancelButton ? STYLES.btn_border_left : null,
               ])}
             />
           ) : null}

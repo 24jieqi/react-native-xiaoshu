@@ -15,7 +15,7 @@ import Empty from '../empty'
 import Button from '../button'
 import CheckboxIcon from '../checkbox/icon'
 import { IconSuccessOutLine } from '../icon'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
 import type { SelectPopupProps, SelectPopupValue } from './interface'
 import { createStyles } from './style'
 
@@ -33,7 +33,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   onClose,
   ...restProps
 }) => {
-  const themeVar = useTheme()
+  const THEME_VAR = useTheme()
   const insets = useSafeAreaInsets()
   const windowDimensions = useWindowDimensions()
   const ScrollViewRef = useRef<ScrollView>(null)
@@ -46,32 +46,32 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       ? [value as SelectPopupValue]
       : [],
   )
-  const Styles = createStyles(themeVar)
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   /** select 动态高度 */
   const selectHeight = useMemo(() => {
     const titleHeight = 24
     /** 选项/内容高度 选项个数 + 标题高度 + 圆角边缘 + 多选按钮高度 + 底部安全距离 */
     const pickHeight =
-      options.length * themeVar.select_popup_option_text_line_height +
+      options.length * THEME_VAR.select_popup_option_text_line_height +
       titleHeight +
-      themeVar.popup_round_border_radius +
+      THEME_VAR.popup_round_border_radius +
       (multiple ? 60 : 0) +
       insets.bottom
     const maxHeight =
-      windowDimensions.height - themeVar.page_header_height - insets.top
+      windowDimensions.height - THEME_VAR.page_header_height - insets.top
 
     return pickHeight > maxHeight
       ? maxHeight
-      : pickHeight < themeVar.select_popup_min_height
-      ? themeVar.select_popup_min_height
+      : pickHeight < THEME_VAR.select_popup_min_height
+      ? THEME_VAR.select_popup_min_height
       : pickHeight
   }, [
     options.length,
-    themeVar.select_popup_option_text_line_height,
-    themeVar.popup_round_border_radius,
-    themeVar.page_header_height,
-    themeVar.select_popup_min_height,
+    THEME_VAR.select_popup_option_text_line_height,
+    THEME_VAR.popup_round_border_radius,
+    THEME_VAR.page_header_height,
+    THEME_VAR.select_popup_min_height,
     multiple,
     insets.bottom,
     insets.top,
@@ -143,8 +143,8 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       <View style={selectStyle}>
         <PopupHeader title={title} onClose={onClose} />
 
-        <View style={Styles.body}>
-          <ScrollView ref={ScrollViewRef}>
+        <View style={STYLES.body}>
+          <ScrollView ref={ScrollViewRef} bounces={false}>
             {options.length === 0 ? <Empty /> : null}
 
             {options?.map(item => {
@@ -156,9 +156,9 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
                   key={item.value}
                   disabled={item.disabled}
                   onPress={genOnPressOption(item.value)}
-                  activeOpacity={themeVar.active_opacity}>
-                  <View style={Styles.optionItem}>
-                    <Text style={Styles.optionItemText} numberOfLines={1}>
+                  activeOpacity={THEME_VAR.active_opacity}>
+                  <View style={STYLES.option_item}>
+                    <Text style={STYLES.option_item_text} numberOfLines={1}>
                       {item.label}
                     </Text>
 
@@ -169,8 +169,8 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
                       />
                     ) : isSelected ? (
                       <IconSuccessOutLine
-                        color={themeVar.primary}
-                        size={themeVar.checkbox_icon_size}
+                        color={THEME_VAR.primary}
+                        size={THEME_VAR.checkbox_icon_size}
                       />
                     ) : null}
                   </View>
@@ -180,7 +180,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
           </ScrollView>
 
           {multiple ? (
-            <View style={Styles.btn}>
+            <View style={STYLES.btn}>
               <Button type="primary" onPress={onPressOk}>
                 确定
               </Button>

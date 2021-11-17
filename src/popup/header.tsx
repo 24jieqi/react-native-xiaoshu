@@ -1,49 +1,57 @@
-import React, { isValidElement } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import React, { memo } from 'react'
+import { TouchableOpacity } from 'react-native'
 
-import { isDef } from '../helpers/typeof'
 import usePersistFn from '../hooks/usePersistFn'
 import { IconCrossOutline } from '../icon'
-import { useTheme } from '../theme'
+import { useTheme, widthStyle } from '../theme'
+import NavBar from '../nav-bar'
 import type { PopupHeaderProps } from './interface'
 import { createStyles } from './style.header'
 
+const CLOSE_HIT_SLOP = {
+  left: 4,
+  right: 4,
+  top: 4,
+  bottom: 4,
+}
+
 const PopupHeader: React.FC<PopupHeaderProps> = ({
-  title,
-  onClose,
   showClose = true,
+  onClose,
+
+  rightExtra,
+  ...restProps
 }) => {
   const onClosePersistFn = usePersistFn(onClose)
-  const themeVar = useTheme()
-  const Styles = createStyles(themeVar)
+  const THEME_VAR = useTheme()
+  const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={Styles.headerText} numberOfLines={1}>
-        {title}
-      </Text>
-    )
-  ) : null
+  const rightExtraJSX = (
+    <>
+      {rightExtra}
+      {showClose ? (
+        <TouchableOpacity
+          style={STYLES.icon}
+          onPress={onClosePersistFn}
+          activeOpacity={THEME_VAR.active_opacity}
+          hitSlop={CLOSE_HIT_SLOP}>
+          <IconCrossOutline
+            color={THEME_VAR.popup_close_icon_color}
+            size={THEME_VAR.popup_close_icon_size}
+          />
+        </TouchableOpacity>
+      ) : null}
+    </>
+  )
 
   return (
-    <View style={Styles.header}>
-      <View style={Styles.headerIcon} />
-      {titleJSX}
-      <View style={Styles.headerIcon}>
-        {showClose ? (
-          <TouchableOpacity onPress={onClosePersistFn}>
-            <IconCrossOutline
-              color={themeVar.popup_close_icon_color}
-              size={themeVar.popup_close_icon_size}
-              style={Styles.closeStyle}
-            />
-          </TouchableOpacity>
-        ) : null}
-      </View>
-    </View>
+    <NavBar
+      {...restProps}
+      rightExtra={rightExtraJSX}
+      showBackArrow={false}
+      border={false}
+    />
   )
 }
 
-export default PopupHeader
+export default memo(PopupHeader)

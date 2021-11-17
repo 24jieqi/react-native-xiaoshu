@@ -6,17 +6,17 @@ export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     body: {
       flex: 1,
-      paddingHorizontal: themeVar.select_popup_body_padding_horizontal,
     },
 
-    optionItem: {
+    option_item: {
+      paddingHorizontal: themeVar.select_popup_body_padding_horizontal,
       height: themeVar.select_popup_option_text_line_height,
       flexDirection: 'row',
       alignItems: 'center',
       // backgroundColor: '#f30', // to test ui
     },
 
-    optionItemText: {
+    option_item_text: {
       flex: 1,
       lineHeight: themeVar.select_popup_option_text_line_height,
       fontSize: themeVar.font_size_h5,
@@ -27,6 +27,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     btn: {
       height: 60,
       justifyContent: 'center',
+      paddingHorizontal: themeVar.select_popup_body_padding_horizontal,
     },
   })
 }

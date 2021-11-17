@@ -1,23 +1,19 @@
 import { StyleSheet } from 'react-native'
 
 import type { ThemeVarType } from '../theme'
-import type { DialogProps } from './interface'
 
-export const createStyles = (
-  themeVar: ThemeVarType,
-  { messageAlign, width }: Pick<DialogProps, 'messageAlign' | 'width'>,
-) => {
+export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     dialog: {
       // position: 'absolute',
       marginTop: '-40%', // margin 是对话框的尺寸，不是屏幕宽度有关系？
-      width: width || themeVar.dialog_width,
+      // width: width || themeVar.dialog_width,
       overflow: 'hidden',
       backgroundColor: themeVar.dialog_background_color,
       borderRadius: themeVar.dialog_border_radius,
     },
 
-    titleText: {
+    title_text: {
       textAlign: 'center',
       paddingTop: themeVar.dialog_header_padding_top,
       lineHeight: themeVar.dialog_header_line_height,
@@ -25,29 +21,29 @@ export const createStyles = (
       fontSize: themeVar.dialog_font_size,
     },
 
-    contentIsolated: {
+    content_isolated: {
       minHeight: 104,
       alignItems: 'center',
       justifyContent: 'center',
       // backgroundColor: '#f30', // to test ui
     },
 
-    messageText: {
+    message_text: {
       paddingHorizontal: themeVar.dialog_message_padding_horizontal,
       paddingVertical: themeVar.dialog_message_padding_vertical,
       fontSize: themeVar.dialog_message_font_size,
       lineHeight: themeVar.dialog_message_line_height,
-      textAlign: messageAlign,
+      // textAlign: messageAlign,
     },
 
-    messageTextHasTitle: {
+    message_text_has_title: {
       paddingTop: themeVar.dialog_has_title_message_padding_top,
       color: themeVar.dialog_has_title_message_text_color,
     },
 
     footer: {
       flexDirection: 'row',
-      borderTopWidth: StyleSheet.hairlineWidth,
+      borderTopWidth: 1,
       borderColor: themeVar.border_color,
     },
 
@@ -61,8 +57,8 @@ export const createStyles = (
       backgroundColor: 'transparent',
     },
 
-    btnLeft: {
-      borderLeftWidth: StyleSheet.hairlineWidth,
+    btn_border_left: {
+      borderLeftWidth: 1,
       borderColor: themeVar.border_color,
     },
   })

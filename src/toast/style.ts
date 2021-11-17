@@ -1,24 +1,14 @@
 import { StyleSheet } from 'react-native'
 
 import type { ThemeVarType } from '../theme'
-import type { ToastProps } from './interface'
 
-export const createStyles = (
-  themeVar: ThemeVarType,
-  { position }: Pick<ToastProps, 'position'>,
-) => {
+export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     toast: {
       // backgroundColor: '#f30', // to test ui
       flex: 1,
       width: '100%',
       alignItems: 'center',
-      justifyContent:
-        position === 'top'
-          ? 'flex-start'
-          : position === 'bottom'
-          ? 'flex-end'
-          : 'center',
       paddingTop: themeVar.toast_position_top_distance,
       paddingBottom: themeVar.toast_position_bottom_distance,
     },
@@ -34,7 +24,7 @@ export const createStyles = (
       justifyContent: 'center',
     },
 
-    innerText: {
+    inner_type_text: {
       lineHeight: themeVar.toast_line_height,
       paddingHorizontal: themeVar.toast_text_padding_horizontal,
       paddingVertical: themeVar.toast_text_padding_vertical,
@@ -55,7 +45,7 @@ export const createStyles = (
       marginTop: themeVar.padding_xs,
     },
 
-    textTop0: {
+    text_top_0: {
       marginTop: 0,
     },
   })
