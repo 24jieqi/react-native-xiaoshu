@@ -12,7 +12,7 @@ const BasicActionSheet: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Cell
           title="提示弹窗"
           isLink
@@ -74,7 +74,7 @@ const BasicActionSheet: React.FC = () => {
         <Cell
           title="展示描述信息"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             ActionSheet({
               actions: ['选项一', '选项二'],
@@ -107,11 +107,11 @@ const BasicActionSheet: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="选项状态" border={false}>
+      <CellGroup title="选项状态" bordered={false}>
         <Cell
           title="选项状态"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             ActionSheet({
               actions: [
@@ -137,11 +137,11 @@ const BasicActionSheet: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="组件调用" border={false}>
+      <CellGroup title="组件调用" bordered={false}>
         <Cell
           title="组件调用"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             console.log('组件调用 -> show')
             setState(s => ({

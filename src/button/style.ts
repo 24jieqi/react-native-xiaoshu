@@ -10,7 +10,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexDirection: 'row',
       borderStyle: 'solid',
       borderWidth: 1,
-      paddingHorizontal: themeVar.padding_md,
+      paddingHorizontal: themeVar.padding_xs,
       height: themeVar.button_default_height,
       backgroundColor: themeVar.button_default_background_color,
       borderColor: themeVar.button_default_border_color,
@@ -39,6 +39,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     button_mini: {
       height: themeVar.button_mini_height,
+      paddingHorizontal: themeVar.padding_base,
     },
 
     button_primary: {

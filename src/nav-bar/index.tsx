@@ -29,7 +29,7 @@ const NavBar: React.FC<NavBarProps> = ({
   showBackArrow = true,
   backArrowColor,
   backArrowSize,
-  border = true,
+  bordered = true,
   hairline = false,
   onPressBackArrow,
 }) => {
@@ -54,7 +54,7 @@ const NavBar: React.FC<NavBarProps> = ({
     <View
       style={[
         STYLES.bar,
-        border
+        bordered
           ? {
               borderBottomColor: THEME_VAR.border_color,
               borderBottomWidth,

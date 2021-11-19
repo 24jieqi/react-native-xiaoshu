@@ -6,7 +6,7 @@ import { Tag, Cell, CellGroup, Toast } from 'react-native-xiaoshu'
 const BasicTag: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Cell title="default 类型" value={<Tag>标签</Tag>} />
         <Cell
           title="primary 类型"
@@ -22,11 +22,11 @@ const BasicTag: React.FC = () => {
         <Cell
           title="warning 类型"
           value={<Tag type="warning">标签</Tag>}
-          border={false}
+          bordered={false}
         />
       </CellGroup>
 
-      <CellGroup title="样式风格" border={false}>
+      <CellGroup title="样式风格" bordered={false}>
         <Cell
           title="空心样式"
           value={
@@ -71,11 +71,11 @@ const BasicTag: React.FC = () => {
               标签
             </Tag>
           }
-          border={false}
+          bordered={false}
         />
       </CellGroup>
 
-      <CellGroup title="标签大小" border={false}>
+      <CellGroup title="标签大小" bordered={false}>
         <Cell title="小号标签" value={<Tag type="primary">标签</Tag>} />
         <Cell
           title="中号标签"
@@ -92,11 +92,11 @@ const BasicTag: React.FC = () => {
               标签
             </Tag>
           }
-          border={false}
+          bordered={false}
         />
       </CellGroup>
 
-      <CellGroup title="自定义颜色" border={false}>
+      <CellGroup title="自定义颜色" bordered={false}>
         <Cell title="背景颜色" value={<Tag color="#7232dd">标签</Tag>} />
         <Cell
           title="文字颜色"
@@ -129,7 +129,7 @@ const BasicTag: React.FC = () => {
               标签
             </Tag>
           }
-          border={false}
+          bordered={false}
         />
       </CellGroup>
     </ScrollView>

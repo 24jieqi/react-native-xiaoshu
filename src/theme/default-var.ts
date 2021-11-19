@@ -314,16 +314,17 @@ export const tag_default_color = text_color_2
 export const tag_plain_background_color = white
 
 // TextInput
-export const text_input_color = text_color_1
-export const text_input_font_size = font_size_h5
-export const text_input_padding_horizontal = padding_sm
-export const text_input_padding_vertical = padding_sm
 export const text_input_selection_color = primary
 export const text_input_placeholder_text_color = text_color_4
-export const text_input_min_height: number = 20
+export const text_input_color = text_color_1
+export const text_input_font_size = font_size_h5
+export const text_input_padding_horizontal = padding_xs
+// export const text_input_padding_vertical = padding_xs
+export const text_input_min_height: number = 32
 export const text_input_clearable_size: number = 16
 export const text_input_clearable_background_color = text_color_4
 export const text_input_clearable_color: string = '#fff'
+
 export const text_input_light_accessory_background_color: string = '#f7f7f7'
 export const text_input_dark_accessory_background_color: string = '#575757'
 export const text_input_dark_accessory_padding_horizontal: number = padding_sm

@@ -6,7 +6,7 @@ import { Cell, CellGroup, Toast } from 'react-native-xiaoshu'
 const BasicToast: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Cell
           title="文字提示"
           isLink
@@ -83,7 +83,7 @@ const BasicToast: React.FC = () => {
         <Cell
           title="失败提示"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Toast('图标暂时还未确定')
           }}
@@ -92,7 +92,7 @@ const BasicToast: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="自定义位置" border={false}>
+      <CellGroup title="自定义位置" bordered={false}>
         <Cell
           title="顶部展示"
           isLink
@@ -107,7 +107,7 @@ const BasicToast: React.FC = () => {
         <Cell
           title="底部展示"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Toast({
               message: '提示内容',

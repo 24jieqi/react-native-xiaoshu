@@ -50,14 +50,14 @@ const BasicCell: React.FC = () => {
           value="内容"
           onPress={msg('点什么2')}
           isLink
-          border={false}
+          bordered={false}
         />
       </CellGroup>
 
       <CellGroup title="垂直布局">
         <Cell vertical title="单元格" value="内容" />
 
-        <Cell required vertical title="单元格" value="large" border={false} />
+        <Cell required vertical title="单元格" value="large" bordered={false} />
       </CellGroup>
 
       <CellGroup title="展示图标">
@@ -65,7 +65,7 @@ const BasicCell: React.FC = () => {
           title="单元格"
           value="内容"
           titleExtra={<Icon.IconArrowOutline size="14" />}
-          border={false}
+          bordered={false}
         />
       </CellGroup>
 
@@ -74,7 +74,7 @@ const BasicCell: React.FC = () => {
         <Cell value="内容 textAlign='center'" textAlign="center" />
         <Cell value="内容 textAlign='left'" textAlign="left" />
         <Cell value="内容" textAlign="left" isLink />
-        <Cell value="内容" textAlign="center" isLink border={false} />
+        <Cell value="内容" textAlign="center" isLink bordered={false} />
       </CellGroup>
 
       <CellGroup title="展示箭头">
@@ -90,7 +90,7 @@ const BasicCell: React.FC = () => {
           title="单元格"
           value="内容"
           valueExtra={<Icon.IconArrowOutline />}
-          border={false}
+          bordered={false}
         />
       </CellGroup>
 
@@ -106,13 +106,19 @@ const BasicCell: React.FC = () => {
           value="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
           isLink
         />
-        <Cell title={`单\n元\n格`} value="内容" center isLink border={false} />
+        <Cell
+          title={`单\n元\n格`}
+          value="内容"
+          center
+          isLink
+          bordered={false}
+        />
       </CellGroup>
 
       <CellGroup title={<Text style={{ color: '#690' }}>自定义分组头</Text>}>
         <Cell title="单元格" value="内容" isLink />
 
-        <Cell title="单元格" value="内容" border={false} isLink />
+        <Cell title="单元格" value="内容" bordered={false} isLink />
       </CellGroup>
     </ScrollView>
   )

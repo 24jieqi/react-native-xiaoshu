@@ -28,7 +28,7 @@ export type CellGroupProps = {
    * 是否显示外边框
    * @default true
    */
-  border?: boolean
+  bordered?: boolean
 
   /**
    * 点击头部文案
@@ -96,7 +96,7 @@ export interface CellPrivateProps {
    * 是否显示内边框
    * @default true
    */
-  border?: boolean
+  bordered?: boolean
 
   /**
    * 是否展示右侧箭头并开启点击反馈

@@ -6,7 +6,7 @@ import { Collapse, CellGroup } from 'react-native-xiaoshu'
 const BasicCollapse: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Collapse
           title={
             <View>

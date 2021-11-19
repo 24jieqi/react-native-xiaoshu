@@ -12,11 +12,11 @@ const BasicNotify: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Cell
           title="基础用法"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Notify('基础用法')
           }}
@@ -25,7 +25,7 @@ const BasicNotify: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="通知类型" border={false}>
+      <CellGroup title="通知类型" bordered={false}>
         <Cell
           title="主要通知"
           isLink
@@ -59,7 +59,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="警告通知"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Notify({
               type: 'warning',
@@ -71,7 +71,7 @@ const BasicNotify: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="自定义配置" border={false}>
+      <CellGroup title="自定义配置" bordered={false}>
         <Cell
           title="自定义颜色"
           isLink
@@ -86,7 +86,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="自定义时长"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Notify({
               message: '自定义时长',
@@ -98,11 +98,11 @@ const BasicNotify: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="组件调用" border={false}>
+      <CellGroup title="组件调用" bordered={false}>
         <Cell
           title="组件调用"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             console.log('组件调用')
             setState(s => ({

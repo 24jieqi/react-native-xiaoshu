@@ -14,7 +14,7 @@ const BasicDialog: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Cell
           title="提示弹窗"
           isLink
@@ -42,7 +42,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="确认弹窗"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Dialog.confirm({
               message: '确认弹窗',
@@ -71,7 +71,7 @@ const BasicDialog: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="输入框" border={false}>
+      <CellGroup title="输入框" bordered={false}>
         <Cell
           title="普通文字"
           isLink
@@ -121,7 +121,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="数字"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             Dialog.input({
               title: '输入框？',
@@ -136,11 +136,11 @@ const BasicDialog: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="组件调用" border={false}>
+      <CellGroup title="组件调用" bordered={false}>
         <Cell
           title="组件调用"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             console.log('组件调用')
             setState(s => ({

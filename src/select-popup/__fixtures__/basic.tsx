@@ -17,7 +17,7 @@ const BasicActionSheet: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" border={false}>
+      <CellGroup title="基础用法" bordered={false}>
         <Cell
           title="没有超过一屏"
           isLink
@@ -115,7 +115,7 @@ const BasicActionSheet: React.FC = () => {
         <Cell
           title="超过一屏"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             const v: SelectPopupOption[] = []
 
@@ -143,11 +143,11 @@ const BasicActionSheet: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <CellGroup title="组件调用" border={false}>
+      <CellGroup title="组件调用" bordered={false}>
         <Cell
           title="组件调用"
           isLink
-          border={false}
+          bordered={false}
           onPress={() => {
             console.log('组件调用 -> show')
             setState(s => ({

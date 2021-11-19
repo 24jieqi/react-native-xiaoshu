@@ -57,7 +57,7 @@ export interface NavBarProps {
    * 是否显示下边框
    * @default true
    */
-  border?: boolean
+  bordered?: boolean
 
   /**
    * 细边框

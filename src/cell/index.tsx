@@ -23,7 +23,7 @@ const Cell: React.FC<CellProps> = ({
   valueTextStyle,
   valueExtra,
   contentStyle,
-  border = true,
+  bordered = true,
   isLink = false,
   onPressLink,
   center = false,
@@ -105,7 +105,7 @@ const Cell: React.FC<CellProps> = ({
       <View
         style={[
           STYLES.cell_inner,
-          border ? STYLES.cell_inner_border : null,
+          bordered ? STYLES.cell_inner_border : null,
           vertical ? null : STYLES.cell_inner_row,
           innerStyle,
         ]}>
