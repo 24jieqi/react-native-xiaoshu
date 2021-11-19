@@ -4,17 +4,17 @@ import { View, ScrollView } from 'react-native'
 import { CellGroup, DropdownMenu, DropdownItem } from 'react-native-xiaoshu'
 
 const itemOptions = [
-  { text: '全部商品', value: null },
+  { label: '全部商品', value: null },
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13, 14].map(v => ({
-    text: `商品分类${v}`,
+    label: `商品分类${v}`,
     value: v,
   })),
 ]
 
 const itemOptions2 = [
-  { text: '全部商品', value: null },
+  { label: '全部商品', value: null },
   ...[1, 2, 3, 4].map(v => ({
-    text: `商品分类${v}`,
+    label: `商品分类${v}`,
     value: v,
   })),
 ]

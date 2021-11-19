@@ -11,7 +11,7 @@ export interface DropdownItemOption {
   /**
    * 文字
    */
-  text: string
+  label: string
 
   /**
    * 标识符
