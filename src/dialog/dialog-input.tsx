@@ -6,7 +6,8 @@ import TextInput from '../text-input'
 import { useTheme } from '../theme'
 import useState from '../hooks/useStateUpdate'
 import usePersistFn from '../hooks/usePersistFn'
-import { isDef, isPromise } from '../helpers/typeof'
+import { callInterceptor } from '../helpers'
+import { isDef } from '../helpers/typeof'
 import Dialog from './dialog'
 import type {
   DialogInputProps,
@@ -66,48 +67,36 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const genOnPressBtn = (action: Exclude<DialogAction, 'overlay'>) => () => {
     Keyboard.dismiss()
 
-    const doOkCallback = (v: boolean, okCallback: () => void) => {
-      setState({
-        [action]: false,
-      })
-      if (v) {
-        okCallback()
-      }
-    }
-    const doCallback = (
-      returnVal: boolean | Promise<boolean>,
-      okCallback: () => void,
-    ) => {
-      if (isPromise(returnVal)) {
-        setState({
-          [action]: true,
-        })
+    setState({
+      [action]: true,
+    })
 
-        returnVal.then(v => {
-          doOkCallback(v, okCallback)
-        })
-      } else {
-        doOkCallback(returnVal, okCallback)
-      }
-    }
-    const doOnPressCallback = () => {
-      const actionCallback =
-        action === 'confirm' ? onPressConfirm : onPressCancel
-      const returnVal = actionCallback ? actionCallback(state.value) : true
-      doCallback(returnVal, () => {
-        setState({
-          visible: false,
-        })
-      })
-    }
+    const actionCallback = action === 'confirm' ? onPressConfirm : onPressCancel
 
-    if (beforeClose) {
-      doCallback(beforeClose(action, state.value), () => {
-        doOnPressCallback()
-      })
-    } else {
-      doOnPressCallback()
-    }
+    callInterceptor(beforeClose, {
+      args: [action, state.value],
+      done: () => {
+        callInterceptor(actionCallback, {
+          args: [state.value || ''],
+          done: () => {
+            setState({
+              [action]: false,
+              visible: false,
+            })
+          },
+          canceled: () => {
+            setState({
+              [action]: false,
+            })
+          },
+        })
+      },
+      canceled: () => {
+        setState({
+          [action]: false,
+        })
+      },
+    })
   }
 
   useEffect(() => {

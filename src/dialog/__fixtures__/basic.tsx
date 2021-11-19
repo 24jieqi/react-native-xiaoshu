@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Dialog } from 'react-native-xiaoshu'
+import { Cell, CellGroup, Dialog, Toast } from 'react-native-xiaoshu'
 
 const BasicDialog: React.FC = () => {
   const [state, setState] = useState({
@@ -82,6 +82,29 @@ const BasicDialog: React.FC = () => {
               onPressConfirm: t => {
                 console.log(t)
                 return true
+              },
+            })
+          }}
+        />
+        <Cell
+          title="普通文字必须有值"
+          isLink
+          onPress={() => {
+            Dialog.input({
+              title: '输入框？',
+              placeholder: '请输入内容',
+              onPressConfirm: t => {
+                if (t.trim()) {
+                  console.log(t)
+                  return new Promise(resolve => {
+                    setTimeout(() => {
+                      resolve(true)
+                    }, 2000)
+                  })
+                } else {
+                  Toast('请输入内容')
+                  return false
+                }
               },
             })
           }}

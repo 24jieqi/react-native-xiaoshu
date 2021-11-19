@@ -5,6 +5,7 @@ import { Text } from 'react-native'
 export { default as hex2rgba } from './hex2rgba'
 export { getNextZIndex } from './z-index'
 export { default as easing } from './easing'
+export { callInterceptor } from './interceptor'
 
 import { isValue, isDef } from './typeof'
 

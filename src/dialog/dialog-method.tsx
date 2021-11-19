@@ -1,7 +1,7 @@
 import React, { useEffect, memo } from 'react'
 
 import useState from '../hooks/useStateUpdate'
-import { isPromise } from '../helpers/typeof'
+import { callInterceptor } from '../helpers'
 import type {
   DialogMethodProps,
   DialogAction,
@@ -26,46 +26,25 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
   })
 
   const genOnPressBtn = (action: DialogAction) => () => {
-    const doOkCallback = (v: boolean, okCallback: () => void) => {
-      setState({
-        [action]: false,
-      })
-      if (v) {
-        okCallback()
-      }
-    }
-    const doCallback = (
-      returnVal: boolean | Promise<boolean>,
-      okCallback: () => void,
-    ) => {
-      if (isPromise(returnVal)) {
-        setState({
-          [action]: true,
-        })
+    setState({
+      [action]: true,
+    })
 
-        returnVal.then(value => {
-          doOkCallback(value, okCallback)
-        })
-      } else {
-        doOkCallback(returnVal, okCallback)
-      }
-    }
-    const doOnPressCallback = () => {
-      callback(action)
-      doOkCallback(true, () => {
+    callInterceptor(beforeClose, {
+      args: [action],
+      done: () => {
+        callback(action)
         setState({
+          [action]: false,
           visible: false,
         })
-      })
-    }
-
-    if (beforeClose) {
-      doCallback(beforeClose(action), () => {
-        doOnPressCallback()
-      })
-    } else {
-      doOnPressCallback()
-    }
+      },
+      canceled: () => {
+        setState({
+          [action]: false,
+        })
+      },
+    })
   }
 
   useEffect(() => {

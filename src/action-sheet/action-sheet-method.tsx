@@ -1,7 +1,6 @@
 import React, { useState, useEffect, memo } from 'react'
 
-import * as helpers from '../helpers'
-import { isPromise } from '../helpers/typeof'
+import { callInterceptor } from '../helpers'
 import type {
   ActionSheetMethodProps,
   ActionSheetAction,
@@ -48,49 +47,15 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
         )
       }
 
-      const done = () => {
-        callback && callback(action, item, index)
-        canceled()
-        setVisible(false)
-      }
-
-      if (beforeClose) {
-        const returnVal = beforeClose(action, item, index)
-
-        // 如果有判断条件
-        if (isPromise(returnVal)) {
-          setLocalActions(las =>
-            las.map((ac, aci) => {
-              if (index === aci) {
-                ac.loading = true
-                ac._loading = true
-              }
-              return ac
-            }),
-          )
-
-          returnVal
-            .then(value => {
-              if (value) {
-                // 关闭动作面板
-                done()
-              } else {
-                canceled()
-              }
-            })
-            .catch(helpers.noop)
-        } else {
-          if (returnVal) {
-            // 关闭动作面板
-            done()
-          } else {
-            canceled()
-          }
-        }
-      } else {
-        // 关闭动作面板
-        done()
-      }
+      callInterceptor(beforeClose, {
+        args: [action, item, index],
+        done: () => {
+          callback?.(action, item, index)
+          canceled()
+          setVisible(false)
+        },
+        canceled,
+      })
     }
 
   useEffect(() => {
