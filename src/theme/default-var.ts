@@ -335,13 +335,13 @@ export const text_input_accessory_text_color = primary
 
 // Toast
 export const toast_max_width: string = '70%'
-export const toast_font_size = font_size_h5
+export const toast_font_size = font_size_text
 export const toast_text_color = white
 export const toast_loading_icon_color = white
 export const toast_line_height = line_height_md
 export const toast_border_radius = border_radius_md
 export const toast_background_color: string = 'rgba(0,0,0,0.7)'
-export const toast_icon_size: number = 28
+export const toast_icon_size: number = 36
 export const toast_text_min_width: number = 96
 export const toast_text_padding_vertical = padding_xs
 export const toast_text_padding_horizontal = padding_sm

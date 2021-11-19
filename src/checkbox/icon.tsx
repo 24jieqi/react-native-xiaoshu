@@ -56,7 +56,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
       icon
     ) : (
       <IconSuccessOutLine
-        size={size}
+        size={size - 4}
         color={disabled ? THEME_VAR.checkbox_icon_border_color : '#fff'}
       />
     )

@@ -194,7 +194,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
                       valueExtra={
                         opt.value === value ? (
                           <IconSuccessOutline
-                            size="16"
+                            size={16}
                             color={config.activeColor}
                           />
                         ) : null

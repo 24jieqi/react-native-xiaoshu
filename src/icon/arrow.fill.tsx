@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
 import { Svg, Polyline } from 'react-native-svg'
 
-import type { IconCommonOutlineProps } from './interface'
+import type { IconCommonFillProps } from './interface'
 import * as helper from './helper'
 
 type Direction = 'left' | 'up' | 'right' | 'down'
 
-interface IconArrowFillProps extends IconCommonOutlineProps {
+interface IconArrowFillProps extends IconCommonFillProps {
   direction?: Direction
 }
 
@@ -21,7 +21,6 @@ const IconArrowFill: React.FC<IconArrowFillProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
-  strokeWidth = helper.STROKE_WIDTH,
   direction = 'right',
   ...restProps
 }) => {
@@ -36,7 +35,7 @@ const IconArrowFill: React.FC<IconArrowFillProps> = ({
         points={PointsMap[direction]}
         fill={color}
         stroke={color}
-        strokeWidth={strokeWidth}
+        strokeWidth={0}
       />
     </Svg>
   )

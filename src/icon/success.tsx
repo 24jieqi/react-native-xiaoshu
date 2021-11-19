@@ -21,7 +21,7 @@ const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
       width={size}
       viewBox="0 0 24 24">
       <Path
-        d="M6,12 10,16 18,6"
+        d="M6,12 12,18 18,6"
         fill="none"
         stroke={color}
         strokeWidth={strokeWidth}

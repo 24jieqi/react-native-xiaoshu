@@ -26,8 +26,8 @@ const IconCrossOutline: React.FC<IconCrossOutlineProps> = ({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round">
-        <Polyline points="4,4 20,20" />
-        <Polyline points="20,4 4,20" />
+        <Polyline points="6,6 18,18" />
+        <Polyline points="18,6 6,18" />
       </G>
     </Svg>
   )

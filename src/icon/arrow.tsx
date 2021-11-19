@@ -37,6 +37,8 @@ const IconArrowOutline: React.FC<IconArrowOutlineProps> = ({
         fill="none"
         stroke={color}
         strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </Svg>
   )

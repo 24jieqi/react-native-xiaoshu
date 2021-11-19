@@ -52,6 +52,10 @@ const navDatas: {
         title: 'TextInput',
         name: 'DemoTextInput',
       },
+      {
+        title: 'Icon',
+        name: 'DemoIcon',
+      },
     ],
   },
   {
