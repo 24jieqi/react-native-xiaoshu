@@ -261,7 +261,7 @@ export const popup_round_border_radius = border_radius_lg
 // export const popup_header_text_color = text_color_1
 // export const popup_header_padding_horizontal = padding_xs
 export const popup_close_icon_size: number = 16
-export const popup_close_icon_color = text_color_1
+export const popup_close_icon_color = text_color_2
 // export const popup_close_icon_margin = padding_md
 
 // SelectPopup

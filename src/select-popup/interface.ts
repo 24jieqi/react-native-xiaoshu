@@ -67,7 +67,15 @@ export interface SelectPopupProps
   /**
    * 当值变化的时候立即响应
    */
-  onChangeImmediate?: (v: any) => any
+  onChangeImmediate?: (
+    v: SelectPopupValue[] | SelectPopupValue,
+  ) => SelectPopupValue[] | SelectPopupValue
+
+  /**
+   * 顶部安全高度
+   * @default safeAreaInsets.top
+   */
+  safeAreaInsetTop?: number
 }
 
 export interface SelectPopupMethodProps

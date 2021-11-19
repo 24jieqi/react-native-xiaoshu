@@ -66,6 +66,40 @@ const BasicActionSheet: React.FC = () => {
           }}
         />
         <Cell
+          title="自定义顶部边距"
+          isLink
+          onPress={() => {
+            const v: SelectPopupOption[] = []
+
+            for (let index = 0; index < 20; index++) {
+              v.push({
+                label: `文案_${index}`,
+                value: index,
+              })
+            }
+
+            SelectPopup({
+              title: '测试选项',
+              options: v,
+              safeAreaInsetTop: 140,
+            })
+              .then(k => {
+                console.log(k)
+              })
+              .catch(() => {})
+          }}
+        />
+        <Cell
+          title="暂无数据"
+          isLink
+          onPress={() => {
+            SelectPopup({
+              title: '测试选项',
+              options: [],
+            }).catch(() => {})
+          }}
+        />
+        <Cell
           title="回调的方式"
           isLink
           onPress={() => {

@@ -16,6 +16,7 @@ import Button from '../button'
 import CheckboxIcon from '../checkbox/icon'
 import { IconSuccessOutLine } from '../icon'
 import { useTheme, widthStyle } from '../theme'
+import { getDefaultValue } from '../helpers'
 import type { SelectPopupProps, SelectPopupValue } from './interface'
 import { createStyles } from './style'
 
@@ -26,6 +27,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   multiple = false,
   onChange,
   onChangeImmediate,
+  safeAreaInsetTop,
 
   // popup 组件相关属性
   visible,
@@ -48,18 +50,18 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   )
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
+  safeAreaInsetTop = getDefaultValue(safeAreaInsetTop, insets.top)
+
   /** select 动态高度 */
   const selectHeight = useMemo(() => {
-    const titleHeight = 24
     /** 选项/内容高度 选项个数 + 标题高度 + 圆角边缘 + 多选按钮高度 + 底部安全距离 */
     const pickHeight =
       options.length * THEME_VAR.select_popup_option_text_line_height +
-      titleHeight +
+      THEME_VAR.nav_bar_height +
       THEME_VAR.popup_round_border_radius +
       (multiple ? 60 : 0) +
       insets.bottom
-    const maxHeight =
-      windowDimensions.height - THEME_VAR.page_header_height - insets.top
+    const maxHeight = windowDimensions.height - safeAreaInsetTop
 
     return pickHeight > maxHeight
       ? maxHeight
@@ -67,14 +69,14 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
       ? THEME_VAR.select_popup_min_height
       : pickHeight
   }, [
-    options.length,
-    THEME_VAR.select_popup_option_text_line_height,
+    THEME_VAR.nav_bar_height,
     THEME_VAR.popup_round_border_radius,
-    THEME_VAR.page_header_height,
     THEME_VAR.select_popup_min_height,
-    multiple,
+    THEME_VAR.select_popup_option_text_line_height,
     insets.bottom,
-    insets.top,
+    multiple,
+    options.length,
+    safeAreaInsetTop,
     windowDimensions.height,
   ])
 
@@ -107,13 +109,19 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
         if (other.length === v.length) {
           const newValues = v.concat(key)
 
-          return onChangeImmediate ? onChangeImmediate(newValues) : newValues
+          return onChangeImmediate
+            ? (onChangeImmediate(newValues) as SelectPopupValue[])
+            : newValues
         }
 
-        return onChangeImmediate ? onChangeImmediate(other) : other
+        return onChangeImmediate
+          ? (onChangeImmediate(other) as SelectPopupValue[])
+          : other
       })
     } else {
-      const newValue = onChangeImmediate ? onChangeImmediate(key) : key
+      const newValue = onChangeImmediate
+        ? (onChangeImmediate(key) as SelectPopupValue)
+        : key
 
       // 单选直接出发回调
       onChange(newValue, options.filter(opt => opt.value === newValue)[0])
