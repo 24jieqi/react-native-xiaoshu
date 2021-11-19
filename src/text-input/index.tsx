@@ -292,7 +292,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
             paddingVertical: 2,
           }
         : {
-            height: THEME_VAR.text_input_min_height - inputUncertainHeight,
+            minHeight: THEME_VAR.text_input_min_height - inputUncertainHeight,
             alignContent: 'center',
           },
       (addonAfterJSX || addonBeforeJSX) && bordered

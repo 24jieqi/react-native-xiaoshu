@@ -22,7 +22,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     description_box: {
-      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomWidth: 1,
       borderBottomColor: themeVar.border_color,
     },
 

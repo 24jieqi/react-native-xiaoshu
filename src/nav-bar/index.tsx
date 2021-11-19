@@ -1,9 +1,9 @@
-import React, { isValidElement, memo } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import React, { memo } from 'react'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import { IconArrowOutline } from '../icon'
-import { getDefaultValue } from '../helpers'
+import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { isDef } from '../helpers/typeof'
 import { createStyles } from './style'
 import type { NavBarProps } from './interface'
@@ -39,14 +39,7 @@ const NavBar: React.FC<NavBarProps> = ({
   backArrowColor = getDefaultValue(backArrowColor, THEME_VAR.nav_bar_icon_color)
   backArrowSize = getDefaultValue(backArrowSize, THEME_VAR.nav_bar_arrow_size)
 
-  /** 标题部分 纯文字或自定义 JSX */
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={[STYLES.title_text, titleTextStyle]}>{title}</Text>
-    )
-  ) : null
+  const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
 
   const borderBottomWidth = hairline ? StyleSheet.hairlineWidth : 1
 

@@ -9,8 +9,6 @@ import type { DropdownTextProps } from './interface'
 import { useDropdownConfig } from './context'
 import { createStyles } from './style.text'
 
-const ICON_SIZE = 10
-
 const DropdownText: React.FC<DropdownTextProps> = ({
   textStyle,
   iconStyle,
@@ -61,7 +59,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
       <Text style={textStyleSummary}>{title}</Text>
       <IconArrowFill
         style={iconStyles.length ? StyleSheet.flatten(iconStyles) : undefined}
-        size={ICON_SIZE}
+        size={THEME_VAR.dropdown_menu_title_icon_size}
         direction={active ? (direction === 'up' ? 'down' : 'up') : direction}
         color={active ? activeColor : textColor}
       />

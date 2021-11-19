@@ -6,7 +6,7 @@ import Button from '../button'
 import { useTheme, widthStyle } from '../theme'
 import usePersistFn from '../hooks/usePersistFn'
 import { isDef } from '../helpers/typeof'
-import * as helpers from '../helpers'
+import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers'
 import { createStyles } from './style'
 import type { DialogProps } from './interface'
 
@@ -41,8 +41,8 @@ const Dialog: React.FC<DialogProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  width = helpers.getDefaultValue(width, THEME_VAR.dialog_width)
-  duration = helpers.getDefaultValue(duration, THEME_VAR.dialog_transition)
+  width = getDefaultValue(width, THEME_VAR.dialog_width)
+  duration = getDefaultValue(duration, THEME_VAR.dialog_transition)
 
   const showDialog = useCallback(
     (show: boolean) => {
@@ -57,9 +57,7 @@ const Dialog: React.FC<DialogProps> = ({
           toValue: show ? 1 : 0,
           duration: duration,
           useNativeDriver: true,
-          easing: show
-            ? helpers.easing.easeOutCirc
-            : helpers.easing.easeInCubic,
+          easing: show ? easing.easeOutCirc : easing.easeInCubic,
         },
       )
 
@@ -76,15 +74,7 @@ const Dialog: React.FC<DialogProps> = ({
     onCloseFn && onCloseFn()
   })
 
-  /** 标题部分 纯文字或自定义 JSX */
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={STYLES.title_text}>{title}</Text>
-    )
-  ) : null
-
+  const titleJSX = renderTextLikeJSX(title, STYLES.title_text)
   const messageJSX = isDef(message) ? (
     isValidElement(message) ? (
       message

@@ -29,8 +29,8 @@ const Divider: React.FC<DividerProps> = ({
     borderStyle: dashed ? 'dashed' : 'solid',
     borderBottomWidth: hairline ? StyleSheet.hairlineWidth : 1,
   }
-  const styleSummary: StyleProp<ViewStyle> = [STYLES.divider, style]
-  const leftBorderStyleSummary: StyleProp<ViewStyle> = [
+  const styles: StyleProp<ViewStyle> = [STYLES.divider, style]
+  const leftBorderStyles: StyleProp<ViewStyle> = [
     borderCommonStyle,
     STYLES.border_left,
     contentPosition === 'left'
@@ -39,7 +39,7 @@ const Divider: React.FC<DividerProps> = ({
     borderStyle,
     leftBorderStyle,
   ]
-  const rightBorderStyleSummary: StyleProp<ViewStyle> = [
+  const rightBorderStyles: StyleProp<ViewStyle> = [
     borderCommonStyle,
     STYLES.border_right,
     contentPosition === 'right'
@@ -51,16 +51,16 @@ const Divider: React.FC<DividerProps> = ({
 
   if (children) {
     return (
-      <View style={styleSummary}>
-        <View style={leftBorderStyleSummary} />
+      <View style={styles}>
+        <View style={leftBorderStyles} />
         <Text style={[STYLES.text, textStyle]}>{children}</Text>
-        <View style={rightBorderStyleSummary} />
+        <View style={rightBorderStyles} />
       </View>
     )
   }
 
   return (
-    <View style={styleSummary}>
+    <View style={styles}>
       <View style={[borderCommonStyle, borderStyle]} />
     </View>
   )

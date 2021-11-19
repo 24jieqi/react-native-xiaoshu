@@ -72,7 +72,7 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
     duration: THEME_VAR.loading_spinner_animation_duration * 1000 * 2.5,
   })
 
-  const iconStyleSummary: ViewStyle = {
+  const iconStyle: ViewStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     width: size,
@@ -88,7 +88,7 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
   }
 
   return (
-    <Animated.View style={iconStyleSummary}>
+    <Animated.View style={iconStyle}>
       <Svg
         width="100%"
         height="100%"

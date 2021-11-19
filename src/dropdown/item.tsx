@@ -122,7 +122,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     onChange && onChange(o.value)
   }
 
-  const shadeStyle: ViewStyle[] = [
+  const shadeStyles: ViewStyle[] = [
     {
       position: 'absolute',
       left: 0,
@@ -132,7 +132,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     },
     state.shadeStyle,
   ]
-  const boxStyle: ViewStyle[] = [
+  const boxStyles: ViewStyle[] = [
     {
       position: 'absolute',
       left: 0,
@@ -167,12 +167,12 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
         {state.active ? (
           <TouchableWithoutFeedback
             onPress={closeOnPressOutside ? onPressShade : undefined}>
-            <View style={shadeStyle} />
+            <View style={shadeStyles} />
           </TouchableWithoutFeedback>
         ) : null}
 
         <View
-          style={boxStyle}
+          style={boxStyles}
           pointerEvents="box-none"
           onLayout={onLayoutPlace}>
           <Popup

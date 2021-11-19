@@ -1,10 +1,10 @@
-import React, { isValidElement, memo } from 'react'
+import React, { memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { Text, View, TouchableHighlight } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import IconArrow from '../icon/arrow'
-import { isDef } from '../helpers/typeof'
+import { renderTextLikeJSX } from '../helpers'
 import { createStyles } from './style'
 import type { CellProps } from './interface'
 
@@ -55,30 +55,21 @@ const Cell: React.FC<CellProps> = ({
       <Text style={STYLES.title_required_text}>*</Text>
     </View>
   ) : null
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={[STYLES.title_text, titleTextStyle]}>{title}</Text>
-    )
-  ) : null
-  const valueJSX = isDef(value) ? (
-    isValidElement(value) ? (
-      value
-    ) : (
-      <Text
-        style={[
-          STYLES.value_text,
-          {
-            textAlign,
-          },
-          valueTextStyle,
-        ]}
-        numberOfLines={valueTextNumberOfLines}>
-        {value}
-      </Text>
-    )
-  ) : null
+  const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
+  const valueJSX = renderTextLikeJSX(
+    value,
+    [
+      STYLES.value_text,
+      {
+        textAlign,
+      },
+      valueTextStyle,
+    ],
+    {
+      numberOfLines: valueTextNumberOfLines,
+    },
+  )
+
   const linkJSX = isLink ? (
     <IconArrow
       direction={arrowDirection}

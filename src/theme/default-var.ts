@@ -213,6 +213,7 @@ export const dropdown_menu_title_active_text_color = primary
 export const dropdown_menu_title_disabled_text_color = text_color_3
 export const dropdown_menu_title_padding_horizontal = padding_base
 export const dropdown_menu_title_line_height = line_height_lg
+export const dropdown_menu_title_icon_size: number = 12
 export const dropdown_menu_option_active_color = primary
 
 // Empty

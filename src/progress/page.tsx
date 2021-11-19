@@ -42,14 +42,14 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
     }))
   }, [loadingOut])
 
-  const wrapperStyle: ViewStyle = {
+  const placeholderStyle: ViewStyle = {
     flex: 1,
     backgroundColor: backgroundColor,
   }
 
   if (state.loading) {
     return (
-      <View style={wrapperStyle}>
+      <View style={placeholderStyle}>
         <Progress
           percentage={state.percentage}
           showPivot={false}

@@ -12,7 +12,7 @@ import STYLES from './style'
  */
 const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
   const ctx = useMemo(() => ({ gutter }), [gutter])
-  const rowStyleSummary: StyleProp<ViewStyle> = [
+  const rowStyles: StyleProp<ViewStyle> = [
     STYLES.row,
     {
       marginHorizontal: -(+gutter / 2),
@@ -28,7 +28,7 @@ const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
 
   return (
     <RowContext.Provider value={ctx}>
-      <View style={rowStyleSummary}>{children}</View>
+      <View style={rowStyles}>{children}</View>
     </RowContext.Provider>
   )
 }

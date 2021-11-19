@@ -159,7 +159,7 @@ const Popup: React.FC<PopupProps> = ({
     return () => backHandler.remove()
   }, [onRequestClose, visible])
 
-  const popupStyleSummary: StyleProp<ViewStyle> = [
+  const popupStyles: StyleProp<ViewStyle> = [
     STYLES.popup,
     getBorderRadius(THEME_VAR, position, round),
     {
@@ -192,7 +192,7 @@ const Popup: React.FC<PopupProps> = ({
       ) : null}
 
       <Animated.View
-        style={popupStyleSummary}
+        style={popupStyles}
         pointerEvents={position !== 'center' ? undefined : 'box-none'}>
         {children}
       </Animated.View>

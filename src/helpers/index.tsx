@@ -1,5 +1,5 @@
 import React, { isValidElement } from 'react'
-import type { TextStyle, StyleProp } from 'react-native'
+import type { TextStyle, StyleProp, TextProps } from 'react-native'
 import { Text } from 'react-native'
 
 export { default as hex2rgba } from './hex2rgba'
@@ -20,12 +20,15 @@ export const getDefaultValue = <T,>(value: T, defaultValue: T): T => {
 export const renderTextLikeJSX = (
   node: React.ReactNode,
   style: StyleProp<TextStyle>,
+  restProps?: Omit<TextProps, 'style'>,
 ) => {
   return isDef(node) ? (
     isValidElement(node) ? (
       node
     ) : (
-      <Text style={style}>{node}</Text>
+      <Text {...restProps} style={style}>
+        {node}
+      </Text>
     )
   ) : null
 }

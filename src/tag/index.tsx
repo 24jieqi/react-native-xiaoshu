@@ -40,7 +40,7 @@ const Tag: React.FC<TagProps> = ({
   const padding_vertical_size = `padding_vertical_${size}`
   const padding_horizontal_size = `padding_horizontal_${size}`
 
-  const innerStyleSummary: StyleProp<ViewStyle> = [
+  const innerStyles: StyleProp<ViewStyle> = [
     STYLES.inner,
     {
       backgroundColor: plain
@@ -71,7 +71,7 @@ const Tag: React.FC<TagProps> = ({
 
   return (
     <View style={[STYLES.tag, style]}>
-      <View style={innerStyleSummary}>
+      <View style={innerStyles}>
         <Text style={textStyleSummary}>{children}</Text>
         {closeable ? (
           <IconCrossOutline

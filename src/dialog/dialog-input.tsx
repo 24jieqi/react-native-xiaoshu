@@ -49,17 +49,11 @@ const DialogInput: React.FC<DialogInputProps> = ({
     () => ({
       marginHorizontal: themeVar.padding_md,
       marginVertical: themeVar.padding_md,
-      borderRadius: themeVar.border_radius_md,
-      padding: themeVar.padding_xs,
       overflow: 'hidden',
-      backgroundColor: themeVar.background_color_1,
+      borderStartColor: '#f30',
+      // height: 100,
     }),
-    [
-      themeVar.background_color_1,
-      themeVar.border_radius_md,
-      themeVar.padding_md,
-      themeVar.padding_xs,
-    ],
+    [themeVar.padding_md],
   )
 
   const onChangeTextPersistFn = usePersistFn((t: string) => {
@@ -148,6 +142,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
           value={state.value}
           onChangeText={onChangeTextPersistFn}
           autoFocus={autoFocus}
+          bordered
         />
       </View>
     </Dialog>

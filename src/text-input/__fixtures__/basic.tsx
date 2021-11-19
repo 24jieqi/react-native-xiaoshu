@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Text } from 'react-native'
 
 import { Cell, CellGroup, TextInput, Button, Icon } from 'react-native-xiaoshu'
 
@@ -8,35 +9,56 @@ const BasicTextInput: React.FC = () => {
   return (
     <>
       <CellGroup title="基础用法">
-        <Cell title="text" value={<TextInput placeholder="不限制输入" />} />
+        <Cell title="text" value={<TextInput placeholder="内容左对齐" />} />
+
         <Cell
           title="text"
-          value={<TextInput placeholder="不限制输入" clearable />}
+          value={<TextInput placeholder="内容右对齐" textAlign="right" />}
         />
+
         <Cell
           title="text"
-          value={<TextInput placeholder="不限制输入" bordered />}
+          value={<TextInput placeholder="内容居中" textAlign="center" />}
         />
+
         <Cell
           title="text"
-          value={<TextInput placeholder="不限制输入" bordered clearable />}
+          value={<TextInput placeholder="输入内容有删除按钮" clearable />}
         />
+
+        <Cell
+          title="text"
+          value={<TextInput placeholder="一个有边框的输入框" bordered />}
+        />
+
         <Cell
           title="text"
           value={
             <TextInput
-              placeholder="不限制输入"
+              placeholder="一个有边框的输入框且输入内容有删除按钮"
+              bordered
+              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="输入框视觉内有额外元素"
               prefix="prefixAAA"
               bordered
               clearable
             />
           }
         />
+
         <Cell
           title="text"
           value={
             <TextInput
-              placeholder="不限制输入"
+              placeholder="请填写验证码"
               prefix={<Icon.IconSuccessOutLine size={16} color="#680" />}
               suffix={
                 <Button
@@ -51,24 +73,12 @@ const BasicTextInput: React.FC = () => {
             />
           }
         />
+
         <Cell
           title="text"
           value={
             <TextInput
-              placeholder="不限制输入"
-              prefix="prefixAAA"
-              suffix="suffix中文"
-              bordered
-              clearable
-            />
-          }
-        />
-        <Cell
-          title="textarea"
-          value={
-            <TextInput
-              type="textarea"
-              placeholder="不限制输入"
+              placeholder="输入框视觉内有额外元素"
               prefix="prefixAAA"
               suffix="suffix中文"
               bordered
@@ -78,10 +88,13 @@ const BasicTextInput: React.FC = () => {
         />
 
         <Cell
-          title="text"
+          title="textarea"
           value={
             <TextInput
-              placeholder="不限制输入"
+              type="textarea"
+              placeholder="多行输入框杜绝一切干扰"
+              prefix="prefixAAA"
+              suffix="suffix中文"
               addonAfter="addonAfterAAA"
               addonBefore="addonBefore中文"
               bordered
@@ -94,7 +107,20 @@ const BasicTextInput: React.FC = () => {
           title="text"
           value={
             <TextInput
-              placeholder="不限制输入"
+              placeholder="输入框外部有额外元素"
+              addonAfter="addonAfterAAA"
+              addonBefore="addonBefore中文"
+              bordered
+              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="输入框外部有额外元素"
               addonAfter="addonAfterAAA"
               bordered
               clearable
@@ -107,7 +133,7 @@ const BasicTextInput: React.FC = () => {
           value={
             <TextInput
               type="number"
-              placeholder="不限制输入"
+              placeholder="请输入其他费用"
               addonAfter="元"
               textAlign="right"
               clearable
@@ -127,7 +153,7 @@ const BasicTextInput: React.FC = () => {
           value={
             <TextInput
               type="number"
-              placeholder="不限制输入"
+              placeholder="请输入其他费用"
               addonAfter="元"
               textAlign="right"
               bordered
@@ -166,6 +192,12 @@ const BasicTextInput: React.FC = () => {
         />
 
         <Cell
+          vertical
+          title="textarea"
+          value={<TextInput type="textarea" placeholder="多行文本" bordered />}
+        />
+
+        <Cell
           title="clearTrigger"
           value={
             <TextInput clearable clearTrigger="always" placeholder="单行文本" />
@@ -193,7 +225,18 @@ const BasicTextInput: React.FC = () => {
               }}
             />
           }
+          bordered={false}
         />
+      </CellGroup>
+
+      <CellGroup title="其他用法">
+        <Text>自定义使用</Text>
+        <TextInput
+          style={{ backgroundColor: '#f5f5f5', fontSize: 20, height: 50 }}
+          placeholder="请输入内容"
+        />
+        <Text>placeholder</Text>
+        <Text>placeholder</Text>
       </CellGroup>
     </>
   )

@@ -1,17 +1,12 @@
 import React, { memo, isValidElement } from 'react'
 import type { TextStyle } from 'react-native'
-import {
-  Text,
-  View,
-  ScrollView,
-  TouchableHighlight,
-  StyleSheet,
-} from 'react-native'
+import { Text, View, ScrollView, TouchableHighlight } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
 import Loading from '../loading/circular'
 import useSafeHeight from '../hooks/useSafeHeight'
+import { renderTextLikeJSX } from '../helpers'
 import { isDef } from '../helpers/typeof'
 import type { ActionSheetProps } from './interface'
 import { createStyles } from './style'
@@ -35,28 +30,18 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
   /** 标题部分 纯文字或自定义 JSX */
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={STYLES.title} numberOfLines={1}>
-        {title}
-      </Text>
-    )
-  ) : null
+  const titleJSX = renderTextLikeJSX(title, STYLES.title, {
+    numberOfLines: 1,
+  })
 
   /** 取消文案 纯文字或自定义 JSX */
-  const cancelTextJSX = isDef(cancelText) ? (
-    isValidElement(cancelText) ? (
-      cancelText
-    ) : (
-      <Text
-        style={StyleSheet.flatten([STYLES.btn, STYLES.cancel])}
-        numberOfLines={1}>
-        {cancelText}
-      </Text>
-    )
-  ) : null
+  const cancelTextJSX = renderTextLikeJSX(
+    cancelText,
+    [STYLES.btn, STYLES.cancel],
+    {
+      numberOfLines: 1,
+    },
+  )
 
   /** 描述文案 纯文字或自定义 JSX */
   const descriptionJSX = isDef(description) ? (
@@ -65,10 +50,10 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
     ) : (
       <View style={STYLES.description_box}>
         <Text
-          style={StyleSheet.flatten([
+          style={[
             STYLES.description,
             titleJSX ? null : STYLES.description_alone,
-          ])}
+          ]}
           numberOfLines={1}>
           {description}
         </Text>
@@ -129,19 +114,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
                   />
                 ) : (
                   <>
-                    <Text
-                      style={StyleSheet.flatten([
-                        STYLES.item,
-                        customTextStyle,
-                      ])}>
+                    <Text style={[STYLES.item, customTextStyle]}>
                       {item.name}
                     </Text>
                     {item.subname ? (
-                      <Text
-                        style={StyleSheet.flatten([
-                          STYLES.item,
-                          STYLES.subname,
-                        ])}>
+                      <Text style={[STYLES.item, STYLES.subname]}>
                         {item.subname}
                       </Text>
                     ) : null}

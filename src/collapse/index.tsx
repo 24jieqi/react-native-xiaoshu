@@ -1,18 +1,12 @@
-import React, {
-  useRef,
-  useCallback,
-  useState,
-  memo,
-  isValidElement,
-} from 'react'
+import React, { useRef, useCallback, useState, memo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
-import { Animated, View, Text, TouchableHighlight } from 'react-native'
+import { Animated, View, TouchableHighlight } from 'react-native'
 
 import IconSVGArrow from '../icon/arrow'
 import usePersistFn from '../hooks/usePersistFn'
 import useUpdateEffect from '../hooks/useUpdateEffect'
-import { isDef, isValue } from '../helpers/typeof'
-import * as helpers from '../helpers'
+import { isValue } from '../helpers/typeof'
+import { easing, renderTextLikeJSX } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
 import type { CollapseProps } from './interface'
 import { createStyles } from './style'
@@ -71,7 +65,7 @@ const Collapse: React.FC<CollapseProps> = ({
           : HeightMap.current.start,
         duration: THEME_VAR.collapse_transition_duration,
         useNativeDriver: false,
-        easing: v ? helpers.easing.easeOutCirc : helpers.easing.easeInCubic,
+        easing: v ? easing.easeOutCirc : easing.easeInCubic,
       })
 
       action.start(({ finished }) => {
@@ -130,13 +124,7 @@ const Collapse: React.FC<CollapseProps> = ({
     [setVisible],
   )
 
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={[STYLES.title_text, titleTextStyle]}>{title}</Text>
-    )
-  ) : null
+  const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
 
   return (
     <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>

@@ -1,6 +1,7 @@
-import React, { isValidElement, memo } from 'react'
-import { View, Text } from 'react-native'
+import React, { memo } from 'react'
+import { View } from 'react-native'
 
+import { renderTextLikeJSX } from '../helpers'
 import { isDef } from '../helpers/typeof'
 import { useTheme, widthStyle } from '../theme'
 import type { CellGroupProps } from './interface'
@@ -23,15 +24,9 @@ const CellGroup: React.FC<CellGroupProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
   /** 标题 可能是自定义 JSX */
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={[STYLES.text, textStyle]} onPress={onPressTitleText}>
-        {title}
-      </Text>
-    )
-  ) : null
+  const titleJSX = renderTextLikeJSX(title, [STYLES.text, textStyle], {
+    onPress: onPressTitleText,
+  })
 
   return (
     <>

@@ -96,7 +96,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
       [],
     )
 
-    const toastStyleSummary: StyleProp<ViewStyle> = [
+    const toastStyles: StyleProp<ViewStyle> = [
       STYLES.toast,
       {
         justifyContent:
@@ -116,7 +116,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
         onPressOverlay={onPressOverlay}>
         <TouchableWithoutFeedback onPress={onPressContent}>
           <View
-            style={toastStyleSummary}
+            style={toastStyles}
             pointerEvents={forbidPress ? undefined : 'box-none'}
             collapsable={false}>
             <View

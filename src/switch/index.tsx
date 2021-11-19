@@ -112,7 +112,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
     }
   }, [active, translateXValueStart, translateXValueEnd, duration])
 
-  const switchStyleSummary: ViewStyle[] = [
+  const switchStyles: ViewStyle[] = [
     STYLES.switch,
     {
       width: switchWidth,
@@ -142,7 +142,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
 
   return (
     <TouchableWithoutFeedback onPress={onPressTouchable}>
-      <Animated.View style={switchStyleSummary}>
+      <Animated.View style={switchStyles}>
         <Animated.View style={nodeStyleSummary}>
           {loading ? (
             <LoadingCircular
