@@ -2,14 +2,43 @@ import type React from 'react'
 import type {
   TextInputProps as RNTextInputProps,
   ViewStyle,
+  TextStyle,
   StyleProp,
 } from 'react-native'
 
 export interface TextInputProps extends RNTextInputProps {
-  wrapperStyle?: StyleProp<ViewStyle>
+  /**
+   * 当设置 addonXxx 的时候就会出现一个组
+   */
+  addonGroupStyle?: StyleProp<ViewStyle>
 
   /**
-   * 输入项
+   * addonBefore 文案的样式
+   */
+  addonBeforeTextStyle?: StyleProp<TextStyle>
+
+  /**
+   * addonAfter 文案的样式
+   */
+  addonAfterTextStyle?: StyleProp<TextStyle>
+
+  /**
+   * xxxfix 相关父组件样式
+   */
+  fixGroupStyles?: StyleProp<ViewStyle>
+
+  /**
+   * prefix 文案的样式
+   */
+  prefixTextStyle?: StyleProp<TextStyle>
+
+  /**
+   * suffix 文案的样式
+   */
+  suffixTextStyle?: StyleProp<TextStyle>
+
+  /**
+   * 输入内容格式
    * @default 'text'
    */
   type?: 'text' | 'digit' | 'number' | 'textarea' | 'password'
@@ -18,7 +47,7 @@ export interface TextInputProps extends RNTextInputProps {
    * 多行的时候最低多少行的高度
    * @default 2
    */
-  rows?: number | string
+  rows?: number
 
   /**
    * 是否启用清除图标，点击清除图标后会清空输入框
@@ -54,15 +83,25 @@ export interface TextInputProps extends RNTextInputProps {
    * 是否显示边框
    * @default false
    */
-  showBorder?: boolean
+  bordered?: boolean
 
   /**
-   * 带标签的 input，设置后置标签，textarea 无
+   * 输入框外部前置标签，边框外，textarea 无
+   */
+  addonBefore?: React.ReactNode
+
+  /**
+   * 输入框外部后置标签，边框外，textarea 无
    */
   addonAfter?: React.ReactNode
 
   /**
-   * 带标签的 input，设置前置标签，textarea 无
+   * 输入框内部前缀，边框内部，textarea 无
    */
-  addonBefore?: React.ReactNode
+  prefix?: React.ReactNode
+
+  /**
+   * 输入框内部后缀，边框内部，textarea 无
+   */
+  suffix?: React.ReactNode
 }

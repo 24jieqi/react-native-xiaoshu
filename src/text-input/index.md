@@ -13,6 +13,8 @@ group:
 
 > 针对原生组件做一些扩展。
 
+参考 Antd 桌面端 Input 组件交互、API 实现。
+
 ## DEMO
 
 <code defaultShowCode src="./__fixtures__/doc.tsx"></code>

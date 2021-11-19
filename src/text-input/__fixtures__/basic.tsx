@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Cell, CellGroup, TextInput } from 'react-native-xiaoshu'
+import { Cell, CellGroup, TextInput, Button, Icon } from 'react-native-xiaoshu'
 
 const BasicTextInput: React.FC = () => {
   const [value, setValue] = useState('')
@@ -8,14 +8,130 @@ const BasicTextInput: React.FC = () => {
   return (
     <>
       <CellGroup title="基础用法">
+        <Cell title="text" value={<TextInput placeholder="不限制输入" />} />
+        <Cell
+          title="text"
+          value={<TextInput placeholder="不限制输入" clearable />}
+        />
+        <Cell
+          title="text"
+          value={<TextInput placeholder="不限制输入" bordered />}
+        />
+        <Cell
+          title="text"
+          value={<TextInput placeholder="不限制输入" bordered clearable />}
+        />
         <Cell
           title="text"
           value={
             <TextInput
               placeholder="不限制输入"
-              addonAfter="AAA"
-              addonBefore="中文"
-              showBorder
+              prefix="prefixAAA"
+              bordered
+              clearable
+            />
+          }
+        />
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="不限制输入"
+              prefix={<Icon.IconSuccessOutLine size={16} color="#680" />}
+              suffix={
+                <Button
+                  type="primary"
+                  size="mini"
+                  text="发送验证码"
+                  style={{ marginLeft: 8 }}
+                />
+              }
+              bordered
+              clearable
+            />
+          }
+        />
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="不限制输入"
+              prefix="prefixAAA"
+              suffix="suffix中文"
+              bordered
+              clearable
+            />
+          }
+        />
+        <Cell
+          title="textarea"
+          value={
+            <TextInput
+              type="textarea"
+              placeholder="不限制输入"
+              prefix="prefixAAA"
+              suffix="suffix中文"
+              bordered
+              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="不限制输入"
+              addonAfter="addonAfterAAA"
+              addonBefore="addonBefore中文"
+              bordered
+              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="不限制输入"
+              addonAfter="addonAfterAAA"
+              bordered
+              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              type="number"
+              placeholder="不限制输入"
+              addonAfter="元"
+              textAlign="right"
+              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="text"
+          innerStyle={{
+            justifyContent: 'space-between',
+          }}
+          valueStyle={{
+            width: 140,
+            flex: 0,
+          }}
+          value={
+            <TextInput
+              type="number"
+              placeholder="不限制输入"
+              addonAfter="元"
+              textAlign="right"
+              bordered
+              clearable
             />
           }
         />
@@ -38,7 +154,7 @@ const BasicTextInput: React.FC = () => {
             <TextInput
               type="password"
               placeholder="内容不可见"
-              showBorder
+              bordered
               keyboardAppearance="dark"
             />
           }
