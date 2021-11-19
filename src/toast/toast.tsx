@@ -12,6 +12,7 @@ import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
+import { IconSuccessOutLine, IconWarnFill } from '../icon'
 import { createStyles } from './style'
 import type { ToastProps, ToastMethods } from './interface'
 
@@ -27,6 +28,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
       closeOnPressOverlay = false,
       loadingType = 'circular',
       duration = 2000,
+      icon,
       ...reset
     },
     ref,
@@ -124,19 +126,37 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                 STYLES.inner,
                 type === 'text' ? STYLES.inner_type_text : null,
               ]}>
-              {type === 'loading' ? (
+              {type !== 'text' ? (
                 <View style={STYLES.loading}>
-                  {loadingType === 'circular' ? (
-                    <Circular
+                  {type === 'loading' ? (
+                    loadingType === 'circular' ? (
+                      <Circular
+                        color={THEME_VAR.toast_loading_icon_color}
+                        size={THEME_VAR.toast_icon_size}
+                      />
+                    ) : (
+                      <Spinner
+                        color={THEME_VAR.toast_loading_icon_color}
+                        size={THEME_VAR.toast_icon_size}
+                      />
+                    )
+                  ) : null}
+
+                  {type === 'success' ? (
+                    <IconSuccessOutLine
                       color={THEME_VAR.toast_loading_icon_color}
-                      size={THEME_VAR.toast_icon_size}
+                      size={THEME_VAR.toast_icon_size * 1.4}
                     />
-                  ) : (
-                    <Spinner
+                  ) : null}
+
+                  {type === 'fail' ? (
+                    <IconWarnFill
                       color={THEME_VAR.toast_loading_icon_color}
-                      size={THEME_VAR.toast_icon_size}
+                      size={THEME_VAR.toast_icon_size * 1.4}
                     />
-                  )}
+                  ) : null}
+
+                  {type === 'icon' ? icon : null}
                 </View>
               ) : null}
 

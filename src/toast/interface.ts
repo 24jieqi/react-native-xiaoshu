@@ -1,6 +1,7 @@
+import type React from 'react'
 import type { PopupPropsCommon } from '../popup/interface'
 
-export type ToastType = 'text' | 'loading' | 'success' | 'fail'
+export type ToastType = 'text' | 'loading' | 'success' | 'fail' | 'icon'
 
 export type ToastMethods = {
   close: () => void
@@ -13,7 +14,7 @@ export interface ToastProps
     'visible' | 'duration' | 'closeOnPressOverlay'
   > {
   /**
-   * 提示类型，可选值为 `'text' | 'loading' | 'success' | 'fail'`
+   * 提示类型，可选值为 `'text' | 'loading' | 'success' | 'fail' | 'icon'`
    * @default 'text'
    */
   type?: ToastType
@@ -65,6 +66,11 @@ export interface ToastProps
    * @default 2000
    */
   duration?: number
+
+  /**
+   * 自定义图标
+   */
+  icon?: React.ReactNode
 }
 
 export interface ToastOptions extends ToastProps {}
@@ -73,6 +79,8 @@ export interface ToastInstance {
   (p: ToastOptions | string): ToastMethods
   loading(p: ToastOptions | string): ToastMethods
   clear(all: boolean | number): void
+  success(p: ToastOptions | string): ToastMethods
+  fail(p: ToastOptions | string): ToastMethods
   setDefaultOptions(
     type: ToastType | ToastOptions,
     options?: ToastOptions,

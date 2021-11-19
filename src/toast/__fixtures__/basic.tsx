@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Toast } from 'react-native-xiaoshu'
+import { Cell, CellGroup, Toast, Icon } from 'react-native-xiaoshu'
 
 const BasicToast: React.FC = () => {
   return (
@@ -72,20 +72,26 @@ const BasicToast: React.FC = () => {
           title="成功提示"
           isLink
           onPress={() => {
-            Toast({
-              message:
-                '图标暂时还未确定图标暂时还未-确定图标暂时还未确定图标暂时还未确定',
-              closeOnPress: true,
-              duration: 5000,
-            })
+            Toast.success('恭喜你')
           }}
         />
         <Cell
           title="失败提示"
           isLink
+          onPress={() => {
+            Toast.fail('很抱歉哟')
+          }}
+        />
+        <Cell
+          title="自定义图标"
+          isLink
           bordered={false}
           onPress={() => {
-            Toast('图标暂时还未确定')
+            Toast({
+              type: 'icon',
+              message: '自定义图标',
+              icon: <Icon.IconArrowFill size={40} color="#f30" />,
+            })
           }}
         />
       </CellGroup>

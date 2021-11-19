@@ -82,8 +82,23 @@ Toast.loading = options =>
     ...parseOptions(options),
   })
 
-// TODO success fail 现在不确定两个图标用 svg 画还是字体文件
-// react-native-vector-icons 太庞大了
+/**
+ * success
+ */
+Toast.success = options =>
+  Toast({
+    type: 'success',
+    ...parseOptions(options),
+  })
+
+/**
+ * fail
+ */
+Toast.fail = options =>
+  Toast({
+    type: 'fail',
+    ...parseOptions(options),
+  })
 
 /**
  * 清除弹窗
