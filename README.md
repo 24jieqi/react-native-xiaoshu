@@ -34,7 +34,7 @@ yarn doc:commit
 ## 3.把 docs-dist 文件夹推送到 gh-pages 分支
 yarn doc:pulish
 
-## 3.当前分支回退到文档未提交的时候，且不报错已经构建的静态文件
+## 3.当前分支回退到文档未提交的时候，且不保存已经构建的静态文件
 doc:reset
 ```
 
@@ -43,7 +43,7 @@ doc:reset
 ```bash
 |-- button
 |--|-- demo
-|--|--|-- basic.tsx  ## 案例、测试代码，用在 DEMO app、在线文档
+|--|--|-- basic.tsx  ## 案例、测试代码，用在 DEMO App、在线文档
 |--|--|-- doc.tsx  ## 在线文档页面 DEMO 代码，基本是模板代码
 |--|-- index.tsx  ## 组件实现代码
 |--|-- index.md  ## 在线文档入口页面
