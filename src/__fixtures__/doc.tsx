@@ -4,7 +4,7 @@ import { Provider } from 'react-native-xiaoshu'
 
 const Doc: React.FC = ({ children }) => {
   return (
-    <View style={{ minHeight: 608 }}>
+    <View style={{ minHeight: '100%', width: '100%' }}>
       <Provider>{children}</Provider>
     </View>
   )
