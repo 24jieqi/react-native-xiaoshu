@@ -6,7 +6,7 @@ import * as defaultVar from './default-var'
 export type { ThemeVarType } from './interface'
 export { widthStyle } from './width-style'
 
-const ThemeVarContext = createContext({} as ThemeVarType)
+const ThemeVarContext = createContext(defaultVar as ThemeVarType)
 
 export const useTheme = () => useContext(ThemeVarContext)
 

@@ -19,6 +19,6 @@ group:
 
 ## DEMO
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

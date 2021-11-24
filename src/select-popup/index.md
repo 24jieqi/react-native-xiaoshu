@@ -1,5 +1,5 @@
 ---
-title: Popup 弹出层
+title: SelectPopup 选择
 nav:
   title: 组件
   path: /component
@@ -9,12 +9,12 @@ group:
   order: 0
 ---
 
-# Popup 弹出层
+# SelectPopup 选择
 
-> 弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示。
+> 选择
 
 ## DEMO
 
 <code defaultShowCode src="./__fixtures__/app.tsx"></code>
 
-<API src="./popup.tsx"></API>
+<API src="./index.tsx"></API>
