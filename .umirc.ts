@@ -27,6 +27,9 @@ export default defineConfig({
   resolve: {
     includes: ['docs', 'src'],
   },
+  themeConfig: {
+    carrier: 'xiaoshu',
+  },
   styles: [
     `
     .__dumi-default-device-status {
