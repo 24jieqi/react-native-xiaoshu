@@ -44,6 +44,9 @@ export { default as Empty } from './empty'
 export type { RowProps, ColProps } from './grid/interface'
 export { Row, Col } from './grid'
 
+export type { FlexPropsType, FlexItemPropsType } from './flex/interface'
+export { default as Flex } from './flex'
+
 export type { LoadingProps } from './loading/interface'
 export { default as Loading } from './loading'
 export { default as LoadingCircular } from './loading/circular'

@@ -1,53 +1,82 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
+import { Divider, Button, Flex } from 'react-native-xiaoshu'
 
-import { Divider } from 'react-native-xiaoshu'
-
+const Circle = (props: any) => {
+  const size = props.size || 20
+  const style = {
+    borderRadius: size / 2,
+    backgroundColor: '#527fe4',
+    width: size,
+    height: size,
+    margin: 1,
+  }
+  return <View style={style} />
+}
 const BasicDivider: React.FC = () => {
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
-      <Text>基础用法</Text>
-
+      <Text>项目的排列方向</Text>
+      <Text>direction="row":主轴为水平方向，起点在左端</Text>
+      <Flex>
+        <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+          <Button size="small">按钮1</Button>
+        </Flex.Item>
+        <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+          <Button size="small">按钮2</Button>
+        </Flex.Item>
+        <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+          <Button size="small">按钮3</Button>
+        </Flex.Item>
+      </Flex>
       <Divider />
-
       <View style={{ height: 20 }} />
-
-      <Text>展示文本</Text>
-
-      <Divider>文字</Divider>
-
+      <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
+      <Flex direction="column">
+        <Flex.Item style={{ paddingBottom: 4 }}>
+          <Button size="small">按钮1</Button>
+        </Flex.Item>
+        <Flex.Item style={{ paddingBottom: 4 }}>
+          <Button size="small">按钮2</Button>
+        </Flex.Item>
+        <Flex.Item style={{ paddingBottom: 4 }}>
+          <Button size="small">按钮3</Button>
+        </Flex.Item>
+      </Flex>
+      <Divider />
       <View style={{ height: 20 }} />
-
-      <Text>内容位置</Text>
-
-      <Divider contentPosition="left">文字</Divider>
-
-      <Divider contentPosition="right">文字</Divider>
-
+      <Text style={{ marginTop: 20, marginBottom: 20 }}>
+        项目在主轴上的对齐方式
+      </Text>
+      <Text>justify="start":左对齐</Text>
+      <Flex justify="start">
+        <Circle />
+        <Circle />
+        <Circle />
+        <Circle />
+        <Circle />
+      </Flex>
+      <Divider />
       <View style={{ height: 20 }} />
-
-      <Text>虚线</Text>
-
-      <Divider dashed>文字</Divider>
-
+      <Text>justify="center":居中</Text>
+      <Flex justify="center">
+        <Circle />
+        <Circle />
+        <Circle />
+        <Circle />
+        <Circle />
+      </Flex>
+      <Divider />
       <View style={{ height: 20 }} />
-
-      <Text>自定义样式</Text>
-
-      <Divider
-        style={{ backgroundColor: '#999' }}
-        textStyle={{ color: '#690' }}
-        borderStyle={{ borderColor: '#666' }}>
-        文字
-      </Divider>
-
-      <Divider leftBorderStyle={{ borderColor: '#000' }}>文字</Divider>
-
-      <Divider rightBorderStyle={{ borderColor: '#000', borderWidth: 4 }}>
-        文字
-      </Divider>
-
-      <View style={{ height: 20 }} />
+      <Text>justify="end":右对齐</Text>
+      <Flex justify="end">
+        <Circle />
+        <Circle />
+        <Circle />
+        <Circle />
+        <Circle />
+      </Flex>
+      <Divider />
     </ScrollView>
   )
 }

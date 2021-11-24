@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 export interface FlexPropsType {
   /**
    * 项目定位方向
@@ -15,4 +16,11 @@ export interface FlexPropsType {
    * 子元素在交叉轴上的对齐方式
    */
   align?: 'start' | 'center' | 'end' | 'baseline' | 'stretch'
+  children?: ReactNode
+  disabled?: boolean
+}
+
+export interface FlexItemPropsType {
+  disabled?: boolean
+  children?: ReactNode
 }
