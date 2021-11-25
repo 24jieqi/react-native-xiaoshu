@@ -1,7 +1,7 @@
 import React from 'react'
 import type { StyleProp, ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
-import FlexItem from './FlexItem'
+import FlexItem from './flexItem'
 import type { FlexPropsType } from './interface'
 
 export interface FlexItemProps extends FlexPropsType {

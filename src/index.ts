@@ -83,6 +83,7 @@ export {
   conversionSelectPopupOptions,
 } from './select-popup'
 
+export { default as Steps } from './steps'
 export type { SwitchProps } from './switch/interface'
 export { default as Switch } from './switch'
 

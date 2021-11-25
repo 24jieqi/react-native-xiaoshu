@@ -43,6 +43,13 @@ export default defineConfig({
       min-height: 100vh;
       display:flex;
       align-items: stretch;
+      flex-direction:column;
+    }
+    .markdown table{
+      table-layout:fixed;
+    }
+    .markdown table th, .markdown table td{
+      word-break:break-word
     }
     @media only screen and (max-width: 500px) {
       .__dumi-default-mobile-demo-layout {

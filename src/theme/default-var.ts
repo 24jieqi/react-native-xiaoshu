@@ -19,6 +19,7 @@ export const color_2: string = '#FE5900'
 export const underlay_color: string = 'transparent'
 export const underlay_color_ddd: string = '#F7F9FC'
 export const active_opacity: number = 0.6
+export const active_img_opacity: number = 0.4
 
 // 文字颜色
 export const text_color_1: string = '#11151A'
@@ -279,7 +280,14 @@ export const progress_pivot_font_size = font_size_subtitle
 export const progress_pivot_line_height_scale: number = 1.6
 export const progress_pivot_background_color = primary
 export const progress_page_background_color = white
-
+// steps
+export const steps_background_color = primary
+export const steps_padding_vertical = padding_md
+export const steps_padding_horizontal = padding_lg
+export const steps_icon_dot_size = 10
+export const steps_icon_dot_active_size = 16
+export const steps_title_size = font_size_h5
+export const steps_title_color = white
 // Switch
 export const switch_size: number = 30
 export const switch_width_ratio: number = 2 // 原变量中使用了 em，这里改成对应的比例

@@ -22,6 +22,7 @@ import DemoTag from '../../src/tag/__fixtures__/basic'
 import DemoDivider from '../../src/divider/__fixtures__/basic'
 import DemoGrid from '../../src/grid/__fixtures__/basic'
 import DemoSwitch from '../../src/switch/__fixtures__/basic'
+import DemoSteps from '../../src/steps/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoTextInput from '../../src/text-input/__fixtures__/basic'
 // import DemoField from '../../src/field/__fixtures__/basic'
@@ -31,6 +32,7 @@ import DemoEmpty from '../../src/empty/__fixtures__/basic'
 import DemoSelectPopup from '../../src/select-popup/__fixtures__/basic'
 import DemoProgress from '../../src/progress/__fixtures__/basic'
 import DemoCollapse from '../../src/collapse/__fixtures__/basic'
+import DemoFlex from '../../src/flex/__fixtures__/basic'
 import DemoIcon from '../../src/icon/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
@@ -52,6 +54,7 @@ export type DemoPaths =
   | 'DemoTag'
   | 'DemoDivider'
   | 'DemoGrid'
+  | 'DemoSteps'
   | 'DemoSwitch'
   | 'DemoDialog'
   | 'DemoTextInput'
@@ -62,6 +65,7 @@ export type DemoPaths =
   | 'DemoSelectPopup'
   | 'DemoProgress'
   | 'DemoCollapse'
+  | 'DemoFlex'
   | 'DemoIcon'
 
 const onScrollBeginDrag = () => {
@@ -198,6 +202,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     ),
   },
   {
+    path: 'DemoSteps',
+    page: () => (
+      <DemoWrapper>
+        <DemoSteps />
+      </DemoWrapper>
+    ),
+  },
+  {
     path: 'DemoSwitch',
     page: () => (
       <DemoWrapper>
@@ -280,6 +292,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoCollapse />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoFlex',
+    page: () => (
+      <DemoWrapper>
+        <DemoFlex />
       </DemoWrapper>
     ),
   },

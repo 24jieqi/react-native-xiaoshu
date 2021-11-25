@@ -131,6 +131,10 @@ const navDatas: {
         title: 'Collapse',
         name: 'DemoCollapse',
       },
+      {
+        title: 'Flex',
+        name: 'DemoFlex',
+      },
     ],
   },
   {
@@ -139,6 +143,10 @@ const navDatas: {
       {
         title: 'NavBar',
         name: 'DemoNavBar',
+      },
+      {
+        title: 'Steps',
+        name: 'DemoSteps',
       },
     ],
   },

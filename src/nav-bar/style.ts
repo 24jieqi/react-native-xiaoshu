@@ -6,6 +6,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     bar: {
       height: themeVar.nav_bar_height,
+      width: '100%',
       justifyContent: 'center',
       position: 'relative',
       backgroundColor: themeVar.nav_bar_background_color,
