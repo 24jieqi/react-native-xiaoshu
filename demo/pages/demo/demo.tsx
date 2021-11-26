@@ -102,10 +102,6 @@ const navDatas: {
         title: 'SelectPopup',
         name: 'DemoSelectPopup',
       },
-      {
-        title: 'Result',
-        name: 'DemoResult',
-      },
     ],
   },
   {
@@ -138,6 +134,10 @@ const navDatas: {
       {
         title: 'Flex',
         name: 'DemoFlex',
+      },
+      {
+        title: 'Result',
+        name: 'DemoResult',
       },
     ],
   },
