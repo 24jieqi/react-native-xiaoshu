@@ -4,14 +4,14 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基础组件
-  path: /basic
-  order: 0
+  title: 展示组件
+  path: /show
+  order: 3
 ---
 
-# Button 按钮
+# Empty 空元素
 
-> 按钮用于触发一个操作，如提交表单。
+> 用于填充空白数据。
 
 ## DEMO
 

@@ -7,6 +7,10 @@ import type { EmptyProps } from './interface'
 import { createStyles } from './style'
 import IconEmpty from './icon'
 
+/**
+ * Empty 空元素
+ * @description 用于填充空白数据。
+ */
 const Empty: React.FC<EmptyProps> = ({
   text = '暂无数据',
   style,
