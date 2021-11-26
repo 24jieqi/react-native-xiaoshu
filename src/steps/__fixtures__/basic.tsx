@@ -15,6 +15,11 @@ const BasicDemo: React.FC = () => {
       />
       <View style={{ height: 20 }} />
       <Steps
+        data={[{ title: '基本信息' }, { title: '生产任务啦啦' }]}
+        current={1}
+      />
+      <View style={{ height: 20 }} />
+      <Steps
         data={[
           { title: '基本信息' },
           { title: '生产任务啦啦' },

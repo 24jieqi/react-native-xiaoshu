@@ -7,7 +7,7 @@ import { renderTextLikeJSX } from '../helpers'
 import imgs from './images/index'
 import { createStyles } from './style'
 import type { StepsItemPropsType } from './interface'
-import { StepsContext } from '.'
+import { maxSteps, StepsContext } from '.'
 
 /**Step */
 const Step: FC<StepsItemPropsType> = props => {
@@ -16,7 +16,7 @@ const Step: FC<StepsItemPropsType> = props => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const windowWidth = Dimensions.get('window').width
-  const stepWidth = windowWidth / 3
+  const stepWidth = windowWidth / maxSteps
   const [elementCount, setElementCount] = useState(0)
   let resIcon = null
   let resStatus = status ? status : current >= index ? 'finish' : 'wait'
