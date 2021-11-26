@@ -11,24 +11,29 @@ export const padding_xl = padding_base * 8
 // 标准通用色
 export const white: string = '#FFF'
 export const primary: string = '#0065FE'
-export const success: string = '#2CB065'
+export const success: string = '#24B356'
 export const warning: string = '#FE7A33'
 export const error: string = '#FF3341'
-export const color_1: string = '#24B356'
-export const color_2: string = '#FE5900'
-export const underlay_color: string = 'transparent'
-export const underlay_color_ddd: string = '#F7F9FC'
+export const auxiliary_color_1: string = '#7566FF'
+export const auxiliary_color_2: string = '#009DF2'
+export const auxiliary_color_3: string = '#FE9D00'
+export const auxiliary_color_4: string = '#FE5500'
+export const auxiliary_color_5: string = '#6B7D99'
+
 export const active_opacity: number = 0.6
 export const active_img_opacity: number = 0.4
-
 // 文字颜色
 export const text_color_1: string = '#11151A'
 export const text_color_2: string = '#5A6068'
 export const text_color_3: string = '#8C9199'
 export const text_color_4: string = '#B9BDC5'
+// 页面背景
+export const page_bg_color: string = '#ECEEF1'
 
+export const underlay_color: string = 'transparent'
+export const underlay_color_ddd: string = '#F7F9FC'
 // 分割线颜色
-export const divider_color_1: string = '#DEE0E3'
+export const divider_color_1: string = '#E8E8E8'
 export const divider_color_2: string = '#F2F2F2'
 
 // 字号
@@ -39,6 +44,7 @@ export const font_size_h4: number = 16
 export const font_size_h5: number = 15
 export const font_size_text: number = 14
 export const font_size_subtitle: number = 12
+
 export const line_height_xs: number = 14
 export const line_height_sm: number = 18
 export const line_height_md: number = 20
