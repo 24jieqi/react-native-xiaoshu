@@ -88,19 +88,19 @@ const BasicCheckbox: React.FC = () => {
         defaultValue={true}
         shape="square"
         label="设么啊true"
-        icon={<Icon.IconCrossOutline size={14} color="#fff" />}
+        icon={<Icon.CrossOutline size={14} color="#fff" />}
       />
       <Checkbox
         labelDisabled
         defaultValue={true}
         shape="square"
         label="设么啊true"
-        icon={<Icon.IconCrossOutline size={14} color="#fff" />}
+        icon={<Icon.CrossOutline size={14} color="#fff" />}
       />
       <Checkbox
         defaultValue={true}
         label="设么啊true"
-        icon={<Icon.IconCrossOutline size={14} color="#fff" />}
+        icon={<Icon.CrossOutline size={14} color="#fff" />}
       />
 
       <View style={{ height: 20 }} />

@@ -59,7 +59,7 @@ const BasicTextInput: React.FC = () => {
           value={
             <TextInput
               placeholder="请填写验证码"
-              prefix={<Icon.IconSuccessOutLine size={16} color="#680" />}
+              prefix={<Icon.SuccessOutLine size={16} color="#680" />}
               suffix={
                 <Button
                   type="primary"

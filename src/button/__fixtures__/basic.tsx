@@ -35,7 +35,9 @@ const BasicButton: React.FC = () => {
 
         <Button
           type="error"
-          icon={<Icon.IconArrowOutline color="#fff" />}
+          renderLeftIcon={(color, size) => (
+            <Icon.ArrowOutline color={color} size={size} />
+          )}
           text="error"
           onPress={onPress}
         />
@@ -55,7 +57,10 @@ const BasicButton: React.FC = () => {
             text="info -> 为了突出颜色，外面套了一层白色背景"
           />
         </View>
+
         <View style={{ height: 20 }} />
+
+        <Button type="link" text="link" onPress={onPress} />
       </View>
 
       <View style={{ height: 20 }} />
@@ -71,12 +76,16 @@ const BasicButton: React.FC = () => {
 
         <Button
           type="error"
-          icon={<Icon.IconArrowOutline color="#fff" />}
+          renderLeftIcon={(color, size) => (
+            <Icon.ArrowOutline color={color} size={size} />
+          )}
           text="error"
           style={Styles.g1b}
         />
 
         <Button type="info" text="info" style={Styles.g1b} />
+
+        <Button type="link" text="link" style={Styles.g1b} />
       </View>
 
       <View style={{ height: 20 }} />
@@ -104,7 +113,9 @@ const BasicButton: React.FC = () => {
 
         <Button
           type="error"
-          icon={<Icon.IconArrowOutline color="#f30" />}
+          renderLeftIcon={(color, size) => (
+            <Icon.ArrowOutline color={color} size={size} />
+          )}
           text="error"
           plain
         />
@@ -112,6 +123,10 @@ const BasicButton: React.FC = () => {
         <View style={{ height: 20 }} />
 
         <Button type="info" text="info" plain />
+
+        <View style={{ height: 20 }} />
+
+        <Button type="link" text="link" plain />
       </View>
 
       <View style={Styles.g1}>
@@ -150,6 +165,8 @@ const BasicButton: React.FC = () => {
         />
 
         <Button type="info" text="info" size="mini" style={Styles.g1b} plain />
+
+        <Button type="link" text="link" size="mini" style={Styles.g1b} plain />
       </View>
 
       <View style={{ height: 20 }} />
@@ -212,6 +229,50 @@ const BasicButton: React.FC = () => {
           text="success"
           onPress={onPress}
         />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          loading
+          type="success"
+          size="large"
+          loadingText="自定义 large~"
+          text="primary"
+          onPress={onPress}
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          loading
+          type="warning"
+          size="normal"
+          loadingText="自定义 normal~"
+          text="primary"
+          onPress={onPress}
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          loading
+          type="error"
+          size="small"
+          loadingText="自定义 small~"
+          text="primary"
+          onPress={onPress}
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          loading
+          type="warning"
+          size="mini"
+          loadingText="自定义 mini~"
+          text="primary"
+          onPress={onPress}
+        />
       </View>
 
       <View style={{ height: 20 }} />
@@ -235,11 +296,74 @@ const BasicButton: React.FC = () => {
       <View style={{ height: 20 }} />
 
       <View style={Styles.box}>
-        <Button type="primary" icon={<Icon.IconArrowOutline />} text="square" />
+        <Button
+          type="primary"
+          renderLeftIcon={(color, size) => (
+            <Icon.ArrowOutline color={color} size={size} />
+          )}
+          text="square"
+        />
 
         <View style={{ height: 20 }} />
 
-        <Button type="primary" icon={<Icon.IconArrowOutline />} text="round" />
+        <Button
+          type="primary"
+          renderLeftIcon={(color, size) => (
+            <Icon.WarnFill color={color} size={size} />
+          )}
+          text="round"
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          type="primary"
+          renderLeftIcon={(color, size) => (
+            <Icon.PlusOutline color={color} size={size} />
+          )}
+          text="自带一个加号"
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          type="primary"
+          renderLeftIcon={(color, size) => (
+            <Icon.PlusOutline color={color} size={size} />
+          )}
+          plain
+          text="自带一个加号"
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          type="error"
+          renderLeftIcon={(color, size) => (
+            <Icon.PlusOutline color={color} size={size} />
+          )}
+          plain
+          text="自带一个加号"
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          type="link"
+          renderLeftIcon={(color, size) => (
+            <Icon.PlusOutline color={color} size={size} />
+          )}
+          text="自带一个加号"
+        />
+
+        <Button
+          type="link"
+          size="mini"
+          renderLeftIcon={(color, size) => (
+            <Icon.PlusOutline color={color} size={size} />
+          )}
+          text="自带一个加号"
+        />
       </View>
 
       <View style={{ height: 20 }} />

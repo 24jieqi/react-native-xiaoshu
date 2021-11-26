@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   text,
   textStyle,
   type = 'default',
-  size = 'normal',
+  size = 'default',
   plain = false,
   hairline = false,
   disabled = false,
@@ -25,18 +25,27 @@ const Button: React.FC<ButtonProps> = ({
   loadingText,
   square = false,
   round = false,
-  icon,
+  renderLeftIcon,
   color,
   textColor,
   ...otherProps
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
-  const showDisabled = disabled
 
   const commonButtonStyle = StyleSheet.flatten<ViewStyle>([
     STYLES.button,
-    STYLES[`button_${type}`],
+    {
+      backgroundColor:
+        THEME_VAR[`button_${type}_background_color`] ||
+        THEME_VAR.button_default_background_color,
+      borderColor:
+        THEME_VAR[`button_${type}_border_color`] ||
+        THEME_VAR.button_default_border_color,
+      height:
+        THEME_VAR[`button_${size}_height`] ||
+        THEME_VAR.button_default_font_size,
+    },
     STYLES[`button_${size}`],
     hairline ? STYLES.button_border_width_hairline : null,
     square ? STYLES.button_square : null,
@@ -47,12 +56,17 @@ const Button: React.FC<ButtonProps> = ({
           borderColor: color,
         }
       : null,
-    showDisabled ? STYLES.button_disabled : null,
+    disabled ? STYLES.button_disabled : null,
   ])
   const commonTextStyle = StyleSheet.flatten<TextStyle>([
     STYLES.text,
-    STYLES[`text_${type}`],
-    STYLES[`text_${size}`],
+    {
+      color:
+        THEME_VAR[`button_${type}_color`] || THEME_VAR.button_default_color,
+      fontSize:
+        THEME_VAR[`button_${type}_font_size`] ||
+        THEME_VAR.button_default_font_size,
+    },
     color || textColor
       ? {
           color: textColor || '#fff',
@@ -74,14 +88,20 @@ const Button: React.FC<ButtonProps> = ({
     commonTextStyle,
     textStyle,
   ])
+  const iconSize = THEME_VAR[`button_${size}_loading_size`] || 24
+  const iconColor = textStyleSummary.color as string
 
   const contextJSX = loading ? (
-    <Loading type="spinner" color={textStyleSummary.color as string} size={24}>
+    <Loading
+      type="spinner"
+      color={iconColor}
+      size={iconSize}
+      textSize={textStyleSummary.fontSize}>
       {loadingText}
     </Loading>
   ) : (
     <>
-      {icon || null}
+      {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
       <Text style={textStyleSummary}>{text || children}</Text>
     </>
   )

@@ -15,10 +15,7 @@ const BasicTag: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="自定义图标" bordered={false}>
-        <Empty
-          text="一二三"
-          icon={<Icon.IconArrowOutline direction="down" />}
-        />
+        <Empty text="一二三" icon={<Icon.ArrowOutline direction="down" />} />
       </CellGroup>
     </ScrollView>
   )

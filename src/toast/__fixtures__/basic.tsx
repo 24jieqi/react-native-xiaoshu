@@ -90,7 +90,7 @@ const BasicToast: React.FC = () => {
             Toast({
               type: 'icon',
               message: '自定义图标',
-              icon: <Icon.IconArrowFill size={40} color="#f30" />,
+              icon: <Icon.ArrowFill size={40} color="#f30" />,
             })
           }}
         />

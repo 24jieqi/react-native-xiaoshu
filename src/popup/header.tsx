@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { TouchableOpacity } from 'react-native'
 
 import usePersistFn from '../hooks/usePersistFn'
-import { IconCrossOutline } from '../icon'
+import { CrossOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
 import NavBar from '../nav-bar'
 import type { PopupHeaderProps } from './interface'
@@ -35,7 +35,7 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
           onPress={onClosePersistFn}
           activeOpacity={THEME_VAR.active_opacity}
           hitSlop={CLOSE_HIT_SLOP}>
-          <IconCrossOutline
+          <CrossOutline
             color={THEME_VAR.popup_close_icon_color}
             size={THEME_VAR.popup_close_icon_size}
           />

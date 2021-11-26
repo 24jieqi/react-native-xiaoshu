@@ -15,7 +15,7 @@ const BackArrow: React.FC<BackArrowProps> = ({ tintColor, ...restProps }) => {
   return (
     <TouchableOpacity {...restProps}>
       <View style={Styles.back}>
-        <Icon.IconArrowOutline direction="left" size={24} color={tintColor} />
+        <Icon.ArrowOutline direction="left" size={24} color={tintColor} />
       </View>
     </TouchableOpacity>
   )

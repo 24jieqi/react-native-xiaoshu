@@ -5,7 +5,7 @@ import type {
   StyleProp,
 } from 'react-native'
 
-export type ButtonSize = 'large' | 'normal' | 'small' | 'mini'
+export type ButtonSize = 'default' | 'large' | 'normal' | 'small' | 'mini'
 
 export type ButtonType =
   | 'default'
@@ -14,6 +14,7 @@ export type ButtonType =
   | 'warning'
   | 'error'
   | 'info'
+  | 'link'
 
 export interface ButtonProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'> {
@@ -29,15 +30,14 @@ export interface ButtonProps
 
   /**
    * 大小
-   *
-   * @default normal
+   * @default 'default'
    */
   size?: ButtonSize
 
   /**
    * 类型
    *
-   * @default default
+   * @default 'default'
    */
   type?: ButtonType
 
@@ -77,9 +77,9 @@ export interface ButtonProps
   round?: boolean
 
   /**
-   * 左侧图标
+   * 渲染左侧图标
    */
-  icon?: React.ReactNode
+  renderLeftIcon?: (color: string, size: number) => React.ReactElement
 
   /**
    * 按钮颜色，不支持渐变

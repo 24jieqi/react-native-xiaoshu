@@ -11,20 +11,20 @@ const BasicIcon: React.FC = () => {
       <CellGroup title="Fill" bordered={false}>
         <Row>
           <Col span={6}>
-            <Icon.IconArrowFill size={ICON_SIZE} />
+            <Icon.ArrowFill size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.IconArrowFill size={ICON_SIZE} direction="left" />
+            <Icon.ArrowFill size={ICON_SIZE} direction="left" />
           </Col>
           <Col span={6}>
-            <Icon.IconArrowFill size={ICON_SIZE} direction="up" />
+            <Icon.ArrowFill size={ICON_SIZE} direction="up" />
           </Col>
           <Col span={6}>
-            <Icon.IconArrowFill size={ICON_SIZE} direction="down" />
+            <Icon.ArrowFill size={ICON_SIZE} direction="down" />
           </Col>
 
           <Col span={6}>
-            <Icon.IconWarnFill size={ICON_SIZE} />
+            <Icon.WarnFill size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>
@@ -32,22 +32,25 @@ const BasicIcon: React.FC = () => {
       <CellGroup title="Outline" bordered={false}>
         <Row>
           <Col span={6}>
-            <Icon.IconArrowOutline size={ICON_SIZE} />
+            <Icon.ArrowOutline size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.IconArrowOutline size={ICON_SIZE} direction="left" />
+            <Icon.ArrowOutline size={ICON_SIZE} direction="left" />
           </Col>
           <Col span={6}>
-            <Icon.IconArrowOutline size={ICON_SIZE} direction="up" />
+            <Icon.ArrowOutline size={ICON_SIZE} direction="up" />
           </Col>
           <Col span={6}>
-            <Icon.IconArrowOutline size={ICON_SIZE} direction="down" />
+            <Icon.ArrowOutline size={ICON_SIZE} direction="down" />
           </Col>
           <Col span={6}>
-            <Icon.IconCrossOutline size={ICON_SIZE} />
+            <Icon.CrossOutline size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.IconSuccessOutLine size={ICON_SIZE} />
+            <Icon.SuccessOutLine size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.PlusOutline size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>

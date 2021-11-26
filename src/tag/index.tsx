@@ -3,8 +3,7 @@ import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
-import { IconCrossOutline } from '../icon'
-// import {} from
+import { CrossOutline } from '../icon'
 import { isDef } from '../helpers/typeof'
 import type { TagProps } from './interface'
 import { createStyles } from './style'
@@ -74,7 +73,7 @@ const Tag: React.FC<TagProps> = ({
       <View style={innerStyles}>
         <Text style={textStyleSummary}>{children}</Text>
         {closeable ? (
-          <IconCrossOutline
+          <CrossOutline
             onPress={onPressClose}
             size={textStyleSummary.fontSize}
             color={textStyleSummary.color as string}
