@@ -1,16 +1,7 @@
-import React from 'react'
-import type { StyleProp, ViewStyle } from 'react-native'
+import React, { memo } from 'react'
 import { TouchableWithoutFeedback, View } from 'react-native'
-import type { FlexItemPropsType } from './interface'
+import type { FlexItemProps } from './interface'
 
-export interface FlexItemProps extends FlexItemPropsType {
-  flex?: number
-  onPress?: () => void
-  onLongPress?: () => void
-  onPressIn?: () => void
-  onPressOut?: () => void
-  style?: StyleProp<ViewStyle>
-}
 const FlexItem: React.FC<FlexItemProps> = props => {
   const { style, children, flex = 1, ...restProps } = props
   const flexItemStyle = {
@@ -38,4 +29,4 @@ const FlexItem: React.FC<FlexItemProps> = props => {
   return inner
 }
 
-export default FlexItem
+export default memo<typeof FlexItem>(FlexItem)

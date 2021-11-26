@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { Divider, Button, Flex } from 'react-native-xiaoshu'
 
-const Circle = (props: any) => {
+const Circle = (props: { size?: number }) => {
   const size = props.size || 20
   const style = {
     borderRadius: size / 2,
@@ -13,7 +13,8 @@ const Circle = (props: any) => {
   }
   return <View style={style} />
 }
-const BasicDivider: React.FC = () => {
+
+const BasicFlex: React.FC = () => {
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
       <Text>项目的排列方向</Text>
@@ -29,7 +30,9 @@ const BasicDivider: React.FC = () => {
           <Button size="small">按钮3</Button>
         </Flex.Item>
       </Flex>
+
       <Divider />
+
       <View style={{ height: 20 }} />
       <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
       <Flex direction="column">
@@ -43,7 +46,9 @@ const BasicDivider: React.FC = () => {
           <Button size="small">按钮3</Button>
         </Flex.Item>
       </Flex>
+
       <Divider />
+
       <View style={{ height: 20 }} />
       <Text style={{ marginTop: 20, marginBottom: 20 }}>
         项目在主轴上的对齐方式
@@ -56,7 +61,9 @@ const BasicDivider: React.FC = () => {
         <Circle />
         <Circle />
       </Flex>
+
       <Divider />
+
       <View style={{ height: 20 }} />
       <Text>justify="center":居中</Text>
       <Flex justify="center">
@@ -66,7 +73,9 @@ const BasicDivider: React.FC = () => {
         <Circle />
         <Circle />
       </Flex>
+
       <Divider />
+
       <View style={{ height: 20 }} />
       <Text>justify="end":右对齐</Text>
       <Flex justify="end">
@@ -81,4 +90,4 @@ const BasicDivider: React.FC = () => {
   )
 }
 
-export default BasicDivider
+export default BasicFlex

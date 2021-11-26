@@ -41,11 +41,11 @@ export { default as DropdownText } from './dropdown/text'
 export type { EmptyProps } from './empty/interface'
 export { default as Empty } from './empty'
 
+export type { FlexProps, FlexItemProps } from './flex/interface'
+export { default as Flex } from './flex'
+
 export type { RowProps, ColProps } from './grid/interface'
 export { Row, Col } from './grid'
-
-export type { FlexPropsType, FlexItemPropsType } from './flex/interface'
-export { default as Flex } from './flex'
 
 export type { LoadingProps } from './loading/interface'
 export { default as Loading } from './loading'
