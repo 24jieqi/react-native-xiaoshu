@@ -6,6 +6,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     result: {
       alignItems: 'center',
+      justifyContent: 'center',
     },
 
     icon: {
@@ -21,6 +22,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       lineHeight: 24,
       fontSize: themeVar.result_title_font_size,
       color: themeVar.result_title_color,
+      textAlign: 'center',
     },
 
     subtitleText: {
@@ -28,6 +30,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       lineHeight: 20,
       fontSize: themeVar.result_subtitle_font_size,
       color: themeVar.result_subtitle_color,
+      textAlign: 'center',
     },
   })
 }
