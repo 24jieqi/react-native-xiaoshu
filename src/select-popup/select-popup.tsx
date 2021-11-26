@@ -20,6 +20,10 @@ import { getDefaultValue } from '../helpers'
 import type { SelectPopupProps, SelectPopupValue } from './interface'
 import { createStyles } from './style'
 
+/**
+ * SelectPopup 弹出层式 Select
+ * @description 类似 Web 端的 Select 组件，可以多选、单选。
+ */
 const SelectPopup: React.FC<SelectPopupProps> = ({
   title,
   options,

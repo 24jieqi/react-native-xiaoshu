@@ -1,5 +1,5 @@
 ---
-title: SelectPopup 选择
+title: SelectPopup 选择弹窗
 nav:
   title: 组件
   path: /component
@@ -9,12 +9,12 @@ group:
   order: 0
 ---
 
-# SelectPopup 选择
+# SelectPopup 弹出层式 Select
 
-> 选择
+> 类似 Web 端的 Select 组件，可以多选、单选。
 
 ## DEMO
 
-<code defaultShowCode src="./__fixtures__/app.tsx"></code>
+<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
 
 <API src="./index.tsx"></API>

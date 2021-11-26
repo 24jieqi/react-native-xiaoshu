@@ -11,9 +11,8 @@ export default defineConfig({
   mode: 'site',
   outputPath: 'docs-dist',
   hash: true,
-  favicon:
-    'https://avatars.githubusercontent.com/u/9999765?s=460&u=3b72ee9a0bcb877f338132adf0c43e2b2e9f3df7&v=4',
-  logo: 'https://avatars.githubusercontent.com/u/9999765?s=460&u=3b72ee9a0bcb877f338132adf0c43e2b2e9f3df7&v=4',
+  favicon: 'https://avatars.githubusercontent.com/u/74942048',
+  logo: 'https://avatars.githubusercontent.com/u/74942048',
   base: `/${repo}/`,
   publicPath: `/${repo}/`,
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
@@ -36,20 +35,21 @@ export default defineConfig({
       background-color: #fff;
     }
     #root .__dumi-default-mobile-demo-layout {
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
       background-color: #f7f8fa;
     }
-    #root .__dumi-default-mobile-demo-layout>div {
-      min-height: 100vh;
-      display:flex;
+    #root .__dumi-default-mobile-demo-layout > div {
+      height: 100vh;
+      display: flex;
       align-items: stretch;
-      flex-direction:column;
+      flex-direction: column;
     }
-    .markdown table{
-      table-layout:fixed;
+    .markdown table {
+      table-layout: fixed;
     }
-    .markdown table th, .markdown table td{
-      word-break:break-word
+    .markdown table th, .markdown table td {
+      word-break: break-word
     }
     @media only screen and (max-width: 500px) {
       .__dumi-default-mobile-demo-layout {

@@ -24,6 +24,6 @@ features:
     desc: TODO。
   - icon: https://gw.alipayobjects.com/zos/basement_prod/d078a5a9-1cb3-4352-9f05-505c2e98bc95/k7788v4b_w102_h126.png
     title: 规范交互
-    desc: react-native-xiaoshu 是基于有赞 Zan Design System 视觉规范实现的组件库。
+    desc: react-native-xiaoshu 是基于洪九果品视觉规范实现的组件库。
 footer: Open-source MIT Licensed | Copyright © 2021-present<br />Powered by [洪九果品研发团队](https://github.com/hjfruit).
 ---
