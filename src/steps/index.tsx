@@ -9,7 +9,7 @@ export const StepsContext = createContext<{
   current?: number
   data?: StepsPropsType['data']
 }>({})
-const maxSteps = 3
+export const maxSteps = 3
 const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
   const THEME_VAR = useTheme()
   const scrollRef = useRef<ScrollView>(null)
