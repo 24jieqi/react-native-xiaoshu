@@ -73,6 +73,9 @@ export { Progress, ProgressPage } from './progress'
 export type { ProviderProps } from './provider/interface'
 export { default as Provider } from './provider'
 
+export type { ResultProps } from './result/interface'
+export { default as Result } from './result'
+
 export type {
   SelectPopupValue,
   SelectPopupOption,

@@ -279,11 +279,6 @@ export const popup_close_icon_size: number = 16
 export const popup_close_icon_color = text_color_2
 // export const popup_close_icon_margin = padding_md
 
-// SelectPopup
-export const select_popup_min_height: number = 270
-export const select_popup_option_text_line_height: number = 50
-export const select_popup_body_padding_horizontal = padding_sm
-
 // Progress
 export const progress_height: number = 4
 export const progress_color = primary
@@ -294,7 +289,13 @@ export const progress_pivot_font_size = font_size_subtitle
 export const progress_pivot_line_height_scale: number = 1.6
 export const progress_pivot_background_color = primary
 export const progress_page_background_color = white
-// steps
+
+// SelectPopup
+export const select_popup_min_height: number = 270
+export const select_popup_option_text_line_height: number = 50
+export const select_popup_body_padding_horizontal = padding_sm
+
+// Steps
 export const steps_background_color = primary
 export const steps_padding_vertical = padding_md
 export const steps_padding_horizontal = padding_lg
@@ -302,6 +303,7 @@ export const steps_icon_dot_size = 10
 export const steps_icon_dot_active_size = 16
 export const steps_title_size = font_size_h5
 export const steps_title_color = white
+
 // Switch
 export const switch_size: number = 30
 export const switch_width_ratio: number = 2 // 原变量中使用了 em，这里改成对应的比例
@@ -350,13 +352,23 @@ export const text_input_min_height: number = 32
 export const text_input_clearable_size: number = 16
 export const text_input_clearable_background_color = text_color_4
 export const text_input_clearable_color: string = '#fff'
-
 export const text_input_light_accessory_background_color: string = '#f7f7f7'
 export const text_input_dark_accessory_background_color: string = '#575757'
 export const text_input_dark_accessory_padding_horizontal: number = padding_sm
 export const text_input_accessory_font_size = font_size_h4
 export const text_input_accessory_height: number = 44
 export const text_input_accessory_text_color = primary
+
+// Result
+export const result_success_color = success
+export const result_error_color = error
+export const result_info_color = primary
+export const result_warning_color = warning
+export const result_icon_size: number = 72
+export const result_title_font_size = font_size_h3
+export const result_title_color = text_color_1
+export const result_subtitle_font_size = font_size_text
+export const result_subtitle_color = text_color_2
 
 // Toast
 export const toast_max_width: string = '70%'
