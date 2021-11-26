@@ -139,6 +139,10 @@ const navDatas: {
         title: 'Result',
         name: 'DemoResult',
       },
+      {
+        title: 'ErrorBoundary',
+        name: 'DemoErrorBoundary',
+      },
     ],
   },
   {

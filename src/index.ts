@@ -41,6 +41,9 @@ export { default as DropdownText } from './dropdown/text'
 export type { EmptyProps } from './empty/interface'
 export { default as Empty } from './empty'
 
+export type { ErrorBoundaryProps } from './error-boundary/interface'
+export { default as ErrorBoundary } from './error-boundary'
+
 export type { FlexProps, FlexItemProps } from './flex/interface'
 export { default as Flex } from './flex'
 

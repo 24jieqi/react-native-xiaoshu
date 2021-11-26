@@ -35,6 +35,7 @@ import DemoCollapse from '../../src/collapse/__fixtures__/basic'
 import DemoFlex from '../../src/flex/__fixtures__/basic'
 import DemoIcon from '../../src/icon/__fixtures__/basic'
 import DemoResult from '../../src/result/__fixtures__/basic'
+import DemoErrorBoundary from '../../src/error-boundary/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -69,6 +70,7 @@ export type DemoPaths =
   | 'DemoFlex'
   | 'DemoIcon'
   | 'DemoResult'
+  | 'DemoErrorBoundary'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -318,6 +320,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoResult />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoErrorBoundary',
+    page: () => (
+      <DemoWrapper>
+        <DemoErrorBoundary />
       </DemoWrapper>
     ),
   },
