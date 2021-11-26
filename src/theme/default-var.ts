@@ -322,6 +322,8 @@ export const tag_text_color = white
 export const tag_font_size = font_size_subtitle
 export const tag_border_radius: number = 2
 // export const tag_line_height: number = 16
+export const tag_small_padding_vertical: number = 0
+export const tag_small_padding_horizontal: number = 0
 export const tag_medium_padding_vertical: number = 2
 export const tag_medium_padding_horizontal: number = 6
 export const tag_large_padding_vertical = padding_base
@@ -334,6 +336,7 @@ export const tag_success_color = success
 export const tag_warning_color = warning
 export const tag_error_color = error
 export const tag_default_color = text_color_2
+export const tag_ghost_bg_color: string = 'transparent'
 export const tag_plain_background_color = white
 
 // TextInput

@@ -19,9 +19,9 @@ export interface TagProps extends ViewProps {
   type?: 'default' | 'primary' | 'success' | 'error' | 'warning'
 
   /**
-   * 大小, 可选值为 `'large' | 'medium'`
+   * 大小
    */
-  size?: 'large' | 'medium'
+  size?: 'large' | 'medium' | 'small'
 
   /**
    * 标签颜色
@@ -29,11 +29,11 @@ export interface TagProps extends ViewProps {
   color?: string
 
   /**
-   * 是否为空心样式
+   * tag外观类型
    *
-   * @default false
+   * @default 'fill'
    */
-  plain?: boolean
+  outward?: 'ghost' | 'fill' | 'flat'
 
   /**
    * 是否为圆角样式

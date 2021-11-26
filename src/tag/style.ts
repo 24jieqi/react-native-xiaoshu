@@ -38,13 +38,15 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: themeVar.tag_round_border_radius,
     },
-
     padding_vertical_large: {
       paddingVertical: themeVar.tag_large_padding_vertical,
     },
 
     padding_vertical_medium: {
       paddingVertical: themeVar.tag_medium_padding_vertical,
+    },
+    padding_vertical_small: {
+      paddingVertical: themeVar.tag_small_padding_vertical,
     },
 
     padding_horizontal_large: {
@@ -54,7 +56,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
     padding_horizontal_medium: {
       paddingHorizontal: themeVar.tag_medium_padding_horizontal,
     },
-
+    padding_horizontal_small: {
+      paddingVertical: themeVar.tag_small_padding_horizontal,
+    },
     text: {
       paddingHorizontal: themeVar.tag_padding_horizontal,
       fontSize: themeVar.tag_font_size,

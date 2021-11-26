@@ -30,7 +30,63 @@ const BasicTag: React.FC = () => {
         <Cell
           title="空心样式"
           value={
-            <Tag type="primary" plain>
+            <Tag type="primary" outward="ghost">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="空心样式"
+          value={
+            <Tag type="success" outward="ghost">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="空心样式"
+          value={
+            <Tag type="error" outward="ghost">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="空心样式"
+          value={
+            <Tag type="warning" outward="ghost">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="扁平样式"
+          value={
+            <Tag type="primary" outward="flat">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="扁平样式"
+          value={
+            <Tag type="success" outward="flat">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="扁平样式"
+          value={
+            <Tag type="error" outward="flat">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="扁平样式"
+          value={
+            <Tag type="warning" outward="flat">
               标签
             </Tag>
           }
@@ -38,7 +94,7 @@ const BasicTag: React.FC = () => {
         <Cell
           title="细边样式"
           value={
-            <Tag type="primary" plain hairline>
+            <Tag type="primary" hairline outward="ghost">
               标签
             </Tag>
           }
@@ -76,7 +132,14 @@ const BasicTag: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="标签大小" bordered={false}>
-        <Cell title="小号标签" value={<Tag type="primary">标签</Tag>} />
+        <Cell
+          title="小号标签"
+          value={
+            <Tag type="primary" size="small">
+              标签
+            </Tag>
+          }
+        />
         <Cell
           title="中号标签"
           value={
@@ -88,7 +151,7 @@ const BasicTag: React.FC = () => {
         <Cell
           title="大号标签"
           value={
-            <Tag type="success" size="large">
+            <Tag type="primary" size="large">
               标签
             </Tag>
           }
@@ -109,7 +172,7 @@ const BasicTag: React.FC = () => {
         <Cell
           title="空心颜色"
           value={
-            <Tag color="#7232dd" textColor="#f30" plain>
+            <Tag color="#7232dd" textColor="#f30" outward="ghost">
               标签
             </Tag>
           }
@@ -117,7 +180,7 @@ const BasicTag: React.FC = () => {
         <Cell
           title="空心颜色"
           value={
-            <Tag color="#7232dd" textColor="#f30" plain closeable>
+            <Tag color="#7232dd" textColor="#f30" outward="ghost" closeable>
               标签
             </Tag>
           }
@@ -125,7 +188,7 @@ const BasicTag: React.FC = () => {
         <Cell
           title="空心颜色"
           value={
-            <Tag color="#7232dd" plain>
+            <Tag color="#7232dd" outward="ghost">
               标签
             </Tag>
           }
