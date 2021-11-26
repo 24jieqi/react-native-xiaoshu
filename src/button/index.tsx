@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
-  const showDisabled = disabled || loading
+  const showDisabled = disabled
 
   const commonButtonStyle = StyleSheet.flatten<ViewStyle>([
     STYLES.button,
@@ -63,6 +63,11 @@ const Button: React.FC<ButtonProps> = ({
   if (plain) {
     commonButtonStyle.backgroundColor = 'transparent'
     commonTextStyle.color = commonButtonStyle.borderColor
+
+    if (type === 'default') {
+      commonButtonStyle.borderColor = '#BEC6D2'
+      commonTextStyle.color = THEME_VAR.primary
+    }
   }
 
   const textStyleSummary = StyleSheet.flatten<TextStyle>([
@@ -71,9 +76,7 @@ const Button: React.FC<ButtonProps> = ({
   ])
 
   const contextJSX = loading ? (
-    <Loading
-      color={textStyleSummary.color as string}
-      size={textStyleSummary.fontSize}>
+    <Loading type="spinner" color={textStyleSummary.color as string} size={24}>
       {loadingText}
     </Loading>
   ) : (
@@ -85,7 +88,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
-      disabled={showDisabled}
+      disabled={disabled || loading}
       style={[commonButtonStyle, style]}
       activeOpacity={THEME_VAR.button_active_opacity}
       {...otherProps}>

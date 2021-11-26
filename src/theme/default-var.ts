@@ -13,7 +13,7 @@ export const white: string = '#FFF'
 export const primary: string = '#0065FE'
 export const success: string = '#2CB065'
 export const warning: string = '#FE7A33'
-export const error: string = '#F23D3D'
+export const error: string = '#FF3341'
 export const color_1: string = '#24B356'
 export const color_2: string = '#FE5900'
 export const underlay_color: string = 'transparent'
@@ -90,15 +90,15 @@ export const badge_background_color = error
 export const badge_dot_size: number = 8
 
 // Button
-export const button_mini_height: number = 20
+export const button_mini_height: number = 24
 export const button_mini_font_size = font_size_subtitle
-export const button_small_height: number = 34
+export const button_small_height: number = 32
 export const button_small_font_size = font_size_text
 export const button_normal_height: number = 40
 export const button_normal_font_size = font_size_h5
-export const button_large_height: number = 44
+export const button_large_height: number = 50
 export const button_large_font_size = font_size_h4
-export const button_default_height: number = 40
+export const button_default_height: number = 44
 // export const button_default_line_height: number = 1.2
 export const button_default_font_size = font_size_h4
 export const button_default_color = primary
@@ -124,7 +124,7 @@ export const button_border_radius = border_radius_sm
 export const button_plain_background_color = white
 // export const button_plain_underlay_color = border_color // 按钮按下去的颜色
 export const button_disabled_opacity = active_opacity
-export const button_active_opacity: number = 0.8
+export const button_active_opacity: number = 0.4
 
 // Cell
 export const cell_group_title_padding_horizontal = padding_sm

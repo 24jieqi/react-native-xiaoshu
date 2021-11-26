@@ -1,13 +1,15 @@
 import React from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
-import { Button, Icon } from 'react-native-xiaoshu'
+import { Button, Icon, useTheme } from 'react-native-xiaoshu'
 
 const onPress = () => {
   console.log('点击按钮')
 }
 
 const BasicButton: React.FC = () => {
+  const THEME_VAR = useTheme()
+
   return (
     <ScrollView>
       <Text>按钮类型</Text>
@@ -40,7 +42,20 @@ const BasicButton: React.FC = () => {
 
         <View style={{ height: 20 }} />
 
-        <Button type="info" text="info" />
+        <View
+          style={{
+            backgroundColor: '#fff',
+            marginHorizontal: -12,
+            paddingHorizontal: 12,
+            marginVertical: -12,
+            paddingVertical: 12,
+          }}>
+          <Button
+            type="info"
+            text="info -> 为了突出颜色，外面套了一层白色背景"
+          />
+        </View>
+        <View style={{ height: 20 }} />
       </View>
 
       <View style={{ height: 20 }} />
@@ -100,17 +115,41 @@ const BasicButton: React.FC = () => {
       </View>
 
       <View style={Styles.g1}>
-        <Button text="default" style={Styles.g1b} plain />
+        <Button text="default" size="mini" style={Styles.g1b} plain />
 
-        <Button type="primary" text="primary" style={Styles.g1b} plain />
+        <Button
+          type="primary"
+          text="primary"
+          size="mini"
+          style={Styles.g1b}
+          plain
+        />
 
-        <Button type="success" text="success" style={Styles.g1b} plain />
+        <Button
+          type="success"
+          text="success"
+          size="mini"
+          style={Styles.g1b}
+          plain
+        />
 
-        <Button type="warning" text="warning" style={Styles.g1b} plain />
+        <Button
+          type="warning"
+          text="warning"
+          size="mini"
+          style={Styles.g1b}
+          plain
+        />
 
-        <Button type="error" text="error" style={Styles.g1b} plain />
+        <Button
+          type="error"
+          text="error"
+          size="mini"
+          style={Styles.g1b}
+          plain
+        />
 
-        <Button type="info" text="info" style={Styles.g1b} plain />
+        <Button type="info" text="info" size="mini" style={Styles.g1b} plain />
       </View>
 
       <View style={{ height: 20 }} />
@@ -138,7 +177,15 @@ const BasicButton: React.FC = () => {
 
         <View style={{ height: 20 }} />
 
-        <Button type="primary" disabled text="success" onPress={onPress} />
+        <Button type="success" disabled text="success" onPress={onPress} />
+
+        <View style={{ height: 20 }} />
+
+        <Button type="error" plain disabled text="error" onPress={onPress} />
+
+        <View style={{ height: 20 }} />
+
+        <Button type="warning" disabled text="warning" onPress={onPress} />
       </View>
 
       <View style={{ height: 20 }} />
@@ -151,7 +198,7 @@ const BasicButton: React.FC = () => {
         <Button
           loading
           type="primary"
-          loadingText="嘿嘿，加油哟~"
+          loadingText="自定义加载中的文案~"
           text="primary"
           onPress={onPress}
         />
@@ -202,19 +249,42 @@ const BasicButton: React.FC = () => {
       <View style={{ height: 20 }} />
 
       <View style={Styles.box}>
-        <Button type="primary" size="large" text="large" />
+        <Button
+          type="primary"
+          size="large"
+          text={`large ${THEME_VAR.button_large_height}`}
+        />
 
         <View style={{ height: 20 }} />
 
-        <Button type="primary" size="mini" text="mini" />
+        <Button
+          type="primary"
+          text={`default ${THEME_VAR.button_default_height}`}
+        />
 
         <View style={{ height: 20 }} />
 
-        <Button type="primary" size="normal" text="normal" />
+        <Button
+          type="primary"
+          size="normal"
+          text={`normal ${THEME_VAR.button_normal_height}`}
+        />
 
         <View style={{ height: 20 }} />
 
-        <Button type="primary" size="small" text="small" />
+        <Button
+          type="primary"
+          size="small"
+          text={`small ${THEME_VAR.button_small_height}`}
+        />
+
+        <View style={{ height: 20 }} />
+
+        <Button
+          type="primary"
+          size="mini"
+          text={`mini ${THEME_VAR.button_mini_height}`}
+        />
 
         <View style={{ height: 20 }} />
       </View>
@@ -227,6 +297,8 @@ const BasicButton: React.FC = () => {
           style={Styles.g1b}
           plain
         />
+
+        <Button type="primary" text="default" style={Styles.g1b} plain />
 
         <Button
           type="primary"
