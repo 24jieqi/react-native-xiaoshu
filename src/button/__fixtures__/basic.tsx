@@ -95,19 +95,19 @@ const BasicButton: React.FC = () => {
       <View style={{ height: 20 }} />
 
       <View style={Styles.box}>
-        <Button text="default" plain />
+        <Button text="default" ghost />
 
         <View style={{ height: 20 }} />
 
-        <Button type="primary" text="primary" plain />
+        <Button type="primary" text="primary" ghost />
 
         <View style={{ height: 20 }} />
 
-        <Button type="success" text="success" plain />
+        <Button type="success" text="success" ghost />
 
         <View style={{ height: 20 }} />
 
-        <Button type="warning" text="warning" plain />
+        <Button type="warning" text="warning" ghost />
 
         <View style={{ height: 20 }} />
 
@@ -117,27 +117,27 @@ const BasicButton: React.FC = () => {
             <Icon.ArrowOutline color={color} size={size} />
           )}
           text="error"
-          plain
+          ghost
         />
 
         <View style={{ height: 20 }} />
 
-        <Button type="info" text="info" plain />
+        <Button type="info" text="info" ghost />
 
         <View style={{ height: 20 }} />
 
-        <Button type="link" text="link" plain />
+        <Button type="link" text="link" ghost />
       </View>
 
       <View style={Styles.g1}>
-        <Button text="default" size="mini" style={Styles.g1b} plain />
+        <Button text="default" size="mini" style={Styles.g1b} ghost />
 
         <Button
           type="primary"
           text="primary"
           size="mini"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
         <Button
@@ -145,7 +145,7 @@ const BasicButton: React.FC = () => {
           text="success"
           size="mini"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
         <Button
@@ -153,7 +153,7 @@ const BasicButton: React.FC = () => {
           text="warning"
           size="mini"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
         <Button
@@ -161,12 +161,12 @@ const BasicButton: React.FC = () => {
           text="error"
           size="mini"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
-        <Button type="info" text="info" size="mini" style={Styles.g1b} plain />
+        <Button type="info" text="info" size="mini" style={Styles.g1b} ghost />
 
-        <Button type="link" text="link" size="mini" style={Styles.g1b} plain />
+        <Button type="link" text="link" size="mini" style={Styles.g1b} ghost />
       </View>
 
       <View style={{ height: 20 }} />
@@ -176,11 +176,11 @@ const BasicButton: React.FC = () => {
       <View style={{ height: 20 }} />
 
       <View style={Styles.box}>
-        <Button type="primary" plain hairline text="primary" />
+        <Button type="primary" ghost hairline text="primary" />
 
         <View style={{ height: 20 }} />
 
-        <Button type="success" plain text="success" />
+        <Button type="success" ghost text="success" />
       </View>
 
       <View style={{ height: 20 }} />
@@ -198,7 +198,7 @@ const BasicButton: React.FC = () => {
 
         <View style={{ height: 20 }} />
 
-        <Button type="error" plain disabled text="error" onPress={onPress} />
+        <Button type="error" ghost disabled text="error" onPress={onPress} />
 
         <View style={{ height: 20 }} />
 
@@ -331,7 +331,7 @@ const BasicButton: React.FC = () => {
           renderLeftIcon={(color, size) => (
             <Icon.PlusOutline color={color} size={size} />
           )}
-          plain
+          ghost
           text="自带一个加号"
         />
 
@@ -342,7 +342,7 @@ const BasicButton: React.FC = () => {
           renderLeftIcon={(color, size) => (
             <Icon.PlusOutline color={color} size={size} />
           )}
-          plain
+          ghost
           text="自带一个加号"
         />
 
@@ -419,17 +419,17 @@ const BasicButton: React.FC = () => {
           size="large"
           text="large"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
-        <Button type="primary" text="default" style={Styles.g1b} plain />
+        <Button type="primary" text="default" style={Styles.g1b} ghost />
 
         <Button
           type="primary"
           size="normal"
           text="normal"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
         <Button
@@ -437,7 +437,7 @@ const BasicButton: React.FC = () => {
           size="small"
           text="small"
           style={Styles.g1b}
-          plain
+          ghost
         />
 
         <Button
@@ -445,7 +445,7 @@ const BasicButton: React.FC = () => {
           size="mini"
           text="mini"
           style={Styles.g1b}
-          plain
+          ghost
         />
       </View>
 
@@ -460,7 +460,7 @@ const BasicButton: React.FC = () => {
 
         <View style={{ height: 20 }} />
 
-        <Button color="#0c6" plain text="default" />
+        <Button color="#0c6" ghost text="default" />
 
         <View style={{ height: 20 }} />
       </View>

@@ -141,7 +141,7 @@ const Dialog: React.FC<DialogProps> = ({
           {showCancelButton ? (
             <Button
               {...cancelButtonProps}
-              plain
+              ghost
               size="large"
               style={STYLES.btn}
             />
@@ -149,7 +149,7 @@ const Dialog: React.FC<DialogProps> = ({
           {showConfirmButton ? (
             <Button
               {...confirmButtonProps}
-              plain
+              ghost
               size="large"
               style={[
                 STYLES.btn,

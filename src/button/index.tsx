@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   textStyle,
   type = 'default',
   size = 'default',
-  plain = false,
+  ghost = false,
   hairline = false,
   disabled = false,
   loading = false,
@@ -74,8 +74,8 @@ const Button: React.FC<ButtonProps> = ({
       : null,
   ])
 
-  if (plain) {
-    commonButtonStyle.backgroundColor = 'transparent'
+  if (ghost) {
+    commonButtonStyle.backgroundColor = THEME_VAR.button_ghost_background_color
     commonTextStyle.color = commonButtonStyle.borderColor
 
     if (type === 'default') {

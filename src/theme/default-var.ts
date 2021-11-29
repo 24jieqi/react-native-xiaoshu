@@ -135,8 +135,8 @@ export const button_link_background_color: string = 'transparent'
 export const button_link_border_color: string = 'transparent'
 export const button_border_width = border_width_base
 export const button_border_radius = border_radius_sm
-export const button_plain_background_color = white
-// export const button_plain_underlay_color = border_color // 按钮按下去的颜色
+export const button_ghost_background_color: string = 'transparent'
+// export const button_ghost_underlay_color = border_color // 按钮按下去的颜色
 export const button_disabled_opacity = active_opacity
 export const button_active_opacity: number = 0.4
 
@@ -339,7 +339,7 @@ export const tag_warning_color = warning
 export const tag_error_color = error
 export const tag_default_color = text_color_2
 export const tag_ghost_bg_color: string = 'transparent'
-// export const tag_plain_background_color = white
+// export const tag_ghost_background_color = white
 
 // TextInput
 export const text_input_selection_color = primary

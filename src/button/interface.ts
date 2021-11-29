@@ -44,7 +44,7 @@ export interface ButtonProps
   /**
    * 朴素
    */
-  plain?: boolean
+  ghost?: boolean
 
   /**
    * 细边框
