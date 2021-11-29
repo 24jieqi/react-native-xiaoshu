@@ -339,7 +339,7 @@ export const tag_warning_color = warning
 export const tag_error_color = error
 export const tag_default_color = text_color_2
 export const tag_ghost_bg_color: string = 'transparent'
-export const tag_plain_background_color = white
+// export const tag_plain_background_color = white
 
 // TextInput
 export const text_input_selection_color = primary

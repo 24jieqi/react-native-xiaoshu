@@ -29,7 +29,7 @@ export interface TagProps extends ViewProps {
   color?: string
 
   /**
-   * tag外观类型
+   * 外观类型，可选值 `'ghost' | 'fill' | 'flat'`
    *
    * @default 'fill'
    */

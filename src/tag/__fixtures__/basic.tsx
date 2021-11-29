@@ -7,21 +7,24 @@ const BasicTag: React.FC = () => {
   return (
     <ScrollView>
       <CellGroup title="基础用法" bordered={false}>
-        <Cell title="default 类型" value={<Tag>标签</Tag>} />
+        <Cell title="default 类型" value={<Tag>标签 fill</Tag>} />
         <Cell
           title="primary 类型"
           value={
             <>
-              <Tag type="primary">标签</Tag>
-              <Tag type="primary">标签</Tag>
+              <Tag type="primary">标签 fill</Tag>
+              <Tag type="primary">标签 fill</Tag>
             </>
           }
         />
-        <Cell title="success 类型" value={<Tag type="success">标签</Tag>} />
-        <Cell title="danger 类型" value={<Tag type="error">标签</Tag>} />
+        <Cell
+          title="success 类型"
+          value={<Tag type="success">标签 fill</Tag>}
+        />
+        <Cell title="danger 类型" value={<Tag type="error">标签 fill</Tag>} />
         <Cell
           title="warning 类型"
-          value={<Tag type="warning">标签</Tag>}
+          value={<Tag type="warning">标签 fill</Tag>}
           bordered={false}
         />
       </CellGroup>
@@ -31,7 +34,7 @@ const BasicTag: React.FC = () => {
           title="空心样式"
           value={
             <Tag type="primary" outward="ghost">
-              标签
+              标签 ghost
             </Tag>
           }
         />
@@ -39,7 +42,7 @@ const BasicTag: React.FC = () => {
           title="空心样式"
           value={
             <Tag type="success" outward="ghost">
-              标签
+              标签 ghost
             </Tag>
           }
         />
@@ -47,7 +50,7 @@ const BasicTag: React.FC = () => {
           title="空心样式"
           value={
             <Tag type="error" outward="ghost">
-              标签
+              标签 ghost
             </Tag>
           }
         />
@@ -55,7 +58,7 @@ const BasicTag: React.FC = () => {
           title="空心样式"
           value={
             <Tag type="warning" outward="ghost">
-              标签
+              标签 ghost
             </Tag>
           }
         />
@@ -63,7 +66,7 @@ const BasicTag: React.FC = () => {
           title="扁平样式"
           value={
             <Tag type="primary" outward="flat">
-              标签
+              标签 flat
             </Tag>
           }
         />
@@ -71,7 +74,7 @@ const BasicTag: React.FC = () => {
           title="扁平样式"
           value={
             <Tag type="success" outward="flat">
-              标签
+              标签 flat
             </Tag>
           }
         />
@@ -79,7 +82,7 @@ const BasicTag: React.FC = () => {
           title="扁平样式"
           value={
             <Tag type="error" outward="flat">
-              标签
+              标签 flat
             </Tag>
           }
         />
@@ -87,7 +90,7 @@ const BasicTag: React.FC = () => {
           title="扁平样式"
           value={
             <Tag type="warning" outward="flat">
-              标签
+              标签 flat
             </Tag>
           }
         />
@@ -95,7 +98,7 @@ const BasicTag: React.FC = () => {
           title="细边样式"
           value={
             <Tag type="primary" hairline outward="ghost">
-              标签
+              标签 ghost
             </Tag>
           }
         />
@@ -103,7 +106,7 @@ const BasicTag: React.FC = () => {
           title="圆角样式"
           value={
             <Tag type="primary" round>
-              标签
+              标签 round
             </Tag>
           }
         />

@@ -36,51 +36,48 @@ const Tag: React.FC<TagProps> = ({
 
   const padding_vertical_size = `padding_vertical_${size}`
   const padding_horizontal_size = `padding_horizontal_${size}`
-  const { outwardInnerStyles, outwardTextStyles } = useMemo(() => {
-    let tempInnerStyles = null
-    let tempTextStyles = null
+  const { outwardInnerStyle, outwardTextStyle } = useMemo(() => {
+    const tempInnerStyle: ViewStyle = {}
+    const tempTextStyle: TextStyle = {}
+
     switch (outward) {
       case 'fill':
-        tempInnerStyles = {
-          backgroundColor: mainColor,
-          borderColor: mainColor,
-        }
-        tempTextStyles = {
-          color: THEME_VAR.tag_text_color,
-        }
+        tempInnerStyle.backgroundColor = mainColor
+        tempInnerStyle.borderColor = mainColor
+
+        tempTextStyle.color = THEME_VAR.tag_text_color
         break
       case 'ghost':
-        tempInnerStyles = {
-          backgroundColor: THEME_VAR.tag_ghost_bg_color,
-          borderColor: mainColor,
-        }
-        tempTextStyles = {
-          color: mainColor,
-        }
+        tempInnerStyle.backgroundColor = THEME_VAR.tag_ghost_bg_color
+        tempInnerStyle.borderColor = mainColor
+
+        tempTextStyle.color = mainColor
         break
       case 'flat':
-        tempInnerStyles = {
-          backgroundColor: hex2rgba(mainColor, 0.1),
-          borderColor: hex2rgba(mainColor, 0.1),
-        }
-        tempTextStyles = {
-          color: mainColor,
-        }
+        tempInnerStyle.backgroundColor = hex2rgba(mainColor, 0.1)
+        tempInnerStyle.borderColor = hex2rgba(mainColor, 0.1)
+
+        tempTextStyle.color = mainColor
         break
       default:
         break
     }
     return {
-      outwardInnerStyles: tempInnerStyles,
-      outwardTextStyles: tempTextStyles,
+      outwardInnerStyle: tempInnerStyle,
+      outwardTextStyle: tempTextStyle,
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [outward, THEME_VAR])
+  }, [
+    outward,
+    mainColor,
+    THEME_VAR.tag_text_color,
+    THEME_VAR.tag_ghost_bg_color,
+  ])
+
   const innerStyles: StyleProp<ViewStyle> = [
     /**基础样式 */
     STYLES.inner,
     /**类型样式 */
-    outwardInnerStyles,
+    outwardInnerStyle,
     hairline ? STYLES.border_width_hairline : null,
     size === 'large' && STYLES.border_radius_large,
     round && STYLES.border_radius_round,
@@ -93,7 +90,7 @@ const Tag: React.FC<TagProps> = ({
     /**基础样式 */
     STYLES.text,
     /**类型样式 */
-    outwardTextStyles,
+    outwardTextStyle,
     STYLES?.[padding_vertical_size],
     STYLES?.[padding_horizontal_size],
     size === 'large' && STYLES.font_size_large,
