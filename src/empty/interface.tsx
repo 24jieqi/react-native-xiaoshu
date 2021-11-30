@@ -27,4 +27,10 @@ export interface EmptyProps {
    * @default '暂无数据'
    */
   text?: string
+
+  /**
+   * 全屏填充
+   * @default false
+   */
+  full?: boolean
 }

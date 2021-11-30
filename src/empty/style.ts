@@ -5,14 +5,18 @@ import type { ThemeVarType } from '../theme'
 export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     empty: {
-      flex: 1,
+      // flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
     },
 
+    emptyFull: {
+      flex: 1,
+    },
+
     icon: {
-      left: 16,
       alignSelf: 'center',
+      marginBottom: themeVar.padding_xs,
     },
 
     text: {

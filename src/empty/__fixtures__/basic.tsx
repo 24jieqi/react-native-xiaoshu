@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
 import { Empty, CellGroup, Icon } from 'react-native-xiaoshu'
 
@@ -17,6 +17,10 @@ const BasicTag: React.FC = () => {
       <CellGroup title="自定义图标" bordered={false}>
         <Empty text="一二三" icon={<Icon.ArrowOutline direction="down" />} />
       </CellGroup>
+
+      <View style={{ height: 400, backgroundColor: '#f5f5f5' }}>
+        <Empty text="占满剩余空间 full" full />
+      </View>
     </ScrollView>
   )
 }

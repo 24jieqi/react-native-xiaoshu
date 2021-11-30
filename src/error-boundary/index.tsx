@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react'
 import type { ViewStyle } from 'react-native'
 
 import Result from '../result'
+import { ResultIconError } from '../result/icons'
 import Button from '../button'
 import type { ErrorBoundaryProps } from './interface'
 
@@ -12,6 +13,7 @@ type ErrorBoundaryState = {
 
 const ERROR_PAGE_STYLE: ViewStyle = {
   flex: 1,
+  backgroundColor: '#fff',
 }
 
 /**
@@ -56,8 +58,10 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
         <Result
           style={ERROR_PAGE_STYLE}
           status="error"
-          title={this.props.title || '加载失败，请稍后再试~'}
-          subtitle={`${this.state.error.name}\n${this.state.error.message}`}
+          renderIcon={() => <ResultIconError />}
+          subtitle={`${this.props.title || '加载失败，请稍后再试~'}\n${
+            this.state.error.name
+          }\n${this.state.error.message}`}
           extra={
             <Button
               type="primary"

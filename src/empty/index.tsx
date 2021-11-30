@@ -1,11 +1,11 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { memo } from 'react'
 
 import { useTheme, widthStyle } from '../theme'
 import { isDef } from '../helpers/typeof'
+import { ResultIconEmpty } from '../result/icons'
+import Result from '../result'
 import type { EmptyProps } from './interface'
 import { createStyles } from './style'
-import IconEmpty from './icon'
 
 /**
  * Empty 空元素
@@ -17,6 +17,7 @@ const Empty: React.FC<EmptyProps> = ({
   textStyle,
   iconStyle,
   icon,
+  full = false,
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -24,15 +25,18 @@ const Empty: React.FC<EmptyProps> = ({
   const iconJSX = isDef(icon) ? (
     icon
   ) : (
-    <IconEmpty style={[STYLES.icon, iconStyle]} />
+    <ResultIconEmpty style={[STYLES.icon, iconStyle]} />
   )
 
   return (
-    <View style={[STYLES.empty, style]}>
-      {iconJSX}
-      <Text style={[STYLES.text, textStyle]}>{text}</Text>
-    </View>
+    <Result
+      status="info"
+      renderIcon={() => <>{iconJSX}</>}
+      style={[STYLES.empty, full ? STYLES.emptyFull : null, style]}
+      subtitle={text}
+      subtitleTextStyle={[STYLES.text, textStyle]}
+    />
   )
 }
 
-export default Empty
+export default memo(Empty)
