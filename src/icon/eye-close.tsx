@@ -7,9 +7,16 @@ const EyeClose: React.FC<IconCommonOutlineProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   strokeWidth = helper.STROKE_WIDTH,
+  style = helper.ICON_DEFAULT_STYLE,
+  ...restProps
 }) => {
   return (
-    <Svg height={size} width={size} viewBox="0 0 24 24">
+    <Svg
+      {...restProps}
+      style={style}
+      height={size}
+      width={size}
+      viewBox="0 0 24 24">
       <G
         stroke={color}
         strokeWidth={strokeWidth}
