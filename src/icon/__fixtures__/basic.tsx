@@ -26,16 +26,16 @@ const BasicIcon: React.FC = () => {
             <Icon.WarnFill size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.Delete size={ICON_SIZE} />
+            <Icon.DeleteFill size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.Remove size={ICON_SIZE} />
+            <Icon.RemoveFill size={ICON_SIZE} />
           </Col>
           <Col span={6}>
             <Icon.NewFill size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.Search size={ICON_SIZE} />
+            <Icon.SearchFill size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>
@@ -64,10 +64,10 @@ const BasicIcon: React.FC = () => {
             <Icon.PlusOutline size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.Eye size={ICON_SIZE} />
+            <Icon.EyeOutLine size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.EyeClose size={ICON_SIZE} />
+            <Icon.EyeCloseOutLine size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>

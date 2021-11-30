@@ -3,7 +3,7 @@ import { Svg, Path, G } from 'react-native-svg'
 import * as helper from './helper'
 import type { IconCommonFillProps } from './interface'
 
-const Search: React.FC<IconCommonFillProps> = ({
+const SearchFill: React.FC<IconCommonFillProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
@@ -24,4 +24,4 @@ const Search: React.FC<IconCommonFillProps> = ({
   )
 }
 
-export default memo(Search)
+export default memo(SearchFill)
