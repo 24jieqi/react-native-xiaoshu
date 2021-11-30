@@ -22,9 +22,17 @@ const BasicIcon: React.FC = () => {
           <Col span={6}>
             <Icon.ArrowFill size={ICON_SIZE} direction="down" />
           </Col>
-
           <Col span={6}>
             <Icon.WarnFill size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.Delete size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.Search size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.Remove size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>
@@ -51,6 +59,12 @@ const BasicIcon: React.FC = () => {
           </Col>
           <Col span={6}>
             <Icon.PlusOutline size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.Eye size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.EyeClose size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>
