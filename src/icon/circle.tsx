@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
-import { Svg, Path } from 'react-native-svg'
+import { Svg, Circle } from 'react-native-svg'
 
 import type { IconCommonOutlineProps } from './interface'
 import * as helper from './helper'
 
-interface IconSuccessOutlineProps extends IconCommonOutlineProps {}
+interface IconCircleOutlineProps extends IconCommonOutlineProps {}
 
-const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
+const IconCircleOutline: React.FC<IconCircleOutlineProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
@@ -22,16 +22,16 @@ const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
       width={size}
       hitSlop={hitSlop}
       viewBox="0 0 24 24">
-      <Path
-        d="M6,12 10,16 18,7"
+      <Circle
+        cx="12"
+        cy="12"
+        r={12 - strokeWidth / 2}
         fill="none"
         stroke={color}
         strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </Svg>
   )
 }
 
-export default memo(IconSuccessOutline)
+export default memo(IconCircleOutline)

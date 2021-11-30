@@ -1,16 +1,15 @@
 import React, { memo } from 'react'
-import { Svg, Path } from 'react-native-svg'
+import { Svg, Circle, Path } from 'react-native-svg'
 
-import type { IconCommonOutlineProps } from './interface'
+import type { IconCommonFillProps } from './interface'
 import * as helper from './helper'
 
-interface IconSuccessOutlineProps extends IconCommonOutlineProps {}
+interface IconCheckedFillProps extends IconCommonFillProps {}
 
-const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
+const IconCheckedFill: React.FC<IconCheckedFillProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
-  strokeWidth = helper.STROKE_WIDTH,
   hitSlop = helper.DEFAULT_HIT_SLOP,
   ...restProps
 }) => {
@@ -20,13 +19,15 @@ const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
       style={style}
       height={size}
       width={size}
-      hitSlop={hitSlop}
-      viewBox="0 0 24 24">
+      viewBox="0 0 24 24"
+      hitSlop={hitSlop}>
+      <Circle cx="12" cy="12" r="12" fill={color} />
+
       <Path
         d="M6,12 10,16 18,7"
         fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
+        stroke="#fff"
+        strokeWidth={helper.STROKE_WIDTH}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -34,4 +35,4 @@ const IconSuccessOutline: React.FC<IconSuccessOutlineProps> = ({
   )
 }
 
-export default memo(IconSuccessOutline)
+export default memo(IconCheckedFill)
