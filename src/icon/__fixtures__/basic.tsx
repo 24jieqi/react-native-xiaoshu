@@ -29,10 +29,13 @@ const BasicIcon: React.FC = () => {
             <Icon.Delete size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.Search size={ICON_SIZE} />
+            <Icon.Remove size={ICON_SIZE} />
           </Col>
           <Col span={6}>
-            <Icon.Remove size={ICON_SIZE} />
+            <Icon.NewFill size={ICON_SIZE} />
+          </Col>
+          <Col span={6}>
+            <Icon.Search size={ICON_SIZE} />
           </Col>
         </Row>
       </CellGroup>
