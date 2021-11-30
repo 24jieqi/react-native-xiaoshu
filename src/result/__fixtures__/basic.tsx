@@ -1,7 +1,16 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { CellGroup, Result, Icon, Button } from 'react-native-xiaoshu'
+import {
+  CellGroup,
+  Result,
+  ResultIconEmpty,
+  ResultIconBox,
+  ResultIconWarning,
+  ResultIconError,
+  Icon,
+  Button,
+} from 'react-native-xiaoshu'
 
 const BasicResult: React.FC = () => {
   return (
@@ -58,6 +67,46 @@ const BasicResult: React.FC = () => {
             return <Icon.ArrowFill color={color} size={size} />
           }}
           extra={<Button type="primary" size="small" text="回到过去" />}
+        />
+      </CellGroup>
+
+      <CellGroup title="自定义1" bordered={false}>
+        <Result
+          status="warning"
+          subtitle="恭喜答对了"
+          renderIcon={() => {
+            return <ResultIconEmpty />
+          }}
+        />
+      </CellGroup>
+
+      <CellGroup title="自定义2" bordered={false}>
+        <Result
+          status="warning"
+          subtitle="恭喜答对了"
+          renderIcon={() => {
+            return <ResultIconBox />
+          }}
+        />
+      </CellGroup>
+
+      <CellGroup title="自定义3" bordered={false}>
+        <Result
+          status="warning"
+          subtitle="恭喜答对了"
+          renderIcon={() => {
+            return <ResultIconWarning />
+          }}
+        />
+      </CellGroup>
+
+      <CellGroup title="自定义4" bordered={false}>
+        <Result
+          status="warning"
+          subtitle="恭喜答对了"
+          renderIcon={() => {
+            return <ResultIconError />
+          }}
         />
       </CellGroup>
     </ScrollView>

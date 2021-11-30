@@ -78,6 +78,7 @@ export { default as Provider } from './provider'
 
 export type { ResultProps } from './result/interface'
 export { default as Result } from './result'
+export * from './result/icons'
 
 export type {
   SelectPopupValue,
