@@ -21,6 +21,7 @@ const IconArrowFill: React.FC<IconArrowFillProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
+  hitSlop = helper.DEFAULT_HIT_SLOP,
   direction = 'right',
   ...restProps
 }) => {
@@ -30,7 +31,8 @@ const IconArrowFill: React.FC<IconArrowFillProps> = ({
       style={style}
       height={size}
       width={size}
-      viewBox="0 0 24 24">
+      viewBox="0 0 24 24"
+      hitSlop={hitSlop}>
       <Polyline
         points={PointsMap[direction]}
         fill={color}

@@ -3,11 +3,12 @@ import { Svg, G, Path } from 'react-native-svg'
 import * as helper from './helper'
 import type { IconCommonOutlineProps } from './interface'
 
-const Eye: React.FC<IconCommonOutlineProps> = ({
+const IconEyeOutLine: React.FC<IconCommonOutlineProps> = ({
   size = helper.DEFAULT_SIZE,
   color = helper.DEFAULT_COLOR,
   strokeWidth = helper.STROKE_WIDTH,
   style = helper.ICON_DEFAULT_STYLE,
+  hitSlop = helper.DEFAULT_HIT_SLOP,
   ...restProps
 }) => {
   return (
@@ -16,6 +17,7 @@ const Eye: React.FC<IconCommonOutlineProps> = ({
       style={style}
       height={size}
       width={size}
+      hitSlop={hitSlop}
       viewBox="0 0 24 24">
       <G
         stroke={color}
@@ -30,4 +32,4 @@ const Eye: React.FC<IconCommonOutlineProps> = ({
   )
 }
 
-export default memo(Eye)
+export default memo(IconEyeOutLine)

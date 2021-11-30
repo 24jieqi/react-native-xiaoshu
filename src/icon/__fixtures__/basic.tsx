@@ -3,71 +3,74 @@ import { ScrollView } from 'react-native'
 
 import { CellGroup, Icon, Row, Col } from 'react-native-xiaoshu'
 
-const ICON_SIZE = 32
-
 const BasicIcon: React.FC = () => {
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="Fill" bordered={false}>
+      <CellGroup title="Fill 24*24" bordered={false}>
         <Row>
           <Col span={6}>
-            <Icon.ArrowFill size={ICON_SIZE} />
+            <Icon.ArrowFill />
           </Col>
           <Col span={6}>
-            <Icon.ArrowFill size={ICON_SIZE} direction="left" />
+            <Icon.ArrowFill direction="left" />
           </Col>
           <Col span={6}>
-            <Icon.ArrowFill size={ICON_SIZE} direction="up" />
+            <Icon.ArrowFill direction="up" />
           </Col>
           <Col span={6}>
-            <Icon.ArrowFill size={ICON_SIZE} direction="down" />
+            <Icon.ArrowFill direction="down" />
           </Col>
           <Col span={6}>
-            <Icon.WarnFill size={ICON_SIZE} />
+            <Icon.WarnFill />
           </Col>
           <Col span={6}>
-            <Icon.DeleteFill size={ICON_SIZE} />
+            <Icon.NewFill />
           </Col>
           <Col span={6}>
-            <Icon.RemoveFill size={ICON_SIZE} />
-          </Col>
-          <Col span={6}>
-            <Icon.NewFill size={ICON_SIZE} />
-          </Col>
-          <Col span={6}>
-            <Icon.SearchFill size={ICON_SIZE} />
+            <Icon.SearchFill />
           </Col>
         </Row>
       </CellGroup>
 
-      <CellGroup title="Outline" bordered={false}>
+      <CellGroup title="Fill 16*16" bordered={false}>
         <Row>
           <Col span={6}>
-            <Icon.ArrowOutline size={ICON_SIZE} />
+            <Icon.DeleteFill />
           </Col>
           <Col span={6}>
-            <Icon.ArrowOutline size={ICON_SIZE} direction="left" />
+            <Icon.RemoveFill />
+          </Col>
+        </Row>
+      </CellGroup>
+
+      <CellGroup title="Outline 24*24" bordered={false}>
+        <Row>
+          <Col span={6}>
+            <Icon.ArrowOutline />
           </Col>
           <Col span={6}>
-            <Icon.ArrowOutline size={ICON_SIZE} direction="up" />
+            <Icon.ArrowOutline direction="left" />
           </Col>
           <Col span={6}>
-            <Icon.ArrowOutline size={ICON_SIZE} direction="down" />
+            <Icon.ArrowOutline direction="up" />
           </Col>
           <Col span={6}>
-            <Icon.CrossOutline size={ICON_SIZE} />
+            <Icon.ArrowOutline direction="down" />
           </Col>
           <Col span={6}>
-            <Icon.SuccessOutLine size={ICON_SIZE} />
+            <Icon.CrossOutline />
           </Col>
           <Col span={6}>
-            <Icon.PlusOutline size={ICON_SIZE} />
+            <Icon.SuccessOutLine />
           </Col>
           <Col span={6}>
-            <Icon.EyeOutLine size={ICON_SIZE} />
+            <Icon.PlusOutline />
           </Col>
           <Col span={6}>
-            <Icon.EyeCloseOutLine size={ICON_SIZE} />
+            <Icon.EyeOutLine />
+          </Col>
+          <Col span={6}>
+            <Icon.EyeCloseOutLine />
           </Col>
         </Row>
       </CellGroup>

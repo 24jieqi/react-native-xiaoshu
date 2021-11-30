@@ -11,6 +11,7 @@ const IconCrossOutline: React.FC<IconCrossOutlineProps> = ({
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
   strokeWidth = helper.STROKE_WIDTH,
+  hitSlop = helper.DEFAULT_HIT_SLOP,
   ...restProps
 }) => {
   return (
@@ -19,6 +20,7 @@ const IconCrossOutline: React.FC<IconCrossOutlineProps> = ({
       style={style}
       height={size}
       width={size}
+      hitSlop={hitSlop}
       viewBox="0 0 24 24">
       <G
         fill="none"

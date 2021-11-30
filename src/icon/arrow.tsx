@@ -22,6 +22,7 @@ const IconArrowOutline: React.FC<IconArrowOutlineProps> = ({
   color = helper.DEFAULT_COLOR,
   style = helper.ICON_DEFAULT_STYLE,
   strokeWidth = helper.STROKE_WIDTH,
+  hitSlop = helper.DEFAULT_HIT_SLOP,
   direction = 'right',
   ...restProps
 }) => {
@@ -31,6 +32,7 @@ const IconArrowOutline: React.FC<IconArrowOutlineProps> = ({
       style={style}
       height={size}
       width={size}
+      hitSlop={hitSlop}
       viewBox="0 0 24 24">
       <Polyline
         points={PointsMap[direction]}
