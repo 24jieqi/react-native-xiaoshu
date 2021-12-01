@@ -12,7 +12,7 @@ import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
-import { SuccessOutLine, WarnFill } from '../icon'
+import { SuccessOutLine, WarningFill } from '../icon'
 import { createStyles } from './style'
 import type { ToastProps, ToastMethods } from './interface'
 
@@ -150,7 +150,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                   ) : null}
 
                   {type === 'fail' ? (
-                    <WarnFill
+                    <WarningFill
                       color={THEME_VAR.toast_loading_icon_color}
                       size={THEME_VAR.toast_icon_size * 1.4}
                     />

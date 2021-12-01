@@ -1,38 +1,22 @@
-import React, { memo } from 'react'
-import { Svg, G, Polyline } from 'react-native-svg'
+import React from 'react'
+import { G, Polyline } from 'react-native-svg'
 
-import type { IconCommonOutlineProps } from './interface'
-import * as helper from './helper'
+import { genIcon } from './helper/gen'
 
-interface IconCrossOutlineProps extends IconCommonOutlineProps {}
-
-const IconCrossOutline: React.FC<IconCrossOutlineProps> = ({
-  size = helper.DEFAULT_SIZE,
-  color = helper.DEFAULT_COLOR,
-  style = helper.ICON_DEFAULT_STYLE,
-  strokeWidth = helper.STROKE_WIDTH,
-  hitSlop = helper.DEFAULT_HIT_SLOP,
-  ...restProps
-}) => {
-  return (
-    <Svg
-      {...restProps}
-      style={style}
-      height={size}
-      width={size}
-      hitSlop={hitSlop}
-      viewBox="0 0 24 24">
+const IconCrossOutline = genIcon({
+  render: color => {
+    return (
       <G
         fill="none"
         stroke={color}
-        strokeWidth={strokeWidth}
+        strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round">
-        <Polyline points="6,6 18,18" />
-        <Polyline points="18,6 6,18" />
+        <Polyline points="4,4 20,20" />
+        <Polyline points="20,4 4,20" />
       </G>
-    </Svg>
-  )
-}
+    )
+  },
+})
 
-export default memo(IconCrossOutline)
+export default IconCrossOutline

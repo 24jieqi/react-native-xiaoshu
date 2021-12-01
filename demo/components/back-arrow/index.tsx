@@ -1,6 +1,5 @@
 import React from 'react'
-// import type { TouchableOpacityProps } from 'react-native';
-import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import type { HeaderBackButtonProps } from '@react-navigation/elements'
 import { Icon } from 'react-native-xiaoshu'
 
@@ -13,11 +12,9 @@ interface BackArrowProps extends HeaderBackButtonProps {}
  */
 const BackArrow: React.FC<BackArrowProps> = ({ tintColor, ...restProps }) => {
   return (
-    <TouchableOpacity {...restProps}>
-      <View style={Styles.back}>
-        <Icon.ArrowOutline direction="left" size={24} color={tintColor} />
-      </View>
-    </TouchableOpacity>
+    <View style={Styles.back}>
+      <Icon.ArrowLeftOutline {...restProps} size={24} color={tintColor} />
+    </View>
   )
 }
 

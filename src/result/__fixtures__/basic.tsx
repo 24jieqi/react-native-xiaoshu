@@ -44,7 +44,7 @@ const BasicResult: React.FC = () => {
           status="info"
           title="恭喜答对了"
           renderIcon={(color, size) => {
-            return <Icon.ArrowFill color={color} size={size} />
+            return <Icon.ArrowLeftFill color={color} size={size} />
           }}
         />
       </CellGroup>
@@ -54,7 +54,7 @@ const BasicResult: React.FC = () => {
           status="warning"
           subtitle="恭喜答对了"
           renderIcon={(color, size) => {
-            return <Icon.ArrowFill color={color} size={size} />
+            return <Icon.ArrowLeftFill color={color} size={size} />
           }}
         />
       </CellGroup>
@@ -64,7 +64,7 @@ const BasicResult: React.FC = () => {
           status="warning"
           subtitle="恭喜答对了"
           renderIcon={(color, size) => {
-            return <Icon.ArrowFill color={color} size={size} />
+            return <Icon.ArrowLeftFill color={color} size={size} />
           }}
           extra={<Button type="primary" size="small" text="回到过去" />}
         />

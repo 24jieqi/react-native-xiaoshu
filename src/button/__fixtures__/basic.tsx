@@ -36,7 +36,7 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline color={color} size={size} />
           )}
           text="error"
           onPress={onPress}
@@ -77,7 +77,7 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline color={color} size={size} />
           )}
           text="error"
           style={Styles.g1b}
@@ -114,7 +114,7 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline color={color} size={size} />
           )}
           text="error"
           ghost
@@ -299,7 +299,7 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline color={color} size={size} />
           )}
           text="square"
         />
@@ -309,7 +309,7 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.WarnFill color={color} size={size} />
+            <Icon.WarningFill color={color} size={size} />
           )}
           text="round"
         />

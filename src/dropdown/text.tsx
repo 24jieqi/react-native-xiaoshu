@@ -3,7 +3,7 @@ import type { TextStyle, ViewStyle } from 'react-native'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
-import IconArrowFill from '../icon/arrow.fill'
+import { getArrowFill } from '../icon/helper/arrow'
 import { getDefaultValue } from '../helpers'
 import type { DropdownTextProps } from './interface'
 import { useDropdownConfig } from './context'
@@ -54,13 +54,15 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ])
   const iconStyles = [config.iconStyle, iconStyle].filter(Boolean)
 
+  const ArrowFill = getArrowFill(
+    active ? (direction === 'up' ? 'down' : 'up') : direction,
+  )
   const ctxJSX = (
     <>
       <Text style={textStyleSummary}>{title}</Text>
-      <IconArrowFill
+      <ArrowFill
         style={iconStyles.length ? StyleSheet.flatten(iconStyles) : undefined}
         size={THEME_VAR.dropdown_menu_title_icon_size}
-        direction={active ? (direction === 'up' ? 'down' : 'up') : direction}
         color={active ? activeColor : textColor}
       />
     </>

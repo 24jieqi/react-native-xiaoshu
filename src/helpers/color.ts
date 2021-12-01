@@ -3,7 +3,7 @@
  * @param color 16 进制颜色
  * @param transparency 透明度 0~1
  */
-export default (color: string, transparency = 0.8) => {
+export const hex2rgba = (color: string, transparency = 0.8) => {
   const reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/
   let sColor = color.toLowerCase()
 
@@ -27,4 +27,20 @@ export default (color: string, transparency = 0.8) => {
   }
 
   return sColor
+}
+
+/**
+ * convert hex format to a rgb color, opacity of rgba is ignored
+ */
+export const rgb2hex = (rgb: string) => {
+  const colors = rgb.match(
+    /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i,
+  )
+
+  return colors && colors.length === 4
+    ? '#' +
+        ('0' + parseInt(colors[1], 10).toString(16)).slice(-2) +
+        ('0' + parseInt(colors[2], 10).toString(16)).slice(-2) +
+        ('0' + parseInt(colors[3], 10).toString(16)).slice(-2)
+    : ''
 }

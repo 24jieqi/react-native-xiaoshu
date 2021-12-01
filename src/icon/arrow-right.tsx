@@ -1,13 +1,13 @@
 import React from 'react'
-import { Path } from 'react-native-svg'
+import { Polyline } from 'react-native-svg'
 
 import { genIcon } from './helper/gen'
 
-const IconSuccessOutline = genIcon({
+const IconArrowRightOutline = genIcon({
   render: color => {
     return (
-      <Path
-        d="M6,12 10,16 18,7"
+      <Polyline
+        points="8,4 16,12 8,20"
         fill="none"
         stroke={color}
         strokeWidth={2}
@@ -18,4 +18,4 @@ const IconSuccessOutline = genIcon({
   },
 })
 
-export default IconSuccessOutline
+export default IconArrowRightOutline

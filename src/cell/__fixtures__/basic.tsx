@@ -64,7 +64,7 @@ const BasicCell: React.FC = () => {
         <Cell
           title="单元格"
           value="内容"
-          titleExtra={<Icon.ArrowOutline size={14} />}
+          titleExtra={<Icon.ArrowLeftOutline size={14} />}
           bordered={false}
         />
       </CellGroup>
@@ -89,7 +89,7 @@ const BasicCell: React.FC = () => {
         <Cell
           title="单元格"
           value="内容"
-          valueExtra={<Icon.ArrowOutline />}
+          valueExtra={<Icon.ArrowLeftOutline />}
           bordered={false}
         />
       </CellGroup>

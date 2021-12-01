@@ -1,12 +1,20 @@
 import type { SvgProps } from 'react-native-svg'
 
 export interface IconCommonProps extends SvgProps {
+  /**
+   * 图标大小
+   * @default '24|16'
+   */
   size?: number
+
+  /**
+   * 图片颜色
+   * @default 'icon_color'
+   */
   color?: string
-}
 
-export interface IconCommonOutlineProps extends IconCommonProps {
-  strokeWidth?: number
+  /**
+   * svg 内部的样式
+   */
+  svgStyle?: SvgProps['style']
 }
-
-export interface IconCommonFillProps extends IconCommonProps {}

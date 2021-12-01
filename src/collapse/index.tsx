@@ -2,7 +2,7 @@ import React, { useRef, useCallback, useState, memo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { Animated, View, TouchableHighlight } from 'react-native'
 
-import IconSVGArrow from '../icon/arrow'
+import { getArrowOutline } from '../icon/helper/arrow'
 import usePersistFn from '../hooks/usePersistFn'
 import useUpdateEffect from '../hooks/useUpdateEffect'
 import { isValue } from '../helpers/typeof'
@@ -125,6 +125,7 @@ const Collapse: React.FC<CollapseProps> = ({
   )
 
   const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
+  const ArrowOutline = getArrowOutline(show ? 'up' : 'down')
 
   return (
     <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>
@@ -134,7 +135,7 @@ const Collapse: React.FC<CollapseProps> = ({
         onLayout={onLayoutTitle}>
         <View style={[STYLES.title, titleStyle]}>
           {titleJSX}
-          <IconSVGArrow
+          <ArrowOutline
             style={iconStyle}
             color={
               isValue(iconColor)
@@ -144,7 +145,6 @@ const Collapse: React.FC<CollapseProps> = ({
             size={
               isValue(iconSize) ? iconSize : THEME_VAR.collapse_title_icon_size
             }
-            direction={show ? 'up' : 'down'}
           />
         </View>
       </TouchableHighlight>

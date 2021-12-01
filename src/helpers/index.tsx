@@ -2,7 +2,7 @@ import React, { isValidElement } from 'react'
 import type { TextStyle, StyleProp, TextProps } from 'react-native'
 import { Text } from 'react-native'
 
-export { default as hex2rgba } from './hex2rgba'
+export * from './color'
 export { getNextZIndex } from './z-index'
 export { default as easing } from './easing'
 export { callInterceptor } from './interceptor'

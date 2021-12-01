@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { View } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
-import { SuccessOutLine, WarnFill, CrossOutline } from '../icon'
+import { SuccessOutLine, WarningFill, CrossOutline } from '../icon'
 import { renderTextLikeJSX } from '../helpers'
 import type { ResultProps, ResultStatus } from './interface'
 import { createStyles } from './style'
@@ -19,7 +19,7 @@ const renderStatusIcon = (status: ResultStatus, size: number) => {
 
     case 'warning':
     case 'info':
-      return <WarnFill {...props} />
+      return <WarningFill {...props} />
 
     case 'error':
       return <CrossOutline {...props} />

@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
-import { ArrowOutline } from '../icon'
+import { ArrowLeftOutline } from '../icon'
 import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { isDef } from '../helpers/typeof'
 import { createStyles } from './style'
@@ -63,11 +63,7 @@ const NavBar: React.FC<NavBarProps> = ({
               onPress={onPressBackArrow}
               activeOpacity={THEME_VAR.active_opacity}
               hitSlop={BACK_ARROW_HIT_SLOP}>
-              <ArrowOutline
-                size={backArrowSize}
-                color={backArrowColor}
-                direction="left"
-              />
+              <ArrowLeftOutline size={backArrowSize} color={backArrowColor} />
             </TouchableOpacity>
           ) : null}
 

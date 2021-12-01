@@ -3,7 +3,7 @@ import type { ViewStyle } from 'react-native'
 import { Text, View, TouchableHighlight } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
-import IconArrow from '../icon/arrow'
+import { getArrowOutline } from '../icon/helper/arrow'
 import { renderTextLikeJSX } from '../helpers'
 import { createStyles } from './style'
 import type { CellProps } from './interface'
@@ -69,10 +69,9 @@ const Cell: React.FC<CellProps> = ({
       numberOfLines: valueTextNumberOfLines,
     },
   )
-
+  const IconArrow = getArrowOutline(arrowDirection)
   const linkJSX = isLink ? (
     <IconArrow
-      direction={arrowDirection}
       size={THEME_VAR.cell_icon_size}
       color={THEME_VAR.cell_icon_color}
       onPress={onPressLink || restProps.onPress}
