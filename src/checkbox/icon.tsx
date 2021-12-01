@@ -1,25 +1,15 @@
-import React, { memo, isValidElement } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { View, TouchableOpacity } from 'react-native'
+import React, { memo } from 'react'
 
-import { useTheme, widthStyle } from '../theme'
-import { SuccessOutLine } from '../icon'
+import { useTheme } from '../theme'
+import { CircleOutline, CheckedFill } from '../icon'
 import { getDefaultValue } from '../helpers'
-import { isDef } from '../helpers/typeof'
-import { createStyles } from './style.icon'
 import type { CheckboxIconProps } from './interface'
 
 const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   active,
   activeColor,
   size,
-  shape = 'round',
   disabled,
-  pure = false,
-  icon,
-
-  style,
-  activeOpacity,
   ...restProps
 }) => {
   const THEME_VAR = useTheme()
@@ -30,50 +20,33 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
     activeColor,
     THEME_VAR.checkbox_checked_icon_color,
   )
-  activeOpacity = getDefaultValue(activeOpacity, THEME_VAR.active_opacity)
 
-  const STYLES = widthStyle(THEME_VAR, createStyles)
-
-  const iconStyles: StyleProp<ViewStyle> = [
-    STYLES.icon,
-    {
-      width: size,
-      height: size,
-      borderRadius: shape === 'round' ? size / 2 : THEME_VAR.border_radius_sm,
-    },
-    active
-      ? {
-          backgroundColor: activeColor,
-          borderColor: activeColor,
+  if (active) {
+    return (
+      <CheckedFill
+        {...restProps}
+        size={size}
+        color={
+          disabled
+            ? THEME_VAR.checkbox_checked_icon_disabled_color
+            : activeColor
         }
-      : null,
-    disabled ? STYLES.icon_disabled : null,
-    style,
-  ]
-
-  const iconJSX = active ? (
-    isDef(icon) && isValidElement(icon) ? (
-      icon
-    ) : (
-      <SuccessOutLine
-        size={size - 4}
-        color={disabled ? THEME_VAR.checkbox_icon_border_color : '#fff'}
+        disabled={disabled}
       />
     )
-  ) : null
-
-  if (pure) {
-    return <View style={iconStyles}>{iconJSX}</View>
   }
 
   return (
-    <TouchableOpacity
+    <CircleOutline
       {...restProps}
-      style={iconStyles}
+      size={size}
       disabled={disabled}
-      activeOpacity={activeOpacity}>
-      {iconJSX}
-    </TouchableOpacity>
+      color={
+        disabled
+          ? THEME_VAR.checkbox_icon_disabled_color
+          : THEME_VAR.checkbox_icon_color
+      }
+    />
   )
 }
 

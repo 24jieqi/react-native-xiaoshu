@@ -8,14 +8,16 @@ const BasicCheckbox: React.FC = () => {
       <Text>基础用法</Text>
 
       <CheckboxIcon />
+      <View style={{ height: 16 }} />
       <CheckboxIcon active />
-
+      <View style={{ height: 16 }} />
       <Checkbox
         label="设么啊"
         onChange={v => {
           console.log('当前状态：', v)
         }}
       />
+      <View style={{ height: 16 }} />
       <Checkbox
         defaultValue={true}
         label="设么啊true"
@@ -23,6 +25,7 @@ const BasicCheckbox: React.FC = () => {
           console.log('当前状态：', v)
         }}
       />
+      <View style={{ height: 16 }} />
       <Checkbox
         defaultValue={true}
         label="icon 边距"
@@ -31,41 +34,32 @@ const BasicCheckbox: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <Text>纯图标</Text>
-
-      <CheckboxIcon pure />
-      <CheckboxIcon pure active />
-
-      <View style={{ height: 20 }} />
-
       <Text>禁用状态</Text>
 
       <CheckboxIcon disabled />
+      <View style={{ height: 16 }} />
       <CheckboxIcon active disabled />
+      <View style={{ height: 16 }} />
       <Checkbox disabled label="设么啊" />
+      <View style={{ height: 16 }} />
       <Checkbox disabled defaultValue={true} label="设么啊true" />
 
       <View style={{ height: 20 }} />
 
       <Text>自定义颜色</Text>
 
-      <Checkbox
-        defaultValue={true}
-        activeColor="#f30"
-        shape="square"
-        label="设么啊true"
-      />
+      <Checkbox defaultValue={true} activeColor="#f30" label="设么啊true" />
 
       <View style={{ height: 20 }} />
 
       <Text>自定义大小</Text>
 
       <CheckboxIcon active size={30} />
+      <View style={{ height: 16 }} />
       <Checkbox
         defaultValue={true}
         iconSize={30}
         activeColor="#f30"
-        shape="square"
         label="设么啊true"
       />
 
@@ -73,12 +67,7 @@ const BasicCheckbox: React.FC = () => {
 
       <Text>禁用文本点击</Text>
 
-      <Checkbox
-        labelDisabled
-        defaultValue={true}
-        shape="square"
-        label="设么啊true"
-      />
+      <Checkbox labelDisabled defaultValue={true} label="设么啊true" />
 
       <View style={{ height: 20 }} />
 
@@ -86,21 +75,59 @@ const BasicCheckbox: React.FC = () => {
 
       <Checkbox
         defaultValue={true}
-        shape="square"
         label="设么啊true"
-        icon={<Icon.CrossOutline size={14} color="#fff" />}
+        activeColor="#f30"
+        renderIcon={({ activeColor, size, active }) =>
+          active ? (
+            <Icon.ArrowUpFill color={activeColor} size={size} />
+          ) : (
+            <Icon.ArrowDownFill color={activeColor} size={size} />
+          )
+        }
       />
+      <View style={{ height: 16 }} />
       <Checkbox
         labelDisabled
         defaultValue={true}
-        shape="square"
-        label="设么啊true"
-        icon={<Icon.CrossOutline size={14} color="#fff" />}
+        label="点击切换的事件绑定给图标"
+        renderIcon={({ activeColor, size, active, onPress }) =>
+          active ? (
+            <Icon.ArrowUpFill
+              color={activeColor}
+              size={size}
+              onPress={onPress}
+            />
+          ) : (
+            <Icon.ArrowDownFill
+              color={activeColor}
+              size={size}
+              onPress={onPress}
+            />
+          )
+        }
       />
+      <View style={{ height: 16 }} />
       <Checkbox
+        disabled
         defaultValue={true}
-        label="设么啊true"
-        icon={<Icon.CrossOutline size={14} color="#fff" />}
+        label="点击切换的事件绑定给图标"
+        renderIcon={({ activeColor, size, active, onPress, disabled }) =>
+          active ? (
+            <Icon.ArrowUpFill
+              color={activeColor}
+              size={size}
+              onPress={onPress}
+              disabled={disabled}
+            />
+          ) : (
+            <Icon.ArrowDownFill
+              color={activeColor}
+              size={size}
+              onPress={onPress}
+              disabled={disabled}
+            />
+          )
+        }
       />
 
       <View style={{ height: 20 }} />
@@ -116,6 +143,7 @@ const BasicCheckbox: React.FC = () => {
           console.log('当前状态：', v)
         }}
       />
+      <View style={{ height: 16 }} />
       <Checkbox
         activeValue={1}
         defaultValue="1"
@@ -124,6 +152,7 @@ const BasicCheckbox: React.FC = () => {
           console.log('当前状态：', v)
         }}
       />
+      <View style={{ height: 16 }} />
       <Checkbox
         activeValue={1}
         defaultValue={1}

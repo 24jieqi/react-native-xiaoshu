@@ -23,9 +23,8 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   labelDisabled = false,
   labelPosition = 'right',
   iconSize = 20,
-  icon,
+  renderIcon,
 
-  shape,
   disabled,
   activeColor,
 
@@ -82,20 +81,24 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   ) : (
     children
   )
+  const iconProps = {
+    style: iconStyle,
+    active: localValue === activeValue,
+    activeColor,
+    disabled,
+    size: iconSize,
+    onPress: onChangeValue,
+  }
+  const iconJSX = renderIcon ? (
+    renderIcon(iconProps)
+  ) : (
+    <CheckboxIcon {...iconProps} />
+  )
 
   return (
     <View style={[STYLES.checkbox, style]}>
       {labelPosition === 'left' ? labelJSX : null}
-      <CheckboxIcon
-        style={iconStyle}
-        icon={icon}
-        active={localValue === activeValue}
-        activeColor={activeColor}
-        shape={shape}
-        disabled={disabled}
-        size={iconSize}
-        onPress={onChangeValue}
-      />
+      {iconJSX}
       {labelPosition === 'right' ? labelJSX : null}
     </View>
   )

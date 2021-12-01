@@ -175,8 +175,6 @@ const BasicActionSheet: React.FC = () => {
         />
       </CellGroup>
 
-      <View style={{ height: 20 }} />
-
       <CellGroup title="组件调用" bordered={false}>
         <Cell
           title="组件调用"

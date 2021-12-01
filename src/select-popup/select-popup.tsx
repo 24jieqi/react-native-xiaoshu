@@ -178,6 +178,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
                       <CheckboxIcon
                         active={isSelected}
                         disabled={item.disabled}
+                        onPress={genOnPressOption(item.value)}
                       />
                     ) : isSelected ? (
                       <SuccessOutLine

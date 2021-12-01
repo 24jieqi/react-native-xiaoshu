@@ -23,28 +23,17 @@ interface CheckboxIconPrivateProps {
    * @default 20
    */
   size?: number
-
-  /**
-   * 形状，可选值为 `'square' | 'round'`
-   * @default 'round'
-   */
-  shape?: 'square' | 'round'
-
-  /**
-   * 纯粹的 icon 没有任何点击属性
-   * @default false
-   */
-  pure?: boolean
-
-  /**
-   * 自定义图标
-   */
-  icon?: React.ReactNode
 }
 
 export interface CheckboxIconProps
   extends TouchableOpacityProps,
     CheckboxIconPrivateProps {}
+
+interface RenderIconProps extends CheckboxIconPrivateProps {
+  disabled?: boolean
+  style?: StyleProp<ViewStyle>
+  onPress?: TouchableOpacityProps['onPress']
+}
 
 export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   extends Omit<CheckboxIconPrivateProps, 'active' | 'size' | 'pure'> {
@@ -112,4 +101,9 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
    * 是否禁用复选框
    */
   disabled?: boolean
+
+  /**
+   * 自定义图标
+   */
+  renderIcon?: (p: RenderIconProps) => React.ReactNode
 }
