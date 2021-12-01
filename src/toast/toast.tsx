@@ -12,7 +12,7 @@ import { useTheme, widthStyle } from '../theme'
 import Popup from '../popup/popup'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
-import { SuccessOutLine, WarningFill } from '../icon'
+import { SuccessCircleOutLine, CrossCircleOutline } from '../icon'
 import { createStyles } from './style'
 import type { ToastProps, ToastMethods } from './interface'
 
@@ -143,16 +143,16 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                   ) : null}
 
                   {type === 'success' ? (
-                    <SuccessOutLine
+                    <SuccessCircleOutLine
                       color={THEME_VAR.toast_loading_icon_color}
-                      size={THEME_VAR.toast_icon_size * 1.4}
+                      size={THEME_VAR.toast_icon_size}
                     />
                   ) : null}
 
                   {type === 'fail' ? (
-                    <WarningFill
+                    <CrossCircleOutline
                       color={THEME_VAR.toast_loading_icon_color}
-                      size={THEME_VAR.toast_icon_size * 1.4}
+                      size={THEME_VAR.toast_icon_size}
                     />
                   ) : null}
 

@@ -43,6 +43,12 @@ const BasicIcon: React.FC = () => {
           <Col span={6} style={colStyle}>
             <Icon.CheckedFill />
           </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.SuccessCircleOutLine />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.CrossCircleOutline />
+          </Col>
         </Row>
       </CellGroup>
 

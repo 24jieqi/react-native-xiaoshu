@@ -1,5 +1,5 @@
 import React from 'react'
-import { G, Polyline } from 'react-native-svg'
+import { G, Line } from 'react-native-svg'
 
 import { genIcon } from './helper/gen'
 
@@ -12,8 +12,8 @@ const IconCrossOutline = genIcon({
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round">
-        <Polyline points="4,4 20,20" />
-        <Polyline points="20,4 4,20" />
+        <Line x1="4" y1="4" x2="20" y2="20" />
+        <Line x1="20" y1="4" x2="4" y2="20" />
       </G>
     )
   },
