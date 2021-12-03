@@ -29,12 +29,17 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   const [visible, setVisible] = useState(true)
   const iconSize = THEME_VAR[`noticeBar_${size}_font_size`]
   const iconColor = THEME_VAR[`noticeBar_icon_${type}_color`] as string
+  const ICON = {
+    default: <Icon.VolumeOutline size={iconSize} color={iconColor} />,
+    primary: <Icon.WarningCircleOutline size={iconSize} color={iconColor} />,
+    success: <Icon.SuccessCircleOutLine size={iconSize} color={iconColor} />,
+    error: <Icon.CrossCircleOutline size={iconSize} color={iconColor} />,
+    warning: <Icon.WarningCircleOutline size={iconSize} color={iconColor} />,
+  }
 
-  const showIconJSX = renderLeftIcon ? (
-    renderLeftIcon(iconColor, iconSize)
-  ) : (
-    <Icon.CheckedFill size={iconSize} color={iconColor} />
-  )
+  const showIconJSX = renderLeftIcon
+    ? renderLeftIcon(iconColor, iconSize)
+    : ICON[type]
   const rightIconJSX = renderRightIcon ? (
     renderRightIcon(iconColor, iconSize)
   ) : (

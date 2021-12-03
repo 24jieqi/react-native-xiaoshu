@@ -18,9 +18,9 @@ const BasicNoticeBar: React.FC = () => {
 
       <NoticeBar
         rightIcon
-        renderRightIcon={(color, size) => (
-          <Icon.ArrowRightOutline color={color} size={size} />
-        )}>
+        onPress={() => {
+          console.log('操作内容')
+        }}>
         正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
       </NoticeBar>
 
@@ -28,16 +28,16 @@ const BasicNoticeBar: React.FC = () => {
 
       <NoticeBar
         rightIcon
-        onPress={() => {
-          console.log('操作内容')
-        }}>
-        1正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+        renderRightIcon={(color, size) => (
+          <Icon.ArrowRightOutline color={color} size={size} />
+        )}>
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
 
       <NoticeBar numberOfLines={0}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
@@ -51,7 +51,7 @@ const BasicNoticeBar: React.FC = () => {
         onPress={() => {
           console.log('操作内容')
         }}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
@@ -62,13 +62,13 @@ const BasicNoticeBar: React.FC = () => {
         renderRightIcon={(color, size) => (
           <Icon.ArrowRightOutline color={color} size={size} />
         )}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
 
       <NoticeBar showIcon rightIcon>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
@@ -77,46 +77,26 @@ const BasicNoticeBar: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <NoticeBar
-        showIcon
-        type="success"
-        renderLeftIcon={(color, size) => (
-          <Icon.SuccessOutLine color={color} size={size} />
-        )}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+      <NoticeBar showIcon type="success">
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
 
-      <NoticeBar
-        showIcon
-        type="error"
-        renderLeftIcon={(color, size) => (
-          <Icon.RemoveFill color={color} size={size} />
-        )}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+      <NoticeBar showIcon type="error">
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
 
-      <NoticeBar
-        showIcon
-        type="warning"
-        renderLeftIcon={(color, size) => (
-          <Icon.PlusOutline color={color} size={size} />
-        )}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+      <NoticeBar showIcon type="warning">
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
 
-      <NoticeBar
-        showIcon
-        type="primary"
-        renderLeftIcon={(color, size) => (
-          <Icon.PlusOutline color={color} size={size} />
-        )}>
-        正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
+      <NoticeBar showIcon type="primary">
+        正文内容尽量不超一行，多余的部分请省略省略省略省略省略省略
       </NoticeBar>
 
       <View style={{ height: 20 }} />
