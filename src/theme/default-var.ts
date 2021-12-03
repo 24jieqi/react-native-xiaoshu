@@ -393,3 +393,24 @@ export const toast_default_width: number = 88 + padding_md * 2 // box-sizing: co
 export const toast_default_min_height: number = 88 + padding_md * 2
 export const toast_position_top_distance: string = '20%'
 export const toast_position_bottom_distance: string = '20%'
+
+// NoticeBar
+export const noticeBar_default_background_color: string = '#feede5'
+export const noticeBar_default_color: string = '#fe7a33'
+export const noticeBar_icon_default_color: string = '#fe7a33'
+export const noticeBar_primary_background_color: string = '#e6f0ff'
+export const noticeBar_primary_color: string = '#11151a'
+export const noticeBar_icon_primary_color: string = '#0065fe'
+export const noticeBar_success_background_color: string = '#ebfff2'
+export const noticeBar_success_color: string = '#11151a'
+export const noticeBar_icon_success_color: string = '#24b356'
+export const noticeBar_error_background_color: string = '#ffebec'
+export const noticeBar_error_color: string = '#11151a'
+export const noticeBar_icon_error_color: string = '#ff3341'
+export const noticeBar_warning_background_color: string = '#ffefd9'
+export const noticeBar_warning_color: string = '#11151a'
+export const noticeBar_icon_warning_color: string = '#fe7a33'
+export const noticeBar_mini_font_size: number = font_size_subtitle
+export const noticeBar_small_font_size: number = font_size_text
+export const noticeBar_normal_font_size: number = font_size_text
+export const noticeBar_large_font_size: number = font_size_h4

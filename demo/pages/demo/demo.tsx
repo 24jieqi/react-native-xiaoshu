@@ -143,6 +143,10 @@ const navDatas: {
         title: 'ErrorBoundary',
         name: 'DemoErrorBoundary',
       },
+      {
+        title: 'NoticeBar',
+        name: 'DemoNoticeBar',
+      },
     ],
   },
   {

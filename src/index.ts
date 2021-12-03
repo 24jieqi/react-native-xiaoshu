@@ -106,4 +106,7 @@ export { default as Theme, useTheme } from './theme'
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'
 
+export type { NoticeBarProps } from './notice-bar/interface'
+export { default as NoticeBar } from './notice-bar'
+
 export const Icon = IconAll
