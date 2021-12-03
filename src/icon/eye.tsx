@@ -8,7 +8,7 @@ const IconEyeOutLine = genIcon({
     return (
       <G
         stroke={color}
-        strokeWidth={2}
+        strokeWidth={1.4}
         fill="none"
         fillRule="evenodd"
         strokeLinejoin="round">
