@@ -198,14 +198,14 @@ const BasicTextInput: React.FC = () => {
         />
 
         <Cell
-          title="clearTrigger"
+          title="clear always"
           value={
             <TextInput clearable clearTrigger="always" placeholder="单行文本" />
           }
         />
 
         <Cell
-          title="clearTrigger2"
+          title="clear focus"
           value={<TextInput clearable placeholder="单行文本" />}
         />
 
