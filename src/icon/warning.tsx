@@ -3,7 +3,7 @@ import { Path } from 'react-native-svg'
 
 import { genIcon } from './helper/gen'
 
-const IconWarningFill = genIcon({
+const IconWarningOutline = genIcon({
   render: color => {
     return (
       <Path
@@ -16,4 +16,4 @@ const IconWarningFill = genIcon({
   },
 })
 
-export default IconWarningFill
+export default IconWarningOutline

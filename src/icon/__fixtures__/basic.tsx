@@ -32,22 +32,10 @@ const BasicIcon: React.FC = () => {
             <Icon.ArrowDownFill />
           </Col>
           <Col span={6} style={colStyle}>
-            <Icon.WarningFill />
-          </Col>
-          <Col span={6} style={colStyle}>
             <Icon.NewFill />
           </Col>
           <Col span={6} style={colStyle}>
-            <Icon.SearchFill />
-          </Col>
-          <Col span={6} style={colStyle}>
             <Icon.CheckedFill />
-          </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.SuccessCircleOutLine />
-          </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.CrossCircleOutline />
           </Col>
         </Row>
       </CellGroup>
@@ -59,6 +47,9 @@ const BasicIcon: React.FC = () => {
           </Col>
           <Col span={6} style={colStyle}>
             <Icon.RemoveFill />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.VolumeOutline />
           </Col>
         </Row>
       </CellGroup>
@@ -94,6 +85,21 @@ const BasicIcon: React.FC = () => {
           </Col>
           <Col span={6} style={colStyle}>
             <Icon.CircleOutline />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.WarningOutline />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.SuccessCircleOutLine />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.CrossCircleOutline />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.WarningCircleOutline />
+          </Col>
+          <Col span={6} style={colStyle}>
+            <Icon.SearchOutline />
           </Col>
         </Row>
       </CellGroup>

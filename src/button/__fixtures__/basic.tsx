@@ -309,7 +309,7 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.WarningFill color={color} size={size} />
+            <Icon.WarningOutline color={color} size={size} />
           )}
           text="round"
         />
