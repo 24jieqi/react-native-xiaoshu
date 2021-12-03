@@ -39,6 +39,8 @@ export interface TextInputProps extends RNTextInputProps {
 
   /**
    * 输入内容格式
+   * @description digit 整数
+   * @description number 允许小数
    * @default 'text'
    */
   type?: 'text' | 'digit' | 'number' | 'textarea' | 'password'

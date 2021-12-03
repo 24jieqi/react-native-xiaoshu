@@ -296,6 +296,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
             minHeight:
               THEME_VAR.text_input_min_height * rows - inputUncertainHeight,
             paddingVertical: 2,
+            alignItems: 'flex-start',
           }
         : {
             minHeight: THEME_VAR.text_input_min_height - inputUncertainHeight,
@@ -319,7 +320,10 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         : resetProps.keyboardAppearance
 
     const textInputJSX = (
-      <TouchableOpacity activeOpacity={1} style={inputStyles}>
+      <TouchableOpacity
+        activeOpacity={1}
+        style={inputStyles}
+        onPress={onPressTextInput}>
         <RNTextInput
           {...resetProps}
           ref={TextInputRef}

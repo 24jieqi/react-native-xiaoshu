@@ -18,6 +18,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     text_input: {
       flex: 1,
+      paddingHorizontal: 0,
+      paddingVertical: 0,
     },
 
     input_fix_group: {
