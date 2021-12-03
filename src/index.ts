@@ -61,6 +61,9 @@ export { default as NavBar } from './nav-bar'
 export type { NotifyProps, NotifyOptions } from './notify/interface'
 export { default as Notify } from './notify'
 
+export type { NumberInputProps } from './number-input/interface'
+export { default as NumberInput } from './number-input'
+
 export type { OverlayProps } from './overlay/interface'
 export { default as Overlay } from './overlay'
 
@@ -91,6 +94,7 @@ export {
 } from './select-popup'
 
 export { default as Steps } from './steps'
+
 export type { SwitchProps } from './switch/interface'
 export { default as Switch } from './switch'
 

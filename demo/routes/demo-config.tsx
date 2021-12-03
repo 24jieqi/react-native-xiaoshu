@@ -25,6 +25,7 @@ import DemoSwitch from '../../src/switch/__fixtures__/basic'
 import DemoSteps from '../../src/steps/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoTextInput from '../../src/text-input/__fixtures__/basic'
+import DemoNumberInput from '../../src/number-input/__fixtures__/basic'
 // import DemoField from '../../src/field/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
 import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
@@ -60,6 +61,7 @@ export type DemoPaths =
   | 'DemoSwitch'
   | 'DemoDialog'
   | 'DemoTextInput'
+  | 'DemoNumberInput'
   | 'DemoField'
   | 'DemoDropdown'
   | 'DemoCheckbox'
@@ -237,6 +239,18 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
           keyboardShouldPersistTaps="handled"
           onScrollBeginDrag={onScrollBeginDrag}>
           <DemoTextInput />
+        </KeyboardAwareScrollView>
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoNumberInput',
+    page: () => (
+      <DemoWrapper>
+        <KeyboardAwareScrollView
+          keyboardShouldPersistTaps="handled"
+          onScrollBeginDrag={onScrollBeginDrag}>
+          <DemoNumberInput />
         </KeyboardAwareScrollView>
       </DemoWrapper>
     ),
