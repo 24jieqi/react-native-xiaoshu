@@ -2,7 +2,7 @@ import React from 'react'
 import { Path, G } from 'react-native-svg'
 import { genIcon } from './helper/gen'
 
-const IconSearchFill = genIcon({
+const IconSearchOutline = genIcon({
   render: color => {
     return (
       <G fill={color} fillRule="nonzero">
@@ -13,4 +13,4 @@ const IconSearchFill = genIcon({
   },
 })
 
-export default IconSearchFill
+export default IconSearchOutline

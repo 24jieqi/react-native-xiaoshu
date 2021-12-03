@@ -1,4 +1,7 @@
-import * as IconAll from './icon'
+import * as Icon from './icon'
+import * as helpers from './helpers'
+
+export { Icon, helpers }
 
 export type {
   ActionSheetProps,
@@ -61,6 +64,9 @@ export { default as NavBar } from './nav-bar'
 export type { NotifyProps, NotifyOptions } from './notify/interface'
 export { default as Notify } from './notify'
 
+export type { NumberInputProps } from './number-input/interface'
+export { default as NumberInput } from './number-input'
+
 export type { OverlayProps } from './overlay/interface'
 export { default as Overlay } from './overlay'
 
@@ -91,6 +97,7 @@ export {
 } from './select-popup'
 
 export { default as Steps } from './steps'
+
 export type { SwitchProps } from './switch/interface'
 export { default as Switch } from './switch'
 
@@ -108,5 +115,3 @@ export { default as Toast } from './toast'
 
 export type { NoticeBarProps } from './notice-bar/interface'
 export { default as NoticeBar } from './notice-bar'
-
-export const Icon = IconAll

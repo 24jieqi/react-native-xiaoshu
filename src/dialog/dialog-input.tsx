@@ -5,9 +5,8 @@ import { View, Keyboard } from 'react-native'
 import TextInput from '../text-input'
 import { useTheme } from '../theme'
 import useState from '../hooks/useStateUpdate'
-import usePersistFn from '../hooks/usePersistFn'
-import { callInterceptor } from '../helpers'
-import { isDef } from '../helpers/typeof'
+import { usePersistFn } from '../hooks'
+import { callInterceptor, isDef } from '../helpers'
 import Dialog from './dialog'
 import type {
   DialogInputProps,

@@ -3,8 +3,7 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import { ArrowLeftOutline } from '../icon'
-import { getDefaultValue, renderTextLikeJSX } from '../helpers'
-import { isDef } from '../helpers/typeof'
+import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
 import { createStyles } from './style'
 import type { NavBarProps } from './interface'
 

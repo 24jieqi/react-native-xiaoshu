@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-import { isFunction, isObject } from '../helpers/typeof'
+import { isFunction, isObject } from '../helpers'
 import useDestroyed from './useDestroyed'
 
 type UpdateStateParam<T> = Partial<T> | ((s: T) => Partial<T>)

@@ -13,7 +13,7 @@ interface BackArrowProps extends HeaderBackButtonProps {}
 const BackArrow: React.FC<BackArrowProps> = ({ tintColor, ...restProps }) => {
   return (
     <View style={Styles.back}>
-      <Icon.ArrowLeftOutline {...restProps} size={24} color={tintColor} />
+      <Icon.ArrowLeftOutline {...restProps} color={tintColor} />
     </View>
   )
 }

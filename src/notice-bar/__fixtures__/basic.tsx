@@ -103,7 +103,7 @@ const BasicNoticeBar: React.FC = () => {
         showIcon
         type="warning"
         renderLeftIcon={(color, size) => (
-          <Icon.SearchFill color={color} size={size} />
+          <Icon.PlusOutline color={color} size={size} />
         )}>
         正文内容尽量不超一行，多余的部分请省分请省分请省略省略省略
       </NoticeBar>

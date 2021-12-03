@@ -1,8 +1,7 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
-import { renderTextLikeJSX } from '../helpers'
-import { isDef } from '../helpers/typeof'
+import { renderTextLikeJSX, isDef } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
 import type { CellGroupProps } from './interface'
 import { createStyles } from './style.group'
