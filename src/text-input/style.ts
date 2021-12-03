@@ -20,6 +20,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flex: 1,
       paddingHorizontal: 0,
       paddingVertical: 0,
+      borderWidth: 0,
     },
 
     input_fix_group: {
@@ -53,7 +54,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     addon_group: {
-      width: '100%',
+      // width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
     },

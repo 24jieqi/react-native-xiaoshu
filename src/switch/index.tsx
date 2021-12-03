@@ -4,9 +4,8 @@ import { TouchableWithoutFeedback, Animated } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import LoadingCircular from '../loading/circular'
-import useUpdateEffect from '../hooks/useUpdateEffect'
-import { getDefaultValue } from '../helpers'
-import { isPromise, isValue } from '../helpers/typeof'
+import { useUpdateEffect } from '../hooks'
+import { getDefaultValue, isPromise, isValue } from '../helpers'
 import { createStyles } from './style'
 import type { SwitchProps } from './interface'
 

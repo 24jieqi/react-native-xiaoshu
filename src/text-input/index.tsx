@@ -28,11 +28,14 @@ import {
 
 import IconSvgCross from '../icon/cross'
 import { useTheme } from '../theme'
-import usePersistFn from '../hooks/usePersistFn'
-import useUpdateEffect from '../hooks/useUpdateEffect'
-import { getDefaultValue, renderTextLikeJSX, noop } from '../helpers'
-import { isValue } from '../helpers/typeof'
-import { formatNumber } from '../helpers/format/number'
+import { usePersistFn, useUpdateEffect } from '../hooks'
+import {
+  getDefaultValue,
+  renderTextLikeJSX,
+  noop,
+  isValue,
+  formatNumber,
+} from '../helpers'
 import { createStyles } from './style'
 import type { TextInputProps } from './interface'
 

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers/typeof'
+import { isDef } from '../helpers'
 import { ResultIconEmpty } from '../result/icons'
 import Result from '../result'
 import type { EmptyProps } from './interface'

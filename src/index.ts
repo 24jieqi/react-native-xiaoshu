@@ -1,4 +1,7 @@
-import * as IconAll from './icon'
+import * as Icon from './icon'
+import * as helpers from './helpers'
+
+export { Icon, helpers }
 
 export type {
   ActionSheetProps,
@@ -109,5 +112,3 @@ export { default as Theme, useTheme } from './theme'
 
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'
-
-export const Icon = IconAll

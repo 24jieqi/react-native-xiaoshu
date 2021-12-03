@@ -3,9 +3,11 @@ import type { TextStyle, StyleProp, TextProps } from 'react-native'
 import { Text } from 'react-native'
 
 export * from './color'
-export { getNextZIndex } from './z-index'
+export * from './z-index'
 export { default as easing } from './easing'
-export { callInterceptor } from './interceptor'
+export * from './interceptor'
+export * from './typeof'
+export * from './format/number'
 
 import { isValue, isDef } from './typeof'
 

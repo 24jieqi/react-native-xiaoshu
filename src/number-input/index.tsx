@@ -6,11 +6,8 @@ import type {
 } from 'react-native'
 
 import TextInput from '../text-input'
-import usePersistFn from '../hooks/usePersistFn'
-import useUpdateEffect from '../hooks/useUpdateEffect'
-import { noop } from '../helpers'
-import { formatNumber } from '../helpers/format/number'
-import { isDef, isValue } from '../helpers/typeof'
+import { usePersistFn, useUpdateEffect } from '../hooks'
+import { noop, formatNumber, isValue, isDef } from '../helpers'
 import type { NumberInputProps } from './interface'
 
 const parserNumberToString = (n?: number) => `${isDef(n) ? n : ''}`

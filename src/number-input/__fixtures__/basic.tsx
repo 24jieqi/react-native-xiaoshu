@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Cell, CellGroup, NumberInput } from 'react-native-xiaoshu'
+import { Cell, CellGroup, NumberInput, helpers } from 'react-native-xiaoshu'
 
 const formatterTo = (t: string, sign?: string) => {
   !sign && (sign = ',')
@@ -11,6 +11,13 @@ const formatterTo = (t: string, sign?: string) => {
 
 const consoleNum = (n: number) => {
   console.log('新数据  ->  ', n)
+}
+
+const parserNum = (n: string) => {
+  if (n) {
+    return +Number(helpers.formatNumber(n)).toFixed(2)
+  }
+  return null
 }
 
 const BasicNumberInput: React.FC = () => {
@@ -30,15 +37,14 @@ const BasicNumberInput: React.FC = () => {
       />
 
       <Cell
-        title="受控"
+        title={`受控${value}`}
         value={
           <NumberInput
             placeholder="请输入"
             value={value}
-            onChangeNumber={n => {
-              console.log(n)
-              setValue(n)
-            }}
+            formatter={formatterTo}
+            parser={parserNum}
+            onChangeNumber={setValue}
           />
         }
       />
@@ -61,12 +67,7 @@ const BasicNumberInput: React.FC = () => {
           <NumberInput
             placeholder="请输入"
             defaultValue={1000}
-            parser={n => {
-              if (n) {
-                return +Number(n).toFixed(2)
-              }
-              return null
-            }}
+            parser={parserNum}
             onChangeNumber={consoleNum}
           />
         }

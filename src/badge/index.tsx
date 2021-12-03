@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { View, Text } from 'react-native'
 
-import { isDef } from '../helpers/typeof'
+import { isDef } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
 import type { BadgeProps } from './interface'
 import { createStyles } from './style'

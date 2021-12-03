@@ -1,7 +1,7 @@
 import React, { useEffect, memo } from 'react'
 
 import useState from '../hooks/useStateUpdate'
-import usePersistFn from '../hooks/usePersistFn'
+import { usePersistFn } from '../hooks'
 import type {
   SelectPopupMethodProps,
   SelectPopupValue,

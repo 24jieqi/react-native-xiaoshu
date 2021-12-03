@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Popup from '../popup/popup'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers/typeof'
+import { isDef } from '../helpers'
 import { createStyles } from './style'
 import type { NotifyProps } from './interface'
 

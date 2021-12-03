@@ -7,8 +7,7 @@ import {
 } from 'react-native'
 
 import { useTheme } from '../theme'
-import { getDefaultValue } from '../helpers'
-import { isValue } from '../helpers/typeof'
+import { getDefaultValue, isValue } from '../helpers'
 import type { OverlayProps } from './interface'
 
 /**

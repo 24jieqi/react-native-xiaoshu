@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 
-import usePersistFn from '../hooks/usePersistFn'
 import { CrossOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
 import NavBar from '../nav-bar'
+import { usePersistFn } from '../hooks'
 import type { PopupHeaderProps } from './interface'
 import { createStyles } from './style.header'
 
