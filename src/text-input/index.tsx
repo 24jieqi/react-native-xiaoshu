@@ -181,14 +181,20 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
           t = t.slice(0, maxLength)
         }
 
-        if (formatTrigger === 'onChangeText' && formatter) {
-          t = formatter(t)
+        if (formatTrigger === 'onChangeText') {
+          t = formatterPersistFn(t)
         }
 
         setLocalValue(t)
         onChangeTextPersistFn(t)
       },
-      [type, maxLength, formatTrigger, formatter, onChangeTextPersistFn],
+      [
+        type,
+        maxLength,
+        formatTrigger,
+        formatterPersistFn,
+        onChangeTextPersistFn,
+      ],
     )
 
     /**
@@ -196,7 +202,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
      */
     const onEndEditingTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
-        if (formatTrigger === 'onChangeText') {
+        if (formatTrigger === 'onEndEditing') {
           e.nativeEvent.text = formatterPersistFn(e.nativeEvent.text)
         }
 
@@ -290,6 +296,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
             minHeight:
               THEME_VAR.text_input_min_height * rows - inputUncertainHeight,
             paddingVertical: 2,
+            alignItems: 'flex-start',
           }
         : {
             minHeight: THEME_VAR.text_input_min_height - inputUncertainHeight,
@@ -313,7 +320,10 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         : resetProps.keyboardAppearance
 
     const textInputJSX = (
-      <TouchableOpacity activeOpacity={1} style={inputStyles}>
+      <TouchableOpacity
+        activeOpacity={1}
+        style={inputStyles}
+        onPress={onPressTextInput}>
         <RNTextInput
           {...resetProps}
           ref={TextInputRef}

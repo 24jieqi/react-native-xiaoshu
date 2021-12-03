@@ -96,8 +96,6 @@ const BasicToast: React.FC = () => {
         />
       </CellGroup>
 
-      <View style={{ height: 20 }} />
-
       <CellGroup title="自定义位置" bordered={false}>
         <Cell
           title="顶部展示"

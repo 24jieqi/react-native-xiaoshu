@@ -25,6 +25,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     inner_type_text: {
+      borderRadius: themeVar.toast_text_border_radius,
       lineHeight: themeVar.toast_line_height,
       paddingHorizontal: themeVar.toast_text_padding_horizontal,
       paddingVertical: themeVar.toast_text_padding_vertical,
