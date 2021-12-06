@@ -280,14 +280,6 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
           STYLES.input_fix_text_suf,
           suffixTextStyle,
         ])
-
-    const accessoryTextStyle: TextStyle = {
-      color: THEME_VAR.text_input_accessory_text_color,
-      fontSize: THEME_VAR.text_input_accessory_font_size,
-      paddingHorizontal: THEME_VAR.text_input_dark_accessory_padding_horizontal,
-      lineHeight: (THEME_VAR.text_input_accessory_height / 3) * 2,
-      fontWeight: 'bold',
-    }
     const customTextInputWidthStyle: TextStyle = isDef(inputWidth)
       ? {
           flexShrink: 1,
@@ -365,16 +357,12 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         (clearTrigger === 'focus' ? focus : true) &&
         localValue &&
         localValue.length ? (
-          <TouchableOpacity
+          <IconSvgCross
             style={STYLES.clearable}
+            color={THEME_VAR.text_input_clearable_color}
+            size={THEME_VAR.text_input_clearable_size / 2}
             onPress={onPressClearable}
-            activeOpacity={THEME_VAR.active_opacity}>
-            <IconSvgCross
-              color={THEME_VAR.text_input_clearable_color}
-              size={THEME_VAR.text_input_clearable_size / 2}
-              onPress={onPressClearable}
-            />
-          </TouchableOpacity>
+          />
         ) : null}
 
         {showWordLimit ? (
@@ -399,7 +387,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
               <TouchableOpacity
                 onPress={onPressFinish}
                 activeOpacity={THEME_VAR.active_opacity}>
-                <Text style={accessoryTextStyle}>完成</Text>
+                <Text style={STYLES.accessory_text}>完成</Text>
               </TouchableOpacity>
             </View>
           </InputAccessoryView>

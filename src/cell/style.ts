@@ -61,6 +61,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       minHeight: innerHeight,
       // backgroundColor: '#f30', // to test ui
       color: themeVar.cell_title_text_color,
+      fontSize: themeVar.cell_font_size,
       lineHeight: themeVar.cell_title_line_height,
       paddingVertical: (innerHeight - themeVar.cell_title_line_height) / 2,
     },

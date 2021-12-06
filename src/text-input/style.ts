@@ -91,5 +91,13 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderTopColor: themeVar.border_color,
       borderTopWidth: 1,
     },
+
+    accessory_text: {
+      color: themeVar.text_input_accessory_text_color,
+      fontSize: themeVar.text_input_accessory_font_size,
+      paddingHorizontal: themeVar.text_input_dark_accessory_padding_horizontal,
+      lineHeight: (themeVar.text_input_accessory_height / 3) * 2,
+      fontWeight: 'bold',
+    },
   })
 }
