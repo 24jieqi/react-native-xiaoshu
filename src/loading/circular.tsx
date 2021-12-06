@@ -59,17 +59,17 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
 
   useLoop(AnimatedCircle0Value, 0, {
     toValue: 1,
-    duration: THEME_VAR.loading_spinner_animation_duration * 1000,
+    duration: THEME_VAR.loading_spinner_animation_duration,
   })
 
   useLoop(AnimatedCircle1Value, half1Circle, {
     toValue: -half1Circle * 2,
-    duration: THEME_VAR.loading_spinner_animation_duration * 1000 * 1.5,
+    duration: THEME_VAR.loading_spinner_animation_duration * 1.5,
   })
 
   useLoop(AnimatedCircle2Value, half2Circle, {
     toValue: -half2Circle * 2,
-    duration: THEME_VAR.loading_spinner_animation_duration * 1000 * 2.5,
+    duration: THEME_VAR.loading_spinner_animation_duration * 2.5,
   })
 
   const iconStyle: ViewStyle = {

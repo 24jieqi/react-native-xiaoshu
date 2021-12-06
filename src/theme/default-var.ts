@@ -248,7 +248,7 @@ export const loading_text_color = text_color_1
 export const loading_text_font_size = font_size_h5
 export const loading_spinner_color = primary
 export const loading_spinner_size: number = 24
-export const loading_spinner_animation_duration: number = 0.8
+export const loading_spinner_animation_duration: number = 800
 
 // NavBar
 export const nav_bar_arrow_size: number = 20
