@@ -70,11 +70,6 @@ const STYLES = StyleSheet.create({
   loading_vertical: {
     flexDirection: 'column',
   },
-
-  icon: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 })
 
 export default memo<typeof Loading>(Loading)
