@@ -253,6 +253,21 @@ const BasicTextInput: React.FC = () => {
             bordered
           />
         </View>
+        <Text>可能高度消失</Text>
+        <View
+          style={{
+            height: 200,
+            justifyContent: 'flex-end',
+          }}>
+          <View
+            style={{
+              minHeight: 40,
+              backgroundColor: '#fff',
+            }}>
+            <TextInput placeholder="请输入" />
+            <View style={{ height: 20, backgroundColor: '#ddd' }} />
+          </View>
+        </View>
         <Text>自定义使用</Text>
         <TextInput
           style={{ backgroundColor: '#f5f5f5', fontSize: 20, height: 50 }}

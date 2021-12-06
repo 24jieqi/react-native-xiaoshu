@@ -5,7 +5,9 @@ import type { ThemeVarType } from '../theme'
 export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     input: {
-      flex: 1,
+      // flex: 1,
+      flexGrow: 1,
+      flexShrink: 1,
       flexDirection: 'row',
       // backgroundColor: '#f30', // to test ui
     },
@@ -17,7 +19,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     text_input: {
-      flex: 1,
+      // flex: 1,
+      flexGrow: 1,
+      flexShrink: 1,
       paddingHorizontal: 0,
       paddingVertical: 0,
       margin: 0,

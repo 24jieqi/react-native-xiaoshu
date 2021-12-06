@@ -360,7 +360,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
           <IconSvgCross
             style={STYLES.clearable}
             color={THEME_VAR.text_input_clearable_color}
-            size={THEME_VAR.text_input_clearable_size / 2}
+            size={(THEME_VAR.text_input_clearable_size / 4) * 3}
             onPress={onPressClearable}
           />
         ) : null}
