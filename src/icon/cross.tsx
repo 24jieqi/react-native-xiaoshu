@@ -12,8 +12,8 @@ const IconCrossOutline = genIcon({
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round">
-        <Line x1="4" y1="4" x2="20" y2="20" />
-        <Line x1="20" y1="4" x2="4" y2="20" />
+        <Line x1="6" y1="6" x2="18" y2="18" />
+        <Line x1="18" y1="6" x2="6" y2="18" />
       </G>
     )
   },
