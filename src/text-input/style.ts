@@ -20,7 +20,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flex: 1,
       paddingHorizontal: 0,
       paddingVertical: 0,
+      margin: 0,
       borderWidth: 0,
+      textAlignVertical: 'center',
     },
 
     input_fix_group: {

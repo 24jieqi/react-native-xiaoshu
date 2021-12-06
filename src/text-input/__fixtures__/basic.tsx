@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 
 import { Cell, CellGroup, TextInput, Button, Icon } from 'react-native-xiaoshu'
 
@@ -198,14 +198,14 @@ const BasicTextInput: React.FC = () => {
         />
 
         <Cell
-          title="clear always"
+          title="clear:有着就一直显示"
           value={
             <TextInput clearable clearTrigger="always" placeholder="单行文本" />
           }
         />
 
         <Cell
-          title="clear focus"
+          title="clear:需要聚焦才显示"
           value={<TextInput clearable placeholder="单行文本" />}
         />
 
@@ -230,6 +230,29 @@ const BasicTextInput: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="其他用法">
+        <Text>自定义宽</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            backgroundColor: '#fff',
+            alignItems: 'center',
+            paddingVertical: 8,
+          }}>
+          <Text style={{ marginRight: 8 }}>采购量</Text>
+          <TextInput
+            placeholder="请输入"
+            addonAfter="件"
+            inputWidth={90}
+            bordered
+            addonGroupStyle={{ marginRight: 8 }}
+          />
+          <TextInput
+            placeholder="请输入"
+            addonAfter="kg"
+            inputWidth={90}
+            bordered
+          />
+        </View>
         <Text>自定义使用</Text>
         <TextInput
           style={{ backgroundColor: '#f5f5f5', fontSize: 20, height: 50 }}

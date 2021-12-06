@@ -34,6 +34,7 @@ import {
   renderTextLikeJSX,
   noop,
   isValue,
+  isDef,
   formatNumber,
 } from '../helpers'
 import { createStyles } from './style'
@@ -74,6 +75,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       addonBefore,
       prefix,
       suffix,
+      inputWidth,
 
       // TextInput 的属性
       value,
@@ -286,6 +288,14 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       lineHeight: (THEME_VAR.text_input_accessory_height / 3) * 2,
       fontWeight: 'bold',
     }
+    const customTextInputWidthStyle: TextStyle = isDef(inputWidth)
+      ? {
+          flexShrink: 1,
+          flexGrow: 0,
+          flexBasis: inputWidth,
+          width: inputWidth,
+        }
+      : {}
     /** 在添加了 addonXxx 的情况下，需要输入框部分自适应宽 */
     const inputAddonModeStyle = {
       flex: 1,
@@ -308,7 +318,16 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       (addonAfterJSX || addonBeforeJSX) && bordered
         ? inputAddonModeStyle
         : null,
+      customTextInputWidthStyle,
     ]
+    // const textInputStyle: TextStyle = isTextarea
+    //   ? {}
+    //   : {
+    //       height: THEME_VAR.text_input_min_height - inputUncertainHeight,
+    //       lineHeight: 20,
+    //       // paddingVertical:
+    //       //   (THEME_VAR.text_input_min_height - inputUncertainHeight - 20) / 2,
+    //     }
 
     /**
      * 显示辅助工具栏
@@ -406,6 +425,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
                       : null,
                   ]
                 : null,
+              prefixJSX || suffixJSX ? null : customTextInputWidthStyle,
               fixGroupStyles,
             ]}>
             {prefixJSX}

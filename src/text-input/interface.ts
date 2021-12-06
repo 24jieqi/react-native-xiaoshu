@@ -106,4 +106,9 @@ export interface TextInputProps extends RNTextInputProps {
    * 输入框内部后缀，边框内部，textarea 无
    */
   suffix?: React.ReactNode
+
+  /**
+   * 输入框自定义宽
+   */
+  inputWidth?: number
 }
