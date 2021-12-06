@@ -320,14 +320,6 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         : null,
       customTextInputWidthStyle,
     ]
-    // const textInputStyle: TextStyle = isTextarea
-    //   ? {}
-    //   : {
-    //       height: THEME_VAR.text_input_min_height - inputUncertainHeight,
-    //       lineHeight: 20,
-    //       // paddingVertical:
-    //       //   (THEME_VAR.text_input_min_height - inputUncertainHeight - 20) / 2,
-    //     }
 
     /**
      * 显示辅助工具栏
