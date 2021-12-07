@@ -36,7 +36,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     input_fix_text: {
-      fontSize: themeVar.text_input_font_size,
       color: themeVar.text_color_1,
     },
 
@@ -67,7 +66,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     addon_text: {
       color: themeVar.text_color_1,
-      fontSize: themeVar.text_input_font_size,
     },
 
     addon_text_before: {

@@ -76,6 +76,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       prefix,
       suffix,
       inputWidth,
+      size = 'middle',
 
       // TextInput 的属性
       value,
@@ -134,6 +135,14 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       [],
     )
     const STYLES = createStyles(THEME_VAR)
+    /** 输入框最小高度 */
+    const textInputMinHeight =
+      THEME_VAR[`text_input_${size}_min_height`] ||
+      THEME_VAR.text_input_middle_min_height
+    /** 所有文字/文案相关的大小 */
+    const textInputFontSize =
+      THEME_VAR[`text_input_${size}_font_size`] ||
+      THEME_VAR.text_input_middle_font_size
 
     selectionColor = getDefaultValue(
       selectionColor,
@@ -250,6 +259,10 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       [onBlurPersistFn],
     )
 
+    const textInputTextStyle: TextStyle = {
+      fontSize: textInputFontSize,
+    }
+
     const isTextarea = type === 'textarea'
     // textarea 模式就是纯输入框
     const addonBeforeJSX = isTextarea
@@ -257,6 +270,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       : renderTextLikeJSX(addonBefore, [
           STYLES.addon_text,
           STYLES.addon_text_before,
+          textInputTextStyle,
           addonBeforeTextStyle,
         ])
     const addonAfterJSX = isTextarea
@@ -264,6 +278,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       : renderTextLikeJSX(addonAfter, [
           STYLES.addon_text,
           STYLES.addon_text_after,
+          textInputTextStyle,
           addonAfterTextStyle,
         ])
     const prefixJSX = isTextarea
@@ -271,6 +286,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       : renderTextLikeJSX(prefix, [
           STYLES.input_fix_text,
           STYLES.input_fix_text_pre,
+          textInputTextStyle,
           prefixTextStyle,
         ])
     const suffixJSX = isTextarea
@@ -278,6 +294,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       : renderTextLikeJSX(suffix, [
           STYLES.input_fix_text,
           STYLES.input_fix_text_suf,
+          textInputTextStyle,
           suffixTextStyle,
         ])
     const customTextInputWidthStyle: TextStyle = isDef(inputWidth)
@@ -298,13 +315,12 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       STYLES.input,
       isTextarea
         ? {
-            minHeight:
-              THEME_VAR.text_input_min_height * rows - inputUncertainHeight,
+            minHeight: textInputMinHeight * rows - inputUncertainHeight,
             paddingVertical: 2,
             alignItems: 'flex-start',
           }
         : {
-            minHeight: THEME_VAR.text_input_min_height - inputUncertainHeight,
+            minHeight: textInputMinHeight - inputUncertainHeight,
             alignContent: 'center',
           },
       (addonAfterJSX || addonBeforeJSX) && bordered
@@ -333,7 +349,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         <RNTextInput
           {...resetProps}
           ref={TextInputRef}
-          style={[STYLES.text_input, style]}
+          style={[STYLES.text_input, textInputTextStyle, style]}
           value={isValue(value) ? value : localValue}
           defaultValue={defaultValue}
           multiline={multiline}

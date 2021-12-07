@@ -253,6 +253,19 @@ const BasicTextInput: React.FC = () => {
             bordered
           />
         </View>
+        <Text>自定义大小</Text>
+        <View
+          style={{
+            backgroundColor: '#fff',
+            paddingHorizontal: 12,
+          }}>
+          <TextInput size="large" placeholder="请输入" bordered />
+          <View style={{ height: 10 }} />
+          <TextInput placeholder="请输入" bordered />
+          <View style={{ height: 10 }} />
+          <TextInput size="small" placeholder="请输入" bordered />
+          <View style={{ height: 10 }} />
+        </View>
         <Text>可能高度消失</Text>
         <View
           style={{
