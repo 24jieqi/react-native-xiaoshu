@@ -30,6 +30,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     title: {
       position: 'relative',
       flexDirection: 'row',
+      marginRight: themeVar.padding_md,
       // alignItems: 'center',
       // backgroundColor: '#f30', // to test ui
     },
@@ -57,7 +58,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     title_text: {
-      marginRight: themeVar.padding_md,
       minHeight: innerHeight,
       // backgroundColor: '#f30', // to test ui
       color: themeVar.cell_title_text_color,
