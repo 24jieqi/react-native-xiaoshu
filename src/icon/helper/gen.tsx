@@ -1,13 +1,16 @@
 import React, { memo } from 'react'
-import type { TouchableOpacityProps, ViewStyle } from 'react-native'
-import { TouchableOpacity } from 'react-native'
+import type { ViewStyle } from 'react-native'
+import { TouchableWithoutFeedback, View } from 'react-native'
 import { Svg } from 'react-native-svg'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
 
 import type { ThemeVarType } from '../../theme'
 import { useTheme } from '../../theme'
-import { getDefaultValue, hex2rgba } from '../../helpers'
+import {
+  getDefaultValue,
+  hex2rgba,
+  pickTouchablePropsField,
+  omitTouchablePropsField,
+} from '../../helpers'
 import type { IconCommonProps } from '../interface'
 import * as helper from './'
 
@@ -23,19 +26,6 @@ type GenIconOption = {
   render: OutlineRender
   size?: 'default' | 'small'
 }
-
-/**
- * TouchableOpacity 相关的属性字段
- */
-const TOUCHABLE_OPACITY_PROPS_KEYS: (keyof TouchableOpacityProps)[] = [
-  'delayLongPress',
-  'disabled',
-  'onLongPress',
-  'onPress',
-  'onPressIn',
-  'onPressOut',
-  'pressRetentionOffset',
-]
 
 const touchableOpacityStyle: ViewStyle = {
   alignSelf: 'center',
@@ -63,12 +53,9 @@ export const genIcon = ({
     }) => {
       const THEME_VAR = useTheme()
       /** 适用于点击的属性 */
-      const touchableOpacityProps = pick<TouchableOpacityProps>(
-        restProps,
-        TOUCHABLE_OPACITY_PROPS_KEYS,
-      )
+      const touchableOpacityProps = pickTouchablePropsField(restProps)
       /** 剔除点击相关的属性*/
-      const svgProps = omit(restProps, TOUCHABLE_OPACITY_PROPS_KEYS)
+      const svgProps = omitTouchablePropsField(restProps)
       /** viewBox 的尺寸 */
       const viewBoxSize =
         size === 'default' ? helper.DEFAULT_SIZE : helper.SMALL_SIZE
@@ -87,23 +74,23 @@ export const genIcon = ({
       }
 
       return (
-        <TouchableOpacity
-          {...touchableOpacityProps}
-          activeOpacity={THEME_VAR.active_opacity}
-          hitSlop={hitSlop}
-          style={style || touchableOpacityStyle}>
-          <Svg
-            {...svgProps}
-            style={svgStyle}
-            height={iconSize}
-            width={iconSize}
-            viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
-            {render(color, {
-              themeVar: THEME_VAR,
-              disabled: restProps.disabled,
-            })}
-          </Svg>
-        </TouchableOpacity>
+        <TouchableWithoutFeedback {...touchableOpacityProps} hitSlop={hitSlop}>
+          <View
+            style={style || touchableOpacityStyle}
+            pointerEvents={svgProps.pointerEvents}>
+            <Svg
+              {...svgProps}
+              style={svgStyle || touchableOpacityStyle}
+              height={iconSize}
+              width={iconSize}
+              viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
+              {render(color, {
+                themeVar: THEME_VAR,
+                disabled: restProps.disabled,
+              })}
+            </Svg>
+          </View>
+        </TouchableWithoutFeedback>
       )
     },
   )
