@@ -31,13 +31,18 @@ const BasicNoticeBar: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
-      <NoticeBar message="一袋米要抗几楼，一袋米要抗二楼" mode="closeable" />
+      <NoticeBar
+        message="一袋米要抗几楼，一袋米要抗二楼"
+        mode="closeable"
+        onPressClose={onPressNoticeBar}
+      />
 
       <View style={{ height: 20 }} />
 
       <NoticeBar
         message="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森"
         mode="closeable"
+        onPressClose={onPressNoticeBar}
       />
 
       <View style={{ height: 20 }} />

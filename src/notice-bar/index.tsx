@@ -4,12 +4,14 @@ import { TouchableWithoutFeedback, View } from 'react-native'
 
 import { CrossOutline, ArrowRightOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
+import { usePersistFn } from '../hooks'
 import {
   getDefaultValue,
   isDef,
   renderTextLikeJSX,
   pickTouchablePropsField,
   omitTouchablePropsField,
+  noop,
 } from '../helpers'
 import { createStyles } from './style'
 import type { NoticeBarProps, NoticeBarMode } from './interface'
@@ -36,11 +38,13 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   wrapable = false,
   renderLeftIcon,
   renderRightIcon,
+  onPressClose,
 
   // TouchableWithoutFeedback 相关属性
   style,
   ...restProps
 }) => {
+  const onPressClosePersistFn = usePersistFn(onPressClose || noop)
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const [visible, setVisible] = useState(true)
@@ -93,8 +97,9 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   const onPressModeIcon = useCallback(() => {
     if (mode === 'closeable') {
       setVisible(false)
+      onPressClosePersistFn()
     }
-  }, [mode])
+  }, [mode, onPressClosePersistFn])
 
   const touchableProps = pickTouchablePropsField(restProps)
   const viewProps = omitTouchablePropsField(restProps)

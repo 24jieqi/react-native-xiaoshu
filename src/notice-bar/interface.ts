@@ -56,4 +56,9 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
    * 渲染右侧图标
    */
   renderRightIcon?: (color: string, size: number) => React.ReactNode
+
+  /**
+   * 点击关闭按钮
+   */
+  onPressClose?: () => void
 }
