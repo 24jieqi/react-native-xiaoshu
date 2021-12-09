@@ -1,109 +1,125 @@
-import React, { memo, useState } from 'react'
-import type { TextStyle, ViewStyle } from 'react-native'
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
-import { Icon } from 'react-native-xiaoshu'
+import React, { memo, useState, useCallback } from 'react'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { TouchableWithoutFeedback, View } from 'react-native'
+
+import { CrossOutline, ArrowRightOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers/typeof'
+import {
+  getDefaultValue,
+  isDef,
+  renderTextLikeJSX,
+  pickTouchablePropsField,
+  omitTouchablePropsField,
+} from '../helpers'
 import { createStyles } from './style'
-import type { NoticeBarProps } from './interface'
+import type { NoticeBarProps, NoticeBarMode } from './interface'
+
+const getModeIcon = (mode: NoticeBarMode) => {
+  switch (mode) {
+    case 'closeable':
+      return CrossOutline
+    default:
+      return ArrowRightOutline
+  }
+}
 
 /**
  * 通知栏
  */
 const NoticeBar: React.FC<NoticeBarProps> = ({
-  type = 'default',
-  size = 'normal',
-  style,
-  textColor,
-  TextBackgroundColor,
-  showIcon,
-  rightIcon,
+  message,
+  messageTextStyle,
+  mode,
+  color,
+  backgroundColor,
+  iconColor,
+  wrapable = false,
   renderLeftIcon,
   renderRightIcon,
-  children,
-  numberOfLines = 1,
-  onPress,
+
+  // TouchableWithoutFeedback 相关属性
+  style,
+  ...restProps
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const [visible, setVisible] = useState(true)
-  const iconSize = THEME_VAR[`noticeBar_${size}_font_size`]
-  const iconColor = THEME_VAR[`noticeBar_icon_${type}_color`] as string
-  const ICON = {
-    default: <Icon.VolumeOutline size={iconSize} color={iconColor} />,
-    primary: <Icon.WarningCircleOutline size={iconSize} color={iconColor} />,
-    success: <Icon.SuccessCircleOutLine size={iconSize} color={iconColor} />,
-    error: <Icon.CrossCircleOutline size={iconSize} color={iconColor} />,
-    warning: <Icon.WarningCircleOutline size={iconSize} color={iconColor} />,
-  }
 
-  const showIconJSX = renderLeftIcon
-    ? renderLeftIcon(iconColor, iconSize)
-    : ICON[type]
-  const rightIconJSX = renderRightIcon ? (
-    renderRightIcon(iconColor, iconSize)
-  ) : (
-    <Icon.CrossOutline
-      size={iconSize}
-      color={iconColor}
-      onPress={handlePress}
-    />
+  color = getDefaultValue(color, THEME_VAR.notice_bar_text_color)
+  backgroundColor = getDefaultValue(
+    backgroundColor,
+    THEME_VAR.notice_bar_background_color,
   )
+  iconColor = getDefaultValue(iconColor, color)
 
-  const tipIconJSX = isDef(showIcon) ? showIconJSX : null
-  const iconJSX = isDef(rightIcon) ? rightIconJSX : null
-
-  const mainNoticeBarStyles = StyleSheet.flatten<ViewStyle>([
+  const noticeBarStyles: StyleProp<ViewStyle> = [
     STYLES.noticeBar,
     {
-      backgroundColor: TextBackgroundColor
-        ? TextBackgroundColor
-        : THEME_VAR[`noticeBar_${type}_background_color`] ||
-          THEME_VAR.noticeBar_default_background_color,
+      backgroundColor,
     },
-  ])
-  const noticeBarTextStyles = StyleSheet.flatten<TextStyle>([
-    STYLES.title,
-    {
-      color: textColor
-        ? textColor
-        : THEME_VAR[`noticeBar_${type}_color`] ||
-          THEME_VAR.noticeBar_default_color,
-    },
-    showIcon ? STYLES.textPadding : null,
-    rightIcon ? STYLES.textPaddingRight : null,
-  ])
+    style,
+  ]
 
-  const mainJSX = (
-    <View style={[mainNoticeBarStyles, style]}>
-      {tipIconJSX}
-      <Text numberOfLines={numberOfLines} style={noticeBarTextStyles}>
-        {children}
-      </Text>
-      {iconJSX}
-    </View>
+  const ModeIcon = getModeIcon(mode)
+  const leftIconJSX = renderLeftIcon?.(
+    iconColor,
+    THEME_VAR.notice_bar_icon_size,
+  )
+  const rightIconJSX = renderRightIcon?.(
+    iconColor,
+    THEME_VAR.notice_bar_icon_size,
+  )
+  const messageJSX = renderTextLikeJSX(
+    message,
+    [
+      STYLES.text,
+      {
+        color,
+        marginLeft: isDef(leftIconJSX)
+          ? THEME_VAR.notice_bar_icon_margin_horizontal
+          : 0,
+        marginRight:
+          isDef(rightIconJSX) || mode
+            ? THEME_VAR.notice_bar_icon_margin_horizontal
+            : 0,
+      },
+      messageTextStyle,
+    ],
+    {
+      numberOfLines: wrapable ? undefined : 1,
+    },
   )
 
-  function handlePress() {
-    if (rightIcon && !renderRightIcon) {
+  const onPressModeIcon = useCallback(() => {
+    if (mode === 'closeable') {
       setVisible(false)
     }
-    if (onPress) {
-      onPress()
-    } else {
-      return false
-    }
+  }, [mode])
+
+  const touchableProps = pickTouchablePropsField(restProps)
+  const viewProps = omitTouchablePropsField(restProps)
+
+  if (visible) {
+    return (
+      <TouchableWithoutFeedback {...touchableProps}>
+        <View {...viewProps} style={noticeBarStyles}>
+          {leftIconJSX}
+          {messageJSX}
+          {rightIconJSX}
+          {mode ? (
+            <ModeIcon
+              color={iconColor}
+              size={THEME_VAR.notice_bar_icon_size}
+              onPress={onPressModeIcon}
+              pointerEvents={mode === 'closeable' ? 'auto' : 'none'}
+            />
+          ) : null}
+        </View>
+      </TouchableWithoutFeedback>
+    )
   }
 
-  return visible ? (
-    rightIcon ? (
-      mainJSX
-    ) : (
-      <TouchableHighlight onPress={onPress ? handlePress : null}>
-        {mainJSX}
-      </TouchableHighlight>
-    )
-  ) : null
+  return null
 }
 
 export default memo<typeof NoticeBar>(NoticeBar)

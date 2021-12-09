@@ -1,56 +1,59 @@
 import type React from 'react'
-import type { ViewProps } from 'react-native'
+import type {
+  TouchableWithoutFeedbackProps,
+  TextStyle,
+  StyleProp,
+} from 'react-native'
 
-export type ButtonSize = 'default' | 'large' | 'normal' | 'small' | 'mini'
+export type NoticeBarMode = 'closeable' | 'link'
 
-export interface NoticeBarProps extends ViewProps {
+export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
   /**
-   * 类型，可选值为 `'default' | 'primary' | 'success' | 'error' | 'warning'`
-   *
-   * @default 'default'
+   * 通知文本文案样式
    */
-  type?: 'default' | 'primary' | 'success' | 'error' | 'warning'
-
-  /**
-   * 大小
-   * @default 'default'
-   */
-  size?: ButtonSize
+  messageTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 标签颜色
+   * 通知文本内容
    */
-  textColor?: string
-  /**
-   * 背景颜色
-   */
-  TextBackgroundColor?: string
-  /**
-   * 是否展示左边提示图标
-   */
-  showIcon?: boolean
+  message?: React.ReactNode
 
   /**
-   * 是否展示右侧按钮
+   * 通知栏模式，可选值为 `'closeable' | 'link'`
    */
-  rightIcon?: boolean
+  mode?: NoticeBarMode
+
+  /**
+   * 通知文本颜色
+   * @default 'notice_bar_text_color'
+   */
+  color?: string
+
+  /**
+   * 通知背景颜色
+   * @default 'notice_bar_background_color'
+   */
+  backgroundColor?: string
+
+  /**
+   * 图标颜色
+   * @default 'notice_bar_text_color'
+   */
+  iconColor?: string
+
+  /**
+   * 是否开启文本换行
+   * @default false
+   */
+  wrapable?: boolean
 
   /**
    * 渲染左侧图标
    */
-  renderLeftIcon?: (color: string, size: number) => React.ReactElement
+  renderLeftIcon?: (color: string, size: number) => React.ReactNode
+
   /**
    * 渲染右侧图标
    */
-  renderRightIcon?: (color: string, size: number) => React.ReactElement
-
-  /**
-   * 当文本过长的时候裁剪文本行数
-   */
-  numberOfLines?: number
-
-  /**
-   * 点击icon时的回调函数
-   */
-  onPress?: () => void
+  renderRightIcon?: (color: string, size: number) => React.ReactNode
 }

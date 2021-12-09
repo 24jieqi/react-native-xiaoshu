@@ -258,6 +258,36 @@ export const nav_bar_title_text_color = text_color_1
 export const nav_bar_title_font_size = font_size_h4
 export const nav_bar_icon_color = text_color_1
 
+// NoticeBar
+export const notice_bar_padding_vertical = padding_xs
+export const notice_bar_padding_horizontal = padding_md
+export const notice_bar_background_color: string = '#feede5'
+export const notice_bar_text_color: string = '#fe7a33'
+export const notice_bar_text_line_height: number = 20
+export const notice_bar_text_font_size = font_size_text
+export const notice_bar_icon_size = font_size_text
+export const notice_bar_icon_margin_horizontal = padding_xs
+
+// export const notice_bar_default_background_color: string = '#feede5'
+// export const notice_bar_default_color: string = '#fe7a33'
+// export const notice_bar_icon_default_color: string = '#fe7a33'
+// export const notice_bar_primary_background_color: string = '#e6f0ff'
+// export const notice_bar_primary_color: string = '#11151a'
+// export const notice_bar_icon_primary_color: string = '#0065fe'
+// export const notice_bar_success_background_color: string = '#ebfff2'
+// export const notice_bar_success_color: string = '#11151a'
+// export const notice_bar_icon_success_color: string = '#24b356'
+// export const notice_bar_error_background_color: string = '#ffebec'
+// export const notice_bar_error_color: string = '#11151a'
+// export const notice_bar_icon_error_color: string = '#ff3341'
+// export const notice_bar_warning_background_color: string = '#ffefd9'
+// export const notice_bar_warning_color: string = '#11151a'
+// export const notice_bar_icon_warning_color: string = '#fe7a33'
+// export const notice_bar_mini_font_size: number = font_size_subtitle
+// export const notice_bar_small_font_size: number = font_size_text
+// export const notice_bar_normal_font_size: number = font_size_text
+// export const notice_bar_large_font_size: number = font_size_h4
+
 // Notify
 export const notify_text_color = white
 export const notify_padding_vertical = padding_xs
@@ -398,24 +428,3 @@ export const toast_default_width: number = 88 + padding_md * 2 // box-sizing: co
 export const toast_default_min_height: number = 88 + padding_md * 2
 export const toast_position_top_distance: string = '20%'
 export const toast_position_bottom_distance: string = '20%'
-
-// NoticeBar
-export const noticeBar_default_background_color: string = '#feede5'
-export const noticeBar_default_color: string = '#fe7a33'
-export const noticeBar_icon_default_color: string = '#fe7a33'
-export const noticeBar_primary_background_color: string = '#e6f0ff'
-export const noticeBar_primary_color: string = '#11151a'
-export const noticeBar_icon_primary_color: string = '#0065fe'
-export const noticeBar_success_background_color: string = '#ebfff2'
-export const noticeBar_success_color: string = '#11151a'
-export const noticeBar_icon_success_color: string = '#24b356'
-export const noticeBar_error_background_color: string = '#ffebec'
-export const noticeBar_error_color: string = '#11151a'
-export const noticeBar_icon_error_color: string = '#ff3341'
-export const noticeBar_warning_background_color: string = '#ffefd9'
-export const noticeBar_warning_color: string = '#11151a'
-export const noticeBar_icon_warning_color: string = '#fe7a33'
-export const noticeBar_mini_font_size: number = font_size_subtitle
-export const noticeBar_small_font_size: number = font_size_text
-export const noticeBar_normal_font_size: number = font_size_text
-export const noticeBar_large_font_size: number = font_size_h4

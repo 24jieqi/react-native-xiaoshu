@@ -1,29 +1,18 @@
 import { StyleSheet } from 'react-native'
 
-export const createStyles = () => {
+import type { ThemeVarType } from '../theme'
+
+export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     noticeBar: {
-      // position: 'absolute',
-      // top: '0',
-      paddingVertical: 10,
-      paddingHorizontal: 16,
+      paddingHorizontal: themeVar.notice_bar_padding_horizontal,
+      paddingVertical: themeVar.notice_bar_padding_vertical,
       flexDirection: 'row',
-      // flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      alignItems: 'flex-start',
-      // backgroundColor: '#feede5',
     },
-    title: {
+    text: {
+      fontSize: themeVar.notice_bar_text_font_size,
+      lineHeight: themeVar.notice_bar_text_line_height,
       flex: 1,
-      fontSize: 14,
-      lineHeight: 20,
-      // color: '#fe7a33',
-    },
-    textPadding: {
-      paddingLeft: 9,
-    },
-    textPaddingRight: {
-      paddingRight: 11,
     },
   })
 }
