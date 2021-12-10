@@ -102,7 +102,9 @@ const Button: React.FC<ButtonProps> = ({
   ) : (
     <>
       {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
-      <Text style={textStyleSummary}>{text || children}</Text>
+      <Text style={textStyleSummary} numberOfLines={1}>
+        {text || children}
+      </Text>
     </>
   )
 
