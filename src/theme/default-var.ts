@@ -261,32 +261,18 @@ export const nav_bar_icon_color = text_color_1
 // NoticeBar
 export const notice_bar_padding_vertical = padding_xs
 export const notice_bar_padding_horizontal = padding_md
-export const notice_bar_background_color: string = '#feede5'
-export const notice_bar_text_color: string = '#fe7a33'
 export const notice_bar_text_line_height: number = 20
 export const notice_bar_text_font_size = font_size_text
 export const notice_bar_icon_size = font_size_text
 export const notice_bar_icon_margin_horizontal = padding_xs
-
-// export const notice_bar_default_background_color: string = '#feede5'
-// export const notice_bar_default_color: string = '#fe7a33'
-// export const notice_bar_icon_default_color: string = '#fe7a33'
-// export const notice_bar_primary_background_color: string = '#e6f0ff'
-// export const notice_bar_primary_color: string = '#11151a'
-// export const notice_bar_icon_primary_color: string = '#0065fe'
-// export const notice_bar_success_background_color: string = '#ebfff2'
-// export const notice_bar_success_color: string = '#11151a'
-// export const notice_bar_icon_success_color: string = '#24b356'
-// export const notice_bar_error_background_color: string = '#ffebec'
-// export const notice_bar_error_color: string = '#11151a'
-// export const notice_bar_icon_error_color: string = '#ff3341'
-// export const notice_bar_warning_background_color: string = '#ffefd9'
-// export const notice_bar_warning_color: string = '#11151a'
-// export const notice_bar_icon_warning_color: string = '#fe7a33'
-// export const notice_bar_mini_font_size: number = font_size_subtitle
-// export const notice_bar_small_font_size: number = font_size_text
-// export const notice_bar_normal_font_size: number = font_size_text
-// export const notice_bar_large_font_size: number = font_size_h4
+export const notice_bar_primary_background_color: string = '#E6F0FF'
+export const notice_bar_primary_text_color = primary
+export const notice_bar_success_background_color: string = '#EBFFF2'
+export const notice_bar_success_text_color: string = success
+export const notice_bar_warning_background_color: string = '#FEEDE5'
+export const notice_bar_warning_text_color = warning
+export const notice_bar_error_background_color: string = '#FFEBEC'
+export const notice_bar_error_text_color = error
 
 // Notify
 export const notify_text_color = white

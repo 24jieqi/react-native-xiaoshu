@@ -31,6 +31,7 @@ const getModeIcon = (mode: NoticeBarMode) => {
 const NoticeBar: React.FC<NoticeBarProps> = ({
   message,
   messageTextStyle,
+  type = 'warning',
   mode,
   color,
   backgroundColor,
@@ -49,11 +50,16 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const [visible, setVisible] = useState(true)
 
-  color = getDefaultValue(color, THEME_VAR.notice_bar_text_color)
-  backgroundColor = getDefaultValue(
-    backgroundColor,
-    THEME_VAR.notice_bar_background_color,
-  )
+  const textColor =
+    THEME_VAR[`notice_bar_${type}_text_color`] ||
+    THEME_VAR.notice_bar_warning_text_color
+  const barBackgroundColor =
+    THEME_VAR[`notice_bar_${type}_background_color`] ||
+    THEME_VAR.notice_bar_warning_background_color
+
+  // 修正数据
+  color = getDefaultValue(color, textColor)
+  backgroundColor = getDefaultValue(backgroundColor, barBackgroundColor)
   iconColor = getDefaultValue(iconColor, color)
 
   const noticeBarStyles: StyleProp<ViewStyle> = [

@@ -88,6 +88,64 @@ const BasicNoticeBar: React.FC = () => {
 
       <View style={{ height: 20 }} />
 
+      <Text>内置颜色</Text>
+
+      <View style={{ height: 20 }} />
+
+      <NoticeBar
+        renderLeftIcon={(color, size) => (
+          <Icon.VolumeOutline color={color} size={size} />
+        )}
+        message="一袋米要抗几楼，一袋米要抗二楼"
+        type="error"
+      />
+
+      <View style={{ height: 20 }} />
+
+      <NoticeBar
+        renderLeftIcon={(color, size) => (
+          <Icon.VolumeOutline color={color} size={size} />
+        )}
+        message="一袋米要抗几楼，一袋米要抗二楼"
+        mode="closeable"
+        type="error"
+      />
+
+      <View style={{ height: 20 }} />
+
+      <NoticeBar
+        renderLeftIcon={(color, size) => (
+          <Icon.VolumeOutline color={color} size={size} />
+        )}
+        message="一袋米要抗几楼，一袋米要抗二楼"
+        mode="link"
+        type="error"
+      />
+
+      <View style={{ height: 20 }} />
+
+      <NoticeBar
+        renderLeftIcon={(color, size) => (
+          <Icon.VolumeOutline color={color} size={size} />
+        )}
+        message="一袋米要抗几楼，一袋米要抗二楼"
+        mode="closeable"
+        type="success"
+      />
+
+      <View style={{ height: 20 }} />
+
+      <NoticeBar
+        renderLeftIcon={(color, size) => (
+          <Icon.VolumeOutline color={color} size={size} />
+        )}
+        message="一袋米要抗几楼，一袋米要抗二楼"
+        mode="link"
+        type="primary"
+      />
+
+      <View style={{ height: 20 }} />
+
       <Text>带 icon</Text>
 
       <View style={{ height: 20 }} />
