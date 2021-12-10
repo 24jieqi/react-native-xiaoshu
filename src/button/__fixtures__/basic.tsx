@@ -36,9 +36,13 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline
+              color={color}
+              size={size}
+              pointerEvents="none"
+            />
           )}
-          text="error"
+          text="图标请加上pointerEvents"
           onPress={onPress}
         />
 
@@ -77,9 +81,13 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline
+              color={color}
+              size={size}
+              pointerEvents="none"
+            />
           )}
-          text="error"
+          text="错error"
           style={Styles.g1b}
         />
 
@@ -114,7 +122,11 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline
+              color={color}
+              size={size}
+              pointerEvents="none"
+            />
           )}
           text="error"
           ghost
@@ -299,7 +311,11 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <Icon.ArrowLeftOutline
+              color={color}
+              size={size}
+              pointerEvents="none"
+            />
           )}
           text="square"
         />
@@ -309,7 +325,11 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.WarningOutline color={color} size={size} />
+            <Icon.WarningOutline
+              color={color}
+              size={size}
+              pointerEvents="none"
+            />
           )}
           text="round"
         />
@@ -319,9 +339,9 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
           )}
-          text="自带一个加号"
+          text="一个加号"
         />
 
         <View style={{ height: 20 }} />
@@ -329,10 +349,10 @@ const BasicButton: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
           )}
           ghost
-          text="自带一个加号"
+          text="一个加号"
         />
 
         <View style={{ height: 20 }} />
@@ -340,10 +360,10 @@ const BasicButton: React.FC = () => {
         <Button
           type="error"
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
           )}
           ghost
-          text="自带一个加号"
+          text="一个加号"
         />
 
         <View style={{ height: 20 }} />
@@ -351,18 +371,18 @@ const BasicButton: React.FC = () => {
         <Button
           type="link"
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
           )}
-          text="自带一个加号"
+          text="一个加号"
         />
 
         <Button
           type="link"
           size="mini"
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
           )}
-          text="自带一个加号"
+          text="一个加号"
         />
       </View>
 
