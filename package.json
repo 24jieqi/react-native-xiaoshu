@@ -1,5 +1,5 @@
 {
-  "name": "react-native-xiaoshu",
+  "name": "@fruits-chain/react-native-xiaoshu",
   "description": "React Native UI library",
   "version": "0.0.1",
   "private": true,
@@ -11,6 +11,16 @@
     "lib/",
     "src/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hjfruit/react-native-xiaoshu"
+  },
+  "bugs": {
+    "url": "https://github.com/hjfruit/react-native-xiaoshu/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "android": "react-native run-android",
     "android:demo": "cd android && ./gradlew assembleRelease",
@@ -30,7 +40,8 @@
     "doc:pulish": "git push origin `git subtree split --prefix docs-dist master`:gh-pages --force",
     "doc:reset": "git reset --hard HEAD^",
     "prepare": "husky install",
-    "build": "bob build"
+    "build": "bob build",
+    "release": "release-it"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -46,6 +57,7 @@
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
+    "@release-it/conventional-changelog": "^3.3.0",
     "@types/jest": "^27.0.3",
     "@types/lodash": "^4.14.177",
     "@types/react-native": "^0.66.5",
@@ -67,6 +79,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-screens": "^3.9.0",
     "react-test-renderer": "17.0.2",
+    "release-it": "^14.11.8",
     "typescript": "4.4.4",
     "umi-plugin-react-native": "^0.5.0"
   },
@@ -115,5 +128,17 @@
         }
       ]
     ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    }
   }
 }
