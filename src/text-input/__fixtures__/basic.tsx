@@ -9,6 +9,28 @@ const BasicTextInput: React.FC = () => {
   return (
     <>
       <CellGroup title="基础用法">
+        <Cell
+          title="text"
+          value={<TextInput placeholder="不可编辑" editable={false} />}
+        />
+
+        <Cell
+          title="text"
+          value={<TextInput placeholder="不可编辑" bordered editable={false} />}
+        />
+
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="不可编辑"
+              value="不可编辑？？？"
+              bordered
+              editable={false}
+            />
+          }
+        />
+
         <Cell title="text" value={<TextInput placeholder="内容左对齐" />} />
 
         <Cell

@@ -135,6 +135,9 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       [],
     )
     const STYLES = createStyles(THEME_VAR)
+    /** 显示禁用样子 bordered 才显示 */
+    const showDisabledInput =
+      bordered && isDef(resetProps.editable) && !resetProps.editable
     /** 输入框最小高度 */
     const textInputMinHeight =
       THEME_VAR[`text_input_${size}_min_height`] ||
@@ -349,7 +352,12 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         <RNTextInput
           {...resetProps}
           ref={TextInputRef}
-          style={[STYLES.text_input, textInputTextStyle, style]}
+          style={[
+            STYLES.text_input,
+            textInputTextStyle,
+            showDisabledInput ? STYLES.text_input_disabled : null,
+            style,
+          ]}
           value={isValue(value) ? value : localValue}
           defaultValue={defaultValue}
           multiline={multiline}
@@ -418,6 +426,9 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
                     STYLES.input_border,
                     addonAfterJSX || addonBeforeJSX
                       ? inputAddonModeStyle
+                      : null,
+                    isDef(resetProps.editable) && !resetProps.editable
+                      ? STYLES.input_disabled
                       : null,
                   ]
                 : null,

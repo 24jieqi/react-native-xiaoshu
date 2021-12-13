@@ -58,7 +58,7 @@ export const animation_duration_base: number = 300
 export const animation_duration_fast: number = 200
 
 // Border
-export const border_color = divider_color_2
+export const border_color = divider_color_1
 export const border_width_base: number = 1
 export const border_radius_sm: number = 4
 export const border_radius_md: number = 8
@@ -147,7 +147,7 @@ export const cell_group_title_padding_bottom = padding_xs
 export const cell_group_title_color = text_color_1
 export const cell_group_title_font_size = font_size_h5
 export const cell_group_title_line_height: number = 28
-export const cell_border_color = border_color
+export const cell_border_color = divider_color_2
 export const cell_icon_size = font_size_h5
 export const cell_icon_color = text_color_3
 export const cell_active_color = underlay_color_ddd
@@ -366,6 +366,8 @@ export const tag_ghost_bg_color: string = 'transparent'
 export const text_input_selection_color = primary
 export const text_input_placeholder_text_color = text_color_4
 export const text_input_color = text_color_1
+export const text_input_disabled_color: string = '#8C9199'
+export const text_input_disabled_background_color: string = '#EFEFF1'
 export const text_input_large_font_size = font_size_h4
 export const text_input_middle_font_size = font_size_h5
 export const text_input_small_font_size = font_size_h5

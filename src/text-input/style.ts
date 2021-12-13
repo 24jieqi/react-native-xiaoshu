@@ -18,6 +18,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderColor: themeVar.border_color,
     },
 
+    input_disabled: {
+      backgroundColor: themeVar.text_input_disabled_background_color,
+    },
+
     text_input: {
       // flex: 1,
       flexGrow: 1,
@@ -27,6 +31,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       margin: 0,
       borderWidth: 0,
       textAlignVertical: 'center',
+    },
+
+    text_input_disabled: {
+      color: themeVar.text_input_disabled_color,
     },
 
     input_fix_group: {
