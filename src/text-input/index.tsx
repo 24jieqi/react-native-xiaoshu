@@ -358,6 +358,11 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
             showDisabledInput ? STYLES.text_input_disabled : null,
             style,
           ]}
+          placeholder={
+            focus && resetProps.textAlign === 'center'
+              ? undefined
+              : resetProps.placeholder
+          }
           value={isValue(value) ? value : localValue}
           defaultValue={defaultValue}
           multiline={multiline}
