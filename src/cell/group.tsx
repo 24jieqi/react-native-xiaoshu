@@ -15,6 +15,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
   title,
   style,
   textStyle,
+  bodyStyle,
   bordered = true,
   onPressTitleText,
   extra,
@@ -35,7 +36,8 @@ const CellGroup: React.FC<CellGroupProps> = ({
           {extra}
         </View>
       ) : null}
-      {bordered ? <View style={STYLES.body}>{children}</View> : children}
+
+      <View style={[bordered ? STYLES.body : null, bodyStyle]}>{children}</View>
     </>
   )
 }

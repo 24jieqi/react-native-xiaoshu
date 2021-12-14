@@ -25,6 +25,11 @@ export type CellGroupProps = {
   textStyle?: StyleProp<TextStyle>
 
   /**
+   * 内容自定义样式
+   */
+  bodyStyle?: StyleProp<ViewStyle>
+
+  /**
    * 是否显示外边框
    * @default true
    */
