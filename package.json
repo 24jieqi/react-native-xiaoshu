@@ -135,9 +135,9 @@
     },
     "github": {
       "release": true
+    },
+    "npm": {
+      "publish": false
     }
-  },
-  "npm": {
-    "publish": false
   }
 }
