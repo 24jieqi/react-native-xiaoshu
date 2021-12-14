@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import type { FC } from 'react'
-import { Dimensions, Image, View } from 'react-native'
+import { Dimensions, View } from 'react-native'
 import { useTheme, widthStyle } from '../theme'
 import { renderTextLikeJSX, isDef } from '../helpers'
-import imgs from './images'
+// import { StepSuccess } from './images'
+import { Icon } from '..'
 import { createStyles } from './style'
 import type { StepsItemPropsType } from './interface'
 import { maxSteps, StepsContext } from '.'
@@ -23,7 +24,15 @@ const Step: FC<StepsItemPropsType> = props => {
 
   switch (resStatus) {
     case 'finish':
-      resIcon = <Image source={imgs.stepSuccess} style={STYLES.dotActive} />
+      resIcon = (
+        <View style={STYLES.dotActive}>
+          <Icon.SuccessOutLine
+            color={THEME_VAR.steps_background_color}
+            size={THEME_VAR.steps_icon_success_active_size}
+          />
+        </View>
+      )
+      // resIcon = <StepSuccess style={STYLES.dotActive} />
       titleStyle = STYLES.activeTitleText
       break
     case 'wait':

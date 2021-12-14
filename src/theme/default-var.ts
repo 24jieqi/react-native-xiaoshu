@@ -322,6 +322,7 @@ export const steps_padding_vertical = padding_md
 export const steps_padding_horizontal = padding_lg
 export const steps_icon_dot_size = 10
 export const steps_icon_dot_active_size = 16
+export const steps_icon_success_active_size = 16
 export const steps_title_size = font_size_h5
 export const steps_title_color = white
 

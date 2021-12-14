@@ -51,6 +51,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
     dotActive: {
       width: themeVar.steps_icon_dot_active_size,
       height: themeVar.steps_icon_dot_active_size,
+      backgroundColor: themeVar.white,
+      borderRadius: themeVar.steps_icon_dot_size,
     },
     titleText: {
       fontSize: themeVar.steps_title_size,
