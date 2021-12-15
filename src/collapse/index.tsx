@@ -32,7 +32,7 @@ const Collapse: React.FC<CollapseProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
   const onAnimationEndPersistFn = usePersistFn((v: boolean) => {
-    onAnimationEnd && onAnimationEnd(v)
+    onAnimationEnd?.(v)
   })
   /** 记录当前是否课件，在不断 onLayout 的时候可以有一个判断的依据 */
   const Visible = useRef(

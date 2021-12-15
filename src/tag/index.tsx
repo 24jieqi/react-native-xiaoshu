@@ -72,27 +72,27 @@ const Tag: React.FC<TagProps> = ({
   ])
 
   const innerStyles: StyleProp<ViewStyle> = [
-    /**基础样式 */
+    /** 基础样式 */
     STYLES.inner,
-    /**类型样式 */
+    /** 类型样式 */
     outwardInnerStyle,
     hairline ? STYLES.border_width_hairline : null,
     size === 'large' && STYLES.border_radius_large,
     round && STYLES.border_radius_round,
     mark && STYLES.inner_mark,
-    /**外部样式 */
+    /** 外部样式 */
     innerStyle,
   ]
 
   const textStyleSummary = StyleSheet.flatten<TextStyle>([
-    /**基础样式 */
+    /** 基础样式 */
     STYLES.text,
-    /**类型样式 */
+    /** 类型样式 */
     outwardTextStyle,
     STYLES?.[padding_vertical_size],
     STYLES?.[padding_horizontal_size],
     size === 'large' && STYLES.font_size_large,
-    /**外部样式 */
+    /** 外部样式 */
     isDef(textColor) && {
       color: textColor,
     },

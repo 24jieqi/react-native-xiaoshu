@@ -54,7 +54,7 @@ export const genIcon = ({
       const THEME_VAR = useTheme()
       /** 适用于点击的属性 */
       const touchableOpacityProps = pickTouchablePropsField(restProps)
-      /** 剔除点击相关的属性*/
+      /** 剔除点击相关的属性 */
       const svgProps = omitTouchablePropsField(restProps)
       /** viewBox 的尺寸 */
       const viewBoxSize =

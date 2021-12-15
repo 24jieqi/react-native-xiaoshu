@@ -57,6 +57,7 @@ const NumberInput = forwardRef<RNTextInput, NumberInputProps>(
     }, [value])
 
     const responseValue = useCallback(
+      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
       (t: string, sync: boolean = false) => {
         if (isDef(t) && t !== '') {
           // 格式化值

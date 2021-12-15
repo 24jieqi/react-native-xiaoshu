@@ -41,7 +41,9 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   const [state, setState] = useState({
     active: false,
     ctxMaxHeight: 0,
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     ctxStyle: {} as ViewStyle,
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     shadeStyle: {} as ViewStyle,
     position: 'bottom' as PopupPosition,
     value: getDefaultValue(value, defaultValue),
@@ -65,6 +67,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
 
   const onPressText = useCallback(() => {
     // 计算 Menu 的 Top 和元素高度
+    // eslint-disable-next-line max-params
     config.MenuRef.current.measure((x, y, width, height, pageX, pageY) => {
       const topHeight = pageY - insets.top
       const bottomHeight = windowHeight - pageY - height - insets.bottom
@@ -119,7 +122,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
       value: o.value,
       active: false,
     })
-    onChange && onChange(o.value)
+    onChange?.(o.value)
   }
 
   const shadeStyles: ViewStyle[] = [

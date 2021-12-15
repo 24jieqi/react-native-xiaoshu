@@ -82,6 +82,7 @@ const Overlay: React.FC<OverlayProps> = ({
   if (!localVisible) {
     // TODO 优化文档报错
     // 直接返回 null dumi 报错 -、-
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>
   }
 

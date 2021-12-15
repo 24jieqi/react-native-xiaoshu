@@ -30,7 +30,7 @@ const Progress: React.FC<ProgressProps> = ({
 }) => {
   const AnimatedValue = useRef(new Animated.Value(0)).current
   const onAnimationEndPersistFn = usePersistFn(() => {
-    onAnimationEnd && onAnimationEnd()
+    onAnimationEnd?.()
   })
   const themeVar = useTheme()
 

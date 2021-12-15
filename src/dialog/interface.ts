@@ -165,8 +165,8 @@ export interface DialogInputOptions extends DialogInputProps {}
 export interface DialogInstance {
   (p: DialogOptions): Promise<DialogAction>
   Component: React.FC<DialogProps>
-  confirm(p: DialogOptions): Promise<DialogAction>
-  input(p: DialogInputOptions): void
+  confirm: (p: DialogOptions) => Promise<DialogAction>
+  input: (p: DialogInputOptions) => void
   // clear(all: boolean | number): void;
   // setDefaultOptions(
   //   type: DialogType | DialogProps,

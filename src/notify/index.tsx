@@ -15,7 +15,7 @@ const Notify: NotifyInstance = options => {
       ref={NotifyRef}
       onClosed={() => {
         Portal.remove(key)
-        opts.onClosed && opts.onClosed()
+        opts.onClosed?.()
       }}
     />,
   )

@@ -13,7 +13,7 @@ const ActionSheet: ActionSheetInstance = opts => {
         onClosed={() => {
           Portal.remove(key)
 
-          opts.onClosed && opts.onClosed()
+          opts.onClosed?.()
         }}
         callback={(action, item, index) => {
           if (action === 'item' && item && (index || index === 0)) {

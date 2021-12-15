@@ -102,7 +102,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
               }
               onPress={() => {
                 if (!item.disabled && !item.loading) {
-                  onSelect && onSelect(item, index)
+                  onSelect?.(item, index)
                 }
               }}>
               <View style={STYLES.btn}>

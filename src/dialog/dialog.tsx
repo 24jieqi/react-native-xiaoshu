@@ -66,11 +66,11 @@ const Dialog: React.FC<DialogProps> = ({
   )
   const onOpenPersistFn = usePersistFn(() => {
     showDialog(true)
-    onOpenFn && onOpenFn()
+    onOpenFn?.()
   })
   const onClosePersistFn = usePersistFn(() => {
     showDialog(false)
-    onCloseFn && onCloseFn()
+    onCloseFn?.()
   })
 
   const titleJSX = renderTextLikeJSX(title, STYLES.title_text)

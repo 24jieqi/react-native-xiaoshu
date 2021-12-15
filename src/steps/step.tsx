@@ -9,7 +9,7 @@ import { createStyles } from './style'
 import type { StepsItemPropsType } from './interface'
 import { maxSteps, StepsContext } from '.'
 
-/**Step */
+/** Step */
 const Step: FC<StepsItemPropsType> = props => {
   const { status, icon, index, title } = props
   const { current, data } = useContext(StepsContext)

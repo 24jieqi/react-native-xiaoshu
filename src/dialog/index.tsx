@@ -17,7 +17,7 @@ const Dialog: DialogInstance = opts => {
         onClosed={() => {
           Portal.remove(key)
 
-          opts.onClosed && opts.onClosed()
+          opts.onClosed?.()
         }}
         callback={action => {
           resolve(action)
@@ -48,7 +48,7 @@ Dialog.input = opts => {
       {...opts}
       onClosed={() => {
         Portal.remove(key)
-        opts.onClosed && opts.onClosed()
+        opts.onClosed?.()
       }}
     />,
   )

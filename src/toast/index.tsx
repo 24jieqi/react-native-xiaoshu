@@ -29,6 +29,7 @@ const defaultOptions: ToastOptions = {
   loadingType: 'circular',
 }
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 let defaultOptionsMap = {} as OptionsMap
 
 let currentOptions = {
@@ -57,7 +58,7 @@ const Toast: ToastInstance = options => {
       ref={ToastRef}
       onClosed={() => {
         Portal.remove(key)
-        opts.onClosed && opts.onClosed()
+        opts.onClosed?.()
       }}
     />,
   )
@@ -130,6 +131,7 @@ Toast.resetDefaultOptions = type => {
     defaultOptionsMap[type] = null
   } else {
     currentOptions = { ...defaultOptions }
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     defaultOptionsMap = {} as OptionsMap
   }
 }

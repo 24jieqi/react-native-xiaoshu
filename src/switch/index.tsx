@@ -57,12 +57,12 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
   const active = localValue === activeValue
 
   const onPressTouchable = () => {
-    onPress && onPress()
+    onPress?.()
     if (!disabled && !loading) {
       const newValue = active ? inactiveValue : activeValue
       const doChange = () => {
         setLocalValue(newValue)
-        onChange && onChange(newValue)
+        onChange?.(newValue)
       }
 
       if (beforeChange) {

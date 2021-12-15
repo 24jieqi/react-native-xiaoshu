@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import React, { PureComponent } from 'react'
 import { View, StyleSheet } from 'react-native'
 export type State = {

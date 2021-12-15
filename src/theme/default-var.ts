@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import type { TextStyle, ViewStyle } from 'react-native'
 
 // Padding

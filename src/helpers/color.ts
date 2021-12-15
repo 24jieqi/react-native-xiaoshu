@@ -10,15 +10,15 @@ export const hex2rgba = (color: string, transparency = 0.8) => {
   // 如果是16进制颜色
   if (sColor && reg.test(sColor)) {
     if (sColor.length === 4) {
-      var sColorNew = '#'
-      for (var i = 1; i < 4; i += 1) {
+      let sColorNew = '#'
+      for (let i = 1; i < 4; i += 1) {
         sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1))
       }
       sColor = sColorNew
     }
-    //处理六位的颜色值
-    var sColorChange = []
-    for (var i = 1; i < 7; i += 2) {
+    // 处理六位的颜色值
+    const sColorChange = []
+    for (let i = 1; i < 7; i += 2) {
       // eslint-disable-next-line radix
       sColorChange.push(parseInt('0x' + sColor.slice(i, i + 2)))
     }

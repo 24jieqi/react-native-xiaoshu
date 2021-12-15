@@ -23,12 +23,12 @@ const SelectPopupMethod: React.FC<SelectPopupMethodProps> = ({
       v: SelectPopupValue | SelectPopupValue[],
       o: SelectPopupOption | SelectPopupOption[],
     ) => {
-      onChange && onChange(v, o)
+      onChange?.(v, o)
       setVisible(false)
     },
   )
   const onClosePersistFn = usePersistFn(() => {
-    onClose && onClose()
+    onClose?.()
     setVisible(false)
   })
 

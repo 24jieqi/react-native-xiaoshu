@@ -136,11 +136,10 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
    * 点击确定按钮
    */
   const onPressOk = () => {
-    onChange &&
-      onChange(
-        selectedKeys,
-        options.filter(opt => selectedKeys.indexOf(opt.value) > -1),
-      )
+    onChange?.(
+      selectedKeys,
+      options.filter(opt => selectedKeys.indexOf(opt.value) > -1),
+    )
   }
 
   return (
@@ -194,9 +193,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
 
           {multiple ? (
             <View style={STYLES.btn}>
-              <Button type="primary" onPress={onPressOk}>
-                确定
-              </Button>
+              <Button type="primary" onPress={onPressOk} text="确定" />
             </View>
           ) : null}
         </View>

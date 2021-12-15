@@ -35,10 +35,11 @@ const useLoop = (
     }
 
     loop()
-    ;() => {
+
+    return () => {
       stop = true
 
-      action && action.stop()
+      action?.stop()
     }
   }, [AnimatedValue, initValue, config.duration, config.toValue, config.easing])
 }

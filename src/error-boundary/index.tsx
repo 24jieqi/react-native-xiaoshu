@@ -21,29 +21,29 @@ const ERROR_PAGE_STYLE: ViewStyle = {
  * @description 一般用于应用根组件，捕获 React 内产生的问题。
  */
 class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
-  state: ErrorBoundaryState = {
-    error: null,
-  }
-
-  static getDerivedStateFromError(error: Error) {
+  public static getDerivedStateFromError(error: Error) {
     // 更新 state，下次渲染可以展示错误相关的 UI
     return { error }
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
+  public state: ErrorBoundaryState = {
+    error: null,
+  }
+
+  public componentDidCatch(error: Error, info: ErrorInfo) {
     this.props.onError?.(error, info)
   }
 
   /**
    * 点击清空错误，重新渲染子组件
    */
-  onPressReload = () => {
+  public onPressReload = () => {
     this.setState({
       error: null,
     })
   }
 
-  render() {
+  public render() {
     if (this.state.error) {
       // 渲染出错时的 UI
       if (this.props.renderError) {

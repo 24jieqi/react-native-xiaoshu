@@ -13,15 +13,16 @@ const SelectPopup: SelectPopupInstance = opt =>
       <SelectPopupMethod
         {...opt}
         onChange={(v, o) => {
-          opt.onChange && opt.onChange(v, o)
+          opt.onChange?.(v, o)
           resolve(v)
         }}
         onClose={() => {
-          opt.onClose && opt.onClose()
+          opt.onClose?.()
+          // eslint-disable-next-line prefer-promise-reject-errors
           reject()
         }}
         onClosed={() => {
-          opt.onClosed && opt.onClosed()
+          opt.onClosed?.()
 
           Portal.remove(key)
         }}

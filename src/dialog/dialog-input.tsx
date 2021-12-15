@@ -60,7 +60,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
     setState({
       value: t,
     })
-    onChangeText && onChangeText(t)
+    onChangeText?.(t)
   })
 
   const genOnPressBtn = (action: Exclude<DialogAction, 'overlay'>) => () => {

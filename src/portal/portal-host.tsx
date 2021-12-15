@@ -1,3 +1,7 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable no-unmodified-loop-condition */
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import React, { createContext, Component } from 'react'
 import type { EmitterSubscription } from 'react-native'
 import {
