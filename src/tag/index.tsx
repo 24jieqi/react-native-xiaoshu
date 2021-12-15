@@ -55,7 +55,6 @@ const Tag: React.FC<TagProps> = ({
       case 'flat':
         tempInnerStyle.backgroundColor = hex2rgba(mainColor, 0.1)
         tempInnerStyle.borderColor = hex2rgba(mainColor, 0.1)
-
         tempTextStyle.color = mainColor
         break
       default:
