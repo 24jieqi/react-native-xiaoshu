@@ -57,9 +57,8 @@ doc:reset
 
 ```bash
 |-- button
-|--|-- demo
+|--|-- __fixtures__
 |--|--|-- basic.tsx  ## 案例、测试代码，用在 DEMO App、在线文档
-|--|--|-- doc.tsx  ## 在线文档页面 DEMO 代码，基本是模板代码
 |--|-- index.tsx  ## 组件实现代码
 |--|-- index.md  ## 在线文档入口页面
 |--|-- interface.ts  ## 组件对外的接口
