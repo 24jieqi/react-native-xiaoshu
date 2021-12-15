@@ -6,8 +6,8 @@ React Native UI library
 
 <div align="center">
 
-![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu?style=flat-square)
-![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg?style=flat-square)
+![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu)
+![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg)
 ![](https://img.shields.io/badge/language-typescript-blue.svg)
 
 </div>
