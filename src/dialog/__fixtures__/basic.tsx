@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Dialog, Toast } from 'react-native-xiaoshu'
+import {
+  Cell,
+  CellGroup,
+  Dialog,
+  Toast,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDialog: React.FC = () => {
   const [state, setState] = useState({

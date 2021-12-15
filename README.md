@@ -86,3 +86,6 @@ yarn build
 
 - [x] 构建产物不包含 `demo`、`_demo`，已更换文件夹名称为 `__fixtures__`
 - [x] 构建 TypeScript 声明时，静态资源报错（已使用 SVG 的方式代替图片）
+- [x] 文档部署
+- [x] issus 到改 bug 更规范
+- [x] 生成 changelog，并且规范话

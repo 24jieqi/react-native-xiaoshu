@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import { NoticeBar, Icon } from 'react-native-xiaoshu'
+import { NoticeBar, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 let timer = 0
 

@@ -3,7 +3,7 @@ import type { ViewStyle } from 'react-native'
 import { View, Platform } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { useTheme } from 'react-native-xiaoshu'
+import { useTheme } from '@fruits-chain/react-native-xiaoshu'
 
 import FocusAwareStatusBar from '../focus-aware-status-bar'
 import type { PageProps } from './interface'

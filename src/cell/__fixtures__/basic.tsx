@@ -1,7 +1,12 @@
 import React from 'react'
 import { Text, ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Icon, Toast } from 'react-native-xiaoshu'
+import {
+  Cell,
+  CellGroup,
+  Icon,
+  Toast,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const msg = (t: string) => () => {
   Toast({ message: t, overlay: false, closeOnPress: true })

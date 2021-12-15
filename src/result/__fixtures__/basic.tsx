@@ -10,7 +10,7 @@ import {
   ResultIconError,
   Icon,
   Button,
-} from 'react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicResult: React.FC = () => {
   return (

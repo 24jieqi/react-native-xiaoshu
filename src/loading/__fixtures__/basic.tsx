@@ -1,7 +1,11 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import { Loading, LoadingCircular, LoadingSpinner } from 'react-native-xiaoshu'
+import {
+  Loading,
+  LoadingCircular,
+  LoadingSpinner,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicLoading: React.FC = () => {
   return (

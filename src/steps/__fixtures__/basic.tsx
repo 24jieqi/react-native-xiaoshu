@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, Text, View } from 'react-native'
-import { Steps } from 'react-native-xiaoshu'
+import { Steps } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDemo: React.FC = () => {
   return (

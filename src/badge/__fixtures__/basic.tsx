@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
-import { Badge } from 'react-native-xiaoshu'
+import { Badge } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicBadge: React.FC = () => {
   return (

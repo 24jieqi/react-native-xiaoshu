@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
-import { Cell, CellGroup, TextInput, Button, Icon } from 'react-native-xiaoshu'
+import {
+  Cell,
+  CellGroup,
+  TextInput,
+  Button,
+  Icon,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTextInput: React.FC = () => {
   const [value, setValue] = useState('')

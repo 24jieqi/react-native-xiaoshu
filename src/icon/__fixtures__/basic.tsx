@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 import type { ViewStyle } from 'react-native'
 import { ScrollView, View } from 'react-native'
 
-import { CellGroup, Icon, Row, Col, Button } from 'react-native-xiaoshu'
+import {
+  CellGroup,
+  Icon,
+  Row,
+  Col,
+  Button,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const colStyle: ViewStyle = {
   // backgroundColor: '#f30',

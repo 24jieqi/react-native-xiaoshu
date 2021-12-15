@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
-import { Button, Icon, useTheme } from 'react-native-xiaoshu'
+import { Button, Icon, useTheme } from '@fruits-chain/react-native-xiaoshu'
 
 const onPress = () => {
   console.log('点击按钮')

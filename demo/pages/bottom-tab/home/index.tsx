@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { useTheme } from 'react-native-xiaoshu'
+import { useTheme } from '@fruits-chain/react-native-xiaoshu'
 import Layout from '@/layouts/layout'
 import type { BottomTabScreenProps } from '@/routes'
 

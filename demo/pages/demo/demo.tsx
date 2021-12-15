@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, CellGroup } from 'react-native-xiaoshu'
+import { Cell, CellGroup } from '@fruits-chain/react-native-xiaoshu'
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
 

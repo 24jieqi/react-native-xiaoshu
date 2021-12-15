@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'react-native'
-import { useTheme } from 'react-native-xiaoshu'
+import { useTheme } from '@fruits-chain/react-native-xiaoshu'
 
 import Layout from '@/layouts/layout'
 import type { RootStackScreenProps } from '@/routes'

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import { Switch } from 'react-native-xiaoshu'
+import { Switch } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicSwitch: React.FC = () => {
   const [state, setState] = useState(true)

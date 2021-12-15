@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { Empty, CellGroup, Icon } from 'react-native-xiaoshu'
+import { Empty, CellGroup, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Tag, Cell, CellGroup, Toast } from 'react-native-xiaoshu'
+import { Tag, Cell, CellGroup, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (

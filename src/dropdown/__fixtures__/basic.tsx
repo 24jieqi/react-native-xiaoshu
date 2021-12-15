@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { CellGroup, DropdownMenu, DropdownItem } from 'react-native-xiaoshu'
+import {
+  CellGroup,
+  DropdownMenu,
+  DropdownItem,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const itemOptions = [
   { label: '全部商品', value: null },

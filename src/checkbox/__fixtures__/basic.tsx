@@ -1,6 +1,10 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
-import { CheckboxIcon, Checkbox, Icon } from 'react-native-xiaoshu'
+import {
+  CheckboxIcon,
+  Checkbox,
+  Icon,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCheckbox: React.FC = () => {
   return (

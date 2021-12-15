@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
-import { Row, Col } from 'react-native-xiaoshu'
+import { Row, Col } from '@fruits-chain/react-native-xiaoshu'
 
 const Styles = StyleSheet.create({
   page: {
