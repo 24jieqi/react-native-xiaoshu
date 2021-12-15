@@ -1,6 +1,7 @@
 module.exports = {
   scopes: [
     'ci',
+    'docs',
     'ActionSheet',
     'Badge',
     'Button',
