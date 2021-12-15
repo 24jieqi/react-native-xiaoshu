@@ -1,4 +1,16 @@
-# react-native-xiaoshu
+<h1 align="center">React Native Xiaoshu</h1>
+
+<div align="center">
+React Native UI library
+</div>
+
+<div align="center">
+
+![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu?style=flat-square)
+![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg?style=flat-square)
+![](https://img.shields.io/badge/language-typescript-blue.svg)
+
+</div>
 
 ## 开发
 
@@ -16,6 +28,9 @@ yarn ios
 
 ## Android
 yarn android
+
+## 提交代码
+yarn commit
 ```
 
 ## 文档
@@ -86,6 +101,6 @@ yarn build
 
 - [x] 构建产物不包含 `demo`、`_demo`，已更换文件夹名称为 `__fixtures__`
 - [x] 构建 TypeScript 声明时，静态资源报错（已使用 SVG 的方式代替图片）
-- [x] 文档部署
-- [x] issus 到改 bug 更规范
-- [x] 生成 changelog，并且规范话
+- [ ] 文档部署
+- [ ] issus 到改 bug 更规范
+- [ ] 生成 changelog，并且规范话
