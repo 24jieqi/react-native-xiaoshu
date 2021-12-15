@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
-import { Divider, Button, Flex } from 'react-native-xiaoshu'
+import { Divider, Button, Flex } from '@fruits-chain/react-native-xiaoshu'
 
 const Circle = (props: { size?: number }) => {
   const size = props.size || 20

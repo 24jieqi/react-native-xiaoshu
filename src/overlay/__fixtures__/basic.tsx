@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native'
 
-import { Overlay, Button } from 'react-native-xiaoshu'
+import { Overlay, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicOverlay: React.FC = () => {
   const [state, setState] = useState<Record<'normal' | 'inset', boolean>>({

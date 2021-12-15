@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import { Progress, ProgressPage, Button } from 'react-native-xiaoshu'
+import {
+  Progress,
+  ProgressPage,
+  Button,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicProgress: React.FC = () => {
   const [state, setState] = useState({

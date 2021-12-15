@@ -58,7 +58,7 @@ yarn add babel-plugin-import --dev
 
 ```tsx | pure
 import React from 'react'
-import { Provider, Button } from 'react-native-xiaoshu'
+import { Provider, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const App: React.FC = () => {
   return (

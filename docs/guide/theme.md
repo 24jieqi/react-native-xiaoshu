@@ -46,7 +46,7 @@ react-native-extended-stylesheet 的方式劣势
 
 ```tsx | pure
 import React from 'react'
-import { Provider, Button } from 'react-native-xiaoshu'
+import { Provider, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const customThemeVar = {
   primary: '#f30',

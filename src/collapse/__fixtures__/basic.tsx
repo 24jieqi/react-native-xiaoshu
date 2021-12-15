@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import { Collapse, CellGroup } from 'react-native-xiaoshu'
+import { Collapse, CellGroup } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCollapse: React.FC = () => {
   return (

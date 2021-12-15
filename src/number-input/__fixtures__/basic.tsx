@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
-import { Cell, CellGroup, NumberInput, helpers } from 'react-native-xiaoshu'
+import {
+  Cell,
+  CellGroup,
+  NumberInput,
+  helpers,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const formatterTo = (t: string, sign?: string) => {
   !sign && (sign = ',')

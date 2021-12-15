@@ -1,7 +1,12 @@
 import React from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Toast, Icon } from 'react-native-xiaoshu'
+import {
+  Cell,
+  CellGroup,
+  Toast,
+  Icon,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicToast: React.FC = () => {
   return (

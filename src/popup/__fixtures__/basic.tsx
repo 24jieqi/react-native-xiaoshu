@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
-import type { PopupPosition } from 'react-native-xiaoshu'
-import { Popup, PopupHeader, Button } from 'react-native-xiaoshu'
+import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu'
+import { Popup, PopupHeader, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const Styles = StyleSheet.create({
   hint: {

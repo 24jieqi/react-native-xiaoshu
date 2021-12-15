@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import type { SelectPopupOption } from 'react-native-xiaoshu'
-import { Cell, CellGroup, SelectPopup } from 'react-native-xiaoshu'
+import type { SelectPopupOption } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Cell,
+  CellGroup,
+  SelectPopup,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicActionSheet: React.FC = () => {
   const [state, setState] = useState({

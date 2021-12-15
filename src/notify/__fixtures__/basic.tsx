@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Notify } from 'react-native-xiaoshu'
+import { Cell, CellGroup, Notify } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicNotify: React.FC = () => {
   const [state, setState] = useState({

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-import { NavBar } from 'react-native-xiaoshu'
+import { NavBar } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicNavBar: React.FC = () => {
   return (

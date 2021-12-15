@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Text } from 'react-native'
 
-import { ErrorBoundary } from 'react-native-xiaoshu'
+import { ErrorBoundary } from '@fruits-chain/react-native-xiaoshu'
 
 const ErrorApp = () => {
   const randomData = useMemo(() => {

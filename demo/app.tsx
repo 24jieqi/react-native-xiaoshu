@@ -1,5 +1,5 @@
 import React from 'react'
-import { Provider } from 'react-native-xiaoshu'
+import { Provider } from '@fruits-chain/react-native-xiaoshu'
 
 import Routes from './routes'
 
