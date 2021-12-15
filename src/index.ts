@@ -61,6 +61,9 @@ export { default as LoadingSpinner } from './loading/spinner'
 export type { NavBarProps } from './nav-bar/interface'
 export { default as NavBar } from './nav-bar'
 
+export type { NoticeBarProps } from './notice-bar/interface'
+export { default as NoticeBar } from './notice-bar'
+
 export type { NotifyProps, NotifyOptions } from './notify/interface'
 export { default as Notify } from './notify'
 
@@ -112,6 +115,3 @@ export { default as Theme, useTheme } from './theme'
 
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'
-
-export type { NoticeBarProps } from './notice-bar/interface'
-export { default as NoticeBar } from './notice-bar'
