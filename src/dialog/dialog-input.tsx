@@ -48,7 +48,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const boxStyle = useMemo<ViewStyle>(
     () => ({
       marginHorizontal: themeVar.padding_md,
-      marginVertical: themeVar.padding_md,
+      marginTop: themeVar.padding_md,
       overflow: 'hidden',
       borderStartColor: '#f30',
       // height: 100,

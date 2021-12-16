@@ -21,7 +21,7 @@ const BasicDialog: React.FC = () => {
     <ScrollView>
       <CellGroup title="基础用法" bordered={false}>
         <Cell
-          title="提示弹窗"
+          title="提示弹窗: 固定 200 宽"
           isLink
           onPress={() => {
             Dialog({
@@ -34,11 +34,24 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
+          title="只有 title"
+          isLink
+          onPress={() => {
+            Dialog({
+              title:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森',
+            }).then(action => {
+              console.log('提示弹窗：', action)
+            })
+          }}
+        />
+        <Cell
           title="提示弹窗（无标题）"
           isLink
           onPress={() => {
             Dialog({
-              message: '代码是写出来给人看的，附带能在机器上运行',
+              message:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森',
             }).then(action => {
               console.log('提示弹窗（无标题）：', action)
             })
@@ -47,6 +60,27 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="确认弹窗"
           isLink
+          onPress={() => {
+            Dialog.confirm({
+              title: '提示',
+              message: '一袋米要抗几楼，一袋米要抗二楼',
+            })
+          }}
+        />
+        <Cell
+          title="确认弹窗:多行文字"
+          isLink
+          onPress={() => {
+            Dialog.confirm({
+              title: '提示',
+              message:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森',
+            })
+          }}
+        />
+        <Cell
+          title="确认弹窗:自定义颜色、文案"
+          isLink
           bordered={false}
           onPress={() => {
             Dialog.confirm({
@@ -54,6 +88,8 @@ const BasicDialog: React.FC = () => {
               onClosed: () => {
                 console.log('onClosedOnClosedOnClosedOnClosed')
               },
+              confirmButtonColor: '#F30',
+              confirmButtonText: '删除',
               beforeClose: action =>
                 new Promise(resolve => {
                   setTimeout(() => {
@@ -92,11 +128,27 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="普通文字必须有值"
+          title="普通文字:提示文案"
           isLink
           onPress={() => {
             Dialog.input({
-              title: '输入框？',
+              title: '输入框',
+              placeholder: '请输入内容',
+              message:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
+              onPressConfirm: t => {
+                console.log(t)
+                return true
+              },
+            })
+          }}
+        />
+        <Cell
+          title="普通文字:必须有值"
+          isLink
+          onPress={() => {
+            Dialog.input({
+              title: '输入框',
               placeholder: '请输入内容',
               onPressConfirm: t => {
                 if (t.trim()) {
@@ -115,7 +167,7 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="普通文字_默认值"
+          title="普通文字:默认值"
           isLink
           onPress={() => {
             Dialog.input({
@@ -130,12 +182,31 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="多行文字_默认值"
+          title="多行文字:默认值"
           isLink
           onPress={() => {
             Dialog.input({
               title: '输入框？',
               placeholder: '请输入内容',
+              type: 'textarea',
+              defaultValue: '343434',
+
+              onPressConfirm: t => {
+                console.log(t)
+                return true
+              },
+            })
+          }}
+        />
+        <Cell
+          title="多行文字:提示文案"
+          isLink
+          onPress={() => {
+            Dialog.input({
+              title: '输入框？',
+              placeholder: '请输入内容',
+              message:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
               type: 'textarea',
               defaultValue: '343434',
 

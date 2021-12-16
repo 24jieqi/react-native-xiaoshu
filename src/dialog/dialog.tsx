@@ -89,19 +89,17 @@ const Dialog: React.FC<DialogProps> = ({
         {message}
       </Text>
     )
-  ) : (
-    children
-  )
+  ) : null
 
   const cancelButtonProps = {
-    color: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
+    textColor: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
     text: cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
-    color: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
+    textColor: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
     text: confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
@@ -136,11 +134,13 @@ const Dialog: React.FC<DialogProps> = ({
           <View style={STYLES.content_isolated}>{messageJSX}</View>
         )}
 
+        {children}
+
         <View style={STYLES.footer}>
           {showCancelButton ? (
             <Button
               {...cancelButtonProps}
-              ghost
+              type="link"
               size="large"
               style={STYLES.btn}
             />
@@ -148,12 +148,13 @@ const Dialog: React.FC<DialogProps> = ({
           {showConfirmButton ? (
             <Button
               {...confirmButtonProps}
-              ghost
+              type="link"
               size="large"
               style={[
                 STYLES.btn,
                 showCancelButton ? STYLES.btn_border_left : null,
               ]}
+              textStyle={STYLES.btn_confirm}
             />
           ) : null}
         </View>

@@ -120,10 +120,7 @@ export type DialogInputState = {
 } & DialogMethodState
 
 export interface DialogInputProps
-  extends Omit<
-    DialogCommon,
-    'visible' | 'onPressOverlay' | 'message' | 'messageAlign' | 'theme'
-  > {
+  extends Omit<DialogCommon, 'visible' | 'onPressOverlay' | 'messageAlign'> {
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */

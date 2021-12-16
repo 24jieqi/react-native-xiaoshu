@@ -15,14 +15,17 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     title_text: {
       textAlign: 'center',
-      paddingTop: themeVar.dialog_header_padding_top,
+      marginTop: themeVar.dialog_header_margin_top,
       lineHeight: themeVar.dialog_header_line_height,
       fontWeight: themeVar.dialog_header_font_weight,
       fontSize: themeVar.dialog_font_size,
+      paddingHorizontal: themeVar.dialog_message_padding_horizontal,
+      // backgroundColor: '#f30',
     },
 
     content_isolated: {
-      minHeight: 104,
+      marginTop:
+        themeVar.dialog_footer_margin_top - themeVar.dialog_message_margin_top,
       alignItems: 'center',
       justifyContent: 'center',
       // backgroundColor: '#f30', // to test ui
@@ -30,14 +33,13 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     message_text: {
       paddingHorizontal: themeVar.dialog_message_padding_horizontal,
-      paddingVertical: themeVar.dialog_message_padding_vertical,
+      marginTop: themeVar.dialog_message_margin_top,
       fontSize: themeVar.dialog_message_font_size,
       lineHeight: themeVar.dialog_message_line_height,
-      // textAlign: messageAlign,
+      // backgroundColor: '#f30',
     },
 
     message_text_has_title: {
-      paddingTop: themeVar.dialog_has_title_message_padding_top,
       color: themeVar.dialog_has_title_message_text_color,
     },
 
@@ -45,6 +47,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexDirection: 'row',
       borderTopWidth: 1,
       borderColor: themeVar.border_color,
+      marginTop: themeVar.dialog_footer_margin_top,
     },
 
     btn: {
@@ -55,6 +58,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderRadius: 0,
       height: themeVar.dialog_button_height,
       backgroundColor: 'transparent',
+    },
+
+    btn_confirm: {
+      fontWeight: '500',
     },
 
     btn_border_left: {
