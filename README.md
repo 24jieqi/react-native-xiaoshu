@@ -4,11 +4,13 @@
 React Native UI library
 </div>
 
+[xiaoshu-npm-url]: https://www.npmjs.com/package/@fruits-chain/react-native-xiaoshu
+
 <div align="center">
 
-![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu)
-![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg)
-![](https://img.shields.io/badge/language-typescript-blue.svg)
+[![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]
+[![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]
+[![](https://img.shields.io/badge/language-typescript-blue.svg)](https://www.typescriptlang.org/)
 
 </div>
 
@@ -55,7 +57,7 @@ doc:reset
 
 ## 组件文件夹格式
 
-```bash
+```
 |-- button
 |--|-- __fixtures__
 |--|--|-- basic.tsx  ## 案例、测试代码，用在 DEMO App、在线文档
@@ -71,7 +73,7 @@ doc:reset
 
 当前的访问路径是 `/component/basic/button`
 
-```bash
+```
 ---
 title: Button 按钮  ## 当前页面的标题
 nav:  ## 当前页面在某个顶部导航栏下面
