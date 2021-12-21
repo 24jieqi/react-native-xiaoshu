@@ -31,6 +31,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       margin: 0,
       borderWidth: 0,
       textAlignVertical: 'center',
+      color: themeVar.text_input_color,
     },
 
     text_input_disabled: {
@@ -44,7 +45,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     input_fix_text: {
-      color: themeVar.text_color_1,
+      color: themeVar.text_input_fix_text_color,
     },
 
     input_fix_text_pre: {
@@ -73,7 +74,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     addon_text: {
-      color: themeVar.text_color_1,
+      color: themeVar.text_input_addon_text_color,
     },
 
     addon_text_before: {
