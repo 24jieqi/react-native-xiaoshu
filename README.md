@@ -11,6 +11,9 @@ React Native UI library
 [![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]
 [![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]
 [![](https://img.shields.io/badge/language-typescript-blue.svg)](https://www.typescriptlang.org/)
+<br>
+[![Platform - Android](https://img.shields.io/badge/platform-Android-3ddc84.svg?logo=android)](https://www.android.com)
+[![Platform - iOS](https://img.shields.io/badge/platform-iOS-000.svg?logo=apple)](https://developer.apple.com/ios)
 
 </div>
 
