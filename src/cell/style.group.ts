@@ -23,8 +23,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderStyle: 'solid',
       // borderColor: '#000', // to test ui
       borderColor: themeVar.cell_border_color,
-      borderTopWidth: StyleSheet.hairlineWidth,
-      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
     },
   })
 }
