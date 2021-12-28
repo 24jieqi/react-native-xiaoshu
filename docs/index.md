@@ -1,5 +1,5 @@
 ---
-title: react-native-xiaoshu - Vant for React Native.
+title: react-native-xiaoshu - React Native UI library
 hero:
   title: react-native-xiaoshu
   desc: 🤖 轻量、可靠的 React Native 组件库

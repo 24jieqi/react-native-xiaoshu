@@ -10,6 +10,11 @@
     "lib/",
     "src/"
   ],
+  "keywords": [
+    "react-native",
+    "ui-components",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/hjfruit/react-native-xiaoshu"
@@ -18,7 +23,7 @@
     "url": "https://github.com/hjfruit/react-native-xiaoshu/issues"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "android": "react-native run-android",
