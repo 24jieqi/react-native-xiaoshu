@@ -1,6 +1,6 @@
 import type { ViewStyle } from 'react-native'
 import { StyleSheet } from 'react-native'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 
 import type { ThemeVarType } from '../theme'
 import type { PopupPosition } from './interface'

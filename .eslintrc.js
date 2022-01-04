@@ -4,4 +4,13 @@ module.exports = {
   globals: {
     JSX: true,
   },
+  rules: {
+    // react-native-builder-bob 无法简单插入 Babel 插件，在开发的时候尽力更加规范
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: ['lodash'],
+      },
+    ],
+  },
 }
