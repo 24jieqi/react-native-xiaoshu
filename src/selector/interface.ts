@@ -1,9 +1,9 @@
 import type React from 'react'
 import type { PopupPropsCommon } from '../popup/interface'
 
-export type SelectPopupValue = number | string
+export type SelectorValue = number | string
 
-export type SelectPopupOption = {
+export type SelectorOption = {
   /**
    * 显示的文案
    */
@@ -12,7 +12,7 @@ export type SelectPopupOption = {
   /**
    * 唯一标识
    */
-  value: SelectPopupValue
+  value: SelectorValue
 
   /**
    * 是否禁用
@@ -21,7 +21,7 @@ export type SelectPopupOption = {
   disabled?: boolean
 }
 
-export interface SelectPopupProps
+export interface SelectorProps
   extends Omit<PopupPropsCommon, 'closeOnPressOverlay' | 'onPressOverlay'> {
   /**
    * 点击遮罩层关闭
@@ -49,27 +49,27 @@ export interface SelectPopupProps
   /**
    * 当前选中的值
    */
-  value?: SelectPopupValue[] | SelectPopupValue
+  value?: SelectorValue[] | SelectorValue
 
   /**
    * 当前的选项
    */
-  options: SelectPopupOption[]
+  options: SelectorOption[]
 
   /**
    * 选择后的回调
    */
   onChange: (
-    value: SelectPopupValue[] | SelectPopupValue,
-    options: SelectPopupOption | SelectPopupOption[],
+    value: SelectorValue[] | SelectorValue,
+    options: SelectorOption | SelectorOption[],
   ) => void
 
   /**
    * 当值变化的时候立即响应
    */
   onChangeImmediate?: (
-    v: SelectPopupValue[] | SelectPopupValue,
-  ) => SelectPopupValue[] | SelectPopupValue
+    v: SelectorValue[] | SelectorValue,
+  ) => SelectorValue[] | SelectorValue
 
   /**
    * 顶部安全高度
@@ -78,19 +78,17 @@ export interface SelectPopupProps
   safeAreaInsetTop?: number
 }
 
-export interface SelectPopupMethodProps
-  extends Omit<SelectPopupProps, 'visible'> {}
+export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {}
 
-export interface SelectPopupOptions
-  extends Omit<SelectPopupMethodProps, 'onChange'> {
+export interface SelectorOptions extends Omit<SelectorMethodProps, 'onChange'> {
   // 是否可以删了，函数的方式直接用 .then 操作
   onChange?: (
-    value: SelectPopupValue[] | SelectPopupValue,
-    options: SelectPopupOption | SelectPopupOption[],
+    value: SelectorValue[] | SelectorValue,
+    options: SelectorOption | SelectorOption[],
   ) => void
 }
 
-export interface SelectPopupInstance {
-  (p: SelectPopupOptions): Promise<SelectPopupValue[] | SelectPopupValue>
-  Component: React.FC<SelectPopupProps>
+export interface SelectorInstance {
+  (p: SelectorOptions): Promise<SelectorValue[] | SelectorValue>
+  Component: React.FC<SelectorProps>
 }

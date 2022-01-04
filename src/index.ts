@@ -90,14 +90,11 @@ export { default as Result } from './result'
 export * from './result/icons'
 
 export type {
-  SelectPopupValue,
-  SelectPopupOption,
-  SelectPopupProps,
-} from './select-popup/interface'
-export {
-  default as SelectPopup,
-  conversionSelectPopupOptions,
-} from './select-popup'
+  SelectorValue,
+  SelectorOption,
+  SelectorProps,
+} from './selector/interface'
+export { default as Selector, conversionSelectorOptions } from './selector'
 
 export { default as Steps } from './steps'
 

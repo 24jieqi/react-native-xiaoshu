@@ -17,14 +17,14 @@ import CheckboxIcon from '../checkbox/icon'
 import { SuccessOutLine } from '../icon'
 import { useTheme, widthStyle } from '../theme'
 import { getDefaultValue } from '../helpers'
-import type { SelectPopupProps, SelectPopupValue } from './interface'
+import type { SelectorProps, SelectorValue } from './interface'
 import { createStyles } from './style'
 
 /**
- * SelectPopup 弹出层式 Select
+ * Selector 弹出层式 Select
  * @description 类似 Web 端的 Select 组件，可以多选、单选。
  */
-const SelectPopup: React.FC<SelectPopupProps> = ({
+const Selector: React.FC<SelectorProps> = ({
   title,
   options,
   value,
@@ -43,13 +43,13 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   const insets = useSafeAreaInsets()
   const windowDimensions = useWindowDimensions()
   const ScrollViewRef = useRef<ScrollView>(null)
-  const [selectedKeys, setSelectedKeys] = useState<SelectPopupValue[]>(
+  const [selectedKeys, setSelectedKeys] = useState<SelectorValue[]>(
     multiple
       ? value
-        ? ([] as SelectPopupValue[]).concat(value as SelectPopupValue[])
+        ? ([] as SelectorValue[]).concat(value as SelectorValue[])
         : []
       : value
-      ? [value as SelectPopupValue]
+      ? [value as SelectorValue]
       : [],
   )
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -93,10 +93,10 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
     setSelectedKeys(
       multiple
         ? value
-          ? ([] as SelectPopupValue[]).concat(value as SelectPopupValue[])
+          ? ([] as SelectorValue[]).concat(value as SelectorValue[])
           : []
         : value
-        ? [value as SelectPopupValue]
+        ? [value as SelectorValue]
         : [],
     )
   }, [value, multiple])
@@ -104,7 +104,7 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   /**
    * 生成每次点击的回调
    */
-  const genOnPressOption = (key: SelectPopupValue) => () => {
+  const genOnPressOption = (key: SelectorValue) => () => {
     if (multiple) {
       // 多选维护内部变量
       setSelectedKeys(v => {
@@ -114,17 +114,17 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
           const newValues = v.concat(key)
 
           return onChangeImmediate
-            ? (onChangeImmediate(newValues) as SelectPopupValue[])
+            ? (onChangeImmediate(newValues) as SelectorValue[])
             : newValues
         }
 
         return onChangeImmediate
-          ? (onChangeImmediate(other) as SelectPopupValue[])
+          ? (onChangeImmediate(other) as SelectorValue[])
           : other
       })
     } else {
       const newValue = onChangeImmediate
-        ? (onChangeImmediate(key) as SelectPopupValue)
+        ? (onChangeImmediate(key) as SelectorValue)
         : key
 
       // 单选直接出发回调
@@ -202,4 +202,4 @@ const SelectPopup: React.FC<SelectPopupProps> = ({
   )
 }
 
-export default memo(SelectPopup)
+export default memo(Selector)

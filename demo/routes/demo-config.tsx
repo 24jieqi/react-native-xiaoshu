@@ -30,7 +30,7 @@ import DemoNumberInput from '../../src/number-input/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
 import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
 import DemoEmpty from '../../src/empty/__fixtures__/basic'
-import DemoSelectPopup from '../../src/select-popup/__fixtures__/basic'
+import DemoSelector from '../../src/selector/__fixtures__/basic'
 import DemoProgress from '../../src/progress/__fixtures__/basic'
 import DemoCollapse from '../../src/collapse/__fixtures__/basic'
 import DemoFlex from '../../src/flex/__fixtures__/basic'
@@ -67,7 +67,7 @@ export type DemoPaths =
   | 'DemoDropdown'
   | 'DemoCheckbox'
   | 'DemoEmpty'
-  | 'DemoSelectPopup'
+  | 'DemoSelector'
   | 'DemoProgress'
   | 'DemoCollapse'
   | 'DemoFlex'
@@ -292,10 +292,10 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     ),
   },
   {
-    path: 'DemoSelectPopup',
+    path: 'DemoSelector',
     page: () => (
       <DemoWrapper>
-        <DemoSelectPopup />
+        <DemoSelector />
       </DemoWrapper>
     ),
   },

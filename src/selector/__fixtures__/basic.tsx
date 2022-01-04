@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import type { SelectPopupOption } from '@fruits-chain/react-native-xiaoshu'
-import {
-  Cell,
-  CellGroup,
-  SelectPopup,
-} from '@fruits-chain/react-native-xiaoshu'
+import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, CellGroup, Selector } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicActionSheet: React.FC = () => {
   const [state, setState] = useState({
@@ -26,7 +22,7 @@ const BasicActionSheet: React.FC = () => {
           title="没有超过一屏"
           isLink
           onPress={() => {
-            const v: SelectPopupOption[] = []
+            const v: SelectorOption[] = []
 
             for (let index = 0; index < 3; index++) {
               v.push({
@@ -35,7 +31,7 @@ const BasicActionSheet: React.FC = () => {
               })
             }
 
-            SelectPopup({
+            Selector({
               title: '测试选项',
               options: v,
               value: 1,
@@ -50,7 +46,7 @@ const BasicActionSheet: React.FC = () => {
           title="超过一屏"
           isLink
           onPress={() => {
-            const v: SelectPopupOption[] = []
+            const v: SelectorOption[] = []
 
             for (let index = 0; index < 20; index++) {
               v.push({
@@ -59,7 +55,7 @@ const BasicActionSheet: React.FC = () => {
               })
             }
 
-            SelectPopup({
+            Selector({
               title: '测试选项',
               options: v,
             })
@@ -73,7 +69,7 @@ const BasicActionSheet: React.FC = () => {
           title="自定义顶部边距"
           isLink
           onPress={() => {
-            const v: SelectPopupOption[] = []
+            const v: SelectorOption[] = []
 
             for (let index = 0; index < 20; index++) {
               v.push({
@@ -82,7 +78,7 @@ const BasicActionSheet: React.FC = () => {
               })
             }
 
-            SelectPopup({
+            Selector({
               title: '测试选项',
               options: v,
               safeAreaInsetTop: 140,
@@ -97,7 +93,7 @@ const BasicActionSheet: React.FC = () => {
           title="暂无数据"
           isLink
           onPress={() => {
-            SelectPopup({
+            Selector({
               title: '测试选项',
               options: [],
             }).catch(() => {})
@@ -107,7 +103,7 @@ const BasicActionSheet: React.FC = () => {
           title="回调的方式"
           isLink
           onPress={() => {
-            const v: SelectPopupOption[] = []
+            const v: SelectorOption[] = []
 
             for (let index = 0; index < 3; index++) {
               v.push({
@@ -116,7 +112,7 @@ const BasicActionSheet: React.FC = () => {
               })
             }
 
-            SelectPopup({
+            Selector({
               title: '测试选项',
               options: v,
               onChange: (v, o) => {
@@ -130,7 +126,7 @@ const BasicActionSheet: React.FC = () => {
           title="多选"
           isLink
           onPress={() => {
-            const v: SelectPopupOption[] = []
+            const v: SelectorOption[] = []
 
             for (let index = 0; index < 3; index++) {
               v.push({
@@ -139,7 +135,7 @@ const BasicActionSheet: React.FC = () => {
               })
             }
 
-            SelectPopup({
+            Selector({
               multiple: true,
               title: '测试选项',
               options: v,
@@ -155,7 +151,7 @@ const BasicActionSheet: React.FC = () => {
           isLink
           bordered={false}
           onPress={() => {
-            const v: SelectPopupOption[] = []
+            const v: SelectorOption[] = []
 
             for (let index = 0; index < 20; index++) {
               v.push({
@@ -165,7 +161,7 @@ const BasicActionSheet: React.FC = () => {
               })
             }
 
-            SelectPopup({
+            Selector({
               multiple: true,
               title: '测试选项',
               options: v,
@@ -194,7 +190,7 @@ const BasicActionSheet: React.FC = () => {
         />
       </CellGroup>
 
-      <SelectPopup.Component
+      <Selector.Component
         title="这里应该有一个标题"
         visible={state.show}
         options={state.option}

@@ -3,16 +3,16 @@ import React, { useEffect, memo } from 'react'
 import useState from '../hooks/useStateUpdate'
 import { usePersistFn } from '../hooks'
 import type {
-  SelectPopupMethodProps,
-  SelectPopupValue,
-  SelectPopupOption,
+  SelectorMethodProps,
+  SelectorValue,
+  SelectorOption,
 } from './interface'
-import SelectPopup from './select-popup'
+import Selector from './selector'
 
 /**
- * SelectPopup 函数使用时对应需要的组件
+ * Selector 函数使用时对应需要的组件
  */
-const SelectPopupMethod: React.FC<SelectPopupMethodProps> = ({
+const SelectorMethod: React.FC<SelectorMethodProps> = ({
   onChange,
   onClose,
   ...restProps
@@ -20,8 +20,8 @@ const SelectPopupMethod: React.FC<SelectPopupMethodProps> = ({
   const [visible, setVisible] = useState(false)
   const onChangePersistFn = usePersistFn(
     (
-      v: SelectPopupValue | SelectPopupValue[],
-      o: SelectPopupOption | SelectPopupOption[],
+      v: SelectorValue | SelectorValue[],
+      o: SelectorOption | SelectorOption[],
     ) => {
       onChange?.(v, o)
       setVisible(false)
@@ -38,7 +38,7 @@ const SelectPopupMethod: React.FC<SelectPopupMethodProps> = ({
   }, [])
 
   return (
-    <SelectPopup
+    <Selector
       {...restProps}
       visible={visible}
       onChange={onChangePersistFn}
@@ -47,4 +47,4 @@ const SelectPopupMethod: React.FC<SelectPopupMethodProps> = ({
   )
 }
 
-export default memo(SelectPopupMethod)
+export default memo(SelectorMethod)

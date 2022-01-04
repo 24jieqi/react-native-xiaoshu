@@ -103,8 +103,8 @@ const navDatas: {
         name: 'DemoOverlay',
       },
       {
-        title: 'SelectPopup',
-        name: 'DemoSelectPopup',
+        title: 'Selector',
+        name: 'DemoSelector',
       },
     ],
   },

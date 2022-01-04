@@ -1,5 +1,5 @@
 ---
-title: SelectPopup 选择弹窗
+title: Selector 选择弹窗
 nav:
   title: 组件
   path: /component
@@ -9,7 +9,7 @@ group:
   order: 0
 ---
 
-# SelectPopup 弹出层式 Select
+# Selector 弹出层式 Select
 
 > 类似 Web 端的 Select 组件，可以多选、单选。
 

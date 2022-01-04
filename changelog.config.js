@@ -27,7 +27,7 @@ module.exports = {
     'Progress',
     'Provider',
     'Result',
-    'SelectPopup',
+    'Selector',
     'Steps',
     'Switch',
     'Tag',
