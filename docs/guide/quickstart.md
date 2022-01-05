@@ -24,6 +24,9 @@ npm i react-native-xiaoshu
 ## yarn
 yarn add react-native-xiaoshu
 
+## 额外依赖
+yarn add react-native-safe-area-context react-native-svg
+
 ## ios 依赖
 cd ios && pod install
 ```
@@ -47,7 +50,8 @@ yarn add babel-plugin-import --dev
     [
       "import",
       {
-        "libraryName": "react-native-xiaoshu"
+        "libraryName": "@fruits-chain/react-native-xiaoshu",
+        "libraryDirectory": "lib/module" // JavaScript，如果是 TypeScript 可以直接使用 `src`
       }
     ]
   ]
