@@ -51,6 +51,7 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
+    "rc-field-form": "^1.22.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-svg": "^12.1.1"
   },

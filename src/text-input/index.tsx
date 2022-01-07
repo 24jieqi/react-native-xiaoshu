@@ -14,6 +14,7 @@ import type {
   NativeSyntheticEvent,
   TextInputFocusEventData,
   TextInputEndEditingEventData,
+  TextInputChangeEventData,
 } from 'react-native'
 import {
   View,
@@ -77,6 +78,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       suffix,
       inputWidth,
       size = 'middle',
+      onChange,
 
       // TextInput 的属性
       value,
@@ -122,6 +124,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
     const onFocusPersistFn = usePersistFn(onFocus || noop)
     const onBlurPersistFn = usePersistFn(onBlur || noop)
+    const onChangePersistFn = usePersistFn(onChange || noop)
     const formatterPersistFn = usePersistFn(formatter || defaultFormatter)
     const [localValue, setLocalValue] = useState(
       isValue(value) ? value : defaultValue,
@@ -227,6 +230,16 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
         onEndEditingPersistFn(e)
       },
       [onEndEditingPersistFn, formatterPersistFn, formatTrigger],
+    )
+
+    /**
+     * 当文本框内容变化时
+     */
+    const onChangeTextInput = useCallback(
+      (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+        onChangePersistFn(e.nativeEvent.text)
+      },
+      [onChangePersistFn],
     )
 
     /**
@@ -374,6 +387,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
           placeholderTextColor={placeholderTextColor}
           onChangeText={onChangeTextTextInput}
           onEndEditing={onEndEditingTextInput}
+          onChange={onChangeTextInput}
           onFocus={onFocusTextInput}
           onBlur={onBlurTextInput}
           inputAccessoryViewID={

@@ -66,12 +66,20 @@ const navDatas: {
     title: '表单组件',
     datas: [
       {
+        title: 'Form',
+        name: 'DemoForm',
+      },
+      {
         title: 'Checkbox',
         name: 'DemoCheckbox',
       },
       {
         title: 'Switch',
         name: 'DemoSwitch',
+      },
+      {
+        title: 'Field',
+        name: 'DemoField',
       },
     ],
   },

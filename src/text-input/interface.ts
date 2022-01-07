@@ -6,7 +6,7 @@ import type {
   StyleProp,
 } from 'react-native'
 
-export interface TextInputProps extends RNTextInputProps {
+export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
   /**
    * 当设置 addonXxx 的时候就会出现一个组
    */
@@ -117,4 +117,10 @@ export interface TextInputProps extends RNTextInputProps {
    * @default 'middle'
    */
   size?: 'large' | 'middle' | 'small'
+
+  /**
+   * 当文本框内容变化时调用此回调函数。
+   * @description 与原生控件不同，这里的参数直接是值
+   */
+  onChange?: (value: string) => void
 }

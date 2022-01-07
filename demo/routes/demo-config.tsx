@@ -26,7 +26,7 @@ import DemoSteps from '../../src/steps/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoTextInput from '../../src/text-input/__fixtures__/basic'
 import DemoNumberInput from '../../src/number-input/__fixtures__/basic'
-// import DemoField from '../../src/field/__fixtures__/basic'
+import DemoField from '../../src/field/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
 import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
 import DemoEmpty from '../../src/empty/__fixtures__/basic'
@@ -38,6 +38,7 @@ import DemoIcon from '../../src/icon/__fixtures__/basic'
 import DemoResult from '../../src/result/__fixtures__/basic'
 import DemoErrorBoundary from '../../src/error-boundary/__fixtures__/basic'
 import DemoNoticeBar from '../../src/notice-bar/__fixtures__/basic'
+import DemoForm from '../../src/form/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -75,6 +76,7 @@ export type DemoPaths =
   | 'DemoResult'
   | 'DemoErrorBoundary'
   | 'DemoNoticeBar'
+  | 'DemoForm'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -257,16 +259,18 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
       </DemoWrapper>
     ),
   },
-  // {
-  //   path: 'DemoField',
-  //   page: () => (
-  //     <DemoWrapper>
-  //       <KeyboardAwareScrollView>
-  //         <DemoField />
-  //       </KeyboardAwareScrollView>
-  //     </DemoWrapper>
-  //   ),
-  // },
+  {
+    path: 'DemoField',
+    page: () => (
+      <DemoWrapper>
+        <KeyboardAwareScrollView
+          keyboardShouldPersistTaps="handled"
+          onScrollBeginDrag={onScrollBeginDrag}>
+          <DemoField />
+        </KeyboardAwareScrollView>
+      </DemoWrapper>
+    ),
+  },
   {
     path: 'DemoDropdown',
     page: () => (
@@ -352,6 +356,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoNoticeBar />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoForm',
+    page: () => (
+      <DemoWrapper>
+        <DemoForm />
       </DemoWrapper>
     ),
   },

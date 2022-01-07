@@ -47,8 +47,22 @@ export { default as Empty } from './empty'
 export type { ErrorBoundaryProps } from './error-boundary/interface'
 export { default as ErrorBoundary } from './error-boundary'
 
+export type { FieldTextProps } from './field/interface'
+export { default as Field } from './field'
+
 export type { FlexProps, FlexItemProps } from './flex/interface'
 export { default as Flex } from './flex'
+
+export type {
+  FormInstance,
+  FormProps,
+  FormItemProps,
+  ListProps,
+  Rule,
+  RuleObject,
+  RuleRender,
+} from './form'
+export { default as Form, FormItemContext, ListContext } from './form'
 
 export type { RowProps, ColProps } from './grid/interface'
 export { Row, Col } from './grid'
