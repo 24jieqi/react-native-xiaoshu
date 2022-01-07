@@ -1,18 +1,35 @@
-import React, { useRef, useImperativeHandle, forwardRef } from 'react'
+import React, { useImperativeHandle, forwardRef } from 'react'
 import type { FormInstance as RCFormInstance } from 'rc-field-form'
+import type { ValidateErrorEntity } from 'rc-field-form/lib/interface'
 import RCForm from 'rc-field-form'
 
+import Toast from '../toast'
+import useForm from './useForm'
 import type { FormProps } from './interface'
+
+/**
+ * 默认处理错误的回调
+ */
+const defaultOnFinishFailed = (errorInfo: ValidateErrorEntity<unknown>) => {
+  Toast(errorInfo.errorFields[0].errors[0])
+}
 
 const InternalForm: React.ForwardRefRenderFunction<
   RCFormInstance,
   FormProps
-> = (props, ref) => {
-  const FormRef = useRef<RCFormInstance>(null)
+> = ({ onFinishFailed = defaultOnFinishFailed, form, ...restProps }, ref) => {
+  const [wrapForm] = useForm(form)
 
-  useImperativeHandle(ref, () => FormRef.current)
+  useImperativeHandle(ref, () => wrapForm)
 
-  return <RCForm {...props} ref={FormRef} component={false} />
+  return (
+    <RCForm
+      {...restProps}
+      component={false}
+      form={wrapForm}
+      onFinishFailed={onFinishFailed}
+    />
+  )
 }
 
 const Form = forwardRef<RCFormInstance, FormProps>(InternalForm) as <

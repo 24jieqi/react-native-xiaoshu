@@ -363,7 +363,11 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     path: 'DemoForm',
     page: () => (
       <DemoWrapper>
-        <DemoForm />
+        <KeyboardAwareScrollView
+          keyboardShouldPersistTaps="handled"
+          onScrollBeginDrag={onScrollBeginDrag}>
+          <DemoForm />
+        </KeyboardAwareScrollView>
       </DemoWrapper>
     ),
   },

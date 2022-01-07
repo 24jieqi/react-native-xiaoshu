@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import type { FormInstance } from '@fruits-chain/react-native-xiaoshu'
 import {
   CellGroup,
   Form,
@@ -8,16 +9,16 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFormBase: React.FC = () => {
-  const [form] = Form.useForm()
+  const FormRef = useRef<FormInstance>(null)
 
   return (
     <Form
-      form={form}
+      ref={FormRef}
       onFinish={values => {
         console.log(values)
         Toast(JSON.stringify(values))
       }}>
-      <CellGroup title="用户登录 useForm">
+      <CellGroup title="用户登录 useRef">
         <Form.Item
           name="username"
           rules={[
@@ -48,19 +49,17 @@ const BasicFormBase: React.FC = () => {
           text="管理员"
           type="error"
           onPress={() => {
-            form.setFieldsValue({
+            FormRef.current.setFieldsValue({
               username: 'admin',
             })
           }}
         />
 
-        <Button text="提交" type="primary" onPress={form.submit} />
-
         <Button
-          text="重置"
-          type="default"
+          text="提交"
+          type="primary"
           onPress={() => {
-            form.resetFields(['username', 'password'])
+            FormRef.current.submit()
           }}
         />
       </CellGroup>
