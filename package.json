@@ -45,7 +45,10 @@
     "doc:reset": "git reset --hard HEAD^",
     "prepare": "husky install",
     "build": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "release:major": "release-it major",
+    "release:minor": "release-it minor",
+    "release:patch": "release-it patch"
   },
   "dependencies": {
     "lodash": "^4.17.21"
