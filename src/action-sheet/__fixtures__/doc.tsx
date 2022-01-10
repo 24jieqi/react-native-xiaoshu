@@ -1,13 +1,13 @@
 import React from 'react'
+import { Provider } from '@fruits-chain/react-native-xiaoshu'
 
-import Doc from '../../__fixtures__/doc'
 import Basic from './basic'
 
 const BasicActionSheetDoc: React.FC = () => {
   return (
-    <Doc>
+    <Provider>
       <Basic />
-    </Doc>
+    </Provider>
   )
 }
 
