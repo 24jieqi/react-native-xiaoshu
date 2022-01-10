@@ -4,7 +4,10 @@ import type {
   ViewStyle,
   TextStyle,
   StyleProp,
+  TextInput as RNTextInput,
 } from 'react-native'
+
+export type TextInputInstance = RNTextInput
 
 export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
   /**

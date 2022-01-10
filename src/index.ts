@@ -118,7 +118,7 @@ export { default as Switch } from './switch'
 export type { TagProps } from './tag/interface'
 export { default as Tag } from './tag'
 
-export type { TextInputProps } from './text-input/interface'
+export type { TextInputProps, TextInputInstance } from './text-input/interface'
 export { default as TextInput } from './text-input'
 
 export type { ThemeVarType } from './theme'

@@ -39,7 +39,7 @@ import {
   formatNumber,
 } from '../helpers'
 import { createStyles } from './style'
-import type { TextInputProps } from './interface'
+import type { TextInputProps, TextInputInstance } from './interface'
 
 const defaultFormatter = <T,>(t: T): T => t
 
@@ -54,7 +54,7 @@ const iOSPlatform = Platform.OS === 'ios'
  * @description 在和 react-native-keyboard-aware-scroll-view 配合做软键盘适配时，如果是 textarea 类型默认 scrollEnabled 禁用，避免软键盘遮挡输入内容
  * @description 动态切换输入内容可见，请手动控制 secureTextEntry，如果只是切换 type 在 iOS 正式环境可能会不生效
  */
-const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
+const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
   (
     {
       addonGroupStyle,
@@ -130,7 +130,7 @@ const TextInputBase = forwardRef<RNTextInput, TextInputProps>(
       isValue(value) ? value : defaultValue,
     )
     const [focus, setFocus] = useState(false)
-    const TextInputRef = useRef<RNTextInput>(null)
+    const TextInputRef = useRef<TextInputInstance>(null)
     const colorScheme = useColorScheme()
     const THEME_VAR = useTheme()
     const inputAccessoryViewID = useMemo(
