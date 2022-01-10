@@ -15,6 +15,9 @@ export { default as Badge } from './badge'
 export type { ButtonProps } from './button/interface'
 export { default as Button } from './button'
 
+export type { ButtonBarProps } from './button-bar/interface'
+export { default as ButtonBar } from './button-bar'
+
 export type { CellProps, CellGroupProps } from './cell/interface'
 export { default as Cell } from './cell'
 export { default as CellGroup } from './cell/group'

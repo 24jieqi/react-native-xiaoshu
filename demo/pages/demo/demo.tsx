@@ -163,6 +163,10 @@ const navDatas: {
         title: 'TabBar',
         name: 'DemoTabBar',
       },
+      {
+        title: 'ButtonBar',
+        name: 'DemoButtonBar',
+      },
     ],
   },
   {

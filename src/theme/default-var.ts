@@ -143,6 +143,10 @@ export const button_ghost_background_color: string = 'transparent'
 export const button_disabled_opacity = active_opacity
 export const button_active_opacity: number = 0.4
 
+// ButtonBar
+export const button_bar_padding_horizontal = padding_sm
+export const button_bar_button_space: number = 8
+
 // Cell
 export const cell_group_title_padding_horizontal = padding_sm
 export const cell_group_title_padding_top = padding_xs

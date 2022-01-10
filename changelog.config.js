@@ -5,6 +5,7 @@ module.exports = {
     'ActionSheet',
     'Badge',
     'Button',
+    'ButtonBar',
     'Cell',
     'Checkbox',
     'Collapse',
