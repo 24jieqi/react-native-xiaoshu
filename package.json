@@ -159,12 +159,16 @@
           "name": "angular",
           "types": [
             {
-              "type": "feat",
-              "section": "Features"
+              "type": "docs"
             },
             {
-              "type": "fix",
-              "section": "Bug Fixes"
+              "type": "refactor"
+            },
+            {
+              "type": "style"
+            },
+            {
+              "type": "test"
             },
             {}
           ]
