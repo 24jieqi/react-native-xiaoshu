@@ -4,7 +4,7 @@ import type { ThemeVarType } from '../theme'
 
 export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
-    tabBar: {
+    tab_bar: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -14,7 +14,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flex: 1,
     },
 
-    itemText: {
+    item_text: {
       textAlign: 'center',
       fontSize: themeVar.tab_bar_text_font_size,
       marginTop: themeVar.tab_bar_text_margin_top,

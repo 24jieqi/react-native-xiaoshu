@@ -49,7 +49,7 @@ const TabBar: React.FC<TabBarProps> = ({
   }
 
   return (
-    <BottomBar {...restProps} style={STYLES.tabBar}>
+    <BottomBar {...restProps} style={STYLES.tab_bar}>
       {options.map(item => {
         const isActive = item.value === localValue
 
@@ -62,7 +62,7 @@ const TabBar: React.FC<TabBarProps> = ({
             {item.iconRender(isActive ? activeIconColor : iconColor)}
             <Text
               style={[
-                STYLES.itemText,
+                STYLES.item_text,
                 {
                   color: isActive ? activeTextColor : textColor,
                 },
