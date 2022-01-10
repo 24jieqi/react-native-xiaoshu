@@ -1,3 +1,9 @@
+## [0.0.13](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.12...v0.0.13) (2022-01-10)
+
+### Features
+
+- **ButtonBar:** 🎸 新增 ButtonBar 组件 ([8a322a7](https://github.com/hjfruit/react-native-xiaoshu/commit/8a322a7b9eaae89fff1a1cef8e8737175004801f))
+
 ## [0.0.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.11...v0.0.12) (2022-01-10)
 
 ### Features
