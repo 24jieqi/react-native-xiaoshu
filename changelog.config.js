@@ -32,6 +32,7 @@ module.exports = {
     'Selector',
     'Steps',
     'Switch',
+    'TabBar',
     'Tag',
     'TextInput',
     'Theme',

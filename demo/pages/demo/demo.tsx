@@ -159,6 +159,10 @@ const navDatas: {
         title: 'NoticeBar',
         name: 'DemoNoticeBar',
       },
+      {
+        title: 'TabBar',
+        name: 'DemoTabBar',
+      },
     ],
   },
   {

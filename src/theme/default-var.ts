@@ -96,6 +96,10 @@ export const badge_font_weight: TextStyle['fontWeight'] = 'bold'
 export const badge_background_color = error
 export const badge_dot_size: number = 8
 
+// BottomBar
+export const bottom_bar_height: number = 50
+export const bottom_bar_background_color: string = '#fff'
+
 // Button
 export const button_mini_height: number = 24
 export const button_mini_font_size = font_size_subtitle
@@ -110,7 +114,6 @@ export const button_large_height: number = 50
 export const button_large_font_size = font_size_h4
 export const button_large_loading_size: number = 24
 export const button_default_height: number = 44
-// export const button_default_line_height: number = 1.2
 export const button_default_font_size = font_size_h4
 export const button_default_loading_size: number = 24
 export const button_default_color = primary
@@ -332,6 +335,14 @@ export const switch_border_width = border_width_base
 export const switch_border_style: ViewStyle['borderStyle'] = 'solid'
 export const switch_border_color: string = 'rgba(0, 0, 0, 0.1)'
 
+// TabBar
+export const tab_bar_text_font_size: number = 10
+export const tab_bar_text_margin_top: number = 4
+export const tab_bar_text_color = text_color_3
+export const tab_bar_icon_color = text_color_3
+export const tab_bar_active_text_color = primary
+export const tab_bar_active_icon_color = primary
+
 // Tag
 export const tag_padding_horizontal = padding_base
 export const tag_text_color = white
@@ -357,7 +368,7 @@ export const tag_ghost_bg_color: string = 'transparent'
 export const text_input_selection_color = primary
 export const text_input_placeholder_text_color = text_color_4
 export const text_input_color = text_color_1
-export const text_input_disabled_color: string = '#8C9199'
+export const text_input_disabled_color = text_color_3
 export const text_input_disabled_background_color: string = '#EFEFF1'
 export const text_input_large_font_size = font_size_h4
 export const text_input_middle_font_size = font_size_h5

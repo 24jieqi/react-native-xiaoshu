@@ -39,6 +39,7 @@ import DemoResult from '../../src/result/__fixtures__/basic'
 import DemoErrorBoundary from '../../src/error-boundary/__fixtures__/basic'
 import DemoNoticeBar from '../../src/notice-bar/__fixtures__/basic'
 import DemoForm from '../../src/form/__fixtures__/basic'
+import DemoTabBar from '../../src/tab-bar/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -77,6 +78,7 @@ export type DemoPaths =
   | 'DemoErrorBoundary'
   | 'DemoNoticeBar'
   | 'DemoForm'
+  | 'DemoTabBar'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -368,6 +370,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
           onScrollBeginDrag={onScrollBeginDrag}>
           <DemoForm />
         </KeyboardAwareScrollView>
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoTabBar',
+    page: () => (
+      <DemoWrapper>
+        <DemoTabBar />
       </DemoWrapper>
     ),
   },

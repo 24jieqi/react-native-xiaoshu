@@ -115,6 +115,9 @@ export { default as Steps } from './steps'
 export type { SwitchProps } from './switch/interface'
 export { default as Switch } from './switch'
 
+export type { TabBarProps } from './tab-bar/interface'
+export { default as TabBar } from './tab-bar'
+
 export type { TagProps } from './tag/interface'
 export { default as Tag } from './tag'
 
