@@ -34,7 +34,20 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="只有 title"
+          title="提示弹窗: 默认"
+          isLink
+          onPress={() => {
+            Dialog({
+              title: '这里是标题',
+              message:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
+            }).then(action => {
+              console.log('提示弹窗：', action)
+            })
+          }}
+        />
+        <Cell
+          title="提示弹窗:无内容"
           isLink
           onPress={() => {
             Dialog({
@@ -46,7 +59,7 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="提示弹窗（无标题）"
+          title="提示弹窗:无标题"
           isLink
           onPress={() => {
             Dialog({
@@ -58,7 +71,7 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="确认弹窗"
+          title="确认弹窗:单行文字"
           isLink
           onPress={() => {
             Dialog.confirm({
@@ -74,7 +87,20 @@ const BasicDialog: React.FC = () => {
             Dialog.confirm({
               title: '提示',
               message:
-                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森',
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
+            })
+          }}
+        />
+        <Cell
+          title="确认弹窗:删除"
+          isLink
+          onPress={() => {
+            Dialog.confirm({
+              title: '提示',
+              message:
+                '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
+              confirmButtonColor: '#F30',
+              confirmButtonText: '删除',
             })
           }}
         />
@@ -84,7 +110,8 @@ const BasicDialog: React.FC = () => {
           bordered={false}
           onPress={() => {
             Dialog.confirm({
-              message: '确认弹窗',
+              title: '提示',
+              message: '确定要删除这个数据吗？',
               onClosed: () => {
                 console.log('onClosedOnClosedOnClosedOnClosed')
               },

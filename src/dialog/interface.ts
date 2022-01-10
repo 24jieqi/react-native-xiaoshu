@@ -17,7 +17,7 @@ interface DialogCommon extends PopupPropsCommon {
 
   /**
    * 弹窗宽度
-   * @default 320
+   * @default 300
    */
   width?: number | string
 

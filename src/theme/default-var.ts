@@ -137,7 +137,6 @@ export const button_link_border_color: string = 'transparent'
 export const button_border_width = border_width_base
 export const button_border_radius = border_radius_sm
 export const button_ghost_background_color: string = 'transparent'
-// export const button_ghost_underlay_color = border_color // 按钮按下去的颜色
 export const button_disabled_opacity = active_opacity
 export const button_active_opacity: number = 0.4
 
@@ -188,26 +187,22 @@ export const collapse_content_background_color = white
 export const collapse_content_padding_horizontal = padding_md
 
 // Dialog
-export const dialog_width: number = 320
-// export const dialog_small_screen_width: string = '90%'
-export const dialog_font_size = font_size_h4
+export const dialog_width: number = 300
 export const dialog_transition = animation_duration_base
 export const dialog_border_radius: number = 16
 export const dialog_background_color = white
 export const dialog_header_font_weight: TextStyle['fontWeight'] = 'bold'
 export const dialog_header_line_height: number = 24
-export const dialog_header_margin_top: number = 32
-// export const dialog_header_isolated_padding_vertical = padding_lg
+export const dialog_header_margin_top: number = 30
+export const dialog_header_font_size: number = 18
 export const dialog_message_margin_top: number = 12
 export const dialog_message_padding_horizontal = padding_lg
-export const dialog_message_font_size = font_size_h4
-export const dialog_message_line_height: number = 24
-// export const dialog_message_max_height: number = 60 // 60vh
-export const dialog_has_title_message_text_color = text_color_2
-// export const dialog_has_title_message_padding_top = padding_xs
+export const dialog_message_font_size: number = 16
+export const dialog_message_line_height: number = 22
+export const dialog_message_text_color = text_color_2
 export const dialog_footer_margin_top: number = 32
-export const dialog_button_height: number = 54
-// export const dialog_round_button_height: number = 36
+export const dialog_button_height: number = 52
+export const dialog_button_font_size: number = 18
 export const dialog_confirm_button_text_color = primary
 export const dialog_cancel_button_text_color = text_color_2
 
@@ -294,13 +289,8 @@ export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 // Popup
 export const popup_background_color = white
 export const popup_round_border_radius = border_radius_lg
-// export const popup_header_height: number = 50
-// export const popup_header_font_size = font_size_h3
-// export const popup_header_text_color = text_color_1
-// export const popup_header_padding_horizontal = padding_xs
 export const popup_close_icon_size: number = 24
 export const popup_close_icon_color = text_color_2
-// export const popup_close_icon_margin = padding_md
 
 // Progress
 export const progress_height: number = 4
@@ -347,7 +337,6 @@ export const tag_padding_horizontal = padding_base
 export const tag_text_color = white
 export const tag_font_size = font_size_subtitle
 export const tag_border_radius: number = 2
-// export const tag_line_height: number = 16
 export const tag_small_padding_vertical: number = 0
 export const tag_small_padding_horizontal: number = 0
 export const tag_medium_padding_vertical: number = 2
@@ -363,7 +352,6 @@ export const tag_warning_color = warning
 export const tag_error_color = error
 export const tag_default_color = text_color_2
 export const tag_ghost_bg_color: string = 'transparent'
-// export const tag_ghost_background_color = white
 
 // TextInput
 export const text_input_selection_color = primary

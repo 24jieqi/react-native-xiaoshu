@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, memo } from 'react'
+import React, { useEffect, useMemo, useRef, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Keyboard } from 'react-native'
 
 import TextInput from '../text-input'
+import type { TextInputInstance } from '../text-input/interface'
 import { useTheme } from '../theme'
 import useState from '../hooks/useStateUpdate'
 import { usePersistFn } from '../hooks'
-import { callInterceptor, isDef } from '../helpers'
+import { callInterceptor, isDef, getDefaultValue } from '../helpers'
 import Dialog from './dialog'
 import type {
   DialogInputProps,
@@ -20,6 +21,7 @@ import type {
  */
 const DialogInput: React.FC<DialogInputProps> = ({
   showCancelButton = true,
+  duration,
 
   beforeClose,
   onPressCancel,
@@ -37,7 +39,8 @@ const DialogInput: React.FC<DialogInputProps> = ({
 
   ...restProps
 }) => {
-  const themeVar = useTheme()
+  const TextInputRef = useRef<TextInputInstance>(null)
+  const THEME_VAR = useTheme()
   const [state, setState] = useState<DialogInputState>({
     visible: false,
     value: defaultValue,
@@ -47,14 +50,16 @@ const DialogInput: React.FC<DialogInputProps> = ({
   })
   const boxStyle = useMemo<ViewStyle>(
     () => ({
-      marginHorizontal: themeVar.padding_md,
-      marginTop: themeVar.padding_md,
+      marginHorizontal: THEME_VAR.padding_md,
+      marginTop: THEME_VAR.padding_md,
       overflow: 'hidden',
       borderStartColor: '#f30',
       // height: 100,
     }),
-    [themeVar.padding_md],
+    [THEME_VAR.padding_md],
   )
+
+  duration = getDefaultValue(duration, THEME_VAR.dialog_transition)
 
   const onChangeTextPersistFn = usePersistFn((t: string) => {
     setState({
@@ -102,7 +107,14 @@ const DialogInput: React.FC<DialogInputProps> = ({
     setState({
       visible: true,
     })
-  }, [])
+
+    // 当对话框完全显示的时候再去聚焦
+    if (autoFocus) {
+      setTimeout(() => {
+        TextInputRef.current.focus()
+      }, duration)
+    }
+  }, [duration, autoFocus])
 
   useEffect(() => {
     if (isDef(value)) {
@@ -125,11 +137,11 @@ const DialogInput: React.FC<DialogInputProps> = ({
       <View style={boxStyle}>
         <TextInput
           {...resetTextInputProps}
+          ref={TextInputRef}
           type={type}
           placeholder={placeholder}
           value={state.value}
           onChangeText={onChangeTextPersistFn}
-          autoFocus={autoFocus}
           bordered
         />
       </View>

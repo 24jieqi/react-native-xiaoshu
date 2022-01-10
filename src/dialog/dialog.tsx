@@ -84,7 +84,6 @@ const Dialog: React.FC<DialogProps> = ({
           {
             textAlign: messageAlign,
           },
-          title ? STYLES.message_text_has_title : null,
         ]}>
         {message}
       </Text>

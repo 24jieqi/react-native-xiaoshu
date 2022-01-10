@@ -18,7 +18,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       marginTop: themeVar.dialog_header_margin_top,
       lineHeight: themeVar.dialog_header_line_height,
       fontWeight: themeVar.dialog_header_font_weight,
-      fontSize: themeVar.dialog_font_size,
+      fontSize: themeVar.dialog_header_font_size,
       paddingHorizontal: themeVar.dialog_message_padding_horizontal,
       // backgroundColor: '#f30',
     },
@@ -36,11 +36,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
       marginTop: themeVar.dialog_message_margin_top,
       fontSize: themeVar.dialog_message_font_size,
       lineHeight: themeVar.dialog_message_line_height,
+      color: themeVar.dialog_message_text_color,
       // backgroundColor: '#f30',
-    },
-
-    message_text_has_title: {
-      color: themeVar.dialog_has_title_message_text_color,
     },
 
     footer: {
@@ -58,10 +55,11 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderRadius: 0,
       height: themeVar.dialog_button_height,
       backgroundColor: 'transparent',
+      fontSize: themeVar.dialog_button_font_size,
     },
 
     btn_confirm: {
-      fontWeight: '500',
+      fontWeight: 'bold',
     },
 
     btn_border_left: {
