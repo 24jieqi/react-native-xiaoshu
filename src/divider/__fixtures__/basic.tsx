@@ -52,10 +52,6 @@ const BasicDivider: React.FC = () => {
         文字
       </Divider>
 
-      <Divider>文字</Divider>
-
-      <Divider>文字</Divider>
-
       <View style={{ height: 20 }} />
     </ScrollView>
   )
