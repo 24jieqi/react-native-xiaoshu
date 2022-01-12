@@ -10,13 +10,21 @@ const BasicDivider: React.FC = () => {
 
       <Divider />
 
-      <View style={{ height: 20 }} />
+      <Divider type="light" />
+
+      <Divider dashed />
+
+      <Divider dashed type="light" />
+
+      <Text>自定义颜色</Text>
+
+      <Divider color="#000" />
+
+      <Divider color="#000" dashed />
 
       <Text>展示文本</Text>
 
       <Divider>文字</Divider>
-
-      <View style={{ height: 20 }} />
 
       <Text>内容位置</Text>
 
@@ -24,28 +32,29 @@ const BasicDivider: React.FC = () => {
 
       <Divider contentPosition="right">文字</Divider>
 
-      <View style={{ height: 20 }} />
-
       <Text>虚线</Text>
 
       <Divider dashed>文字</Divider>
 
-      <View style={{ height: 20 }} />
+      <Divider contentPosition="left" dashed>
+        文字
+      </Divider>
+
+      <Divider contentPosition="right" dashed>
+        文字
+      </Divider>
 
       <Text>自定义样式</Text>
 
       <Divider
         style={{ backgroundColor: '#999' }}
-        textStyle={{ color: '#690' }}
-        borderStyle={{ borderColor: '#666' }}>
+        textStyle={{ color: '#690' }}>
         文字
       </Divider>
 
-      <Divider leftBorderStyle={{ borderColor: '#000' }}>文字</Divider>
+      <Divider>文字</Divider>
 
-      <Divider rightBorderStyle={{ borderColor: '#000', borderWidth: 4 }}>
-        文字
-      </Divider>
+      <Divider>文字</Divider>
 
       <View style={{ height: 20 }} />
     </ScrollView>

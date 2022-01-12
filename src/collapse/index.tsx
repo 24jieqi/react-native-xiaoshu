@@ -156,7 +156,7 @@ const Collapse: React.FC<CollapseProps> = ({
         style={[bodyPadding ? STYLES.body_padding : undefined, bodyStyle]}>
         {renderBody ? renderBody(show) : children}
 
-        {bodyBordered ? <Divider /> : null}
+        {bodyBordered ? <Divider type="light" /> : null}
       </View>
     </Animated.View>
   )

@@ -12,34 +12,20 @@ export interface DividerProps {
   textStyle?: StyleProp<TextStyle>
 
   /**
-   * 自定义线样式
+   * 颜色模式
+   * @default 'dark'
    */
-  borderStyle?: StyleProp<ViewStyle>
-
-  /**
-   * 左边线的样式
-   */
-  leftBorderStyle?: StyleProp<ViewStyle>
-
-  /**
-   * 右边线的样式
-   */
-  rightBorderStyle?: StyleProp<ViewStyle>
+  type?: 'dark' | 'light'
 
   /**
    * 是否使用虚线
-   *
-   * @default false
-   * @deprecated not work, to see https://github.com/facebook/react-native/issues/28695
    */
   dashed?: boolean
 
   /**
-   * 是否使用 0.5px 线
-   *
-   * @default false
+   * 自定义颜色
    */
-  hairline?: boolean
+  color?: string
 
   /**
    * 内容位置，可选值为 `'left' | 'center' | 'right'`
@@ -47,4 +33,18 @@ export interface DividerProps {
    * @default 'center'
    */
   contentPosition?: 'left' | 'center' | 'right'
+}
+
+export interface DividerLineProps
+  extends Required<Pick<DividerProps, 'color' | 'dashed'>> {
+  /**
+   * 所处位置
+   */
+  position: 'left' | 'center' | 'right'
+
+  /**
+   * 是否自适应 占满剩余控件
+   * @default true
+   */
+  adaptive?: boolean
 }
