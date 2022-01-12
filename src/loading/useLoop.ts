@@ -11,19 +11,17 @@ const useLoop = (
 ) => {
   useEffect(() => {
     let stop = false
-    let action: Animated.CompositeAnimation
+    const action = Animated.timing(AnimatedValue, {
+      toValue: config.toValue,
+      duration: config.duration,
+      easing: config.easing,
+      useNativeDriver: true,
+    })
 
     const loop = () => {
       if (stop) {
         return
       }
-
-      action = Animated.timing(AnimatedValue, {
-        toValue: config.toValue,
-        duration: config.duration,
-        easing: config.easing,
-        useNativeDriver: true,
-      })
 
       AnimatedValue.setValue(initValue)
 
@@ -39,7 +37,7 @@ const useLoop = (
     return () => {
       stop = true
 
-      action?.stop()
+      action.stop()
     }
   }, [AnimatedValue, initValue, config.duration, config.toValue, config.easing])
 }
