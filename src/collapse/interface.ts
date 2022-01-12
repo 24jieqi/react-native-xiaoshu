@@ -74,4 +74,10 @@ export interface CollapseProps {
    * @default true
    */
   bodyPadding?: boolean
+
+  /**
+   * 内容区域是否有分割线
+   * @default true
+   */
+  bodyBordered?: boolean
 }

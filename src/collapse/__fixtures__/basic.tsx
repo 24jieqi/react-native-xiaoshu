@@ -7,6 +7,18 @@ const BasicCollapse: React.FC = () => {
   return (
     <ScrollView>
       <CellGroup title="基础用法" bordered={false}>
+        <Collapse title="标题11">
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+          <View style={{ height: 20 }} />
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+        </Collapse>
+
+        <Collapse title="标题12" bodyPadding={false}>
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+          <View style={{ height: 20 }} />
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+        </Collapse>
+
         <Collapse
           title={
             <View>
@@ -43,9 +55,9 @@ const BasicCollapse: React.FC = () => {
 
         <Collapse
           title="自定义标题颜色"
-          titleStyle={{ backgroundColor: '#f30' }}
+          titleStyle={{ backgroundColor: '#f5f5f5' }}
           titleTextStyle={{
-            color: '#fff',
+            color: '#f30',
           }}
           iconColor="#fff">
           <Text style={{ lineHeight: 20 }}>文案</Text>
@@ -53,7 +65,7 @@ const BasicCollapse: React.FC = () => {
           <Text style={{ lineHeight: 20 }}>文案</Text>
         </Collapse>
 
-        <Collapse title="title文案" bodyStyle={{ backgroundColor: '#f30' }}>
+        <Collapse title="title文案" bodyStyle={{ backgroundColor: '#f5f5f5' }}>
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />
           <Text style={{ lineHeight: 20 }}>文案</Text>
