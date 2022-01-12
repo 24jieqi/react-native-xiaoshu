@@ -67,7 +67,7 @@ const BasicIcon: React.FC = () => {
             <Icon.CrossOutline />
           </Col>
           <Col span={3} style={colStyle}>
-            <Icon.SuccessOutLine />
+            <Icon.SuccessOutline />
           </Col>
           <Col span={3} style={colStyle}>
             <Icon.PlusOutline />
@@ -76,7 +76,7 @@ const BasicIcon: React.FC = () => {
             <Icon.EyeOutline />
           </Col>
           <Col span={3} style={colStyle}>
-            <Icon.EyeCloseOutLine />
+            <Icon.EyeCloseOutline />
           </Col>
           <Col span={3} style={colStyle}>
             <Icon.CircleOutline />
@@ -85,7 +85,7 @@ const BasicIcon: React.FC = () => {
             <Icon.WarningOutline />
           </Col>
           <Col span={3} style={colStyle}>
-            <Icon.SuccessCircleOutLine />
+            <Icon.SuccessCircleOutline />
           </Col>
           <Col span={3} style={colStyle}>
             <Icon.CrossCircleOutline />
@@ -185,15 +185,15 @@ const BasicIcon: React.FC = () => {
             />
           </Col>
           <Col span={3} style={colStyle}>
-            {toggle ? <Icon.CheckedFill /> : <Icon.CircleOutline />}
+            {toggle ? <Icon.SuccessCircleOutline /> : <Icon.CircleOutline />}
           </Col>
           <Col span={3} style={colStyle}>
-            {toggle ? <Icon.CheckedFill /> : <Icon.SuccessOutLine />}
+            {toggle ? <Icon.CheckedFill /> : <Icon.SuccessOutline />}
           </Col>
 
           <Col span={3} offset={6} style={colStyle}>
             {toggle ? (
-              <Icon.CheckedFill disabled />
+              <Icon.SuccessCircleOutline disabled />
             ) : (
               <Icon.CircleOutline disabled />
             )}
@@ -202,7 +202,7 @@ const BasicIcon: React.FC = () => {
             {toggle ? (
               <Icon.CheckedFill disabled />
             ) : (
-              <Icon.SuccessOutLine disabled />
+              <Icon.SuccessOutline disabled />
             )}
           </Col>
         </Row>

@@ -26,7 +26,7 @@ const Step: FC<StepsItemPropsType> = props => {
     case 'finish':
       resIcon = (
         <View style={STYLES.dotActive}>
-          <Icon.SuccessOutLine
+          <Icon.SuccessOutline
             color={THEME_VAR.steps_background_color}
             size={THEME_VAR.steps_icon_success_active_size}
           />
