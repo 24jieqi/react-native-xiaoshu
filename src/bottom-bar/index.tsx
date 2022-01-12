@@ -25,7 +25,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
   const viewStyles = useMemo<StyleProp<ViewStyle>>(
     () => [
       {
-        height: THEME_VAR.bottom_bar_height,
+        height:
+          THEME_VAR.bottom_bar_height + (safeAreaInsetBottom ? bottom : 0),
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
       },
