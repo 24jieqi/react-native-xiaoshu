@@ -1,8 +1,9 @@
 import React, { memo, useMemo } from 'react'
 import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
-import { useTheme, widthStyle } from '../theme'
+
 import { CrossOutline } from '../icon'
+import { useTheme, widthStyle } from '../theme'
 import { hex2rgba, isDef } from '../helpers'
 import type { TagProps } from './interface'
 import { createStyles } from './style'
@@ -78,6 +79,8 @@ const Tag: React.FC<TagProps> = ({
     outwardInnerStyle,
     hairline ? STYLES.border_width_hairline : null,
     size === 'large' && STYLES.border_radius_large,
+    STYLES[padding_vertical_size],
+    STYLES[padding_horizontal_size],
     round && STYLES.border_radius_round,
     mark && STYLES.inner_mark,
     /** 外部样式 */
@@ -89,8 +92,6 @@ const Tag: React.FC<TagProps> = ({
     STYLES.text,
     /** 类型样式 */
     outwardTextStyle,
-    STYLES?.[padding_vertical_size],
-    STYLES?.[padding_horizontal_size],
     size === 'large' && STYLES.font_size_large,
     /** 外部样式 */
     isDef(textColor) && {
@@ -108,6 +109,7 @@ const Tag: React.FC<TagProps> = ({
             onPress={onPressClose}
             size={textStyleSummary.fontSize}
             color={textStyleSummary.color as string}
+            style={{}}
           />
         ) : null}
       </View>
