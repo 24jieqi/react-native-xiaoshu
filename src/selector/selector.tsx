@@ -14,7 +14,7 @@ import PopupHeader from '../popup/header'
 import Empty from '../empty'
 import Button from '../button'
 import CheckboxIcon from '../checkbox/icon'
-import { SuccessOutLine } from '../icon'
+import { SuccessOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
 import { getDefaultValue } from '../helpers'
 import type { SelectorProps, SelectorValue } from './interface'
@@ -180,7 +180,7 @@ const Selector: React.FC<SelectorProps> = ({
                         onPress={genOnPressOption(item.value)}
                       />
                     ) : isSelected ? (
-                      <SuccessOutLine
+                      <SuccessOutline
                         color={THEME_VAR.primary}
                         size={THEME_VAR.checkbox_icon_size}
                       />

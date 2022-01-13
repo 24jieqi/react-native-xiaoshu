@@ -20,6 +20,7 @@ export interface TagProps extends ViewProps {
 
   /**
    * 大小
+   * @default 'medium'
    */
   size?: 'large' | 'medium' | 'small'
 

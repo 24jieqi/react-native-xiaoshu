@@ -1,11 +1,13 @@
 import React, { useRef, useCallback, useState, memo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
-import { Animated, View, TouchableHighlight } from 'react-native'
+import { Animated, View } from 'react-native'
 
 import { getArrowOutline } from '../icon/helper/arrow'
-import { usePersistFn, useUpdateEffect } from '../hooks'
-import { easing, renderTextLikeJSX, isValue } from '../helpers'
+import Cell from '../cell'
+import Divider from '../divider'
 import { useTheme, widthStyle } from '../theme'
+import { usePersistFn, useUpdateEffect } from '../hooks'
+import { easing, isValue } from '../helpers'
 import type { CollapseProps } from './interface'
 import { createStyles } from './style'
 
@@ -27,6 +29,7 @@ const Collapse: React.FC<CollapseProps> = ({
   collapse,
   onAnimationEnd,
   bodyPadding = true,
+  bodyBordered = true,
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -122,17 +125,15 @@ const Collapse: React.FC<CollapseProps> = ({
     [setVisible],
   )
 
-  const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
   const ArrowOutline = getArrowOutline(show ? 'up' : 'down')
 
   return (
     <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>
-      <TouchableHighlight
-        underlayColor={THEME_VAR.cell_active_color}
-        onPress={onPressTitle}
-        onLayout={onLayoutTitle}>
-        <View style={[STYLES.title, titleStyle]}>
-          {titleJSX}
+      <Cell
+        title={title}
+        style={titleStyle}
+        titleTextStyle={[STYLES.title_text, titleTextStyle]}
+        valueExtra={
           <ArrowOutline
             style={iconStyle}
             color={
@@ -144,18 +145,18 @@ const Collapse: React.FC<CollapseProps> = ({
               isValue(iconSize) ? iconSize : THEME_VAR.collapse_title_icon_size
             }
           />
-        </View>
-      </TouchableHighlight>
+        }
+        onPress={onPressTitle}
+        onLayout={onLayoutTitle}
+      />
 
       <View
         collapsable={false}
         onLayout={onLayoutBody}
-        style={[
-          STYLES.body,
-          bodyPadding ? STYLES.body_padding : null,
-          bodyStyle,
-        ]}>
+        style={[bodyPadding ? STYLES.body_padding : undefined, bodyStyle]}>
         {renderBody ? renderBody(show) : children}
+
+        {bodyBordered ? <Divider type="light" /> : null}
       </View>
     </Animated.View>
   )

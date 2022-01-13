@@ -18,7 +18,7 @@ const bottomBar = [
     value: 1,
     label: '首页',
     iconRender: (color: string) => (
-      <Icon.EyeOutLine
+      <Icon.EyeOutline
         color={color}
         pointerEvents="none"
         size={20}

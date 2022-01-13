@@ -185,7 +185,7 @@ const BasicNoticeBar: React.FC = () => {
 
       <NoticeBar
         renderLeftIcon={(color, size) => (
-          <Icon.SuccessCircleOutLine color={color} size={size} />
+          <Icon.SuccessCircleOutline color={color} size={size} />
         )}
         color="#000"
         backgroundColor="#EBFFF2"

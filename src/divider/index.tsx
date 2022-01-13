@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
+import { getDefaultValue, isDef } from '../helpers'
 import type { DividerProps } from './interface'
 import { createStyles } from './style'
+import DividerLine from './line'
 
 /**
  * Divider 分割线
@@ -14,54 +15,44 @@ const Divider: React.FC<DividerProps> = ({
   children,
   style,
   textStyle,
-  borderStyle,
-  leftBorderStyle,
-  rightBorderStyle,
+  type = 'dark',
   dashed = false,
-  hairline = false,
+  color,
   contentPosition = 'center',
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const borderCommonStyle: ViewStyle = {
-    ...STYLES.border,
-    borderStyle: dashed ? 'dashed' : 'solid',
-    borderBottomWidth: hairline ? StyleSheet.hairlineWidth : 1,
-  }
-  const styles: StyleProp<ViewStyle> = [STYLES.divider, style]
-  const leftBorderStyles: StyleProp<ViewStyle> = [
-    borderCommonStyle,
-    STYLES.border_left,
-    contentPosition === 'left'
-      ? { maxWidth: THEME_VAR.divider_content_left_width }
-      : null,
-    borderStyle,
-    leftBorderStyle,
-  ]
-  const rightBorderStyles: StyleProp<ViewStyle> = [
-    borderCommonStyle,
-    STYLES.border_right,
-    contentPosition === 'right'
-      ? { maxWidth: THEME_VAR.divider_content_right_width }
-      : null,
-    borderStyle,
-    rightBorderStyle,
-  ]
-
-  if (children) {
-    return (
-      <View style={styles}>
-        <View style={leftBorderStyles} />
-        <Text style={[STYLES.text, textStyle]}>{children}</Text>
-        <View style={rightBorderStyles} />
-      </View>
-    )
-  }
+  color = getDefaultValue(
+    color,
+    type === 'dark'
+      ? THEME_VAR.divider_color_dark
+      : THEME_VAR.divider_color_light,
+  )
 
   return (
-    <View style={styles}>
-      <View style={[borderCommonStyle, borderStyle]} />
+    <View style={[STYLES.divider, style]}>
+      {isDef(children) ? (
+        <>
+          <DividerLine
+            color={color}
+            dashed={dashed}
+            position="left"
+            adaptive={contentPosition !== 'left'}
+          />
+
+          <Text style={[STYLES.text, textStyle]}>{children}</Text>
+
+          <DividerLine
+            color={color}
+            dashed={dashed}
+            position="right"
+            adaptive={contentPosition !== 'right'}
+          />
+        </>
+      ) : (
+        <DividerLine color={color} dashed={dashed} position="center" />
+      )}
     </View>
   )
 }

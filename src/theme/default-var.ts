@@ -14,7 +14,7 @@ export const white: string = '#FFF'
 export const primary: string = '#0065FE'
 export const success: string = '#24B356'
 export const warning: string = '#FE7A33'
-export const error: string = '#FF3341'
+export const error: string = '#FF3333'
 export const auxiliary_color_1: string = '#7566FF'
 export const auxiliary_color_2: string = '#009DF2'
 export const auxiliary_color_3: string = '#FE9D00'
@@ -34,8 +34,8 @@ export const page_bg_color: string = '#ECEEF1'
 export const underlay_color: string = 'transparent'
 export const underlay_color_ddd: string = '#F7F9FC'
 // 分割线颜色
-export const divider_color_1: string = '#E8E8E8'
-export const divider_color_2: string = '#F2F2F2'
+export const divider_color_dark: string = '#E8E8E8'
+export const divider_color_light: string = '#F2F2F2'
 
 // 字号
 export const font_size_h1: number = 22
@@ -59,7 +59,7 @@ export const animation_duration_base: number = 300
 export const animation_duration_fast: number = 200
 
 // Border
-export const border_color = divider_color_1
+export const border_color = divider_color_dark
 export const border_width_base: number = 1
 export const border_radius_sm: number = 4
 export const border_radius_md: number = 8
@@ -154,7 +154,7 @@ export const cell_group_title_padding_bottom = padding_xs
 export const cell_group_title_color = text_color_1
 export const cell_group_title_font_size = font_size_h5
 export const cell_group_title_line_height: number = 28
-export const cell_border_color = divider_color_2
+export const cell_border_color = divider_color_light
 export const cell_icon_size = font_size_h5
 export const cell_icon_color = text_color_3
 export const cell_active_color = underlay_color_ddd
@@ -181,17 +181,16 @@ export const checkbox_disabled_label_color = text_color_3
 
 // Collapse
 export const collapse_transition_duration = animation_duration_base
+export const collapse_padding_horizontal = padding_md
+export const collapse_background_color = white
 export const collapse_title_font_size = font_size_h4
-export const collapse_title_line_height = 24
-export const collapse_title_padding_vertical: number = 10
+export const collapse_title_line_height = 22
+export const collapse_title_padding_vertical: number = 14
 export const collapse_title_padding_horizontal: number = padding_md
 export const collapse_title_text_color = text_color_1
-export const collapse_title_icon_color = text_color_1
+export const collapse_title_icon_color = text_color_3
 export const collapse_title_icon_size = font_size_h4
-export const collapse_title_border_color = border_color
-export const collapse_title_background_color = white
-export const collapse_content_background_color = white
-export const collapse_content_padding_horizontal = padding_md
+export const collapse_title_border_color = divider_color_light
 
 // Dialog
 export const dialog_width: number = 300
@@ -219,8 +218,6 @@ export const divider_margin_horizontal = padding_md
 export const divider_text_color = text_color_1
 export const divider_font_size = font_size_h5
 export const divider_line_height: number = 24
-export const divider_border_color = divider_color_1
-export const divider_content_padding = padding_md
 export const divider_content_left_width: string = '10%'
 export const divider_content_right_width: string = '10%'
 
@@ -355,7 +352,7 @@ export const tag_border_radius: number = 2
 export const tag_small_padding_vertical: number = 0
 export const tag_small_padding_horizontal: number = 0
 export const tag_medium_padding_vertical: number = 2
-export const tag_medium_padding_horizontal: number = 6
+export const tag_medium_padding_horizontal: number = 4
 export const tag_large_padding_vertical = padding_base
 export const tag_large_padding_horizontal = padding_xs
 export const tag_large_border_radius = border_radius_md

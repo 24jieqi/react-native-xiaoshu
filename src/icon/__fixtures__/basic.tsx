@@ -23,96 +23,118 @@ const BasicIcon: React.FC = () => {
 
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="Fill 24*24" bordered={false}>
+      <CellGroup title="Fill" bordered={false}>
         <Row>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowRightFill />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowLeftFill />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowUpFill />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowDownFill />
           </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.NewFill />
-          </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.CheckedFill />
           </Col>
-        </Row>
-      </CellGroup>
-
-      <CellGroup title="Fill 16*16" bordered={false}>
-        <Row>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.DeleteFill />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.RemoveFill />
-          </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.VolumeOutline />
           </Col>
         </Row>
       </CellGroup>
 
-      <CellGroup title="Outline 24*24" bordered={false}>
+      <CellGroup title="Outline" bordered={false}>
         <Row>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowRightOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowLeftOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowUpOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.ArrowDownOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.CrossOutline />
           </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.SuccessOutLine />
+          <Col span={3} style={colStyle}>
+            <Icon.SuccessOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.PlusOutline />
           </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.EyeOutLine />
+          <Col span={3} style={colStyle}>
+            <Icon.EyeOutline />
           </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.EyeCloseOutLine />
+          <Col span={3} style={colStyle}>
+            <Icon.EyeCloseOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.CircleOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.WarningOutline />
           </Col>
-          <Col span={6} style={colStyle}>
-            <Icon.SuccessCircleOutLine />
+          <Col span={3} style={colStyle}>
+            <Icon.SuccessCircleOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.CrossCircleOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.WarningCircleOutline />
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.SearchOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.ExplainOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.DeleatOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.WeChatOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.MobileScreenOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.ClickCopyOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.CoordOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.SOPOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.VolumeOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.FiltrateOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.CopyOutline />
+          </Col>
+          <Col span={3} style={colStyle}>
+            <Icon.TelephoneOutline />
           </Col>
         </Row>
       </CellGroup>
 
       <CellGroup title="可点击范围" bordered={false}>
         <Row>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <View
               style={{
                 width: 44,
@@ -130,7 +152,7 @@ const BasicIcon: React.FC = () => {
             </View>
           </Col>
 
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.CheckedFill
               onPress={() => {
                 console.log('???')
@@ -138,7 +160,7 @@ const BasicIcon: React.FC = () => {
             />
           </Col>
 
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Icon.CheckedFill
               disabled
               onPress={() => {
@@ -151,7 +173,7 @@ const BasicIcon: React.FC = () => {
 
       <CellGroup title="部分联动图标" bordered={false}>
         <Row>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             <Button
               type="primary"
               size="mini"
@@ -162,25 +184,25 @@ const BasicIcon: React.FC = () => {
               style={{ width: 50 }}
             />
           </Col>
-          <Col span={6} style={colStyle}>
-            {toggle ? <Icon.CheckedFill /> : <Icon.CircleOutline />}
+          <Col span={3} style={colStyle}>
+            {toggle ? <Icon.SuccessCircleOutline /> : <Icon.CircleOutline />}
           </Col>
-          <Col span={6} style={colStyle}>
-            {toggle ? <Icon.CheckedFill /> : <Icon.SuccessOutLine />}
+          <Col span={3} style={colStyle}>
+            {toggle ? <Icon.CheckedFill /> : <Icon.SuccessOutline />}
           </Col>
 
-          <Col span={6} offset={6} style={colStyle}>
+          <Col span={3} offset={6} style={colStyle}>
             {toggle ? (
-              <Icon.CheckedFill disabled />
+              <Icon.SuccessCircleOutline disabled />
             ) : (
               <Icon.CircleOutline disabled />
             )}
           </Col>
-          <Col span={6} style={colStyle}>
+          <Col span={3} style={colStyle}>
             {toggle ? (
               <Icon.CheckedFill disabled />
             ) : (
-              <Icon.SuccessOutLine disabled />
+              <Icon.SuccessOutline disabled />
             )}
           </Col>
         </Row>
