@@ -104,7 +104,7 @@ const Progress: React.FC<ProgressProps> = ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: pivotColor,
-    paddingHorizontal: themeVar.progress_pivot_horizontal_padding,
+    paddingHorizontal: themeVar.progress_pivot_padding_horizontal,
     borderRadius: themeVar.border_radius_max,
     transform: [
       {
