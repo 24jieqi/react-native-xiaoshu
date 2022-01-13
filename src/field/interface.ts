@@ -1,4 +1,4 @@
-import type { StyleProp, ViewStyle } from 'react-native'
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native'
 import type { CellProps, CellPrivateProps } from '../cell/interface'
 import type { SelectorProps } from '../selector/interface'
 import type { TextInputProps } from '../text-input/interface'
@@ -58,7 +58,7 @@ export interface FieldTextInputProps
   /**
    * 自定义输入框的样式
    */
-  textInputStyle?: StyleProp<ViewStyle>
+  textInputStyle?: StyleProp<TextStyle>
 
   /**
    * 是否显示输入框border
