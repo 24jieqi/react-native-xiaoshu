@@ -1,4 +1,4 @@
-<h1 align="center">React Native Xiaoshu</h1>
+<h1 align="center">小暑</h1>
 
 <div align="center">
 React Native UI library
