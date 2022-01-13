@@ -57,6 +57,10 @@ const navDatas: {
         name: 'DemoNumberInput',
       },
       {
+        title: 'PasswordInput',
+        name: 'DemoPasswordInput',
+      },
+      {
         title: 'Icon',
         name: 'DemoIcon',
       },

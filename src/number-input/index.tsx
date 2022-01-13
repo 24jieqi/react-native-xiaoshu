@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useRef, memo, forwardRef } from 'react'
 import type {
-  TextInput as RNTextInput,
   NativeSyntheticEvent,
   TextInputEndEditingEventData,
 } from 'react-native'
 
 import TextInput from '../text-input'
+import type { TextInputInstance } from '../text-input/interface'
 import { usePersistFn, useUpdateEffect } from '../hooks'
 import { noop, formatNumber, isValue, isDef } from '../helpers'
 import type { NumberInputProps } from './interface'
@@ -14,7 +14,10 @@ const parserNumberToString = (n?: number) => `${isDef(n) ? n : ''}`
 const defaultFormatter = (t: string) => t
 const defaultParser = (t: string) => Number(formatNumber(t))
 
-const NumberInput = forwardRef<RNTextInput, NumberInputProps>(
+/**
+ * 数字输入框
+ */
+const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
   (
     {
       type = 'number',

@@ -25,6 +25,7 @@ module.exports = {
     'Notify',
     'NumberInput',
     'Overlay',
+    'PasswordInput',
     'Popup',
     'Portal',
     'Progress',
