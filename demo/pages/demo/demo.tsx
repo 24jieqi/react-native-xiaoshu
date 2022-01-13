@@ -89,6 +89,10 @@ const navDatas: {
         title: 'Uploader',
         name: 'DemoUploader',
       },
+      {
+        title: 'Search',
+        name: 'DemoSearch',
+      },
     ],
   },
   {

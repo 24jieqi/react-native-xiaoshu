@@ -31,6 +31,7 @@ module.exports = {
     'Progress',
     'Provider',
     'Result',
+    'Search',
     'Selector',
     'Steps',
     'Switch',

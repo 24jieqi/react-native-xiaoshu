@@ -307,6 +307,12 @@ export const progress_pivot_line_height_scale: number = 1.6
 export const progress_pivot_background_color = primary
 export const progress_page_background_color = white
 
+// Search
+export const search_background_color = white
+export const search_padding_horizontal = padding_sm
+export const search_padding_vertical = padding_base
+export const search_text_input_background_color = background_color_1
+
 // SelectPopup
 export const select_popup_min_height: number = 270
 export const select_popup_option_text_line_height: number = 50

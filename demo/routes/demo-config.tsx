@@ -43,6 +43,7 @@ import DemoTabBar from '../../src/tab-bar/__fixtures__/basic'
 import DemoButtonBar from '../../src/button-bar/__fixtures__/basic'
 import DemoUploader from '../../src/uploader/__fixtures__/basic'
 import DemoPasswordInput from '../../src/password-input/__fixtures__/basic'
+import DemoSearch from '../../src/search/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -85,6 +86,7 @@ export type DemoPaths =
   | 'DemoButtonBar'
   | 'DemoUploader'
   | 'DemoPasswordInput'
+  | 'DemoSearch'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -408,6 +410,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoPasswordInput />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoSearch',
+    page: () => (
+      <DemoWrapper>
+        <DemoSearch />
       </DemoWrapper>
     ),
   },

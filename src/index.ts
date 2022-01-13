@@ -109,6 +109,9 @@ export type { ResultProps } from './result/interface'
 export { default as Result } from './result'
 export * from './result/icons'
 
+export type { SearchProps } from './search/interface'
+export { default as Search } from './search'
+
 export type {
   SelectorValue,
   SelectorOption,
