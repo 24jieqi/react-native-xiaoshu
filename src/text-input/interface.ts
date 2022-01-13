@@ -28,7 +28,7 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
   /**
    * xxxfix 相关父组件样式
    */
-  fixGroupStyles?: StyleProp<ViewStyle>
+  fixGroupStyle?: StyleProp<ViewStyle>
 
   /**
    * prefix 文案的样式

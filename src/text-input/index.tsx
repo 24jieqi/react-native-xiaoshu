@@ -60,7 +60,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       addonGroupStyle,
       addonBeforeTextStyle,
       addonAfterTextStyle,
-      fixGroupStyles,
+      fixGroupStyle,
       prefixTextStyle,
       suffixTextStyle,
 
@@ -452,7 +452,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
                   ]
                 : null,
               prefixJSX || suffixJSX ? null : customTextInputWidthStyle,
-              fixGroupStyles,
+              fixGroupStyle,
             ]}>
             {prefixJSX}
             {textInputJSX}
