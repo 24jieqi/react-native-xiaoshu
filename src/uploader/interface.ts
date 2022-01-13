@@ -86,9 +86,18 @@ export interface UploaderProps<T> {
   ) => void
 
   /**
-   * 点击删除图片
+   * 点击删除文件
    */
   onPressDelete?: (
+    current: UploaderValue,
+    index: number,
+    list: UploaderValue[],
+  ) => void
+
+  /**
+   * 点击上传出错的文件
+   */
+  onPressError?: (
     current: UploaderValue,
     index: number,
     list: UploaderValue[],

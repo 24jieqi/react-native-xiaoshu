@@ -26,7 +26,8 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const sizeStyle = useMemo(() => ({ width: size, height: size }), [size])
-  const canPress = isUpload || (!!filepath && status === 'done')
+  const canPress =
+    isUpload || (!!filepath && (status === 'done' || status === 'error'))
   return (
     <TouchableOpacity
       style={[STYLES.image, sizeStyle]}
@@ -57,7 +58,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
           {status === 'error' ? (
             <View style={STYLES.mask}>
               <CrossCircleOutline color="#fff" size={20} />
-              <Text style={STYLES.mask_text}>上传失败</Text>
+              <Text style={STYLES.mask_text}>{`上传失败\n点击重试`}</Text>
             </View>
           ) : null}
         </>

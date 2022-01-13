@@ -22,6 +22,7 @@ const Uploader = <T extends UploaderValue>({
   imageSize = 80,
   onPressImage,
   onPressDelete,
+  onPressError,
 }: UploaderProps<T>) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -30,7 +31,10 @@ const Uploader = <T extends UploaderValue>({
     onPressDelete?.(item, index, list)
   }
   const genOnPressImage = (item: T, index: number) => () => {
-    onPressImage?.(item, index, list)
+    const onPressCallback =
+      item.status === 'error' ? onPressError : onPressImage
+
+    onPressCallback?.(item, index, list)
   }
 
   return (

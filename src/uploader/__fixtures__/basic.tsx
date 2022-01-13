@@ -68,6 +68,29 @@ const BasicUploader: React.FC = () => {
           onPressImage={() => {
             Toast('TODO 实现预览文件')
           }}
+          onPressError={item => {
+            Toast('TODO 实现上传文件')
+
+            setList1(s =>
+              s.map(l => {
+                if (l.key === item.key) {
+                  l.status = 'loading'
+                }
+                return l
+              }),
+            )
+
+            setTimeout(() => {
+              setList1(s =>
+                s.map(l => {
+                  if (l.key === item.key) {
+                    l.status = 'error'
+                  }
+                  return l
+                }),
+              )
+            }, 2000)
+          }}
         />
       </CellGroup>
 

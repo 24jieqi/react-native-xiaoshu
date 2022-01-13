@@ -43,6 +43,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       color: '#fff',
       fontSize: 14,
       marginTop: 4,
+      lineHeight: 20,
     },
   })
 }
