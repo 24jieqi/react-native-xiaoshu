@@ -64,7 +64,7 @@ const Button: React.FC<ButtonProps> = ({
       color:
         THEME_VAR[`button_${type}_color`] || THEME_VAR.button_default_color,
       fontSize:
-        THEME_VAR[`button_${type}_font_size`] ||
+        THEME_VAR[`button_${size}_font_size`] ||
         THEME_VAR.button_default_font_size,
     },
     color || textColor
