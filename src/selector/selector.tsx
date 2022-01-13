@@ -60,7 +60,7 @@ const Selector: React.FC<SelectorProps> = ({
   const selectHeight = useMemo(() => {
     /** 选项/内容高度 选项个数 + 标题高度 + 圆角边缘 + 多选按钮高度 + 底部安全距离 */
     const pickHeight =
-      options.length * THEME_VAR.select_popup_option_text_line_height +
+      options.length * THEME_VAR.selector_option_text_line_height +
       THEME_VAR.nav_bar_height +
       THEME_VAR.popup_round_border_radius +
       (multiple ? 60 : 0) +
@@ -69,14 +69,14 @@ const Selector: React.FC<SelectorProps> = ({
 
     return pickHeight > maxHeight
       ? maxHeight
-      : pickHeight < THEME_VAR.select_popup_min_height
-      ? THEME_VAR.select_popup_min_height
+      : pickHeight < THEME_VAR.selector_min_height
+      ? THEME_VAR.selector_min_height
       : pickHeight
   }, [
     THEME_VAR.nav_bar_height,
     THEME_VAR.popup_round_border_radius,
-    THEME_VAR.select_popup_min_height,
-    THEME_VAR.select_popup_option_text_line_height,
+    THEME_VAR.selector_min_height,
+    THEME_VAR.selector_option_text_line_height,
     insets.bottom,
     multiple,
     options.length,

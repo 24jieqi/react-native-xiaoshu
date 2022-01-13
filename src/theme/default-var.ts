@@ -313,10 +313,10 @@ export const search_padding_horizontal = padding_sm
 export const search_padding_vertical = padding_base
 export const search_text_input_background_color = background_color_1
 
-// SelectPopup
-export const select_popup_min_height: number = 270
-export const select_popup_option_text_line_height: number = 50
-export const select_popup_body_padding_horizontal = padding_sm
+// Selector
+export const selector_min_height: number = 270
+export const selector_option_text_line_height: number = 50
+export const selector_body_padding_horizontal = padding_sm
 
 // Steps
 export const steps_background_color = primary
