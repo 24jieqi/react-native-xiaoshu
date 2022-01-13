@@ -25,7 +25,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     const THEME_VAR = useTheme()
     const [secure, setSecure] = useState(secureTextEntry)
 
-    const _iconColor = getDefaultValue(iconColor, THEME_VAR.text_color_3)
+    iconColor = getDefaultValue(iconColor, THEME_VAR.text_color_3)
 
     // 同步数据
     useUpdateEffect(() => {
@@ -43,11 +43,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
         ref={ref}
         secureTextEntry={secure}
         suffix={
-          <IconSuffix
-            size={iconSize}
-            color={_iconColor}
-            onPress={onPressIcon}
-          />
+          <IconSuffix size={iconSize} color={iconColor} onPress={onPressIcon} />
         }
       />
     )
