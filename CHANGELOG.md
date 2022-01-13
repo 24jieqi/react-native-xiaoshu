@@ -1,3 +1,26 @@
+## [0.0.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.13...v0.0.14) (2022-01-13)
+
+### Bug Fixes
+
+- **Button:** 🐛 按钮不同大小文案大小 ([7a3b1f7](https://github.com/hjfruit/react-native-xiaoshu/commit/7a3b1f7b4db5a17b2de1a6141fdc6bfd9b1ccd2d))
+- **ButtonBar:** 🐛 iOS 安全距离 ([e829aac](https://github.com/hjfruit/react-native-xiaoshu/commit/e829aac5304c4f80d765c156f35139802aa3f48d))
+- **Icon:** 🐛 组件规范命名 ([fb71280](https://github.com/hjfruit/react-native-xiaoshu/commit/fb71280c8bb7ff43a99672c75127744249f0ea99))
+- **Selector:** 🐛 样式变量命名 ([f562914](https://github.com/hjfruit/react-native-xiaoshu/commit/f5629143187a23f7f6d0a57aa605fabdb80c3727))
+- **TextInput:** 🐛 fixGroupStyle ([3e278f0](https://github.com/hjfruit/react-native-xiaoshu/commit/3e278f01559c505ffe717c67b6b87583b4f2c1b3))
+- update types for Field.TextInput ([f4ae1f2](https://github.com/hjfruit/react-native-xiaoshu/commit/f4ae1f2aec140e90565a20574ca20af9cd4d4efc))
+
+### Features
+
+- **Collapse:** 🎸 按照设计稿优化样式 ([b8fdd42](https://github.com/hjfruit/react-native-xiaoshu/commit/b8fdd428602ed781979edf8cae181d46df12ba2e))
+- **Divider:** 🎸 优化分割线实现方式 ([be881a2](https://github.com/hjfruit/react-native-xiaoshu/commit/be881a23c535c5138bb881fd5c06f4304d69435d))
+- **Icon:** 🎸 新图标 ([0a6626d](https://github.com/hjfruit/react-native-xiaoshu/commit/0a6626d925e76929d7c0bce54a02b4e3d7b360ce))
+- **PasswordInput:** 🎸 新增密码输入组件 ([279c083](https://github.com/hjfruit/react-native-xiaoshu/commit/279c0830314773306983085bb9829a13aac746ec))
+- **Search:** 🎸 新增搜索组件 ([25cdd3e](https://github.com/hjfruit/react-native-xiaoshu/commit/25cdd3ea07aa1b44577cbb1e41dbe14a963ac6cd))
+- **Tag:** 🎸 优化样式 ([8ea04e2](https://github.com/hjfruit/react-native-xiaoshu/commit/8ea04e2366e02c917354d5a42d410f35aed82586))
+- **Theme:** 🎸 更新颜色 ([735a794](https://github.com/hjfruit/react-native-xiaoshu/commit/735a794b9e88f5574922c2ca0b419f6200492662))
+- **Uploader:** 🎸 新增上传失败重试 ([8da385b](https://github.com/hjfruit/react-native-xiaoshu/commit/8da385b005e65a6873519c958250788c978db5c0))
+- **Uploader:** 🎸 新增文件上传组件 ([1ab80bf](https://github.com/hjfruit/react-native-xiaoshu/commit/1ab80bf125a87c01224e3c30d4535c76dfc3d8a0))
+
 ## [0.0.13](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.12...v0.0.13) (2022-01-10)
 
 ### Features
