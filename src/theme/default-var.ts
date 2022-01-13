@@ -52,7 +52,7 @@ export const line_height_md: number = 20
 export const line_height_lg: number = 22
 
 export const background_color_1: string = '#EDEFF2'
-export const background_color_2: string = '#F7F9FC'
+export const background_color_2 = underlay_color_ddd
 
 // Animation
 export const animation_duration_base: number = 300
@@ -421,3 +421,13 @@ export const toast_default_width: number = 88 + padding_md * 2 // box-sizing: co
 export const toast_default_min_height: number = 88 + padding_md * 2
 export const toast_position_top_distance: string = '20%'
 export const toast_position_bottom_distance: string = '20%'
+
+// Uploader
+export const uploader_image_margin_right: number = 16
+export const uploader_image_margin_bottom: number = 16
+export const uploader_image_border_radius = border_radius_sm
+export const uploader_image_delete_size: number = 16
+export const uploader_image_background_color = underlay_color_ddd
+export const uploader_upload_text_color = text_color_1
+export const uploader_upload_text_font_size: number = 14
+export const uploader_upload_text_line_height: number = 20

@@ -81,6 +81,10 @@ const navDatas: {
         title: 'Field',
         name: 'DemoField',
       },
+      {
+        title: 'Uploader',
+        name: 'DemoUploader',
+      },
     ],
   },
   {

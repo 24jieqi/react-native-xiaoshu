@@ -132,3 +132,6 @@ export { default as Theme, useTheme } from './theme'
 
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'
+
+export type { UploaderProps, UploaderValue } from './uploader/interface'
+export { default as Uploader } from './uploader'
