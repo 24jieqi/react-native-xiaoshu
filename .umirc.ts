@@ -1,7 +1,7 @@
 import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
 
-const repo = 'react-native-xiaoshu'
+const repo = ''
 
 export default defineConfig({
   chainWebpack(memo: WebpackChain) {
@@ -13,8 +13,8 @@ export default defineConfig({
   hash: true,
   favicon: 'https://avatars.githubusercontent.com/u/74942048',
   logo: 'https://avatars.githubusercontent.com/u/74942048',
-  base: `/${repo}/`,
-  publicPath: `/${repo}/`,
+  base: `/${repo}`,
+  publicPath: `/${repo}`,
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
   navs: [
     null,
