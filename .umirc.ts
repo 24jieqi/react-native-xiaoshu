@@ -1,7 +1,7 @@
 import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
 
-const repo = ''
+const repo = 'xiaoshu-doc/'
 
 export default defineConfig({
   chainWebpack(memo: WebpackChain) {
