@@ -4,7 +4,7 @@ coverage
 .umi
 .umi-production
 lib
-
+docs-dist/
 # OSX
 #
 .DS_Store
