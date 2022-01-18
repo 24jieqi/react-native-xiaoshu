@@ -59,7 +59,7 @@ export interface SelectorProps
   /**
    * 选择后的回调
    */
-  onChange: (
+  onChange?: (
     value: SelectorValue[] | SelectorValue,
     options: SelectorOption | SelectorOption[],
   ) => void
