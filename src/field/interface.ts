@@ -20,8 +20,7 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
   value?: string | number
 }
 
-export interface CellPropsUsed
-  extends Omit<CellPrivateProps, 'value' | 'valueTextStyle'> {
+export interface CellPropsUsed extends Omit<CellPrivateProps, 'value'> {
   style?: StyleProp<ViewStyle>
 }
 
