@@ -1,3 +1,17 @@
+## [0.0.15](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.14...v0.0.15) (2022-01-18)
+
+### Bug Fixes
+
+- doc build path ([e19461e](https://github.com/hjfruit/react-native-xiaoshu/commit/e19461eb66d97f20a930a596391f299773fe8881))
+- node-version ([f8fd577](https://github.com/hjfruit/react-native-xiaoshu/commit/f8fd57765d7649afa6dee1c11519bf74215556d1))
+- publicPath ([c63e76d](https://github.com/hjfruit/react-native-xiaoshu/commit/c63e76d55813b4848faf37c1ce5fccdfa0dd739a))
+
+### Features
+
+- 支持选择器回显文本自定义样式 ([73cd0af](https://github.com/hjfruit/react-native-xiaoshu/commit/73cd0af68f65d10a9f9da70ea4f0d66a27eb9ec7))
+- deploy gh-pages ([dd8f8b9](https://github.com/hjfruit/react-native-xiaoshu/commit/dd8f8b9bf8fdb693f61a620246fe1d1faf5e8d68))
+- selector onchange ([08d633e](https://github.com/hjfruit/react-native-xiaoshu/commit/08d633eed82512e259b14140a6ffe1ddd087bbf4))
+
 ## [0.0.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.13...v0.0.14) (2022-01-13)
 
 ### Bug Fixes
