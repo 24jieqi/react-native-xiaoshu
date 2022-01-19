@@ -11,6 +11,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   children,
   loading: loadingOut,
   backgroundColor,
+  defaultPercentage = 10,
 }) => {
   const themeVar = useTheme()
 
@@ -21,8 +22,9 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
 
   const [state, setState] = useState({
     loading: loadingOut,
-    percentage: 0,
+    percentage: defaultPercentage,
     duration: 0,
+    animated: false,
   })
 
   const onAnimationEnd = useCallback(() => {
@@ -39,6 +41,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
       ...s,
       percentage: loadingOut ? 90 : 100,
       duration: loadingOut ? 1000 : 100,
+      animated: true,
     }))
   }, [loadingOut])
 
@@ -53,7 +56,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         <Progress
           percentage={state.percentage}
           showPivot={false}
-          animated
+          animated={state.animated}
           animationDuration={state.duration}
           onAnimationEnd={onAnimationEnd}
           square

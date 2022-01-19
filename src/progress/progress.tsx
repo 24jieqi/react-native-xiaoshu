@@ -29,6 +29,7 @@ const Progress: React.FC<ProgressProps> = ({
   onAnimationEnd,
 }) => {
   const AnimatedValue = useRef(new Animated.Value(0)).current
+  const StartPercentage = useRef(percentage)
   const onAnimationEndPersistFn = usePersistFn(() => {
     onAnimationEnd?.()
   })
@@ -116,9 +117,15 @@ const Progress: React.FC<ProgressProps> = ({
     ],
   }
 
-  const onLayoutProgress = useCallback((e: LayoutChangeEvent) => {
-    setProgressLayout(e.nativeEvent.layout)
-  }, [])
+  const onLayoutProgress = useCallback(
+    (e: LayoutChangeEvent) => {
+      AnimatedValue.setValue(
+        (e.nativeEvent.layout.width * StartPercentage.current) / 100,
+      )
+      setProgressLayout(e.nativeEvent.layout)
+    },
+    [AnimatedValue],
+  )
 
   const onLayoutText = useCallback((e: LayoutChangeEvent) => {
     setTextLayout(e.nativeEvent.layout)

@@ -86,6 +86,12 @@ export interface ProgressPageProps {
   loading?: boolean
 
   /**
+   * 默认起点进度
+   * @default 10
+   */
+  defaultPercentage?: number
+
+  /**
    * 背景色，默认会占满个屏幕
    * @default progress_page_background_color
    */
