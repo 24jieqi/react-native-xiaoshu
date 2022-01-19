@@ -43,9 +43,9 @@ const TabBar: React.FC<TabBarProps> = ({
     setLocalValue(value)
   }, [value])
 
-  const genOnPress = (value: TabValue) => () => {
-    setLocalValue(value)
-    onChange?.(value)
+  const genOnPress = (v: TabValue) => () => {
+    setLocalValue(v)
+    onChange?.(v)
   }
 
   return (
