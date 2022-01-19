@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { View, ScrollView } from 'react-native'
 
 import {
@@ -9,9 +9,36 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicToast: React.FC = () => {
+  const [loading, setLoading] = useState(false)
+  const LoadingReturnRef = useRef<any>()
+
+  useEffect(() => {
+    if (loading) {
+      LoadingReturnRef.current = Toast.loading({
+        message: '测试',
+        duration: 0,
+        forbidPress: true,
+      })
+
+      setTimeout(() => {
+        setLoading(false)
+      }, 3000)
+    } else {
+      if (LoadingReturnRef.current) {
+        LoadingReturnRef.current.close()
+      }
+    }
+  }, [loading])
+
   return (
     <ScrollView>
       <CellGroup title="基础用法" bordered={false}>
+        <Cell
+          title="状态控制 loading"
+          onPress={() => {
+            setLoading(true)
+          }}
+        />
         <Cell
           title="文字提示"
           isLink
