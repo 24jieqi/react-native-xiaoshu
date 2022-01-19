@@ -7,7 +7,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
     collapse: {
       overflow: 'hidden',
       // 避免子元素无法渲染
-      minHeight: 1,
+      minHeight:
+        themeVar.collapse_title_line_height +
+        themeVar.collapse_title_padding_vertical * 2 +
+        1,
       backgroundColor: themeVar.collapse_background_color,
     },
     title_text: {

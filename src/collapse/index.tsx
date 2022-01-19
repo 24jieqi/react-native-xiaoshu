@@ -46,8 +46,8 @@ const Collapse: React.FC<CollapseProps> = ({
       : false,
   )
   const HeightMap = useRef({
-    start: 0,
-    end: 0,
+    start: 1,
+    end: 2,
   })
   const [show, setShow] = useState(Visible.current)
   const AnimatedValue = useRef(new Animated.Value(0)).current
