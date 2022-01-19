@@ -27,6 +27,20 @@ const BasicFieldTextInput: React.FC = () => {
             }}
           />
         }
+      />
+      <Field.TextInput
+        vertical
+        title="多行输入"
+        placeholder="请输入"
+        value={text1}
+        onChange={setText1}
+      />
+      <Field.TextInput
+        type="textarea"
+        title="多行输入"
+        placeholder="请输入"
+        value={text1}
+        onChange={setText1}
         bordered={false}
       />
     </CellGroup>

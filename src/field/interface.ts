@@ -10,7 +10,8 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
   placeholder?: string
 
   /**
-   * 占位字符串显示的文字颜色。
+   * 占位字符串显示的文字颜色
+   * @default 'text_input_placeholder_text_color'
    */
   placeholderTextColor?: string
 
@@ -51,9 +52,15 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
   editable?: boolean
 }
 
+export interface FieldTextCellPropsUsed
+  extends Omit<
+    CellPropsUsed,
+    'textAlign' | 'valueTextStyle' | 'valueTextNumberOfLines'
+  > {}
+
 export interface FieldTextInputProps
   extends Omit<TextInputProps, 'style' | 'bordered' | 'size'>,
-    CellPropsUsed {
+    FieldTextCellPropsUsed {
   /**
    * 自定义输入框的样式
    */

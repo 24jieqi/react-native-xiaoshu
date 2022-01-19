@@ -2,7 +2,8 @@ import React, { memo } from 'react'
 
 import Cell from '../cell'
 import TextInput from '../text-input'
-import type { FieldTextInputProps, CellPropsUsed } from './interface'
+import { useTheme } from '../theme'
+import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
 
 /**
  * Field 输入框
@@ -28,7 +29,6 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   arrowDirection = 'right',
   required = false,
   vertical = false,
-  valueTextNumberOfLines,
   textAlign = 'right',
 
   // TextInput 属性
@@ -44,10 +44,14 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   }
 
   if (type === 'textarea') {
+    textAlign = 'left'
     textInputBordered = true
+    vertical = true
   }
 
-  const cellProps: CellPropsUsed = {
+  const THEME_VAR = useTheme()
+
+  const cellProps: FieldTextCellPropsUsed = {
     innerStyle,
     title,
     titleStyle,
@@ -63,13 +67,18 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
     arrowDirection,
     required,
     vertical,
-    valueTextNumberOfLines,
-    textAlign,
   }
 
   return (
     <Cell
       {...cellProps}
+      valueStyle={
+        vertical
+          ? {
+              marginTop: THEME_VAR.padding_xs,
+            }
+          : null
+      }
       value={
         <TextInput
           {...restProps}
