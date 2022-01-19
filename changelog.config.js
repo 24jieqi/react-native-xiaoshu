@@ -26,6 +26,7 @@ module.exports = {
     'NumberInput',
     'Overlay',
     'PasswordInput',
+    'Picker',
     'Popup',
     'Portal',
     'Progress',

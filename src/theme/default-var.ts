@@ -290,6 +290,22 @@ export const notify_warning_background_color = warning
 export const overlay_z_index: number = 10
 export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 
+// Picker
+export const picker_background_color = white
+export const picker_title_text_line_height: number = 44
+export const picker_title_text_padding_horizontal = padding_md
+export const picker_title_font_size = font_size_h3
+export const picker_title_text_color = text_color_1
+export const picker_title_action_font_size = font_size_h4
+export const picker_title_cancel_text_color = text_color_2
+export const picker_title_confirm_text_color = primary
+export const picker_column_mask_border_color = border_color
+export const picker_column_mask_background_color: string =
+  'rgba(255,255,255,0.8)'
+export const picker_column_text_color = text_color_1
+export const picker_column_text_disabled_color: string = '#999'
+export const picker_column_text_font_size = font_size_h4
+
 // Popup
 export const popup_background_color = white
 export const popup_round_border_radius = border_radius_lg

@@ -93,6 +93,10 @@ const navDatas: {
         title: 'Search',
         name: 'DemoSearch',
       },
+      {
+        title: 'Picker',
+        name: 'DemoPicker',
+      },
     ],
   },
   {

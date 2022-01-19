@@ -93,6 +93,15 @@ export { default as Overlay } from './overlay'
 export type { PasswordInputProps } from './password-input/interface'
 export { default as PasswordInput } from './password-input'
 
+export type {
+  PickerProps,
+  PickerOption,
+  PickerOptionMultiple,
+  PickerOptionCascade,
+  PickerValue,
+} from './picker/interface'
+export { default as Picker } from './picker'
+
 export type { PopupProps, PopupPosition } from './popup/interface'
 export { default as Popup } from './popup'
 export { default as PopupHeader } from './popup/header'
