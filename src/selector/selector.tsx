@@ -128,7 +128,7 @@ const Selector: React.FC<SelectorProps> = ({
         : key
 
       // 单选直接出发回调
-      onChange(newValue, options.filter(opt => opt.value === newValue)[0])
+      onChange?.(newValue, options.filter(opt => opt.value === newValue)[0])
     }
   }
 
