@@ -13,23 +13,22 @@ import type { SwitchProps } from './interface'
  * Switch 开关
  * @description 用于在打开和关闭状态之间进行切换。
  */
-function Switch<ActiveValueT = boolean, InactiveValueT = boolean>(
-  props: SwitchProps<ActiveValueT, InactiveValueT>,
-) {
-  const {
-    size,
-    disabled = false,
-    loading = false,
-    activeValue = true as unknown as ActiveValueT,
-    inactiveValue = false as unknown as InactiveValueT,
-    inactiveColor,
-    activeColor,
-    onPress,
-    beforeChange,
-  } = props
+function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
+  size,
+  disabled = false,
+  loading = false,
+  activeValue = true as unknown as ActiveValueT,
+  inactiveValue = false as unknown as InactiveValueT,
+  inactiveColor,
+  activeColor,
+  onPress,
+  beforeChange,
+
+  ...restProps
+}: SwitchProps<ActiveValueT, InactiveValueT>) {
   const translateX = useRef(new Animated.Value(0))
   const [value, onChange] = useControllableValue<ActiveValueT | InactiveValueT>(
-    props,
+    restProps,
     {
       defaultValue: inactiveValue,
     },
