@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import type { TextStyle, ViewStyle } from 'react-native'
+import type { TextStyle } from 'react-native'
 
 // Padding
 export const padding_base: number = 4
@@ -98,7 +98,8 @@ export const badge_dot_size: number = 8
 
 // BottomBar
 export const bottom_bar_height: number = 50
-export const bottom_bar_background_color: string = '#fff'
+export const bottom_bar_background_color = white
+export const bottom_bar_border_top_color = border_color
 
 // Button
 export const button_mini_height: number = 24
@@ -350,13 +351,10 @@ export const switch_width_ratio: number = 2 // 原变量中使用了 em，这里
 export const switch_height_ratio: number = 1 // 原变量中使用了 em，这里改成对应的比例
 export const switch_node_size_ratio: number = 1 // 原变量中使用了 em，这里改成对应的比例
 export const switch_node_background_color = white
-export const switch_background_color = white
+export const switch_background_color = background_color_1
 export const switch_on_background_color = primary
 export const switch_transition_duration = animation_duration_base
 export const switch_disabled_opacity = active_opacity
-export const switch_border_width = border_width_base
-export const switch_border_style: ViewStyle['borderStyle'] = 'solid'
-export const switch_border_color: string = 'rgba(0, 0, 0, 0.1)'
 
 // TabBar
 export const tab_bar_text_font_size: number = 10

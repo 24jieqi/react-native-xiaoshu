@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, memo } from 'react'
+import React, { useEffect, useState, useRef, useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, Animated } from 'react-native'
 
@@ -37,23 +37,48 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
   )
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
+  const [
+    switchWidth,
+    switchHeight,
+    nodeSize,
+    translateXValueEnd,
+    translateXValueStart,
+  ] = useMemo(() => {
+    const _innerMiniPadding = 2
+    const _unitSize = getDefaultValue(size, THEME_VAR.switch_size)
+    const _switchWidth = _unitSize * THEME_VAR.switch_width_ratio
+    const _switchHeight = _unitSize * THEME_VAR.switch_height_ratio
+    const _nodeSize = _unitSize * THEME_VAR.switch_node_size_ratio
+    const _isInnerNode = _switchHeight - _nodeSize < _innerMiniPadding * 2
+    const _nodeRealSize = _isInnerNode
+      ? _nodeSize - _innerMiniPadding * 2
+      : _nodeSize
+    const _innerPadding = _isInnerNode
+      ? _innerMiniPadding
+      : (_switchHeight - _nodeSize) / 2
+    const _translateXValueEnd = _switchWidth - _nodeRealSize - _innerPadding
+    const _translateXValueStart = _innerPadding
+
+    return [
+      _switchWidth,
+      _switchHeight,
+      _nodeRealSize,
+      _translateXValueEnd,
+      _translateXValueStart,
+    ]
+  }, [
+    THEME_VAR.switch_height_ratio,
+    THEME_VAR.switch_node_size_ratio,
+    THEME_VAR.switch_size,
+    THEME_VAR.switch_width_ratio,
+    size,
+  ])
 
   // 同步值
   useUpdateEffect(() => {
     setLocalValue(value)
   }, [value])
 
-  const unitSize = getDefaultValue(size, THEME_VAR.switch_size)
-  const switchWidth = unitSize * THEME_VAR.switch_width_ratio
-  const switchHeight = unitSize * THEME_VAR.switch_height_ratio
-  const nodeSize =
-    unitSize * THEME_VAR.switch_node_size_ratio -
-    THEME_VAR.switch_border_width * 2
-
-  const translateXValueEnd =
-    switchWidth - nodeSize - THEME_VAR.switch_border_width * 2
-  const translateXValueStart = THEME_VAR.switch_border_width
-  const duration = THEME_VAR.switch_transition_duration
   const active = localValue === activeValue
 
   const onPressTouchable = () => {
@@ -91,7 +116,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       translateX.current, // 动画中的变量值
       {
         toValue: active ? translateXValueEnd : translateXValueStart,
-        duration: duration,
+        duration: THEME_VAR.switch_transition_duration,
         useNativeDriver: false,
       },
     )
@@ -109,7 +134,12 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         actionValue = null
       }
     }
-  }, [active, translateXValueStart, translateXValueEnd, duration])
+  }, [
+    active,
+    translateXValueStart,
+    translateXValueEnd,
+    THEME_VAR.switch_transition_duration,
+  ])
 
   const switchStyles: ViewStyle[] = [
     STYLES.switch,

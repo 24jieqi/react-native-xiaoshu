@@ -29,6 +29,9 @@ const BottomBar: React.FC<BottomBarProps> = ({
           THEME_VAR.bottom_bar_height + (safeAreaInsetBottom ? bottom : 0),
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
+        borderTopWidth: 1,
+        borderStyle: 'solid',
+        borderColor: THEME_VAR.bottom_bar_border_top_color,
       },
       style,
     ],
@@ -38,6 +41,7 @@ const BottomBar: React.FC<BottomBarProps> = ({
       bottom,
       backgroundColor,
       THEME_VAR.bottom_bar_height,
+      THEME_VAR.bottom_bar_border_top_color,
     ],
   )
 
