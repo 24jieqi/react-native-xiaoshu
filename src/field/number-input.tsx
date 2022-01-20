@@ -10,7 +10,6 @@ import type { FieldNumberInputProps, FieldTextCellPropsUsed } from './interface'
  * @description 表单中的输入框组件。
  */
 const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
-  value,
   // TODO 优化属性传递
   innerStyle,
   title,
@@ -30,8 +29,6 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
 
   // TextInput 属性
   textAlign = 'right',
-  placeholder,
-  type,
   textInputStyle,
   textInputBordered,
   ...restProps
@@ -74,10 +71,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
         <NumberInput
           {...restProps}
           style={textInputStyle}
-          type={type}
           bordered={textInputBordered}
-          value={value}
-          placeholder={placeholder}
           textAlign={textAlign}
         />
       }

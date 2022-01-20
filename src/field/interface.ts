@@ -3,6 +3,7 @@ import type { CellProps, CellPrivateProps } from '../cell/interface'
 import type { SelectorProps } from '../selector/interface'
 import type { TextInputProps } from '../text-input/interface'
 import type { NumberInputProps } from '../number-input/interface'
+import type { SwitchProps } from '../switch/interface'
 
 export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**
@@ -86,3 +87,13 @@ export interface FieldNumberInputProps
    */
   textInputBordered?: boolean
 }
+
+export interface FieldSwitchCellPropsUsed
+  extends Omit<
+    CellPropsUsed,
+    'textAlign' | 'valueTextStyle' | 'valueTextNumberOfLines'
+  > {}
+
+export interface FieldSwitchProps<ActiveValueT = any, InactiveValueT = any>
+  extends SwitchProps<ActiveValueT, InactiveValueT>,
+    FieldSwitchCellPropsUsed {}

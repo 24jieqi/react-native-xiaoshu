@@ -4,6 +4,7 @@ import DemoText from './text'
 import DemoSelector from './selector'
 import DemoTextInput from './text-input'
 import DemoNumberInput from './number-input'
+import DemoSwitch from './switch'
 
 const BasicField: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const BasicField: React.FC = () => {
       <DemoSelector />
       <DemoTextInput />
       <DemoNumberInput />
+      <DemoSwitch />
     </>
   )
 }
