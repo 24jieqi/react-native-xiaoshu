@@ -83,6 +83,9 @@ export const pickTouchablePropsField = (props: Partial<ViewProps>) => {
   return pick<ViewProps>(props, touchablePropsFields)
 }
 
+/**
+ * 排除点击事件的属性
+ */
 export const omitTouchablePropsField = (props: ViewProps) => {
   return omit(props, touchablePropsFields)
 }

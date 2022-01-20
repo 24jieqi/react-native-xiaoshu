@@ -16,7 +16,7 @@ const formatterTo = (t: string, sign?: string) => {
 }
 
 const consoleNum = (n: number) => {
-  console.log('新数据  ->  ', n)
+  console.log('[新数据]  ->  ', n)
 }
 
 const parserNum = (n: string) => {
@@ -38,7 +38,19 @@ const BasicNumberInput: React.FC = () => {
             <NumberInput
               placeholder="请输入"
               defaultValue={1000}
-              onChangeNumber={consoleNum}
+              onChange={consoleNum}
+            />
+          }
+        />
+
+        <Cell
+          title="默认值:小数限制"
+          value={
+            <NumberInput
+              type="number"
+              placeholder="请输入"
+              limitDecimals={1}
+              onChange={consoleNum}
             />
           }
         />
@@ -49,33 +61,61 @@ const BasicNumberInput: React.FC = () => {
             <NumberInput
               placeholder="请输入"
               value={value}
-              formatter={formatterTo}
-              parser={parserNum}
-              onChangeNumber={setValue}
+              onChange={setValue}
             />
           }
         />
 
         <Cell
-          title="格式化:千分位"
+          title={`受控${value}:千分位&手动45`}
           value={
             <NumberInput
               placeholder="请输入"
-              defaultValue={1000}
+              value={value}
               formatter={formatterTo}
-              onChangeNumber={consoleNum}
+              parser={parserNum}
+              onChange={setValue}
             />
           }
         />
 
         <Cell
-          title="格式化:两位小数"
+          title="formatter:千分位"
+          value={
+            <NumberInput
+              placeholder="请输入"
+              defaultValue={1000}
+              formatter={formatterTo}
+              onChange={consoleNum}
+            />
+          }
+        />
+
+        <Cell
+          title="parser:四色五入"
           value={
             <NumberInput
               placeholder="请输入"
               defaultValue={1000}
               parser={parserNum}
-              onChangeNumber={consoleNum}
+              onChange={consoleNum}
+            />
+          }
+        />
+
+        <Cell
+          title="parser:小于100*2"
+          value={
+            <NumberInput
+              placeholder="请输入"
+              parser={v => {
+                const vn = Number(v)
+                if (vn < 100) {
+                  return vn * 2
+                }
+                return vn
+              }}
+              onChange={consoleNum}
             />
           }
         />
@@ -94,7 +134,7 @@ const BasicNumberInput: React.FC = () => {
                 }
                 return null
               }}
-              onChangeNumber={consoleNum}
+              onChange={consoleNum}
             />
           }
         />
@@ -106,7 +146,7 @@ const BasicNumberInput: React.FC = () => {
               placeholder="请输入"
               defaultValue={10}
               max={1000.12}
-              onChangeNumber={consoleNum}
+              onChange={consoleNum}
               bordered
             />
           }

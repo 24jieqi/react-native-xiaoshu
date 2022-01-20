@@ -9,6 +9,7 @@ export interface NumberInputProps
     | 'showWordLimit'
     | 'rows'
     | 'type'
+    | 'onChange'
   > {
   /**
    * 输入内容格式
@@ -31,7 +32,7 @@ export interface NumberInputProps
   /**
    * 数字变化时的回调
    */
-  onChangeNumber?: (n: number) => void
+  onChange?: (n: number) => void
 
   /**
    * 最小值
@@ -46,7 +47,13 @@ export interface NumberInputProps
   max?: number
 
   /**
-   * 指定从 formatter 里转换回数字的方式，和 formatter 搭配使用
+   * 指定从 formatter 里转换回数字的方式，和 formatter 搭配使用，在输入结束的时候调用该运算结果
    */
   parser?: (v: string) => number
+
+  /**
+   * 是否限制小数位，-1 不限制
+   * @default -1
+   */
+  limitDecimals?: number
 }
