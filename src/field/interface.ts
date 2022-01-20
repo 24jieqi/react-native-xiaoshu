@@ -2,6 +2,7 @@ import type { StyleProp, TextStyle, ViewStyle } from 'react-native'
 import type { CellProps, CellPrivateProps } from '../cell/interface'
 import type { SelectorProps } from '../selector/interface'
 import type { TextInputProps } from '../text-input/interface'
+import type { NumberInputProps } from '../number-input/interface'
 
 export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**
@@ -60,6 +61,20 @@ export interface FieldTextCellPropsUsed
 
 export interface FieldTextInputProps
   extends Omit<TextInputProps, 'style' | 'bordered' | 'size'>,
+    FieldTextCellPropsUsed {
+  /**
+   * 自定义输入框的样式
+   */
+  textInputStyle?: StyleProp<TextStyle>
+
+  /**
+   * 是否显示输入框border
+   */
+  textInputBordered?: boolean
+}
+
+export interface FieldNumberInputProps
+  extends Omit<NumberInputProps, 'style' | 'bordered' | 'size'>,
     FieldTextCellPropsUsed {
   /**
    * 自定义输入框的样式

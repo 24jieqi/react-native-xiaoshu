@@ -2,20 +2,42 @@ import React, { useState } from 'react'
 import { CellGroup, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
-  const [text1, setText1] = useState('')
+  const [text1, setText1] = useState<number>(null)
 
   return (
-    <CellGroup title="Field TextInput">
-      <Field.TextInput title="非受控输入框" placeholder="请输入" />
-      <Field.TextInput
+    <CellGroup title="Field NumberInput">
+      <Field.NumberInput
         title="非受控输入框"
         placeholder="请输入"
-        defaultValue="自带默认数据"
         onChange={v => {
           console.log(v)
         }}
       />
-      <Field.TextInput
+      <Field.NumberInput
+        title="非受控输入框:整数"
+        type="digit"
+        placeholder="请输入"
+        onChange={v => {
+          console.log(v)
+        }}
+      />
+      <Field.NumberInput
+        title="非受控输入框"
+        placeholder="请输入"
+        defaultValue={100}
+        onChange={v => {
+          console.log(v)
+        }}
+      />
+      <Field.NumberInput
+        title="非受控输入框:小数"
+        placeholder="请输入"
+        limitDecimals={3}
+        onChange={v => {
+          console.log(v)
+        }}
+      />
+      <Field.NumberInput
         title="受控组件"
         placeholder="请输入"
         value={text1}
@@ -26,21 +48,14 @@ const BasicFieldTextInput: React.FC = () => {
             size="mini"
             type="error"
             onPress={() => {
-              setText1('')
+              setText1(null)
             }}
           />
         }
       />
-      <Field.TextInput
+      <Field.NumberInput
         vertical
-        title="多行输入"
-        placeholder="请输入"
-        value={text1}
-        onChange={setText1}
-      />
-      <Field.TextInput
-        type="textarea"
-        title="多行输入"
+        title="上下"
         placeholder="请输入"
         value={text1}
         onChange={setText1}
