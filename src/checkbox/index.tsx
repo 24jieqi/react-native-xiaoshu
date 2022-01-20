@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from 'react'
-import React, { useCallback, useState, memo } from 'react'
+import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
-import { usePersistFn, useUpdateEffect } from '../hooks'
-import { noop, isDef, isValue } from '../helpers'
+import { useControllableValue } from '../hooks'
+import { isDef } from '../helpers'
 import { createStyles } from './style'
 import CheckboxIcon from './icon'
 import type { CheckboxProps } from './interface'
@@ -12,9 +12,6 @@ import type { CheckboxProps } from './interface'
 function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   labelTextStyle,
   iconStyle,
-  defaultValue,
-  value,
-  onChange,
   activeValue = true as unknown as ActiveValueT,
   inactiveValue = false as unknown as InactiveValueT,
   label,
@@ -22,45 +19,32 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   labelPosition = 'right',
   iconSize = 20,
   renderIcon,
-
   disabled,
   activeColor,
 
   style,
   children,
+
+  ...restProps
 }: PropsWithChildren<CheckboxProps<ActiveValueT, InactiveValueT>>) {
   if (disabled) {
     labelDisabled = disabled
   }
 
-  const onChangePersistFn = usePersistFn(onChange || noop)
-  const [localValue, setLocalValue] = useState<ActiveValueT | InactiveValueT>(
-    isValue(value)
-      ? value
-      : isValue(defaultValue)
-      ? defaultValue
-      : inactiveValue,
+  const [value, onChange] = useControllableValue<ActiveValueT | InactiveValueT>(
+    restProps,
+    {
+      defaultValue: inactiveValue,
+    },
   )
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  // 同步状态
-  useUpdateEffect(() => {
-    setLocalValue(value)
-  }, [value])
-
-  const onChangeValue = useCallback(() => {
-    setLocalValue(s => {
-      const v = s === activeValue ? inactiveValue : activeValue
-
-      // 做一个延迟，避免父组件更新的时候子组件也在更新
-      setTimeout(() => {
-        onChangePersistFn(v)
-      }, 0)
-
-      return v
-    })
-  }, [activeValue, inactiveValue, onChangePersistFn])
+  const active = value === activeValue
+  const onChangeValue = () => {
+    const newValue = active ? inactiveValue : activeValue
+    onChange(newValue)
+  }
 
   const labelJSX = isDef(label) ? (
     <Text
@@ -81,7 +65,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   )
   const iconProps = {
     style: iconStyle,
-    active: localValue === activeValue,
+    active,
     activeColor,
     disabled,
     size: iconSize,

@@ -37,7 +37,7 @@ function useControllableValue<T = any>(
   const value = props[valuePropName] as T
   const isControlled = valuePropName in props
 
-  const [localValue, setLocalValue] = useState(() => {
+  const [localValue, setLocalValue] = useState<T>(() => {
     if (isControlled) {
       return value
     }

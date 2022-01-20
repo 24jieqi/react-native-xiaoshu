@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import {
   CheckboxIcon,
@@ -7,6 +7,8 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCheckbox: React.FC = () => {
+  const [value, setValue] = useState(true)
+
   return (
     <ScrollView>
       <Text>基础用法</Text>
@@ -165,6 +167,14 @@ const BasicCheckbox: React.FC = () => {
           console.log('当前状态：', v)
         }}
       />
+
+      <View style={{ height: 20 }} />
+
+      <Text>基础用法</Text>
+
+      <Checkbox label="点击不会更新状态" value={value} />
+      <View style={{ height: 16 }} />
+      <Checkbox label="点击可以更新状态" value={value} onChange={setValue} />
 
       <View style={{ height: 20 }} />
     </ScrollView>
