@@ -42,6 +42,17 @@ const BasicNumberInput: React.FC = () => {
             />
           }
         />
+        <Cell
+          title="默认值:整数"
+          value={
+            <NumberInput
+              type="digit"
+              placeholder="请输入"
+              defaultValue={1000}
+              onChange={consoleNum}
+            />
+          }
+        />
 
         <Cell
           title="默认值:小数限制"
