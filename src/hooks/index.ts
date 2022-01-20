@@ -1,3 +1,4 @@
+export { default as useControllableValue } from './useControllableValue'
 export { default as useDestroyed } from './useDestroyed'
 export { default as usePersistFn } from './usePersistFn'
 export { default as useSafeHeight } from './useSafeHeight'
