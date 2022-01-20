@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef, useMemo, memo } from 'react'
+import React, { useEffect, useRef, useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, Animated } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import LoadingCircular from '../loading/circular'
-import { useUpdateEffect } from '../hooks'
-import { getDefaultValue, isPromise, isValue } from '../helpers'
+import { useControllableValue } from '../hooks'
+import { getDefaultValue, isValue, callInterceptor } from '../helpers'
 import { createStyles } from './style'
 import type { SwitchProps } from './interface'
 
@@ -13,27 +13,26 @@ import type { SwitchProps } from './interface'
  * Switch 开关
  * @description 用于在打开和关闭状态之间进行切换。
  */
-function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
-  size,
-  disabled = false,
-  loading = false,
-  value,
-  defaultValue,
-  activeValue = true as unknown as ActiveValueT,
-  inactiveValue = false as unknown as InactiveValueT,
-  inactiveColor,
-  activeColor,
-  onPress,
-  onChange,
-  beforeChange,
-}: SwitchProps<ActiveValueT, InactiveValueT>) {
+function Switch<ActiveValueT = boolean, InactiveValueT = boolean>(
+  props: SwitchProps<ActiveValueT, InactiveValueT>,
+) {
+  const {
+    size,
+    disabled = false,
+    loading = false,
+    activeValue = true as unknown as ActiveValueT,
+    inactiveValue = false as unknown as InactiveValueT,
+    inactiveColor,
+    activeColor,
+    onPress,
+    beforeChange,
+  } = props
   const translateX = useRef(new Animated.Value(0))
-  const [localValue, setLocalValue] = useState<ActiveValueT | InactiveValueT>(
-    isValue(value)
-      ? value
-      : isValue(defaultValue)
-      ? defaultValue
-      : inactiveValue,
+  const [value, onChange] = useControllableValue<ActiveValueT | InactiveValueT>(
+    props,
+    {
+      defaultValue: inactiveValue,
+    },
   )
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -74,45 +73,23 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
     size,
   ])
 
-  // 同步值
-  useUpdateEffect(() => {
-    setLocalValue(value)
-  }, [value])
-
-  const active = localValue === activeValue
+  const active = value === activeValue
 
   const onPressTouchable = () => {
     onPress?.()
     if (!disabled && !loading) {
       const newValue = active ? inactiveValue : activeValue
-      const doChange = () => {
-        setLocalValue(newValue)
-        onChange?.(newValue)
-      }
-
-      if (beforeChange) {
-        const beforeChangeValue = beforeChange(newValue)
-        if (isPromise(beforeChangeValue)) {
-          beforeChangeValue.then(v => {
-            if (v) {
-              doChange()
-            }
-          })
-        } else {
-          if (beforeChangeValue) {
-            doChange()
-          }
-        }
-      } else {
-        doChange()
-      }
+      callInterceptor(beforeChange, {
+        args: [newValue],
+        done: () => {
+          onChange(newValue)
+        },
+      })
     }
   }
 
   useEffect(() => {
-    let actionValue: Animated.CompositeAnimation | null
-
-    actionValue = Animated.timing(
+    const actionValue = Animated.timing(
       translateX.current, // 动画中的变量值
       {
         toValue: active ? translateXValueEnd : translateXValueStart,
@@ -121,17 +98,12 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       },
     )
 
-    actionValue.start(({ finished }) => {
-      if (finished) {
-        actionValue = null
-      }
-    })
+    actionValue.start()
 
     return () => {
       // 停止动画
       if (actionValue) {
         actionValue.stop()
-        actionValue = null
       }
     }
   }, [

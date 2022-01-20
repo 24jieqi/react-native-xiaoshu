@@ -65,5 +65,5 @@ export interface SwitchProps<ActiveValueT = any, InactiveValueT = any> {
    */
   beforeChange?: (
     v: ActiveValueT | InactiveValueT,
-  ) => ActiveValueT | InactiveValueT | Promise<ActiveValueT | InactiveValueT>
+  ) => boolean | Promise<boolean>
 }

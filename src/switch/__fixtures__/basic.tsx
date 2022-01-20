@@ -91,6 +91,12 @@ const BasicSwitch: React.FC = () => {
         />
 
         <View style={{ height: 20 }} />
+
+        <Text>受控</Text>
+
+        <Switch loading={loading} value={state} />
+
+        <View style={{ height: 20 }} />
       </ScrollView>
       <ButtonBar alone>
         <Cell
