@@ -14,7 +14,7 @@ import Popup from '../popup/popup'
 import Cell from '../cell'
 import IconSuccessOutline from '../icon/success'
 import useState from '../hooks/useStateUpdate'
-import { useUpdateEffect } from '../hooks'
+import { useControllableValue } from '../hooks'
 import { getDefaultValue } from '../helpers'
 import { useDropdownConfig } from './context'
 import DropdownText from './text'
@@ -27,9 +27,6 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   titleTextStyle,
   lazyRender,
   options = [],
-  value,
-  defaultValue,
-  onChange,
   duration,
   zIndex,
   closeOnPressOutside,
@@ -46,8 +43,8 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     shadeStyle: {} as ViewStyle,
     position: 'bottom' as PopupPosition,
-    value: getDefaultValue(value, defaultValue),
   })
+  const [value, onChange] = useControllableValue(restProps)
 
   // 修正数据
   lazyRender = getDefaultValue(lazyRender, config.lazyRender)
@@ -57,13 +54,6 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     closeOnPressOutside,
     config.closeOnPressOutside,
   )
-
-  // 同步值
-  useUpdateEffect(() => {
-    setState({
-      value,
-    })
-  }, [value])
 
   const onPressText = useCallback(() => {
     // 计算 Menu 的 Top 和元素高度
@@ -119,7 +109,6 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
 
   const genOnPressCell = (o: DropdownItemOption) => () => {
     setState({
-      value: o.value,
       active: false,
     })
     onChange?.(o.value)
@@ -147,7 +136,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     state.ctxStyle,
   ]
 
-  const text = (options.filter(op => op.value === state.value)[0] || {}).label
+  const text = (options.filter(op => op.value === value)[0] || {}).label
   const isContextTop = state.position === 'bottom'
   const placeholderJSX = (
     <TouchableWithoutFeedback onPress={onPressShade}>

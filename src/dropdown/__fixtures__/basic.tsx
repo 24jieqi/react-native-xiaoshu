@@ -26,9 +26,9 @@ const itemOptions2 = [
 const BasicDropdown: React.FC = () => {
   const [values, setValues] = useState({
     v1: itemOptions[0].value,
-    v2: itemOptions[0].value,
-    v3: itemOptions[0].value,
-    v4: itemOptions[0].value,
+    v2: itemOptions[3].value,
+    v3: itemOptions[2].value,
+    v4: itemOptions[4].value,
   })
 
   return (
@@ -46,10 +46,26 @@ const BasicDropdown: React.FC = () => {
             }}
           />
           <DropdownItem
+            options={itemOptions}
+            defaultValue={itemOptions[2].value}
+          />
+        </DropdownMenu>
+
+        <View style={{ height: 200 }} />
+
+        <DropdownMenu>
+          <DropdownItem
             disabled
             options={itemOptions}
-            defaultValue={values.v2}
+            value={values.v1}
+            onChange={v => {
+              setValues(s => ({
+                ...s,
+                v1: v as number,
+              }))
+            }}
           />
+          <DropdownItem options={itemOptions} value={itemOptions[2].value} />
         </DropdownMenu>
 
         <View style={{ height: 200 }} />
