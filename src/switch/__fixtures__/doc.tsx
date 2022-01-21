@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from '@fruits-chain/react-native-xiaoshu'
 import Basic from './basic'
 
-const OverlayDemo: React.FC = () => {
+const TabBarDemo: React.FC = () => {
   return (
     <Provider>
       <Basic />
@@ -10,4 +10,4 @@ const OverlayDemo: React.FC = () => {
   )
 }
 
-export default OverlayDemo
+export default TabBarDemo

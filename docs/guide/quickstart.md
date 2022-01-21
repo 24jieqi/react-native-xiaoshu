@@ -19,13 +19,13 @@ group:
 
 ```bash
 ## npm
-npm i react-native-xiaoshu
+npm i @fruits-chain/react-native-xiaoshu
 
 ## yarn
-yarn add react-native-xiaoshu
+yarn add @fruits-chain/react-native-xiaoshu
 
 ## 额外依赖
-yarn add react-native-safe-area-context react-native-svg
+yarn add react-native-safe-area-context react-native-svg rc-field-form
 
 ## ios 依赖
 cd ios && pod install

@@ -190,6 +190,7 @@ const BasicNumberInput: React.FC = () => {
               textAlign="right"
             />
           }
+          bordered={false}
         />
       </CellGroup>
       <CellGroup title="其他用法">

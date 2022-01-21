@@ -4,8 +4,7 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基础组件
-  path: /basic
+  path: /form
   order: 0
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: react-native-xiaoshu - React Native UI library
+title: react-native-xiaoshu - 🌈 React Native UI library
 hero:
-  title: react-native-xiaoshu
-  desc: 🤖 轻量、可靠的 React Native 组件库
+  title: 小暑
+  desc: 🌈 轻量、可靠的 React Native 组件库
   actions:
     - text: 快速上手 →
       link: /guide/quickstart
@@ -25,5 +25,5 @@ features:
   - icon: https://gw.alipayobjects.com/zos/basement_prod/d078a5a9-1cb3-4352-9f05-505c2e98bc95/k7788v4b_w102_h126.png
     title: 规范交互
     desc: react-native-xiaoshu 是基于洪九果品视觉规范实现的组件库。
-footer: Open-source MIT Licensed | Copyright © 2021-present<br />Powered by [洪九果品研发团队](https://github.com/hjfruit).
+footer: Copyright © 2021-present<br />Powered by [洪九果品研发团队](https://github.com/hjfruit).
 ---
