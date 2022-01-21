@@ -1,10 +1,10 @@
-import React, { useState, memo } from 'react'
+import React, { memo } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
-import { getDefaultValue, isValue } from '../helpers'
 import BottomBar from '../bottom-bar'
 import { useTheme, widthStyle } from '../theme'
-import { useUpdateEffect } from '../hooks'
+import { useControllableValue } from '../hooks'
+import { getDefaultValue } from '../helpers'
 
 import type { TabBarProps, TabValue } from './interface'
 import { createStyles } from './style'
@@ -14,16 +14,11 @@ const TabBar: React.FC<TabBarProps> = ({
   iconColor,
   activeTextColor,
   activeIconColor,
-  value,
-  defaultValue,
   options,
-  onChange,
 
   ...restProps
 }) => {
-  const [localValue, setLocalValue] = useState<TabValue>(
-    isValue(value) ? value : defaultValue,
-  )
+  const [value, onChange] = useControllableValue(restProps)
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
@@ -38,20 +33,14 @@ const TabBar: React.FC<TabBarProps> = ({
     THEME_VAR.tab_bar_active_icon_color,
   )
 
-  // 同步值
-  useUpdateEffect(() => {
-    setLocalValue(value)
-  }, [value])
-
   const genOnPress = (v: TabValue) => () => {
-    setLocalValue(v)
-    onChange?.(v)
+    onChange(v)
   }
 
   return (
     <BottomBar {...restProps} style={STYLES.tab_bar}>
       {options.map(item => {
-        const isActive = item.value === localValue
+        const isActive = item.value === value
 
         return (
           <TouchableOpacity
