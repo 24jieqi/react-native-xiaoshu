@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState, memo } from 'react'
+import React, { useRef, useCallback, memo, useEffect } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { Animated, View } from 'react-native'
 
@@ -6,7 +6,7 @@ import { getArrowOutline } from '../icon/helper/arrow'
 import Cell from '../cell'
 import Divider from '../divider'
 import { useTheme, widthStyle } from '../theme'
-import { usePersistFn, useUpdateEffect } from '../hooks'
+import { usePersistFn, useControllableValue } from '../hooks'
 import { easing, isValue } from '../helpers'
 import type { CollapseProps } from './interface'
 import { createStyles } from './style'
@@ -25,41 +25,33 @@ const Collapse: React.FC<CollapseProps> = ({
   bodyStyle,
   renderTitle,
   renderBody,
-  defaultCollapse,
-  collapse,
   onAnimationEnd,
   bodyPadding = true,
   bodyBordered = true,
+
+  ...restProps
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
+  const [collapse, onCollapse] = useControllableValue(restProps, {
+    defaultValuePropName: 'defaultCollapse',
+    valuePropName: 'collapse',
+    trigger: 'onCollapse',
+    defaultValue: false,
+  })
   const onAnimationEndPersistFn = usePersistFn((v: boolean) => {
     onAnimationEnd?.(v)
   })
-  /** 记录当前是否课件，在不断 onLayout 的时候可以有一个判断的依据 */
-  const Visible = useRef(
-    isValue(collapse)
-      ? collapse
-      : isValue(defaultCollapse)
-      ? defaultCollapse
-      : false,
-  )
+  /** 记录当前是否可见，在不断 onLayout 的时候可以有一个判断的依据 */
+  const Visible = useRef(collapse)
   const HeightMap = useRef({
     start: 1,
     end: 2,
   })
-  const [show, setShow] = useState(Visible.current)
   const AnimatedValue = useRef(new Animated.Value(0)).current
-  const setVisible = useCallback(
+  const toggleBody = useCallback(
     (v: boolean) => {
-      Visible.current = v
-
-      // 展开的时候立即响应
-      if (v) {
-        setShow(v)
-      }
-
       const action = Animated.timing(AnimatedValue, {
         toValue: v
           ? HeightMap.current.start + HeightMap.current.end
@@ -71,10 +63,6 @@ const Collapse: React.FC<CollapseProps> = ({
 
       action.start(({ finished }) => {
         if (finished) {
-          // 收起的时候等待动画结束再响应
-          if (!v) {
-            setShow(v)
-          }
           onAnimationEndPersistFn(v)
         }
       })
@@ -86,31 +74,24 @@ const Collapse: React.FC<CollapseProps> = ({
     ],
   )
 
-  useUpdateEffect(() => {
-    if (collapse !== Visible.current) {
-      // 同步外界状态
-      setVisible(!Visible.current)
-    }
-  }, [collapse, setVisible])
+  useEffect(() => {
+    // 同步当前的状态
+    Visible.current = collapse
 
-  // title 是否要自定义渲染
-  if (renderTitle) {
-    title = renderTitle(show)
-  }
+    toggleBody(collapse)
+  }, [collapse, toggleBody])
 
   const onPressTitle = useCallback(() => {
-    setVisible(!Visible.current)
-  }, [setVisible])
+    onCollapse(!Visible.current)
+  }, [onCollapse])
 
   const onLayoutTitle = useCallback(
     (e: LayoutChangeEvent) => {
       HeightMap.current.start = e.nativeEvent.layout.height
 
-      if (!Visible.current) {
-        setVisible(false)
-      }
+      toggleBody(Visible.current)
     },
-    [setVisible],
+    [toggleBody],
   )
 
   const onLayoutBody = useCallback(
@@ -118,19 +99,17 @@ const Collapse: React.FC<CollapseProps> = ({
       // 有点疑惑，折叠的过程中，高度在动态变化
       HeightMap.current.end = e.nativeEvent.layout.height
 
-      if (Visible.current) {
-        setVisible(true)
-      }
+      toggleBody(Visible.current)
     },
-    [setVisible],
+    [toggleBody],
   )
 
-  const ArrowOutline = getArrowOutline(show ? 'up' : 'down')
+  const ArrowOutline = getArrowOutline(collapse ? 'up' : 'down')
 
   return (
     <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>
       <Cell
-        title={title}
+        title={renderTitle ? renderTitle(collapse) : title}
         style={titleStyle}
         titleTextStyle={[STYLES.title_text, titleTextStyle]}
         valueExtra={
@@ -154,7 +133,7 @@ const Collapse: React.FC<CollapseProps> = ({
         collapsable={false}
         onLayout={onLayoutBody}
         style={[bodyPadding ? STYLES.body_padding : undefined, bodyStyle]}>
-        {renderBody ? renderBody(show) : children}
+        {renderBody ? renderBody(collapse) : children}
 
         {bodyBordered ? <Divider type="light" /> : null}
       </View>

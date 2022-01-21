@@ -1,9 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
 import { Collapse, CellGroup } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCollapse: React.FC = () => {
+  const [value, setValue] = useState(false)
+
   return (
     <ScrollView>
       <CellGroup title="基础用法" bordered={false}>
@@ -13,7 +15,23 @@ const BasicCollapse: React.FC = () => {
           <Text style={{ lineHeight: 20 }}>文案</Text>
         </Collapse>
 
-        <Collapse title="标题12" bodyPadding={false}>
+        <Collapse title="标题12:body 无内边距" bodyPadding={false}>
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+          <View style={{ height: 20 }} />
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+        </Collapse>
+
+        <Collapse title="受控:展不开" bodyPadding={false} collapse={false}>
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+          <View style={{ height: 20 }} />
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+        </Collapse>
+
+        <Collapse
+          title="受控:正常"
+          bodyPadding={false}
+          collapse={value}
+          onCollapse={setValue}>
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />
           <Text style={{ lineHeight: 20 }}>文案</Text>
@@ -45,6 +63,9 @@ const BasicCollapse: React.FC = () => {
               </>
             )
           }, [])}
+          onAnimationEnd={v => {
+            console.log('动画结束 => ', v)
+          }}
         />
 
         <Collapse title="title文案">
