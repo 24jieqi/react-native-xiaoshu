@@ -7,7 +7,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
     divider: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginVertical: themeVar.divider_margin_vertical,
     },
 
     text: {

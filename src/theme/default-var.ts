@@ -214,7 +214,6 @@ export const dialog_confirm_button_text_color = primary
 export const dialog_cancel_button_text_color = text_color_2
 
 // Divider
-export const divider_margin_vertical = padding_md
 export const divider_margin_horizontal = padding_md
 export const divider_text_color = text_color_1
 export const divider_font_size = font_size_h5

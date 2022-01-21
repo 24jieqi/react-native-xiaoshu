@@ -55,12 +55,12 @@ const DividerLine: React.FC<DividerLineProps> = ({
 
   return (
     <View onLayout={onLayout} style={viewStyle}>
-      <Svg width={size} height={2} viewBox={`0 0 ${size} 1`}>
+      <Svg width={size} height={1} viewBox={`0 0 ${size} 1`}>
         <Line
           x1="0"
-          y1="0"
+          y1="0.5"
           x2={size}
-          y2="0"
+          y2="0.5"
           strokeWidth={1}
           strokeDasharray={dashed ? '2 2' : undefined}
           stroke={color}
