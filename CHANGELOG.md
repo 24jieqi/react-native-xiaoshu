@@ -1,3 +1,29 @@
+## [0.0.16](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.15...v0.0.16) (2022-01-21)
+
+### Bug Fixes
+
+- **Cell:** 🐛 核对 UI ([bf489e2](https://github.com/hjfruit/react-native-xiaoshu/commit/bf489e2f7f4cc1f894f675112fcbaf9d4a67f48b))
+- **Checkbox:** 🐛 优化受控模式 ([55e05f7](https://github.com/hjfruit/react-native-xiaoshu/commit/55e05f79315828960856fb8673cd48328c2594fc))
+- **ci:** 🐛 新增可受控 hooks ([b9200ad](https://github.com/hjfruit/react-native-xiaoshu/commit/b9200ad7ea0936a26014247fc8bf8dee5cae7c6e))
+- **Collapse:** 🐛 初始化高度塌陷,默认最低 title 的高 ([5134cb3](https://github.com/hjfruit/react-native-xiaoshu/commit/5134cb323ac3c75aa629445d4799ec45d7df4c1e))
+- **Dropdown:** 🐛 优化受控模式 ([cae7ece](https://github.com/hjfruit/react-native-xiaoshu/commit/cae7ece76d4b621187158e6718de6332d6480974))
+- **Field:** 🐛 输入控件细节问题 ([1b983e4](https://github.com/hjfruit/react-native-xiaoshu/commit/1b983e4959d3e7018885a6634869d176d3ea2843))
+- **Progress:** 🐛 优化起点非 0 时动画过度 ([1df285f](https://github.com/hjfruit/react-native-xiaoshu/commit/1df285f0e843070b8b94b0179de1ba20e43beb10))
+- **Selector:** 🐛 onChange 可能不存在 ([db47243](https://github.com/hjfruit/react-native-xiaoshu/commit/db47243e9d305b4bd9aac237e7ec48f3ae72afaf))
+- **Switch:** 🐛 优化受控模式未更新外部状态 ([c04fe4e](https://github.com/hjfruit/react-native-xiaoshu/commit/c04fe4ea48ba97c20268f4d675f4bf6ab87b510b))
+- **TabBar:** 🐛 变量命名冲突 ([dccb03e](https://github.com/hjfruit/react-native-xiaoshu/commit/dccb03ef87e8794bccf5426bf9622abbe64c5ed6))
+- **TabBar:** 🐛 优化受控模式 ([aa7c099](https://github.com/hjfruit/react-native-xiaoshu/commit/aa7c09933c530eeb2781ab76446f384fc612b12a))
+
+### Features
+
+- **Collapse:** 🎸 优化内部逻辑 ([c979a4c](https://github.com/hjfruit/react-native-xiaoshu/commit/c979a4c5c048e6e448136def0635e8f0ae020e95))
+- **Divider:** 🎸 去掉上下边距 ([0b942c6](https://github.com/hjfruit/react-native-xiaoshu/commit/0b942c6db518029cb4450b1de8a8080ff82964c5))
+- **Field:** 🎸 新增开关 ([7cbf7e4](https://github.com/hjfruit/react-native-xiaoshu/commit/7cbf7e4b93293df2bf8fea7958b38638fad8a28e))
+- **Field:** 🎸 新增数字输入 ([7ba78dd](https://github.com/hjfruit/react-native-xiaoshu/commit/7ba78ddfdba02deaba4a3ab697dfd3b11131788f))
+- **NumberInput:** 🎸 新增小数限制\优化内部逻辑 ([f88f5e6](https://github.com/hjfruit/react-native-xiaoshu/commit/f88f5e668438b0359334b69f672d189ee0add3c6))
+- **Picker:** 🎸 新增选择器 ([05b923f](https://github.com/hjfruit/react-native-xiaoshu/commit/05b923f1a38703bd604747750e79774f68c583f6))
+- **Switch:** 🎸 优化组件样子\实现方式 ([5eb21d2](https://github.com/hjfruit/react-native-xiaoshu/commit/5eb21d21b969a80cee0f28fa030ddd14352ed569))
+
 ## [0.0.15](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.14...v0.0.15) (2022-01-18)
 
 ### Bug Fixes
