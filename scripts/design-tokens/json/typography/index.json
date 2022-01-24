@@ -1,0 +1,274 @@
+{
+  "typography": {
+    "size-1 ": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 10
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-2": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 12
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-3": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 14
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-4": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 15
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-5": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 16
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-6": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 17
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-7": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 18
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-8": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 20
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-9": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 22
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "size-10": {
+      "font-family": {
+        "value": "PingFang SC"
+      },
+      "font-size": {
+        "value": 24
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": null
+      },
+      "type": "typography"
+    },
+    "line-height-1": {
+      "font-family": {
+        "value": "Alibaba PuHuiTi"
+      },
+      "font-size": {
+        "value": 16
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": 22
+      },
+      "type": "typography"
+    },
+    "line-height-2": {
+      "font-family": {
+        "value": "Alibaba PuHuiTi"
+      },
+      "font-size": {
+        "value": 16
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": 24
+      },
+      "type": "typography"
+    },
+    "line-height-3": {
+      "font-family": {
+        "value": "Alibaba PuHuiTi"
+      },
+      "font-size": {
+        "value": 16
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": 26
+      },
+      "type": "typography"
+    },
+    "line-height-4": {
+      "font-family": {
+        "value": "Alibaba PuHuiTi"
+      },
+      "font-size": {
+        "value": 16
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": 28
+      },
+      "type": "typography"
+    },
+    "line-height-5": {
+      "font-family": {
+        "value": "Alibaba PuHuiTi"
+      },
+      "font-size": {
+        "value": 16
+      },
+      "weight": {
+        "value": 5
+      },
+      "letter-spacing": {
+        "value": null
+      },
+      "line-height": {
+        "value": 30
+      },
+      "type": "typography"
+    }
+  }
+}

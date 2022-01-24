@@ -48,7 +48,8 @@
     "release": "release-it",
     "release:major": "release-it major",
     "release:minor": "release-it minor",
-    "release:patch": "release-it patch"
+    "release:patch": "release-it patch",
+    "design-tokens:generate": "ts-node --project tsconfig.nodejs.json ./scripts/design-tokens/index.ts"
   },
   "dependencies": {
     "lodash": "^4.17.21"
@@ -93,6 +94,7 @@
     "react-native-svg": "^12.1.1",
     "react-test-renderer": "17.0.2",
     "release-it": "^14.12.3",
+    "ts-node": "^10.4.0",
     "typescript": "4.5.4",
     "umi-plugin-react-native": "^0.5.0"
   },
