@@ -34,8 +34,8 @@ const Loading: React.FC<LoadingProps> = ({
           {
             fontSize: textSize || THEME_VAR.loading_text_font_size,
             color: color || THEME_VAR.loading_text_color,
-            marginLeft: vertical ? 0 : THEME_VAR.padding_xs,
-            marginTop: vertical ? THEME_VAR.padding_xs : 0,
+            marginLeft: vertical ? 0 : THEME_VAR.loading_gap,
+            marginTop: vertical ? THEME_VAR.loading_gap : 0,
           },
           textStyle,
         ])}>

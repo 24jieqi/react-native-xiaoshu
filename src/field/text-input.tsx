@@ -75,7 +75,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
       valueStyle={
         vertical
           ? {
-              marginTop: THEME_VAR.padding_xs,
+              marginTop: THEME_VAR.space_2,
             }
           : null
       }

@@ -60,7 +60,7 @@ const NavBar: React.FC<NavBarProps> = ({
             <TouchableOpacity
               style={STYLES.back_arrow}
               onPress={onPressBackArrow}
-              activeOpacity={THEME_VAR.active_opacity}
+              activeOpacity={THEME_VAR.button_active_opacity}
               hitSlop={BACK_ARROW_HIT_SLOP}>
               <ArrowLeftOutline size={backArrowSize} color={backArrowColor} />
             </TouchableOpacity>

@@ -46,7 +46,7 @@ const TabBar: React.FC<TabBarProps> = ({
           <TouchableOpacity
             key={item.value}
             style={STYLES.item}
-            activeOpacity={THEME_VAR.active_opacity}
+            activeOpacity={THEME_VAR.button_active_opacity}
             onPress={isActive ? undefined : genOnPress(item.value)}>
             {item.iconRender(isActive ? activeIconColor : iconColor)}
             <Text

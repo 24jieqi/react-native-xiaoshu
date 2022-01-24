@@ -62,7 +62,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
           ? [
               innerStyle,
               {
-                opacity: THEME_VAR.active_opacity,
+                opacity: THEME_VAR.button_active_opacity,
               },
             ]
           : innerStyle

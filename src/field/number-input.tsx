@@ -63,7 +63,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
       valueStyle={
         vertical
           ? {
-              marginTop: THEME_VAR.padding_xs,
+              marginTop: THEME_VAR.space_2,
             }
           : null
       }

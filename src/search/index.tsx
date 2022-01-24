@@ -86,7 +86,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
         {showBack ? (
           <ArrowLeftOutline
             onPress={onPressBack}
-            color={THEME_VAR.text_color_1}
+            color={THEME_VAR.search_back_icon_color}
             size={24}
             style={STYLES.icon_back}
           />

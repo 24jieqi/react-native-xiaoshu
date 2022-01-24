@@ -98,7 +98,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
               underlayColor={
                 item.disabled || item.loading
                   ? THEME_VAR.action_sheet_item_background
-                  : THEME_VAR.underlay_color_ddd
+                  : THEME_VAR.action_sheet_item_underlay_color
               }
               onPress={() => {
                 if (!item.disabled && !item.loading) {
@@ -134,7 +134,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
           <View style={STYLES.gap} />
           <TouchableHighlight
             activeOpacity={1}
-            underlayColor={THEME_VAR.underlay_color_ddd}
+            underlayColor={THEME_VAR.action_sheet_item_underlay_color}
             onPress={onCancel}>
             {cancelTextJSX}
           </TouchableHighlight>

@@ -36,14 +36,14 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     loading: {
       alignItems: 'center',
-      padding: themeVar.padding_base,
+      padding: themeVar.toast_loading_padding,
     },
 
     text: {
       fontSize: themeVar.toast_font_size,
       color: themeVar.toast_text_color,
       textAlign: 'center',
-      marginTop: themeVar.padding_xs,
+      marginTop: themeVar.toast_text_margin_top,
     },
 
     text_top_0: {

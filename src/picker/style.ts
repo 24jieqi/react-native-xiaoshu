@@ -14,7 +14,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     picker: {
       backgroundColor: themeVar.picker_background_color,
       // backgroundColor: '#f30',
-      borderRadius: themeVar.border_radius_md,
+      // borderRadius: themeVar.border_radius_md,
       overflow: 'hidden',
     },
 

@@ -25,7 +25,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     const THEME_VAR = useTheme()
     const [secure, setSecure] = useState(secureTextEntry)
 
-    iconColor = getDefaultValue(iconColor, THEME_VAR.text_color_3)
+    iconColor = getDefaultValue(iconColor, THEME_VAR.gray_6)
 
     // 同步数据
     useUpdateEffect(() => {

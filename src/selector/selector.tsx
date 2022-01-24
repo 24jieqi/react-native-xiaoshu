@@ -167,7 +167,7 @@ const Selector: React.FC<SelectorProps> = ({
                   key={item.value}
                   disabled={item.disabled}
                   onPress={genOnPressOption(item.value)}
-                  activeOpacity={THEME_VAR.active_opacity}>
+                  activeOpacity={THEME_VAR.button_active_opacity}>
                   <View style={STYLES.option_item}>
                     <Text style={STYLES.option_item_text} numberOfLines={1}>
                       {item.label}
@@ -181,7 +181,7 @@ const Selector: React.FC<SelectorProps> = ({
                       />
                     ) : isSelected ? (
                       <SuccessOutline
-                        color={THEME_VAR.primary}
+                        color={THEME_VAR.selector_icon_selected_color}
                         size={THEME_VAR.checkbox_icon_size}
                       />
                     ) : null}

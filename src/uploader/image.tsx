@@ -32,7 +32,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
     <TouchableOpacity
       style={[STYLES.image, sizeStyle]}
       onPress={canPress ? onPress : undefined}
-      activeOpacity={canPress ? THEME_VAR.active_img_opacity : 1}>
+      activeOpacity={canPress ? THEME_VAR.button_active_opacity : 1}>
       {isDef(children) ? (
         children
       ) : (

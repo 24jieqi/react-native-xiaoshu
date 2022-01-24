@@ -33,7 +33,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     btn: {
       alignItems: 'center',
       paddingVertical: 14,
-      paddingHorizontal: themeVar.padding_md,
+      paddingHorizontal: themeVar.action_sheet_item_padding_horizontal,
     },
 
     item: {
@@ -43,7 +43,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     subname: {
-      marginTop: themeVar.padding_xs,
+      marginTop: themeVar.action_sheet_subname_margin_top,
       color: themeVar.action_sheet_subname_color,
       fontSize: themeVar.action_sheet_subname_font_size,
       lineHeight: themeVar.action_sheet_subname_line_height,

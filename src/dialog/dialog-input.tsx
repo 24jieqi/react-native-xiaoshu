@@ -50,13 +50,13 @@ const DialogInput: React.FC<DialogInputProps> = ({
   })
   const boxStyle = useMemo<ViewStyle>(
     () => ({
-      marginHorizontal: THEME_VAR.padding_md,
-      marginTop: THEME_VAR.padding_md,
+      marginHorizontal: THEME_VAR.dialog_input_gap,
+      marginTop: THEME_VAR.dialog_input_gap,
       overflow: 'hidden',
       borderStartColor: '#f30',
       // height: 100,
     }),
-    [THEME_VAR.padding_md],
+    [THEME_VAR.dialog_input_gap],
   )
 
   duration = getDefaultValue(duration, THEME_VAR.dialog_transition)

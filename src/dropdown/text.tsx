@@ -30,7 +30,10 @@ const DropdownText: React.FC<DropdownTextProps> = ({
 
   // 修正数据
   activeColor = getDefaultValue(activeColor, config.activeColor)
-  activeOpacity = getDefaultValue(activeOpacity, THEME_VAR.active_opacity)
+  activeOpacity = getDefaultValue(
+    activeOpacity,
+    THEME_VAR.button_active_opacity,
+  )
   direction = getDefaultValue(direction, config.direction)
 
   const textColor = disabled

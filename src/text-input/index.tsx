@@ -429,7 +429,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
             <View style={STYLES.accessory}>
               <TouchableOpacity
                 onPress={onPressFinish}
-                activeOpacity={THEME_VAR.active_opacity}>
+                activeOpacity={THEME_VAR.button_active_opacity}>
                 <Text style={STYLES.accessory_text}>完成</Text>
               </TouchableOpacity>
             </View>

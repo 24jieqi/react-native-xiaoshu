@@ -16,7 +16,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     icon: {
       alignSelf: 'center',
-      marginBottom: themeVar.padding_xs,
+      marginBottom: themeVar.empty_icon_margin_bottom,
     },
 
     text: {

@@ -1,18 +1,16 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { useTheme } from '@fruits-chain/react-native-xiaoshu'
 import Layout from '@/layouts/layout'
 import type { BottomTabScreenProps } from '@/routes'
+import { sceneContainerStyle } from '@/routes/config'
 
 type ScreenProps = BottomTabScreenProps<'Home'>
 
 const Home: React.FC<ScreenProps> = ({ navigation }) => {
-  const themeVar = useTheme()
-
   return (
     <Layout.Page
       headerShown={false}
-      headerBackgroundColor={themeVar.background_color_1}>
+      headerBackgroundColor={sceneContainerStyle.backgroundColor as string}>
       <Text>Home</Text>
 
       <View style={Styles.page}>

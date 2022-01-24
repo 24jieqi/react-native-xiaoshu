@@ -27,7 +27,7 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
   const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
 
   size = getDefaultValue(size, THEME_VAR.loading_spinner_size)
-  color = getDefaultValue(color, THEME_VAR.primary)
+  color = getDefaultValue(color, THEME_VAR.brand_6)
 
   useLoop(AnimatedSpinnerValue, 0, {
     toValue: 1,
