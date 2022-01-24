@@ -1,4 +1,4 @@
-import { ViewProps } from 'react-native'
+import { ViewProps, FlexStyle } from 'react-native'
 
 type SpaceDirection = 'vertical' | 'horizontal'
 
@@ -27,11 +27,21 @@ export interface SpaceProps extends ViewProps {
    * 头部是否添加间距
    * @default false
    */
-  start?: boolean | number
+  head?: boolean | number
 
   /**
    * 尾部是否添加间距
    * @default false
    */
-  end?: boolean | number
+  tail?: boolean | number
+
+  /**
+   * 主轴对齐方式
+   */
+  justify?: FlexStyle['justifyContent']
+
+  /**
+   * 交叉轴对齐方式
+   */
+  align?: FlexStyle['alignItems']
 }

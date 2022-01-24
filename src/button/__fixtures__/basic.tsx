@@ -19,14 +19,14 @@ const BasicButton: React.FC = () => {
   return (
     <ScrollView>
       <CellGroup title="按钮类型" bordered={false}>
-        <Space style={Styles.box} end>
+        <Space style={Styles.box} tail>
           <Button type="primary" text="primary" onPress={onPress} />
           <Button type="hazy" text="hazy" onPress={onPress} />
           <Button type="outline" text="outline" onPress={onPress} />
           <Button type="ghost" text="ghost" onPress={onPress} />
           <Button type="link" text="link" onPress={onPress} />
         </Space>
-        <Space direction="horizontal" start end wrap>
+        <Space direction="horizontal" head tail wrap>
           <Button type="primary" text="primary" onPress={onPress} />
           <Button type="hazy" text="hazy" onPress={onPress} />
           <Button type="outline" text="outline" onPress={onPress} />
@@ -71,7 +71,7 @@ const BasicButton: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="加载中状态" bordered={false}>
-        <Space style={Styles.box} end>
+        <Space style={Styles.box} tail>
           <Button type="primary" text="primary" onPress={onPress} loading />
           <Button
             type="hazy"
@@ -96,7 +96,7 @@ const BasicButton: React.FC = () => {
             loadingText="自定义文案"
           />
         </Space>
-        <Space direction="horizontal" wrap start end>
+        <Space direction="horizontal" wrap head tail>
           <Button type="primary" text="primary" onPress={onPress} loading />
           <Button
             type="hazy"
@@ -124,7 +124,7 @@ const BasicButton: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="按钮尺寸" bordered={false}>
-        <Space style={Styles.box} end>
+        <Space style={Styles.box} tail>
           <Button
             type="primary"
             size="xl"
@@ -151,7 +151,7 @@ const BasicButton: React.FC = () => {
             text={`xs ${THEME_VAR.button_xs_height}`}
           />
         </Space>
-        <Space direction="horizontal" start end>
+        <Space direction="horizontal" head tail>
           <Button
             type="primary"
             size="xl"
@@ -237,7 +237,7 @@ const BasicButton: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="自定义颜色" bordered={false}>
-        <Space style={Styles.box} end>
+        <Space style={Styles.box} tail>
           <Button color="#0c6" text="只改变主要色" />
           <Button color="#0c6" type="hazy" text="只改变主要色" />
           <Button color="#0c6" type="outline" text="只改变主要色" />

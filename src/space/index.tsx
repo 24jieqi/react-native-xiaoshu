@@ -15,8 +15,10 @@ const Space: React.FC<SpaceProps> = ({
   direction = 'vertical',
   wrap = false,
   size,
-  start,
-  end,
+  head,
+  tail,
+  justify,
+  align,
 
   style,
   children,
@@ -31,24 +33,26 @@ const Space: React.FC<SpaceProps> = ({
   const wrapperStyle: ViewStyle = {
     flexDirection: isVertical ? 'column' : 'row',
     flexWrap: wrap ? 'wrap' : 'nowrap',
+    justifyContent: justify,
+    alignItems: align,
     ...(isVertical
       ? {
-          marginTop: start
-            ? typeof start === 'number'
-              ? start
+          marginTop: head ? (typeof head === 'number' ? head : gapVertical) : 0,
+          marginBottom: tail
+            ? typeof tail === 'number'
+              ? tail
               : gapVertical
             : 0,
-          marginBottom: end ? (typeof end === 'number' ? end : gapVertical) : 0,
         }
       : {
-          marginLeft: start
-            ? typeof start === 'number'
-              ? start
+          marginLeft: head
+            ? typeof head === 'number'
+              ? head
               : gapHorizontal
             : 0,
-          marginRight: end
-            ? typeof end === 'number'
-              ? end
+          marginRight: tail
+            ? typeof tail === 'number'
+              ? tail
               : gapHorizontal
             : 0,
         }),

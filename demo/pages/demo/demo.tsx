@@ -64,6 +64,10 @@ const navDatas: {
         title: 'Icon',
         name: 'DemoIcon',
       },
+      {
+        title: 'Space',
+        name: 'DemoSpace',
+      },
     ],
   },
   {
