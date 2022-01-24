@@ -21,14 +21,14 @@ const BasicButtonBar: React.FC = () => {
             },
             {
               text: '次要按钮',
-              type: 'info',
+              type: 'hazy',
               onPress: () => {
                 console.log('??')
               },
             },
             {
               text: '次要按钮',
-              type: 'info',
+              type: 'hazy',
               onPress: () => {
                 console.log('??')
               },
@@ -64,14 +64,14 @@ const BasicButtonBar: React.FC = () => {
             },
             {
               text: '次要按钮',
-              type: 'info',
+              type: 'hazy',
               onPress: () => {
                 console.log('??')
               },
             },
             {
               text: '次要按钮',
-              type: 'info',
+              type: 'hazy',
               onPress: () => {
                 console.log('??')
               },

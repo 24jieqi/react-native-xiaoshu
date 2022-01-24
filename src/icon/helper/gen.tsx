@@ -10,6 +10,7 @@ import {
   hex2rgba,
   pickTouchablePropsField,
   omitTouchablePropsField,
+  isDef,
 } from '../../helpers'
 import type { IconCommonProps } from '../interface'
 import * as helper from './'
@@ -78,7 +79,11 @@ export const genIcon = ({
         <TouchableWithoutFeedback {...touchableOpacityProps} hitSlop={hitSlop}>
           <View
             style={style || touchableOpacityStyle}
-            pointerEvents={svgProps.pointerEvents}>
+            pointerEvents={
+              isDef(touchableOpacityProps.onPress)
+                ? svgProps.pointerEvents
+                : 'none'
+            }>
             <Svg
               {...svgProps}
               style={svgStyle || touchableOpacityStyle}

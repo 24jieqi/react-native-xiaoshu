@@ -102,47 +102,31 @@ export const bottom_bar_background_color = white
 export const bottom_bar_border_top_color = border_color
 
 // Button
-export const button_mini_height: number = 24
-export const button_mini_font_size = font_size_subtitle
-export const button_mini_loading_size: number = 14
-export const button_small_height: number = 32
-export const button_small_font_size = font_size_text
-export const button_small_loading_size: number = 20
-export const button_normal_height: number = 40
-export const button_normal_font_size = font_size_h5
-export const button_normal_loading_size: number = 20
-export const button_large_height: number = 50
-export const button_large_font_size = font_size_h4
-export const button_large_loading_size: number = 24
-export const button_default_height: number = 44
-export const button_default_font_size = font_size_h4
-export const button_default_loading_size: number = 24
-export const button_default_color = primary
-export const button_default_background_color = white
-export const button_default_border_color = white
-export const button_primary_color = white
-export const button_primary_background_color = primary
-export const button_primary_border_color = primary
-export const button_success_color = white
-export const button_success_background_color = success
-export const button_success_border_color = success
-export const button_error_color = white
-export const button_error_background_color = error
-export const button_error_border_color = error
-export const button_warning_color = white
-export const button_warning_background_color = warning
-export const button_warning_border_color = warning
-export const button_info_color = primary
-export const button_info_background_color: string = '#EFF5FE'
-export const button_info_border_color: string = '#EFF5FE'
-export const button_link_color = primary
-export const button_link_background_color: string = 'transparent'
-export const button_link_border_color: string = 'transparent'
-export const button_border_width = border_width_base
-export const button_border_radius = border_radius_sm
+export const button_xl_height: number = 52
+export const button_xl_font_size: number = 18
+export const button_xl_loading_size: number = 20
+export const button_l_height: number = 44
+export const button_l_font_size: number = 16
+export const button_l_loading_size: number = 28
+export const button_m_height: number = 40
+export const button_m_font_size: number = 15
+export const button_m_loading_size: number = 16
+export const button_s_height: number = 32
+export const button_s_font_size: number = 14
+export const button_s_loading_size: number = 16
+export const button_xs_height: number = 24
+export const button_xs_font_size: number = 14
+export const button_xs_loading_size: number = 16
+export const button_border_width: number = 1
+export const button_border_color: string = '#B9BEC5'
+export const button_border_radius: number = 4
+export const button_active_opacity: number = 0.6
+export const button_disabled_opacity = 0.6
+export const button_loading_opacity = 0.6
+export const button_primary_color: string = primary
+export const button_danger_color: string = error
 export const button_ghost_background_color: string = 'transparent'
-export const button_disabled_opacity = active_opacity
-export const button_active_opacity: number = 0.4
+export const button_hazy: number = 0.1
 
 // ButtonBar
 export const button_bar_padding_horizontal = padding_sm
@@ -333,6 +317,11 @@ export const search_text_input_background_color = background_color_1
 export const selector_min_height: number = 270
 export const selector_option_text_line_height: number = 50
 export const selector_body_padding_horizontal = padding_sm
+
+// Space
+export const space_gap_size: number = 8
+export const space_gap_vertical = space_gap_size
+export const space_gap_horizontal = space_gap_size
 
 // Steps
 export const steps_background_color = primary

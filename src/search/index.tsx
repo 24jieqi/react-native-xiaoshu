@@ -107,7 +107,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           autoFocus={autoFocus}
         />
 
-        <Button text="搜索" type="primary" size="small" onPress={onPress} />
+        <Button text="搜索" type="primary" size="s" onPress={onPress} />
       </View>
     )
   },

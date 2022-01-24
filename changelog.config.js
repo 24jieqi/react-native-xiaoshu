@@ -34,6 +34,7 @@ module.exports = {
     'Result',
     'Search',
     'Selector',
+    'Space',
     'Steps',
     'Switch',
     'TabBar',

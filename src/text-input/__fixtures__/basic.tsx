@@ -91,7 +91,7 @@ const BasicTextInput: React.FC = () => {
               suffix={
                 <Button
                   type="primary"
-                  size="mini"
+                  size="xs"
                   text="发送验证码"
                   style={{ marginLeft: 8 }}
                 />

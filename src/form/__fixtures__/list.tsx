@@ -97,7 +97,7 @@ const BasicFormList: React.FC = () => {
                 })}
                 <Button
                   text="新增地址"
-                  type="warning"
+                  color="#780"
                   onPress={() => {
                     add({})
                   }}

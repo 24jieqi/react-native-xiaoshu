@@ -128,6 +128,9 @@ export type {
 } from './selector/interface'
 export { default as Selector, conversionSelectorOptions } from './selector'
 
+export type { SpaceProps } from './space/interface'
+export { default as Space } from './space'
+
 export { default as Steps } from './steps'
 
 export type { SwitchProps } from './switch/interface'

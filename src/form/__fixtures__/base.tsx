@@ -46,7 +46,7 @@ const BasicFormBase: React.FC = () => {
 
         <Button
           text="管理员"
-          type="error"
+          danger
           onPress={() => {
             form.setFieldsValue({
               username: 'admin',
@@ -58,7 +58,7 @@ const BasicFormBase: React.FC = () => {
 
         <Button
           text="重置"
-          type="default"
+          type="ghost"
           onPress={() => {
             form.resetFields(['username', 'password'])
           }}

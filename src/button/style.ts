@@ -9,7 +9,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       justifyContent: 'center',
       flexDirection: 'row',
       borderStyle: 'solid',
-      borderWidth: 1,
+      // borderWidth: 1,
       paddingHorizontal: themeVar.padding_xs,
       borderRadius: themeVar.button_border_radius,
     },
@@ -18,11 +18,15 @@ export const createStyles = (themeVar: ThemeVarType) => {
       opacity: themeVar.button_disabled_opacity,
     },
 
-    button_border_width_hairline: {
-      borderWidth: StyleSheet.hairlineWidth,
+    button_loading: {
+      opacity: themeVar.button_loading_opacity,
     },
 
-    button_mini: {
+    // button_border_width_hairline: {
+    //   borderWidth: StyleSheet.hairlineWidth,
+    // },
+
+    button_xs_padding_horizontal: {
       paddingHorizontal: themeVar.padding_base,
     },
 

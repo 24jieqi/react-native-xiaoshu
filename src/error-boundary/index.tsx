@@ -65,7 +65,7 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
           extra={
             <Button
               type="primary"
-              size="small"
+              size="s"
               text={this.props.reloadText || '重新加载'}
               onPress={this.onPressReload}
             />

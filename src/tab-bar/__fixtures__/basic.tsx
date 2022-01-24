@@ -73,7 +73,7 @@ const BasicSwitch: React.FC = () => {
 
         <Button
           text="重置"
-          type="warning"
+          danger
           onPress={() => {
             setValue1(bottomBar[1].value)
           }}

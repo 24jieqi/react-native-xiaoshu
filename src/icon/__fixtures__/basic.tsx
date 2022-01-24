@@ -176,7 +176,7 @@ const BasicIcon: React.FC = () => {
           <Col span={3} style={colStyle}>
             <Button
               type="primary"
-              size="mini"
+              size="xs"
               text="转换"
               onPress={() => {
                 setToggle(v => !v)

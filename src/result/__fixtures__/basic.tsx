@@ -66,7 +66,7 @@ const BasicResult: React.FC = () => {
           renderIcon={(color, size) => {
             return <Icon.ArrowLeftFill color={color} size={size} />
           }}
-          extra={<Button type="primary" size="small" text="回到过去" />}
+          extra={<Button type="primary" size="s" text="回到过去" />}
         />
       </CellGroup>
 

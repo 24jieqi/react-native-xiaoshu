@@ -45,19 +45,14 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
       {isConfig ? (
         <>
           {showMore ? (
-            <Button
-              type="link"
-              text={moreText}
-              size="normal"
-              onPress={onPressMore}
-            />
+            <Button type="link" text={moreText} onPress={onPressMore} />
           ) : null}
           {bottomButtons.reverse().map((b, index) => {
             return (
               <Button
                 key={index}
                 {...b}
-                size={b.size || 'normal'}
+                size={b.size}
                 style={b.style || STYLES.btn}
               />
             )

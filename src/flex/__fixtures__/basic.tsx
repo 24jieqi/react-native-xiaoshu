@@ -21,13 +21,13 @@ const BasicFlex: React.FC = () => {
       <Text>direction="row":主轴为水平方向，起点在左端</Text>
       <Flex>
         <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-          <Button size="small">按钮1</Button>
+          <Button size="xs">按钮1</Button>
         </Flex.Item>
         <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-          <Button size="small">按钮2</Button>
+          <Button size="xs">按钮2</Button>
         </Flex.Item>
         <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-          <Button size="small">按钮3</Button>
+          <Button size="xs">按钮3</Button>
         </Flex.Item>
       </Flex>
 
@@ -37,13 +37,13 @@ const BasicFlex: React.FC = () => {
       <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
       <Flex direction="column">
         <Flex.Item style={{ paddingBottom: 4 }}>
-          <Button size="small">按钮1</Button>
+          <Button size="xs">按钮1</Button>
         </Flex.Item>
         <Flex.Item style={{ paddingBottom: 4 }}>
-          <Button size="small">按钮2</Button>
+          <Button size="xs">按钮2</Button>
         </Flex.Item>
         <Flex.Item style={{ paddingBottom: 4 }}>
-          <Button size="small">按钮3</Button>
+          <Button size="xs">按钮3</Button>
         </Flex.Item>
       </Flex>
 

@@ -1,7 +1,13 @@
 import React from 'react'
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 
-import { Button, Icon, useTheme } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Button,
+  Icon,
+  CellGroup,
+  Space,
+  useTheme,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const onPress = () => {
   console.log('点击按钮')
@@ -12,478 +18,234 @@ const BasicButton: React.FC = () => {
 
   return (
     <ScrollView>
-      <Text>按钮类型</Text>
+      <CellGroup title="按钮类型" bordered={false}>
+        <Space style={Styles.box} end>
+          <Button type="primary" text="primary" onPress={onPress} />
+          <Button type="hazy" text="hazy" onPress={onPress} />
+          <Button type="outline" text="outline" onPress={onPress} />
+          <Button type="ghost" text="ghost" onPress={onPress} />
+          <Button type="link" text="link" onPress={onPress} />
+        </Space>
+        <Space direction="horizontal" start end wrap>
+          <Button type="primary" text="primary" onPress={onPress} />
+          <Button type="hazy" text="hazy" onPress={onPress} />
+          <Button type="outline" text="outline" onPress={onPress} />
+          <Button type="ghost" text="ghost" onPress={onPress} />
+          <Button type="link" text="link" onPress={onPress} />
+        </Space>
+      </CellGroup>
 
-      <View style={{ height: 20 }} />
+      <CellGroup title="危险按钮" bordered={false}>
+        <Space style={Styles.box}>
+          <Button type="primary" text="primary" onPress={onPress} danger />
+          <Button type="hazy" text="hazy" onPress={onPress} danger />
+          <Button type="outline" text="outline" onPress={onPress} danger />
+          <Button type="ghost" text="ghost" onPress={onPress} danger />
+          <Button type="link" text="link" onPress={onPress} danger />
+        </Space>
+      </CellGroup>
 
-      <View style={Styles.box}>
-        <Button text="default" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="primary" text="primary" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="success" text="success" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="warning" text="warning" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="error"
-          renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline
-              color={color}
-              size={size}
-              pointerEvents="none"
-            />
-          )}
-          text="图标请加上pointerEvents"
-          onPress={onPress}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <View
-          style={{
-            backgroundColor: '#fff',
-            marginHorizontal: -12,
-            paddingHorizontal: 12,
-            marginVertical: -12,
-            paddingVertical: 12,
-          }}>
+      <CellGroup title="细边框" bordered={false}>
+        <Space style={Styles.box}>
+          <Button type="outline" text="outline" onPress={onPress} hairline />
+          <Button type="ghost" text="ghost" onPress={onPress} hairline />
           <Button
-            type="info"
-            text="info -> 为了突出颜色，外面套了一层白色背景"
+            type="outline"
+            text="outline"
+            onPress={onPress}
+            danger
+            hairline
           />
-        </View>
-
-        <View style={{ height: 20 }} />
-
-        <Button type="link" text="link" onPress={onPress} />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.g1}>
-        <Button text="default" style={Styles.g1b} />
-
-        <Button type="primary" text="primary" style={Styles.g1b} />
-
-        <Button type="success" text="success" style={Styles.g1b} />
-
-        <Button type="warning" text="warning" style={Styles.g1b} />
-
-        <Button
-          type="error"
-          renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline
-              color={color}
-              size={size}
-              pointerEvents="none"
-            />
-          )}
-          text="错error"
-          style={Styles.g1b}
-        />
-
-        <Button type="info" text="info" style={Styles.g1b} />
-
-        <Button type="link" text="link" style={Styles.g1b} />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>朴素按钮</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button text="default" ghost />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="primary" text="primary" ghost />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="success" text="success" ghost />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="warning" text="warning" ghost />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="error"
-          renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline
-              color={color}
-              size={size}
-              pointerEvents="none"
-            />
-          )}
-          text="error"
-          ghost
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="info" text="info" ghost />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="link" text="link" ghost />
-      </View>
-
-      <View style={Styles.g1}>
-        <Button text="default" size="mini" style={Styles.g1b} ghost />
-
-        <Button
-          type="primary"
-          text="primary"
-          size="mini"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button
-          type="success"
-          text="success"
-          size="mini"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button
-          type="warning"
-          text="warning"
-          size="mini"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button
-          type="error"
-          text="error"
-          size="mini"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button type="info" text="info" size="mini" style={Styles.g1b} ghost />
-
-        <Button type="link" text="link" size="mini" style={Styles.g1b} ghost />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>细边框</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button type="primary" ghost hairline text="primary" />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="success" ghost text="success" />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>禁用</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button type="primary" disabled text="primary" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="success" disabled text="success" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="error" ghost disabled text="error" onPress={onPress} />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="warning" disabled text="warning" onPress={onPress} />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>加载状态</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button
-          loading
-          type="primary"
-          loadingText="自定义加载中的文案~"
-          text="primary"
-          onPress={onPress}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          disabled
-          loading
-          text="success"
-          onPress={onPress}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          loading
-          type="success"
-          size="large"
-          loadingText="自定义 large~"
-          text="primary"
-          onPress={onPress}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          loading
-          type="warning"
-          size="normal"
-          loadingText="自定义 normal~"
-          text="primary"
-          onPress={onPress}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          loading
-          type="error"
-          size="small"
-          loadingText="自定义 small~"
-          text="primary"
-          onPress={onPress}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          loading
-          type="warning"
-          size="mini"
-          loadingText="自定义 mini~"
-          text="primary"
-          onPress={onPress}
-        />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>按钮形状</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button type="primary" square text="square" />
-
-        <View style={{ height: 20 }} />
-
-        <Button type="primary" round text="round" />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>图标按钮</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button
-          type="primary"
-          renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline
-              color={color}
-              size={size}
-              pointerEvents="none"
-            />
-          )}
-          text="square"
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          renderLeftIcon={(color, size) => (
-            <Icon.WarningOutline
-              color={color}
-              size={size}
-              pointerEvents="none"
-            />
-          )}
-          text="round"
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
-          )}
-          text="一个加号"
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
-          )}
-          ghost
-          text="一个加号"
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="error"
-          renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
-          )}
-          ghost
-          text="一个加号"
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="link"
-          renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
-          )}
-          text="一个加号"
-        />
-
-        <Button
-          type="link"
-          size="mini"
-          renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} pointerEvents="none" />
-          )}
-          text="一个加号"
-        />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>按钮大小</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button
-          type="primary"
-          size="large"
-          text={`large ${THEME_VAR.button_large_height}`}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          text={`default ${THEME_VAR.button_default_height}`}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          size="normal"
-          text={`normal ${THEME_VAR.button_normal_height}`}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          size="small"
-          text={`small ${THEME_VAR.button_small_height}`}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Button
-          type="primary"
-          size="mini"
-          text={`mini ${THEME_VAR.button_mini_height}`}
-        />
-
-        <View style={{ height: 20 }} />
-      </View>
-
-      <View style={Styles.g1}>
-        <Button
-          type="primary"
-          size="large"
-          text="large"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button type="primary" text="default" style={Styles.g1b} ghost />
-
-        <Button
-          type="primary"
-          size="normal"
-          text="normal"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button
-          type="primary"
-          size="small"
-          text="small"
-          style={Styles.g1b}
-          ghost
-        />
-
-        <Button
-          type="primary"
-          size="mini"
-          text="mini"
-          style={Styles.g1b}
-          ghost
-        />
-      </View>
-
-      <View style={{ height: 20 }} />
-
-      <Text>自定义颜色</Text>
-
-      <View style={{ height: 20 }} />
-
-      <View style={Styles.box}>
-        <Button color="#960" text="default" />
-
-        <View style={{ height: 20 }} />
-
-        <Button color="#0c6" ghost text="default" />
-
-        <View style={{ height: 20 }} />
-      </View>
+          <Button type="ghost" text="ghost" onPress={onPress} danger hairline />
+        </Space>
+      </CellGroup>
+
+      <CellGroup title="不可用状态" bordered={false}>
+        <Space style={Styles.box}>
+          <Button type="primary" text="primary" onPress={onPress} disabled />
+          <Button type="hazy" text="hazy" onPress={onPress} disabled />
+          <Button type="outline" text="outline" onPress={onPress} disabled />
+          <Button type="ghost" text="ghost" onPress={onPress} disabled />
+          <Button type="link" text="link" onPress={onPress} disabled />
+        </Space>
+      </CellGroup>
+
+      <CellGroup title="加载中状态" bordered={false}>
+        <Space style={Styles.box} end>
+          <Button type="primary" text="primary" onPress={onPress} loading />
+          <Button
+            type="hazy"
+            text="hazy"
+            onPress={onPress}
+            loading
+            loadingText="自定义文案"
+          />
+          <Button
+            type="outline"
+            text="outline"
+            onPress={onPress}
+            loading
+            loadingText="自定义文案"
+          />
+          <Button type="ghost" text="ghost" onPress={onPress} loading />
+          <Button
+            type="link"
+            text="link"
+            onPress={onPress}
+            loading
+            loadingText="自定义文案"
+          />
+        </Space>
+        <Space direction="horizontal" wrap start end>
+          <Button type="primary" text="primary" onPress={onPress} loading />
+          <Button
+            type="hazy"
+            text="hazy"
+            onPress={onPress}
+            loading
+            loadingText="自定义文案"
+          />
+          <Button
+            type="outline"
+            text="outline"
+            onPress={onPress}
+            loading
+            loadingText="自定义文案"
+          />
+          <Button type="ghost" text="ghost" onPress={onPress} loading />
+          <Button
+            type="link"
+            text="link"
+            onPress={onPress}
+            loading
+            loadingText="自定义文案"
+          />
+        </Space>
+      </CellGroup>
+
+      <CellGroup title="按钮尺寸" bordered={false}>
+        <Space style={Styles.box} end>
+          <Button
+            type="primary"
+            size="xl"
+            text={`xl ${THEME_VAR.button_xl_height}`}
+          />
+          <Button
+            type="primary"
+            size="l"
+            text={`l ${THEME_VAR.button_l_height}`}
+          />
+          <Button
+            type="primary"
+            size="m"
+            text={`m ${THEME_VAR.button_m_height}`}
+          />
+          <Button
+            type="primary"
+            size="s"
+            text={`s ${THEME_VAR.button_s_height}`}
+          />
+          <Button
+            type="primary"
+            size="xs"
+            text={`xs ${THEME_VAR.button_xs_height}`}
+          />
+        </Space>
+        <Space direction="horizontal" start end>
+          <Button
+            type="primary"
+            size="xl"
+            text={`xl ${THEME_VAR.button_xl_height}`}
+          />
+          <Button
+            type="primary"
+            size="l"
+            text={`l ${THEME_VAR.button_l_height}`}
+          />
+          <Button
+            type="primary"
+            size="m"
+            text={`m ${THEME_VAR.button_m_height}`}
+          />
+          <Button
+            type="primary"
+            size="s"
+            text={`s ${THEME_VAR.button_s_height}`}
+          />
+          <Button
+            type="primary"
+            size="xs"
+            text={`xs ${THEME_VAR.button_xs_height}`}
+          />
+        </Space>
+      </CellGroup>
+
+      <CellGroup title="按钮圆角" bordered={false}>
+        <Space style={Styles.box}>
+          <Button text="default" />
+          <Button round text="round" />
+          <Button square text="square" />
+        </Space>
+      </CellGroup>
+
+      <CellGroup title="图标按钮" bordered={false}>
+        <Space style={Styles.box}>
+          <Button
+            type="primary"
+            renderLeftIcon={(color, size) => (
+              <Icon.ArrowLeftOutline color={color} size={size} />
+            )}
+            text="ArrowLeftOutline"
+          />
+          <Button
+            type="primary"
+            renderLeftIcon={(color, size) => (
+              <Icon.ArrowLeftOutline color={color} size={size} />
+            )}
+            text="ArrowLeftOutline"
+            danger
+          />
+          <Button
+            type="hazy"
+            renderLeftIcon={(color, size) => (
+              <Icon.ArrowLeftOutline color={color} size={size} />
+            )}
+            text="ArrowLeftOutline"
+          />
+          <Button
+            type="outline"
+            renderLeftIcon={(color, size) => (
+              <Icon.ArrowLeftOutline color={color} size={size} />
+            )}
+            text="ArrowLeftOutline"
+          />
+          <Button
+            type="ghost"
+            renderLeftIcon={(color, size) => (
+              <Icon.ArrowLeftOutline color={color} size={size} />
+            )}
+            text="ArrowLeftOutline"
+          />
+          <Button
+            type="link"
+            renderLeftIcon={(color, size) => (
+              <Icon.ArrowLeftOutline color={color} size={size} />
+            )}
+            text="ArrowLeftOutline"
+          />
+        </Space>
+      </CellGroup>
+
+      <CellGroup title="自定义颜色" bordered={false}>
+        <Space style={Styles.box} end>
+          <Button color="#0c6" text="只改变主要色" />
+          <Button color="#0c6" type="hazy" text="只改变主要色" />
+          <Button color="#0c6" type="outline" text="只改变主要色" />
+          <Button color="#0c6" textColor="#f30" text="文字颜色" />
+          <Button color="#0c6" type="hazy" text="文字颜色" />
+          <Button color="#0c6" type="outline" text="文字颜色" />
+        </Space>
+      </CellGroup>
     </ScrollView>
   )
 }
@@ -491,16 +253,6 @@ const BasicButton: React.FC = () => {
 const Styles = StyleSheet.create({
   box: {
     paddingHorizontal: 12,
-  },
-
-  g1: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  g1b: {
-    // width: 80,
-    marginLeft: 12,
-    marginVertical: 5,
   },
 })
 

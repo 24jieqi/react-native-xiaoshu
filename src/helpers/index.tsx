@@ -79,8 +79,10 @@ export const isTouchableNode = (props: TouchableWithoutFeedbackProps) => {
 /**
  * 挑选出点击事件的属性
  */
-export const pickTouchablePropsField = (props: Partial<ViewProps>) => {
-  return pick<ViewProps>(props, touchablePropsFields)
+export const pickTouchablePropsField = (
+  props: Partial<ViewProps & TouchableWithoutFeedbackProps>,
+) => {
+  return pick(props, touchablePropsFields)
 }
 
 /**

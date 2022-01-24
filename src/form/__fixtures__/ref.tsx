@@ -47,7 +47,7 @@ const BasicFormBase: React.FC = () => {
 
         <Button
           text="管理员"
-          type="error"
+          danger
           onPress={() => {
             FormRef.current.setFieldsValue({
               username: 'admin',

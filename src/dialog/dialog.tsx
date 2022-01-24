@@ -140,7 +140,7 @@ const Dialog: React.FC<DialogProps> = ({
             <Button
               {...cancelButtonProps}
               type="link"
-              size="large"
+              size="l"
               style={STYLES.btn}
             />
           ) : null}
@@ -148,7 +148,7 @@ const Dialog: React.FC<DialogProps> = ({
             <Button
               {...confirmButtonProps}
               type="link"
-              size="large"
+              size="l"
               style={[
                 STYLES.btn,
                 showCancelButton ? STYLES.btn_border_left : null,

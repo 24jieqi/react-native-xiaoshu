@@ -23,8 +23,8 @@ const BasicFieldTextInput: React.FC = () => {
         addonAfter={
           <Button
             text="清空"
-            size="mini"
-            type="error"
+            size="xs"
+            danger
             onPress={() => {
               setText1('')
             }}
