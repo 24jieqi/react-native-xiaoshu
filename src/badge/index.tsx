@@ -37,7 +37,9 @@ const Badge: React.FC<BadgeProps> = ({
     STYLES.count,
     {
       backgroundColor:
-        color || THEME_VAR[status] || THEME_VAR.badge_background_color,
+        color ||
+        THEME_VAR[`badge_status_${status}`] ||
+        THEME_VAR.badge_background_color,
     },
     dot ? STYLES.count_dot : null,
     isDef(children)

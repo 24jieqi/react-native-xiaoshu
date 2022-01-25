@@ -49,6 +49,10 @@ export const badge_font_size = TOKENS.font_size_1
 export const badge_font_weight: TextStyle['fontWeight'] = 'bold'
 export const badge_background_color = TOKENS.red_6
 export const badge_dot_size: number = 8
+export const badge_status_primary = TOKENS.brand_6
+export const badge_status_success = TOKENS.green_6
+export const badge_status_warning = TOKENS.yellow_6
+export const badge_status_error = TOKENS.red_6
 
 // BottomBar
 export const bottom_bar_height: number = 50
