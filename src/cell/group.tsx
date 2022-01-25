@@ -16,7 +16,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
   style,
   textStyle,
   bodyStyle,
-  bordered = true,
+  bordered = false,
   onPressTitleText,
   extra,
 }) => {

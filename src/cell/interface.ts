@@ -31,7 +31,7 @@ export type CellGroupProps = {
 
   /**
    * 是否显示外边框
-   * @default true
+   * @default false
    */
   bordered?: boolean
 
