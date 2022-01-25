@@ -9,7 +9,7 @@ import { Button, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const ButtonDisabled: React.FC = () => {
   return (
-    <CellGroup title="禁用按钮">
+    <CellGroup title="禁用按钮" bodyPaddingHorizontal>
       <Space tail>
         <Button type="primary" text="primary" disabled />
         <Button type="hazy" text="hazy" disabled />
@@ -17,7 +17,7 @@ const ButtonDisabled: React.FC = () => {
         <Button type="ghost" text="ghost" disabled />
         <Button type="link" text="link" disabled />
       </Space>
-      <Space direction="horizontal" head tail wrap>
+      <Space direction="horizontal" wrap>
         <Button type="primary" text="primary" disabled />
         <Button type="hazy" text="hazy" disabled />
         <Button type="outline" text="outline" disabled />

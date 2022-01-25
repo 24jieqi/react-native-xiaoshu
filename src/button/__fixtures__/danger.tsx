@@ -13,7 +13,7 @@ const onPress = () => {
 
 const ButtonDanger: React.FC = () => {
   return (
-    <CellGroup title="危险按钮" bordered={false}>
+    <CellGroup title="危险按钮" bodyPaddingHorizontal>
       <Space tail>
         <Button type="primary" text="primary" onPress={onPress} danger />
         <Button type="hazy" text="hazy" onPress={onPress} danger />
@@ -21,7 +21,7 @@ const ButtonDanger: React.FC = () => {
         <Button type="ghost" text="ghost" onPress={onPress} danger />
         <Button type="link" text="link" onPress={onPress} danger />
       </Space>
-      <Space direction="horizontal" head tail wrap>
+      <Space direction="horizontal" wrap>
         <Button type="primary" text="primary" onPress={onPress} danger />
         <Button type="hazy" text="hazy" onPress={onPress} danger />
         <Button type="outline" text="outline" onPress={onPress} danger />

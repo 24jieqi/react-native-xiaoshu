@@ -13,8 +13,14 @@ group:
 
 > 底部弹起的模态面板，包含与当前情境相关的多个选项。
 
-## DEMO
+## 何时使用
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+一般用于从一组操作中选择一个执行。
+
+## 代码演示
+
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/component.tsx"></code>
 
 <API src="./action-sheet.tsx"></API>

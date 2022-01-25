@@ -13,7 +13,7 @@ const onPress = () => {
 
 const ButtonHairline: React.FC = () => {
   return (
-    <CellGroup title="细边框">
+    <CellGroup title="细边框" bodyPaddingHorizontal>
       <Space tail>
         <Button type="outline" text="outline" onPress={onPress} hairline />
         <Button type="ghost" text="ghost" onPress={onPress} hairline />

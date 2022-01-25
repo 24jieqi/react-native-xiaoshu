@@ -14,7 +14,7 @@ import {
 
 const ButtonIcon: React.FC = () => {
   return (
-    <CellGroup title="图标按钮" bordered={false}>
+    <CellGroup title="图标按钮" bodyPaddingHorizontal>
       <Space>
         <Button
           type="primary"

@@ -13,7 +13,7 @@ const onPress = () => {
 
 const ButtonType: React.FC = () => {
   return (
-    <CellGroup title="按钮类型">
+    <CellGroup title="按钮类型" bodyPaddingHorizontal>
       <Space tail>
         <Button type="primary" text="primary" onPress={onPress} />
         <Button type="hazy" text="hazy" onPress={onPress} />
@@ -21,7 +21,7 @@ const ButtonType: React.FC = () => {
         <Button type="ghost" text="ghost" onPress={onPress} />
         <Button type="link" text="link" onPress={onPress} />
       </Space>
-      <Space direction="horizontal" head tail wrap>
+      <Space direction="horizontal" wrap>
         <Button type="primary" text="primary" onPress={onPress} />
         <Button type="hazy" text="hazy" onPress={onPress} />
         <Button type="outline" text="outline" onPress={onPress} />

@@ -16,8 +16,8 @@ const ButtonSize: React.FC = () => {
   const THEME_VAR = useTheme()
 
   return (
-    <CellGroup title="按钮尺寸">
-      <Space tail>
+    <CellGroup title="按钮尺寸" bodyPaddingHorizontal>
+      <Space>
         <Button
           type="primary"
           size="xl"
@@ -44,7 +44,7 @@ const ButtonSize: React.FC = () => {
           text={`xs ${THEME_VAR.button_xs_height}`}
         />
       </Space>
-      <Space direction="horizontal" head tail>
+      <Space direction="horizontal">
         <Button
           type="primary"
           size="xl"

@@ -13,15 +13,15 @@ import ButtonIcon from './icon'
 const BasicButton: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="自定义颜色" bordered={false}>
-        <ButtonType />
-        <ButtonDanger />
-        <ButtonHairline />
-        <ButtonDisabled />
-        <ButtonLoading />
-        <ButtonSize />
-        <ButtonIcon />
+      <ButtonType />
+      <ButtonDanger />
+      <ButtonHairline />
+      <ButtonDisabled />
+      <ButtonLoading />
+      <ButtonSize />
+      <ButtonIcon />
 
+      <CellGroup title="自定义颜色" bordered={false}>
         <Space tail>
           <Button color="#0c6" text="只改变主要色" />
           <Button color="#0c6" type="hazy" text="只改变主要色" />
