@@ -10,6 +10,7 @@ const BasicCell: React.FC = () => {
         <Space>
           <Button text="Button" />
           <Button text="Button" />
+          {Math.random() > 100 ? <Button text="Button" /> : null}
         </Space>
       </CellGroup>
 

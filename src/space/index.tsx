@@ -62,30 +62,29 @@ const Space: React.FC<SpaceProps> = ({
     marginRight: isVertical ? 0 : gapHorizontal,
   }
 
-  const count = Children.count(children)
+  const childArray = Children.toArray(children)
+  const count = childArray.length
 
   return (
     <View {...restProps} style={[wrapperStyle, style]}>
-      {Children.map(children, (child, index) => {
+      {childArray.map((child, index) => {
         return (
-          child !== null &&
-          child !== undefined && (
-            <View
-              style={[
-                itemStyle,
-                index + 1 === count
-                  ? isVertical
-                    ? {
-                        marginBottom: NO_GAP,
-                      }
-                    : {
-                        marginRight: NO_GAP,
-                      }
-                  : null,
-              ]}>
-              {child}
-            </View>
-          )
+          <View
+            key={index}
+            style={[
+              itemStyle,
+              index + 1 === count
+                ? isVertical
+                  ? {
+                      marginBottom: NO_GAP,
+                    }
+                  : {
+                      marginRight: NO_GAP,
+                    }
+                : null,
+            ]}>
+            {child}
+          </View>
         )
       })}
     </View>
