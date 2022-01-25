@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import Loading from '../loading'
-import { getDefaultValue, hex2rgba } from '../helpers'
+import { getDefaultValue, hex2rgba, isDef } from '../helpers'
 import { createStyles } from './style'
 import type { ButtonProps } from './interface'
 
@@ -128,7 +128,7 @@ const Button: React.FC<ButtonProps> = ({
     <>
       {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
       <Text style={textStyleSummary} numberOfLines={1}>
-        {text || children}
+        {isDef(text) ? text : children}
       </Text>
     </>
   )
