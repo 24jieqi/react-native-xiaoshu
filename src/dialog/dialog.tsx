@@ -91,14 +91,14 @@ const Dialog: React.FC<DialogProps> = ({
   ) : null
 
   const cancelButtonProps = {
-    textColor: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
+    color: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
     text: cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
-    textColor: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
+    color: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
     text: confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
@@ -140,7 +140,8 @@ const Dialog: React.FC<DialogProps> = ({
             <Button
               {...cancelButtonProps}
               type="link"
-              size="l"
+              size="xl"
+              square
               style={STYLES.btn}
             />
           ) : null}
@@ -148,7 +149,8 @@ const Dialog: React.FC<DialogProps> = ({
             <Button
               {...confirmButtonProps}
               type="link"
-              size="l"
+              size="xl"
+              square
               style={[
                 STYLES.btn,
                 showCancelButton ? STYLES.btn_border_left : null,
