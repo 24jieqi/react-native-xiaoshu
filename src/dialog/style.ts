@@ -51,8 +51,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flex: 1,
       marginHorizontal: 0,
       marginVertical: 0,
-      backgroundColor: 'transparent',
-      fontSize: themeVar.dialog_button_font_size,
     },
 
     btn_confirm: {

@@ -24,3 +24,8 @@ export const log = (type: 'ing' | 'error' | 'success', m: string) => {
 export const formatKey = (k: string) => k.replace(/\-/g, '_')
 
 export const joinCode = (code: string[]) => code.join('\n')
+
+export const comments = (des: string, value: string) => `/**
+ * ${des}
+ * @default ${value}
+ */`

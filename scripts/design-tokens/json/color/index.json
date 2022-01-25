@@ -449,6 +449,56 @@
       "hex": "#ffffff",
       "rgba": "rgba(255, 255, 255, 100%)",
       "type": "color"
+    },
+    "opacity-10": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 10.196078431372548%)",
+      "type": "color"
+    },
+    "opacity-20": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 20%)",
+      "type": "color"
+    },
+    "opacity-30": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 30.19607843137255%)",
+      "type": "color"
+    },
+    "opacity-40": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 40%)",
+      "type": "color"
+    },
+    "opacity-50": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 50.19607843137255%)",
+      "type": "color"
+    },
+    "opacity-60": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 60%)",
+      "type": "color"
+    },
+    "opacity-70": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 70.19607843137254%)",
+      "type": "color"
+    },
+    "opacity-80": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 80%)",
+      "type": "color"
+    },
+    "opacity-90": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 90.19607843137256%)",
+      "type": "color"
+    },
+    "opacity-100": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 100%)",
+      "type": "color"
     }
   }
 }

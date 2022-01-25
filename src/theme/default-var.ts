@@ -5,6 +5,7 @@ import * as TOKENS from './tokens'
 
 export const underlay_color: string = 'transparent'
 // export const underlay_color_ddd: string = TOKENS.gray_1
+
 // 分割线颜色
 export const divider_color_dark: string = '#E8E8E8'
 export const divider_color_light: string = '#F2F2F2'
@@ -44,7 +45,7 @@ export const badge_size: number = 16
 export const badge_color = TOKENS.white
 export const badge_padding_vertical: number = 0
 export const badge_padding_horizontal: number = 3
-export const badge_font_size = 10
+export const badge_font_size = TOKENS.font_size_1
 export const badge_font_weight: TextStyle['fontWeight'] = 'bold'
 export const badge_background_color = TOKENS.red_6
 export const badge_dot_size: number = 8
@@ -73,15 +74,15 @@ export const button_xs_loading_size: number = 16
 export const button_xs_padding_horizontal = TOKENS.space_1
 export const button_padding_horizontal = TOKENS.space_2
 export const button_border_width: number = 1
-export const button_border_color: string = '#B9BEC5'
-export const button_border_radius: number = 4
-export const button_active_opacity: number = 0.6
-export const button_disabled_opacity = 0.6
-export const button_loading_opacity = 0.6
-export const button_primary_color: string = TOKENS.brand_6
-export const button_danger_color: string = TOKENS.red_6
+export const button_border_color = TOKENS.gray_5
+export const button_border_radius = TOKENS.border_radius_s
+export const button_active_opacity = TOKENS.opacity_60
+export const button_disabled_opacity = TOKENS.opacity_60
+export const button_loading_opacity = TOKENS.opacity_60
+export const button_primary_color = TOKENS.brand_6
+export const button_danger_color = TOKENS.red_6
 export const button_ghost_background_color: string = 'transparent'
-export const button_hazy: number = 0.1
+export const button_hazy = TOKENS.opacity_10
 
 // ButtonBar
 export const button_bar_padding_horizontal = TOKENS.space_3
@@ -129,7 +130,7 @@ export const collapse_background_color = TOKENS.white
 export const collapse_title_font_size = TOKENS.font_size_5
 export const collapse_title_line_height = 22
 export const collapse_title_padding_vertical: number = 14
-export const collapse_title_padding_horizontal: number = TOKENS.space_4
+export const collapse_title_padding_horizontal = TOKENS.space_4
 export const collapse_title_text_color = TOKENS.gray_8
 export const collapse_title_icon_color = TOKENS.gray_6
 export const collapse_title_icon_size = TOKENS.font_size_5
@@ -138,20 +139,18 @@ export const collapse_title_border_color = divider_color_light
 // Dialog
 export const dialog_width: number = 300
 export const dialog_transition = animation_duration_base
-export const dialog_border_radius: number = 16
+export const dialog_border_radius = TOKENS.border_radius_xl
 export const dialog_background_color = TOKENS.white
 export const dialog_header_font_weight: TextStyle['fontWeight'] = 'bold'
-export const dialog_header_line_height: number = 24
+export const dialog_header_line_height = TOKENS.line_height_2
 export const dialog_header_margin_top: number = 30
-export const dialog_header_font_size: number = 18
+export const dialog_header_font_size = TOKENS.font_size_7
 export const dialog_message_margin_top: number = 12
 export const dialog_message_padding_horizontal = TOKENS.space_6
-export const dialog_message_font_size: number = 16
-export const dialog_message_line_height: number = 22
+export const dialog_message_font_size = TOKENS.font_size_5
+export const dialog_message_line_height = TOKENS.line_height_1
 export const dialog_message_text_color = TOKENS.gray_7
 export const dialog_footer_margin_top: number = 32
-export const dialog_button_height: number = 52
-export const dialog_button_font_size: number = 18
 export const dialog_confirm_button_text_color = TOKENS.brand_6
 export const dialog_cancel_button_text_color = TOKENS.gray_7
 export const dialog_input_gap = TOKENS.space_4
@@ -160,14 +159,14 @@ export const dialog_input_gap = TOKENS.space_4
 export const divider_margin_horizontal = TOKENS.space_4
 export const divider_text_color = TOKENS.gray_8
 export const divider_font_size = TOKENS.font_size_4
-export const divider_line_height: number = 24
+export const divider_line_height = TOKENS.line_height_2
 export const divider_content_left_width: string = '10%'
 export const divider_content_right_width: string = '10%'
 
 // DropdownMenu
 export const dropdown_menu_height: number = 48
 export const dropdown_menu_background_color = TOKENS.white
-export const dropdown_menu_title_font_size: number = 15
+export const dropdown_menu_title_font_size = TOKENS.font_size_4
 export const dropdown_menu_title_text_color = TOKENS.gray_8
 export const dropdown_menu_title_active_text_color = TOKENS.brand_6
 export const dropdown_menu_title_disabled_text_color = TOKENS.gray_6
@@ -182,7 +181,7 @@ export const empty_image_height: number = 115
 export const empty_icon_margin_bottom = TOKENS.space_2
 export const empty_text_color = TOKENS.gray_6
 export const empty_text_font_size = TOKENS.font_size_3
-export const empty_text_line_height: number = 20
+export const empty_text_line_height = TOKENS.line_height_1
 
 // Icon
 export const icon_color = TOKENS.gray_7
@@ -200,7 +199,7 @@ export const loading_spinner_animation_duration: number = 800
 export const nav_bar_arrow_size: number = 20
 export const nav_bar_height: number = 44
 export const nav_bar_gap = TOKENS.space_3
-export const nav_bar_background_color: string = TOKENS.white
+export const nav_bar_background_color = TOKENS.white
 export const nav_bar_title_text_color = TOKENS.gray_8
 export const nav_bar_title_font_size = TOKENS.font_size_5
 export const nav_bar_icon_color = TOKENS.gray_8
@@ -208,7 +207,7 @@ export const nav_bar_icon_color = TOKENS.gray_8
 // NoticeBar
 export const notice_bar_padding_vertical = TOKENS.space_2
 export const notice_bar_padding_horizontal = TOKENS.space_4
-export const notice_bar_text_line_height: number = 20
+export const notice_bar_text_line_height = TOKENS.line_height_1
 export const notice_bar_text_font_size = TOKENS.font_size_3
 export const notice_bar_icon_size = TOKENS.font_size_3
 export const notice_bar_icon_margin_horizontal = TOKENS.space_2
@@ -263,7 +262,7 @@ export const popup_close_icon_margin_left = TOKENS.space_2
 export const progress_height: number = 4
 export const progress_color = TOKENS.brand_6
 export const progress_background_color = TOKENS.gray_3
-export const progress_pivot_padding_horizontal: number = 5
+export const progress_pivot_padding_horizontal = TOKENS.space_1
 export const progress_pivot_text_color = TOKENS.white
 export const progress_pivot_font_size = TOKENS.font_size_2
 export const progress_pivot_line_height_scale: number = 1.6
@@ -287,7 +286,7 @@ export const selector_icon_selected_color = TOKENS.brand_6
 export const selector_body_padding_horizontal = TOKENS.space_3
 
 // Space
-export const space_gap_size: number = 8
+export const space_gap_size = TOKENS.space_2
 export const space_gap_vertical = space_gap_size
 export const space_gap_horizontal = space_gap_size
 
@@ -295,9 +294,9 @@ export const space_gap_horizontal = space_gap_size
 export const steps_background_color = TOKENS.brand_6
 export const steps_padding_vertical = TOKENS.space_4
 export const steps_padding_horizontal = TOKENS.space_6
-export const steps_icon_dot_size = 10
-export const steps_icon_dot_active_size = 16
-export const steps_icon_success_active_size = 16
+export const steps_icon_dot_size: number = 10
+export const steps_icon_dot_active_size: number = 16
+export const steps_icon_success_active_size: number = 16
 export const steps_title_size = TOKENS.font_size_4
 export const steps_title_color = TOKENS.white
 
@@ -310,11 +309,11 @@ export const switch_node_background_color = TOKENS.white
 export const switch_background_color = TOKENS.gray_3
 export const switch_on_background_color = TOKENS.brand_6
 export const switch_transition_duration = animation_duration_base
-export const switch_disabled_opacity = 0.6
+export const switch_disabled_opacity = TOKENS.opacity_60
 
 // TabBar
-export const tab_bar_text_font_size: number = 10
-export const tab_bar_text_margin_top: number = 4
+export const tab_bar_text_font_size = TOKENS.font_size_1
+export const tab_bar_text_margin_top = TOKENS.space_1
 export const tab_bar_text_color = TOKENS.gray_6
 export const tab_bar_icon_color = TOKENS.gray_6
 export const tab_bar_active_text_color = TOKENS.brand_6
@@ -324,7 +323,7 @@ export const tab_bar_active_icon_color = TOKENS.brand_6
 export const tag_padding_horizontal = TOKENS.space_1
 export const tag_text_color = TOKENS.white
 export const tag_font_size = TOKENS.font_size_2
-export const tag_border_radius: number = 2
+export const tag_border_radius = TOKENS.border_radius_xs
 export const tag_small_padding_vertical: number = 0
 export const tag_small_padding_horizontal: number = 0
 export const tag_medium_padding_vertical: number = 2
@@ -357,13 +356,12 @@ export const text_input_middle_min_height: number = 32
 export const text_input_small_min_height: number = 24
 export const text_input_clearable_size: number = 16
 export const text_input_clearable_background_color = TOKENS.gray_5
-export const text_input_clearable_color: string = TOKENS.white
+export const text_input_clearable_color = TOKENS.white
 export const text_input_fix_text_color = TOKENS.gray_8
 export const text_input_addon_text_color = TOKENS.gray_8
 export const text_input_light_accessory_background_color: string = '#f7f7f7'
 export const text_input_dark_accessory_background_color: string = '#575757'
-export const text_input_dark_accessory_padding_horizontal: number =
-  TOKENS.space_3
+export const text_input_dark_accessory_padding_horizontal = TOKENS.space_3
 export const text_input_accessory_font_size = TOKENS.font_size_5
 export const text_input_accessory_height: number = 44
 export const text_input_accessory_text_color = TOKENS.brand_6
@@ -404,12 +402,12 @@ export const toast_position_top_distance: string = '20%'
 export const toast_position_bottom_distance: string = '20%'
 
 // Uploader
-export const uploader_image_margin_right: number = 16
-export const uploader_image_margin_bottom: number = 16
+export const uploader_image_margin_right = TOKENS.border_radius_xl
+export const uploader_image_margin_bottom = TOKENS.border_radius_xl
 export const uploader_image_border_radius = TOKENS.border_radius_s
 export const uploader_image_delete_size: number = 16
 export const uploader_image_background_color = TOKENS.gray_1
 export const uploader_upload_text_color = TOKENS.gray_8
-export const uploader_upload_text_font_size: number = 14
-export const uploader_upload_text_line_height: number = 20
+export const uploader_upload_text_font_size = TOKENS.font_size_3
+export const uploader_upload_text_line_height = TOKENS.line_height_1
 export const uploader_upload_text_margin_top = TOKENS.space_1
