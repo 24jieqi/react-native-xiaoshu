@@ -1,7 +1,12 @@
 import React, { memo, useMemo } from 'react'
-import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
-
+import {
+  TextStyle,
+  ViewStyle,
+  TouchableOpacity,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native'
 import { CrossOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
 import { hex2rgba, isDef } from '../helpers'
@@ -14,46 +19,35 @@ import { createStyles } from './style'
 const Tag: React.FC<TagProps> = ({
   children,
   style,
-  innerStyle,
-  textStyle,
+  closable = false,
+  onClose,
+  size = 'm',
+  type = 'primary',
+  visible = true,
+  closeIcon,
+  icon,
   color,
   textColor,
-  mark = false,
-  outward = 'fill',
-  round = false,
-  size = 'medium',
-  type = 'default',
-  closeable = false,
-  onPressClose,
-  hairline = false,
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
-  const mainColor = isDef(color)
-    ? color
-    : THEME_VAR[`tag_${type}_color` as 'tag_default_color'] ||
-      THEME_VAR.tag_default_color
-
-  const padding_vertical_size = `padding_vertical_${size}`
-  const padding_horizontal_size = `padding_horizontal_${size}`
-  const { outwardInnerStyle, outwardTextStyle } = useMemo(() => {
+  const mainColor = isDef(color) ? color : THEME_VAR.tag_primary_color
+  const { innerTypeStyle, textTypeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = {}
     const tempTextStyle: TextStyle = {}
-
-    switch (outward) {
-      case 'fill':
+    switch (type) {
+      case 'primary':
         tempInnerStyle.backgroundColor = mainColor
         tempInnerStyle.borderColor = mainColor
-
         tempTextStyle.color = THEME_VAR.tag_text_color
         break
       case 'ghost':
         tempInnerStyle.backgroundColor = THEME_VAR.tag_ghost_bg_color
         tempInnerStyle.borderColor = mainColor
-
+        tempInnerStyle.borderWidth = StyleSheet.hairlineWidth
         tempTextStyle.color = mainColor
         break
-      case 'flat':
+      case 'hazy':
         tempInnerStyle.backgroundColor = hex2rgba(mainColor, 0.1)
         tempInnerStyle.borderColor = hex2rgba(mainColor, 0.1)
         tempTextStyle.color = mainColor
@@ -62,59 +56,63 @@ const Tag: React.FC<TagProps> = ({
         break
     }
     return {
-      outwardInnerStyle: tempInnerStyle,
-      outwardTextStyle: tempTextStyle,
+      innerTypeStyle: tempInnerStyle,
+      textTypeStyle: tempTextStyle,
     }
-  }, [
-    outward,
-    mainColor,
-    THEME_VAR.tag_text_color,
-    THEME_VAR.tag_ghost_bg_color,
+  }, [type, mainColor, THEME_VAR.tag_text_color, THEME_VAR.tag_ghost_bg_color])
+  const { innerSizeStyle, textSizeStyle } = useMemo(() => {
+    const tempInnerStyle: ViewStyle = STYLES[`tag_wrap_${size}`]
+    const tempTextStyle: TextStyle = STYLES[`tag_text_${size}`]
+    return {
+      innerSizeStyle: tempInnerStyle,
+      textSizeStyle: tempTextStyle,
+    }
+  }, [size])
+  const wrapStyle: ViewStyle = StyleSheet.flatten<TextStyle>([
+    /** 类型样式 */
+    STYLES.tag_wrap,
+    innerTypeStyle,
+    innerSizeStyle,
   ])
 
-  const innerStyles: StyleProp<ViewStyle> = [
-    /** 基础样式 */
-    STYLES.inner,
+  const textStyle = StyleSheet.flatten<TextStyle>([
     /** 类型样式 */
-    outwardInnerStyle,
-    hairline ? STYLES.border_width_hairline : null,
-    size === 'large' && STYLES.border_radius_large,
-    STYLES[padding_vertical_size],
-    STYLES[padding_horizontal_size],
-    round && STYLES.border_radius_round,
-    mark && STYLES.inner_mark,
-    /** 外部样式 */
-    innerStyle,
-  ]
-
-  const textStyleSummary = StyleSheet.flatten<TextStyle>([
-    /** 基础样式 */
-    STYLES.text,
-    /** 类型样式 */
-    outwardTextStyle,
-    size === 'large' && STYLES.font_size_large,
+    textTypeStyle,
+    textSizeStyle,
     /** 外部样式 */
     isDef(textColor) && {
       color: textColor,
     },
-    textStyle,
   ])
-
-  return (
+  // 关闭的图标
+  const renderChildren = () => {
+    const childJSX = <Text style={textStyle}>{children}</Text>
+    return childJSX
+  }
+  // 关闭的图标
+  const renderCloseIcon = () => {
+    if (closable) {
+      return closeIcon ? (
+        <TouchableOpacity onPress={onClose}>{closeIcon}</TouchableOpacity>
+      ) : (
+        <CrossOutline
+          onPress={onClose}
+          size={THEME_VAR[`tag_close_icon_${size}`]}
+          color={textStyle.color as string}
+        />
+      )
+    }
+    return null
+  }
+  return visible ? (
     <View style={[STYLES.tag, style]}>
-      <View style={innerStyles}>
-        <Text style={textStyleSummary}>{children}</Text>
-        {closeable ? (
-          <CrossOutline
-            onPress={onPressClose}
-            size={textStyleSummary.fontSize}
-            color={textStyleSummary.color as string}
-            style={{}}
-          />
-        ) : null}
+      <View style={wrapStyle}>
+        {icon}
+        {renderChildren()}
+        {renderCloseIcon()}
       </View>
     </View>
-  )
+  ) : null
 }
 
 export default memo<typeof Tag>(Tag)

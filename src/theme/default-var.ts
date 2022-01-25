@@ -321,23 +321,21 @@ export const tab_bar_active_icon_color = TOKENS.brand_6
 
 // Tag
 export const tag_padding_horizontal = TOKENS.space_1
+export const tag_close_icon_l = TOKENS.font_size_5
+export const tag_close_icon_m = TOKENS.font_size_3
+export const tag_close_icon_s = TOKENS.font_size_2
 export const tag_text_color = TOKENS.white
-export const tag_font_size = TOKENS.font_size_2
-export const tag_border_radius = TOKENS.border_radius_xs
+export const tag_font_size_l = TOKENS.font_size_3
+export const tag_font_size_m = TOKENS.font_size_2
+export const tag_font_size_s = TOKENS.font_size_2
 export const tag_small_padding_vertical: number = 0
-export const tag_small_padding_horizontal: number = 0
+export const tag_small_padding_horizontal: number = 2
 export const tag_medium_padding_vertical: number = 2
 export const tag_medium_padding_horizontal: number = 4
-export const tag_large_padding_vertical = TOKENS.space_1
+export const tag_large_padding_vertical = 2
 export const tag_large_padding_horizontal = TOKENS.space_2
-export const tag_large_border_radius = TOKENS.border_radius_m
-export const tag_large_font_size = TOKENS.font_size_4
-export const tag_round_border_radius = TOKENS.border_radius_xl
+export const tag_border_radius = TOKENS.border_radius_xs
 export const tag_primary_color = TOKENS.brand_6
-export const tag_success_color = TOKENS.green_6
-export const tag_warning_color = TOKENS.yellow_6
-export const tag_error_color = TOKENS.red_6
-export const tag_default_color = TOKENS.gray_7
 export const tag_ghost_bg_color: string = 'transparent'
 
 // TextInput

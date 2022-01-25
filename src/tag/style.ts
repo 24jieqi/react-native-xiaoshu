@@ -9,67 +9,40 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexDirection: 'row',
       overflow: 'visible',
     },
-
-    inner: {
-      overflow: 'hidden',
-      flexBasis: 'auto',
-      borderStyle: 'solid',
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderWidth: 1,
-      borderRadius: themeVar.tag_border_radius,
-    },
-
-    border_width_hairline: {
-      borderWidth: StyleSheet.hairlineWidth,
-    },
-
-    border_radius_round: {
-      borderRadius: themeVar.tag_round_border_radius,
-    },
-
-    border_radius_large: {
-      borderRadius: themeVar.tag_large_border_radius,
-    },
-
-    inner_mark: {
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: themeVar.tag_round_border_radius,
-      borderBottomLeftRadius: 0,
-      borderBottomRightRadius: themeVar.tag_round_border_radius,
-    },
-
-    padding_vertical_large: {
+    tag_wrap_l: {
+      paddingHorizontal: themeVar.tag_large_padding_horizontal,
       paddingVertical: themeVar.tag_large_padding_vertical,
     },
-
-    padding_vertical_medium: {
+    tag_wrap_m: {
+      paddingHorizontal: themeVar.tag_medium_padding_horizontal,
       paddingVertical: themeVar.tag_medium_padding_vertical,
     },
-
-    padding_vertical_small: {
+    tag_wrap_s: {
+      paddingHorizontal: themeVar.tag_small_padding_horizontal,
       paddingVertical: themeVar.tag_small_padding_vertical,
     },
-
-    padding_horizontal_large: {
-      paddingHorizontal: themeVar.tag_large_padding_horizontal,
+    tag_wrap: {
+      borderRadius: themeVar.tag_border_radius,
+      flexDirection: 'row',
+      alignItems: 'center',
     },
-
-    padding_horizontal_medium: {
-      paddingHorizontal: themeVar.tag_medium_padding_horizontal,
+    tag_text_l: {
+      fontSize: themeVar.tag_font_size_l,
     },
-
-    padding_horizontal_small: {
-      paddingVertical: themeVar.tag_small_padding_horizontal,
+    tag_text_m: {
+      fontSize: themeVar.tag_font_size_m,
     },
-
-    text: {
-      // paddingHorizontal: themeVar.tag_padding_horizontal,
-      fontSize: themeVar.tag_font_size,
+    tag_text_s: {
+      fontSize: themeVar.tag_font_size_s,
     },
-
-    font_size_large: {
-      fontSize: themeVar.tag_large_font_size,
+    close_icon_size_l: {
+      fontSize: themeVar.tag_close_icon_l,
+    },
+    close_icon_size_m: {
+      fontSize: themeVar.tag_close_icon_m,
+    },
+    close_icon_size_s: {
+      fontSize: themeVar.tag_close_icon_s,
     },
   })
 }
