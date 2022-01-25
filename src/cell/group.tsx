@@ -19,6 +19,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
   bordered = false,
   onPressTitleText,
   extra,
+  bodyPaddingHorizontal = false,
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -37,7 +38,14 @@ const CellGroup: React.FC<CellGroupProps> = ({
         </View>
       ) : null}
 
-      <View style={[bordered ? STYLES.body : null, bodyStyle]}>{children}</View>
+      <View
+        style={[
+          bordered ? STYLES.body : null,
+          bodyPaddingHorizontal ? STYLES.bodyPaddingHorizontal : null,
+          bodyStyle,
+        ]}>
+        {children}
+      </View>
     </>
   )
 }

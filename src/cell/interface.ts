@@ -44,6 +44,12 @@ export type CellGroupProps = {
    * 头部右侧自定义内容
    */
   extra?: React.ReactNode
+
+  /**
+   * 内容区域左右有内边距
+   * @default false
+   */
+  bodyPaddingHorizontal?: boolean
 }
 
 export interface CellPrivateProps {

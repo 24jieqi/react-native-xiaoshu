@@ -26,5 +26,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
       borderTopWidth: 1,
       borderBottomWidth: 1,
     },
+
+    bodyPaddingHorizontal: {
+      paddingHorizontal: themeVar.cell_group_title_padding_horizontal,
+    },
   })
 }
