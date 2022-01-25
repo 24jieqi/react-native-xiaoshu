@@ -29,7 +29,6 @@ export interface ButtonProps
 
   /**
    * 类型
-   *
    * @default 'primary'
    */
   type?: ButtonType
@@ -81,7 +80,8 @@ export interface ButtonProps
   color?: string
 
   /**
-   * 按钮文案颜色，设置了 color 默认值为 #fff
+   * 按钮文案颜色
+   * @default button_primary_color
    */
   textColor?: string
 }

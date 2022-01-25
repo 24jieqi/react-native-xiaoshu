@@ -61,7 +61,7 @@ const BasicCell: React.FC = () => {
         </Space>
       </CellGroup>
 
-      <CellGroup title="首位间距">
+      <CellGroup title="首尾间距">
         <Space tail>
           <Button text="Button" size="xl" />
           <Button text="Button" size="m" />

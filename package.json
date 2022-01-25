@@ -78,7 +78,6 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "core-js": "^3.20.3",
     "dumi": "^1.1.38",
-    "dumi-theme-mobile": "^1.1.21",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "lint-staged": "^12.2.0",

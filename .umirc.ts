@@ -16,6 +16,12 @@ export default defineConfig({
   base: `/${repo}`,
   publicPath: `/${repo}`,
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
+  apiParser: {
+    propFilter: {
+      // 是否忽略从 node_modules 继承的属性，默认值为 false
+      skipNodeModules: true,
+    },
+  },
   navs: [
     null,
     {
@@ -27,34 +33,7 @@ export default defineConfig({
     includes: ['docs', 'src'],
   },
   themeConfig: {
-    carrier: 'xiaoshu',
+    carrier: '小暑',
   },
-  styles: [
-    `
-    .__dumi-default-device-status {
-      background-color: #fff;
-    }
-    #root .__dumi-default-mobile-demo-layout {
-      height: 100vh;
-      overflow: hidden;
-      background-color: #f7f8fa;
-    }
-    #root .__dumi-default-mobile-demo-layout > div {
-      height: 100vh;
-      display: flex;
-      align-items: stretch;
-      flex-direction: column;
-    }
-    .markdown table {
-      table-layout: fixed;
-    }
-    .markdown table th, .markdown table td {
-      word-break: break-word
-    }
-    @media only screen and (max-width: 500px) {
-      .__dumi-default-mobile-demo-layout {
-        padding: 0 !important;
-      }
-    }`,
-  ],
+  styles: [],
 })

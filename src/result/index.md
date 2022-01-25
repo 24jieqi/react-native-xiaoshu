@@ -1,5 +1,5 @@
 ---
-title: ErrorBoundary 错误捕获
+title: Result结果
 nav:
   title: 组件
   path: /component
@@ -9,9 +9,9 @@ group:
   order: 3
 ---
 
-# ErrorBoundary 错误捕获
+# Result 结果
 
-> 一般用于应用根组件，捕获 React 内产生的问题。
+> 用于反馈一系列操作任务的处理结果。
 
 ## DEMO
 

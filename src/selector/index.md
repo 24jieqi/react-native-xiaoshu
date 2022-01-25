@@ -6,7 +6,7 @@ nav:
 group:
   title: 表单组件
   path: /form
-  order: 0
+  order: 1
 ---
 
 # Selector 弹出层式 Select

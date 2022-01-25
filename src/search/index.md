@@ -5,7 +5,7 @@ nav:
   path: /component
 group:
   path: /form
-  order: 0
+  order: 1
 ---
 
 # Search 搜索

@@ -4,9 +4,9 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 展示组件
-  path: /show
-  order: 3
+  title: 反馈组件
+  path: /feedback
+  order: 2
 ---
 
 # Progress 进度条
