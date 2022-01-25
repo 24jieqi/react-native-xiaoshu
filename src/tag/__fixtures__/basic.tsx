@@ -52,6 +52,62 @@ const BasicTag: React.FC = () => {
         <Cell title="#1BA2FC" value={<Tag color="#1BA2FC">标签</Tag>} />
         <Cell title="#7D45E6" value={<Tag color="#7D45E6">标签</Tag>} />
         <Cell title="#0065FE" value={<Tag color="#0065FE">标签</Tag>} />
+        <Cell
+          title="#FFA238"
+          value={
+            <Tag color="#FFA238" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="#FA541C"
+          value={
+            <Tag color="#FA541C" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="#34B545"
+          value={
+            <Tag color="#34B545" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="#AD101A"
+          value={
+            <Tag color="#AD101A" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="#1BA2FC"
+          value={
+            <Tag color="#1BA2FC" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="#7D45E6"
+          value={
+            <Tag color="#7D45E6" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+        <Cell
+          title="#0065FE"
+          value={
+            <Tag color="#0065FE" type="hazy">
+              标签
+            </Tag>
+          }
+        />
       </CellGroup>
     </ScrollView>
   )

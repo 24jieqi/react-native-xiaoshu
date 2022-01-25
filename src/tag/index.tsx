@@ -67,7 +67,7 @@ const Tag: React.FC<TagProps> = ({
       innerSizeStyle: tempInnerStyle,
       textSizeStyle: tempTextStyle,
     }
-  }, [size])
+  }, [STYLES, size])
   const wrapStyle: ViewStyle = StyleSheet.flatten<TextStyle>([
     /** 类型样式 */
     STYLES.tag_wrap,
