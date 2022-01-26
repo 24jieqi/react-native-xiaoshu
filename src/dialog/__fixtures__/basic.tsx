@@ -1,3 +1,8 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
@@ -115,8 +120,10 @@ const BasicDialog: React.FC = () => {
               onClosed: () => {
                 console.log('onClosedOnClosedOnClosedOnClosed')
               },
-              confirmButtonColor: '#F30',
-              confirmButtonText: '删除',
+              confirmButtonColor: '#690',
+              confirmButtonText: '删除吗',
+              cancelButtonColor: '#007',
+              cancelButtonText: '我就不',
               beforeClose: action =>
                 new Promise(resolve => {
                   setTimeout(() => {

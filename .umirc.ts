@@ -1,5 +1,6 @@
 import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
+import p from './package.json'
 
 const repo = 'xiaoshu-doc/'
 
@@ -25,7 +26,7 @@ export default defineConfig({
   navs: [
     null,
     {
-      title: 'GitHub',
+      title: `GitHub v${p.version}`,
       path: 'https://github.com/hjfruit/react-native-xiaoshu',
     },
   ],

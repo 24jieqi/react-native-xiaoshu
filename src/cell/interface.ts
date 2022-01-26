@@ -116,7 +116,7 @@ export interface CellPrivateProps {
   isLink?: boolean
 
   /**
-   * 点击右侧图标
+   * 点击右侧箭头图标
    */
   onPressLink?: TouchableOpacityProps['onPress']
 

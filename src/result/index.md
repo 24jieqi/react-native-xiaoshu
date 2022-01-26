@@ -13,6 +13,8 @@ group:
 
 > 用于反馈一系列操作任务的处理结果。
 
+> react-native-svg-web 并没有提供 SvgXml 组件，web 端看不到 SVG 图形。关注 [What about SvgXml for svg from string ?](https://github.com/bakerface/react-native-svg-web/issues/6)
+
 ## DEMO
 
 <code defaultShowCode src="./__fixtures__/basic.tsx"></code>

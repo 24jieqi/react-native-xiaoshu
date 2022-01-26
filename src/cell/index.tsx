@@ -74,7 +74,7 @@ const Cell: React.FC<CellProps> = ({
     <IconArrow
       size={THEME_VAR.cell_icon_size}
       color={THEME_VAR.cell_icon_color}
-      onPress={onPressLink || restProps.onPress}
+      onPress={onPressLink}
       style={STYLES.icon_link}
     />
   ) : null

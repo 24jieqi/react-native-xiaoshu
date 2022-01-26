@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
-import type { TextStyle, ViewStyle } from 'react-native'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 
 import { useTheme, widthStyle } from '../theme'
 import { getArrowFill } from '../icon/helper/arrow'
@@ -42,19 +42,19 @@ const DropdownText: React.FC<DropdownTextProps> = ({
     ? activeColor
     : THEME_VAR.dropdown_menu_title_text_color
 
-  const itemStyleSummary = StyleSheet.flatten<ViewStyle>([
+  const itemStyles: StyleProp<ViewStyle> = [
     STYLES.item,
     config.titleStyle,
     style,
-  ])
-  const textStyleSummary = StyleSheet.flatten<TextStyle>([
+  ]
+  const textStyles: StyleProp<TextStyle> = [
     STYLES.text,
     config.titleTextStyle,
     {
       color: textColor,
     },
     textStyle,
-  ])
+  ]
   const iconStyles = [config.iconStyle, iconStyle].filter(Boolean)
 
   const ArrowFill = getArrowFill(
@@ -62,9 +62,9 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   )
   const ctxJSX = (
     <>
-      <Text style={textStyleSummary}>{title}</Text>
+      <Text style={textStyles}>{title}</Text>
       <ArrowFill
-        style={iconStyles.length ? StyleSheet.flatten(iconStyles) : undefined}
+        style={iconStyles.length ? iconStyles : undefined}
         size={THEME_VAR.dropdown_menu_title_icon_size}
         color={active ? activeColor : textColor}
       />
@@ -76,7 +76,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
       <TouchableOpacity
         {...restProps}
         disabled={disabled}
-        style={itemStyleSummary}
+        style={itemStyles}
         activeOpacity={activeOpacity}>
         {ctxJSX}
       </TouchableOpacity>
@@ -84,7 +84,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   }
 
   return (
-    <View {...restProps} style={itemStyleSummary}>
+    <View {...restProps} style={itemStyles}>
       {ctxJSX}
     </View>
   )

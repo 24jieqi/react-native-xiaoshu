@@ -55,7 +55,7 @@ export interface DropdownTextProps extends TouchableOpacityProps {
 
   /**
    * 菜单标题和选项的选中态颜色
-   * @default 'dropdown_menu_title_active_text_color'
+   * @default dropdown_menu_title_active_text_color
    */
   activeColor?: string
 
@@ -106,7 +106,7 @@ export interface DropdownItemProps
 
   /**
    * 动画时长，单位秒
-   * @default 'animation_duration_fast'
+   * @default animation_duration_fast
    */
   duration?: number
 

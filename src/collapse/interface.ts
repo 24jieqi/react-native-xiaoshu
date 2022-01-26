@@ -24,13 +24,13 @@ export interface CollapseProps {
 
   /**
    * 标题图标颜色
-   * @default 'collapse_title_icon_color'
+   * @default collapse_title_icon_color
    */
   iconColor?: string
 
   /**
    * 标题图标大小
-   * @default 'collapse_title_icon_size'
+   * @default collapse_title_icon_size
    */
   iconSize?: number
 

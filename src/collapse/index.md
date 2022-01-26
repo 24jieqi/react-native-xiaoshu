@@ -13,7 +13,13 @@ group:
 
 > 点击面板的标题可以展开或收缩其内容。
 
-## DEMO
+## 何时使用
+
+对复杂区域进行分组和隐藏，保持页面的整洁。
+
+适用于受控、非受控两种方式。
+
+## 代码演示
 
 <code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 

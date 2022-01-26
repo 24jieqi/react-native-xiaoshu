@@ -13,7 +13,14 @@ group:
 
 > 用于将内容分隔为多个区域。
 
-## DEMO
+## 何时使用
+
+- 对不同章节的文本段落进行分割。
+- 对行内文字/链接进行分割。
+
+分割线采用 SVG 画的，React Native border 暂时不支持虚线。
+
+## 代码演示
 
 <code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 
