@@ -106,6 +106,7 @@ const Button: React.FC<ButtonProps> = ({
     {
       fontSize: THEME_VAR[`button_${size}_font_size`],
       color: _textColor,
+      marginLeft: renderLeftIcon ? THEME_VAR.button_icon_gap : 0,
     },
   ])
 

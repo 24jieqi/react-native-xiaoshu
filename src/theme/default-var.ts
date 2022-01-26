@@ -87,6 +87,7 @@ export const button_primary_color = TOKENS.brand_6
 export const button_danger_color = TOKENS.red_6
 export const button_ghost_background_color: string = 'transparent'
 export const button_hazy = TOKENS.opacity_10
+export const button_icon_gap = TOKENS.space_1
 
 // ButtonBar
 export const button_bar_padding_horizontal = TOKENS.space_3
