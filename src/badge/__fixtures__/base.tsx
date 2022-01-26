@@ -64,7 +64,7 @@ const BadgeBase: React.FC = () => {
           <Badge dot />
         </Space>
 
-        <Space size={0}>
+        <Space gap={0}>
           <Space direction="horizontal" align="center">
             <Badge count="新+" />
             <Text>一段描述</Text>

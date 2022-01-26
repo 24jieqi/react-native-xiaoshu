@@ -47,24 +47,24 @@ const BadgeStatus: React.FC = () => {
         </Space>
       </CellGroup>
       <CellGroup title="组合使用" bodyPaddingHorizontal>
-        <Space size={0}>
-          <Space direction="horizontal" align="center" size={4}>
+        <Space gap={0}>
+          <Space direction="horizontal" align="center" gap={4}>
             <Badge dot status="primary" />
             <Text>一段描述</Text>
           </Space>
-          <Space direction="horizontal" align="center" size={4}>
+          <Space direction="horizontal" align="center" gap={4}>
             <Badge dot status="success" />
             <Text>一段描述</Text>
           </Space>
-          <Space direction="horizontal" align="center" size={4}>
+          <Space direction="horizontal" align="center" gap={4}>
             <Badge dot status="warning" />
             <Text>一段描述</Text>
           </Space>
-          <Space direction="horizontal" align="center" size={4}>
+          <Space direction="horizontal" align="center" gap={4}>
             <Badge dot status="error" />
             <Text>一段描述</Text>
           </Space>
-          <Space direction="horizontal" align="center" size={4}>
+          <Space direction="horizontal" align="center" gap={4}>
             <Badge dot color="#000" />
             <Text>一段描述</Text>
           </Space>

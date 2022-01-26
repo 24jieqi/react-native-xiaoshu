@@ -8,13 +8,30 @@ import type { SpaceProps } from './interface'
 
 const NO_GAP = 0
 
+const getDefaultGap = (target: number, defaultTarget: number, gap: number) => {
+  if (isDef(target)) {
+    return target
+  }
+
+  if (isDef(gap)) {
+    return gap
+  }
+
+  return defaultTarget
+}
+
+const getMarginGap = (d: boolean | number, gap: number) =>
+  d ? (typeof d === 'number' ? d : gap) : 0
+
 /**
  * Space 间距
  */
 const Space: React.FC<SpaceProps> = ({
   direction = 'vertical',
   wrap = false,
-  size,
+  gap,
+  gapVertical,
+  gapHorizontal,
   head,
   tail,
   justify,
@@ -28,8 +45,16 @@ const Space: React.FC<SpaceProps> = ({
   const THEME_VAR = useTheme()
 
   const isVertical = direction === 'vertical'
-  const gapVertical = isDef(size) ? size : THEME_VAR.space_gap_vertical
-  const gapHorizontal = isDef(size) ? size : THEME_VAR.space_gap_horizontal
+  const _gapVertical = getDefaultGap(
+    gapVertical,
+    THEME_VAR.space_gap_vertical,
+    gap,
+  )
+  const _gapHorizontal = getDefaultGap(
+    gapHorizontal,
+    THEME_VAR.space_gap_horizontal,
+    gap,
+  )
   const wrapperStyle: ViewStyle = {
     flexDirection: isVertical ? 'column' : 'row',
     flexWrap: wrap ? 'wrap' : 'nowrap',
@@ -37,29 +62,17 @@ const Space: React.FC<SpaceProps> = ({
     alignItems: align,
     ...(isVertical
       ? {
-          marginTop: head ? (typeof head === 'number' ? head : gapVertical) : 0,
-          marginBottom: tail
-            ? typeof tail === 'number'
-              ? tail
-              : gapVertical
-            : 0,
+          paddingTop: getMarginGap(head, _gapVertical),
+          paddingBottom: getMarginGap(tail, _gapVertical),
         }
       : {
-          marginLeft: head
-            ? typeof head === 'number'
-              ? head
-              : gapHorizontal
-            : 0,
-          marginRight: tail
-            ? typeof tail === 'number'
-              ? tail
-              : gapHorizontal
-            : 0,
+          paddingLeft: getMarginGap(head, _gapHorizontal),
+          paddingRight: getMarginGap(tail, _gapHorizontal),
         }),
   }
   const itemStyle: ViewStyle = {
-    marginBottom: gapVertical,
-    marginRight: isVertical ? 0 : gapHorizontal,
+    marginBottom: _gapVertical,
+    marginRight: isVertical ? 0 : _gapHorizontal,
   }
 
   const childArray = Children.toArray(children)

@@ -290,9 +290,8 @@ export const selector_icon_selected_color = TOKENS.brand_6
 export const selector_body_padding_horizontal = TOKENS.space_3
 
 // Space
-export const space_gap_size = TOKENS.space_2
-export const space_gap_vertical = space_gap_size
-export const space_gap_horizontal = space_gap_size
+export const space_gap_vertical = TOKENS.space_2
+export const space_gap_horizontal = TOKENS.space_2
 
 // Steps
 export const steps_background_color = TOKENS.brand_6

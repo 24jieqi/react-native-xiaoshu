@@ -34,7 +34,7 @@ const BasicCell: React.FC = () => {
       </CellGroup>
 
       <CellGroup title="自定义间距大小">
-        <Space direction="horizontal" size={16} wrap>
+        <Space direction="horizontal" gap={16} wrap>
           <Button text="Button" />
           <Button text="Button" />
           <Button text="Button" />
@@ -47,6 +47,12 @@ const BasicCell: React.FC = () => {
 
       <CellGroup title="主轴对齐方式">
         <Space direction="horizontal" justify="center">
+          <Button text="Button" size="xl" />
+          <Button text="Button" size="m" />
+          <Button text="Button" size="xs" />
+        </Space>
+
+        <Space direction="horizontal" justify="flex-end">
           <Button text="Button" size="xl" />
           <Button text="Button" size="m" />
           <Button text="Button" size="xs" />
