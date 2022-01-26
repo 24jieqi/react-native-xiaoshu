@@ -13,15 +13,17 @@ group:
 
 > 引导用户按照流程完成任务的导航条。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-## Steps API
+## API
+
+### Steps
 
 <API hideTitle></API>
 
-## Step API
+### Step
 
 <API hideTitle src="./step.tsx"></API>
 

@@ -126,7 +126,8 @@ export type {
   SelectorOption,
   SelectorProps,
 } from './selector/interface'
-export { default as Selector, conversionSelectorOptions } from './selector'
+export { default as Selector } from './selector'
+// export { conversionSelectorOptions } from './selector/helper'
 
 export type { SpaceProps } from './space/interface'
 export { default as Space } from './space'

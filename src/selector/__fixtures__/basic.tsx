@@ -1,5 +1,10 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
-import { View, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
 import { Cell, CellGroup, Selector } from '@fruits-chain/react-native-xiaoshu'
@@ -17,7 +22,7 @@ const BasicActionSheet: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <CellGroup title="基础用法">
         <Cell
           title="没有超过一屏"
           isLink
@@ -175,7 +180,7 @@ const BasicActionSheet: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="组件调用" bordered={false}>
+      <CellGroup title="组件调用">
         <Cell
           title="组件调用"
           isLink
@@ -213,8 +218,6 @@ const BasicActionSheet: React.FC = () => {
           }))
         }}
       />
-
-      <View style={{ height: 20 }} />
     </ScrollView>
   )
 }

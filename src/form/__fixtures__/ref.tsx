@@ -1,3 +1,8 @@
+/**
+ * title: ref 使用
+ * desc: 通过 ref 关联表单实例。
+ */
+
 import React, { useRef } from 'react'
 import type { FormInstance } from '@fruits-chain/react-native-xiaoshu'
 import {

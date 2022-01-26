@@ -1,3 +1,8 @@
+/**
+ * title: Form.Provider
+ * desc: 使用 Form.Provider 关联两个独立表单。
+ */
+
 import React from 'react'
 import { Text } from 'react-native'
 import {

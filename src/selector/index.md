@@ -1,5 +1,5 @@
 ---
-title: Selector 选择弹窗
+title: Selector 选择组
 nav:
   title: 组件
   path: /component
@@ -9,12 +9,12 @@ group:
   order: 1
 ---
 
-# Selector 弹出层式 Select
+# Selector 选择组
 
 > 类似 Web 端的 Select 组件，可以多选、单选。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./index.tsx"></API>
+<API src="./selector.tsx"></API>

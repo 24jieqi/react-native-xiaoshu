@@ -1,3 +1,8 @@
+/**
+ * title: Form.List
+ * desc: 使用 Form.List 渲染一组控件。
+ */
+
 import React from 'react'
 import {
   CellGroup,

@@ -13,10 +13,16 @@ group:
 
 > 24 栅格系统。灵感来自 `Ant Design`
 
-## DEMO
+## 代码演示
 
 <code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 
-<API src="./row.tsx"></API>
+## API
 
-<API src="./col.tsx"></API>
+### Row
+
+<API src="./row.tsx" hideTitle></API>
+
+### Col
+
+<API src="./col.tsx" hideTitle></API>

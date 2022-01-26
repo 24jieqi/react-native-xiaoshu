@@ -1,3 +1,8 @@
+/**
+ * title: 输入框
+ * desc: 适用于单行、多行文本输入。
+ */
+
 import React, { useState } from 'react'
 import { CellGroup, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 

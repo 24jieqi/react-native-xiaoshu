@@ -1,7 +1,11 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Icon } from '@fruits-chain/react-native-xiaoshu'
-import { Tag, Cell, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { Tag, Cell, CellGroup, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (

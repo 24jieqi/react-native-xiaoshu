@@ -1,3 +1,8 @@
+/**
+ * title: 数字输入框
+ * desc: 适用于纯数字输入。
+ */
+
 import React, { useState } from 'react'
 import { CellGroup, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 

@@ -13,8 +13,8 @@ group:
 
 > 为页面提供导航功能，常用于页面顶部。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

@@ -13,7 +13,7 @@ group:
 
 > 在 TextInput 的基础是完善数字输入。
 
-## DEMO
+## 代码演示
 
 <code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 

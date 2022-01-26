@@ -1,3 +1,8 @@
+/**
+ * title: 选择控件
+ * desc: 适合单选、多选。
+ */
+
 import React, { useState } from 'react'
 import { CellGroup, Field } from '@fruits-chain/react-native-xiaoshu'
 

@@ -14,7 +14,7 @@ import FieldText from './text'
  */
 const FieldSelector: React.FC<FieldSelectorProps> = ({
   value,
-  options = [],
+  options,
   multiple,
   onChange,
   optionsLoading = false,

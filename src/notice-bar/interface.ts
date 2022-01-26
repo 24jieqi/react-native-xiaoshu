@@ -33,19 +33,19 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
 
   /**
    * 通知文本颜色
-   * @default 'notice_bar_text_color'
+   * @default notice_bar_text_color
    */
   color?: string
 
   /**
    * 通知背景颜色
-   * @default 'notice_bar_background_color'
+   * @default notice_bar_background_color
    */
   backgroundColor?: string
 
   /**
    * 图标颜色
-   * @default 'notice_bar_text_color'
+   * @default notice_bar_text_color
    */
   iconColor?: string
 

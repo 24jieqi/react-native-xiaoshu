@@ -1,5 +1,5 @@
 ---
-title: Flex 布局
+title: Uploader 文件上传
 nav:
   title: 组件
   path: /component
@@ -9,11 +9,9 @@ group:
   order: 3
 ---
 
-# Flex 布局
+# Uploader 文件上传
 
-> Flex 是 CSS flex 布局的一个封装。
-
-似乎与 Space 组件的功能有些重复。
+> 展示一组上传文件，不包含任何选择、上传服务器的操作
 
 ## 代码演示
 

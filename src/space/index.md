@@ -20,8 +20,8 @@ group:
 - 适合行内元素的水平间距。
 - 可以设置各种水平对齐方式。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

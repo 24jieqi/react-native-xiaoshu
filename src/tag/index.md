@@ -13,8 +13,8 @@ group:
 
 > 用于标记关键词和概括主要内容。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

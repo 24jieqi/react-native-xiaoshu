@@ -1,5 +1,5 @@
 ---
-title: Flex 布局
+title: TabBar 标签栏
 nav:
   title: 组件
   path: /component
@@ -9,11 +9,9 @@ group:
   order: 3
 ---
 
-# Flex 布局
+# TabBar 标签栏
 
-> Flex 是 CSS flex 布局的一个封装。
-
-似乎与 Space 组件的功能有些重复。
+> 底部导航栏，用于在不同页面之间进行切换。
 
 ## 代码演示
 

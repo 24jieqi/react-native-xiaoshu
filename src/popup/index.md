@@ -13,8 +13,8 @@ group:
 
 > 弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API src="./popup.tsx"></API>

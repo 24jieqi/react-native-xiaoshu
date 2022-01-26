@@ -15,8 +15,8 @@ group:
 
 参考 Antd 桌面端 Input 组件交互、API 实现。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

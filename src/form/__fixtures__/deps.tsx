@@ -1,3 +1,8 @@
+/**
+ * title: dependencies
+ * desc: 使用 dependencies 动态渲染。
+ */
+
 import React from 'react'
 import { CellGroup, Form, Field } from '@fruits-chain/react-native-xiaoshu'
 

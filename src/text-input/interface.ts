@@ -74,7 +74,7 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
 
   /**
    * 格式化函数触发的时机，可选值为 onEndEditing | onChangeText
-   * @default `onChangeText`
+   * @default 'onChangeText'
    */
   formatTrigger?: 'onEndEditing' | 'onChangeText'
 

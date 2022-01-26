@@ -1,3 +1,8 @@
+/**
+ * title: 基础使用
+ * desc: 给 Form.Item 添加校验规则，form 表单实例关联表单并操作数据。
+ */
+
 import React from 'react'
 import {
   CellGroup,

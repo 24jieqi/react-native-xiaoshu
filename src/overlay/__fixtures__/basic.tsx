@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
-import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native'
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
 
-import { Overlay, Button } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react'
+import { View, TouchableWithoutFeedback } from 'react-native'
+
+import { Overlay, Button, CellGroup } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicOverlay: React.FC = () => {
   const [state, setState] = useState<Record<'normal' | 'inset', boolean>>({
@@ -10,19 +15,19 @@ const BasicOverlay: React.FC = () => {
   })
 
   return (
-    <ScrollView>
-      <Text>单独使用图标</Text>
-
-      <Button
-        text="显示遮罩层 Android 返回关闭"
-        type="primary"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            normal: true,
-          }))
-        }}
-      />
+    <>
+      <CellGroup title="简单使用" bodyPaddingHorizontal>
+        <Button
+          text="显示遮罩层 Android 返回关闭"
+          type="primary"
+          onPress={() => {
+            setState(s => ({
+              ...s,
+              normal: true,
+            }))
+          }}
+        />
+      </CellGroup>
 
       <Overlay
         visible={state.normal}
@@ -42,20 +47,18 @@ const BasicOverlay: React.FC = () => {
         }}
       />
 
-      <View style={{ height: 20 }} />
-
-      <Text>嵌入内容</Text>
-
-      <Button
-        text="嵌入内容"
-        type="primary"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            inset: true,
-          }))
-        }}
-      />
+      <CellGroup title="嵌入内容" bodyPaddingHorizontal>
+        <Button
+          text="嵌入内容"
+          type="primary"
+          onPress={() => {
+            setState(s => ({
+              ...s,
+              inset: true,
+            }))
+          }}
+        />
+      </CellGroup>
 
       <Overlay
         visible={state.inset}
@@ -81,7 +84,7 @@ const BasicOverlay: React.FC = () => {
           />
         </TouchableWithoutFeedback>
       </Overlay>
-    </ScrollView>
+    </>
   )
 }
 

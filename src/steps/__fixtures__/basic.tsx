@@ -1,3 +1,8 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React from 'react'
 import { ScrollView, Text, View } from 'react-native'
 import { Steps } from '@fruits-chain/react-native-xiaoshu'

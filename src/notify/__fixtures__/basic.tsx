@@ -1,5 +1,10 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
-import { View, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import { Cell, CellGroup, Notify } from '@fruits-chain/react-native-xiaoshu'
 
@@ -22,8 +27,6 @@ const BasicNotify: React.FC = () => {
           }}
         />
       </CellGroup>
-
-      <View style={{ height: 20 }} />
 
       <CellGroup title="通知类型" bordered={false}>
         <Cell
@@ -69,8 +72,6 @@ const BasicNotify: React.FC = () => {
         />
       </CellGroup>
 
-      <View style={{ height: 20 }} />
-
       <CellGroup title="自定义配置" bordered={false}>
         <Cell
           title="自定义颜色"
@@ -90,13 +91,11 @@ const BasicNotify: React.FC = () => {
           onPress={() => {
             Notify({
               message: '自定义时长',
-              duration: 5000,
+              duration: 500000,
             })
           }}
         />
       </CellGroup>
-
-      <View style={{ height: 20 }} />
 
       <CellGroup title="组件调用" bordered={false}>
         <Cell
@@ -134,8 +133,6 @@ const BasicNotify: React.FC = () => {
           console.log('点击了「哈哈哈哈哈哈哈嗝」')
         }}
       />
-
-      <View style={{ height: 20 }} />
     </ScrollView>
   )
 }

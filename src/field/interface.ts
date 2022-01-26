@@ -13,7 +13,7 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
 
   /**
    * 占位字符串显示的文字颜色
-   * @default 'text_input_placeholder_text_color'
+   * @default text_input_placeholder_text_color
    */
   placeholderTextColor?: string
 

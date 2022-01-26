@@ -1,3 +1,8 @@
+/**
+ * title: 文字显示
+ * desc: 适合文案展示的地方。
+ */
+
 import React from 'react'
 import { CellGroup, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
 

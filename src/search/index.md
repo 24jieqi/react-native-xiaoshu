@@ -12,8 +12,8 @@ group:
 
 > 用于搜索场景的输入框组件。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

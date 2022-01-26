@@ -13,8 +13,8 @@ group:
 
 > 用于在打开和关闭状态之间进行切换。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 
 <API></API>
