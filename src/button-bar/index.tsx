@@ -3,6 +3,7 @@ import React, { memo } from 'react'
 import BottomBar from '../bottom-bar'
 import Button from '../button'
 import ActionSheet from '../action-sheet'
+import Space from '../space'
 import { useTheme, widthStyle } from '../theme'
 import { isArray, noop } from '../helpers'
 import { ButtonBarProps } from './interface'
@@ -43,7 +44,12 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
       {...restProps}
       style={[STYLES.button_bar, alone ? STYLES.button_bar_alone : null]}>
       {isConfig ? (
-        <>
+        <Space
+          justify="flex-end"
+          align="center"
+          direction="horizontal"
+          gapVertical={0}
+          gapHorizontal={THEME_VAR.button_bar_button_space}>
           {showMore ? (
             <Button type="link" text={moreText} onPress={onPressMore} />
           ) : null}
@@ -57,7 +63,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
               />
             )
           })}
-        </>
+        </Space>
       ) : (
         children
       )}
