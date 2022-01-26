@@ -56,10 +56,5 @@ export const createStyles = (themeVar: ThemeVarType) => {
     btn_confirm: {
       fontWeight: 'bold',
     },
-
-    btn_border_left: {
-      borderLeftWidth: 1,
-      borderColor: themeVar.border_color,
-    },
   })
 }

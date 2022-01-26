@@ -153,7 +153,14 @@ const Dialog: React.FC<DialogProps> = ({
               square
               style={[
                 STYLES.btn,
-                showCancelButton ? STYLES.btn_border_left : null,
+                showCancelButton
+                  ? // eslint-disable-next-line react-native/no-inline-styles
+                    {
+                      // react-native-web 覆盖原 botton 样式
+                      borderLeftWidth: 1,
+                      borderColor: THEME_VAR.border_color,
+                    }
+                  : null,
               ]}
               textStyle={STYLES.btn_confirm}
             />
