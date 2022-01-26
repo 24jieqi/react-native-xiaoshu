@@ -60,7 +60,10 @@ const Notify: React.FC<NotifyProps> = ({
                 ? backgroundColor
                 : THEME_VAR[`notify_${type}_background_color`] ||
                   THEME_VAR.notify_primary_background_color,
-              paddingTop: insets.top,
+              paddingTop:
+                insets.top > THEME_VAR.notify_padding_vertical
+                  ? insets.top
+                  : THEME_VAR.notify_padding_vertical,
             },
             style,
           ]}>
