@@ -20,12 +20,12 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     text: {
       textAlign: 'center',
-      fontSize: themeVar.picker_column_text_font_size,
-      color: themeVar.picker_column_text_color,
+      fontSize: themeVar.picker_view_column_text_font_size,
+      color: themeVar.picker_view_column_text_color,
     },
 
     text_disabled: {
-      color: themeVar.picker_column_text_disabled_color,
+      color: themeVar.picker_view_column_text_disabled_color,
     },
   })
 }

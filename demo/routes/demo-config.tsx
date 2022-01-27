@@ -45,6 +45,7 @@ import DemoUploader from '../../src/uploader/__fixtures__/basic'
 import DemoPasswordInput from '../../src/password-input/__fixtures__/basic'
 import DemoSearch from '../../src/search/__fixtures__/basic'
 import DemoPicker from '../../src/picker/__fixtures__/basic'
+import DemoPickerView from '../../src/picker-view/__fixtures__/basic'
 import DemoSpace from '../../src/space/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
@@ -90,6 +91,7 @@ export type DemoPaths =
   | 'DemoPasswordInput'
   | 'DemoSearch'
   | 'DemoPicker'
+  | 'DemoPickerView'
   | 'DemoSpace'
 
 const onScrollBeginDrag = () => {
@@ -430,6 +432,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoPicker />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoPickerView',
+    page: () => (
+      <DemoWrapper>
+        <DemoPickerView />
       </DemoWrapper>
     ),
   },

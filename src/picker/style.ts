@@ -18,17 +18,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       overflow: 'hidden',
     },
 
-    loading: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(255,255,255,0.9)',
-      zIndex: 2,
-      justifyContent: 'center',
-    },
-
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -49,16 +38,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       color: themeVar.picker_title_text_color,
       fontWeight: 'bold',
       fontSize: themeVar.picker_title_font_size,
-    },
-
-    mask: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      zIndex: 3,
-      backgroundColor: themeVar.picker_column_mask_background_color,
-      borderColor: themeVar.picker_column_mask_border_color,
-      borderWidth: 0,
     },
   })
 }

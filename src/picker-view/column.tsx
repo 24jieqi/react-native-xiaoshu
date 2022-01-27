@@ -3,21 +3,20 @@ import type { ViewStyle } from 'react-native'
 import { View, Text, PanResponder, Animated } from 'react-native'
 
 import { usePersistFn } from '../hooks'
-import { isDef } from '../helpers/typeof'
 import { useTheme, widthStyle } from '../theme'
-import type { PickerColumnProps } from './interface'
+import type { PickerViewColumnProps, PickerValue } from './interface'
 import { createStyles } from './style.column'
 import { findUsableOptionIndex } from './helper/column'
 
 /**
  * 选择器 列
  */
-const PickerColumn: React.FC<PickerColumnProps> = ({
+const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
   itemHeight,
   visibleItemCount,
   options,
-  defaultValue,
-  onChangeValue,
+  value,
+  onChange,
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -29,7 +28,44 @@ const PickerColumn: React.FC<PickerColumnProps> = ({
   const LastTop = useRef(0)
   /** 滚动范围 最大最小值 */
   const ScopeTop = useRef({ start: 0, end: 0 })
-  const onChangeValuePersistFn = usePersistFn(onChangeValue)
+  const onChangePersistFn = usePersistFn(onChange)
+  // 部分数据想跨渲染次数使用，类似 this.xxx
+  const ValueCurrent = useRef(value)
+  const OptionsCurrent = useRef(options)
+
+  /** 滚动到某个值 */
+  const scrollTo = usePersistFn((v: PickerValue) => {
+    let valueIndex = OptionsCurrent.current.findIndex(item => item.value === v)
+
+    // 定位的时候不去做数据校验，外面的默认值真的可能是被禁用
+    // if (valueIndex < 0) {
+    //   // 是一个不存在的选项
+    // } else {
+    //   // 检测当前选项是否可用
+    //   if (OptionsCurrent.current[valueIndex].disabled) {
+    //     // 另寻它路
+    //     valueIndex = findUsableOptionIndex(
+    //       OptionsCurrent.current,
+    //       next,
+    //       valueIndex,
+    //     )
+    //   }
+    // }
+
+    // 计算正确的位置
+    // 反方向偏移，所以减去第 N 索引值的高度
+    const newTop = ScopeTop.current.start - valueIndex * itemHeight
+
+    Animated.timing(PanAnimated.current, {
+      toValue: newTop, // 设置动画的属性值
+      useNativeDriver: true,
+      duration: 50,
+    }).start(({ finished }) => {
+      if (finished) {
+        LastTop.current = newTop
+      }
+    })
+  })
 
   const panResponder = useMemo(() => {
     return PanResponder.create({
@@ -41,16 +77,19 @@ const PickerColumn: React.FC<PickerColumnProps> = ({
         PanAnimated.current.setValue(currentTop)
       },
       onPanResponderRelease: (_, gestureState) => {
-        const currentTop = LastTop.current + gestureState.dy
+        // 滚动结束
+        // 判断滚动到哪个范围了
         const { start, end } = ScopeTop.current
-        /** 想选下面的数据 */
+        /** 此时的位置 */
+        const currentTop = LastTop.current + gestureState.dy
+        /** 滚动方向 */
         const isToNext = gestureState.dy <= 0
 
-        /** 当前完整的情况是第 N 索引值 */
         let endIndex = -1
 
-        // 滑动结果在选择列表内部
         if (currentTop < start && currentTop > end) {
+          // 在选项范围内
+
           /** 相对第一个选项 top 的偏移值，取正 */
           const absStartTopDeviant = Math.abs(currentTop - start)
           /** 偏移值 */
@@ -58,75 +97,52 @@ const PickerColumn: React.FC<PickerColumnProps> = ({
 
           endIndex = Math.floor(absStartTopDeviant / itemHeight)
 
-          if (isToNext && remainder >= markMargin) {
-            endIndex += 1
-          } else if (!isToNext && remainder >= markMargin) {
+          // 无论哪个方向，只要超过一般就算下一个
+          if ((isToNext || !isToNext) && remainder >= markMargin) {
             endIndex += 1
           }
-
-          // 当前滑动到的选项禁用，需要从新找一个可用的
-          if (endIndex > -1 && options[endIndex].disabled) {
-            endIndex = findUsableOptionIndex(options, isToNext, endIndex)
-          }
-        } else {
+        } else if (currentTop >= start) {
           // 滑动到了第一个选项上面
-          if (currentTop >= start) {
-            endIndex = findUsableOptionIndex(options, true, 0, false)
-          }
-
+          endIndex = 0
+        } else {
           // 滑动到了最后个选项下面
-          if (currentTop <= end) {
-            endIndex = findUsableOptionIndex(
-              options,
-              false,
-              options.length - 1,
-              false,
-            )
-          }
+          endIndex = options.length - 1
         }
 
-        // 计算正确的位置
-        // 反方向偏移，所以减去第 N 索引值的高度
-        LastTop.current = start - endIndex * itemHeight
+        // 当前滑动到的选项禁用，需要从新找一个可用的
+        if (options[endIndex].disabled) {
+          endIndex = findUsableOptionIndex(options, isToNext, endIndex)
+        }
 
-        // 判断当前应该滚动到哪个
-        Animated.timing(PanAnimated.current, {
-          toValue: LastTop.current, // 设置动画的属性值
-          useNativeDriver: true,
-          duration: 50,
-        }).start(({ finished }) => {
-          if (finished) {
-            onChangeValuePersistFn(options[endIndex])
-          }
-        })
+        // 记录当前位置
+        LastTop.current = currentTop
+
+        // 触发回调
+        // 极端情况，所有选项都被禁用了
+        if (options[endIndex]) {
+          onChangePersistFn(options[endIndex])
+        }
+
+        setTimeout(() => {
+          scrollTo(ValueCurrent.current)
+        }, 0)
       },
     })
-  }, [itemHeight, markMargin, onChangeValuePersistFn, options])
+  }, [itemHeight, markMargin, onChangePersistFn, options, scrollTo])
 
   // 监听数据变化，重新初始化值
   useEffect(() => {
     // 计算初始值
     const startTop = (itemHeight * visibleItemCount) / 2 - itemHeight / 2
-    let endIndex = 0
-
-    if (isDef(defaultValue)) {
-      endIndex = options.findIndex(item => item.value === defaultValue)
-    }
-
-    // 初始化的时候需要做偏移吗？
-    // if (options[endIndex].disabled) {
-    //   endIndex = findUsableOptionIndex(options, true, endIndex);
-    // }
-
-    const currentTop = startTop - endIndex * itemHeight
-
-    PanAnimated.current.setValue(currentTop)
-    LastTop.current = currentTop
     ScopeTop.current = {
       start: startTop,
       end: startTop - itemHeight * (options.length - 1),
     }
-  }, [itemHeight, visibleItemCount, options, defaultValue])
+
+    ValueCurrent.current = value
+    OptionsCurrent.current = options
+    scrollTo(value)
+  }, [itemHeight, visibleItemCount, options, value, scrollTo])
 
   const listStyle: ViewStyle = {
     position: 'relative',
@@ -164,4 +180,4 @@ const PickerColumn: React.FC<PickerColumnProps> = ({
   )
 }
 
-export default memo(PickerColumn)
+export default memo(PickerViewColumn)

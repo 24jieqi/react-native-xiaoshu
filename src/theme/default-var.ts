@@ -249,12 +249,15 @@ export const picker_title_text_color = TOKENS.gray_8
 export const picker_title_action_font_size = TOKENS.font_size_5
 export const picker_title_cancel_text_color = TOKENS.gray_7
 export const picker_title_confirm_text_color = TOKENS.brand_6
-export const picker_column_mask_border_color = border_color
-export const picker_column_mask_background_color: string =
+
+// PickerView
+export const picker_view_background_color = TOKENS.white
+export const picker_view_column_mask_border_color = border_color
+export const picker_view_column_mask_background_color: string =
   'rgba(255,255,255,0.8)'
-export const picker_column_text_color = TOKENS.gray_8
-export const picker_column_text_disabled_color: string = '#999'
-export const picker_column_text_font_size = TOKENS.font_size_5
+export const picker_view_column_text_color = TOKENS.gray_8
+export const picker_view_column_text_disabled_color: string = TOKENS.gray_6
+export const picker_view_column_text_font_size = TOKENS.font_size_5
 
 // Popup
 export const popup_background_color = TOKENS.white

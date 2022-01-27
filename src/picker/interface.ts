@@ -1,47 +1,16 @@
 import type React from 'react'
+import type { TextProps } from 'react-native'
 
-export type PickerOptionType = 'cascade' | 'multiple' | 'single'
+import type {
+  PickerViewProps,
+  PickerValue,
+  Column,
+} from '../picker-view/interface'
+import type { PopupPropsCommon } from '../popup/interface'
 
-export type PickerValue = string | number
+type PickerAction = 'cancel' | 'confirm' | 'overlay'
 
-/** 单列选择 */
-export type PickerOption = {
-  value: PickerValue
-  label: PickerValue
-  disabled?: boolean
-  // for custom filed names
-  [key: string]: any
-}
-
-export type PickerOptionMultipleWidthDefaultValue = {
-  defaultValue?: PickerValue
-  options: PickerOption[]
-}
-
-/** 多列选择 */
-export type PickerOptionMultiple =
-  | PickerOptionMultipleWidthDefaultValue
-  | PickerOption[]
-
-/** 联级选择 */
-export type PickerOptionCascade = PickerOption & {
-  children?: PickerOptionCascade[]
-  // for custom filed names
-  [key: string]: any
-}
-
-export type Column = PickerOption | PickerOptionMultiple | PickerOptionCascade
-
-export interface PickerProps {
-  value?: PickerValue | PickerValue[]
-
-  defaultValue?: PickerValue | PickerValue[]
-
-  /**
-   * 对象数组，配置每一列显示的数据
-   */
-  columns: Column[]
-
+export interface PickerProps extends PickerViewProps, PopupPropsCommon {
   /**
    * 顶部栏标题
    */
@@ -66,77 +35,63 @@ export interface PickerProps {
   toolbarPosition?: 'top' | 'bottom'
 
   /**
-   * 是否显示加载状态
-   * @default false
-   */
-  loading?: boolean
-
-  /**
    * 是否显示顶部栏
    * @default true
    */
   showToolbar?: boolean
 
   /**
-   * 选项高度
-   * @default 50
-   */
-  itemHeight?: number
-
-  /**
-   * 可见的选项个数
-   * @default 5
-   */
-  visibleItemCount?: number
-
-  /**
-   * 选项改变时触发
-   */
-  onChange?: (
-    value: PickerValue | PickerValue[],
-    option: Column | Column[],
-  ) => void
-
-  /**
    * 点击取消按钮时触发
    */
-  onCancel?: (
-    value: PickerValue | PickerValue[],
-    option: Column | Column[],
-  ) => void
+  onCancel?: TextProps['onPress']
 
   /**
    * 点击完成按钮时触发
    */
-  onConfirm?: (
-    value: PickerValue | PickerValue[],
-    option: Column | Column[],
-  ) => void
+  onConfirm?: TextProps['onPress']
 }
 
-export interface PickerColumnProps {
+export interface PickerMethodProps
+  extends Omit<
+    PickerProps,
+    | 'visible'
+    | 'value'
+    | 'onChange'
+    | 'loading'
+    | 'onCancel'
+    | 'onConfirm'
+    | 'onPressOverlay'
+  > {
   /**
-   * 选项高度
+   * 点击取消
    */
-  itemHeight: number
+  onCancel?: (values: PickerValue[], columns: Column[]) => void
 
   /**
-   * 选项
+   * 点击确定
    */
-  options: PickerOption[]
+  onConfirm?: (values: PickerValue[], columns: Column[]) => void
 
   /**
-   * 默认值
+   * 点击遮罩层
    */
-  defaultValue?: string | number
+  onPressOverlay?: (values: PickerValue[], columns: Column[]) => void
 
   /**
-   * 可见的选项个数
+   * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
-  visibleItemCount?: number
+  beforeClose?: (action: PickerAction) => boolean | Promise<boolean>
+  // /**
+  //  * 操作完成后的回调
+  //  */
+  // callback?: (action: PickerAction) => void
+}
 
-  /**
-   * 当值变化的时候
-   */
-  onChangeValue: (v: PickerOption | undefined) => void
+export interface PickerInstance {
+  (p: PickerMethodProps): Promise<{
+    action: PickerAction
+    values: PickerValue[]
+    columns: Column[]
+  }>
+  Component: React.FC<PickerProps>
 }
