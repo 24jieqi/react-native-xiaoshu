@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import type { ImageSourcePropType } from 'react-native'
 
 export type UploaderValue = {

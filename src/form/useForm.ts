@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { Keyboard } from 'react-native'
-import { useForm as useRcForm, FormInstance } from 'rc-field-form'
+import type { FormInstance } from 'rc-field-form'
+import { useForm as useRcForm } from 'rc-field-form'
 
 export default function <Values = any>(
   form?: FormInstance<Values>,

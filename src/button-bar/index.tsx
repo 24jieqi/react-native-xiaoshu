@@ -6,7 +6,7 @@ import ActionSheet from '../action-sheet'
 import Space from '../space'
 import { useTheme, widthStyle } from '../theme'
 import { isArray, noop } from '../helpers'
-import { ButtonBarProps } from './interface'
+import type { ButtonBarProps } from './interface'
 import { createStyles } from './style'
 
 const ButtonBar: React.FC<ButtonBarProps> = ({

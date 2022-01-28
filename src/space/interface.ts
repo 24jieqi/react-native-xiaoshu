@@ -1,4 +1,4 @@
-import { ViewProps, FlexStyle } from 'react-native'
+import type { ViewProps, FlexStyle } from 'react-native'
 
 type SpaceDirection = 'vertical' | 'horizontal'
 

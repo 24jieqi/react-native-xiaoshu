@@ -1,5 +1,5 @@
+import type { FormInstance } from 'rc-field-form'
 import {
-  FormInstance,
   Field,
   List,
   FormProvider,
