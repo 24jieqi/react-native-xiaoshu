@@ -35,12 +35,14 @@ const columns4 = buildChildren(8, 'sj', '省级', (sjValue, sjLabel) =>
 
 const defaultValue = ['sj_5', 'sq_5_2', 'qx_5_2_2']
 
+const defaultValue2 = ['sj_2']
+
 const PickerViewCascade: React.FC = () => {
   const [value, setValue] = useState<(string | number)[]>([])
 
   return (
     <>
-      <CellGroup title="级联选择:非受控" bodyPaddingHorizontal>
+      <CellGroup title="级联选择:默认值:非受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
@@ -49,6 +51,18 @@ const PickerViewCascade: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
           defaultValue={defaultValue}
+        />
+      </CellGroup>
+
+      <CellGroup title="级联选择:默认值2:非受控" bodyPaddingHorizontal>
+        <PickerView
+          columns={columns4}
+          onChange={(v, o) => {
+            console.log('级联选择:非受控')
+            console.log('滑动完成就触发 -> values:', v)
+            console.log('滑动完成就触发 -> options:', o)
+          }}
+          defaultValue={defaultValue2}
         />
       </CellGroup>
 

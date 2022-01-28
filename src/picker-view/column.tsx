@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useMemo, memo } from 'react'
-import type { ViewStyle } from 'react-native'
 import { View, Text, PanResponder, Animated } from 'react-native'
 
 import { usePersistFn } from '../hooks'
@@ -123,6 +122,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
           onChangePersistFn(options[endIndex])
         }
 
+        // 延迟跳转，可能外部不更新数据，调到旧数据上
         setTimeout(() => {
           scrollTo(ValueCurrent.current)
         }, 0)
@@ -141,23 +141,22 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
 
     ValueCurrent.current = value
     OptionsCurrent.current = options
+
     scrollTo(value)
   }, [itemHeight, visibleItemCount, options, value, scrollTo])
-
-  const listStyle: ViewStyle = {
-    position: 'relative',
-    transform: [
-      {
-        translateY: PanAnimated.current as unknown as number,
-      },
-    ],
-  }
 
   return (
     <View style={STYLES.column}>
       <View {...panResponder.panHandlers} style={STYLES.touch} />
 
-      <Animated.View style={listStyle}>
+      <Animated.View
+        style={{
+          transform: [
+            {
+              translateY: PanAnimated.current,
+            },
+          ],
+        }}>
         {options.map(item => {
           return (
             <Text

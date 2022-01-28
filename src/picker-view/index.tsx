@@ -55,8 +55,9 @@ const Picker: React.FC<PickerViewProps> = ({
       ColumnDefaultValues.current = defaultValues
       setOptions(_options)
 
-      // 非受控的情况才去同步数据
-      // 并且没有默认值
+      // 非受控的情况、并且没有默认值才去同步数据
+      // 既然有默认数据了，由外面自己负责
+      // 把数据同步到内部状态，初始化的时候看起来是选中默认数据或第一个数据的样子
       if (!isControlled && !isNoDefaultValue) {
         const [v, o] = buildSelectedValue(defaultValues, _options)
         onChange(v, o)
@@ -72,6 +73,7 @@ const Picker: React.FC<PickerViewProps> = ({
 
       setOptions(_options)
 
+      // 当
       if (value !== _values) {
         onChange(v, o)
       }
