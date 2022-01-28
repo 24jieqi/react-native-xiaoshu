@@ -86,7 +86,7 @@ export const button_loading_opacity = TOKENS.opacity_60
 export const button_primary_color = TOKENS.brand_6
 export const button_danger_color = TOKENS.red_6
 export const button_ghost_background_color: string = 'transparent'
-export const button_hazy = TOKENS.opacity_10
+export const button_hazy_lightness: number = 95
 export const button_icon_gap = TOKENS.space_1
 
 // ButtonBar
@@ -344,6 +344,7 @@ export const tag_text_color = TOKENS.white
 export const tag_border_radius = TOKENS.border_radius_xs
 export const tag_primary_color = TOKENS.brand_6
 export const tag_ghost_bg_color: string = 'transparent'
+export const tag_hazy_lightness: number = 95
 
 // TextInput
 export const text_input_l_font_size = TOKENS.font_size_5

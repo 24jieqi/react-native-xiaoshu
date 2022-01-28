@@ -1,9 +1,11 @@
 import React, { memo, useMemo } from 'react'
 import type { TextStyle, ViewStyle } from 'react-native'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import Color from 'color'
+
 import { CrossOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import { hex2rgba, isDef } from '../helpers'
+import { isDef } from '../helpers'
 import type { TagProps } from './interface'
 import { createStyles } from './style'
 
@@ -31,22 +33,28 @@ const Tag: React.FC<TagProps> = ({
     const tempInnerStyle: ViewStyle = {}
     const tempTextStyle: TextStyle = {}
     switch (type) {
-      case 'primary':
+      case 'primary': {
         tempInnerStyle.backgroundColor = mainColor
         tempInnerStyle.borderColor = mainColor
         tempTextStyle.color = THEME_VAR.tag_text_color
         break
-      case 'ghost':
+      }
+      case 'ghost': {
         tempInnerStyle.backgroundColor = THEME_VAR.tag_ghost_bg_color
         tempInnerStyle.borderColor = mainColor
         tempInnerStyle.borderWidth = StyleSheet.hairlineWidth
         tempTextStyle.color = mainColor
         break
-      case 'hazy':
-        tempInnerStyle.backgroundColor = hex2rgba(mainColor, 0.1)
-        tempInnerStyle.borderColor = hex2rgba(mainColor, 0.1)
+      }
+      case 'hazy': {
+        const hazyColor = Color(mainColor)
+          .lightness(THEME_VAR.tag_hazy_lightness)
+          .hex()
+        tempInnerStyle.backgroundColor = hazyColor
+        tempInnerStyle.borderColor = hazyColor
         tempTextStyle.color = mainColor
         break
+      }
       default:
         break
     }
@@ -54,7 +62,13 @@ const Tag: React.FC<TagProps> = ({
       innerTypeStyle: tempInnerStyle,
       textTypeStyle: tempTextStyle,
     }
-  }, [type, mainColor, THEME_VAR.tag_text_color, THEME_VAR.tag_ghost_bg_color])
+  }, [
+    type,
+    mainColor,
+    THEME_VAR.tag_text_color,
+    THEME_VAR.tag_ghost_bg_color,
+    THEME_VAR.tag_hazy_lightness,
+  ])
   const { innerSizeStyle, textSizeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = STYLES[`tag_inner_${size}`]
     const tempTextStyle: TextStyle = STYLES[`tag_text_${size}`]

@@ -52,6 +52,7 @@
     "design-tokens:generate": "ts-node --project tsconfig.nodejs.json ./scripts/design-tokens/index.ts"
   },
   "dependencies": {
+    "color": "^4.2.0",
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
@@ -69,6 +70,7 @@
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
     "@release-it/conventional-changelog": "^4.1.0",
+    "@types/color": "^3.0.2",
     "@types/jest": "^27.4.0",
     "@types/lodash": "^4.14.178",
     "@types/react-native": "^0.66.15",

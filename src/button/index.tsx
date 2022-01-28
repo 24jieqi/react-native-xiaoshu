@@ -1,10 +1,11 @@
 import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import Color from 'color'
 
 import { useTheme, widthStyle } from '../theme'
 import Loading from '../loading'
-import { getDefaultValue, hex2rgba, isDef } from '../helpers'
+import { getDefaultValue, isDef } from '../helpers'
 import { createStyles } from './style'
 import type { ButtonProps } from './interface'
 
@@ -44,7 +45,9 @@ const Button: React.FC<ButtonProps> = ({
     useMemo(() => {
       switch (type) {
         case 'hazy': {
-          const hazyColor = hex2rgba(color, THEME_VAR.button_hazy)
+          const hazyColor = Color(color)
+            .lightness(THEME_VAR.button_hazy_lightness)
+            .hex()
           return [hazyColor, hazyColor, color, 0]
         }
 
@@ -76,7 +79,7 @@ const Button: React.FC<ButtonProps> = ({
     }, [
       THEME_VAR.button_border_color,
       THEME_VAR.button_ghost_background_color,
-      THEME_VAR.button_hazy,
+      THEME_VAR.button_hazy_lightness,
       color,
       textColor,
       type,
