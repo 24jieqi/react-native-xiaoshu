@@ -9,40 +9,40 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexDirection: 'row',
       overflow: 'visible',
     },
-    tag_wrap_l: {
-      paddingHorizontal: themeVar.tag_large_padding_horizontal,
-      paddingVertical: themeVar.tag_large_padding_vertical,
+    tag_inner_l: {
+      paddingHorizontal: themeVar.tag_l_padding_horizontal,
+      paddingVertical: themeVar.tag_l_padding_vertical,
     },
-    tag_wrap_m: {
-      paddingHorizontal: themeVar.tag_medium_padding_horizontal,
-      paddingVertical: themeVar.tag_medium_padding_vertical,
+    tag_inner_m: {
+      paddingHorizontal: themeVar.tag_m_padding_horizontal,
+      paddingVertical: themeVar.tag_m_padding_vertical,
     },
-    tag_wrap_s: {
-      paddingHorizontal: themeVar.tag_small_padding_horizontal,
-      paddingVertical: themeVar.tag_small_padding_vertical,
+    tag_inner_s: {
+      paddingHorizontal: themeVar.tag_s_padding_horizontal,
+      paddingVertical: themeVar.tag_s_padding_vertical,
     },
-    tag_wrap: {
+    tag_inner: {
       borderRadius: themeVar.tag_border_radius,
       flexDirection: 'row',
       alignItems: 'center',
     },
     tag_text_l: {
-      fontSize: themeVar.tag_font_size_l,
+      fontSize: themeVar.tag_l_font_size,
     },
     tag_text_m: {
-      fontSize: themeVar.tag_font_size_m,
+      fontSize: themeVar.tag_m_font_size,
     },
     tag_text_s: {
-      fontSize: themeVar.tag_font_size_s,
+      fontSize: themeVar.tag_s_font_size,
     },
     close_icon_size_l: {
-      fontSize: themeVar.tag_close_icon_l,
+      fontSize: themeVar.tag_l_close_icon,
     },
     close_icon_size_m: {
-      fontSize: themeVar.tag_close_icon_m,
+      fontSize: themeVar.tag_m_close_icon,
     },
     close_icon_size_s: {
-      fontSize: themeVar.tag_close_icon_s,
+      fontSize: themeVar.tag_s_close_icon,
     },
   })
 }

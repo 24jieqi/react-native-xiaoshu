@@ -1,12 +1,6 @@
 import React, { memo, useMemo } from 'react'
-import {
-  TextStyle,
-  ViewStyle,
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native'
+import type { TextStyle, ViewStyle } from 'react-native'
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 import { CrossOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
 import { hex2rgba, isDef } from '../helpers'
@@ -19,6 +13,7 @@ import { createStyles } from './style'
 const Tag: React.FC<TagProps> = ({
   children,
   style,
+  innerStyle,
   closable = false,
   onClose,
   size = 'm',
@@ -61,19 +56,13 @@ const Tag: React.FC<TagProps> = ({
     }
   }, [type, mainColor, THEME_VAR.tag_text_color, THEME_VAR.tag_ghost_bg_color])
   const { innerSizeStyle, textSizeStyle } = useMemo(() => {
-    const tempInnerStyle: ViewStyle = STYLES[`tag_wrap_${size}`]
+    const tempInnerStyle: ViewStyle = STYLES[`tag_inner_${size}`]
     const tempTextStyle: TextStyle = STYLES[`tag_text_${size}`]
     return {
       innerSizeStyle: tempInnerStyle,
       textSizeStyle: tempTextStyle,
     }
   }, [STYLES, size])
-  const wrapStyle: ViewStyle = StyleSheet.flatten<TextStyle>([
-    /** 类型样式 */
-    STYLES.tag_wrap,
-    innerTypeStyle,
-    innerSizeStyle,
-  ])
 
   const textStyle = StyleSheet.flatten<TextStyle>([
     /** 类型样式 */
@@ -97,7 +86,7 @@ const Tag: React.FC<TagProps> = ({
       ) : (
         <CrossOutline
           onPress={onClose}
-          size={THEME_VAR[`tag_close_icon_${size}`]}
+          size={THEME_VAR[`tag_${size}_close_icon`]}
           color={textStyle.color as string}
         />
       )
@@ -106,7 +95,14 @@ const Tag: React.FC<TagProps> = ({
   }
   return visible ? (
     <View style={[STYLES.tag, style]}>
-      <View style={wrapStyle}>
+      <View
+        style={[
+          /** 类型样式 */
+          STYLES.tag_inner,
+          innerTypeStyle,
+          innerSizeStyle,
+          innerStyle,
+        ]}>
         {icon}
         {renderChildren()}
         {renderCloseIcon()}

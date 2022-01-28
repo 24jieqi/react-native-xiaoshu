@@ -1,8 +1,12 @@
-import type { ViewProps } from 'react-native'
+import type { ViewProps, ViewStyle, StyleProp } from 'react-native'
 
 export type TagSize = 'l' | 'm' | 's'
 export type TagType = 'primary' | 'hazy' | 'ghost'
 export interface TagProps extends ViewProps {
+  /**
+   * 内部包裹层样式，可以对文案、图标排版影响
+   */
+  innerStyle?: StyleProp<ViewStyle>
   /**
    * 是否为可关闭标签
    * @default false
