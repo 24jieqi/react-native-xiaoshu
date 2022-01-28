@@ -57,7 +57,7 @@ export interface ToastProps
 
   /**
    * 加载图标类型, 可选值为 `'circular' | 'spinner'`
-   * @default 'circular'
+   * @default 'spinner'
    */
   loadingType?: 'circular' | 'spinner'
 

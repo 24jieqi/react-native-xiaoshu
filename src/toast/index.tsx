@@ -26,7 +26,7 @@ const defaultOptions: ToastOptions = {
   forbidPress: false,
   closeOnPressOverlay: false,
   overlay: false,
-  loadingType: 'circular',
+  loadingType: 'spinner',
 }
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions

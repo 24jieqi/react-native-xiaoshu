@@ -387,23 +387,23 @@ export const result_subtitle_color = TOKENS.gray_7
 
 // Toast
 export const toast_max_width: string = '70%'
-export const toast_font_size = TOKENS.font_size_3
-export const toast_text_color = TOKENS.white
-export const toast_loading_icon_color = TOKENS.white
-export const toast_loading_padding = TOKENS.space_1
-export const toast_line_height = TOKENS.line_height_1
+export const toast_background_color: string = `rgba(0,0,0,${TOKENS.opacity_70})`
 export const toast_border_radius = TOKENS.border_radius_xl
 export const toast_text_border_radius = TOKENS.border_radius_m
-export const toast_background_color: string = 'rgba(0,0,0,0.7)'
+export const toast_icon_color = TOKENS.white
+export const toast_icon_padding = TOKENS.space_1
 export const toast_icon_size: number = 36
+export const toast_inner_padding_vertical = TOKENS.space_4
+export const toast_inner_padding_horizontal = TOKENS.space_4
+export const toast_inner_width: number = 120
+export const toast_inner_min_height: number = 120
+export const toast_font_size = TOKENS.font_size_3
+export const toast_text_color = TOKENS.white
+export const toast_line_height: number = 20
 export const toast_text_min_width: number = 96
 export const toast_text_padding_vertical = TOKENS.space_2
 export const toast_text_padding_horizontal = TOKENS.space_3
 export const toast_text_margin_top = TOKENS.space_2
-export const toast_default_padding_vertical = TOKENS.space_4
-export const toast_default_padding_horizontal = TOKENS.space_4
-export const toast_default_width: number = 88 + TOKENS.space_4 * 2 // box-sizing: content-box 但是 RN 无法设置，计算了一下
-export const toast_default_min_height: number = 88 + TOKENS.space_4 * 2
 export const toast_position_top_distance: string = '20%'
 export const toast_position_bottom_distance: string = '20%'
 
