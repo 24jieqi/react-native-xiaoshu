@@ -456,6 +456,11 @@ export const white: string = '#ffffff'
 export const opacity_10: number = 0.1
 /**
  * 透明度
+ * @default 0.05
+ */
+export const opacity_5: number = 0.05
+/**
+ * 透明度
  * @default 0.2
  */
 export const opacity_20: number = 0.2
