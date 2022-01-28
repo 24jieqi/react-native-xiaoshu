@@ -591,7 +591,7 @@ export const space_1: number = 4
 export const space_2: number = 8
 /**
  * 间距
- * @default 12.00000000000006
+ * @default 12
  */
 export const space_3: number = 12
 /**
@@ -611,12 +611,12 @@ export const space_5: number = 20
 export const space_6: number = 24
 /**
  * 间距
- * @default 32.00000000000006
+ * @default 32
  */
 export const space_7: number = 32
 /**
  * 间距
- * @default 36.00000000000006
+ * @default 36
  */
 export const space_8: number = 36
 /**

@@ -8,10 +8,9 @@ const values: string[] = []
 Object.entries(utilsTypography.utils).forEach(([key, value]) => {
   if (/^space\-\d*/.test(key)) {
     const { spacer } = value as { spacer: number }
-    values.push(comments('间距', `${spacer}`))
-    values.push(
-      `export const ${formatKey(key).trim()}: number = ${Math.floor(spacer)}`,
-    )
+    const _spacer = Math.floor(spacer)
+    values.push(comments('间距', `${_spacer}`))
+    values.push(`export const ${formatKey(key).trim()}: number = ${_spacer}`)
   }
 
   if (/^radius\-/.test(key)) {
