@@ -18,9 +18,9 @@ import {
 } from './helper/picker'
 
 /**
- * 选择器
+ * 选择器视图
  */
-const Picker: React.FC<PickerViewProps> = ({
+const PickerView: React.FC<PickerViewProps> = ({
   visibleItemCount = 5,
   itemHeight = 50,
   loading = false,
@@ -211,4 +211,4 @@ const Picker: React.FC<PickerViewProps> = ({
   )
 }
 
-export default memo(Picker)
+export default memo(PickerView)

@@ -10,18 +10,18 @@ import { Tag, Cell, CellGroup, Icon } from '@fruits-chain/react-native-xiaoshu'
 const BasicTag: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <CellGroup title="基础用法">
         <Cell title="default 类型" value={<Tag>标签</Tag>} />
         <Cell title="primary 类型" value={<Tag type="primary">标签</Tag>} />
         <Cell title="hazy 类型" value={<Tag type="hazy">标签</Tag>} />
         <Cell title="ghost 类型" value={<Tag type="ghost">标签</Tag>} />
       </CellGroup>
-      <CellGroup title="size" bordered={false}>
+      <CellGroup title="size">
         <Cell title="大" value={<Tag size="l">标签</Tag>} />
         <Cell title="中" value={<Tag size="m">标签</Tag>} />
         <Cell title="小" value={<Tag size="s">标签</Tag>} />
       </CellGroup>
-      <CellGroup title="操作相关" bordered={false}>
+      <CellGroup title="操作相关">
         <Cell
           title="closable"
           value={
@@ -48,7 +48,7 @@ const BasicTag: React.FC = () => {
           }
         />
       </CellGroup>
-      <CellGroup title="颜色" bordered={false}>
+      <CellGroup title="颜色">
         <Cell title="#FFA238" value={<Tag color="#FFA238">标签</Tag>} />
         <Cell title="#FA541C" value={<Tag color="#FA541C">标签</Tag>} />
         <Cell title="#34B545" value={<Tag color="#34B545">标签</Tag>} />

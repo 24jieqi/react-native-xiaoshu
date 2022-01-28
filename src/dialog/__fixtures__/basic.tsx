@@ -24,7 +24,7 @@ const BasicDialog: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <CellGroup title="基础用法">
         <Cell
           title="提示弹窗: 固定 200 宽"
           isLink
@@ -146,7 +146,7 @@ const BasicDialog: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="输入框" bordered={false}>
+      <CellGroup title="输入框">
         <Cell
           title="普通文字"
           isLink
@@ -269,7 +269,7 @@ const BasicDialog: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="组件调用" bordered={false}>
+      <CellGroup title="组件调用">
         <Cell
           title="组件调用"
           isLink

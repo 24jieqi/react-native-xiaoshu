@@ -37,7 +37,7 @@ const BasicToast: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <CellGroup title="基础用法">
         <Cell
           title="状态控制 loading"
           onPress={() => {
@@ -50,6 +50,16 @@ const BasicToast: React.FC = () => {
           onPress={() => {
             Toast({
               message: '提示内容',
+              forbidPress: true,
+            })
+          }}
+        />
+        <Cell
+          title="文字提示:换行"
+          isLink
+          onPress={() => {
+            Toast({
+              message: `提示内容\n新的`,
               forbidPress: true,
             })
           }}
@@ -133,7 +143,7 @@ const BasicToast: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义位置" bordered={false}>
+      <CellGroup title="自定义位置">
         <Cell
           title="顶部展示"
           isLink

@@ -21,7 +21,7 @@ const BasicButton: React.FC = () => {
       <ButtonSize />
       <ButtonIcon />
 
-      <CellGroup title="自定义颜色" bordered={false}>
+      <CellGroup title="自定义颜色">
         <Space tail>
           <Button color="#0c6" text="只改变主要色" />
           <Button color="#0c6" type="hazy" text="只改变主要色" />

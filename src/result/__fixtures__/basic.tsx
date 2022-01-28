@@ -20,7 +20,7 @@ import {
 const BasicResult: React.FC = () => {
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="Success" bordered={false}>
+      <CellGroup title="Success">
         <Result
           status="success"
           title="恭喜答对了"
@@ -28,7 +28,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="Warning" bordered={false}>
+      <CellGroup title="Warning">
         <Result
           status="warning"
           title="恭喜答对了"
@@ -36,15 +36,15 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="Error" bordered={false}>
+      <CellGroup title="Error">
         <Result status="error" title="恭喜答对了" subtitle={`嘿嘿嘿\n啊哈哈`} />
       </CellGroup>
 
-      <CellGroup title="Info" bordered={false}>
+      <CellGroup title="Info">
         <Result status="info" title="恭喜答对了" subtitle={`嘿嘿嘿\n啊哈哈`} />
       </CellGroup>
 
-      <CellGroup title="自定义图标" bordered={false}>
+      <CellGroup title="自定义图标">
         <Result
           status="info"
           title="恭喜答对了"
@@ -54,7 +54,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义图标" bordered={false}>
+      <CellGroup title="自定义图标">
         <Result
           status="warning"
           subtitle="恭喜答对了"
@@ -64,7 +64,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义" bordered={false}>
+      <CellGroup title="自定义">
         <Result
           status="warning"
           subtitle="恭喜答对了"
@@ -75,7 +75,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义1" bordered={false}>
+      <CellGroup title="自定义1">
         <Result
           status="warning"
           subtitle="恭喜答对了"
@@ -85,7 +85,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义2" bordered={false}>
+      <CellGroup title="自定义2">
         <Result
           status="warning"
           subtitle="恭喜答对了"
@@ -95,7 +95,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义3" bordered={false}>
+      <CellGroup title="自定义3">
         <Result
           status="warning"
           subtitle="恭喜答对了"
@@ -105,7 +105,7 @@ const BasicResult: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义4" bordered={false}>
+      <CellGroup title="自定义4">
         <Result
           status="warning"
           subtitle="恭喜答对了"

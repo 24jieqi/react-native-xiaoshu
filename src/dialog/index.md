@@ -21,4 +21,16 @@ group:
 
 <code defaultShowCode src="./__fixtures__/basic.tsx"></code>
 
-<API src="./dialog.tsx"></API>
+## API
+
+### Dialog
+
+<API hideTitle src="./dialog-method.tsx"></API>
+
+### Dialog.input
+
+<API hideTitle src="./dialog-input.tsx"></API>
+
+### Dialog.Component
+
+<API hideTitle src="./dialog.tsx"></API>

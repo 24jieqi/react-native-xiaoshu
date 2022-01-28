@@ -24,7 +24,7 @@ const BasicFormList: React.FC = () => {
         console.log(values)
         Toast(JSON.stringify(values))
       }}>
-      <CellGroup title="List" bordered={false}>
+      <CellGroup title="List">
         <Form.Item
           name="username"
           rules={[

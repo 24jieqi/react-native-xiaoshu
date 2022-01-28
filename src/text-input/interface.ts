@@ -119,7 +119,7 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
    * 控件大小。
    * @default 'middle'
    */
-  size?: 'large' | 'middle' | 'small'
+  size?: 'l' | 'm' | 's'
 
   /**
    * 当文本框内容变化时调用此回调函数。

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { PickerView, CellGroup } from 'react-native-xiaoshu'
+import { PickerView, CellGroup } from '@fruits-chain/react-native-xiaoshu'
 
 const columns1 = new Array(10).fill(0).map((_, index) => ({
   label: `选项${index}`,

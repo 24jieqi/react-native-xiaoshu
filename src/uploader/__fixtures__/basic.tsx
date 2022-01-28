@@ -30,7 +30,7 @@ const BasicUploader: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <CellGroup title="基础用法">
         <Uploader
           list={list1}
           maxCount={5}
@@ -99,15 +99,15 @@ const BasicUploader: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="自定义文案" bordered={false}>
+      <CellGroup title="自定义文案">
         <Uploader list={list1} uploadText="上传视频" />
       </CellGroup>
 
-      <CellGroup title="查看模式" bordered={false}>
+      <CellGroup title="查看模式">
         <Uploader list={list1} showUpload={false} deletable={false} />
       </CellGroup>
 
-      <CellGroup title="上传图标" bordered={false}>
+      <CellGroup title="上传图标">
         <Uploader
           list={list1}
           uploadIcon={<Icon.ArrowUpOutline color="#000" />}

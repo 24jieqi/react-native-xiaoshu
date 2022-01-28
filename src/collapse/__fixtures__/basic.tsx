@@ -13,7 +13,7 @@ const BasicCollapse: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <CellGroup title="基础用法">
         <Collapse title="标题11">
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />

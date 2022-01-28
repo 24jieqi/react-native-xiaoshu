@@ -77,7 +77,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       prefix,
       suffix,
       inputWidth,
-      size = 'middle',
+      size = 'm',
       onChange,
 
       // TextInput 的属性
@@ -142,13 +142,9 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
     const showDisabledInput =
       bordered && isDef(resetProps.editable) && !resetProps.editable
     /** 输入框最小高度 */
-    const textInputMinHeight =
-      THEME_VAR[`text_input_${size}_min_height`] ||
-      THEME_VAR.text_input_middle_min_height
+    const textInputMinHeight = THEME_VAR[`text_input_${size}_min_height`]
     /** 所有文字/文案相关的大小 */
-    const textInputFontSize =
-      THEME_VAR[`text_input_${size}_font_size`] ||
-      THEME_VAR.text_input_middle_font_size
+    const textInputFontSize = THEME_VAR[`text_input_${size}_font_size`]
 
     selectionColor = getDefaultValue(
       selectionColor,

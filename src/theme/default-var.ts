@@ -346,19 +346,19 @@ export const tag_primary_color = TOKENS.brand_6
 export const tag_ghost_bg_color: string = 'transparent'
 
 // TextInput
+export const text_input_l_font_size = TOKENS.font_size_5
+export const text_input_l_min_height: number = 40
+export const text_input_m_font_size = TOKENS.font_size_4
+export const text_input_m_min_height: number = 32
+export const text_input_s_font_size = TOKENS.font_size_4
+export const text_input_s_min_height: number = 24
 export const text_input_selection_color = TOKENS.brand_6
 export const text_input_placeholder_text_color = TOKENS.gray_5
 export const text_input_color = TOKENS.gray_8
 export const text_input_disabled_color = TOKENS.gray_6
 export const text_input_disabled_background_color: string = '#EFEFF1'
 export const text_input_border_radio = TOKENS.border_radius_s
-export const text_input_large_font_size = TOKENS.font_size_5
-export const text_input_middle_font_size = TOKENS.font_size_4
-export const text_input_small_font_size = TOKENS.font_size_4
 export const text_input_padding_horizontal = TOKENS.space_2
-export const text_input_large_min_height: number = 40
-export const text_input_middle_min_height: number = 32
-export const text_input_small_min_height: number = 24
 export const text_input_clearable_size: number = 16
 export const text_input_clearable_background_color = TOKENS.gray_5
 export const text_input_clearable_color = TOKENS.white
