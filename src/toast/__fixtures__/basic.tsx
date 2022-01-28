@@ -109,7 +109,7 @@ const BasicToast: React.FC = () => {
           onPress={() => {
             Toast({
               type: 'loading',
-              loadingType: 'spinner',
+              loadingType: 'circular',
               message: '加载中...',
               forbidPress: true,
             })
