@@ -8,7 +8,7 @@ import type {
 } from '../picker-view/interface'
 import type { PopupPropsCommon } from '../popup/interface'
 
-type PickerAction = 'cancel' | 'confirm' | 'overlay'
+export type PickerAction = 'cancel' | 'confirm' | 'overlay'
 
 export interface PickerProps extends PickerViewProps, PopupPropsCommon {
   /**
@@ -80,7 +80,11 @@ export interface PickerMethodProps
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
-  beforeClose?: (action: PickerAction) => boolean | Promise<boolean>
+  beforeClose?: (
+    action: PickerAction,
+    values: PickerValue[],
+    columns: Column[],
+  ) => boolean | Promise<boolean>
   // /**
   //  * 操作完成后的回调
   //  */
