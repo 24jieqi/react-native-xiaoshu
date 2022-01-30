@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import pick from 'lodash/pick'
 import omit from 'lodash/omit'
 
@@ -35,6 +36,7 @@ const Picker: React.FC<PickerProps> = ({
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
+  const insets = useSafeAreaInsets()
 
   const headerTitleJSX = (
     <PopupHeader
@@ -68,6 +70,8 @@ const Picker: React.FC<PickerProps> = ({
       {showToolbar && toolbarPosition === 'top' ? headerTitleJSX : null}
       <PickerView {...pickerViewProps} />
       {showToolbar && toolbarPosition === 'bottom' ? headerTitleJSX : null}
+
+      <View style={{ height: insets.bottom }} />
     </Popup>
   )
 }
