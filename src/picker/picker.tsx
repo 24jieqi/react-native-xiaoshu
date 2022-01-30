@@ -1,15 +1,25 @@
-import React, { memo, isValidElement } from 'react'
-import { View, Text } from 'react-native'
+import React, { memo } from 'react'
+import { Text } from 'react-native'
 import pick from 'lodash/pick'
 import omit from 'lodash/omit'
 
 import Popup from '../popup'
+import PopupHeader from '../popup/header'
 import type { PickerViewProps } from '../picker-view/interface'
 import PickerView from '../picker-view'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers'
 import type { PickerProps } from './interface'
 import { createStyles } from './style'
+
+const PICKER_VIEW_PROPS_KEYS = [
+  'value',
+  'defaultValue',
+  'columns',
+  'loading',
+  'itemHeight',
+  'visibleItemCount',
+  'onChange',
+]
 
 const Picker: React.FC<PickerProps> = ({
   visible,
@@ -26,48 +36,38 @@ const Picker: React.FC<PickerProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const titleJSX = isDef(title) ? (
-    isValidElement(title) ? (
-      title
-    ) : (
-      <Text style={STYLES.title_text}>{title}</Text>
-    )
-  ) : null
-
   const headerTitleJSX = (
-    <View style={STYLES.header}>
-      <Text style={STYLES.cancel_text} onPress={onCancel}>
-        {cancelButtonText}
-      </Text>
-      {titleJSX}
-      <Text style={STYLES.confirm_text} onPress={onConfirm}>
-        {confirmButtonText}
-      </Text>
-    </View>
+    <PopupHeader
+      showClose={false}
+      title={title}
+      leftExtra={
+        <Text
+          style={STYLES.cancel_text}
+          onPress={restProps.loading ? undefined : onCancel}>
+          {cancelButtonText}
+        </Text>
+      }
+      rightExtra={
+        <Text
+          style={STYLES.confirm_text}
+          onPress={restProps.loading ? undefined : onConfirm}>
+          {confirmButtonText}
+        </Text>
+      }
+    />
   )
 
-  const pickerViewPropsKeys = [
-    'value',
-    'defaultValue',
-    'columns',
-    'loading',
-    'itemHeight',
-    'visibleItemCount',
-    'onChange',
-  ]
   const pickerViewProps = pick(
     restProps,
-    pickerViewPropsKeys,
+    PICKER_VIEW_PROPS_KEYS,
   ) as PickerViewProps
-  const popupProps = omit(restProps, pickerViewPropsKeys)
+  const popupProps = omit(restProps, PICKER_VIEW_PROPS_KEYS)
 
   return (
     <Popup {...popupProps} visible={visible} position="bottom" round>
-      <View style={STYLES.picker}>
-        {showToolbar && toolbarPosition === 'top' ? headerTitleJSX : null}
-        <PickerView {...pickerViewProps} />
-        {showToolbar && toolbarPosition === 'bottom' ? headerTitleJSX : null}
-      </View>
+      {showToolbar && toolbarPosition === 'top' ? headerTitleJSX : null}
+      <PickerView {...pickerViewProps} />
+      {showToolbar && toolbarPosition === 'bottom' ? headerTitleJSX : null}
     </Popup>
   )
 }

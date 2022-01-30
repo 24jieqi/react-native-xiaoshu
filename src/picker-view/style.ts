@@ -5,7 +5,7 @@ import type { ThemeVarType } from '../theme'
 export const createStyles = (themeVar: ThemeVarType) => {
   return StyleSheet.create({
     picker: {
-      backgroundColor: themeVar.picker_background_color,
+      backgroundColor: themeVar.picker_view_background_color,
       // backgroundColor: '#f30',
       // borderRadius: themeVar.border_radius_md,
       overflow: 'hidden',

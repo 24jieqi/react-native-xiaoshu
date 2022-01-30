@@ -241,11 +241,7 @@ export const overlay_z_index: number = 10
 export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 
 // Picker
-export const picker_background_color = TOKENS.white
 export const picker_title_text_line_height: number = 44
-export const picker_title_text_padding_horizontal = TOKENS.space_4
-export const picker_title_font_size = TOKENS.font_size_7
-export const picker_title_text_color = TOKENS.gray_8
 export const picker_title_action_font_size = TOKENS.font_size_5
 export const picker_title_cancel_text_color = TOKENS.gray_7
 export const picker_title_confirm_text_color = TOKENS.brand_6
