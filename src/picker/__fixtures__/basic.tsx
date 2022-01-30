@@ -83,6 +83,35 @@ const BasicPicker: React.FC = () => {
             }}
           />
           <Button
+            text="单选:beforeClose:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是单选',
+                columns: columns1,
+                beforeClose: (action, values, columns) => {
+                  console.log(
+                    '单选:beforeClose:Promise   =>  action  => ',
+                    action,
+                  )
+                  console.log(
+                    '单选:beforeClose:Promise   =>  values  => ',
+                    values,
+                  )
+                  console.log(
+                    '单选:beforeClose:Promise   =>  columns  => ',
+                    columns,
+                  )
+
+                  return new Promise<boolean>(resolve => {
+                    setTimeout(() => {
+                      resolve(true)
+                    }, 2000)
+                  })
+                },
+              })
+            }}
+          />
+          <Button
             text="单选:默认值:Promise"
             onPress={() => {
               Picker({

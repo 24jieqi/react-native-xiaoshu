@@ -7,8 +7,8 @@ import {
   buildSelectedValue,
 } from '../picker-view/helper/picker'
 import { usePersistFn } from '../hooks'
-import { noop } from '../helpers'
-import type { PickerMethodProps } from './interface'
+import { callInterceptor } from '../helpers'
+import type { PickerMethodProps, PickerAction } from './interface'
 import Picker from './picker'
 
 type ValueData = { values: PickerValue[]; columns: Column[] }
@@ -28,17 +28,15 @@ const PickerMethod: React.FC<PickerMethodProps> = ({
   onCancel,
   onConfirm,
   onPressOverlay,
+  beforeClose,
 
   ...restProps
 }) => {
   const [visible, setVisible] = useState(false)
+  const [loading, setLoading] = useState(false)
   const Value = useRef<ValueData>(
     buildValue(restProps.defaultValue || [], restProps.columns),
   )
-
-  const onCancelPersistFn = usePersistFn(onCancel || noop)
-  const onConfirmPersistFn = usePersistFn(onConfirm || noop)
-  const onPressOverlayPersistFn = usePersistFn(onPressOverlay || noop)
 
   useEffect(() => {
     setVisible(true)
@@ -51,20 +49,46 @@ const PickerMethod: React.FC<PickerMethodProps> = ({
     }
   }, [])
 
+  const doAction = usePersistFn((action: PickerAction) => {
+    setLoading(true)
+
+    callInterceptor(beforeClose, {
+      args: [action, Value.current.values, Value.current.columns],
+      done: () => {
+        switch (action) {
+          case 'cancel':
+            onCancel?.(Value.current.values, Value.current.columns)
+            break
+          case 'confirm':
+            onConfirm?.(Value.current.values, Value.current.columns)
+            break
+          case 'overlay':
+            onPressOverlay?.(Value.current.values, Value.current.columns)
+            break
+          default:
+            break
+        }
+
+        setLoading(false)
+        setVisible(false)
+      },
+      canceled: () => {
+        setLoading(false)
+      },
+    })
+  })
+
   const onPressCancel = useCallback(() => {
-    setVisible(false)
-    onCancelPersistFn(Value.current.values, Value.current.columns)
-  }, [onCancelPersistFn])
+    doAction('cancel')
+  }, [doAction])
 
   const onPressConfirm = useCallback(() => {
-    setVisible(false)
-    onConfirmPersistFn(Value.current.values, Value.current.columns)
-  }, [onConfirmPersistFn])
+    doAction('confirm')
+  }, [doAction])
 
   const onPressPopupOverlay = useCallback(() => {
-    setVisible(false)
-    onPressOverlayPersistFn(Value.current.values, Value.current.columns)
-  }, [onPressOverlayPersistFn])
+    doAction('overlay')
+  }, [doAction])
 
   return (
     <Picker
@@ -74,6 +98,7 @@ const PickerMethod: React.FC<PickerMethodProps> = ({
       onCancel={onPressCancel}
       onConfirm={onPressConfirm}
       onPressOverlay={onPressPopupOverlay}
+      loading={loading}
     />
   )
 }
