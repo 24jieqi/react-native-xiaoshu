@@ -179,12 +179,6 @@ const PickerView: React.FC<PickerViewProps> = ({
                       }
                     })
 
-                    console.log(
-                      'ColumnDefaultValues   ->>>>   ',
-                      ColumnDefaultValues.current,
-                    )
-                    console.log('value   ->>>>>   ', newValues)
-
                     newValues[optionIndex] = column.value
 
                     const [v, o] = buildSelectedValue(newValues, options)

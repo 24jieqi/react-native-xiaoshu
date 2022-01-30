@@ -29,6 +29,9 @@ export { default as CheckboxIcon } from './checkbox/icon'
 export type { CollapseProps } from './collapse/interface'
 export { default as Collapse } from './collapse'
 
+export type { DatePickerColumnMode } from './date-picker-view/interface'
+export { default as DatePickerView } from './date-picker-view'
+
 export type { DialogInstance, DialogProps } from './dialog/interface'
 export { default as Dialog } from './dialog'
 
