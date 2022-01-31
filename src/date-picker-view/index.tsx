@@ -11,6 +11,7 @@ const DatePickerView: React.FC<DatePickerViewProps> = ({
   min,
   max,
   renderLabel,
+  loading,
 
   ...restProps
 }) => {
@@ -26,11 +27,16 @@ const DatePickerView: React.FC<DatePickerViewProps> = ({
     renderLabel,
   })
 
-  console.log('columns   ====>  ', columns)
-  console.log('values   ====>  ', values)
+  // console.log('columns   ====>  ', columns)
+  // console.log('values   ====>  ', values)
 
   return (
-    <PickerView columns={columns} value={values} onChange={onChangePicker} />
+    <PickerView
+      loading={loading}
+      columns={columns}
+      value={values}
+      onChange={onChangePicker}
+    />
   )
 }
 

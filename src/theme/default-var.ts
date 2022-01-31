@@ -241,10 +241,20 @@ export const overlay_z_index: number = 10
 export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 
 // Picker
-export const picker_title_text_line_height: number = 44
-export const picker_title_action_font_size = TOKENS.font_size_5
-export const picker_title_cancel_text_color = TOKENS.gray_7
-export const picker_title_confirm_text_color = TOKENS.brand_6
+export const picker_header_text_line_height: number = 44
+export const picker_header_action_font_size = TOKENS.font_size_5
+export const picker_header_cancel_text_color = TOKENS.gray_7
+export const picker_header_confirm_text_color = TOKENS.brand_6
+export const picker_header_reset_text_color = TOKENS.gray_7
+export const picker_date_range_padding_vertical = TOKENS.space_3
+export const picker_date_range_text_font_size = TOKENS.font_size_3
+export const picker_date_range_text_color = TOKENS.gray_7
+export const picker_date_range_text_line_height: number = 20
+export const picker_date_range_day_margin_top = TOKENS.space_1
+export const picker_date_range_day_font_size = TOKENS.font_size_5
+export const picker_date_range_day_color = TOKENS.gray_5
+export const picker_date_range_day_color_active = TOKENS.brand_6
+export const picker_date_range_day_line_height: number = 22
 
 // PickerView
 export const picker_view_background_color = TOKENS.white

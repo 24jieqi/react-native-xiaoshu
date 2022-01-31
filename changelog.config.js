@@ -9,6 +9,7 @@ module.exports = {
     'Cell',
     'Checkbox',
     'Collapse',
+    'DatePicker',
     'DatePickerView',
     'Dialog',
     'Divider',

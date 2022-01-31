@@ -72,4 +72,9 @@ export interface DatePickerViewProps {
    * @param n 当前数据 月份从 1 开始
    */
   renderLabel?: RenderLabel
+
+  /**
+   * 加载中
+   */
+  loading?: boolean
 }

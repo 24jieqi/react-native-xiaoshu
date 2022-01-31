@@ -106,6 +106,10 @@ const navDatas: {
         name: 'DemoPickerView',
       },
       {
+        title: 'DatePicker',
+        name: 'DemoDatePicker',
+      },
+      {
         title: 'DatePickerView',
         name: 'DemoDatePickerView',
       },

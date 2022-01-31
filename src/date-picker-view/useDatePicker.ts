@@ -54,7 +54,7 @@ const defaultRenderLabel: RenderLabel = (t, n) => {
   }
 }
 
-const serializeMode = (
+export const serializeMode = (
   modes: DatePickerColumnType[],
 ): DatePickerColumnType[] => {
   if (modes.length === 1) {
@@ -73,7 +73,7 @@ const serializeMode = (
   return serializeModes
 }
 
-const toDateObject = (d: Date) => ({
+export const toDateObject = (d: Date) => ({
   Y: d.getFullYear(),
   M: d.getMonth(),
   D: d.getDate(),

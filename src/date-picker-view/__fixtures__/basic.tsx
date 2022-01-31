@@ -14,9 +14,6 @@ const Y_M_LIMIT = {
   max: new Date(2026, 2, 10, 12, 20, 50),
 }
 
-console.log('Y_M_LIMIT.min    =>   ', Y_M_LIMIT.min)
-console.log('Y_M_LIMIT.max    =>   ', Y_M_LIMIT.max)
-
 // 控件多了容易卡顿
 const modes: DatePickerColumnMode[] = [
   // 'Y',

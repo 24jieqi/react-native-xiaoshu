@@ -48,6 +48,7 @@ import DemoPicker from '../../src/picker/__fixtures__/basic'
 import DemoPickerView from '../../src/picker-view/__fixtures__/basic'
 import DemoSpace from '../../src/space/__fixtures__/basic'
 import DemoDatePickerView from '../../src/date-picker-view/__fixtures__/basic'
+import DemoDatePicker from '../../src/date-picker/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -95,6 +96,7 @@ export type DemoPaths =
   | 'DemoPickerView'
   | 'DemoSpace'
   | 'DemoDatePickerView'
+  | 'DemoDatePicker'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -458,6 +460,14 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
     page: () => (
       <DemoWrapper>
         <DemoDatePickerView />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoDatePicker',
+    page: () => (
+      <DemoWrapper>
+        <DemoDatePicker />
       </DemoWrapper>
     ),
   },
