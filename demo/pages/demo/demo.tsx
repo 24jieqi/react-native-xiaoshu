@@ -41,16 +41,8 @@ const navDatas: {
         name: 'DemoGrid',
       },
       {
-        title: 'Popup',
-        name: 'DemoPopup',
-      },
-      {
-        title: 'Toast',
-        name: 'DemoToast',
-      },
-      {
-        title: 'TextInput',
-        name: 'DemoTextInput',
+        title: 'Icon',
+        name: 'DemoIcon',
       },
       {
         title: 'NumberInput',
@@ -61,12 +53,20 @@ const navDatas: {
         name: 'DemoPasswordInput',
       },
       {
-        title: 'Icon',
-        name: 'DemoIcon',
+        title: 'Popup',
+        name: 'DemoPopup',
       },
       {
         title: 'Space',
         name: 'DemoSpace',
+      },
+      {
+        title: 'TextInput',
+        name: 'DemoTextInput',
+      },
+      {
+        title: 'Toast',
+        name: 'DemoToast',
       },
     ],
   },
@@ -74,28 +74,24 @@ const navDatas: {
     title: '表单组件',
     datas: [
       {
-        title: 'Form',
-        name: 'DemoForm',
-      },
-      {
         title: 'Checkbox',
         name: 'DemoCheckbox',
       },
       {
-        title: 'Switch',
-        name: 'DemoSwitch',
+        title: 'DatePicker',
+        name: 'DemoDatePicker',
+      },
+      {
+        title: 'DatePickerView',
+        name: 'DemoDatePickerView',
       },
       {
         title: 'Field',
         name: 'DemoField',
       },
       {
-        title: 'Uploader',
-        name: 'DemoUploader',
-      },
-      {
-        title: 'Search',
-        name: 'DemoSearch',
+        title: 'Form',
+        name: 'DemoForm',
       },
       {
         title: 'Picker',
@@ -106,12 +102,16 @@ const navDatas: {
         name: 'DemoPickerView',
       },
       {
-        title: 'DatePicker',
-        name: 'DemoDatePicker',
+        title: 'Search',
+        name: 'DemoSearch',
       },
       {
-        title: 'DatePickerView',
-        name: 'DemoDatePickerView',
+        title: 'Selector',
+        name: 'DemoSelector',
+      },
+      {
+        title: 'Switch',
+        name: 'DemoSwitch',
       },
     ],
   },
@@ -131,6 +131,10 @@ const navDatas: {
         name: 'DemoDropdown',
       },
       {
+        title: 'ErrorBoundary',
+        name: 'DemoErrorBoundary',
+      },
+      {
         title: 'Loading',
         name: 'DemoLoading',
       },
@@ -143,8 +147,8 @@ const navDatas: {
         name: 'DemoOverlay',
       },
       {
-        title: 'Selector',
-        name: 'DemoSelector',
+        title: 'Progress',
+        name: 'DemoProgress',
       },
     ],
   },
@@ -156,48 +160,44 @@ const navDatas: {
         name: 'DemoBadge',
       },
       {
-        title: 'Divider',
-        name: 'DemoDivider',
-      },
-      {
-        title: 'Tag',
-        name: 'DemoTag',
-      },
-      {
-        title: 'Empty',
-        name: 'DemoEmpty',
-      },
-      {
-        title: 'Progress',
-        name: 'DemoProgress',
+        title: 'ButtonBar',
+        name: 'DemoButtonBar',
       },
       {
         title: 'Collapse',
         name: 'DemoCollapse',
       },
       {
+        title: 'Divider',
+        name: 'DemoDivider',
+      },
+      {
+        title: 'Empty',
+        name: 'DemoEmpty',
+      },
+      {
         title: 'Flex',
         name: 'DemoFlex',
       },
       {
-        title: 'Result',
-        name: 'DemoResult',
-      },
-      {
-        title: 'ErrorBoundary',
-        name: 'DemoErrorBoundary',
+        title: 'Tag',
+        name: 'DemoTag',
       },
       {
         title: 'NoticeBar',
         name: 'DemoNoticeBar',
       },
       {
+        title: 'Result',
+        name: 'DemoResult',
+      },
+      {
         title: 'TabBar',
         name: 'DemoTabBar',
       },
       {
-        title: 'ButtonBar',
-        name: 'DemoButtonBar',
+        title: 'Uploader',
+        name: 'DemoUploader',
       },
     ],
   },

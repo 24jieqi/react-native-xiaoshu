@@ -1,5 +1,5 @@
 ---
-title: DropdownMenu 下拉菜单
+title: Dropdown 下拉菜单
 nav:
   title: 组件
   path: /component
@@ -9,7 +9,7 @@ group:
   order: 2
 ---
 
-# DropdownMenu 下拉菜单
+# Dropdown 下拉菜单
 
 > 向下弹出的菜单列表。
 
