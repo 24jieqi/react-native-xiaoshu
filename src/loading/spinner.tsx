@@ -17,7 +17,7 @@ export interface SpinnerProps {
   color?: string
 }
 
-const PETAL_COUNT = 12
+const PETAL_COUNT = 8
 const PETALS = new Array(PETAL_COUNT).fill(0)
 const A_OPACITY = 1 / PETAL_COUNT
 const A_ROTATE = 360 / PETAL_COUNT
@@ -107,7 +107,7 @@ const STYLES = StyleSheet.create({
 
   inner: {
     width: 2,
-    height: '25%',
+    height: '30%',
     borderRadius: 1,
     // backgroundColor: '#000',
   },
