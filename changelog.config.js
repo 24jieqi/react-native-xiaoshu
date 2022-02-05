@@ -6,6 +6,7 @@ module.exports = {
     'Badge',
     'Button',
     'ButtonBar',
+    'Card',
     'Cell',
     'Checkbox',
     'Collapse',

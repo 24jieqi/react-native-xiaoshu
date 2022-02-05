@@ -93,6 +93,25 @@ export const button_icon_gap = TOKENS.space_1
 export const button_bar_padding_horizontal = TOKENS.space_3
 export const button_bar_button_space: number = 8
 
+// Card
+export const card_background_color: string = TOKENS.white
+export const card_padding_horizontal = TOKENS.space_3
+export const card_border_radius = TOKENS.border_radius_m
+export const card_header_gap = TOKENS.space_2
+export const card_m_header_height: number = 50
+export const card_m_header_text_font_size = TOKENS.font_size_7
+export const card_m_header_text_line_height = TOKENS.line_height_2
+export const card_s_header_height: number = 40
+export const card_s_header_text_font_size = TOKENS.font_size_5
+export const card_s_header_text_line_height = TOKENS.line_height_1
+export const card_header_bottom_border_color = TOKENS.gray_2
+export const card_header_text_color = TOKENS.gray_8
+export const card_footer_top_border_color = TOKENS.gray_2
+export const card_footer_text_font_size = TOKENS.font_size_3
+export const card_footer_text_color = TOKENS.gray_7
+export const card_footer_text_line_height: number = 20
+export const card_footer_padding_vertical = TOKENS.space_2
+
 // Cell
 export const cell_group_title_padding_horizontal = TOKENS.space_3
 export const cell_group_title_padding_top = TOKENS.space_2

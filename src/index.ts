@@ -18,6 +18,9 @@ export { default as Button } from './button'
 export type { ButtonBarProps } from './button-bar/interface'
 export { default as ButtonBar } from './button-bar'
 
+export type { CardProps } from './card/interface'
+export { default as Card } from './card'
+
 export type { CellProps, CellGroupProps } from './cell/interface'
 export { default as Cell } from './cell'
 export { default as CellGroup } from './cell/group'

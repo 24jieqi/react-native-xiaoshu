@@ -164,6 +164,10 @@ const navDatas: {
         name: 'DemoButtonBar',
       },
       {
+        title: 'Card',
+        name: 'DemoCard',
+      },
+      {
         title: 'Collapse',
         name: 'DemoCollapse',
       },

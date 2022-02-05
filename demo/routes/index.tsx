@@ -73,8 +73,8 @@ const NestingNavigators: React.FC = () => {
           component={CustomHeaderPrimary}
         />
 
-        {demoConfigs.map(dc => (
-          <Stack.Screen key={dc.path} name={dc.path} component={dc.page} />
+        {demoConfigs.map(({ Page, path }) => (
+          <Stack.Screen key={path} name={path} component={Page} />
         ))}
       </Stack.Navigator>
     </NavigationContainer>
