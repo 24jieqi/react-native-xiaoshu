@@ -13,6 +13,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
         1,
       backgroundColor: themeVar.collapse_background_color,
     },
+    collapse_card: {
+      minHeight: themeVar.card_m_header_height,
+    },
     title_text: {
       lineHeight: themeVar.collapse_title_line_height,
       fontSize: themeVar.collapse_title_font_size,

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { View } from 'react-native'
+import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Skeleton from '../skeleton'
 import { useTheme, widthStyle } from '../theme'
@@ -22,6 +22,10 @@ const Card: React.FC<CardProps> = ({
   size = 'm',
   square = false,
   loading = false,
+  bodyPadding = true,
+  onPressHeader,
+  onLayoutHeader,
+  onLayoutBody,
 }) => {
   const isS = size === 's'
 
@@ -47,20 +51,32 @@ const Card: React.FC<CardProps> = ({
   ])
 
   const showHeader = isDef(titleJSX) || hasTitleLeftExtra || isDef(extra)
+  const headerJSX = (
+    <View
+      style={[STYLES.header, isS ? STYLES.header_s : null, headerStyle]}
+      onLayout={onLayoutHeader}>
+      <View style={[STYLES.title, titleStyle]}>
+        {titleLeftExtra}
+        {titleJSX}
+      </View>
+      {extra}
+    </View>
+  )
 
   return (
     <View style={[STYLES.card, square ? null : STYLES.card_radius]}>
       {showHeader ? (
-        <View
-          style={[STYLES.header, isS ? STYLES.header_s : null, headerStyle]}>
-          <View style={[STYLES.title, titleStyle]}>
-            {titleLeftExtra}
-            {titleJSX}
-          </View>
-          {extra}
-        </View>
+        onPressHeader ? (
+          <TouchableWithoutFeedback onPress={onPressHeader}>
+            {headerJSX}
+          </TouchableWithoutFeedback>
+        ) : (
+          headerJSX
+        )
       ) : null}
-      <View style={[STYLES.body, bodyStyle]}>
+      <View
+        style={[bodyPadding ? STYLES.body : null, bodyStyle]}
+        onLayout={onLayoutBody}>
         {loading ? <Skeleton loading /> : children}
       </View>
 

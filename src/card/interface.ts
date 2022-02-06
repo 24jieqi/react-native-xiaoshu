@@ -1,5 +1,11 @@
 import type React from 'react'
-import type { StyleProp, ViewStyle, TextStyle } from 'react-native'
+import type {
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  TouchableWithoutFeedbackProps,
+  ViewProps,
+} from 'react-native'
 
 export interface CardProps {
   /**
@@ -75,4 +81,25 @@ export interface CardProps {
    * @default false
    */
   loading?: boolean
+
+  /**
+   * body 是否有内边距
+   * @default true
+   */
+  bodyPadding?: boolean
+
+  /**
+   * 点击头部
+   */
+  onPressHeader?: TouchableWithoutFeedbackProps['onPress']
+
+  /**
+   * 头部布局好了
+   */
+  onLayoutHeader?: ViewProps['onLayout']
+
+  /**
+   * 头部布局好了
+   */
+  onLayoutBody?: ViewProps['onLayout']
 }

@@ -5,6 +5,7 @@ import { Animated, View } from 'react-native'
 import { getArrowOutline } from '../icon/helper/arrow'
 import Cell from '../cell'
 import Divider from '../divider'
+import Card from '../card'
 import { useTheme, widthStyle } from '../theme'
 import { usePersistFn, useControllableValue } from '../hooks'
 import { easing, isValue } from '../helpers'
@@ -24,7 +25,9 @@ const Collapse: React.FC<CollapseProps> = ({
   iconSize,
   bodyStyle,
   renderTitle,
+  renderTitleExtra,
   renderBody,
+  type = 'cell',
   onAnimationEnd,
   bodyPadding = true,
   bodyBordered = true,
@@ -105,38 +108,67 @@ const Collapse: React.FC<CollapseProps> = ({
   )
 
   const ArrowOutline = getArrowOutline(collapse ? 'up' : 'down')
+  const arrowJSX = (
+    <ArrowOutline
+      style={iconStyle}
+      color={
+        isValue(iconColor) ? iconColor : THEME_VAR.collapse_title_icon_color
+      }
+      size={isValue(iconSize) ? iconSize : THEME_VAR.collapse_title_icon_size}
+    />
+  )
+  const titleJSX = renderTitle ? renderTitle(collapse) : title
+  const titleExtraJSX = renderTitleExtra
+    ? renderTitleExtra(collapse, arrowJSX)
+    : arrowJSX
+  const bodyJSX = renderBody ? renderBody(collapse) : children
 
   return (
-    <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>
-      <Cell
-        title={renderTitle ? renderTitle(collapse) : title}
-        style={titleStyle}
-        titleTextStyle={[STYLES.title_text, titleTextStyle]}
-        valueExtra={
-          <ArrowOutline
-            style={iconStyle}
-            color={
-              isValue(iconColor)
-                ? iconColor
-                : THEME_VAR.collapse_title_icon_color
-            }
-            size={
-              isValue(iconSize) ? iconSize : THEME_VAR.collapse_title_icon_size
-            }
+    <Animated.View
+      style={[
+        STYLES.collapse,
+        type === 'card' ? STYLES.collapse_card : null,
+        { height: AnimatedValue },
+      ]}>
+      {type === 'cell' ? (
+        <>
+          <Cell
+            title={titleJSX}
+            style={titleStyle}
+            titleTextStyle={[STYLES.title_text, titleTextStyle]}
+            valueExtra={titleExtraJSX}
+            onPress={onPressTitle}
+            onLayout={onLayoutTitle}
           />
-        }
-        onPress={onPressTitle}
-        onLayout={onLayoutTitle}
-      />
 
-      <View collapsable={false} onLayout={onLayoutBody}>
-        <View
-          style={[bodyPadding ? STYLES.body_padding : undefined, bodyStyle]}>
-          {renderBody ? renderBody(collapse) : children}
-        </View>
+          <View collapsable={false} onLayout={onLayoutBody}>
+            <View
+              style={[
+                bodyPadding ? STYLES.body_padding : undefined,
+                bodyStyle,
+              ]}>
+              {bodyJSX}
+            </View>
 
-        {bodyBordered ? <Divider type="light" style={STYLES.divider} /> : null}
-      </View>
+            {bodyBordered ? (
+              <Divider type="light" style={STYLES.divider} />
+            ) : null}
+          </View>
+        </>
+      ) : (
+        <Card
+          square
+          title={titleJSX}
+          extra={titleExtraJSX}
+          titleStyle={titleStyle}
+          titleTextStyle={titleTextStyle}
+          bodyPadding={bodyPadding}
+          onPressHeader={onPressTitle}
+          onLayoutHeader={onLayoutTitle}
+          onLayoutBody={onLayoutBody}>
+          {bodyJSX}
+        </Card>
+      )}
     </Animated.View>
   )
 }

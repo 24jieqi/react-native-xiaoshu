@@ -45,6 +45,14 @@ export interface CollapseProps {
   renderTitle?: (collapse: boolean) => React.ReactNode
 
   /**
+   * 自定义渲染标题右侧
+   */
+  renderTitleExtra?: (
+    collapse: boolean,
+    arrowJSX: React.ReactNode,
+  ) => React.ReactNode
+
+  /**
    * 自定义渲染内容，替换 children
    */
   renderBody?: (collapse: boolean) => React.ReactNode
@@ -63,6 +71,12 @@ export interface CollapseProps {
    * 状态改变的回调
    */
   onCollapse?: (collapse: boolean) => void
+
+  /**
+   * 样式、场景
+   * @default 'cell'
+   */
+  type?: 'cell' | 'card'
 
   /**
    * 动画结束的回调，注意组件渲染问题，会存在多次回调
