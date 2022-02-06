@@ -18,6 +18,15 @@ const CardSquare: React.FC = () => {
         <Text>Card content</Text>
         <Text>Card content</Text>
       </Card>
+
+      <Card
+        square
+        title="Default card"
+        extra={<Button type="link" text="More" />}>
+        <Text>Card content</Text>
+        <Text>Card content</Text>
+        <Text>Card content</Text>
+      </Card>
     </Space>
   )
 }
