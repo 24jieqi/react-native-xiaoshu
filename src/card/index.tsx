@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
+import Skeleton from '../skeleton'
 import { useTheme, widthStyle } from '../theme'
 import { isDef, renderTextLikeJSX } from '../helpers'
 import type { CardProps } from './interface'
@@ -20,6 +21,7 @@ const Card: React.FC<CardProps> = ({
   footerTextStyle,
   size = 'm',
   square = false,
+  loading = false,
 }) => {
   const isS = size === 's'
 
@@ -58,7 +60,9 @@ const Card: React.FC<CardProps> = ({
           {extra}
         </View>
       ) : null}
-      <View style={[STYLES.body, bodyStyle]}>{children}</View>
+      <View style={[STYLES.body, bodyStyle]}>
+        {loading ? <Skeleton loading /> : children}
+      </View>
 
       {isDef(footerJSX) ? (
         <View style={[STYLES.footer, footerStyle]}>{footerJSX}</View>

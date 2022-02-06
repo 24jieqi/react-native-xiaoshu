@@ -70,9 +70,9 @@ export interface CardProps {
    */
   square?: boolean
 
-  // /**
-  //  * 当卡片内容还在加载中时，可以用 loading 展示一个占位
-  //  * @default false
-  //  */
-  // loading?: boolean
+  /**
+   * 当卡片内容还在加载中时，可以用 loading 展示一个占位
+   * @default false
+   */
+  loading?: boolean
 }

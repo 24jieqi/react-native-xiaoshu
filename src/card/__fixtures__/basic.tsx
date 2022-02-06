@@ -8,12 +8,14 @@ import { ScrollView } from 'react-native'
 
 import CardBase from './base'
 import CardSquare from './square'
+import CardLoading from './loading'
 
 const BasicButtonBar: React.FC = () => {
   return (
     <ScrollView>
       <CardBase />
       <CardSquare />
+      <CardLoading />
     </ScrollView>
   )
 }
