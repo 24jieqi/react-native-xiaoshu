@@ -318,6 +318,11 @@ export const selector_option_text_color = TOKENS.gray_8
 export const selector_icon_selected_color = TOKENS.brand_6
 export const selector_body_padding_horizontal = TOKENS.space_3
 
+// Skeleton
+export const skeleton_color: string = TOKENS.gray_3
+export const skeleton_color_active = TOKENS.gray_1
+export const skeleton_avatar_border_radius = TOKENS.border_radius_s
+
 // Space
 export const space_gap_vertical = TOKENS.space_2
 export const space_gap_horizontal = TOKENS.space_2

@@ -38,6 +38,7 @@ module.exports = {
     'Result',
     'Search',
     'Selector',
+    'Skeleton',
     'Space',
     'Steps',
     'Switch',

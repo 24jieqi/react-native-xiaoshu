@@ -53,7 +53,8 @@
   },
   "dependencies": {
     "color": "^4.2.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "rn-placeholder": "^3.0.3"
   },
   "peerDependencies": {
     "rc-field-form": "^1.22.1",

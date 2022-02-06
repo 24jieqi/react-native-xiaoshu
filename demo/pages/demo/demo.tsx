@@ -150,6 +150,10 @@ const navDatas: {
         title: 'Progress',
         name: 'DemoProgress',
       },
+      {
+        title: 'Skeleton',
+        name: 'DemoSkeleton',
+      },
     ],
   },
   {

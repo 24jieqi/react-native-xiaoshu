@@ -140,6 +140,9 @@ export type {
 export { default as Selector } from './selector'
 // export { conversionSelectorOptions } from './selector/helper'
 
+export type { SkeletonProps } from './skeleton/interface'
+export { default as Skeleton } from './skeleton'
+
 export type { SpaceProps } from './space/interface'
 export { default as Space } from './space'
 
