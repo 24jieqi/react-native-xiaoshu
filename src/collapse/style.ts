@@ -19,6 +19,11 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
     body_padding: {
       paddingHorizontal: themeVar.cell_padding_horizontal,
+      paddingVertical: themeVar.cell_padding_horizontal,
+    },
+
+    divider: {
+      marginHorizontal: themeVar.cell_padding_horizontal,
     },
   })
 }

@@ -129,13 +129,13 @@ const Collapse: React.FC<CollapseProps> = ({
         onLayout={onLayoutTitle}
       />
 
-      <View
-        collapsable={false}
-        onLayout={onLayoutBody}
-        style={[bodyPadding ? STYLES.body_padding : undefined, bodyStyle]}>
-        {renderBody ? renderBody(collapse) : children}
+      <View collapsable={false} onLayout={onLayoutBody}>
+        <View
+          style={[bodyPadding ? STYLES.body_padding : undefined, bodyStyle]}>
+          {renderBody ? renderBody(collapse) : children}
+        </View>
 
-        {bodyBordered ? <Divider type="light" /> : null}
+        {bodyBordered ? <Divider type="light" style={STYLES.divider} /> : null}
       </View>
     </Animated.View>
   )
