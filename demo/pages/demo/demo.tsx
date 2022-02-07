@@ -45,24 +45,12 @@ const navDatas: {
         name: 'DemoIcon',
       },
       {
-        title: 'NumberInput',
-        name: 'DemoNumberInput',
-      },
-      {
-        title: 'PasswordInput',
-        name: 'DemoPasswordInput',
-      },
-      {
         title: 'Popup',
         name: 'DemoPopup',
       },
       {
         title: 'Space',
         name: 'DemoSpace',
-      },
-      {
-        title: 'TextInput',
-        name: 'DemoTextInput',
       },
       {
         title: 'Toast',
@@ -94,6 +82,14 @@ const navDatas: {
         name: 'DemoForm',
       },
       {
+        title: 'NumberInput',
+        name: 'DemoNumberInput',
+      },
+      {
+        title: 'PasswordInput',
+        name: 'DemoPasswordInput',
+      },
+      {
         title: 'Picker',
         name: 'DemoPicker',
       },
@@ -112,6 +108,10 @@ const navDatas: {
       {
         title: 'Switch',
         name: 'DemoSwitch',
+      },
+      {
+        title: 'TextInput',
+        name: 'DemoTextInput',
       },
     ],
   },
@@ -251,38 +251,6 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
             </CellGroup>
           )
         })}
-
-        {/* <Cell
-          isLink
-          title="ActionBar"
-          onPress={() => {
-            navigation.navigate('DemoActionBar')
-          }}
-        /> */}
-
-        {/* <Cell
-          isLink
-          title="Image"
-          onPress={() => {
-            navigation.navigate('DemoImage')
-          }}
-        /> */}
-
-        {/* <Cell
-          isLink
-          title="Dialog"
-          onPress={() => {
-            navigation.navigate('DemoDialog')
-          }}
-        /> */}
-
-        {/* <Cell
-          isLink
-          title="Field"
-          onPress={() => {
-            navigation.navigate('DemoField')
-          }}
-        /> */}
       </ScrollView>
     </Layout.Page>
   )
