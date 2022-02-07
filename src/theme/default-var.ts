@@ -358,22 +358,22 @@ export const tab_bar_active_icon_color = TOKENS.brand_6
 
 // Tag
 export const tag_l_close_icon = TOKENS.font_size_5
+export const tag_l_height: number = 24
 export const tag_l_font_size = TOKENS.font_size_3
-export const tag_l_padding_vertical = 2
 export const tag_l_padding_horizontal = TOKENS.space_2
 export const tag_m_close_icon = TOKENS.font_size_3
+export const tag_m_height: number = 20
 export const tag_m_font_size = TOKENS.font_size_2
-export const tag_m_padding_vertical: number = 2
 export const tag_m_padding_horizontal: number = 4
-export const tag_s_font_size = TOKENS.font_size_2
 export const tag_s_close_icon = TOKENS.font_size_2
-export const tag_s_padding_vertical: number = 0
+export const tag_s_height: number = 16
+export const tag_s_font_size = TOKENS.font_size_2
 export const tag_s_padding_horizontal: number = 2
 export const tag_padding_horizontal = TOKENS.space_1
 export const tag_text_color = TOKENS.white
 export const tag_border_radius = TOKENS.border_radius_xs
 export const tag_primary_color = TOKENS.brand_6
-export const tag_ghost_bg_color: string = 'transparent'
+export const tag_ghost_background_color: string = 'transparent'
 export const tag_hazy_lightness: number = 95
 
 // TextInput

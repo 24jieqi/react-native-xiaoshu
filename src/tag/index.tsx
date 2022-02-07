@@ -40,7 +40,7 @@ const Tag: React.FC<TagProps> = ({
         break
       }
       case 'ghost': {
-        tempInnerStyle.backgroundColor = THEME_VAR.tag_ghost_bg_color
+        tempInnerStyle.backgroundColor = THEME_VAR.tag_ghost_background_color
         tempInnerStyle.borderColor = mainColor
         tempInnerStyle.borderWidth = StyleSheet.hairlineWidth
         tempTextStyle.color = mainColor
@@ -66,7 +66,7 @@ const Tag: React.FC<TagProps> = ({
     type,
     mainColor,
     THEME_VAR.tag_text_color,
-    THEME_VAR.tag_ghost_bg_color,
+    THEME_VAR.tag_ghost_background_color,
     THEME_VAR.tag_hazy_lightness,
   ])
   const { innerSizeStyle, textSizeStyle } = useMemo(() => {

@@ -11,15 +11,15 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
     tag_inner_l: {
       paddingHorizontal: themeVar.tag_l_padding_horizontal,
-      paddingVertical: themeVar.tag_l_padding_vertical,
+      height: themeVar.tag_l_height,
     },
     tag_inner_m: {
       paddingHorizontal: themeVar.tag_m_padding_horizontal,
-      paddingVertical: themeVar.tag_m_padding_vertical,
+      height: themeVar.tag_m_height,
     },
     tag_inner_s: {
       paddingHorizontal: themeVar.tag_s_padding_horizontal,
-      paddingVertical: themeVar.tag_s_padding_vertical,
+      height: themeVar.tag_s_height,
     },
     tag_inner: {
       borderRadius: themeVar.tag_border_radius,
