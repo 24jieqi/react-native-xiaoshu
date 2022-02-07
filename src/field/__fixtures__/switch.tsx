@@ -51,7 +51,6 @@ const BasicFieldSwitch: React.FC = () => {
         onChange={v => {
           console.log(v)
         }}
-        bordered={false}
       />
 
       <Field.Switch

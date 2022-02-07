@@ -31,7 +31,10 @@ function FieldSwitch<ActiveValueT = boolean, InactiveValueT = boolean>({
     titleStyle,
     titleTextStyle,
     titleExtra,
-    valueStyle,
+    valueStyle: [
+      { flexDirection: 'row', justifyContent: 'flex-end' },
+      valueStyle,
+    ],
     valueExtra,
     contentStyle,
     bordered,
