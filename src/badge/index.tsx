@@ -28,7 +28,7 @@ const Badge: React.FC<BadgeProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  if (max && typeof count === 'number' && count > max) {
+  if (isDef(max) && typeof count === 'number' && count > max) {
     count = `${max}+`
   }
 
