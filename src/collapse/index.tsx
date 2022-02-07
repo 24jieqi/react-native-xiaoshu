@@ -90,9 +90,15 @@ const Collapse: React.FC<CollapseProps> = ({
 
   const onLayoutTitle = useCallback(
     (e: LayoutChangeEvent) => {
-      HeightMap.current.start = e.nativeEvent.layout.height
+      const oldStart = HeightMap.current.start
+      const newStart = e.nativeEvent.layout.height
+      HeightMap.current.start = newStart
 
-      toggleBody(Visible.current)
+      // 展开的时候动态调整高度
+      // 收齐时并高度变化了
+      if (Visible.current || (Visible.current && newStart !== oldStart)) {
+        toggleBody(Visible.current)
+      }
     },
     [toggleBody],
   )
@@ -102,7 +108,10 @@ const Collapse: React.FC<CollapseProps> = ({
       // 有点疑惑，折叠的过程中，高度在动态变化
       HeightMap.current.end = e.nativeEvent.layout.height
 
-      toggleBody(Visible.current)
+      // 展开的时候动态调整高度
+      if (Visible.current) {
+        toggleBody(Visible.current)
+      }
     },
     [toggleBody],
   )
