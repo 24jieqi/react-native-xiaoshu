@@ -110,7 +110,7 @@ const BasicUploader: React.FC = () => {
       <CellGroup title="上传图标">
         <Uploader
           list={list1}
-          uploadIcon={<Icon.ArrowUpOutline color="#000" />}
+          uploadIcon={<Icon.ArrowUpOutline color="#999" />}
           uploadText="选择"
           imageSize={100}
         />
