@@ -9,6 +9,7 @@ export interface BottomBarProps extends ViewProps {
 
   /**
    * 背景色
+   * @default bottom_bar_background_color
    */
   backgroundColor?: string
 }

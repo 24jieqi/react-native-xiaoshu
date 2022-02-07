@@ -89,17 +89,17 @@ export interface CardProps {
   bodyPadding?: boolean
 
   /**
-   * 点击头部
+   * 点击 header 区域，该区域包含 titleLeftExtra、title、extra
    */
   onPressHeader?: TouchableWithoutFeedbackProps['onPress']
 
   /**
-   * 头部布局好了
+   * header 区域渲染完成
    */
   onLayoutHeader?: ViewProps['onLayout']
 
   /**
-   * 头部布局好了
+   * body 区域渲染完成
    */
   onLayoutBody?: ViewProps['onLayout']
 }

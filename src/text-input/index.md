@@ -4,9 +4,9 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基础组件
-  path: /basic
-  order: 0
+  title: 表单组件
+  path: /form
+  order: 1
 ---
 
 # TextInput 输入框

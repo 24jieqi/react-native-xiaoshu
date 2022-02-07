@@ -17,6 +17,9 @@ group:
 
 最基础的卡片容器，可承载文字、列表、图片、段落。
 
+- 列表使用 `size="s"`，并且通过 titleLeftExtra 展示分类信息，配合 footer 呈现更多内容
+- 详情页采用默认尺寸 `size="m"`，配合 Space、Collapse 组件完成需求
+
 ## 代码演示
 
 <code src="./__fixtures__/base.tsx"></code>
