@@ -26,12 +26,12 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
   const THEME_VAR = useTheme()
   const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
 
-  size = getDefaultValue(size, THEME_VAR.loading_spinner_size)
-  color = getDefaultValue(color, THEME_VAR.brand_6)
+  size = getDefaultValue(size, THEME_VAR.loading_icon_size)
+  color = getDefaultValue(color, THEME_VAR.loading_icon_color)
 
   useLoop(AnimatedSpinnerValue, 0, {
     toValue: 1,
-    duration: THEME_VAR.loading_spinner_animation_duration,
+    duration: THEME_VAR.loading_icon_animation_duration,
     easing: Easing.linear,
   })
 

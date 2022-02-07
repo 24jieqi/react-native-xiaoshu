@@ -22,8 +22,8 @@ const Loading: React.FC<LoadingProps> = ({
   type = 'circular',
 }) => {
   const THEME_VAR = useTheme()
-  const ICON_COLOR = getDefaultValue(color, THEME_VAR.loading_spinner_color)
-  const ICON_SIZE = getDefaultValue(size, THEME_VAR.loading_spinner_size)
+  const ICON_COLOR = getDefaultValue(color, THEME_VAR.loading_icon_color)
+  const ICON_SIZE = getDefaultValue(size, THEME_VAR.loading_icon_size)
 
   const textJSX = isDef(children) ? (
     isValidElement(children) ? (

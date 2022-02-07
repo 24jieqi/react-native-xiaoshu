@@ -29,8 +29,8 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current
 
-  size = getDefaultValue(size, THEME_VAR.loading_spinner_size)
-  color = getDefaultValue(color, THEME_VAR.brand_6)
+  size = getDefaultValue(size, THEME_VAR.loading_icon_size)
+  color = getDefaultValue(color, THEME_VAR.loading_icon_color)
 
   const circle1Props = useMemo(() => {
     const center = Math.floor(size / 2)
@@ -59,17 +59,17 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
 
   useLoop(AnimatedCircle0Value, 0, {
     toValue: 1,
-    duration: THEME_VAR.loading_spinner_animation_duration,
+    duration: THEME_VAR.loading_icon_animation_duration,
   })
 
   useLoop(AnimatedCircle1Value, half1Circle, {
     toValue: -half1Circle * 2,
-    duration: THEME_VAR.loading_spinner_animation_duration * 1.5,
+    duration: THEME_VAR.loading_icon_animation_duration * 1.5,
   })
 
   useLoop(AnimatedCircle2Value, half2Circle, {
     toValue: -half2Circle * 2,
-    duration: THEME_VAR.loading_spinner_animation_duration * 2.5,
+    duration: THEME_VAR.loading_icon_animation_duration * 2.5,
   })
 
   const iconStyle: ViewStyle = {
