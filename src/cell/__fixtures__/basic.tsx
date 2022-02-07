@@ -22,12 +22,15 @@ const BasicCell: React.FC = () => {
     <ScrollView>
       <CellGroup
         title="基础用法"
-        textStyle={{
+        titleTextStyle={{
           flex: 1,
           backgroundColor: '#ddd',
         }}
         onPressTitleText={() => {
           console.log('onPressTitleText')
+        }}
+        onPressTitle={() => {
+          console.log('onPressTitle')
         }}
         extra={<Text>extra</Text>}>
         <Cell
@@ -64,7 +67,12 @@ const BasicCell: React.FC = () => {
         />
       </CellGroup>
 
-      <CellGroup title="垂直布局">
+      <CellGroup
+        title="垂直布局"
+        extra={<Text>extra</Text>}
+        onPressTitle={() => {
+          console.log('onPressTitle')
+        }}>
         <Cell vertical title="单元格" value="内容" />
 
         <Cell required vertical title="单元格" value="large" bordered={false} />
