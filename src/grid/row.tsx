@@ -10,12 +10,20 @@ import STYLES from './style'
  * Row 布局
  * @description 一组单元格。
  */
-const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
+const Row: React.FC<RowProps> = ({
+  gutter = 0,
+  style,
+  justify,
+  align,
+  ...restProps
+}) => {
   const ctx = useMemo(() => ({ gutter }), [gutter])
   const rowStyles: StyleProp<ViewStyle> = [
     STYLES.row,
     {
       marginHorizontal: -(+gutter / 2),
+      justifyContent: justify,
+      alignItems: align,
     },
     style,
     // to test ui
@@ -28,7 +36,7 @@ const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
 
   return (
     <RowContext.Provider value={ctx}>
-      <View style={rowStyles}>{children}</View>
+      <View {...restProps} style={rowStyles} />
     </RowContext.Provider>
   )
 }
