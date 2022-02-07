@@ -213,11 +213,11 @@ export const icon_disabled_color = TOKENS.gray_5
 
 // Loading
 export const loading_gap = TOKENS.space_2
-export const loading_text_color = TOKENS.gray_8
+export const loading_text_color = TOKENS.gray_6
 export const loading_text_font_size = TOKENS.font_size_4
-export const loading_spinner_color = TOKENS.brand_6
-export const loading_spinner_size: number = 24
-export const loading_spinner_animation_duration: number = 800
+export const loading_icon_color = TOKENS.gray_6
+export const loading_icon_size: number = 24
+export const loading_icon_animation_duration: number = 800
 
 // NavBar
 export const nav_bar_arrow_size: number = 20
@@ -317,6 +317,21 @@ export const selector_option_text_font_size = TOKENS.font_size_4
 export const selector_option_text_color = TOKENS.gray_8
 export const selector_icon_selected_color = TOKENS.brand_6
 export const selector_body_padding_horizontal = TOKENS.space_3
+
+// Sidebar
+export const sidebar_background_color = TOKENS.white
+export const sidebar_item_background_color = TOKENS.gray_3
+export const sidebar_item_underlay_color = TOKENS.gray_4
+export const sidebar_item_padding_vertical = TOKENS.space_3
+export const sidebar_item_padding_horizontal = TOKENS.space_3
+export const sidebar_item_border_radius = TOKENS.border_radius_m
+export const sidebar_item_bar_width: number = 3
+export const sidebar_item_bar_height: number = 26
+export const sidebar_item_text_line_height: number = 20
+export const sidebar_item_text_font_size = TOKENS.font_size_3
+export const sidebar_item_bar_background_color = TOKENS.brand_6
+export const sidebar_item_active_text_color = TOKENS.gray_8
+export const sidebar_item_inactive_text_color = TOKENS.gray_7
 
 // Skeleton
 export const skeleton_color: string = TOKENS.gray_3

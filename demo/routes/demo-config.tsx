@@ -51,6 +51,7 @@ import DemoDatePickerView from '../../src/date-picker-view/__fixtures__/basic'
 import DemoDatePicker from '../../src/date-picker/__fixtures__/basic'
 import DemoCard from '../../src/card/__fixtures__/basic'
 import DemoSkeleton from '../../src/skeleton/__fixtures__/basic'
+import DemoSidebar from '../../src/sidebar/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -101,6 +102,7 @@ export type DemoPaths =
   | 'DemoDatePicker'
   | 'DemoCard'
   | 'DemoSkeleton'
+  | 'DemoSidebar'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -488,6 +490,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoSkeleton />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoSidebar',
+    Page: () => (
+      <DemoWrapper>
+        <DemoSidebar />
       </DemoWrapper>
     ),
   },

@@ -217,6 +217,10 @@ const navDatas: {
         name: 'DemoNavBar',
       },
       {
+        title: 'Sidebar',
+        name: 'DemoSidebar',
+      },
+      {
         title: 'Steps',
         name: 'DemoSteps',
       },

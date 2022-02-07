@@ -140,6 +140,9 @@ export type {
 export { default as Selector } from './selector'
 // export { conversionSelectorOptions } from './selector/helper'
 
+export type { SidebarProps } from './sidebar/interface'
+export { default as Sidebar } from './sidebar'
+
 export type { SkeletonProps } from './skeleton/interface'
 export { default as Skeleton } from './skeleton'
 
