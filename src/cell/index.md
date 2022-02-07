@@ -19,14 +19,20 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/layout.tsx"></code>
+
+<code src="./__fixtures__/extra.tsx"></code>
+
+<code src="./__fixtures__/group.tsx"></code>
 
 ## API
-
-### CellGroup
-
-<API src="./group.tsx" hideTitle></API>
 
 ### Cell
 
 <API hideTitle></API>
+
+### CellGroup
+
+<API src="./group.tsx" hideTitle></API>
