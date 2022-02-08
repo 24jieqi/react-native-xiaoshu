@@ -7,14 +7,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
     collapse: {
       overflow: 'hidden',
       // 避免子元素无法渲染
-      minHeight:
-        themeVar.collapse_title_line_height +
-        themeVar.collapse_title_padding_vertical * 2 +
-        1,
+      minHeight: 20,
       backgroundColor: themeVar.collapse_background_color,
-    },
-    collapse_card: {
-      minHeight: themeVar.card_m_header_height,
     },
     title_text: {
       lineHeight: themeVar.collapse_title_line_height,
@@ -24,7 +18,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       paddingHorizontal: themeVar.cell_padding_horizontal,
       paddingVertical: themeVar.cell_padding_horizontal,
     },
-
     divider: {
       marginHorizontal: themeVar.cell_padding_horizontal,
     },

@@ -14,13 +14,20 @@ const BasicCollapse: React.FC = () => {
   return (
     <ScrollView>
       <CellGroup title="单元格用法">
-        <Collapse title="标题11">
+        <Collapse
+          title="标题11"
+          onAnimationEnd={v => {
+            console.log('动画结束:title 固定 => ', v)
+          }}>
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />
           <Text style={{ lineHeight: 20 }}>文案</Text>
         </Collapse>
 
-        <Collapse title="标题12:body 无内边距" bodyPadding={false}>
+        <Collapse
+          title="标题12:body 无内边距"
+          bodyPadding={false}
+          defaultCollapse>
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />
           <Text style={{ lineHeight: 20 }}>文案</Text>
@@ -57,30 +64,32 @@ const BasicCollapse: React.FC = () => {
         <Collapse
           title="title文案"
           renderTitle={useCallback((v: boolean) => {
-            return `不要这样写 useCallback：${v ? '好的' : '不好'}`
+            return (
+              <Text>{`不要这样写 useCallback：${v ? '好的' : `\n不好`}`}</Text>
+            )
           }, [])}
           renderTitleExtra={useCallback(
             (v: boolean, arrowJSX: React.ReactNode) => {
               return (
                 <Space direction="horizontal" align="center" gapVertical={0}>
-                  <Text>{v ? '收齐' : '展开'}</Text>
+                  <Text>{v ? '点击收齐' : '点击展开'}</Text>
                   {arrowJSX}
                 </Space>
               )
             },
             [],
           )}
-          renderBody={useCallback((v: boolean) => {
+          renderBody={useCallback(() => {
             return (
               <>
-                <Text style={{ lineHeight: 20 }}>文案：{v ? '展开' : ''}</Text>
-                {v ? <View style={{ height: 400 }} /> : null}
+                <Text style={{ lineHeight: 20 }}>文案：</Text>
+                <View style={{ height: 400 }} />
                 <Text style={{ lineHeight: 20 }}>文案</Text>
               </>
             )
           }, [])}
           onAnimationEnd={v => {
-            console.log('动画结束 => ', v)
+            console.log('动画结束:title 动态变化 => ', v)
           }}
         />
 
@@ -120,6 +129,7 @@ const BasicCollapse: React.FC = () => {
           <Collapse
             title="标题12:body 无内边距"
             type="card"
+            defaultCollapse
             bodyPadding={false}>
             <Text style={{ lineHeight: 20 }}>文案</Text>
             <View style={{ height: 20 }} />
@@ -164,7 +174,11 @@ const BasicCollapse: React.FC = () => {
             title="title文案"
             type="card"
             renderTitle={useCallback((v: boolean) => {
-              return `不要这样写 useCallback：${v ? '好的' : '不好'}`
+              return (
+                <Text>{`不要这样写 useCallback：${
+                  v ? '好的' : `\n不好\n不好\n`
+                }`}</Text>
+              )
             }, [])}
             renderTitleExtra={useCallback(
               (v: boolean, arrowJSX: React.ReactNode) => {
@@ -174,20 +188,18 @@ const BasicCollapse: React.FC = () => {
                     align="center"
                     justify="center"
                     gapVertical={0}>
-                    <Text>{v ? '收齐' : '展开'}</Text>
+                    <Text>{v ? '点击收齐' : '点击展开'}</Text>
                     {arrowJSX}
                   </Space>
                 )
               },
               [],
             )}
-            renderBody={useCallback((v: boolean) => {
+            renderBody={useCallback(() => {
               return (
                 <>
-                  <Text style={{ lineHeight: 20 }}>
-                    文案：{v ? '展开' : ''}
-                  </Text>
-                  {v ? <View style={{ height: 400 }} /> : null}
+                  <Text style={{ lineHeight: 20 }}>文案：</Text>
+                  <View style={{ height: 400 }} />
                   <Text style={{ lineHeight: 20 }}>文案</Text>
                 </>
               )

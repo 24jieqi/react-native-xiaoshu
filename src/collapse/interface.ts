@@ -55,7 +55,7 @@ export interface CollapseProps {
   /**
    * 自定义渲染内容，替换 children
    */
-  renderBody?: (collapse: boolean) => React.ReactNode
+  renderBody?: () => React.ReactNode
 
   /**
    * 是否展开
@@ -90,8 +90,14 @@ export interface CollapseProps {
   bodyPadding?: boolean
 
   /**
-   * 内容区域是否有分割线
+   * 内容区域是否有分割线，cell 类型下有效
    * @default true
    */
   bodyBordered?: boolean
+
+  /**
+   * 是否在展开的时候才渲染子元素
+   * @default true
+   */
+  lazyRender?: boolean
 }

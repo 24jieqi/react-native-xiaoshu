@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, memo, useEffect } from 'react'
+import React, { useRef, useCallback, useEffect, memo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { Animated, View } from 'react-native'
 
@@ -31,6 +31,7 @@ const Collapse: React.FC<CollapseProps> = ({
   onAnimationEnd,
   bodyPadding = true,
   bodyBordered = true,
+  lazyRender = true,
 
   ...restProps
 }) => {
@@ -52,14 +53,15 @@ const Collapse: React.FC<CollapseProps> = ({
     start: 1,
     end: 2,
   })
+  const MountedRef = useRef(false)
   const AnimatedValue = useRef(new Animated.Value(0)).current
   const toggleBody = useCallback(
-    (v: boolean) => {
+    (v: boolean, immediately: boolean) => {
       const action = Animated.timing(AnimatedValue, {
         toValue: v
           ? HeightMap.current.start + HeightMap.current.end
           : HeightMap.current.start,
-        duration: THEME_VAR.collapse_transition_duration,
+        duration: immediately ? 0 : THEME_VAR.collapse_transition_duration,
         useNativeDriver: false,
         easing: v ? easing.easeOutCirc : easing.easeInCubic,
       })
@@ -77,11 +79,16 @@ const Collapse: React.FC<CollapseProps> = ({
     ],
   )
 
+  // 初始化好组件
+  useEffect(() => {
+    MountedRef.current = true
+  }, [])
+
   useEffect(() => {
     // 同步当前的状态
     Visible.current = collapse
 
-    toggleBody(collapse)
+    toggleBody(collapse, false)
   }, [collapse, toggleBody])
 
   const onPressTitle = useCallback(() => {
@@ -90,15 +97,8 @@ const Collapse: React.FC<CollapseProps> = ({
 
   const onLayoutTitle = useCallback(
     (e: LayoutChangeEvent) => {
-      const oldStart = HeightMap.current.start
-      const newStart = e.nativeEvent.layout.height
-      HeightMap.current.start = newStart
-
-      // 展开的时候动态调整高度
-      // 收齐时并高度变化了
-      if (Visible.current || (Visible.current && newStart !== oldStart)) {
-        toggleBody(Visible.current)
-      }
+      HeightMap.current.start = e.nativeEvent.layout.height
+      toggleBody(Visible.current, true)
     },
     [toggleBody],
   )
@@ -107,11 +107,8 @@ const Collapse: React.FC<CollapseProps> = ({
     (e: LayoutChangeEvent) => {
       // 有点疑惑，折叠的过程中，高度在动态变化
       HeightMap.current.end = e.nativeEvent.layout.height
-
-      // 展开的时候动态调整高度
-      if (Visible.current) {
-        toggleBody(Visible.current)
-      }
+      // 当收齐的时候已知高度
+      toggleBody(Visible.current, Visible.current)
     },
     [toggleBody],
   )
@@ -130,15 +127,15 @@ const Collapse: React.FC<CollapseProps> = ({
   const titleExtraJSX = renderTitleExtra
     ? renderTitleExtra(collapse, arrowJSX)
     : arrowJSX
-  const bodyJSX = renderBody ? renderBody(collapse) : children
+  const bodyJSX =
+    lazyRender && !MountedRef.current && !collapse
+      ? null
+      : renderBody
+      ? renderBody()
+      : children
 
   return (
-    <Animated.View
-      style={[
-        STYLES.collapse,
-        type === 'card' ? STYLES.collapse_card : null,
-        { height: AnimatedValue },
-      ]}>
+    <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>
       {type === 'cell' ? (
         <>
           <Cell
