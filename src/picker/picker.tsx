@@ -71,7 +71,7 @@ const Picker: React.FC<PickerProps> = ({
       <PickerView {...pickerViewProps} />
       {showToolbar && toolbarPosition === 'bottom' ? headerTitleJSX : null}
 
-      <View style={{ height: insets.bottom }} />
+      <View style={{ height: insets.bottom + THEME_VAR.picker_bottom_gap }} />
     </Popup>
   )
 }

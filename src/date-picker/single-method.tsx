@@ -128,7 +128,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
         onChange={onChange}
       />
 
-      <View style={{ height: insets.bottom }} />
+      <View style={{ height: insets.bottom + THEME_VAR.picker_bottom_gap }} />
     </Popup>
   )
 }
