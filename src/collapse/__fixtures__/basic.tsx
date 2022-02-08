@@ -46,6 +46,7 @@ const BasicCollapse: React.FC = () => {
           onCollapse={setValue}>
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />
+          {value ? <View style={{ height: 400 }} /> : null}
           <Text style={{ lineHeight: 20 }}>文案</Text>
         </Collapse>
 
@@ -154,6 +155,7 @@ const BasicCollapse: React.FC = () => {
             onCollapse={setValue}>
             <Text style={{ lineHeight: 20 }}>文案</Text>
             <View style={{ height: 20 }} />
+            {value ? <View style={{ height: 400 }} /> : null}
             <Text style={{ lineHeight: 20 }}>文案</Text>
           </Collapse>
 

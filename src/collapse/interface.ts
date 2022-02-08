@@ -90,10 +90,9 @@ export interface CollapseProps {
   bodyPadding?: boolean
 
   /**
-   * 内容区域是否有分割线，cell 类型下有效
-   * @default true
+   * 内容区域是否有分割线，cell 默认 true，card 默认false
    */
-  bodyBordered?: boolean
+  bodyDivider?: boolean
 
   /**
    * 是否在展开的时候才渲染子元素
