@@ -91,7 +91,7 @@ const BasicNotify: React.FC = () => {
           onPress={() => {
             Notify({
               message: '自定义时长',
-              duration: 500000,
+              duration: 5000,
             })
           }}
         />
