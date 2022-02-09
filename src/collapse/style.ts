@@ -8,6 +8,9 @@ export const createStyles = (themeVar: ThemeVarType) => {
       overflow: 'hidden',
       backgroundColor: themeVar.collapse_background_color,
     },
+    header_no_divider: {
+      borderBottomWidth: 0,
+    },
     title_text: {
       lineHeight: themeVar.collapse_title_line_height,
       fontSize: themeVar.collapse_title_font_size,

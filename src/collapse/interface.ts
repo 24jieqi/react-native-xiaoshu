@@ -90,6 +90,12 @@ export interface CollapseProps {
   bodyPadding?: boolean
 
   /**
+   * 头部区域是否有分割线
+   * @default true
+   */
+  headerDivider?: boolean
+
+  /**
    * 内容区域是否有分割线，cell 默认 true，card 默认false
    */
   bodyDivider?: boolean

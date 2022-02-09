@@ -24,6 +24,21 @@ const BasicCollapse: React.FC = () => {
           <Text style={{ lineHeight: 20 }}>文案</Text>
         </Collapse>
 
+        <Collapse title="标题:没有 header 分割线" headerDivider={false}>
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+          <View style={{ height: 20 }} />
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+        </Collapse>
+
+        <Collapse
+          title="标题:没有 header 和 body 分割线"
+          headerDivider={false}
+          bodyDivider={false}>
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+          <View style={{ height: 20 }} />
+          <Text style={{ lineHeight: 20 }}>文案</Text>
+        </Collapse>
+
         <Collapse
           title="标题12:body 无内边距"
           bodyPadding={false}
@@ -119,9 +134,28 @@ const BasicCollapse: React.FC = () => {
         </Collapse>
       </CellGroup>
 
-      <CellGroup title="单元格用法">
+      <CellGroup title="卡片用法">
         <Space>
           <Collapse title="标题11" type="card">
+            <Text style={{ lineHeight: 20 }}>文案</Text>
+            <View style={{ height: 20 }} />
+            <Text style={{ lineHeight: 20 }}>文案</Text>
+          </Collapse>
+
+          <Collapse
+            title="标题:没有 header 分割线"
+            type="card"
+            headerDivider={false}>
+            <Text style={{ lineHeight: 20 }}>文案</Text>
+            <View style={{ height: 20 }} />
+            <Text style={{ lineHeight: 20 }}>文案</Text>
+          </Collapse>
+
+          <Collapse
+            title="标题:没有 header 分割线 有 body 分割线"
+            type="card"
+            headerDivider={false}
+            bodyDivider>
             <Text style={{ lineHeight: 20 }}>文案</Text>
             <View style={{ height: 20 }} />
             <Text style={{ lineHeight: 20 }}>文案</Text>

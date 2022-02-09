@@ -30,6 +30,7 @@ const Collapse: React.FC<CollapseProps> = ({
   type = 'cell',
   onAnimationEnd,
   bodyPadding = true,
+  headerDivider = true,
   bodyDivider,
   lazyRender = true,
 
@@ -142,6 +143,7 @@ const Collapse: React.FC<CollapseProps> = ({
         square
         title={titleJSX}
         extra={titleExtraJSX}
+        headerStyle={headerDivider ? undefined : STYLES.header_no_divider}
         titleStyle={titleStyle}
         titleTextStyle={titleTextStyle}
         bodyPadding={false}
@@ -159,6 +161,7 @@ const Collapse: React.FC<CollapseProps> = ({
         titleTextStyle={[STYLES.title_text, titleTextStyle]}
         valueExtra={titleExtraJSX}
         onPress={onPressTitle}
+        bordered={headerDivider}
       />
 
       {ctxJSX}
