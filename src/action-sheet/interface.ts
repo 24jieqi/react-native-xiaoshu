@@ -8,9 +8,6 @@ export interface Action {
   /** 标题 */
   name: string
 
-  /** 二级标题 */
-  subname?: string
-
   /** 选项文字颜色 */
   color?: string
 
@@ -38,7 +35,7 @@ export interface ActionSheetProps extends PopupPropsCommon {
   /**
    * 取消按钮文字
    */
-  cancelText?: React.ReactNode
+  cancelText?: string
 
   /**
    * 选项上方的描述信息

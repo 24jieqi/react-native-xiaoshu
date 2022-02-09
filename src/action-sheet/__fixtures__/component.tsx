@@ -45,7 +45,7 @@ const ActionSheetComponent: React.FC = () => {
         visible={state.cActionSheet1.show}
         actions={[
           { name: '选项1' },
-          { name: '选项2', subname: '东方闪电', color: '#f30' },
+          { name: '选项2', color: '#f30' },
           { name: 'loading', loading: true },
           { name: 'disabled', disabled: true },
           { name: '选项3' },

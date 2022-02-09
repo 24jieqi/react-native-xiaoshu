@@ -21,24 +21,13 @@ export const border_color = TOKENS.gray_4
 export const page_header_height: number = 44
 
 // ActionSheet
-export const action_sheet_header_height: number = 48
-export const action_sheet_header_font_size = TOKENS.font_size_7
 export const action_sheet_description_color = TOKENS.gray_7
 export const action_sheet_description_font_size = TOKENS.font_size_3
 export const action_sheet_description_line_height = TOKENS.line_height_1
-export const action_sheet_item_background = TOKENS.white
-export const action_sheet_item_padding_horizontal = TOKENS.space_4
-export const action_sheet_item_underlay_color = TOKENS.gray_1
-export const action_sheet_item_font_size = TOKENS.font_size_5
-export const action_sheet_item_disabled_text_color = TOKENS.gray_6
-export const action_sheet_subname_color = TOKENS.gray_8
-export const action_sheet_subname_font_size = TOKENS.font_size_3
-export const action_sheet_subname_line_height = TOKENS.line_height_1
-export const action_sheet_subname_margin_top = TOKENS.space_2
-export const action_sheet_cancel_text_color = TOKENS.gray_7
+export const action_sheet_text_color = TOKENS.gray_8
+export const action_sheet_text_font_size = TOKENS.font_size_5
 export const action_sheet_cancel_padding_top = TOKENS.space_2
-export const action_sheet_cancel_padding_color = TOKENS.gray_3
-export const action_sheet_loading_icon_size: number = 22
+export const action_sheet_cancel_padding_color: string = '#ECEEF1'
 
 // Badge
 export const badge_size: number = 16

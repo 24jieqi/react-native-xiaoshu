@@ -115,7 +115,7 @@ const ActionSheetBase: React.FC = () => {
           onPress={() => {
             ActionSheet({
               actions: [
-                { name: '着色选项', subname: '东方闪电', color: '#f30' },
+                { name: '着色选项', color: '#f30' },
                 { name: 'loading', loading: true },
                 { name: '禁用选项', disabled: true },
               ],
