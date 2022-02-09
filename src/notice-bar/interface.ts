@@ -5,7 +5,7 @@ import type {
   StyleProp,
 } from 'react-native'
 
-export type NoticeBarType = 'primary' | 'success' | 'warning' | 'error'
+export type NoticeBarStatus = 'primary' | 'success' | 'warning' | 'error'
 
 export type NoticeBarMode = 'closeable' | 'link'
 
@@ -21,10 +21,10 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
   message?: React.ReactNode
 
   /**
-   * 内置样式
+   * 内置状态
    * @default 'warning'
    */
-  type?: NoticeBarType
+  status?: NoticeBarStatus
 
   /**
    * 通知栏模式，可选值为 `'closeable' | 'link'`

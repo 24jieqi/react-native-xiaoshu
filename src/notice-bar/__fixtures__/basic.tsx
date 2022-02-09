@@ -78,14 +78,14 @@ const BasicNoticeBar: React.FC = () => {
         </Space>
       </CellGroup>
 
-      <CellGroup title="内置颜色">
+      <CellGroup title="内置状态">
         <Space>
           <NoticeBar
             renderLeftIcon={(color, size) => (
               <Icon.VolumeOutline color={color} size={size} />
             )}
             message="一袋米要抗几楼，一袋米要抗二楼"
-            type="error"
+            status="error"
           />
 
           <NoticeBar
@@ -94,7 +94,7 @@ const BasicNoticeBar: React.FC = () => {
             )}
             message="一袋米要抗几楼，一袋米要抗二楼"
             mode="closeable"
-            type="error"
+            status="error"
           />
 
           <NoticeBar
@@ -103,7 +103,7 @@ const BasicNoticeBar: React.FC = () => {
             )}
             message="一袋米要抗几楼，一袋米要抗二楼"
             mode="link"
-            type="error"
+            status="error"
           />
 
           <NoticeBar
@@ -112,7 +112,7 @@ const BasicNoticeBar: React.FC = () => {
             )}
             message="一袋米要抗几楼，一袋米要抗二楼"
             mode="closeable"
-            type="success"
+            status="success"
           />
 
           <NoticeBar
@@ -121,7 +121,7 @@ const BasicNoticeBar: React.FC = () => {
             )}
             message="一袋米要抗几楼，一袋米要抗二楼"
             mode="link"
-            type="primary"
+            status="primary"
           />
         </Space>
       </CellGroup>
