@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import {
   ButtonBar,
   Button,
@@ -16,47 +16,49 @@ const BasicButtonBar: React.FC = () => {
   return (
     <>
       <ScrollView>
-        <Space>
-          <ButtonBar
-            safeAreaInsetBottom={false}
-            buttons={[
-              {
-                text: '主要按钮1',
-                type: 'primary',
-                onPress: () => {
-                  console.log('??')
+        <Space head>
+          <View style={{ backgroundColor: '#fff', paddingVertical: 12 }}>
+            <ButtonBar
+              safeAreaInsetBottom={false}
+              buttons={[
+                {
+                  text: '注意有分割线',
+                  type: 'primary',
+                  onPress: () => {
+                    console.log('??')
+                  },
                 },
-              },
-              {
-                text: '次要按钮2',
-                type: 'hazy',
-                onPress: () => {
-                  console.log('??')
+                {
+                  text: '次要按钮2',
+                  type: 'hazy',
+                  onPress: () => {
+                    console.log('??')
+                  },
                 },
-              },
-              {
-                text: '次要按钮3',
-                type: 'hazy',
-                onPress: () => {
-                  console.log('??')
+                {
+                  text: '次要按钮3',
+                  type: 'hazy',
+                  onPress: () => {
+                    console.log('??')
+                  },
                 },
-              },
-              {
-                text: '次要按钮4',
-                type: 'primary',
-                onPress: () => {
-                  console.log('??')
+                {
+                  text: '次要按钮4',
+                  type: 'primary',
+                  onPress: () => {
+                    console.log('??')
+                  },
                 },
-              },
-              {
-                text: '次要按钮5',
-                type: 'primary',
-                onPress: () => {
-                  console.log('??')
+                {
+                  text: '次要按钮5',
+                  type: 'primary',
+                  onPress: () => {
+                    console.log('??')
+                  },
                 },
-              },
-            ]}
-          />
+              ]}
+            />
+          </View>
 
           <ButtonBar
             safeAreaInsetBottom={false}

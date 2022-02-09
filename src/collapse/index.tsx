@@ -107,10 +107,8 @@ const Collapse: React.FC<CollapseProps> = ({
   const arrowJSX = (
     <ArrowOutline
       style={iconStyle}
-      color={
-        isValue(iconColor) ? iconColor : THEME_VAR.collapse_title_icon_color
-      }
-      size={isValue(iconSize) ? iconSize : THEME_VAR.collapse_title_icon_size}
+      color={isValue(iconColor) ? iconColor : THEME_VAR.collapse_icon_color}
+      size={isValue(iconSize) ? iconSize : THEME_VAR.collapse_icon_size}
     />
   )
   const titleJSX = renderTitle ? renderTitle(collapse) : title
@@ -143,7 +141,7 @@ const Collapse: React.FC<CollapseProps> = ({
         square
         title={titleJSX}
         extra={titleExtraJSX}
-        headerStyle={headerDivider ? undefined : STYLES.header_no_divider}
+        headerDivider={headerDivider}
         titleStyle={titleStyle}
         titleTextStyle={titleTextStyle}
         bodyPadding={false}
@@ -158,7 +156,7 @@ const Collapse: React.FC<CollapseProps> = ({
       <Cell
         title={titleJSX}
         style={titleStyle}
-        titleTextStyle={[STYLES.title_text, titleTextStyle]}
+        titleTextStyle={titleTextStyle}
         valueExtra={titleExtraJSX}
         onPress={onPressTitle}
         divider={headerDivider}

@@ -15,7 +15,7 @@ const Divider: React.FC<DividerProps> = ({
   children,
   style,
   textStyle,
-  type = 'dark',
+  type = 'light',
   dashed = false,
   color,
   contentPosition = 'center',

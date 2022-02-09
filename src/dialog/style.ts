@@ -43,7 +43,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     footer: {
       flexDirection: 'row',
       borderTopWidth: 1,
-      borderColor: themeVar.border_color,
+      borderColor: themeVar.divider_color_dark,
       marginTop: themeVar.dialog_footer_margin_top,
     },
 

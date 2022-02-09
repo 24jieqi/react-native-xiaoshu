@@ -4,11 +4,6 @@ export * from './tokens'
 import * as TOKENS from './tokens'
 
 export const underlay_color: string = 'transparent'
-// export const underlay_color_ddd: string = TOKENS.gray_1
-
-// 分割线颜色
-export const divider_color_dark: string = TOKENS.gray_4
-export const divider_color_light: string = TOKENS.gray_2
 
 // Animation
 export const animation_duration_base: number = 300
@@ -46,7 +41,6 @@ export const badge_status_error = TOKENS.red_6
 // BottomBar
 export const bottom_bar_height: number = 50
 export const bottom_bar_background_color = TOKENS.white
-export const bottom_bar_border_top_color = border_color
 
 // Button
 export const button_xl_height: number = 52
@@ -93,9 +87,7 @@ export const card_m_header_text_line_height = TOKENS.line_height_2
 export const card_s_header_height: number = 40
 export const card_s_header_text_font_size = TOKENS.font_size_5
 export const card_s_header_text_line_height = TOKENS.line_height_1
-export const card_header_bottom_border_color = TOKENS.gray_2
 export const card_header_text_color = TOKENS.gray_8
-export const card_footer_top_border_color = TOKENS.gray_2
 export const card_footer_text_font_size = TOKENS.font_size_3
 export const card_footer_text_color = TOKENS.gray_7
 export const card_footer_text_line_height: number = 20
@@ -137,16 +129,9 @@ export const checkbox_disabled_label_color = TOKENS.gray_6
 
 // Collapse
 export const collapse_transition_duration = animation_duration_base
-export const collapse_padding_horizontal = TOKENS.space_4
 export const collapse_background_color = TOKENS.white
-export const collapse_title_font_size = TOKENS.font_size_5
-export const collapse_title_line_height = 22
-export const collapse_title_padding_vertical: number = 14
-export const collapse_title_padding_horizontal = TOKENS.space_4
-export const collapse_title_text_color = TOKENS.gray_8
-export const collapse_title_icon_color = TOKENS.gray_6
-export const collapse_title_icon_size = TOKENS.font_size_5
-export const collapse_title_border_color = divider_color_light
+export const collapse_icon_color = TOKENS.gray_6
+export const collapse_icon_size = TOKENS.font_size_5
 
 // Dialog
 export const dialog_width: number = 300
@@ -168,6 +153,8 @@ export const dialog_cancel_button_text_color = TOKENS.gray_7
 export const dialog_input_gap = TOKENS.space_4
 
 // Divider
+export const divider_color_dark: string = TOKENS.gray_4
+export const divider_color_light: string = TOKENS.gray_2
 export const divider_margin_horizontal = TOKENS.space_4
 export const divider_text_color = TOKENS.gray_8
 export const divider_font_size = TOKENS.font_size_4
@@ -266,7 +253,6 @@ export const picker_date_range_day_line_height: number = 22
 
 // PickerView
 export const picker_view_background_color = TOKENS.white
-export const picker_view_column_mask_border_color = border_color
 export const picker_view_column_mask_background_color: string =
   'rgba(255,255,255,0.8)'
 export const picker_view_column_text_color = TOKENS.gray_8

@@ -156,9 +156,9 @@ const Dialog: React.FC<DialogProps> = ({
                 showCancelButton
                   ? // eslint-disable-next-line react-native/no-inline-styles
                     {
-                      // react-native-web 覆盖原 botton 样式
+                      // react-native-web 覆盖原 button 样式
                       borderLeftWidth: 1,
-                      borderColor: THEME_VAR.border_color,
+                      borderColor: THEME_VAR.divider_color_dark,
                     }
                   : null,
               ]}

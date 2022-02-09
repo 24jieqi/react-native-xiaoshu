@@ -13,7 +13,7 @@ export interface DividerProps {
 
   /**
    * 颜色模式
-   * @default 'dark'
+   * @default 'light'
    */
   type?: 'dark' | 'light'
 

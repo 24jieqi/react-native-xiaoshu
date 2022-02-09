@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
+import Divider from '../divider'
 import { ArrowLeftOutline } from '../icon'
+import { useTheme, widthStyle } from '../theme'
 import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
 import { createStyles } from './style'
 import type { NavBarProps } from './interface'
@@ -28,8 +29,7 @@ const NavBar: React.FC<NavBarProps> = ({
   showBackArrow = true,
   backArrowColor,
   backArrowSize,
-  bordered = true,
-  hairline = false,
+  divider = true,
   onPressBackArrow,
 }) => {
   const THEME_VAR = useTheme()
@@ -40,42 +40,33 @@ const NavBar: React.FC<NavBarProps> = ({
 
   const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
 
-  const borderBottomWidth = hairline ? StyleSheet.hairlineWidth : 1
-
   return (
-    <View
-      style={[
-        STYLES.bar,
-        bordered
-          ? {
-              borderBottomColor: THEME_VAR.border_color,
-              borderBottomWidth,
-            }
-          : null,
-        style,
-      ]}>
-      {showBackArrow || isDef(leftExtra) ? (
-        <View style={[STYLES.left, leftStyle]}>
-          {showBackArrow ? (
-            <TouchableOpacity
-              style={STYLES.back_arrow}
-              onPress={onPressBackArrow}
-              activeOpacity={THEME_VAR.button_active_opacity}
-              hitSlop={BACK_ARROW_HIT_SLOP}>
-              <ArrowLeftOutline size={backArrowSize} color={backArrowColor} />
-            </TouchableOpacity>
-          ) : null}
+    <>
+      <View style={[STYLES.bar, style]}>
+        {showBackArrow || isDef(leftExtra) ? (
+          <View style={[STYLES.left, leftStyle]}>
+            {showBackArrow ? (
+              <TouchableOpacity
+                style={STYLES.back_arrow}
+                onPress={onPressBackArrow}
+                activeOpacity={THEME_VAR.button_active_opacity}
+                hitSlop={BACK_ARROW_HIT_SLOP}>
+                <ArrowLeftOutline size={backArrowSize} color={backArrowColor} />
+              </TouchableOpacity>
+            ) : null}
 
-          {leftExtra}
-        </View>
-      ) : null}
+            {leftExtra}
+          </View>
+        ) : null}
 
-      {isDef(rightExtra) ? (
-        <View style={[STYLES.right, rightStyle]}>{rightExtra}</View>
-      ) : null}
+        {isDef(rightExtra) ? (
+          <View style={[STYLES.right, rightStyle]}>{rightExtra}</View>
+        ) : null}
 
-      {titleJSX}
-    </View>
+        {titleJSX}
+      </View>
+      {divider ? <Divider /> : null}
+    </>
   )
 }
 

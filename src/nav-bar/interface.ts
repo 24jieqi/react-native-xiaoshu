@@ -54,16 +54,10 @@ export interface NavBarProps {
   backArrowSize?: number
 
   /**
-   * 是否显示下边框
+   * 是否显示分割线
    * @default true
    */
-  bordered?: boolean
-
-  /**
-   * 细边框
-   * @default false
-   */
-  hairline?: boolean
+  divider?: boolean
 
   /**
    * 点击返回按钮的回调

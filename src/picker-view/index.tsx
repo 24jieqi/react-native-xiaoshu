@@ -3,6 +3,7 @@ import type { StyleProp, ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
 import Loading from '../loading'
+import Divider from '../divider'
 import { useTheme, widthStyle } from '../theme'
 import { useControllableValue } from '../hooks'
 import { isDef } from '../helpers'
@@ -86,12 +87,12 @@ const PickerView: React.FC<PickerViewProps> = ({
     flexDirection: 'row',
     overflow: 'hidden',
   }
-  const maskTopStyleSummary: StyleProp<ViewStyle> = [
+  const maskTopStyles: StyleProp<ViewStyle> = [
     STYLES.mask,
     {
       top: 0,
       bottom: '50%',
-      borderBottomWidth: 1,
+      flexDirection: 'column-reverse',
       transform: [
         {
           translateY: -markMargin,
@@ -99,12 +100,11 @@ const PickerView: React.FC<PickerViewProps> = ({
       ],
     },
   ]
-  const maskBottomStyleSummary: StyleProp<ViewStyle> = [
+  const maskBottomStyles: StyleProp<ViewStyle> = [
     STYLES.mask,
     {
       top: '50%',
       bottom: 0,
-      borderTopWidth: 1,
       transform: [
         {
           translateY: markMargin,
@@ -118,9 +118,13 @@ const PickerView: React.FC<PickerViewProps> = ({
       {loading ? <Loading style={STYLES.loading} /> : null}
 
       <View style={bodyStyle}>
-        <View style={maskTopStyleSummary} pointerEvents="none" />
+        <View style={maskTopStyles} pointerEvents="none">
+          <Divider />
+        </View>
 
-        <View style={maskBottomStyleSummary} pointerEvents="none" />
+        <View style={maskBottomStyles} pointerEvents="none">
+          <Divider />
+        </View>
 
         {options.map((optionItem, optionIndex) => {
           const _value = (() => {

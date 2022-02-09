@@ -124,7 +124,6 @@ const Cell: React.FC<CellProps> = ({
         </View>
         {divider ? (
           <Divider
-            type="light"
             style={{
               marginLeft: dividerLeftGap,
               marginRight: dividerRightGap,

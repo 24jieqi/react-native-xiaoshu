@@ -28,8 +28,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       right: 0,
       zIndex: 3,
       backgroundColor: themeVar.picker_view_column_mask_background_color,
-      borderColor: themeVar.picker_view_column_mask_border_color,
-      borderWidth: 0,
     },
   })
 }

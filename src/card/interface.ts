@@ -83,6 +83,18 @@ export interface CardProps {
   loading?: boolean
 
   /**
+   * header 区域显示分割线
+   * @default true
+   */
+  headerDivider?: boolean
+
+  /**
+   * footer 区域显示分割线
+   * @default true
+   */
+  footerDivider?: boolean
+
+  /**
    * body 是否有内边距
    * @default true
    */

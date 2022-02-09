@@ -16,8 +16,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      borderBottomWidth: 1,
-      borderBottomColor: themeVar.card_header_bottom_border_color,
       paddingHorizontal: themeVar.card_padding_horizontal,
       minHeight: themeVar.card_m_header_height,
     },
@@ -55,8 +53,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     footer: {
-      borderTopColor: themeVar.card_footer_top_border_color,
-      borderTopWidth: 1,
+      // borderTopColor: themeVar.card_footer_top_border_color,
+      // borderTopWidth: 1,
       paddingHorizontal: themeVar.card_padding_horizontal,
       paddingVertical: themeVar.card_footer_padding_vertical,
     },

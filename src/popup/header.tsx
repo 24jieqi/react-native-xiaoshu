@@ -37,7 +37,7 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
       {...restProps}
       rightExtra={rightExtraJSX}
       showBackArrow={false}
-      bordered={false}
+      divider={false}
     />
   )
 }

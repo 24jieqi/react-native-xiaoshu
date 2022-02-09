@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Skeleton from '../skeleton'
+import Divider from '../divider'
 import { useTheme, widthStyle } from '../theme'
 import { isDef, renderTextLikeJSX } from '../helpers'
 import type { CardProps } from './interface'
@@ -22,6 +23,8 @@ const Card: React.FC<CardProps> = ({
   size = 'm',
   square = false,
   loading = false,
+  headerDivider = true,
+  footerDivider = true,
   bodyPadding = true,
   onPressHeader,
   onLayoutHeader,
@@ -52,14 +55,17 @@ const Card: React.FC<CardProps> = ({
 
   const showHeader = isDef(titleJSX) || hasTitleLeftExtra || isDef(extra)
   const headerJSX = (
-    <View
-      style={[STYLES.header, isS ? STYLES.header_s : null, headerStyle]}
-      onLayout={onLayoutHeader}>
-      <View style={[STYLES.title, titleStyle]}>
-        {titleLeftExtra}
-        {titleJSX}
+    <View>
+      <View
+        style={[STYLES.header, isS ? STYLES.header_s : null, headerStyle]}
+        onLayout={onLayoutHeader}>
+        <View style={[STYLES.title, titleStyle]}>
+          {titleLeftExtra}
+          {titleJSX}
+        </View>
+        {extra}
       </View>
-      {extra}
+      {headerDivider ? <Divider /> : null}
     </View>
   )
 
@@ -81,7 +87,10 @@ const Card: React.FC<CardProps> = ({
       </View>
 
       {isDef(footerJSX) ? (
-        <View style={[STYLES.footer, footerStyle]}>{footerJSX}</View>
+        <>
+          {footerDivider ? <Divider /> : null}
+          <View style={[STYLES.footer, footerStyle]}>{footerJSX}</View>
+        </>
       ) : null}
     </View>
   )
