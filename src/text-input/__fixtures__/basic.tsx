@@ -16,6 +16,7 @@ import {
 
 const BasicTextInput: React.FC = () => {
   const [value, setValue] = useState('')
+  const [value2, setValue2] = useState('')
 
   return (
     <>
@@ -40,6 +41,18 @@ const BasicTextInput: React.FC = () => {
               editable={false}
             />
           }
+        />
+
+        <Cell
+          title="text:受控"
+          value={
+            <TextInput placeholder="受控" value={value2} onChange={setValue2} />
+          }
+        />
+
+        <Cell
+          title="text:受控:不更新"
+          value={<TextInput placeholder="受控:不更新" value={value2} />}
         />
 
         <Cell title="text" value={<TextInput placeholder="内容左对齐" />} />
@@ -249,7 +262,7 @@ const BasicTextInput: React.FC = () => {
               type="digit"
               placeholder="受控使用"
               value={value}
-              onChangeText={t => {
+              onChange={t => {
                 if (+t > 100) {
                   t = '100'
                 }
