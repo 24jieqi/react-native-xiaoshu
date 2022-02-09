@@ -23,7 +23,7 @@ const CellLayout: React.FC = () => {
       />
       <Cell title="标题" value={`多行文本\n多行文本`} center />
       <Cell title="标题" value={`多行文本\n多行文本`} center isLink />
-      <Cell title="最后一项" value="一般不显示分割线" bordered={false} />
+      <Cell title="最后一项" value="一般不显示分割线" divider={false} />
     </>
   )
 }

@@ -35,7 +35,7 @@ const BasicFieldSelector: React.FC = () => {
         onChange={v => {
           setS2(v as number[])
         }}
-        bordered={false}
+        divider={false}
       />
     </CellGroup>
   )

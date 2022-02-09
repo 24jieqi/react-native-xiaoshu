@@ -7,15 +7,15 @@ export const underlay_color: string = 'transparent'
 // export const underlay_color_ddd: string = TOKENS.gray_1
 
 // 分割线颜色
-export const divider_color_dark: string = '#E8E8E8'
-export const divider_color_light: string = '#F2F2F2'
+export const divider_color_dark: string = TOKENS.gray_4
+export const divider_color_light: string = TOKENS.gray_2
 
 // Animation
 export const animation_duration_base: number = 300
 export const animation_duration_fast: number = 200
 
 // Border
-export const border_color = divider_color_dark
+export const border_color = TOKENS.gray_4
 
 // 似乎需要调用的时候传入比较合适
 export const page_header_height: number = 44
@@ -119,7 +119,6 @@ export const cell_group_title_padding_bottom = TOKENS.space_2
 export const cell_group_title_color = TOKENS.gray_8
 export const cell_group_title_font_size = TOKENS.font_size_5
 export const cell_group_title_line_height: number = 28
-export const cell_border_color = divider_color_light
 export const cell_icon_size = TOKENS.font_size_5
 export const cell_icon_color = TOKENS.gray_6
 export const cell_active_color = TOKENS.gray_1

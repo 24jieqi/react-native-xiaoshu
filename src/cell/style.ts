@@ -14,17 +14,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       position: 'relative',
       marginHorizontal: themeVar.cell_group_title_padding_horizontal,
       paddingVertical: (themeVar.cell_mini_height - innerHeight) / 2,
-      borderStyle: 'solid',
-      borderBottomColor: themeVar.cell_border_color,
-      borderBottomWidth: 0,
     },
 
     cell_inner_row: {
       flexDirection: 'row',
-    },
-
-    cell_inner_border: {
-      borderBottomWidth: 1,
     },
 
     title: {

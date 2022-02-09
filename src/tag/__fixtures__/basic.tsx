@@ -23,7 +23,7 @@ const BasicTag: React.FC = () => {
         <Cell
           title="ghost 类型"
           value={<Tag type="ghost">标签</Tag>}
-          bordered={false}
+          divider={false}
         />
       </CellGroup>
       <CellGroup title="size">
@@ -59,7 +59,7 @@ const BasicTag: React.FC = () => {
               </Tag>
             </Space>
           }
-          bordered={false}
+          divider={false}
         />
       </CellGroup>
       <CellGroup title="操作相关">

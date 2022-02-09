@@ -21,7 +21,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="基础用法"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Notify('基础用法')
           }}
@@ -62,7 +62,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="警告通知"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Notify({
               type: 'warning',
@@ -87,7 +87,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="自定义时长"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Notify({
               message: '自定义时长',
@@ -101,7 +101,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用')
             setState(s => ({

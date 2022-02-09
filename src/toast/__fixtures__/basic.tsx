@@ -132,7 +132,7 @@ const BasicToast: React.FC = () => {
         <Cell
           title="自定义图标"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Toast({
               type: 'icon',
@@ -158,7 +158,7 @@ const BasicToast: React.FC = () => {
         <Cell
           title="底部展示"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Toast({
               message: '提示内容',

@@ -57,7 +57,7 @@ const BasicFieldSwitch: React.FC = () => {
         title="受控:有onChange"
         value={value}
         onChange={setValue}
-        bordered={false}
+        divider={false}
       />
     </CellGroup>
   )

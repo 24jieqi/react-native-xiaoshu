@@ -76,7 +76,7 @@ const ActionSheetBase: React.FC = () => {
         <Cell
           title="展示描述信息"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             ActionSheet({
               actions: ['选项一', '选项二'],
@@ -111,7 +111,7 @@ const ActionSheetBase: React.FC = () => {
         <Cell
           title="选项状态"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             ActionSheet({
               actions: [

@@ -44,7 +44,7 @@ const BasicIcon: React.FC = () => {
 
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="Fill" bordered={false}>
+      <CellGroup title="Fill">
         <Row>
           {fills.map(key => {
             const IconName = Icon[key]
@@ -60,7 +60,7 @@ const BasicIcon: React.FC = () => {
         </Row>
       </CellGroup>
 
-      <CellGroup title="Outline" bordered={false}>
+      <CellGroup title="Outline">
         <Row>
           {outline.map(key => {
             const IconName = Icon[key]
@@ -76,7 +76,7 @@ const BasicIcon: React.FC = () => {
         </Row>
       </CellGroup>
 
-      <CellGroup title="可点击范围" bordered={false}>
+      <CellGroup title="可点击范围">
         <Row>
           <Col span={3} style={colStyle}>
             <View
@@ -115,7 +115,7 @@ const BasicIcon: React.FC = () => {
         </Row>
       </CellGroup>
 
-      <CellGroup title="部分联动图标" bordered={false}>
+      <CellGroup title="部分联动图标">
         <Row>
           <Col span={3} style={colStyle}>
             <Button

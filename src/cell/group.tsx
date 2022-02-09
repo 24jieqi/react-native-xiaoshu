@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
+import Divider from '../divider'
 import { renderTextLikeJSX, isDef } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
 import type { CellGroupProps } from './interface'
@@ -17,7 +18,8 @@ const CellGroup: React.FC<CellGroupProps> = ({
   style,
   titleTextStyle,
   bodyStyle,
-  bordered = false,
+  bodyTopDivider = false,
+  bodyBottomDivider = false,
   bodyPaddingHorizontal = false,
   onPressTitle,
   onPressTitleText,
@@ -51,11 +53,12 @@ const CellGroup: React.FC<CellGroupProps> = ({
 
       <View
         style={[
-          bordered ? STYLES.body : null,
-          bodyPaddingHorizontal ? STYLES.bodyPaddingHorizontal : null,
+          bodyPaddingHorizontal ? STYLES.body_padding_horizontal : null,
           bodyStyle,
         ]}>
+        {bodyTopDivider ? <Divider /> : null}
         {children}
+        {bodyBottomDivider ? <Divider /> : null}
       </View>
     </>
   )

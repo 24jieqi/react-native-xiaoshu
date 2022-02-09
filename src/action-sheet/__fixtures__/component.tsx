@@ -24,7 +24,7 @@ const ActionSheetComponent: React.FC = () => {
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用 -> show')
             setState(s => ({

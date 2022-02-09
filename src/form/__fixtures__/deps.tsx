@@ -26,7 +26,7 @@ const BasicFormDeps: React.FC = () => {
             required
             title="密码"
             placeholder="请输入密码"
-            bordered={false}
+            divider={false}
           />
         </Form.Item>
       </CellGroup>

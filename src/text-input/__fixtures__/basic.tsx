@@ -258,7 +258,7 @@ const BasicTextInput: React.FC = () => {
               }}
             />
           }
-          bordered={false}
+          divider={false}
         />
       </CellGroup>
 

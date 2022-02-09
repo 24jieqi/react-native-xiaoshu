@@ -27,7 +27,7 @@ const BasicFieldText: React.FC = () => {
           Toast('点击选择后设置新值')
         }}
         isLink
-        bordered={false}
+        divider={false}
       />
     </CellGroup>
   )

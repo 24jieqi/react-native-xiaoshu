@@ -22,7 +22,7 @@ const CellGroups: React.FC = () => {
         }}>
         <Cell title="标题" value="显示文案" />
         <Cell required title="必填" value="显示文案" />
-        <Cell title="最后一项" value="一般不显示分割线" bordered={false} />
+        <Cell title="最后一项" value="一般不显示分割线" divider={false} />
       </CellGroup>
 
       <View
@@ -30,10 +30,11 @@ const CellGroups: React.FC = () => {
         <CellGroup
           title="内容区域有上下分割线"
           titleTextStyle={{ color: '#f30', backgroundColor: '#666' }}
-          bordered>
+          bodyTopDivider
+          bodyBottomDivider>
           <Cell title="标题" value="显示文案" />
           <Cell required title="必填" value="显示文案" />
-          <Cell title="最后一项" value="一般不显示分割线" bordered={false} />
+          <Cell title="最后一项" value="一般不显示分割线" divider={false} />
         </CellGroup>
       </View>
     </>

@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native'
 
 import { CellGroup } from '@fruits-chain/react-native-xiaoshu'
 import CellBase from './base'
+import CellDivider from './divider'
 import CellLayout from './layout'
 import CellExtra from './extra'
 import CellGroups from './group'
@@ -12,6 +13,10 @@ const BasicCell: React.FC = () => {
     <ScrollView>
       <CellGroup title="基础用法">
         <CellBase />
+      </CellGroup>
+
+      <CellGroup title="分割线">
+        <CellDivider />
       </CellGroup>
 
       <CellGroup title="排版布局">

@@ -81,7 +81,7 @@ const CellExtra: React.FC = () => {
           </Tag>
         }
       />
-      <Cell title="最后一项" value="一般不显示分割线" bordered={false} />
+      <Cell title="最后一项" value="一般不显示分割线" divider={false} />
     </>
   )
 }

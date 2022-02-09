@@ -248,7 +248,7 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
                     onPress={() => {
                       navigation.navigate(subitem.name)
                     }}
-                    bordered={index + 1 !== item.datas.length}
+                    divider={index + 1 !== item.datas.length}
                   />
                 )
               })}

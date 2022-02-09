@@ -154,7 +154,7 @@ const BasicActionSheet: React.FC = () => {
         <Cell
           title="超过一屏"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             const v: SelectorOption[] = []
 
@@ -184,7 +184,7 @@ const BasicActionSheet: React.FC = () => {
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用 -> show')
             setState(s => ({

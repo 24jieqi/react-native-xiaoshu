@@ -161,7 +161,7 @@ const Collapse: React.FC<CollapseProps> = ({
         titleTextStyle={[STYLES.title_text, titleTextStyle]}
         valueExtra={titleExtraJSX}
         onPress={onPressTitle}
-        bordered={headerDivider}
+        divider={headerDivider}
       />
 
       {ctxJSX}

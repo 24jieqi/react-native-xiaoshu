@@ -37,7 +37,7 @@ const BasicFormList: React.FC = () => {
             required
             title="用户名"
             placeholder="请输入用户名"
-            bordered={false}
+            divider={false}
           />
         </Form.Item>
 
@@ -94,7 +94,7 @@ const BasicFormList: React.FC = () => {
                           required
                           title="城市"
                           placeholder="请输入城市"
-                          bordered={false}
+                          divider={false}
                         />
                       </Form.Item>
                     </CellGroup>

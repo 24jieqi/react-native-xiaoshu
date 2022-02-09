@@ -106,7 +106,7 @@ const BasicSwitch: React.FC = () => {
       <ButtonBar alone>
         <Cell
           title="单元格"
-          bordered={false}
+          divider={false}
           value={
             <Switch
               value={state}

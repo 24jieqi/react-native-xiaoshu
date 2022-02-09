@@ -112,7 +112,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="确认弹窗:自定义颜色、文案"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Dialog.confirm({
               title: '提示',
@@ -254,7 +254,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="数字"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Dialog.input({
               title: '输入框？',
@@ -273,7 +273,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用')
             setState(s => ({

@@ -35,10 +35,16 @@ export type CellGroupProps = {
   bodyStyle?: StyleProp<ViewStyle>
 
   /**
-   * 是否显示 body 区域上下边框
+   * 是否显示 body 区域上分割线
    * @default false
    */
-  bordered?: boolean
+  bodyTopDivider?: boolean
+
+  /**
+   * 是否显示 body 区域上分割线
+   * @default false
+   */
+  bodyBottomDivider?: boolean
 
   /**
    * body 区域左右有内边距
@@ -110,10 +116,22 @@ export interface CellPrivateProps {
   contentStyle?: StyleProp<ViewStyle>
 
   /**
-   * 是否显示内边框
+   * 是否显示分割线
    * @default true
    */
-  bordered?: boolean
+  divider?: boolean
+
+  /**
+   * 分割线左侧边距
+   * @default cell_group_title_padding_horizontal
+   */
+  dividerLeftGap?: number
+
+  /**
+   * 分割线左侧边距
+   * @default cell_group_title_padding_horizontal
+   */
+  dividerRightGap?: number
 
   /**
    * 是否展示右侧箭头

@@ -195,7 +195,7 @@ const BasicNumberInput: React.FC = () => {
               textAlign="right"
             />
           }
-          bordered={false}
+          divider={false}
         />
       </CellGroup>
       <CellGroup title="其他用法">

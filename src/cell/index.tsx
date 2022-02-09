@@ -2,9 +2,10 @@ import React, { memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { Text, View, TouchableHighlight } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
+import Divider from '../divider'
 import { getArrowOutline } from '../icon/helper/arrow'
-import { renderTextLikeJSX } from '../helpers'
+import { useTheme, widthStyle } from '../theme'
+import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import { createStyles } from './style'
 import type { CellProps } from './interface'
 
@@ -23,7 +24,9 @@ const Cell: React.FC<CellProps> = ({
   valueTextStyle,
   valueExtra,
   contentStyle,
-  bordered = true,
+  divider = true,
+  dividerLeftGap,
+  dividerRightGap,
   isLink = false,
   onPressLink,
   center = false,
@@ -42,7 +45,15 @@ const Cell: React.FC<CellProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
   // 一定要绑定 Press 事件才有这个效果
-  underlayColor = underlayColor || THEME_VAR.cell_active_color
+  underlayColor = getDefaultValue(underlayColor, THEME_VAR.cell_active_color)
+  dividerLeftGap = getDefaultValue(
+    dividerLeftGap,
+    THEME_VAR.cell_group_title_padding_horizontal,
+  )
+  dividerRightGap = getDefaultValue(
+    dividerRightGap,
+    THEME_VAR.cell_group_title_padding_horizontal,
+  )
 
   if (vertical) {
     textAlign = 'left'
@@ -92,25 +103,35 @@ const Cell: React.FC<CellProps> = ({
       {...restProps}
       underlayColor={underlayColor}
       style={[STYLES.cell, style]}>
-      <View
-        style={[
-          STYLES.cell_inner,
-          bordered ? STYLES.cell_inner_border : null,
-          vertical ? null : STYLES.cell_inner_row,
-          innerStyle,
-        ]}>
-        <View style={[STYLES.title, centerStyle, titleStyle]}>
-          {requiredJSX}
-          {titleExtra}
-          {titleJSX}
-        </View>
+      <>
+        <View
+          style={[
+            STYLES.cell_inner,
+            vertical ? null : STYLES.cell_inner_row,
+            innerStyle,
+          ]}>
+          <View style={[STYLES.title, centerStyle, titleStyle]}>
+            {requiredJSX}
+            {titleExtra}
+            {titleJSX}
+          </View>
 
-        {vertical ? (
-          <View style={[STYLES.content, contentStyle]}>{ctxJSX}</View>
-        ) : (
-          ctxJSX
-        )}
-      </View>
+          {vertical ? (
+            <View style={[STYLES.content, contentStyle]}>{ctxJSX}</View>
+          ) : (
+            ctxJSX
+          )}
+        </View>
+        {divider ? (
+          <Divider
+            type="light"
+            style={{
+              marginLeft: dividerLeftGap,
+              marginRight: dividerRightGap,
+            }}
+          />
+        ) : null}
+      </>
     </TouchableHighlight>
   )
 }
