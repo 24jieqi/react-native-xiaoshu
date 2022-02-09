@@ -15,7 +15,7 @@ import {
 
 const formatterTo = (t: string, sign?: string) => {
   !sign && (sign = ',')
-  var parts = t.split('.')
+  var parts = (t || '').split('.')
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sign)
   return parts.join('.')
 }
@@ -60,12 +60,12 @@ const BasicNumberInput: React.FC = () => {
         />
 
         <Cell
-          title="默认值:小数限制"
+          title="默认值:4位小数限制"
           value={
             <NumberInput
               type="number"
               placeholder="请输入"
-              limitDecimals={1}
+              limitDecimals={4}
               onChange={consoleNum}
             />
           }
