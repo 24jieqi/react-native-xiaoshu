@@ -21,35 +21,35 @@ const BasicButtonBar: React.FC = () => {
             safeAreaInsetBottom={false}
             buttons={[
               {
-                text: '主要按钮',
+                text: '主要按钮1',
                 type: 'primary',
                 onPress: () => {
                   console.log('??')
                 },
               },
               {
-                text: '次要按钮',
+                text: '次要按钮2',
                 type: 'hazy',
                 onPress: () => {
                   console.log('??')
                 },
               },
               {
-                text: '次要按钮',
+                text: '次要按钮3',
                 type: 'hazy',
                 onPress: () => {
                   console.log('??')
                 },
               },
               {
-                text: '次要按钮',
+                text: '次要按钮4',
                 type: 'primary',
                 onPress: () => {
                   console.log('??')
                 },
               },
               {
-                text: '次要按钮',
+                text: '次要按钮5',
                 type: 'primary',
                 onPress: () => {
                   console.log('??')
@@ -62,21 +62,21 @@ const BasicButtonBar: React.FC = () => {
             safeAreaInsetBottom={false}
             buttons={[
               {
-                text: '主要按钮',
+                text: '主要按钮1',
                 type: 'primary',
                 onPress: () => {
                   console.log('??')
                 },
               },
               {
-                text: '次要按钮',
+                text: '次要按钮2',
                 type: 'hazy',
                 onPress: () => {
                   console.log('??')
                 },
               },
               {
-                text: '次要按钮',
+                text: '次要按钮3次要按钮3',
                 type: 'hazy',
                 onPress: () => {
                   console.log('??')

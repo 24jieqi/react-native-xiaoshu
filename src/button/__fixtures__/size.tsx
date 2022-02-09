@@ -17,7 +17,7 @@ const ButtonSize: React.FC = () => {
 
   return (
     <CellGroup title="按钮尺寸" bodyPaddingHorizontal>
-      <Space>
+      <Space tail>
         <Button
           type="primary"
           size="xl"
@@ -72,8 +72,11 @@ const ButtonSize: React.FC = () => {
         />
       </Space>
       <Space>
-        <Button text="default" />
+        <Button round size="xs" text="round" />
+        <Button round size="s" text="round" />
         <Button round text="round" />
+        <Button round size="l" text="round" />
+        <Button round size="xl" text="round" />
         <Button square text="square" />
       </Space>
     </CellGroup>
