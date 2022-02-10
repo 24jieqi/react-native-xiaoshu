@@ -5,13 +5,7 @@
 
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
-import {
-  CheckboxIcon,
-  Checkbox,
-  Icon,
-  Card,
-  Space,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Checkbox, Icon, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCheckbox: React.FC = () => {
   const [value, setValue] = useState(true)
@@ -21,8 +15,8 @@ const BasicCheckbox: React.FC = () => {
       <Space tail head>
         <Card title="基础用法" square>
           <Space>
-            <CheckboxIcon />
-            <CheckboxIcon active />
+            <Checkbox.Icon />
+            <Checkbox.Icon active />
             <Checkbox
               label="设么啊"
               onChange={v => {
@@ -48,8 +42,8 @@ const BasicCheckbox: React.FC = () => {
 
         <Card title="禁用状态" square>
           <Space>
-            <CheckboxIcon disabled />
-            <CheckboxIcon active disabled />
+            <Checkbox.Icon disabled />
+            <Checkbox.Icon active disabled />
             <Checkbox disabled label="设么啊" />
             <Checkbox disabled defaultValue label="设么啊true" />
           </Space>
@@ -61,7 +55,7 @@ const BasicCheckbox: React.FC = () => {
 
         <Card title="自定义大小" square>
           <Space>
-            <CheckboxIcon active size={30} />
+            <Checkbox.Icon active size={30} />
             <Checkbox
               defaultValue={true}
               iconSize={30}

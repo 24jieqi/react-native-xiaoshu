@@ -26,7 +26,6 @@ export { default as Cell } from './cell'
 
 export type { CheckboxIconProps, CheckboxProps } from './checkbox/interface'
 export { default as Checkbox } from './checkbox'
-export { default as CheckboxIcon } from './checkbox/icon'
 
 export type { CollapseProps } from './collapse/interface'
 export { default as Collapse } from './collapse'
