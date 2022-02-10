@@ -46,9 +46,7 @@ export type {
   DropdownItemOption,
   DropdownTextProps,
 } from './dropdown/interface'
-export { default as DropdownMenu } from './dropdown/menu'
-export { default as DropdownItem } from './dropdown/item'
-export { default as DropdownText } from './dropdown/text'
+export { default as Dropdown } from './dropdown'
 
 export type { EmptyProps } from './empty/interface'
 export { default as Empty } from './empty'
