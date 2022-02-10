@@ -6,7 +6,7 @@ import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Result from '../result'
-import { ResultIconBox } from '../result/icons'
+import ResultIconBox from '../result/icons/box'
 import { useTheme, widthStyle } from '../theme'
 
 import type { SidebarProps } from './interface'

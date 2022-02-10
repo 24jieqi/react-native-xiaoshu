@@ -8,10 +8,6 @@ import { ScrollView } from 'react-native'
 
 import {
   Result,
-  ResultIconEmpty,
-  ResultIconBox,
-  ResultIconWarning,
-  ResultIconError,
   Icon,
   Button,
   Card,
@@ -90,7 +86,7 @@ const BasicResult: React.FC = () => {
             status="warning"
             subtitle="恭喜答对了"
             renderIcon={() => {
-              return <ResultIconEmpty />
+              return <Result.IconEmpty />
             }}
           />
         </Card>
@@ -100,7 +96,7 @@ const BasicResult: React.FC = () => {
             status="warning"
             subtitle="恭喜答对了"
             renderIcon={() => {
-              return <ResultIconBox />
+              return <Result.IconBox />
             }}
           />
         </Card>
@@ -110,7 +106,7 @@ const BasicResult: React.FC = () => {
             status="warning"
             subtitle="恭喜答对了"
             renderIcon={() => {
-              return <ResultIconWarning />
+              return <Result.IconWarning />
             }}
           />
         </Card>
@@ -120,7 +116,7 @@ const BasicResult: React.FC = () => {
             status="warning"
             subtitle="恭喜答对了"
             renderIcon={() => {
-              return <ResultIconError />
+              return <Result.IconError />
             }}
           />
         </Card>
