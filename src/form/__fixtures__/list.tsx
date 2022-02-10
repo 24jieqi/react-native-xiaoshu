@@ -5,26 +5,27 @@
 
 import React from 'react'
 import {
-  CellGroup,
+  Card,
   Form,
   Field,
   Button,
   Toast,
   Dialog,
   Icon,
+  Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFormList: React.FC = () => {
   const [form] = Form.useForm()
 
   return (
-    <Form
-      form={form}
-      onFinish={values => {
-        console.log(values)
-        Toast(JSON.stringify(values))
-      }}>
-      <CellGroup title="List">
+    <Card title="List" square>
+      <Form
+        form={form}
+        onFinish={values => {
+          console.log(values)
+          Toast(JSON.stringify(values))
+        }}>
         <Form.Item
           name="username"
           rules={[
@@ -47,7 +48,7 @@ const BasicFormList: React.FC = () => {
               <>
                 {fields.map((field, fieldIndex) => {
                   return (
-                    <CellGroup
+                    <Card
                       key={field.key}
                       title={`地址 ${fieldIndex + 1}`}
                       extra={
@@ -97,7 +98,7 @@ const BasicFormList: React.FC = () => {
                           divider={false}
                         />
                       </Form.Item>
-                    </CellGroup>
+                    </Card>
                   )
                 })}
                 <Button
@@ -112,9 +113,11 @@ const BasicFormList: React.FC = () => {
           }}
         </Form.List>
 
-        <Button text="提交" type="primary" onPress={form.submit} />
-      </CellGroup>
-    </Form>
+        <Space head>
+          <Button text="提交" type="primary" onPress={form.submit} />
+        </Space>
+      </Form>
+    </Card>
   )
 }
 
