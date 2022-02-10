@@ -7,7 +7,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import PickerView from '../picker-view'
 import type { PickerViewProps } from '../picker-view/interface'
 import Popup from '../popup'
-import PopupHeader from '../popup/header'
 import { useTheme, widthStyle } from '../theme'
 
 import type { PickerProps } from './interface'
@@ -40,7 +39,7 @@ const Picker: React.FC<PickerProps> = ({
   const insets = useSafeAreaInsets()
 
   const headerTitleJSX = (
-    <PopupHeader
+    <Popup.Header
       showClose={false}
       title={title}
       leftExtra={

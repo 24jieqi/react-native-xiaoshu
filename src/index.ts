@@ -111,7 +111,6 @@ export { default as PickerView } from './picker-view'
 
 export type { PopupProps, PopupPosition } from './popup/interface'
 export { default as Popup } from './popup'
-export { default as PopupHeader } from './popup/header'
 
 export { default as Portal } from './portal'
 

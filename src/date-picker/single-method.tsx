@@ -10,7 +10,6 @@ import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
 import { createStyles } from '../picker/style'
 import Popup from '../popup'
-import PopupHeader from '../popup/header'
 import { useTheme, widthStyle } from '../theme'
 
 import type { DatePickerSingleMethodProps, DatePickerAction } from './interface'
@@ -104,7 +103,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
       onPressOverlay={onPressPopupOverlay}
       position="bottom"
       round>
-      <PopupHeader
+      <Popup.Header
         showClose={false}
         title={title}
         leftExtra={

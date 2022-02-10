@@ -19,7 +19,6 @@ import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
 import { createStyles } from '../picker/style'
 import Popup from '../popup'
-import PopupHeader from '../popup/header'
 import Space from '../space'
 import { useTheme, widthStyle } from '../theme'
 
@@ -161,7 +160,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
       onPressOverlay={onPressPopupOverlay}
       position="bottom"
       round>
-      <PopupHeader
+      <Popup.Header
         showClose={false}
         title={title}
         leftExtra={

@@ -7,13 +7,7 @@ import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
 import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu'
-import {
-  Popup,
-  PopupHeader,
-  Button,
-  Card,
-  Space,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Popup, Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const Styles = StyleSheet.create({
   hint: {
@@ -39,9 +33,9 @@ const BasicPopup: React.FC = () => {
   return (
     <ScrollView>
       <Space head>
-        <PopupHeader title="弹窗头部" />
+        <Popup.Header title="弹窗头部" />
 
-        <PopupHeader
+        <Popup.Header
           title="弹窗头部"
           leftExtra={<Text>左侧内容</Text>}
           rightExtra={<Text>右侧内容</Text>}
@@ -136,7 +130,7 @@ const BasicPopup: React.FC = () => {
           return true
         }}
         round>
-        <PopupHeader
+        <Popup.Header
           title="这里是一个标题"
           onClose={() => {
             setState(s => ({
