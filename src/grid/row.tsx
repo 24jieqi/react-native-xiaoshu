@@ -11,17 +11,17 @@ import STYLES from './style'
  * @description 一组单元格。
  */
 const Row: React.FC<RowProps> = ({
-  gutter = 0,
+  gap = 0,
   style,
   justify,
   align,
   ...restProps
 }) => {
-  const ctx = useMemo(() => ({ gutter }), [gutter])
+  const ctx = useMemo(() => ({ gap }), [gap])
   const rowStyles: StyleProp<ViewStyle> = [
     STYLES.row,
     {
-      marginHorizontal: -(+gutter / 2),
+      marginHorizontal: -(+gap / 2),
       justifyContent: justify,
       alignItems: align,
     },

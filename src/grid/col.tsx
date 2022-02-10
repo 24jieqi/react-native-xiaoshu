@@ -12,7 +12,7 @@ const BASE_SPAN_WIDTH = 100 / 24
  * @description 每个子单元格。
  */
 const Col: React.FC<ColProps> = ({ style, span, offset = 0, ...restProps }) => {
-  const { gutter = 0 } = useRow()
+  const { gap = 0 } = useRow()
   const width = `${+span * BASE_SPAN_WIDTH}%`
   const left = `${+offset * BASE_SPAN_WIDTH}%`
 
@@ -21,7 +21,7 @@ const Col: React.FC<ColProps> = ({ style, span, offset = 0, ...restProps }) => {
       flexGrow: 0,
       flexShrink: 0,
       flexBasis: width,
-      paddingHorizontal: +gutter / 2,
+      paddingHorizontal: +gap / 2,
       marginLeft: left,
     },
     style,

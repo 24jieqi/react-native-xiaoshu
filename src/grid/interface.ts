@@ -4,7 +4,7 @@ export interface RowProps extends ViewProps {
   /**
    * 列元素之间的间距
    */
-  gutter?: number
+  gap?: number
 
   /**
    * 主轴对齐方式
@@ -18,7 +18,7 @@ export interface RowProps extends ViewProps {
 }
 
 export interface RowContextState {
-  gutter?: RowProps['gutter']
+  gap?: RowProps['gap']
 }
 
 export interface ColProps extends ViewProps {

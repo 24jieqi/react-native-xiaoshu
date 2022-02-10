@@ -50,7 +50,7 @@ const BasicGrid: React.FC = () => {
       </Cell.Group>
 
       <Cell.Group title="区块间隔">
-        <Row gutter={12}>
+        <Row gap={12}>
           <Col span={8}>
             <Text style={Styles.card}>fsd</Text>
           </Col>
