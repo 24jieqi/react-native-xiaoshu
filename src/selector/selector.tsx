@@ -9,14 +9,15 @@ import {
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import Popup from '../popup/popup'
-import PopupHeader from '../popup/header'
-import Empty from '../empty'
 import Button from '../button'
 import CheckboxIcon from '../checkbox/icon'
-import { SuccessOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
+import Empty from '../empty'
 import { getDefaultValue } from '../helpers'
+import { SuccessOutline } from '../icon'
+import PopupHeader from '../popup/header'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { SelectorProps, SelectorValue } from './interface'
 import { createStyles } from './style'
 

@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
-import Skeleton from '../skeleton'
 import Divider from '../divider'
-import { useTheme, widthStyle } from '../theme'
 import { isDef, renderTextLikeJSX } from '../helpers'
+import Skeleton from '../skeleton'
+import { useTheme, widthStyle } from '../theme'
+
 import type { CardProps } from './interface'
 import { createStyles } from './style'
 

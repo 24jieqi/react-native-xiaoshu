@@ -2,11 +2,12 @@ import React, { memo } from 'react'
 import { View, TouchableOpacity } from 'react-native'
 
 import Divider from '../divider'
+import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
 import { ArrowLeftOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
-import { createStyles } from './style'
+
 import type { NavBarProps } from './interface'
+import { createStyles } from './style'
 
 const BACK_ARROW_HIT_SLOP = {
   left: 10,

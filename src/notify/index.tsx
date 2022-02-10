@@ -1,6 +1,7 @@
 import React, { memo, createRef } from 'react'
 
 import Portal from '../portal'
+
 import type { NotifyInstance, NotifyMethods, NotifyOptions } from './interface'
 import NotifyView from './notify'
 import NotifyMethod from './notify-method'

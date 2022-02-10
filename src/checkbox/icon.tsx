@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
 
-import { useTheme } from '../theme'
-import { CircleOutline, CheckedFill } from '../icon'
 import { getDefaultValue } from '../helpers'
+import { CircleOutline, CheckedFill } from '../icon'
+import { useTheme } from '../theme'
+
 import type { CheckboxIconProps } from './interface'
 
 const CheckboxIcon: React.FC<CheckboxIconProps> = ({

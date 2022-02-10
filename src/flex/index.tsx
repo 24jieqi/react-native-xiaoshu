@@ -1,6 +1,7 @@
 import React from 'react'
 import type { FlexStyle } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
+
 import FlexItem from './flex-item'
 import type { FlexProps, FlexAlign, FlexJustify } from './interface'
 

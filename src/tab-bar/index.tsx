@@ -2,9 +2,9 @@ import React, { memo } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 import BottomBar from '../bottom-bar'
-import { useTheme, widthStyle } from '../theme'
-import { useControllableValue } from '../hooks'
 import { getDefaultValue } from '../helpers'
+import { useControllableValue } from '../hooks'
+import { useTheme, widthStyle } from '../theme'
 
 import type { TabBarProps, TabValue } from './interface'
 import { createStyles } from './style'

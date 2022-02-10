@@ -8,17 +8,18 @@ import {
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import Portal from '../portal'
+import Cell from '../cell'
+import { getDefaultValue } from '../helpers'
+import { useControllableValue } from '../hooks'
+import useState from '../hooks/useStateUpdate'
+import IconSuccessOutline from '../icon/success'
 import type { PopupPosition } from '../popup/interface'
 import Popup from '../popup/popup'
-import Cell from '../cell'
-import IconSuccessOutline from '../icon/success'
-import useState from '../hooks/useStateUpdate'
-import { useControllableValue } from '../hooks'
-import { getDefaultValue } from '../helpers'
+import Portal from '../portal'
+
 import { useDropdownConfig } from './context'
-import DropdownText from './text'
 import type { DropdownItemProps, DropdownItemOption } from './interface'
+import DropdownText from './text'
 
 const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' }
 

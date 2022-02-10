@@ -1,8 +1,9 @@
 import React, { useRef, memo } from 'react'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue } from '../helpers'
+import { useTheme } from '../theme'
+
 import useLoop from './useLoop'
 
 export interface SpinnerProps {

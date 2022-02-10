@@ -1,9 +1,10 @@
 import React from 'react'
 
 import Portal from '../portal'
+
 import type { DatePickerInstance } from './interface'
-import DatePickerSingleMethodView from './single-method'
 import DatePickerRangeMethodView from './range-method'
+import DatePickerSingleMethodView from './single-method'
 
 const DatePicker: DatePickerInstance = opts => {
   return new Promise(resolve => {

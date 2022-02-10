@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import Portal from '../portal'
+
 import type { PopupProps } from './interface'
 import Popup from './popup'
 

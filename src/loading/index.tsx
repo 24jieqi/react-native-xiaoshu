@@ -1,10 +1,11 @@
 import React, { isValidElement, memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue, isDef } from '../helpers'
-import type { LoadingProps } from './interface'
+import { useTheme } from '../theme'
+
 import Circular from './circular'
+import type { LoadingProps } from './interface'
 import Spinner from './spinner'
 
 /**

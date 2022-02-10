@@ -10,8 +10,8 @@ import type { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface'
 import type { ListProps } from 'rc-field-form/lib/List'
 
 import InternalForm from './form'
-import useForm from './useForm'
 import type { FormProps, FormItemProps } from './interface'
+import useForm from './useForm'
 
 type InternalFormType = typeof InternalForm
 

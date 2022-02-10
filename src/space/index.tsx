@@ -2,8 +2,9 @@ import React, { memo, Children } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
-import { useTheme } from '../theme'
 import { isDef } from '../helpers'
+import { useTheme } from '../theme'
+
 import type { SpaceProps } from './interface'
 
 const NO_GAP = 0

@@ -3,8 +3,9 @@ import { View, Text, Image } from 'react-native'
 
 import { PlusOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import type { UploaderProps, UploaderValue } from './interface'
+
 import UploaderImage from './image'
+import type { UploaderProps, UploaderValue } from './interface'
 import { createStyles } from './style'
 
 /**

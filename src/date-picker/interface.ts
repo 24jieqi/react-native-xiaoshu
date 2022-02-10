@@ -1,8 +1,8 @@
-import type { PopupPropsCommon } from '../popup/interface'
 import type {
   DatePickerViewProps,
   DatePickerColumnMode,
 } from '../date-picker-view/interface'
+import type { PopupPropsCommon } from '../popup/interface'
 
 export type DatePickerAction = 'cancel' | 'confirm' | 'overlay'
 

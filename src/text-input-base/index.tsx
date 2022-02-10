@@ -16,9 +16,6 @@ import type {
 } from 'react-native'
 import { View, TextInput as RNTextInput, Platform } from 'react-native'
 
-import IconSvgCross from '../icon/cross'
-import { useTheme } from '../theme'
-import { usePersistFn, useUpdateEffect } from '../hooks'
 import {
   getDefaultValue,
   renderTextLikeJSX,
@@ -26,8 +23,12 @@ import {
   isValue,
   isDef,
 } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn, useUpdateEffect } from '../hooks'
+import IconSvgCross from '../icon/cross'
+import { useTheme } from '../theme'
+
 import type { TextInputBaseProps } from './interface'
+import { createStyles } from './style'
 
 const defaultFormatter = (t: string) => t
 

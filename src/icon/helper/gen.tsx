@@ -3,8 +3,6 @@ import type { ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 import { Svg } from 'react-native-svg'
 
-import type { ThemeVarType } from '../../theme'
-import { useTheme } from '../../theme'
 import {
   getDefaultValue,
   hex2rgba,
@@ -12,7 +10,10 @@ import {
   omitTouchablePropsField,
   isDef,
 } from '../../helpers'
+import type { ThemeVarType } from '../../theme'
+import { useTheme } from '../../theme'
 import type { IconCommonProps } from '../interface'
+
 import * as helper from './'
 
 type OutlineRender = (

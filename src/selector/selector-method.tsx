@@ -1,7 +1,8 @@
 import React, { useEffect, memo } from 'react'
 
-import useState from '../hooks/useStateUpdate'
 import { usePersistFn } from '../hooks'
+import useState from '../hooks/useStateUpdate'
+
 import type {
   SelectorMethodProps,
   SelectorValue,

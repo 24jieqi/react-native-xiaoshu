@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
 
 import Portal from '../portal'
-import type { DialogInstance } from './interface'
+
 import DialogView from './dialog'
-import DialogMethodView from './dialog-method'
 import DialogInputView from './dialog-input'
+import DialogMethodView from './dialog-method'
+import type { DialogInstance } from './interface'
 
 /**
  * 对话框

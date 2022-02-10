@@ -2,11 +2,12 @@ import React, { memo } from 'react'
 import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, TouchableOpacity } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
-import { getArrowFill } from '../icon/helper/arrow'
 import { getDefaultValue } from '../helpers'
-import type { DropdownTextProps } from './interface'
+import { getArrowFill } from '../icon/helper/arrow'
+import { useTheme, widthStyle } from '../theme'
+
 import { useDropdownConfig } from './context'
+import type { DropdownTextProps } from './interface'
 import { createStyles } from './style.text'
 
 const DropdownText: React.FC<DropdownTextProps> = ({

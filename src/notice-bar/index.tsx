@@ -2,9 +2,6 @@ import React, { memo, useState, useCallback } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 
-import { CrossOutline, ArrowRightOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
-import { usePersistFn } from '../hooks'
 import {
   getDefaultValue,
   isDef,
@@ -13,8 +10,12 @@ import {
   omitTouchablePropsField,
   noop,
 } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn } from '../hooks'
+import { CrossOutline, ArrowRightOutline } from '../icon'
+import { useTheme, widthStyle } from '../theme'
+
 import type { NoticeBarProps, NoticeBarMode } from './interface'
+import { createStyles } from './style'
 
 const getModeIcon = (mode: NoticeBarMode) => {
   switch (mode) {

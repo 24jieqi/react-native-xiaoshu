@@ -6,8 +6,9 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue, isValue } from '../helpers'
+import { useTheme } from '../theme'
+
 import type { OverlayProps } from './interface'
 
 /**

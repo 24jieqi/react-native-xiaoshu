@@ -1,13 +1,14 @@
 import React, { memo, isValidElement } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 
-import Popup from '../popup/popup'
-import PopupHeader from '../popup/header'
 import Button from '../button'
 import Divider from '../divider'
-import { useTheme, widthStyle } from '../theme'
-import { useSafeHeight } from '../hooks'
 import { isDef } from '../helpers'
+import { useSafeHeight } from '../hooks'
+import PopupHeader from '../popup/header'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { ActionSheetProps } from './interface'
 import { createStyles } from './style'
 

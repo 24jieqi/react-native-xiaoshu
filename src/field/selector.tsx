@@ -2,10 +2,11 @@ import React, { memo } from 'react'
 import { Keyboard } from 'react-native'
 
 import { isArray, isValue } from '../helpers'
-import { useTheme } from '../theme'
-import type { SelectorValue } from '../selector/interface'
-import Selector from '../selector'
 import { usePersistFn } from '../hooks'
+import Selector from '../selector'
+import type { SelectorValue } from '../selector/interface'
+import { useTheme } from '../theme'
+
 import type { FieldSelectorProps } from './interface'
 import FieldText from './text'
 

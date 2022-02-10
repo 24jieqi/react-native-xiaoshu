@@ -2,14 +2,13 @@ import React, { useMemo, useEffect, useState, useRef, memo } from 'react'
 import type { StyleProp, ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
-import Loading from '../loading'
 import Divider from '../divider'
-import { useTheme, widthStyle } from '../theme'
-import { useControllableValue } from '../hooks'
 import { isDef } from '../helpers'
-import type { PickerViewProps, PickerValue, PickerOption } from './interface'
+import { useControllableValue } from '../hooks'
+import Loading from '../loading'
+import { useTheme, widthStyle } from '../theme'
+
 import PickerColumn from './column'
-import { createStyles } from './style'
 import {
   getDataType,
   findDefaultValue,
@@ -17,6 +16,8 @@ import {
   findNextAllColumns,
   buildSelectedValue,
 } from './helper/picker'
+import type { PickerViewProps, PickerValue, PickerOption } from './interface'
+import { createStyles } from './style'
 
 /**
  * 选择器视图

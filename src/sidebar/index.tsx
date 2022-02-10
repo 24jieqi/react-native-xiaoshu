@@ -1,13 +1,14 @@
 import React, { memo } from 'react'
 import { View, Text, ScrollView, TouchableHighlight } from 'react-native'
 
+import Badge from '../badge'
+import { isDef } from '../helpers'
+import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Result from '../result'
 import { ResultIconBox } from '../result/icons'
-import Badge from '../badge'
 import { useTheme, widthStyle } from '../theme'
-import { useControllableValue } from '../hooks'
-import { isDef } from '../helpers'
+
 import type { SidebarProps } from './interface'
 import { createStyles } from './style'
 

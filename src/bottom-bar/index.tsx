@@ -3,8 +3,9 @@ import type { ViewStyle, StyleProp } from 'react-native'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { useTheme } from '../theme'
 import { getDefaultValue } from '../helpers'
+import { useTheme } from '../theme'
+
 import type { BottomBarProps } from './interface'
 
 const BottomBar: React.FC<BottomBarProps> = ({

@@ -1,3 +1,4 @@
+import { isArray } from '../../helpers'
 import type {
   PickerValue,
   PickerOption,
@@ -7,7 +8,6 @@ import type {
   PickerOptionType,
   Column,
 } from '../interface'
-import { isArray } from '../../helpers'
 
 /**
  * 获取当前选项是什么数据

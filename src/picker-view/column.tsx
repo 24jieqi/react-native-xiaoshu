@@ -3,9 +3,10 @@ import { View, Text, PanResponder, Animated } from 'react-native'
 
 import { usePersistFn } from '../hooks'
 import { useTheme, widthStyle } from '../theme'
+
+import { findUsableOptionIndex } from './helper/column'
 import type { PickerViewColumnProps, PickerValue } from './interface'
 import { createStyles } from './style.column'
-import { findUsableOptionIndex } from './helper/column'
 
 /**
  * 选择器 列

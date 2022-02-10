@@ -1,11 +1,12 @@
 import React, { memo, forwardRef } from 'react'
 
+import { getDefaultValue } from '../helpers'
+import { useControllableValue, usePersistFn } from '../hooks'
+import { EyeOutline, EyeCloseOutline } from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { EyeOutline, EyeCloseOutline } from '../icon'
 import { useTheme } from '../theme'
-import { useControllableValue, usePersistFn } from '../hooks'
-import { getDefaultValue } from '../helpers'
+
 import type { PasswordInputProps } from './interface'
 
 /**

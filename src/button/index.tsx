@@ -1,13 +1,14 @@
+import Color from 'color'
 import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
-import Color from 'color'
 
-import { useTheme, widthStyle } from '../theme'
-import Loading from '../loading'
 import { getDefaultValue, isDef } from '../helpers'
-import { createStyles } from './style'
+import Loading from '../loading'
+import { useTheme, widthStyle } from '../theme'
+
 import type { ButtonProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Button 按钮

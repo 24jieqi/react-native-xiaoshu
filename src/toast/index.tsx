@@ -1,6 +1,7 @@
 import React, { createRef } from 'react'
 
 import Portal from '../portal'
+
 import type {
   ToastOptions,
   ToastType,

@@ -2,12 +2,13 @@ import type { PropsWithChildren } from 'react'
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
-import { useControllableValue } from '../hooks'
 import { isDef } from '../helpers'
-import { createStyles } from './style'
+import { useControllableValue } from '../hooks'
+import { useTheme, widthStyle } from '../theme'
+
 import CheckboxIcon from './icon'
 import type { CheckboxProps } from './interface'
+import { createStyles } from './style'
 
 function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   labelTextStyle,

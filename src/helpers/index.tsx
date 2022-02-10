@@ -1,3 +1,5 @@
+import omit from 'lodash/omit'
+import pick from 'lodash/pick'
 import React, { isValidElement } from 'react'
 import type {
   TextStyle,
@@ -7,8 +9,6 @@ import type {
   ViewProps,
 } from 'react-native'
 import { Text } from 'react-native'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
 
 export * from './color'
 export * from './z-index'

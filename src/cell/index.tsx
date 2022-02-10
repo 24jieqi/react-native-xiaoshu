@@ -3,11 +3,12 @@ import type { ViewStyle } from 'react-native'
 import { Text, View, TouchableHighlight } from 'react-native'
 
 import Divider from '../divider'
+import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import { getArrowOutline } from '../icon/helper/arrow'
 import { useTheme, widthStyle } from '../theme'
-import { renderTextLikeJSX, getDefaultValue } from '../helpers'
-import { createStyles } from './style'
+
 import type { CellProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Cell 单元格

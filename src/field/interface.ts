@@ -1,9 +1,10 @@
 import type { StyleProp, TextStyle, ViewStyle } from 'react-native'
+
 import type { CellProps, CellPrivateProps } from '../cell/interface'
-import type { SelectorProps } from '../selector/interface'
-import type { TextInputProps } from '../text-input/interface'
 import type { NumberInputProps } from '../number-input/interface'
+import type { SelectorProps } from '../selector/interface'
 import type { SwitchProps } from '../switch/interface'
+import type { TextInputProps } from '../text-input/interface'
 
 export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**

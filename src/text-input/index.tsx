@@ -27,9 +27,6 @@ import {
   useColorScheme,
 } from 'react-native'
 
-import IconSvgCross from '../icon/cross'
-import { useTheme, widthStyle } from '../theme'
-import { usePersistFn, useControllableValue } from '../hooks'
 import {
   getDefaultValue,
   renderTextLikeJSX,
@@ -38,8 +35,12 @@ import {
   isDef,
   formatNumber,
 } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn, useControllableValue } from '../hooks'
+import IconSvgCross from '../icon/cross'
+import { useTheme, widthStyle } from '../theme'
+
 import type { TextInputProps, TextInputInstance } from './interface'
+import { createStyles } from './style'
 
 const defaultFormatter = <T,>(t: T): T => t
 

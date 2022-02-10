@@ -2,13 +2,14 @@ import React, { useRef, useCallback, useEffect, memo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { Animated, View } from 'react-native'
 
-import { getArrowOutline } from '../icon/helper/arrow'
+import Card from '../card'
 import Cell from '../cell'
 import Divider from '../divider'
-import Card from '../card'
-import { useTheme, widthStyle } from '../theme'
-import { usePersistFn, useControllableValue } from '../hooks'
 import { easing, isValue, getDefaultValue } from '../helpers'
+import { usePersistFn, useControllableValue } from '../hooks'
+import { getArrowOutline } from '../icon/helper/arrow'
+import { useTheme, widthStyle } from '../theme'
+
 import type { CollapseProps } from './interface'
 import { createStyles } from './style'
 

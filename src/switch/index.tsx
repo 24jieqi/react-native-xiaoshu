@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, Animated } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
-import LoadingCircular from '../loading/circular'
-import { useControllableValue } from '../hooks'
 import { getDefaultValue, isValue, callInterceptor } from '../helpers'
-import { createStyles } from './style'
+import { useControllableValue } from '../hooks'
+import LoadingCircular from '../loading/circular'
+import { useTheme, widthStyle } from '../theme'
+
 import type { SwitchProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Switch 开关

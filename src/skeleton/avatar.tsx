@@ -3,8 +3,9 @@ import type { ViewStyle } from 'react-native'
 import { PlaceholderMedia } from 'rn-placeholder'
 
 import { useTheme } from '../theme'
-import type { SkeletonAvatarProps } from './interface'
+
 import SkeletonActive from './active'
+import type { SkeletonAvatarProps } from './interface'
 
 const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
   active = true,

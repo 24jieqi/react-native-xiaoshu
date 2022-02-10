@@ -1,5 +1,5 @@
-import * as Icon from './icon'
 import * as helpers from './helpers'
+import * as Icon from './icon'
 
 export { Icon, helpers }
 

@@ -4,6 +4,7 @@ import { View, TouchableWithoutFeedback } from 'react-native'
 import Divider from '../divider'
 import { renderTextLikeJSX, isDef } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
+
 import type { CellGroupProps } from './interface'
 import { createStyles } from './style.group'
 

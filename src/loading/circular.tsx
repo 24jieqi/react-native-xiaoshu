@@ -3,8 +3,9 @@ import type { ViewStyle } from 'react-native'
 import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 
-import { useTheme } from '../theme'
 import { getDefaultValue } from '../helpers'
+import { useTheme } from '../theme'
+
 import useLoop from './useLoop'
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle)

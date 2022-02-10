@@ -1,13 +1,14 @@
 import React, { useRef, useCallback, memo, forwardRef } from 'react'
 import { View } from 'react-native'
 
+import Button from '../button'
+import { getDefaultValue, isValue, noop } from '../helpers'
+import { usePersistFn } from '../hooks'
+import { SearchOutline, ArrowLeftOutline } from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import Button from '../button'
-import { SearchOutline, ArrowLeftOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import { usePersistFn } from '../hooks'
-import { getDefaultValue, isValue, noop } from '../helpers'
+
 import type { SearchProps } from './interface'
 import { createStyles } from './style'
 

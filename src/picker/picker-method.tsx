@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback, useRef, memo } from 'react'
 
-import type { PickerValue, Column } from '../picker-view/interface'
+import { callInterceptor } from '../helpers'
+import { usePersistFn } from '../hooks'
 import {
   getDataType,
   buildOptions,
   buildSelectedValue,
 } from '../picker-view/helper/picker'
-import { usePersistFn } from '../hooks'
-import { callInterceptor } from '../helpers'
+import type { PickerValue, Column } from '../picker-view/interface'
+
 import type { PickerMethodProps, PickerAction } from './interface'
 import Picker from './picker'
 

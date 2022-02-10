@@ -1,9 +1,9 @@
 import React from 'react'
 
-import PickerView from '../picker-view'
 import { useControllableValue } from '../hooks'
-import type { DatePickerViewProps } from './interface'
+import PickerView from '../picker-view'
 
+import type { DatePickerViewProps } from './interface'
 import useDatePicker from './useDatePicker'
 
 const DatePickerView: React.FC<DatePickerViewProps> = ({

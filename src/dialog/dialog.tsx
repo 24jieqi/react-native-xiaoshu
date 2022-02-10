@@ -1,13 +1,14 @@
 import React, { useRef, useCallback, memo, isValidElement } from 'react'
 import { View, Text, Animated } from 'react-native'
 
-import Popup from '../popup/popup'
 import Button from '../button'
-import { useTheme, widthStyle } from '../theme'
-import { usePersistFn } from '../hooks'
 import { getDefaultValue, easing, renderTextLikeJSX, isDef } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn } from '../hooks'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { DialogProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Dialog 弹出框

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Path, G } from 'react-native-svg'
+
 import { genIcon } from './helper/gen'
 
 const IconSearchOutline = genIcon({

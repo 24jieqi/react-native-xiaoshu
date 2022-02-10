@@ -1,4 +1,5 @@
 import type React from 'react'
+
 import type { PopupPropsCommon } from '../popup/interface'
 
 export type ToastType = 'text' | 'loading' | 'success' | 'fail' | 'icon'

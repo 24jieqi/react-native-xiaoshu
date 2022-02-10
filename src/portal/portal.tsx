@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 import React, { Component } from 'react'
+
 import PortalConsumer from './portal-consumer'
 import PortalHost, { portal, PortalContext } from './portal-host'
 

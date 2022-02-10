@@ -1,13 +1,13 @@
 import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
+import { isDef } from '../helpers'
 import { CrossOutline, CrossCircleOutline } from '../icon'
 import LoadingCircular from '../loading/circular'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers'
-import { createStyles } from './style.image'
 
 import type { UploaderImageProps } from './interface'
+import { createStyles } from './style.image'
 
 /**
  * UploaderImage 文件上传的缩略图

@@ -1,5 +1,5 @@
-import type { ButtonProps } from '../button/interface'
 import type { BottomBarProps } from '../bottom-bar/interface'
+import type { ButtonProps } from '../button/interface'
 
 export interface ButtonBarProps extends BottomBarProps {
   /**

@@ -8,13 +8,14 @@ import React, {
 import type { ViewStyle, StyleProp } from 'react-native'
 import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
-import Popup from '../popup/popup'
+import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
-import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
-import { createStyles } from './style'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { ToastProps, ToastMethods } from './interface'
+import { createStyles } from './style'
 
 const Toast = forwardRef<ToastMethods, ToastProps>(
   (

@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import Portal from '../portal'
+
 import type { PickerInstance } from './interface'
 import PickerView from './picker'
 import PickerMethodView from './picker-method'

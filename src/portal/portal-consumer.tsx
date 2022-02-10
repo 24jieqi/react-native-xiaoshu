@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 import type React from 'react'
 import { Component } from 'react'
+
 import type { PortalMethods } from './portal-host'
 
 export type PortalConsumerProps = {

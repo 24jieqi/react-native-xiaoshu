@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import type { TextStyle } from 'react-native'
+
 export * from './tokens'
 import * as TOKENS from './tokens'
 

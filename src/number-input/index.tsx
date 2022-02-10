@@ -4,10 +4,11 @@ import type {
   TextInputEndEditingEventData,
 } from 'react-native'
 
+import { noop, isValue, isDef, formatDecimal } from '../helpers'
+import { usePersistFn, useUpdateEffect } from '../hooks'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { usePersistFn, useUpdateEffect } from '../hooks'
-import { noop, isValue, isDef, formatDecimal } from '../helpers'
+
 import type { NumberInputProps } from './interface'
 
 const parserNumberToString = (n?: number) => `${isDef(n) ? n : ''}`

@@ -2,8 +2,8 @@ import React, { memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { View } from 'react-native'
 
-import type { ColProps } from './interface'
 import { useRow } from './context'
+import type { ColProps } from './interface'
 
 const BASE_SPAN_WIDTH = 100 / 24
 

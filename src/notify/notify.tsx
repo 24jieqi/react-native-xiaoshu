@@ -2,11 +2,12 @@ import React, { isValidElement, memo } from 'react'
 import { View, Text, TouchableWithoutFeedback } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { isDef } from '../helpers'
 import Popup from '../popup/popup'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers'
-import { createStyles } from './style'
+
 import type { NotifyProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Notify 消息提示

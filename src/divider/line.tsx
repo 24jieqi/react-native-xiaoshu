@@ -4,6 +4,7 @@ import { View, useWindowDimensions } from 'react-native'
 import { Line, Svg } from 'react-native-svg'
 
 import { useTheme } from '../theme'
+
 import type { DividerLineProps } from './interface'
 
 /**

@@ -2,8 +2,8 @@ import React, { useMemo, memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { View } from 'react-native'
 
-import type { RowProps } from './interface'
 import RowContext from './context'
+import type { RowProps } from './interface'
 import STYLES from './style'
 
 /**

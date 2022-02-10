@@ -1,12 +1,13 @@
 import React, { useState, useEffect, memo } from 'react'
 
 import { callInterceptor } from '../helpers'
+
+import ActionSheet from './action-sheet'
 import type {
   ActionSheetMethodProps,
   ActionSheetAction,
   Action,
 } from './interface'
-import ActionSheet from './action-sheet'
 
 interface LocalAction extends Action {
   /** 记录谁被点击了 */

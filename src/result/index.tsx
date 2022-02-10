@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
+import { renderTextLikeJSX } from '../helpers'
 import { SuccessOutline, WarningOutline, CrossOutline } from '../icon'
 import Space from '../space'
 import { useTheme, widthStyle } from '../theme'
-import { renderTextLikeJSX } from '../helpers'
+
 import type { ResultProps, ResultStatus } from './interface'
 import { createStyles } from './style'
 

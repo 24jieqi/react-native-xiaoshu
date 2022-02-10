@@ -2,8 +2,9 @@ import React, { useState, useCallback, useEffect, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue } from '../helpers'
+import { useTheme } from '../theme'
+
 import type { ProgressPageProps } from './interface'
 import Progress from './progress'
 

@@ -4,6 +4,7 @@ import { View, Text } from 'react-native'
 
 import { isDef } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
+
 import type { BadgeProps } from './interface'
 import { createStyles } from './style'
 

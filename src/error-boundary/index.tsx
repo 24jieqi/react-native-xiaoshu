@@ -2,9 +2,10 @@ import type { ErrorInfo } from 'react'
 import React, { PureComponent } from 'react'
 import type { ViewStyle } from 'react-native'
 
+import Button from '../button'
 import Result from '../result'
 import { ResultIconError } from '../result/icons'
-import Button from '../button'
+
 import type { ErrorBoundaryProps } from './interface'
 
 type ErrorBoundaryState = {

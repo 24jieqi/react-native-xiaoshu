@@ -2,12 +2,13 @@ import React, { useEffect, useMemo, useRef, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Keyboard } from 'react-native'
 
+import { callInterceptor, isDef, getDefaultValue } from '../helpers'
+import { usePersistFn } from '../hooks'
+import useState from '../hooks/useStateUpdate'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { useTheme } from '../theme'
-import useState from '../hooks/useStateUpdate'
-import { usePersistFn } from '../hooks'
-import { callInterceptor, isDef, getDefaultValue } from '../helpers'
+
 import Dialog from './dialog'
 import type {
   DialogInputProps,

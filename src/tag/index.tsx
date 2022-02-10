@@ -1,11 +1,12 @@
+import Color from 'color'
 import React, { memo, useMemo } from 'react'
 import type { TextStyle, ViewStyle } from 'react-native'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
-import Color from 'color'
 
+import { isDef } from '../helpers'
 import { CrossOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers'
+
 import type { TagProps } from './interface'
 import { createStyles } from './style'
 

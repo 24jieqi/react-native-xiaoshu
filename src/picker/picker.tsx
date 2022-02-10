@@ -1,14 +1,15 @@
+import omit from 'lodash/omit'
+import pick from 'lodash/pick'
 import React, { memo } from 'react'
 import { Text, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
 
+import PickerView from '../picker-view'
+import type { PickerViewProps } from '../picker-view/interface'
 import Popup from '../popup'
 import PopupHeader from '../popup/header'
-import type { PickerViewProps } from '../picker-view/interface'
-import PickerView from '../picker-view'
 import { useTheme, widthStyle } from '../theme'
+
 import type { PickerProps } from './interface'
 import { createStyles } from './style'
 

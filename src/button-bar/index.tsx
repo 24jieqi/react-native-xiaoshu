@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
 
+import ActionSheet from '../action-sheet'
 import BottomBar from '../bottom-bar'
 import Button from '../button'
-import ActionSheet from '../action-sheet'
+import { isArray, noop } from '../helpers'
 import Space from '../space'
 import { useTheme, widthStyle } from '../theme'
-import { isArray, noop } from '../helpers'
+
 import type { ButtonBarProps } from './interface'
 import { createStyles } from './style'
 

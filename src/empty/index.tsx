@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
 
-import { useTheme, widthStyle } from '../theme'
 import { isDef } from '../helpers'
-import ResultIconEmpty from '../result/icons/empty'
 import Result from '../result'
+import ResultIconEmpty from '../result/icons/empty'
+import { useTheme, widthStyle } from '../theme'
+
 import type { EmptyProps } from './interface'
 import { createStyles } from './style'
 

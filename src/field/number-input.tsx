@@ -3,6 +3,7 @@ import React, { memo } from 'react'
 import Cell from '../cell'
 import NumberInput from '../number-input'
 import { useTheme } from '../theme'
+
 import type { FieldNumberInputProps, FieldTextCellPropsUsed } from './interface'
 
 /**
