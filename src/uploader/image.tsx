@@ -1,7 +1,7 @@
 import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
-import { isDef } from '../helpers'
+import { getDefaultValue, isDef } from '../helpers'
 import { CrossOutline, CrossCircleOutline } from '../icon'
 import LoadingCircular from '../loading/circular'
 import { useTheme, widthStyle } from '../theme'
@@ -18,6 +18,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   imageComponent: ImageComponent = Image,
   deletable = true,
   size = 80,
+  gap,
   onPress,
   onPressDelete,
   isUpload,
@@ -25,19 +26,26 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
-  const sizeStyle = useMemo(() => ({ width: size, height: size }), [size])
+
+  // 修正数据
+  gap = getDefaultValue(gap, THEME_VAR.uploader_image_gap)
+
+  const customStyle = useMemo(
+    () => ({ width: size, height: size, marginRight: gap, marginBottom: gap }),
+    [size, gap],
+  )
   const canPress =
     isUpload || (!!filepath && (status === 'done' || status === 'error'))
   return (
     <TouchableOpacity
-      style={[STYLES.image, sizeStyle]}
+      style={[STYLES.image, customStyle]}
       onPress={canPress ? onPress : undefined}
       activeOpacity={canPress ? THEME_VAR.button_active_opacity : 1}>
       {isDef(children) ? (
         children
       ) : (
         <>
-          <ImageComponent style={sizeStyle} source={{ uri: filepath }} />
+          <ImageComponent style={customStyle} source={{ uri: filepath }} />
 
           {deletable && status !== 'loading' ? (
             <CrossOutline

@@ -8,8 +8,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: themeVar.uploader_image_border_radius,
-      marginRight: themeVar.uploader_image_margin_right,
-      marginBottom: themeVar.uploader_image_margin_bottom,
       overflow: 'hidden',
       backgroundColor: themeVar.uploader_image_background_color,
     },

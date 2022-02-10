@@ -101,6 +101,10 @@ const BasicUploader: React.FC = () => {
           />
         </Card>
 
+        <Card title="自定义图片间距" square>
+          <Uploader list={list1} imageGap={4} />
+        </Card>
+
         <Card title="自定义文案" square>
           <Uploader list={list1} uploadText="上传视频" />
         </Card>
