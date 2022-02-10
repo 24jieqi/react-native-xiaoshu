@@ -6,26 +6,28 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { Empty, CellGroup, Icon } from '@fruits-chain/react-native-xiaoshu'
+import { Empty, Card, Space, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="基础用法">
-        <Empty />
-      </CellGroup>
+    <ScrollView>
+      <Space tail head>
+        <Card title="基础用法" square>
+          <Empty />
+        </Card>
 
-      <CellGroup title="自定义文案">
-        <Empty text="真的没有啦~" />
-      </CellGroup>
+        <Card title="自定义文案" square>
+          <Empty text="真的没有啦~" />
+        </Card>
 
-      <CellGroup title="自定义图标">
-        <Empty text="一二三" icon={<Icon.ArrowDownOutline />} />
-      </CellGroup>
+        <Card title="自定义图标" square>
+          <Empty text="一二三" icon={<Icon.ArrowDownOutline />} />
+        </Card>
 
-      <View style={{ height: 500, backgroundColor: '#f5f5f5' }}>
-        <Empty text="占满剩余空间 full" full />
-      </View>
+        <View style={{ height: 500, backgroundColor: '#f5f5f5' }}>
+          <Empty text="占满剩余空间 full" full />
+        </View>
+      </Space>
     </ScrollView>
   )
 }

@@ -6,7 +6,12 @@
 import React, { useState } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
-import { Overlay, Button, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Overlay,
+  Button,
+  Card,
+  Space,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicOverlay: React.FC = () => {
   const [state, setState] = useState<Record<'normal' | 'inset', boolean>>({
@@ -16,18 +21,33 @@ const BasicOverlay: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="简单使用" bodyPaddingHorizontal>
-        <Button
-          text="显示遮罩层 Android 返回关闭"
-          type="primary"
-          onPress={() => {
-            setState(s => ({
-              ...s,
-              normal: true,
-            }))
-          }}
-        />
-      </CellGroup>
+      <Space tail head>
+        <Card title="简单使用" square>
+          <Button
+            text="显示遮罩层 Android 返回关闭"
+            type="primary"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                normal: true,
+              }))
+            }}
+          />
+        </Card>
+
+        <Card title="嵌入内容" square>
+          <Button
+            text="嵌入内容"
+            type="primary"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                inset: true,
+              }))
+            }}
+          />
+        </Card>
+      </Space>
 
       <Overlay
         visible={state.normal}
@@ -46,19 +66,6 @@ const BasicOverlay: React.FC = () => {
           return true
         }}
       />
-
-      <CellGroup title="嵌入内容" bodyPaddingHorizontal>
-        <Button
-          text="嵌入内容"
-          type="primary"
-          onPress={() => {
-            setState(s => ({
-              ...s,
-              inset: true,
-            }))
-          }}
-        />
-      </CellGroup>
 
       <Overlay
         visible={state.inset}

@@ -7,7 +7,6 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 
 import {
-  CellGroup,
   Result,
   ResultIconEmpty,
   ResultIconBox,
@@ -15,105 +14,117 @@ import {
   ResultIconError,
   Icon,
   Button,
+  Card,
+  Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicResult: React.FC = () => {
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="Success">
-        <Result
-          status="success"
-          title="恭喜答对了"
-          subtitle={`嘿嘿嘿\n啊哈哈`}
-        />
-      </CellGroup>
+    <ScrollView>
+      <Space tail head>
+        <Card title="Success" square>
+          <Result
+            status="success"
+            title="恭喜答对了"
+            subtitle={`嘿嘿嘿\n啊哈哈`}
+          />
+        </Card>
 
-      <CellGroup title="Warning">
-        <Result
-          status="warning"
-          title="恭喜答对了"
-          subtitle={`嘿嘿嘿\n啊哈哈`}
-        />
-      </CellGroup>
+        <Card title="Warning" square>
+          <Result
+            status="warning"
+            title="恭喜答对了"
+            subtitle={`嘿嘿嘿\n啊哈哈`}
+          />
+        </Card>
 
-      <CellGroup title="Error">
-        <Result status="error" title="恭喜答对了" subtitle={`嘿嘿嘿\n啊哈哈`} />
-      </CellGroup>
+        <Card title="Error" square>
+          <Result
+            status="error"
+            title="恭喜答对了"
+            subtitle={`嘿嘿嘿\n啊哈哈`}
+          />
+        </Card>
 
-      <CellGroup title="Info">
-        <Result status="info" title="恭喜答对了" subtitle={`嘿嘿嘿\n啊哈哈`} />
-      </CellGroup>
+        <Card title="Info" square>
+          <Result
+            status="info"
+            title="恭喜答对了"
+            subtitle={`嘿嘿嘿\n啊哈哈`}
+          />
+        </Card>
 
-      <CellGroup title="自定义图标">
-        <Result
-          status="info"
-          title="恭喜答对了"
-          renderIcon={(color, size) => {
-            return <Icon.ArrowLeftFill color={color} size={size} />
-          }}
-        />
-      </CellGroup>
+        <Card title="自定义图标" square>
+          <Result
+            status="info"
+            title="恭喜答对了"
+            renderIcon={(color, size) => {
+              return <Icon.ArrowLeftFill color={color} size={size} />
+            }}
+          />
+        </Card>
 
-      <CellGroup title="自定义图标">
-        <Result
-          status="warning"
-          subtitle="恭喜答对了"
-          renderIcon={(color, size) => {
-            return <Icon.ArrowLeftFill color={color} size={size} />
-          }}
-        />
-      </CellGroup>
+        <Card title="自定义图标" square>
+          <Result
+            status="warning"
+            subtitle="恭喜答对了"
+            renderIcon={(color, size) => {
+              return <Icon.ArrowLeftFill color={color} size={size} />
+            }}
+          />
+        </Card>
 
-      <CellGroup title="自定义">
-        <Result
-          status="warning"
-          subtitle="恭喜答对了"
-          renderIcon={(color, size) => {
-            return <Icon.ArrowLeftFill color={color} size={size} />
-          }}
-          extra={<Button type="primary" size="s" text="回到过去" />}
-        />
-      </CellGroup>
+        <Card title="自定义" square>
+          <Result
+            status="warning"
+            subtitle="恭喜答对了"
+            renderIcon={(color, size) => {
+              return <Icon.ArrowLeftFill color={color} size={size} />
+            }}
+            extra={<Button type="primary" size="s" text="回到过去" />}
+          />
+        </Card>
 
-      <CellGroup title="自定义1">
-        <Result
-          status="warning"
-          subtitle="恭喜答对了"
-          renderIcon={() => {
-            return <ResultIconEmpty />
-          }}
-        />
-      </CellGroup>
+        <Card title="自定义1" square>
+          <Result
+            status="warning"
+            subtitle="恭喜答对了"
+            renderIcon={() => {
+              return <ResultIconEmpty />
+            }}
+          />
+        </Card>
 
-      <CellGroup title="自定义2">
-        <Result
-          status="warning"
-          subtitle="恭喜答对了"
-          renderIcon={() => {
-            return <ResultIconBox />
-          }}
-        />
-      </CellGroup>
+        <Card title="自定义2" square>
+          <Result
+            status="warning"
+            subtitle="恭喜答对了"
+            renderIcon={() => {
+              return <ResultIconBox />
+            }}
+          />
+        </Card>
 
-      <CellGroup title="自定义3">
-        <Result
-          status="warning"
-          subtitle="恭喜答对了"
-          renderIcon={() => {
-            return <ResultIconWarning />
-          }}
-        />
-      </CellGroup>
+        <Card title="自定义3" square>
+          <Result
+            status="warning"
+            subtitle="恭喜答对了"
+            renderIcon={() => {
+              return <ResultIconWarning />
+            }}
+          />
+        </Card>
 
-      <CellGroup title="自定义4">
-        <Result
-          status="warning"
-          subtitle="恭喜答对了"
-          renderIcon={() => {
-            return <ResultIconError />
-          }}
-        />
-      </CellGroup>
+        <Card title="自定义4" square>
+          <Result
+            status="warning"
+            subtitle="恭喜答对了"
+            renderIcon={() => {
+              return <ResultIconError />
+            }}
+          />
+        </Card>
+      </Space>
     </ScrollView>
   )
 }

@@ -5,14 +5,14 @@
 
 import React from 'react'
 import { Text } from 'react-native'
-import { Badge, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Badge, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 import BadgeDemoItem from './component/item'
 
 const BadgeBase: React.FC = () => {
   return (
-    <>
-      <CellGroup title="包裹子组件" bodyPaddingHorizontal>
+    <Space>
+      <Card title="包裹子组件" square>
         <Space direction="horizontal">
           <Badge count="999">
             <BadgeDemoItem />
@@ -30,9 +30,9 @@ const BadgeBase: React.FC = () => {
             <BadgeDemoItem />
           </Badge>
         </Space>
-      </CellGroup>
+      </Card>
 
-      <CellGroup title="最大值" bodyPaddingHorizontal>
+      <Card title="最大值" square>
         <Space direction="horizontal">
           <Badge count={999} max={99}>
             <BadgeDemoItem />
@@ -42,9 +42,9 @@ const BadgeBase: React.FC = () => {
             <BadgeDemoItem />
           </Badge>
         </Space>
-      </CellGroup>
+      </Card>
 
-      <CellGroup title="自定义偏移" bodyPaddingHorizontal>
+      <Card title="自定义偏移" square>
         <Space direction="horizontal">
           <Badge count={9} offset={[8, -16]}>
             <BadgeDemoItem />
@@ -54,9 +54,9 @@ const BadgeBase: React.FC = () => {
             <BadgeDemoItem />
           </Badge>
         </Space>
-      </CellGroup>
+      </Card>
 
-      <CellGroup title="独立展示" bodyPaddingHorizontal>
+      <Card title="独立展示" square>
         <Space direction="horizontal" align="center" tail>
           <Badge count="新+" />
           <Badge count={999} />
@@ -82,8 +82,8 @@ const BadgeBase: React.FC = () => {
             <Text>一段描述</Text>
           </Space>
         </Space>
-      </CellGroup>
-    </>
+      </Card>
+    </Space>
   )
 }
 

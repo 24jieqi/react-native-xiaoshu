@@ -7,7 +7,7 @@ import React, { memo } from 'react'
 
 import {
   Button,
-  CellGroup,
+  Card,
   Space,
   useTheme,
 } from '@fruits-chain/react-native-xiaoshu'
@@ -16,7 +16,7 @@ const ButtonSize: React.FC = () => {
   const THEME_VAR = useTheme()
 
   return (
-    <CellGroup title="按钮尺寸" bodyPaddingHorizontal>
+    <Card title="按钮尺寸" square>
       <Space tail>
         <Button
           type="primary"
@@ -79,7 +79,7 @@ const ButtonSize: React.FC = () => {
         <Button round size="xl" text="round" />
         <Button square text="square" />
       </Space>
-    </CellGroup>
+    </Card>
   )
 }
 

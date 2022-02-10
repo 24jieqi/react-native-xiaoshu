@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
-import { Divider, Button, Flex } from '@fruits-chain/react-native-xiaoshu'
+import { Button, Flex, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const Circle = (props: { size?: number }) => {
   const size = props.size || 20
@@ -21,76 +21,73 @@ const Circle = (props: { size?: number }) => {
 
 const BasicFlex: React.FC = () => {
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
-      <Text>项目的排列方向</Text>
-      <Text>direction="row":主轴为水平方向，起点在左端</Text>
-      <Flex>
-        <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-          <Button size="xs">按钮1</Button>
-        </Flex.Item>
-        <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-          <Button size="xs">按钮2</Button>
-        </Flex.Item>
-        <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-          <Button size="xs">按钮3</Button>
-        </Flex.Item>
-      </Flex>
+    <ScrollView>
+      <Space head tail>
+        <Card title="项目的排列方向" square>
+          <Space>
+            <Text>direction="row":主轴为水平方向，起点在左端</Text>
 
-      <Divider />
+            <Flex>
+              <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+                <Button size="xs">按钮1</Button>
+              </Flex.Item>
+              <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+                <Button size="xs">按钮2</Button>
+              </Flex.Item>
+              <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+                <Button size="xs">按钮3</Button>
+              </Flex.Item>
+            </Flex>
 
-      <View style={{ height: 20 }} />
-      <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
-      <Flex direction="column">
-        <Flex.Item style={{ paddingBottom: 4 }}>
-          <Button size="xs">按钮1</Button>
-        </Flex.Item>
-        <Flex.Item style={{ paddingBottom: 4 }}>
-          <Button size="xs">按钮2</Button>
-        </Flex.Item>
-        <Flex.Item style={{ paddingBottom: 4 }}>
-          <Button size="xs">按钮3</Button>
-        </Flex.Item>
-      </Flex>
+            <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
 
-      <Divider />
+            <Flex direction="column">
+              <Flex.Item style={{ paddingBottom: 4 }}>
+                <Button size="xs">按钮1</Button>
+              </Flex.Item>
+              <Flex.Item style={{ paddingBottom: 4 }}>
+                <Button size="xs">按钮2</Button>
+              </Flex.Item>
+              <Flex.Item style={{ paddingBottom: 4 }}>
+                <Button size="xs">按钮3</Button>
+              </Flex.Item>
+            </Flex>
+          </Space>
+        </Card>
 
-      <View style={{ height: 20 }} />
-      <Text style={{ marginTop: 20, marginBottom: 20 }}>
-        项目在主轴上的对齐方式
-      </Text>
-      <Text>justify="start":左对齐</Text>
-      <Flex justify="start">
-        <Circle />
-        <Circle />
-        <Circle />
-        <Circle />
-        <Circle />
-      </Flex>
+        <Card title="对齐方式" square>
+          <Space>
+            <Text>justify="start":左对齐</Text>
+            <Flex justify="start">
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+            </Flex>
 
-      <Divider />
+            <Text>justify="center":居中</Text>
 
-      <View style={{ height: 20 }} />
-      <Text>justify="center":居中</Text>
-      <Flex justify="center">
-        <Circle />
-        <Circle />
-        <Circle />
-        <Circle />
-        <Circle />
-      </Flex>
+            <Flex justify="center">
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+            </Flex>
 
-      <Divider />
+            <Text>justify="end":右对齐</Text>
 
-      <View style={{ height: 20 }} />
-      <Text>justify="end":右对齐</Text>
-      <Flex justify="end">
-        <Circle />
-        <Circle />
-        <Circle />
-        <Circle />
-        <Circle />
-      </Flex>
-      <Divider />
+            <Flex justify="end">
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+            </Flex>
+          </Space>
+        </Card>
+      </Space>
     </ScrollView>
   )
 }

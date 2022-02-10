@@ -5,26 +5,36 @@
 
 import React, { memo } from 'react'
 
-import { Button, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Button,
+  Card,
+  Space,
+  Divider,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const ButtonDisabled: React.FC = () => {
   return (
-    <CellGroup title="禁用按钮" bodyPaddingHorizontal>
-      <Space tail>
-        <Button type="primary" text="primary" disabled />
-        <Button type="hazy" text="hazy" disabled />
-        <Button type="outline" text="outline" disabled />
-        <Button type="ghost" text="ghost" disabled />
-        <Button type="link" text="link" disabled />
+    <Card title="禁用按钮" square>
+      <Space>
+        <Space tail>
+          <Button type="primary" text="primary" disabled />
+          <Button type="hazy" text="hazy" disabled />
+          <Button type="outline" text="outline" disabled />
+          <Button type="ghost" text="ghost" disabled />
+          <Button type="link" text="link" disabled />
+        </Space>
+
+        <Divider />
+
+        <Space direction="horizontal" wrap>
+          <Button type="primary" text="primary" disabled />
+          <Button type="hazy" text="hazy" disabled />
+          <Button type="outline" text="outline" disabled />
+          <Button type="ghost" text="ghost" disabled />
+          <Button type="link" text="link" disabled />
+        </Space>
       </Space>
-      <Space direction="horizontal" wrap>
-        <Button type="primary" text="primary" disabled />
-        <Button type="hazy" text="hazy" disabled />
-        <Button type="outline" text="outline" disabled />
-        <Button type="ghost" text="ghost" disabled />
-        <Button type="link" text="link" disabled />
-      </Space>
-    </CellGroup>
+    </Card>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Button, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 import ButtonType from './type'
 import ButtonDanger from './danger'
@@ -13,24 +13,26 @@ import ButtonIcon from './icon'
 const BasicButton: React.FC = () => {
   return (
     <ScrollView>
-      <ButtonType />
-      <ButtonDanger />
-      <ButtonHairline />
-      <ButtonDisabled />
-      <ButtonLoading />
-      <ButtonSize />
-      <ButtonIcon />
+      <Space head tail>
+        <ButtonType />
+        <ButtonDanger />
+        <ButtonHairline />
+        <ButtonDisabled />
+        <ButtonLoading />
+        <ButtonSize />
+        <ButtonIcon />
 
-      <CellGroup title="自定义颜色">
-        <Space tail>
-          <Button color="#0c6" text="只改变主要色" />
-          <Button color="#0c6" type="hazy" text="只改变主要色" />
-          <Button color="#0c6" type="outline" text="只改变主要色" />
-          <Button color="#0c6" textColor="#f30" text="文字颜色" />
-          <Button color="#0c6" type="hazy" text="文字颜色" />
-          <Button color="#0c6" type="outline" text="文字颜色" />
-        </Space>
-      </CellGroup>
+        <Card title="自定义颜色" square>
+          <Space tail>
+            <Button color="#0c6" text="只改变主要色" />
+            <Button color="#0c6" type="hazy" text="只改变主要色" />
+            <Button color="#0c6" type="outline" text="只改变主要色" />
+            <Button color="#0c6" textColor="#666" text="文字颜色" />
+            <Button color="#0c6" type="hazy" text="文字颜色" />
+            <Button color="#0c6" type="outline" text="文字颜色" />
+          </Space>
+        </Card>
+      </Space>
     </ScrollView>
   )
 }

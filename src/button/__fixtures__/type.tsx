@@ -5,7 +5,12 @@
 
 import React, { memo } from 'react'
 
-import { Button, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Button,
+  Card,
+  Space,
+  Divider,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const onPress = () => {
   console.log('点击按钮')
@@ -13,22 +18,27 @@ const onPress = () => {
 
 const ButtonType: React.FC = () => {
   return (
-    <CellGroup title="按钮类型" bodyPaddingHorizontal>
-      <Space tail>
-        <Button type="primary" text="primary" onPress={onPress} />
-        <Button type="hazy" text="hazy" onPress={onPress} />
-        <Button type="outline" text="outline" onPress={onPress} />
-        <Button type="ghost" text="ghost" onPress={onPress} />
-        <Button type="link" text="link" onPress={onPress} />
+    <Card title="按钮类型" square>
+      <Space>
+        <Space>
+          <Button type="primary" text="primary" onPress={onPress} />
+          <Button type="hazy" text="hazy" onPress={onPress} />
+          <Button type="outline" text="outline" onPress={onPress} />
+          <Button type="ghost" text="ghost" onPress={onPress} />
+          <Button type="link" text="link" onPress={onPress} />
+        </Space>
+
+        <Divider />
+
+        <Space direction="horizontal" wrap>
+          <Button type="primary" text="primary" onPress={onPress} />
+          <Button type="hazy" text="hazy" onPress={onPress} />
+          <Button type="outline" text="outline" onPress={onPress} />
+          <Button type="ghost" text="ghost" onPress={onPress} />
+          <Button type="link" text="link" onPress={onPress} />
+        </Space>
       </Space>
-      <Space direction="horizontal" wrap>
-        <Button type="primary" text="primary" onPress={onPress} />
-        <Button type="hazy" text="hazy" onPress={onPress} />
-        <Button type="outline" text="outline" onPress={onPress} />
-        <Button type="ghost" text="ghost" onPress={onPress} />
-        <Button type="link" text="link" onPress={onPress} />
-      </Space>
-    </CellGroup>
+    </Card>
   )
 }
 

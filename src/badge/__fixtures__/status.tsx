@@ -5,14 +5,14 @@
 
 import React from 'react'
 import { Text } from 'react-native'
-import { Badge, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Badge, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 import BadgeDemoItem from './component/item'
 
 const BadgeStatus: React.FC = () => {
   return (
-    <>
-      <CellGroup title="内置颜色" bodyPaddingHorizontal>
+    <Space>
+      <Card title="内置颜色" square>
         <Space direction="horizontal">
           <Badge count={99} status="primary">
             <BadgeDemoItem />
@@ -30,8 +30,8 @@ const BadgeStatus: React.FC = () => {
             <BadgeDemoItem />
           </Badge>
         </Space>
-      </CellGroup>
-      <CellGroup title="自定义颜色" bodyPaddingHorizontal>
+      </Card>
+      <Card title="自定义颜色" square>
         <Space direction="horizontal">
           <Badge count={99} color="#987">
             <BadgeDemoItem />
@@ -45,8 +45,8 @@ const BadgeStatus: React.FC = () => {
             <BadgeDemoItem />
           </Badge>
         </Space>
-      </CellGroup>
-      <CellGroup title="组合使用" bodyPaddingHorizontal>
+      </Card>
+      <Card title="组合使用" square>
         <Space gap={0}>
           <Space direction="horizontal" align="center" gap={4}>
             <Badge dot status="primary" />
@@ -69,8 +69,8 @@ const BadgeStatus: React.FC = () => {
             <Text>一段描述</Text>
           </Space>
         </Space>
-      </CellGroup>
-    </>
+      </Card>
+    </Space>
   )
 }
 

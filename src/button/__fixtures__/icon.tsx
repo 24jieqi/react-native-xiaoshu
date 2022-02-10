@@ -5,16 +5,11 @@
 
 import React, { memo } from 'react'
 
-import {
-  Button,
-  CellGroup,
-  Space,
-  Icon,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Button, Card, Space, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 const ButtonIcon: React.FC = () => {
   return (
-    <CellGroup title="图标按钮" bodyPaddingHorizontal>
+    <Card title="图标按钮" square>
       <Space>
         <Button
           type="primary"
@@ -68,7 +63,7 @@ const ButtonIcon: React.FC = () => {
           text="ArrowLeftOutline"
         />
       </Space>
-    </CellGroup>
+    </Card>
   )
 }
 
