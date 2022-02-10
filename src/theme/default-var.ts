@@ -308,6 +308,7 @@ export const sidebar_item_text_font_size = TOKENS.font_size_3
 export const sidebar_item_bar_background_color = TOKENS.brand_6
 export const sidebar_item_active_text_color = TOKENS.gray_8
 export const sidebar_item_inactive_text_color = TOKENS.gray_7
+export const sidebar_item_disabled_inactive_text_color = TOKENS.gray_5
 
 // Skeleton
 export const skeleton_color: string = TOKENS.gray_3

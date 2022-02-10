@@ -65,6 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     isActive
                       ? STYLES.item_text_active
                       : STYLES.item_text_inactive,
+                    item.disabled ? STYLES.item_text_disabled : null,
                   ]}>
                   {item.label}
                 </Text>
@@ -77,6 +78,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   onPress={() => {
                     onChange(item.value)
                   }}
+                  disabled={item.disabled}
                   style={[
                     STYLES.item,
                     isActive ? null : STYLES.item_inactive,

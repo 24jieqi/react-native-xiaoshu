@@ -60,6 +60,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       lineHeight: themeVar.sidebar_item_text_line_height,
     },
 
+    item_text_disabled: {
+      color: themeVar.sidebar_item_disabled_inactive_text_color,
+    },
+
     item_text_active: {
       color: themeVar.sidebar_item_active_text_color,
     },

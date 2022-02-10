@@ -26,6 +26,7 @@ const options = [
   {
     value: 4,
     label: '发生大幅度',
+    disabled: true,
   },
 ]
 
