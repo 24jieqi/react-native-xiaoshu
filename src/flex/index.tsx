@@ -2,6 +2,8 @@ import React from 'react'
 import type { FlexStyle } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 
+import { attachPropertiesToComponent } from '../helpers'
+
 import FlexItem from './flex-item'
 import type { FlexProps, FlexAlign, FlexJustify } from './interface'
 
@@ -63,4 +65,4 @@ const Flex: React.FC<FlexProps> = props => {
   }
 }
 
-export default Object.assign(Flex, { Item: FlexItem })
+export default attachPropertiesToComponent(Flex, { Item: FlexItem })
