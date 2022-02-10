@@ -4,13 +4,13 @@
  */
 
 import React, { useState } from 'react'
-import { CellGroup, Field } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldSwitch: React.FC = () => {
   const [value, setValue] = useState(true)
 
   return (
-    <CellGroup title="Field Switch">
+    <Cell.Group title="Field Switch">
       <Field.Switch
         title="默认数据"
         onChange={v => {
@@ -59,7 +59,7 @@ const BasicFieldSwitch: React.FC = () => {
         onChange={setValue}
         divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 

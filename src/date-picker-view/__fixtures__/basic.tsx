@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
 import type { DatePickerColumnMode } from '@fruits-chain/react-native-xiaoshu'
-import { DatePickerView, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { DatePickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const Y_M_LIMIT = {
   min: new Date(2016, 6, 20, 18, 40, 10),
@@ -47,20 +47,20 @@ const BasicDatePickerView: React.FC = () => {
       {modes.map(mode => {
         return (
           <React.Fragment key={mode}>
-            <CellGroup title={`${mode}:非受控`}>
+            <Cell.Group title={`${mode}:非受控`}>
               <DatePickerView mode={mode} />
-            </CellGroup>
-            <CellGroup title={`${mode}:最大最小值:非受控`}>
+            </Cell.Group>
+            <Cell.Group title={`${mode}:最大最小值:非受控`}>
               <DatePickerView
                 mode={mode}
                 min={Y_M_LIMIT.min}
                 max={Y_M_LIMIT.max}
               />
-            </CellGroup>
-            <CellGroup title={`${mode}:受控`}>
+            </Cell.Group>
+            <Cell.Group title={`${mode}:受控`}>
               <DatePickerView mode={mode} value={value} onChange={setValue} />
-            </CellGroup>
-            <CellGroup title={`${mode}:最大最小值:受控`}>
+            </Cell.Group>
+            <Cell.Group title={`${mode}:最大最小值:受控`}>
               <DatePickerView
                 mode={mode}
                 min={Y_M_LIMIT.min}
@@ -68,10 +68,10 @@ const BasicDatePickerView: React.FC = () => {
                 value={value}
                 onChange={setValue}
               />
-            </CellGroup>
-            <CellGroup title={`${mode}:受控不更新`}>
+            </Cell.Group>
+            <Cell.Group title={`${mode}:受控不更新`}>
               <DatePickerView mode={mode} value={value} />
-            </CellGroup>
+            </Cell.Group>
           </React.Fragment>
         )
       })}

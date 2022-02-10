@@ -6,7 +6,7 @@
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, CellGroup, Notify } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Notify } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicNotify: React.FC = () => {
   const [state, setState] = useState({
@@ -17,7 +17,7 @@ const BasicNotify: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="基础用法"
           isLink
@@ -26,9 +26,9 @@ const BasicNotify: React.FC = () => {
             Notify('基础用法')
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="通知类型">
+      <Cell.Group title="通知类型">
         <Cell
           title="主要通知"
           isLink
@@ -70,9 +70,9 @@ const BasicNotify: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义配置">
+      <Cell.Group title="自定义配置">
         <Cell
           title="自定义颜色"
           isLink
@@ -95,9 +95,9 @@ const BasicNotify: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="组件调用">
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
@@ -123,7 +123,7 @@ const BasicNotify: React.FC = () => {
             }, 3000)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <Notify.Component
         visible={state.cNotify1.show}

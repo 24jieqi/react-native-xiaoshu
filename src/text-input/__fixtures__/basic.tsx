@@ -8,7 +8,6 @@ import { Text, View } from 'react-native'
 
 import {
   Cell,
-  CellGroup,
   TextInput,
   Button,
   Icon,
@@ -20,7 +19,7 @@ const BasicTextInput: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="text"
           value={<TextInput placeholder="不可编辑" editable={false} />}
@@ -273,9 +272,9 @@ const BasicTextInput: React.FC = () => {
           }
           divider={false}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="其他用法">
+      <Cell.Group title="其他用法">
         <Text>自定义宽</Text>
         <View
           style={{
@@ -334,7 +333,7 @@ const BasicTextInput: React.FC = () => {
         />
         <Text>placeholder</Text>
         <Text>placeholder</Text>
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

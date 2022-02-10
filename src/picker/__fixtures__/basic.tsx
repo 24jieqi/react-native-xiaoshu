@@ -7,12 +7,7 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 
 import type { PickerOptionCascade } from '@fruits-chain/react-native-xiaoshu'
-import {
-  Picker,
-  Button,
-  CellGroup,
-  Space,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Picker, Button, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const columns1 = new Array(10).fill(0).map((_, index) => ({
   label: `选项${index}`,
@@ -69,7 +64,7 @@ const columns4 = buildChildren(8, 'sj', '省级', (sjValue, sjLabel) =>
 const BasicPicker: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="函数使用" bodyPaddingHorizontal>
+      <Cell.Group title="函数使用" bodyPaddingHorizontal>
         <Space>
           <Button
             text="单选:Promise"
@@ -188,7 +183,7 @@ const BasicPicker: React.FC = () => {
             }}
           />
         </Space>
-      </CellGroup>
+      </Cell.Group>
     </ScrollView>
   )
 }

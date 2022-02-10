@@ -4,11 +4,11 @@
  */
 
 import React from 'react'
-import { CellGroup, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldText: React.FC = () => {
   return (
-    <CellGroup title="Field Text">
+    <Cell.Group title="Field Text">
       <Field.Text title="标题" value="显示的文案" />
       <Field.Text title="商品类型" value="一般用于表单文案显示" />
       <Field.Text
@@ -29,7 +29,7 @@ const BasicFieldText: React.FC = () => {
         isLink
         divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 

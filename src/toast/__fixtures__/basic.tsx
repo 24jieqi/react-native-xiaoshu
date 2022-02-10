@@ -6,12 +6,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import {
-  Cell,
-  CellGroup,
-  Toast,
-  Icon,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicToast: React.FC = () => {
   const [loading, setLoading] = useState(false)
@@ -37,7 +32,7 @@ const BasicToast: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="状态控制 loading"
           onPress={() => {
@@ -141,9 +136,9 @@ const BasicToast: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义位置">
+      <Cell.Group title="自定义位置">
         <Cell
           title="顶部展示"
           isLink
@@ -167,7 +162,7 @@ const BasicToast: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <View style={{ height: 20 }} />
     </ScrollView>

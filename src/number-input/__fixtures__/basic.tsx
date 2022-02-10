@@ -6,12 +6,7 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
-import {
-  Cell,
-  CellGroup,
-  NumberInput,
-  helpers,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, NumberInput, helpers } from '@fruits-chain/react-native-xiaoshu'
 
 const formatterTo = (t: string, sign?: string) => {
   !sign && (sign = ',')
@@ -36,7 +31,7 @@ const BasicNumberInput: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="默认值"
           value={
@@ -197,8 +192,8 @@ const BasicNumberInput: React.FC = () => {
           }
           divider={false}
         />
-      </CellGroup>
-      <CellGroup title="其他用法">
+      </Cell.Group>
+      <Cell.Group title="其他用法">
         <Text>自定义宽</Text>
         <View
           style={{
@@ -228,7 +223,7 @@ const BasicNumberInput: React.FC = () => {
             bordered
           />
         </View>
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

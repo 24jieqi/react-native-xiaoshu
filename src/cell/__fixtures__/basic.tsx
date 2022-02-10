@@ -1,33 +1,33 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { Cell } from '@fruits-chain/react-native-xiaoshu'
 import CellBase from './base'
 import CellDivider from './divider'
 import CellLayout from './layout'
 import CellExtra from './extra'
-import CellGroups from './group'
+import CellGroup from './group'
 
 const BasicCell: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <CellBase />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="分割线">
+      <Cell.Group title="分割线">
         <CellDivider />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="排版布局">
+      <Cell.Group title="排版布局">
         <CellLayout />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="扩展单元格">
+      <Cell.Group title="扩展单元格">
         <CellExtra />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroups />
+      <CellGroup />
     </ScrollView>
   )
 }

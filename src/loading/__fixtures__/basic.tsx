@@ -9,39 +9,39 @@ import {
   Loading,
   LoadingCircular,
   LoadingSpinner,
-  CellGroup,
+  Cell,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicLoading: React.FC = () => {
   return (
     <>
-      <CellGroup title="单独使用图标" bodyPaddingHorizontal>
+      <Cell.Group title="单独使用图标" bodyPaddingHorizontal>
         <LoadingCircular />
         <LoadingSpinner />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="加载类型" bodyPaddingHorizontal>
+      <Cell.Group title="加载类型" bodyPaddingHorizontal>
         <Loading />
         <Loading type="spinner" />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义颜色" bodyPaddingHorizontal>
+      <Cell.Group title="自定义颜色" bodyPaddingHorizontal>
         <Loading color="#f30" />
         <Loading color="#690" type="spinner" />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义大小" bodyPaddingHorizontal>
+      <Cell.Group title="自定义大小" bodyPaddingHorizontal>
         <Loading size={18} />
         <Loading size={18} type="spinner" />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="加载文案" bodyPaddingHorizontal>
+      <Cell.Group title="加载文案" bodyPaddingHorizontal>
         <Loading>加载文案...</Loading>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="垂直排列" bodyPaddingHorizontal>
+      <Cell.Group title="垂直排列" bodyPaddingHorizontal>
         <Loading vertical>加载文案...</Loading>
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

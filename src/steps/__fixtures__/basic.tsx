@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { ScrollView, Text } from 'react-native'
-import { Steps, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Steps, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDemo: React.FC = () => {
   return (
@@ -34,7 +34,7 @@ const BasicDemo: React.FC = () => {
           current={0}
         />
 
-        <CellGroup title="自定义 icon">
+        <Cell.Group title="自定义 icon">
           <Steps
             data={[
               { title: '基本信息', icon: <Text>x</Text> },
@@ -43,9 +43,9 @@ const BasicDemo: React.FC = () => {
             ]}
             current={0}
           />
-        </CellGroup>
+        </Cell.Group>
 
-        <CellGroup title="多步骤时">
+        <Cell.Group title="多步骤时">
           <Steps
             data={[
               { title: '基本信息' },
@@ -57,7 +57,7 @@ const BasicDemo: React.FC = () => {
             ]}
             current={3}
           />
-        </CellGroup>
+        </Cell.Group>
       </Space>
     </ScrollView>
   )

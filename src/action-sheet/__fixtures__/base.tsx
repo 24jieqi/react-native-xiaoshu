@@ -5,16 +5,12 @@
 
 import React from 'react'
 
-import {
-  Cell,
-  CellGroup,
-  ActionSheet,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, ActionSheet } from '@fruits-chain/react-native-xiaoshu'
 
 const ActionSheetBase: React.FC = () => {
   return (
     <>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="提示弹窗"
           isLink
@@ -105,9 +101,9 @@ const ActionSheetBase: React.FC = () => {
               })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="选项状态">
+      <Cell.Group title="选项状态">
         <Cell
           title="选项状态"
           isLink
@@ -133,7 +129,7 @@ const ActionSheetBase: React.FC = () => {
               })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

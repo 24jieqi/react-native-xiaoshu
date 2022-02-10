@@ -6,12 +6,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-import { Cell, CellGroup, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu'
 
-const CellGroups: React.FC = () => {
+const CellGroup: React.FC = () => {
   return (
     <>
-      <CellGroup
+      <Cell.Group
         title="分组标题"
         extra={<Text>extra</Text>}
         onPressTitle={() => {
@@ -23,11 +23,11 @@ const CellGroups: React.FC = () => {
         <Cell title="标题" value="显示文案" />
         <Cell required title="必填" value="显示文案" />
         <Cell title="最后一项" value="一般不显示分割线" divider={false} />
-      </CellGroup>
+      </Cell.Group>
 
       <View
         style={{ backgroundColor: '#fff', paddingVertical: 24, marginTop: 12 }}>
-        <CellGroup
+        <Cell.Group
           title="内容区域有上下分割线"
           titleTextStyle={{ color: '#f30', backgroundColor: '#666' }}
           bodyTopDivider
@@ -35,10 +35,10 @@ const CellGroups: React.FC = () => {
           <Cell title="标题" value="显示文案" />
           <Cell required title="必填" value="显示文案" />
           <Cell title="最后一项" value="一般不显示分割线" divider={false} />
-        </CellGroup>
+        </Cell.Group>
       </View>
     </>
   )
 }
 
-export default CellGroups
+export default CellGroup

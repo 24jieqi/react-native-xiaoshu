@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 
 import {
-  CellGroup,
+  Cell,
   DropdownMenu,
   DropdownItem,
 } from '@fruits-chain/react-native-xiaoshu'
@@ -38,7 +38,7 @@ const BasicDropdown: React.FC = () => {
 
   return (
     <ScrollView scrollsToTop={false}>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <DropdownMenu>
           <DropdownItem
             options={itemOptions}
@@ -124,7 +124,7 @@ const BasicDropdown: React.FC = () => {
         </DropdownMenu>
 
         <View style={{ height: 300 }} />
-      </CellGroup>
+      </Cell.Group>
     </ScrollView>
   )
 }

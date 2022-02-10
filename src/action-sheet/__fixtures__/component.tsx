@@ -5,11 +5,7 @@
 
 import React, { useState } from 'react'
 
-import {
-  Cell,
-  CellGroup,
-  ActionSheet,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, ActionSheet } from '@fruits-chain/react-native-xiaoshu'
 
 const ActionSheetComponent: React.FC = () => {
   const [state, setState] = useState({
@@ -20,7 +16,7 @@ const ActionSheetComponent: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="组件调用">
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
@@ -36,7 +32,7 @@ const ActionSheetComponent: React.FC = () => {
             }))
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <ActionSheet.Component
         title="这里应该有一个标题"

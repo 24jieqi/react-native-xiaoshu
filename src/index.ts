@@ -23,7 +23,6 @@ export { default as Card } from './card'
 
 export type { CellProps, CellGroupProps } from './cell/interface'
 export { default as Cell } from './cell'
-export { default as CellGroup } from './cell/group'
 
 export type { CheckboxIconProps, CheckboxProps } from './checkbox/interface'
 export { default as Checkbox } from './checkbox'

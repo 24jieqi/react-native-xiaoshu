@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react'
-import { CellGroup, Field } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
 const options = new Array(6).fill(0).map((_, index) => ({
   value: index,
@@ -16,7 +16,7 @@ const BasicFieldSelector: React.FC = () => {
   const [s2, setS2] = useState([] as number[])
 
   return (
-    <CellGroup title="Field Selector">
+    <Cell.Group title="Field Selector">
       <Field.Selector
         title="单选"
         placeholder="请选择"
@@ -37,7 +37,7 @@ const BasicFieldSelector: React.FC = () => {
         }}
         divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 

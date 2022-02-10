@@ -5,18 +5,12 @@
 
 import React from 'react'
 import { ScrollView } from 'react-native'
-import {
-  Tag,
-  Cell,
-  CellGroup,
-  Icon,
-  Space,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Tag, Cell, Icon, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell title="default 类型" value={<Tag>标签</Tag>} />
         <Cell title="primary 类型" value={<Tag type="primary">标签</Tag>} />
         <Cell title="hazy 类型" value={<Tag type="hazy">标签</Tag>} />
@@ -25,8 +19,8 @@ const BasicTag: React.FC = () => {
           value={<Tag type="ghost">标签</Tag>}
           divider={false}
         />
-      </CellGroup>
-      <CellGroup title="size">
+      </Cell.Group>
+      <Cell.Group title="size">
         <Cell
           title="大"
           value={
@@ -61,8 +55,8 @@ const BasicTag: React.FC = () => {
           }
           divider={false}
         />
-      </CellGroup>
-      <CellGroup title="操作相关">
+      </Cell.Group>
+      <Cell.Group title="操作相关">
         <Cell
           title="closable"
           value={
@@ -88,8 +82,8 @@ const BasicTag: React.FC = () => {
             </Tag>
           }
         />
-      </CellGroup>
-      <CellGroup title="自定义颜色">
+      </Cell.Group>
+      <Cell.Group title="自定义颜色">
         <Cell title="#FFA238" value={<Tag color="#FFA238">标签</Tag>} />
         <Cell title="#FA541C" value={<Tag color="#FA541C">标签</Tag>} />
         <Cell title="#34B545" value={<Tag color="#34B545">标签</Tag>} />
@@ -153,7 +147,7 @@ const BasicTag: React.FC = () => {
             </Tag>
           }
         />
-      </CellGroup>
+      </Cell.Group>
     </ScrollView>
   )
 }

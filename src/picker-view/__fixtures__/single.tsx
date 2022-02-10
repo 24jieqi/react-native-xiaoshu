@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { PickerView, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { PickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const columns1 = new Array(10).fill(0).map((_, index) => ({
   label: `选项${index}`,
@@ -13,7 +13,7 @@ const PickerViewSingle: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="单列选择:受控" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -24,9 +24,9 @@ const PickerViewSingle: React.FC = () => {
           }}
           value={value}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="单列选择:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:受控不更新" bodyPaddingHorizontal>
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -36,9 +36,9 @@ const PickerViewSingle: React.FC = () => {
           }}
           value={value}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="单列选择:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:非受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -47,9 +47,9 @@ const PickerViewSingle: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="单列选择:非受控默认值" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:非受控默认值" bodyPaddingHorizontal>
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -59,7 +59,7 @@ const PickerViewSingle: React.FC = () => {
           }}
           defaultValue={[columns1[5].value]}
         />
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

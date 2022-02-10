@@ -6,14 +6,14 @@
 import React, { useCallback, useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import { Collapse, CellGroup, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Collapse, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCollapse: React.FC = () => {
   const [value, setValue] = useState(false)
 
   return (
     <ScrollView>
-      <CellGroup title="单元格用法">
+      <Cell.Group title="单元格用法">
         <Collapse
           title="标题11"
           onAnimationEnd={v => {
@@ -132,9 +132,9 @@ const BasicCollapse: React.FC = () => {
           <View style={{ height: 20 }} />
           <Text style={{ lineHeight: 20 }}>文案</Text>
         </Collapse>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="卡片用法">
+      <Cell.Group title="卡片用法">
         <Space>
           <Collapse title="标题11" type="card">
             <Text style={{ lineHeight: 20 }}>文案</Text>
@@ -273,7 +273,7 @@ const BasicCollapse: React.FC = () => {
             <Text style={{ lineHeight: 20 }}>文案</Text>
           </Collapse>
         </Space>
-      </CellGroup>
+      </Cell.Group>
     </ScrollView>
   )
 }

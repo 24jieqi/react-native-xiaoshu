@@ -4,13 +4,13 @@
  */
 
 import React, { useState } from 'react'
-import { CellGroup, Field, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
   const [text1, setText1] = useState<number>(null)
 
   return (
-    <CellGroup title="Field NumberInput">
+    <Cell.Group title="Field NumberInput">
       <Field.NumberInput
         title="非受控输入框"
         placeholder="请输入"
@@ -66,7 +66,7 @@ const BasicFieldTextInput: React.FC = () => {
         onChange={setText1}
         divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 

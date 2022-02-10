@@ -1,7 +1,8 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { Cell } from '@fruits-chain/react-native-xiaoshu'
+
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
 
@@ -232,13 +233,13 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
   return (
     <Layout.Page title="DEMO 组件">
       <ScrollView>
-        <CellGroup title="文案粗细">
+        <Cell.Group title="文案粗细">
           <FontSize />
-        </CellGroup>
+        </Cell.Group>
 
         {navDatas.map(item => {
           return (
-            <CellGroup key={item.title} title={item.title}>
+            <Cell.Group key={item.title} title={item.title}>
               {item.datas.map((subitem, index) => {
                 return (
                   <Cell
@@ -252,7 +253,7 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
                   />
                 )
               })}
-            </CellGroup>
+            </Cell.Group>
           )
         })}
       </ScrollView>

@@ -6,35 +6,35 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-import { NavBar, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { NavBar, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicNavBar: React.FC = () => {
   return (
     <>
-      <CellGroup title="一般使用">
+      <Cell.Group title="一般使用">
         <NavBar
           title="一般使用"
           onPressBackArrow={() => {
             console.log('点击返回')
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="隐藏返回按钮">
+      <Cell.Group title="隐藏返回按钮">
         <NavBar title="隐藏返回按钮" showBackArrow={false} />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="左侧内容区域">
+      <Cell.Group title="左侧内容区域">
         <NavBar title="标题" leftExtra={<Text>左侧内容区域</Text>} />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="右侧内容区域">
+      <Cell.Group title="右侧内容区域">
         <NavBar
           title="标题"
           leftExtra={<Text>左侧内容区域</Text>}
           rightExtra={<Text>右侧内容区域</Text>}
         />
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

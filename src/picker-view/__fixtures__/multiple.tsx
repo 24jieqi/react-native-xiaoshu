@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PickerView, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { PickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const columns1 = new Array(10).fill(0).map((_, index) => ({
   label: `选项${index}`,
@@ -35,7 +35,7 @@ const PickerViewMultiple: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="多列选择:受控" bodyPaddingHorizontal>
+      <Cell.Group title="多列选择:受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns2}
           value={value1}
@@ -46,9 +46,9 @@ const PickerViewMultiple: React.FC = () => {
             setValue1(v)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="多列选择:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="多列选择:受控不更新" bodyPaddingHorizontal>
         <PickerView
           columns={columns2}
           value={value1}
@@ -58,9 +58,9 @@ const PickerViewMultiple: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="多列选择:非受控默认值" bodyPaddingHorizontal>
+      <Cell.Group title="多列选择:非受控默认值" bodyPaddingHorizontal>
         <PickerView
           columns={columns2}
           defaultValue={defaultValue}
@@ -70,9 +70,9 @@ const PickerViewMultiple: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="多列带默认值:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:非受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns3}
           onChange={(v, o) => {
@@ -81,9 +81,9 @@ const PickerViewMultiple: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="多列带默认值:非受控>>>" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:非受控>>>" bodyPaddingHorizontal>
         <PickerView
           columns={columns3}
           defaultValue={defaultValue}
@@ -93,9 +93,9 @@ const PickerViewMultiple: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="多列带默认值:受控" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns3}
           value={value2}
@@ -106,9 +106,9 @@ const PickerViewMultiple: React.FC = () => {
             setValue2(v)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="多列带默认值:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:受控不更新" bodyPaddingHorizontal>
         <PickerView
           columns={columns3}
           value={value2}
@@ -118,7 +118,7 @@ const PickerViewMultiple: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

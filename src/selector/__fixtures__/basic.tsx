@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
 import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, CellGroup, Selector } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicActionSheet: React.FC = () => {
   const [state, setState] = useState({
@@ -22,7 +22,7 @@ const BasicActionSheet: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="没有超过一屏"
           isLink
@@ -178,9 +178,9 @@ const BasicActionSheet: React.FC = () => {
               .catch(() => {})
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="组件调用">
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
@@ -193,7 +193,7 @@ const BasicActionSheet: React.FC = () => {
             }))
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <Selector.Component
         title="这里应该有一个标题"

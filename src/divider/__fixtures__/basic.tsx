@@ -6,28 +6,28 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Divider, Space, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { Divider, Space, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDivider: React.FC = () => {
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
-      <CellGroup title="基础用法" bodyPaddingHorizontal>
+      <Cell.Group title="基础用法" bodyPaddingHorizontal>
         <Space>
           <Divider />
           <Divider type="light" />
           <Divider dashed />
           <Divider dashed type="light" />
         </Space>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义颜色" bodyPaddingHorizontal>
+      <Cell.Group title="自定义颜色" bodyPaddingHorizontal>
         <Space>
           <Divider color="#000" />
           <Divider color="#000" dashed />
         </Space>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="展示文本" bodyPaddingHorizontal>
+      <Cell.Group title="展示文本" bodyPaddingHorizontal>
         <Space>
           <Divider>一袋米要抗几楼</Divider>
           <Divider type="light">一袋米要抗二楼</Divider>
@@ -36,18 +36,18 @@ const BasicDivider: React.FC = () => {
             一袋米由我洗嘞
           </Divider>
         </Space>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="内容位置" bodyPaddingHorizontal>
+      <Cell.Group title="内容位置" bodyPaddingHorizontal>
         <Space>
           <Divider contentPosition="left">一袋米要抗几楼</Divider>
           <Divider contentPosition="right" type="light">
             一袋米要抗二楼
           </Divider>
         </Space>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="虚线" bodyPaddingHorizontal>
+      <Cell.Group title="虚线" bodyPaddingHorizontal>
         <Space>
           <Divider dashed contentPosition="left">
             一袋米要抗几楼
@@ -62,9 +62,9 @@ const BasicDivider: React.FC = () => {
             一袋米由我洗嘞
           </Divider>
         </Space>
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义样式" bodyPaddingHorizontal>
+      <Cell.Group title="自定义样式" bodyPaddingHorizontal>
         <Space>
           <Divider
             style={{ backgroundColor: '#999' }}
@@ -78,7 +78,7 @@ const BasicDivider: React.FC = () => {
             文字
           </Divider>
         </Space>
-      </CellGroup>
+      </Cell.Group>
     </ScrollView>
   )
 }

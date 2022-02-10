@@ -5,23 +5,19 @@
 
 import React, { useState } from 'react'
 
-import {
-  Cell,
-  CellGroup,
-  PasswordInput,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, PasswordInput } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicPasswordInput: React.FC = () => {
   const [value, setValue] = useState(false)
 
   return (
     <>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell title="默认" value={<PasswordInput />} />
         <Cell title="默认" value={<PasswordInput bordered />} divider={false} />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="状态控制">
+      <Cell.Group title="状态控制">
         <Cell
           title="默认"
           value={<PasswordInput bordered defaultSecureTextEntry={false} />}
@@ -41,7 +37,7 @@ const BasicPasswordInput: React.FC = () => {
           value={<PasswordInput bordered secureTextEntry={value} />}
           divider={false}
         />
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

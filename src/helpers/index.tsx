@@ -16,6 +16,7 @@ export { default as easing } from './easing'
 export * from './interceptor'
 export * from './typeof'
 export * from './format/number'
+export * from './attach-properties-to-component'
 
 import { isValue, isDef } from './typeof'
 

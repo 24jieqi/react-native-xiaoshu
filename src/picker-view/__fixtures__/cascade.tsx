@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import type { PickerOptionCascade } from '@fruits-chain/react-native-xiaoshu'
-import { PickerView, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { PickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const buildChildren = (
   num: number,
@@ -42,7 +42,7 @@ const PickerViewCascade: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="级联选择:默认值:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:默认值:非受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
@@ -52,9 +52,9 @@ const PickerViewCascade: React.FC = () => {
           }}
           defaultValue={defaultValue}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="级联选择:默认值2:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:默认值2:非受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
@@ -64,9 +64,9 @@ const PickerViewCascade: React.FC = () => {
           }}
           defaultValue={defaultValue2}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="级联选择:受控" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:受控" bodyPaddingHorizontal>
         <PickerView
           columns={columns4}
           value={value}
@@ -77,9 +77,9 @@ const PickerViewCascade: React.FC = () => {
             setValue(v)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="级联选择:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:受控不更新" bodyPaddingHorizontal>
         <PickerView
           columns={columns4}
           value={value}
@@ -89,7 +89,7 @@ const PickerViewCascade: React.FC = () => {
             console.log('滑动完成就触发 -> options:', o)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

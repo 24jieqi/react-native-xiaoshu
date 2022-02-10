@@ -6,12 +6,7 @@
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import {
-  Cell,
-  CellGroup,
-  Dialog,
-  Toast,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Dialog, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDialog: React.FC = () => {
   const [state, setState] = useState({
@@ -24,7 +19,7 @@ const BasicDialog: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="提示弹窗: 固定 200 宽"
           isLink
@@ -144,9 +139,9 @@ const BasicDialog: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="输入框">
+      <Cell.Group title="输入框">
         <Cell
           title="普通文字"
           isLink
@@ -267,9 +262,9 @@ const BasicDialog: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="组件调用">
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
@@ -285,7 +280,7 @@ const BasicDialog: React.FC = () => {
             }))
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <Dialog.Component
         showCancelButton
