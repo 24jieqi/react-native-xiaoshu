@@ -1,3 +1,9 @@
+## [0.1.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.0...v0.1.1) (2022-02-11)
+
+### Bug Fixes
+
+- **ActionSheet:** 🐛 内容最大高度\自定义颜色 ([f559aea](https://github.com/hjfruit/react-native-xiaoshu/commit/f559aea808a412aea56a41b4f9cff2025274f37c))
+
 # [0.1.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.0.16...v0.1.0) (2022-02-11)
 
 ### Bug Fixes
