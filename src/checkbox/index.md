@@ -23,4 +23,12 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+### Checkbox
+
+<API hideTitle src="./checkbox.tsx"></API>
+
+### Checkbox.Icon
+
+<API hideTitle src="./icon.tsx"></API>

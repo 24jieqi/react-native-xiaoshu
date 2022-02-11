@@ -27,10 +27,10 @@ group:
 
 ## API
 
-### DropdownMenu
+### Dropdown
 
 <API src="./menu.tsx" hideTitle></API>
 
-### DropdownItem
+### Dropdown.Item
 
 <API src="./item.tsx" hideTitle>

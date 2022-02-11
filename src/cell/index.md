@@ -31,7 +31,7 @@ group:
 
 ### Cell
 
-<API hideTitle></API>
+<API hideTitle src="./cell.tsx"></API>
 
 ### CellGroup
 
