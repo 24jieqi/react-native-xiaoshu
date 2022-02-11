@@ -1,5 +1,5 @@
 ---
-title: ErrorBoundary 错误捕获
+title: Result 结果
 nav:
   title: 组件
   path: /component
@@ -9,12 +9,14 @@ group:
   order: 3
 ---
 
-# ErrorBoundary 错误捕获
+# Result 结果
 
-> 一般用于应用根组件，捕获 React 内产生的问题。
+> 用于反馈一系列操作任务的处理结果。
 
-## DEMO
+react-native-svg-web 并没有提供 SvgXml 组件，web 端看不到 SVG 图形。关注 [What about SvgXml for svg from string ?](https://github.com/bakerface/react-native-svg-web/issues/6)
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+## 代码演示
+
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

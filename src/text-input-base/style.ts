@@ -15,7 +15,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     fix_group_border: {
       borderWidth: 1,
-      borderRadius: themeVar.border_radius_sm,
+      // borderRadius: themeVar.border_radius_sm,
       borderColor: themeVar.border_color,
     },
 

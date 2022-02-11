@@ -1,10 +1,11 @@
 import React, { isValidElement, memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue, isDef } from '../helpers'
-import type { LoadingProps } from './interface'
+import { useTheme } from '../theme'
+
 import Circular from './circular'
+import type { LoadingProps } from './interface'
 import Spinner from './spinner'
 
 /**
@@ -22,8 +23,8 @@ const Loading: React.FC<LoadingProps> = ({
   type = 'circular',
 }) => {
   const THEME_VAR = useTheme()
-  const ICON_COLOR = getDefaultValue(color, THEME_VAR.loading_spinner_color)
-  const ICON_SIZE = getDefaultValue(size, THEME_VAR.loading_spinner_size)
+  const ICON_COLOR = getDefaultValue(color, THEME_VAR.loading_icon_color)
+  const ICON_SIZE = getDefaultValue(size, THEME_VAR.loading_icon_size)
 
   const textJSX = isDef(children) ? (
     isValidElement(children) ? (
@@ -34,8 +35,8 @@ const Loading: React.FC<LoadingProps> = ({
           {
             fontSize: textSize || THEME_VAR.loading_text_font_size,
             color: color || THEME_VAR.loading_text_color,
-            marginLeft: vertical ? 0 : THEME_VAR.padding_xs,
-            marginTop: vertical ? THEME_VAR.padding_xs : 0,
+            marginLeft: vertical ? 0 : THEME_VAR.loading_gap,
+            marginTop: vertical ? THEME_VAR.loading_gap : 0,
           },
           textStyle,
         ])}>

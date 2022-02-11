@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import type { ImageSourcePropType } from 'react-native'
 
 export type UploaderValue = {
@@ -77,6 +77,12 @@ export interface UploaderProps<T> {
   imageSize?: number
 
   /**
+   * 图片之间的间距
+   * @default uploader_image_gap
+   */
+  imageGap?: number
+
+  /**
    * 点击某一个图片
    */
   onPressImage?: (
@@ -112,6 +118,12 @@ export interface UploaderImageProps
    * @default 80
    */
   size?: number
+
+  /**
+   * 图片之间的间距
+   * @default uploader_image_gap
+   */
+  gap?: number
 
   /**
    * 点击图片

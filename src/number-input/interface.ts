@@ -10,6 +10,7 @@ export interface NumberInputProps
     | 'rows'
     | 'type'
     | 'onChange'
+    | 'onChangeText'
   > {
   /**
    * 输入内容格式

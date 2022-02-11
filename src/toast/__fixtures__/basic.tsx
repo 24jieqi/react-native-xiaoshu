@@ -1,12 +1,12 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState, useEffect, useRef } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import {
-  Cell,
-  CellGroup,
-  Toast,
-  Icon,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast, Icon } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicToast: React.FC = () => {
   const [loading, setLoading] = useState(false)
@@ -32,7 +32,7 @@ const BasicToast: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <Cell.Group title="基础用法">
         <Cell
           title="状态控制 loading"
           onPress={() => {
@@ -45,6 +45,16 @@ const BasicToast: React.FC = () => {
           onPress={() => {
             Toast({
               message: '提示内容',
+              forbidPress: true,
+            })
+          }}
+        />
+        <Cell
+          title="文字提示:换行"
+          isLink
+          onPress={() => {
+            Toast({
+              message: `提示内容\n新的`,
               forbidPress: true,
             })
           }}
@@ -94,7 +104,7 @@ const BasicToast: React.FC = () => {
           onPress={() => {
             Toast({
               type: 'loading',
-              loadingType: 'spinner',
+              loadingType: 'circular',
               message: '加载中...',
               forbidPress: true,
             })
@@ -117,7 +127,7 @@ const BasicToast: React.FC = () => {
         <Cell
           title="自定义图标"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Toast({
               type: 'icon',
@@ -126,9 +136,9 @@ const BasicToast: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="自定义位置" bordered={false}>
+      <Cell.Group title="自定义位置">
         <Cell
           title="顶部展示"
           isLink
@@ -143,7 +153,7 @@ const BasicToast: React.FC = () => {
         <Cell
           title="底部展示"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Toast({
               message: '提示内容',
@@ -152,7 +162,7 @@ const BasicToast: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <View style={{ height: 20 }} />
     </ScrollView>

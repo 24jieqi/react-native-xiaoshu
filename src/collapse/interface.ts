@@ -24,13 +24,13 @@ export interface CollapseProps {
 
   /**
    * 标题图标颜色
-   * @default 'collapse_title_icon_color'
+   * @default collapse_title_icon_color
    */
   iconColor?: string
 
   /**
    * 标题图标大小
-   * @default 'collapse_title_icon_size'
+   * @default collapse_title_icon_size
    */
   iconSize?: number
 
@@ -45,9 +45,17 @@ export interface CollapseProps {
   renderTitle?: (collapse: boolean) => React.ReactNode
 
   /**
+   * 自定义渲染标题右侧
+   */
+  renderTitleExtra?: (
+    collapse: boolean,
+    arrowJSX: React.ReactNode,
+  ) => React.ReactNode
+
+  /**
    * 自定义渲染内容，替换 children
    */
-  renderBody?: (collapse: boolean) => React.ReactNode
+  renderBody?: () => React.ReactNode
 
   /**
    * 是否展开
@@ -65,6 +73,12 @@ export interface CollapseProps {
   onCollapse?: (collapse: boolean) => void
 
   /**
+   * 样式、场景
+   * @default 'cell'
+   */
+  type?: 'cell' | 'card'
+
+  /**
    * 动画结束的回调，注意组件渲染问题，会存在多次回调
    */
   onAnimationEnd?: (collapse: boolean) => void
@@ -76,8 +90,19 @@ export interface CollapseProps {
   bodyPadding?: boolean
 
   /**
-   * 内容区域是否有分割线
+   * 头部区域是否有分割线
    * @default true
    */
-  bodyBordered?: boolean
+  headerDivider?: boolean
+
+  /**
+   * 内容区域是否有分割线，cell 默认 true，card 默认false
+   */
+  bodyDivider?: boolean
+
+  /**
+   * 是否在展开的时候才渲染子元素
+   * @default true
+   */
+  lazyRender?: boolean
 }

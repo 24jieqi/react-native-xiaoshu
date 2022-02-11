@@ -1,11 +1,16 @@
+/**
+ * title: 数字输入框
+ * desc: 适用于纯数字输入。
+ */
+
 import React, { useState } from 'react'
-import { CellGroup, Field, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
   const [text1, setText1] = useState<number>(null)
 
   return (
-    <CellGroup title="Field NumberInput">
+    <Cell.Group title="Field NumberInput">
       <Field.NumberInput
         title="非受控输入框"
         placeholder="请输入"
@@ -45,8 +50,8 @@ const BasicFieldTextInput: React.FC = () => {
         addonAfter={
           <Button
             text="清空"
-            size="mini"
-            type="error"
+            size="xs"
+            danger
             onPress={() => {
               setText1(null)
             }}
@@ -59,9 +64,9 @@ const BasicFieldTextInput: React.FC = () => {
         placeholder="请输入"
         value={text1}
         onChange={setText1}
-        bordered={false}
+        divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 

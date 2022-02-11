@@ -18,7 +18,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     btn: {
-      marginLeft: themeVar.button_bar_button_space,
       minWidth: 84,
     },
   })

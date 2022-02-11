@@ -17,8 +17,10 @@ group:
 
 一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/status.tsx"></code>
 
 <API></API>

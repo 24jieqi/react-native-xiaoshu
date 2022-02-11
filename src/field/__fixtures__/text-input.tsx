@@ -1,11 +1,16 @@
+/**
+ * title: 输入框
+ * desc: 适用于单行、多行文本输入。
+ */
+
 import React, { useState } from 'react'
-import { CellGroup, Field, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
   const [text1, setText1] = useState('')
 
   return (
-    <CellGroup title="Field TextInput">
+    <Cell.Group title="Field TextInput">
       <Field.TextInput title="非受控输入框" placeholder="请输入" />
       <Field.TextInput
         title="非受控输入框"
@@ -23,8 +28,8 @@ const BasicFieldTextInput: React.FC = () => {
         addonAfter={
           <Button
             text="清空"
-            size="mini"
-            type="error"
+            size="xs"
+            danger
             onPress={() => {
               setText1('')
             }}
@@ -44,9 +49,9 @@ const BasicFieldTextInput: React.FC = () => {
         placeholder="请输入"
         value={text1}
         onChange={setText1}
-        bordered={false}
+        divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 

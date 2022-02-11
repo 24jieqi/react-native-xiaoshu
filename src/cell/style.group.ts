@@ -19,12 +19,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
       lineHeight: themeVar.cell_group_title_line_height,
     },
 
-    body: {
-      borderStyle: 'solid',
-      // borderColor: '#000', // to test ui
-      borderColor: themeVar.cell_border_color,
-      borderTopWidth: 1,
-      borderBottomWidth: 1,
+    body_padding_horizontal: {
+      paddingHorizontal: themeVar.cell_group_title_padding_horizontal,
     },
   })
 }

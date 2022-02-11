@@ -4,9 +4,9 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基础组件
-  path: /basic
-  order: 0
+  title: 表单组件
+  path: /form
+  order: 1
 ---
 
 # TextInput 输入框
@@ -15,8 +15,8 @@ group:
 
 参考 Antd 桌面端 Input 组件交互、API 实现。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

@@ -43,7 +43,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     footer: {
       flexDirection: 'row',
       borderTopWidth: 1,
-      borderColor: themeVar.border_color,
+      borderColor: themeVar.divider_color_dark,
       marginTop: themeVar.dialog_footer_margin_top,
     },
 
@@ -51,20 +51,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flex: 1,
       marginHorizontal: 0,
       marginVertical: 0,
-      borderWidth: 0,
-      borderRadius: 0,
-      height: themeVar.dialog_button_height,
-      backgroundColor: 'transparent',
-      fontSize: themeVar.dialog_button_font_size,
     },
 
     btn_confirm: {
       fontWeight: 'bold',
-    },
-
-    btn_border_left: {
-      borderLeftWidth: 1,
-      borderColor: themeVar.border_color,
     },
   })
 }

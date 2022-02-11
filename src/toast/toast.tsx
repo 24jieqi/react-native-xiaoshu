@@ -8,13 +8,14 @@ import React, {
 import type { ViewStyle, StyleProp } from 'react-native'
 import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
-import Popup from '../popup/popup'
+import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
-import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
-import { createStyles } from './style'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { ToastProps, ToastMethods } from './interface'
+import { createStyles } from './style'
 
 const Toast = forwardRef<ToastMethods, ToastProps>(
   (
@@ -26,7 +27,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
       forbidPress = false,
       closeOnPress = false,
       closeOnPressOverlay = false,
-      loadingType = 'circular',
+      loadingType = 'spinner',
       duration = 2000,
       icon,
       ...reset
@@ -127,16 +128,16 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                 type === 'text' ? STYLES.inner_type_text : null,
               ]}>
               {type !== 'text' ? (
-                <View style={STYLES.loading}>
+                <View style={STYLES.icon}>
                   {type === 'loading' ? (
                     loadingType === 'circular' ? (
                       <Circular
-                        color={THEME_VAR.toast_loading_icon_color}
+                        color={THEME_VAR.toast_icon_color}
                         size={THEME_VAR.toast_icon_size}
                       />
                     ) : (
                       <Spinner
-                        color={THEME_VAR.toast_loading_icon_color}
+                        color={THEME_VAR.toast_icon_color}
                         size={THEME_VAR.toast_icon_size}
                       />
                     )
@@ -144,14 +145,14 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
 
                   {type === 'success' ? (
                     <SuccessCircleOutline
-                      color={THEME_VAR.toast_loading_icon_color}
+                      color={THEME_VAR.toast_icon_color}
                       size={THEME_VAR.toast_icon_size}
                     />
                   ) : null}
 
                   {type === 'fail' ? (
                     <CrossCircleOutline
-                      color={THEME_VAR.toast_loading_icon_color}
+                      color={THEME_VAR.toast_icon_color}
                       size={THEME_VAR.toast_icon_size}
                     />
                   ) : null}

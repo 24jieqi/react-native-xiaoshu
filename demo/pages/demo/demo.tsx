@@ -1,7 +1,8 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, CellGroup } from '@fruits-chain/react-native-xiaoshu'
+import { Cell } from '@fruits-chain/react-native-xiaoshu'
+
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
 
@@ -41,16 +42,45 @@ const navDatas: {
         name: 'DemoGrid',
       },
       {
+        title: 'Icon',
+        name: 'DemoIcon',
+      },
+      {
         title: 'Popup',
         name: 'DemoPopup',
+      },
+      {
+        title: 'Space',
+        name: 'DemoSpace',
       },
       {
         title: 'Toast',
         name: 'DemoToast',
       },
+    ],
+  },
+  {
+    title: '表单组件',
+    datas: [
       {
-        title: 'TextInput',
-        name: 'DemoTextInput',
+        title: 'Checkbox',
+        name: 'DemoCheckbox',
+      },
+      {
+        title: 'DatePicker',
+        name: 'DemoDatePicker',
+      },
+      {
+        title: 'DatePickerView',
+        name: 'DemoDatePickerView',
+      },
+      {
+        title: 'Field',
+        name: 'DemoField',
+      },
+      {
+        title: 'Form',
+        name: 'DemoForm',
       },
       {
         title: 'NumberInput',
@@ -61,41 +91,28 @@ const navDatas: {
         name: 'DemoPasswordInput',
       },
       {
-        title: 'Icon',
-        name: 'DemoIcon',
-      },
-    ],
-  },
-  {
-    title: '表单组件',
-    datas: [
-      {
-        title: 'Form',
-        name: 'DemoForm',
+        title: 'Picker',
+        name: 'DemoPicker',
       },
       {
-        title: 'Checkbox',
-        name: 'DemoCheckbox',
-      },
-      {
-        title: 'Switch',
-        name: 'DemoSwitch',
-      },
-      {
-        title: 'Field',
-        name: 'DemoField',
-      },
-      {
-        title: 'Uploader',
-        name: 'DemoUploader',
+        title: 'PickerView',
+        name: 'DemoPickerView',
       },
       {
         title: 'Search',
         name: 'DemoSearch',
       },
       {
-        title: 'Picker',
-        name: 'DemoPicker',
+        title: 'Selector',
+        name: 'DemoSelector',
+      },
+      {
+        title: 'Switch',
+        name: 'DemoSwitch',
+      },
+      {
+        title: 'TextInput',
+        name: 'DemoTextInput',
       },
     ],
   },
@@ -115,6 +132,10 @@ const navDatas: {
         name: 'DemoDropdown',
       },
       {
+        title: 'ErrorBoundary',
+        name: 'DemoErrorBoundary',
+      },
+      {
         title: 'Loading',
         name: 'DemoLoading',
       },
@@ -127,8 +148,12 @@ const navDatas: {
         name: 'DemoOverlay',
       },
       {
-        title: 'Selector',
-        name: 'DemoSelector',
+        title: 'Progress',
+        name: 'DemoProgress',
+      },
+      {
+        title: 'Skeleton',
+        name: 'DemoSkeleton',
       },
     ],
   },
@@ -140,48 +165,48 @@ const navDatas: {
         name: 'DemoBadge',
       },
       {
-        title: 'Divider',
-        name: 'DemoDivider',
+        title: 'ButtonBar',
+        name: 'DemoButtonBar',
       },
       {
-        title: 'Tag',
-        name: 'DemoTag',
-      },
-      {
-        title: 'Empty',
-        name: 'DemoEmpty',
-      },
-      {
-        title: 'Progress',
-        name: 'DemoProgress',
+        title: 'Card',
+        name: 'DemoCard',
       },
       {
         title: 'Collapse',
         name: 'DemoCollapse',
       },
       {
+        title: 'Divider',
+        name: 'DemoDivider',
+      },
+      {
+        title: 'Empty',
+        name: 'DemoEmpty',
+      },
+      {
         title: 'Flex',
         name: 'DemoFlex',
       },
       {
-        title: 'Result',
-        name: 'DemoResult',
-      },
-      {
-        title: 'ErrorBoundary',
-        name: 'DemoErrorBoundary',
+        title: 'Tag',
+        name: 'DemoTag',
       },
       {
         title: 'NoticeBar',
         name: 'DemoNoticeBar',
       },
       {
+        title: 'Result',
+        name: 'DemoResult',
+      },
+      {
         title: 'TabBar',
         name: 'DemoTabBar',
       },
       {
-        title: 'ButtonBar',
-        name: 'DemoButtonBar',
+        title: 'Uploader',
+        name: 'DemoUploader',
       },
     ],
   },
@@ -191,6 +216,10 @@ const navDatas: {
       {
         title: 'NavBar',
         name: 'DemoNavBar',
+      },
+      {
+        title: 'Sidebar',
+        name: 'DemoSidebar',
       },
       {
         title: 'Steps',
@@ -204,13 +233,13 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
   return (
     <Layout.Page title="DEMO 组件">
       <ScrollView>
-        <CellGroup title="文案粗细">
+        <Cell.Group title="文案粗细">
           <FontSize />
-        </CellGroup>
+        </Cell.Group>
 
         {navDatas.map(item => {
           return (
-            <CellGroup key={item.title} title={item.title}>
+            <Cell.Group key={item.title} title={item.title}>
               {item.datas.map((subitem, index) => {
                 return (
                   <Cell
@@ -220,45 +249,13 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
                     onPress={() => {
                       navigation.navigate(subitem.name)
                     }}
-                    bordered={index + 1 !== item.datas.length}
+                    divider={index + 1 !== item.datas.length}
                   />
                 )
               })}
-            </CellGroup>
+            </Cell.Group>
           )
         })}
-
-        {/* <Cell
-          isLink
-          title="ActionBar"
-          onPress={() => {
-            navigation.navigate('DemoActionBar')
-          }}
-        /> */}
-
-        {/* <Cell
-          isLink
-          title="Image"
-          onPress={() => {
-            navigation.navigate('DemoImage')
-          }}
-        /> */}
-
-        {/* <Cell
-          isLink
-          title="Dialog"
-          onPress={() => {
-            navigation.navigate('DemoDialog')
-          }}
-        /> */}
-
-        {/* <Cell
-          isLink
-          title="Field"
-          onPress={() => {
-            navigation.navigate('DemoField')
-          }}
-        /> */}
       </ScrollView>
     </Layout.Page>
   )

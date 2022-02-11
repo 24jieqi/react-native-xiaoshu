@@ -1,10 +1,17 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState, useEffect } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import {
   Progress,
   ProgressPage,
   Button,
+  Card,
+  Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicProgress: React.FC = () => {
@@ -24,87 +31,58 @@ const BasicProgress: React.FC = () => {
 
   return (
     <ProgressPage loading={state.loading}>
-      <ScrollView style={{ backgroundColor: '#fff' }}>
-        <View style={{ paddingHorizontal: 30 }}>
-          <View style={{ height: 20 }} />
+      <ScrollView>
+        <Space tail head>
+          <Card title="基础用法" square>
+            <Space gap={20} tail head>
+              <Progress percentage={state.percentage} animated />
+              <Button
+                round
+                type="primary"
+                text="数值++"
+                onPress={() => {
+                  setState(s => {
+                    const p = s.percentage + 10
 
-          <View>
-            <Text>基础用法</Text>
-          </View>
+                    return {
+                      ...s,
+                      percentage: p > 100 ? 0 : p,
+                    }
+                  })
+                }}
+              />
+            </Space>
+          </Card>
 
-          <View style={{ height: 20 }} />
+          <Card title="线条粗细" square>
+            <Progress
+              percentage={40}
+              color="#f30"
+              strokeWidth={10}
+              trackColor="#ddd"
+              textColor="#000"
+            />
+          </Card>
 
-          <Progress percentage={state.percentage} animated />
+          <Card title="置灰" square>
+            <Progress percentage={40} inactive />
+          </Card>
 
-          <View style={{ height: 20 }} />
-
-          <Button
-            round
-            type="primary"
-            text="数值++"
-            onPress={() => {
-              setState(s => {
-                const p = s.percentage + 10
-
-                return {
-                  ...s,
-                  percentage: p > 100 ? 0 : p,
-                }
-              })
-            }}
-          />
-
-          <View style={{ height: 20 }} />
-
-          <View>
-            <Text>线条粗细</Text>
-          </View>
-
-          <View style={{ height: 20 }} />
-
-          <Progress
-            percentage={40}
-            color="#f30"
-            strokeWidth={10}
-            trackColor="#ddd"
-            textColor="#000"
-          />
-
-          <View style={{ height: 20 }} />
-
-          <View>
-            <Text>置灰</Text>
-          </View>
-
-          <View style={{ height: 20 }} />
-
-          <Progress percentage={40} inactive />
-
-          <View style={{ height: 20 }} />
-
-          <View>
-            <Text>样式定制</Text>
-          </View>
-
-          <View style={{ height: 20 }} />
-
-          <Progress percentage={60} pivotText="自定义的内容" />
-
-          <View style={{ height: 20 }} />
-
-          <Progress percentage={80} showPivot={false} />
-
-          <View style={{ height: 20 }} />
-
-          <Progress
-            percentage={40}
-            color="#f30"
-            strokeWidth={10}
-            trackColor="#ddd"
-            textColor="#000"
-            inactive
-          />
-        </View>
+          <Card title="样式定制" square>
+            <Space gap={20} tail head>
+              <Progress percentage={60} pivotText="自定义的内容" />
+              <Progress percentage={80} showPivot={false} />
+              <Progress
+                percentage={40}
+                color="#f30"
+                strokeWidth={10}
+                trackColor="#ddd"
+                textColor="#000"
+                inactive
+              />
+            </Space>
+          </Card>
+        </Space>
       </ScrollView>
     </ProgressPage>
   )

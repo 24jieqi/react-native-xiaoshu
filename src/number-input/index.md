@@ -4,17 +4,19 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基础组件
-  path: /basic
-  order: 0
+  title: 表单组件
+  path: /form
+  order: 1
 ---
 
 # NumberInput 数字输入框
 
 > 在 TextInput 的基础是完善数字输入。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+<API hideTitle></API>

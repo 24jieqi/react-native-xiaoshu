@@ -1,203 +1,153 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React from 'react'
 import { ScrollView } from 'react-native'
-
-import { Tag, Cell, CellGroup, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Tag, Cell, Icon, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
-        <Cell title="default 类型" value={<Tag>标签 fill</Tag>} />
+      <Cell.Group title="基础用法">
+        <Cell title="default 类型" value={<Tag>标签</Tag>} />
+        <Cell title="primary 类型" value={<Tag type="primary">标签</Tag>} />
+        <Cell title="hazy 类型" value={<Tag type="hazy">标签</Tag>} />
         <Cell
-          title="primary 类型"
+          title="ghost 类型"
+          value={<Tag type="ghost">标签</Tag>}
+          divider={false}
+        />
+      </Cell.Group>
+      <Cell.Group title="size">
+        <Cell
+          title="大"
           value={
-            <>
-              <Tag type="primary">标签 fill</Tag>
-              <Tag type="primary">标签 fill</Tag>
-            </>
+            <Space direction="horizontal">
+              <Tag size="l">标签</Tag>
+              <Tag size="l" closable>
+                标签
+              </Tag>
+            </Space>
           }
         />
         <Cell
-          title="success 类型"
-          value={<Tag type="success">标签 fill</Tag>}
-        />
-        <Cell title="danger 类型" value={<Tag type="error">标签 fill</Tag>} />
-        <Cell
-          title="warning 类型"
-          value={<Tag type="warning">标签 fill</Tag>}
-          bordered={false}
-        />
-      </CellGroup>
-
-      <CellGroup title="样式风格" bordered={false}>
-        <Cell
-          title="空心样式"
+          title="中"
           value={
-            <Tag type="primary" outward="ghost">
-              标签 ghost
-            </Tag>
+            <Space direction="horizontal">
+              <Tag size="m">标签</Tag>
+              <Tag size="m" closable>
+                标签
+              </Tag>
+            </Space>
           }
         />
         <Cell
-          title="空心样式"
+          title="小"
           value={
-            <Tag type="success" outward="ghost">
-              标签 ghost
-            </Tag>
+            <Space direction="horizontal">
+              <Tag size="s">标签</Tag>
+              <Tag size="s" closable>
+                标签
+              </Tag>
+            </Space>
           }
+          divider={false}
         />
+      </Cell.Group>
+      <Cell.Group title="操作相关">
         <Cell
-          title="空心样式"
-          value={
-            <Tag type="error" outward="ghost">
-              标签 ghost
-            </Tag>
-          }
-        />
-        <Cell
-          title="空心样式"
-          value={
-            <Tag type="warning" outward="ghost">
-              标签 ghost
-            </Tag>
-          }
-        />
-        <Cell
-          title="扁平样式"
-          value={
-            <Tag type="primary" outward="flat">
-              标签 flat
-            </Tag>
-          }
-        />
-        <Cell
-          title="扁平样式"
-          value={
-            <Tag type="success" outward="flat">
-              标签 flat
-            </Tag>
-          }
-        />
-        <Cell
-          title="扁平样式"
-          value={
-            <Tag type="error" outward="flat">
-              标签 flat
-            </Tag>
-          }
-        />
-        <Cell
-          title="扁平样式"
-          value={
-            <Tag type="warning" outward="flat">
-              标签 flat
-            </Tag>
-          }
-        />
-        <Cell
-          title="细边样式"
-          value={
-            <Tag type="primary" hairline outward="ghost">
-              标签 ghost
-            </Tag>
-          }
-        />
-        <Cell
-          title="圆角样式"
-          value={
-            <Tag type="primary" round>
-              标签 round
-            </Tag>
-          }
-        />
-        <Cell
-          title="标记样式"
-          value={
-            <Tag type="success" mark>
-              标签
-            </Tag>
-          }
-        />
-        <Cell
-          title="可关闭标签"
+          title="closable"
           value={
             <Tag
-              type="error"
-              closeable
-              onPressClose={() => {
-                Toast('点击了关闭按钮')
+              closable
+              onClose={() => {
+                console.log('点击了关闭')
               }}>
               标签
             </Tag>
           }
-          bordered={false}
         />
-      </CellGroup>
-
-      <CellGroup title="标签大小" bordered={false}>
         <Cell
-          title="小号标签"
+          title="closeIcon"
           value={
-            <Tag type="primary" size="small">
+            <Tag
+              closable
+              onClose={() => {
+                console.log('点击了关闭')
+              }}
+              closeIcon={<Icon.CheckedFill />}>
+              标签
+            </Tag>
+          }
+        />
+      </Cell.Group>
+      <Cell.Group title="自定义颜色">
+        <Cell title="#FFA238" value={<Tag color="#FFA238">标签</Tag>} />
+        <Cell title="#FA541C" value={<Tag color="#FA541C">标签</Tag>} />
+        <Cell title="#34B545" value={<Tag color="#34B545">标签</Tag>} />
+        <Cell title="#AD101A" value={<Tag color="#AD101A">标签</Tag>} />
+        <Cell title="#1BA2FC" value={<Tag color="#1BA2FC">标签</Tag>} />
+        <Cell title="#7D45E6" value={<Tag color="#7D45E6">标签</Tag>} />
+        <Cell title="#0065FE" value={<Tag color="#0065FE">标签</Tag>} />
+        <Cell
+          title="#FFA238"
+          value={
+            <Tag color="#FFA238" type="hazy">
               标签
             </Tag>
           }
         />
         <Cell
-          title="中号标签"
+          title="#FA541C"
           value={
-            <Tag type="primary" size="medium">
+            <Tag color="#FA541C" type="hazy">
               标签
             </Tag>
           }
         />
         <Cell
-          title="大号标签"
+          title="#34B545"
           value={
-            <Tag type="primary" size="large">
-              标签
-            </Tag>
-          }
-          bordered={false}
-        />
-      </CellGroup>
-
-      <CellGroup title="自定义颜色" bordered={false}>
-        <Cell title="背景颜色" value={<Tag color="#7232dd">标签</Tag>} />
-        <Cell
-          title="文字颜色"
-          value={
-            <Tag color="#ffe1e1" textColor="#ad0000">
+            <Tag color="#34B545" type="hazy">
               标签
             </Tag>
           }
         />
         <Cell
-          title="空心颜色"
+          title="#AD101A"
           value={
-            <Tag color="#7232dd" textColor="#f30" outward="ghost">
+            <Tag color="#AD101A" type="hazy">
               标签
             </Tag>
           }
         />
         <Cell
-          title="空心颜色"
+          title="#1BA2FC"
           value={
-            <Tag color="#7232dd" textColor="#f30" outward="ghost" closeable>
+            <Tag color="#1BA2FC" type="hazy">
               标签
             </Tag>
           }
         />
         <Cell
-          title="空心颜色"
+          title="#7D45E6"
           value={
-            <Tag color="#7232dd" outward="ghost">
+            <Tag color="#7D45E6" type="hazy">
               标签
             </Tag>
           }
-          bordered={false}
         />
-      </CellGroup>
+        <Cell
+          title="#0065FE"
+          value={
+            <Tag color="#0065FE" type="hazy">
+              标签
+            </Tag>
+          }
+        />
+      </Cell.Group>
     </ScrollView>
   )
 }

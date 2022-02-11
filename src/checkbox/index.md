@@ -11,12 +11,16 @@ group:
 
 # Checkbox 复选框
 
-> 弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作，支持函数调用和组件调用两种方式。
+> 在一组备选项中进行多选。
+
+## 何时使用
+
+适用于勾选某个单项内容，例如是否同意、已读。
 
 适用于受控、非受控两种方式。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

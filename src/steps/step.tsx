@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { Dimensions, View } from 'react-native'
-import { useTheme, widthStyle } from '../theme'
-import { renderTextLikeJSX, isDef } from '../helpers'
-// import { StepSuccess } from './images'
+
 import { Icon } from '..'
-import { createStyles } from './style'
+import { renderTextLikeJSX, isDef } from '../helpers'
+import { useTheme, widthStyle } from '../theme'
+// import { StepSuccess } from './images'
+
 import type { StepsItemPropsType } from './interface'
+import { createStyles } from './style'
+
 import { maxSteps, StepsContext } from '.'
 
 /** Step */

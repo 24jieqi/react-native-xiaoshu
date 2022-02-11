@@ -2,6 +2,7 @@ import React from 'react'
 import { Circle } from 'react-native-svg'
 
 import { hex2rgba, rgb2hex } from '../helpers'
+
 import { genIcon } from './helper/gen'
 
 const IconCircleOutline = genIcon({

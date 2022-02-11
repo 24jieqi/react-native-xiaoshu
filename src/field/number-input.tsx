@@ -3,6 +3,7 @@ import React, { memo } from 'react'
 import Cell from '../cell'
 import NumberInput from '../number-input'
 import { useTheme } from '../theme'
+
 import type { FieldNumberInputProps, FieldTextCellPropsUsed } from './interface'
 
 /**
@@ -19,7 +20,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
   valueStyle,
   valueExtra,
   contentStyle,
-  bordered = true,
+  divider = true,
   isLink = false,
   onPressLink,
   center = false,
@@ -48,7 +49,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
     valueStyle,
     valueExtra,
     contentStyle,
-    bordered,
+    divider,
     isLink,
     onPressLink,
     center,
@@ -63,7 +64,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
       valueStyle={
         vertical
           ? {
-              marginTop: THEME_VAR.padding_xs,
+              marginTop: THEME_VAR.space_2,
             }
           : null
       }

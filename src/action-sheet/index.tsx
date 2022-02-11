@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
 
 import Portal from '../portal'
-import type { ActionSheetInstance } from './interface'
+
 import ActionSheetView from './action-sheet'
 import ActionSheetMethodView from './action-sheet-method'
+import type { ActionSheetInstance } from './interface'
 
 const ActionSheet: ActionSheetInstance = opts => {
   return new Promise((resolve, reject) => {

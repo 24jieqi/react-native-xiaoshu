@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
 import { getDefaultValue, isDef } from '../helpers'
+import { useTheme, widthStyle } from '../theme'
+
 import type { DividerProps } from './interface'
-import { createStyles } from './style'
 import DividerLine from './line'
+import { createStyles } from './style'
 
 /**
  * Divider 分割线
@@ -15,7 +16,7 @@ const Divider: React.FC<DividerProps> = ({
   children,
   style,
   textStyle,
-  type = 'dark',
+  type = 'light',
   dashed = false,
   color,
   contentPosition = 'center',

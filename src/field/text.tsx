@@ -4,6 +4,7 @@ import type { TextStyle, StyleProp } from 'react-native'
 import Cell from '../cell'
 import { getDefaultValue, isDef } from '../helpers'
 import { useTheme } from '../theme'
+
 import type { FieldTextProps } from './interface'
 
 /**

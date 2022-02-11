@@ -2,10 +2,11 @@ import React, { memo } from 'react'
 import { Keyboard } from 'react-native'
 
 import { isArray, isValue } from '../helpers'
-import { useTheme } from '../theme'
-import type { SelectorValue } from '../selector/interface'
-import Selector from '../selector'
 import { usePersistFn } from '../hooks'
+import Selector from '../selector'
+import type { SelectorValue } from '../selector/interface'
+import { useTheme } from '../theme'
+
 import type { FieldSelectorProps } from './interface'
 import FieldText from './text'
 
@@ -14,7 +15,7 @@ import FieldText from './text'
  */
 const FieldSelector: React.FC<FieldSelectorProps> = ({
   value,
-  options = [],
+  options,
   multiple,
   onChange,
   optionsLoading = false,
@@ -62,7 +63,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
           ? [
               innerStyle,
               {
-                opacity: THEME_VAR.active_opacity,
+                opacity: THEME_VAR.button_active_opacity,
               },
             ]
           : innerStyle

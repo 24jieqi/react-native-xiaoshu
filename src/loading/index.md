@@ -13,8 +13,20 @@ group:
 
 > 加载图标，用于表示加载中的过渡状态。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+### Loading
+
+<API hideTitle></API>
+
+### LoadingCircular
+
+<API hideTitle src="./circular.tsx"></API>
+
+### LoadingSpinner
+
+<API hideTitle src="./spinner.tsx"></API>

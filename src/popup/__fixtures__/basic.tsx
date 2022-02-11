@@ -1,8 +1,13 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
 import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu'
-import { Popup, PopupHeader, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Popup, Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const Styles = StyleSheet.create({
   hint: {
@@ -27,94 +32,86 @@ const BasicPopup: React.FC = () => {
 
   return (
     <ScrollView>
-      <PopupHeader title="弹窗头部" />
+      <Space head>
+        <Popup.Header title="弹窗头部" />
 
-      <View style={{ height: 20 }} />
+        <Popup.Header
+          title="弹窗头部"
+          leftExtra={<Text>左侧内容</Text>}
+          rightExtra={<Text>右侧内容</Text>}
+        />
 
-      <PopupHeader
-        title="弹窗头部"
-        leftExtra={<Text>左侧内容</Text>}
-        rightExtra={<Text>右侧内容</Text>}
-      />
+        <Card title="基础用法" square>
+          <Button
+            type="primary"
+            text="展示弹出层"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                show: true,
+                position: 'center',
+              }))
+            }}
+          />
+        </Card>
 
-      <View style={{ height: 20 }} />
+        <Card title="不同的位置" square>
+          <Space>
+            <Text>
+              弹出位置
+              <Text style={Styles.hint}>共用一个弹层，切换不同位置会闪烁</Text>
+            </Text>
 
-      <Text>基础用法</Text>
+            <Button
+              type="primary"
+              text="顶部弹出"
+              onPress={() => {
+                setState(s => ({
+                  ...s,
+                  show: true,
+                  position: 'top',
+                }))
+              }}
+            />
 
-      <View style={{ height: 20 }} />
+            <Button
+              type="primary"
+              text="底部弹出"
+              onPress={() => {
+                setState(s => ({
+                  ...s,
+                  show: true,
+                  position: 'bottom',
+                }))
+              }}
+            />
 
-      <Button
-        type="primary"
-        text="展示弹出层"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            show: true,
-            position: 'center',
-          }))
-        }}
-      />
+            <Button
+              type="primary"
+              text="左侧弹出"
+              onPress={() => {
+                setState(s => ({
+                  ...s,
+                  show: true,
+                  position: 'left',
+                }))
+              }}
+            />
 
-      <Text>
-        弹出位置
-        <Text style={Styles.hint}>共用一个弹层，切换不同位置会闪烁</Text>
-      </Text>
-
-      <View style={{ height: 20 }} />
-
-      <Button
-        type="primary"
-        text="顶部弹出"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            show: true,
-            position: 'top',
-          }))
-        }}
-      />
-
-      <View style={{ height: 20 }} />
-
-      <Button
-        type="primary"
-        text="底部弹出"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            show: true,
-            position: 'bottom',
-          }))
-        }}
-      />
-
-      <View style={{ height: 20 }} />
-
-      <Button
-        type="primary"
-        text="左侧弹出"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            show: true,
-            position: 'left',
-          }))
-        }}
-      />
-
-      <View style={{ height: 20 }} />
-
-      <Button
-        type="primary"
-        text="右侧弹出"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            show: true,
-            position: 'right',
-          }))
-        }}
-      />
+            <Button
+              type="primary"
+              text="右侧弹出"
+              onPress={() => {
+                setState(s => ({
+                  ...s,
+                  show: true,
+                  position: 'right',
+                }))
+              }}
+            />
+          </Space>
+        </Card>
+      </Space>
 
       <Popup
         visible={state.show}
@@ -133,7 +130,7 @@ const BasicPopup: React.FC = () => {
           return true
         }}
         round>
-        <PopupHeader
+        <Popup.Header
           title="这里是一个标题"
           onClose={() => {
             setState(s => ({

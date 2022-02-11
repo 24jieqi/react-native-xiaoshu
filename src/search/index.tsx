@@ -1,13 +1,14 @@
 import React, { useRef, useCallback, memo, forwardRef } from 'react'
 import { View } from 'react-native'
 
+import Button from '../button'
+import { getDefaultValue, isValue, noop } from '../helpers'
+import { usePersistFn } from '../hooks'
+import { SearchOutline, ArrowLeftOutline } from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import Button from '../button'
-import { SearchOutline, ArrowLeftOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import { usePersistFn } from '../hooks'
-import { getDefaultValue, isValue, noop } from '../helpers'
+
 import type { SearchProps } from './interface'
 import { createStyles } from './style'
 
@@ -86,7 +87,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
         {showBack ? (
           <ArrowLeftOutline
             onPress={onPressBack}
-            color={THEME_VAR.text_color_1}
+            color={THEME_VAR.search_back_icon_color}
             size={24}
             style={STYLES.icon_back}
           />
@@ -107,7 +108,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           autoFocus={autoFocus}
         />
 
-        <Button text="搜索" type="primary" size="small" onPress={onPress} />
+        <Button text="搜索" type="primary" size="s" onPress={onPress} />
       </View>
     )
   },

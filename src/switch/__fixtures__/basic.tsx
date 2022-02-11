@@ -1,3 +1,8 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
@@ -101,7 +106,7 @@ const BasicSwitch: React.FC = () => {
       <ButtonBar alone>
         <Cell
           title="单元格"
-          bordered={false}
+          divider={false}
           value={
             <Switch
               value={state}

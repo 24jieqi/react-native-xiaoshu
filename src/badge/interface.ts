@@ -2,7 +2,7 @@ import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 
 export interface BadgeProps {
   /**
-   * 最外层 Badge 的样式
+   * Badge 最外层的样式
    */
   style?: StyleProp<ViewStyle>
 

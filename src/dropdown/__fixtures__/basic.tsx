@@ -1,11 +1,12 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import {
-  CellGroup,
-  DropdownMenu,
-  DropdownItem,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Dropdown } from '@fruits-chain/react-native-xiaoshu'
 
 const itemOptions = [
   { label: '全部商品', value: null },
@@ -33,9 +34,9 @@ const BasicDropdown: React.FC = () => {
 
   return (
     <ScrollView scrollsToTop={false}>
-      <CellGroup title="基础用法">
-        <DropdownMenu>
-          <DropdownItem
+      <Cell.Group title="基础用法">
+        <Dropdown>
+          <Dropdown.Item
             options={itemOptions}
             value={values.v1}
             onChange={v => {
@@ -45,16 +46,16 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
-          <DropdownItem
+          <Dropdown.Item
             options={itemOptions}
             defaultValue={itemOptions[2].value}
           />
-        </DropdownMenu>
+        </Dropdown>
 
         <View style={{ height: 200 }} />
 
-        <DropdownMenu>
-          <DropdownItem
+        <Dropdown>
+          <Dropdown.Item
             disabled
             options={itemOptions}
             value={values.v1}
@@ -65,13 +66,13 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
-          <DropdownItem options={itemOptions} value={itemOptions[2].value} />
-        </DropdownMenu>
+          <Dropdown.Item options={itemOptions} value={itemOptions[2].value} />
+        </Dropdown>
 
         <View style={{ height: 200 }} />
 
-        <DropdownMenu direction="up" activeColor="#f30">
-          <DropdownItem
+        <Dropdown direction="up" activeColor="#f30">
+          <Dropdown.Item
             options={itemOptions}
             value={values.v3}
             onChange={v => {
@@ -81,7 +82,7 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
-          <DropdownItem
+          <Dropdown.Item
             options={itemOptions2}
             value={values.v4}
             onChange={v => {
@@ -91,12 +92,12 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
-        </DropdownMenu>
+        </Dropdown>
 
         <View style={{ height: 500 }} />
 
-        <DropdownMenu direction="up" activeColor="#f30">
-          <DropdownItem
+        <Dropdown direction="up" activeColor="#f30">
+          <Dropdown.Item
             options={itemOptions}
             value={values.v3}
             onChange={v => {
@@ -106,7 +107,7 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
-          <DropdownItem
+          <Dropdown.Item
             options={itemOptions2}
             value={values.v4}
             onChange={v => {
@@ -116,10 +117,10 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
-        </DropdownMenu>
+        </Dropdown>
 
         <View style={{ height: 300 }} />
-      </CellGroup>
+      </Cell.Group>
     </ScrollView>
   )
 }

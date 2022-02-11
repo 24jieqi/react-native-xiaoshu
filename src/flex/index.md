@@ -13,8 +13,10 @@ group:
 
 > Flex 是 CSS flex 布局的一个封装。
 
-## DEMO
+似乎与 Space 组件的功能有些重复。
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+## 代码演示
+
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API></API>

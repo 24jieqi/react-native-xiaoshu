@@ -16,11 +16,11 @@ export const createStyles = (themeVar: ThemeVarType) => {
     inner: {
       backgroundColor: themeVar.toast_background_color,
       borderRadius: themeVar.toast_border_radius,
-      paddingHorizontal: themeVar.toast_default_padding_horizontal,
-      paddingVertical: themeVar.toast_default_padding_vertical,
+      paddingHorizontal: themeVar.toast_inner_padding_horizontal,
+      paddingVertical: themeVar.toast_inner_padding_vertical,
       maxWidth: themeVar.toast_max_width,
-      minHeight: themeVar.toast_default_min_height,
-      width: themeVar.toast_default_width,
+      minHeight: themeVar.toast_inner_min_height,
+      width: themeVar.toast_inner_width,
       justifyContent: 'center',
     },
 
@@ -34,16 +34,16 @@ export const createStyles = (themeVar: ThemeVarType) => {
       width: 'auto',
     },
 
-    loading: {
+    icon: {
       alignItems: 'center',
-      padding: themeVar.padding_base,
+      padding: themeVar.toast_icon_padding,
     },
 
     text: {
       fontSize: themeVar.toast_font_size,
       color: themeVar.toast_text_color,
       textAlign: 'center',
-      marginTop: themeVar.padding_xs,
+      marginTop: themeVar.toast_text_margin_top,
     },
 
     text_top_0: {

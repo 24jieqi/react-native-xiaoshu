@@ -2,20 +2,28 @@ import React, { useMemo, memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { View } from 'react-native'
 
-import type { RowProps } from './interface'
 import RowContext from './context'
+import type { RowProps } from './interface'
 import STYLES from './style'
 
 /**
  * Row 布局
  * @description 一组单元格。
  */
-const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
-  const ctx = useMemo(() => ({ gutter }), [gutter])
+const Row: React.FC<RowProps> = ({
+  gap = 0,
+  style,
+  justify,
+  align,
+  ...restProps
+}) => {
+  const ctx = useMemo(() => ({ gap }), [gap])
   const rowStyles: StyleProp<ViewStyle> = [
     STYLES.row,
     {
-      marginHorizontal: -(+gutter / 2),
+      marginHorizontal: -(+gap / 2),
+      justifyContent: justify,
+      alignItems: align,
     },
     style,
     // to test ui
@@ -28,7 +36,7 @@ const Row: React.FC<RowProps> = ({ children, gutter = 0, style }) => {
 
   return (
     <RowContext.Provider value={ctx}>
-      <View style={rowStyles}>{children}</View>
+      <View {...restProps} style={rowStyles} />
     </RowContext.Provider>
   )
 }

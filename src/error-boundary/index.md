@@ -4,17 +4,19 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 展示组件
-  path: /show
-  order: 3
+  title: 反馈组件
+  path: /feedback
+  order: 2
 ---
 
 # ErrorBoundary 错误捕获
 
 > 一般用于应用根组件，捕获 React 内产生的问题。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+<API hideTitle></API>

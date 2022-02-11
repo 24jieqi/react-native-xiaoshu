@@ -1,8 +1,13 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import type { ViewStyle } from 'react-native'
-import { View, Text, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
-import { TabBar, Icon, Button } from '@fruits-chain/react-native-xiaoshu'
+import { TabBar, Icon, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -11,8 +16,8 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图表都保持同一个占用空间
   width: 20,
   height: 20,
-  // backgroundColor: '#f30',
 }
+
 const bottomBar = [
   {
     value: 1,
@@ -58,26 +63,24 @@ const BasicSwitch: React.FC = () => {
   return (
     <>
       <ScrollView>
-        <Text>基础用法</Text>
+        <Space head>
+          <TabBar
+            safeAreaInsetBottom={false}
+            options={bottomBar}
+            value={value1}
+            onChange={v => {
+              setValue1(v as number)
+            }}
+          />
 
-        <TabBar
-          safeAreaInsetBottom={false}
-          options={bottomBar}
-          value={value1}
-          onChange={v => {
-            setValue1(v as number)
-          }}
-        />
-
-        <View style={{ height: 10 }} />
-
-        <Button
-          text="重置"
-          type="warning"
-          onPress={() => {
-            setValue1(bottomBar[1].value)
-          }}
-        />
+          <Button
+            text="重置"
+            danger
+            onPress={() => {
+              setValue1(bottomBar[1].value)
+            }}
+          />
+        </Space>
       </ScrollView>
 
       <TabBar options={bottomBar} defaultValue={bottomBar[0].value} />

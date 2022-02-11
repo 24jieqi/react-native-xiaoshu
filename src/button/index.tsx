@@ -1,11 +1,14 @@
-import React, { memo } from 'react'
-import type { ViewStyle, TextStyle } from 'react-native'
+import Color from 'color'
+import React, { memo, useMemo } from 'react'
+import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
+import { getDefaultValue, isDef } from '../helpers'
 import Loading from '../loading'
-import { createStyles } from './style'
+import { useTheme, widthStyle } from '../theme'
+
 import type { ButtonProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Button 按钮
@@ -16,9 +19,9 @@ const Button: React.FC<ButtonProps> = ({
   style,
   text,
   textStyle,
-  type = 'default',
-  size = 'default',
-  ghost = false,
+  type = 'primary',
+  danger = false,
+  size = 'm',
   hairline = false,
   disabled = false,
   loading = false,
@@ -33,56 +36,83 @@ const Button: React.FC<ButtonProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  const commonButtonStyle = StyleSheet.flatten<ViewStyle>([
+  color = getDefaultValue(
+    color,
+    danger ? THEME_VAR.button_danger_color : THEME_VAR.button_primary_color,
+  )
+  textColor = getDefaultValue(textColor, THEME_VAR.white)
+
+  const [_backgroundColor, _borderColor, _textColor, _borderWidth] =
+    useMemo(() => {
+      switch (type) {
+        case 'hazy': {
+          const hazyColor = Color(color)
+            .lightness(THEME_VAR.button_hazy_lightness)
+            .hex()
+          return [hazyColor, hazyColor, color, 0]
+        }
+
+        case 'outline': {
+          return [
+            THEME_VAR.button_ghost_background_color,
+            THEME_VAR.button_border_color,
+            color,
+            1,
+          ]
+        }
+
+        case 'ghost': {
+          return [THEME_VAR.button_ghost_background_color, color, color, 1]
+        }
+
+        case 'link':
+          return [
+            THEME_VAR.button_ghost_background_color,
+            THEME_VAR.button_ghost_background_color,
+            color,
+            0,
+          ]
+
+        case 'primary':
+        default:
+          return [color, color, textColor, 0]
+      }
+    }, [
+      THEME_VAR.button_border_color,
+      THEME_VAR.button_ghost_background_color,
+      THEME_VAR.button_hazy_lightness,
+      color,
+      textColor,
+      type,
+    ])
+
+  const buttonStyles: StyleProp<ViewStyle> = [
     STYLES.button,
     {
-      backgroundColor:
-        THEME_VAR[`button_${type}_background_color`] ||
-        THEME_VAR.button_default_background_color,
-      borderColor:
-        THEME_VAR[`button_${type}_border_color`] ||
-        THEME_VAR.button_default_border_color,
-      height:
-        THEME_VAR[`button_${size}_height`] ||
-        THEME_VAR.button_default_font_size,
+      height: THEME_VAR[`button_${size}_height`],
+      backgroundColor: _backgroundColor,
+      borderColor: _borderColor,
+      borderWidth: _borderWidth
+        ? hairline
+          ? StyleSheet.hairlineWidth
+          : _borderWidth
+        : _borderWidth,
     },
-    STYLES[`button_${size}`],
-    hairline ? STYLES.button_border_width_hairline : null,
+    STYLES[`button_${size}_padding_horizontal`],
     square ? STYLES.button_square : null,
     round ? STYLES.button_round : null,
-    color
-      ? {
-          backgroundColor: color,
-          borderColor: color,
-        }
-      : null,
     disabled ? STYLES.button_disabled : null,
-  ])
+    loading ? STYLES.button_loading : null,
+    style,
+  ]
   const commonTextStyle = StyleSheet.flatten<TextStyle>([
     STYLES.text,
     {
-      color:
-        THEME_VAR[`button_${type}_color`] || THEME_VAR.button_default_color,
-      fontSize:
-        THEME_VAR[`button_${size}_font_size`] ||
-        THEME_VAR.button_default_font_size,
+      fontSize: THEME_VAR[`button_${size}_font_size`],
+      color: _textColor,
+      marginLeft: renderLeftIcon ? THEME_VAR.button_icon_gap : 0,
     },
-    color || textColor
-      ? {
-          color: textColor || '#fff',
-        }
-      : null,
   ])
-
-  if (ghost) {
-    commonButtonStyle.backgroundColor = THEME_VAR.button_ghost_background_color
-    commonTextStyle.color = commonButtonStyle.borderColor
-
-    if (type === 'default') {
-      commonButtonStyle.borderColor = '#BEC6D2'
-      commonTextStyle.color = THEME_VAR.primary
-    }
-  }
 
   const textStyleSummary = StyleSheet.flatten<TextStyle>([
     commonTextStyle,
@@ -103,7 +133,7 @@ const Button: React.FC<ButtonProps> = ({
     <>
       {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
       <Text style={textStyleSummary} numberOfLines={1}>
-        {text || children}
+        {isDef(text) ? text : children}
       </Text>
     </>
   )
@@ -111,7 +141,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       disabled={disabled || loading}
-      style={[commonButtonStyle, style]}
+      style={buttonStyles}
       activeOpacity={THEME_VAR.button_active_opacity}
       {...otherProps}>
       {contextJSX}

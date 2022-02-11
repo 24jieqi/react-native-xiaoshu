@@ -14,32 +14,25 @@ export const createStyles = (themeVar: ThemeVarType) => {
       position: 'relative',
       marginHorizontal: themeVar.cell_group_title_padding_horizontal,
       paddingVertical: (themeVar.cell_mini_height - innerHeight) / 2,
-      borderStyle: 'solid',
-      borderBottomColor: themeVar.cell_border_color,
-      borderBottomWidth: 0,
     },
 
     cell_inner_row: {
       flexDirection: 'row',
     },
 
-    cell_inner_border: {
-      borderBottomWidth: 1,
-    },
-
     title: {
       position: 'relative',
       flexDirection: 'row',
-      marginRight: themeVar.padding_md,
+      marginRight: themeVar.cell_title_line_margin_right,
       // alignItems: 'center',
       // backgroundColor: '#f30', // to test ui
     },
 
     title_required: {
       position: 'absolute',
-      left: -themeVar.padding_sm,
+      left: -themeVar.cell_required_width,
       height: innerHeight,
-      width: themeVar.padding_sm,
+      width: themeVar.cell_required_width,
       // backgroundColor: '#789', // to test ui
       alignItems: 'center',
       justifyContent: 'center',
@@ -48,13 +41,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
     title_required_text: {
       fontSize: themeVar.cell_font_size,
       color: themeVar.cell_required_color,
-    },
-
-    title_icon: {
-      marginRight: themeVar.padding_base,
-      color: themeVar.cell_icon_color,
-      fontSize: themeVar.cell_icon_size,
-      lineHeight: innerHeight,
     },
 
     title_text: {
@@ -80,7 +66,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     icon_link: {
       alignSelf: 'center',
-      marginLeft: themeVar.padding_base,
+      marginLeft: themeVar.cell_icon_link_margin_left,
       // backgroundColor: '#f30',
     },
 

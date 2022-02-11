@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
-import { View, ScrollView } from 'react-native'
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
 
-import type { PickerOptionCascade } from 'react-native-xiaoshu'
-import { Picker, Button, Popup } from 'react-native-xiaoshu'
+import React from 'react'
+import { ScrollView } from 'react-native'
+
+import type { PickerOptionCascade } from '@fruits-chain/react-native-xiaoshu'
+import { Picker, Button, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const columns1 = new Array(10).fill(0).map((_, index) => ({
   label: `选项${index}`,
@@ -57,108 +62,128 @@ const columns4 = buildChildren(8, 'sj', '省级', (sjValue, sjLabel) =>
 )
 
 const BasicPicker: React.FC = () => {
-  const [visible, setVisible] = useState(false)
   return (
     <ScrollView>
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Button
-          text="显示弹出层"
-          type="primary"
-          onPress={() => {
-            setVisible(true)
-          }}
-        />
-
-        <Popup visible={visible} position="bottom" round>
-          <Picker
-            columns={columns1}
-            title="单列"
-            onChange={(v, o) => {
-              console.log('滑动完成就触发 -> value:', v)
-              console.log('滑动完成就触发 -> option:', o)
-            }}
-            onCancel={() => {
-              setVisible(false)
-            }}
-            onConfirm={(v, o) => {
-              console.log('点击确定就触发 -> value:', v)
-              console.log('点击确定就触发 -> option:', o)
-              setVisible(false)
+      <Cell.Group title="函数使用" bodyPaddingHorizontal>
+        <Space>
+          <Button
+            text="单选:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是单选',
+                columns: columns1,
+              }).then(data => {
+                console.log(data)
+              })
             }}
           />
-        </Popup>
-      </View>
+          <Button
+            text="单选:beforeClose:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是单选',
+                columns: columns1,
+                beforeClose: (action, values, columns) => {
+                  console.log(
+                    '单选:beforeClose:Promise   =>  action  => ',
+                    action,
+                  )
+                  console.log(
+                    '单选:beforeClose:Promise   =>  values  => ',
+                    values,
+                  )
+                  console.log(
+                    '单选:beforeClose:Promise   =>  columns  => ',
+                    columns,
+                  )
 
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker
-          columns={columns1}
-          title="单列"
-          onChange={(v, o) => {
-            console.log('滑动完成就触发 -> value:', v)
-            console.log('滑动完成就触发 -> option:', o)
-          }}
-          onCancel={(v, o) => {
-            console.log('点击取消就触发 -> value:', v)
-            console.log('点击取消就触发 -> option:', o)
-          }}
-          onConfirm={(v, o) => {
-            console.log('点击确定就触发 -> value:', v)
-            console.log('点击确定就触发 -> option:', o)
-          }}
-        />
-      </View>
-
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker columns={columns2} title="多列" />
-      </View>
-
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker columns={columns3} title="多列带默认值" />
-      </View>
-
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker columns={columns4} title="级联选择" />
-      </View>
-
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker columns={[]} title="啊哈" loading />
-      </View>
-
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker
-          columns={columns1}
-          title="操作栏在底部"
-          toolbarPosition="bottom"
-        />
-      </View>
-
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <Picker columns={columns1} showToolbar={false} />
-      </View>
+                  return new Promise<boolean>(resolve => {
+                    setTimeout(() => {
+                      resolve(true)
+                    }, 2000)
+                  })
+                },
+              })
+            }}
+          />
+          <Button
+            text="单选:默认值:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是单选',
+                columns: columns1,
+                defaultValue: [columns1[4].value],
+              }).then(data => {
+                console.log(data)
+              })
+            }}
+          />
+          <Button
+            text="单选:Callback"
+            onPress={() => {
+              Picker({
+                title: '这是单选',
+                columns: columns1,
+                onCancel: (v, c) => {
+                  console.log('onCancel')
+                  console.log('单选:Callback ==> values ', v)
+                  console.log('单选:Callback ==> columns ', c)
+                },
+                onConfirm: (v, c) => {
+                  console.log('onConfirm')
+                  console.log('单选:Callback ==> values ', v)
+                  console.log('单选:Callback ==> columns ', c)
+                },
+              })
+            }}
+          />
+          <Button
+            text="多选:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是多选',
+                columns: columns2,
+              }).then(data => {
+                console.log(data)
+              })
+            }}
+          />
+          <Button
+            text="多选:默认值:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是多选',
+                columns: columns2,
+                defaultValue: [columns2[0][4].value, columns2[1][8].value],
+              }).then(data => {
+                console.log(data)
+              })
+            }}
+          />
+          <Button
+            text="多选:选项默认值:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是多选',
+                columns: columns3,
+              }).then(data => {
+                console.log(data)
+              })
+            }}
+          />
+          <Button
+            text="联级选择:Promise"
+            onPress={() => {
+              Picker({
+                title: '这是联级',
+                columns: columns4,
+              }).then(data => {
+                console.log(data)
+              })
+            }}
+          />
+        </Space>
+      </Cell.Group>
     </ScrollView>
   )
 }

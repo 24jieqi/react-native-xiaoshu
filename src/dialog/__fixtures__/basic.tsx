@@ -1,12 +1,12 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import {
-  Cell,
-  CellGroup,
-  Dialog,
-  Toast,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Dialog, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDialog: React.FC = () => {
   const [state, setState] = useState({
@@ -19,7 +19,7 @@ const BasicDialog: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <Cell.Group title="基础用法">
         <Cell
           title="提示弹窗: 固定 200 宽"
           isLink
@@ -107,7 +107,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="确认弹窗:自定义颜色、文案"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Dialog.confirm({
               title: '提示',
@@ -115,8 +115,10 @@ const BasicDialog: React.FC = () => {
               onClosed: () => {
                 console.log('onClosedOnClosedOnClosedOnClosed')
               },
-              confirmButtonColor: '#F30',
-              confirmButtonText: '删除',
+              confirmButtonColor: '#690',
+              confirmButtonText: '删除吗',
+              cancelButtonColor: '#007',
+              cancelButtonText: '我就不',
               beforeClose: action =>
                 new Promise(resolve => {
                   setTimeout(() => {
@@ -137,9 +139,9 @@ const BasicDialog: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="输入框" bordered={false}>
+      <Cell.Group title="输入框">
         <Cell
           title="普通文字"
           isLink
@@ -247,7 +249,7 @@ const BasicDialog: React.FC = () => {
         <Cell
           title="数字"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Dialog.input({
               title: '输入框？',
@@ -260,13 +262,13 @@ const BasicDialog: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="组件调用" bordered={false}>
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用')
             setState(s => ({
@@ -278,7 +280,7 @@ const BasicDialog: React.FC = () => {
             }))
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <Dialog.Component
         showCancelButton

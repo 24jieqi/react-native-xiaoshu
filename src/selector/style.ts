@@ -19,8 +19,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
     option_item_text: {
       flex: 1,
       lineHeight: themeVar.selector_option_text_line_height,
-      fontSize: themeVar.font_size_h5,
-      color: themeVar.text_color_1,
+      fontSize: themeVar.selector_option_text_font_size,
+      color: themeVar.selector_option_text_color,
       // backgroundColor: '#f30', // to test ui
     },
 

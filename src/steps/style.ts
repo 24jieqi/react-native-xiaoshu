@@ -29,10 +29,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       height: themeVar.steps_icon_dot_active_size,
       justifyContent: 'center',
       backgroundColor: themeVar.steps_background_color,
-      paddingHorizontal: themeVar.padding_base,
+      paddingHorizontal: themeVar.space_1,
       position: 'relative',
       zIndex: 10,
-      marginBottom: themeVar.padding_xs,
+      marginBottom: themeVar.space_2,
     },
     line: {
       position: 'absolute',
@@ -46,7 +46,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       height: themeVar.steps_icon_dot_size,
       backgroundColor: themeVar.steps_title_color,
       borderRadius: themeVar.steps_icon_dot_size,
-      opacity: themeVar.active_img_opacity,
+      opacity: themeVar.button_active_opacity,
     },
     dotActive: {
       width: themeVar.steps_icon_dot_active_size,
@@ -57,13 +57,13 @@ export const createStyles = (themeVar: ThemeVarType) => {
     titleText: {
       fontSize: themeVar.steps_title_size,
       color: themeVar.steps_title_color,
-      opacity: themeVar.active_opacity,
-      marginHorizontal: themeVar.padding_base,
+      opacity: themeVar.button_active_opacity,
+      marginHorizontal: themeVar.space_1,
     },
     activeTitleText: {
       fontSize: themeVar.steps_title_size,
       color: themeVar.steps_title_color,
-      marginHorizontal: themeVar.padding_base,
+      marginHorizontal: themeVar.space_1,
     },
   })
 }

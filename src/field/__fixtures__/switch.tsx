@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
-import { CellGroup, Field } from '@fruits-chain/react-native-xiaoshu'
+/**
+ * title: 开关
+ * desc: 适合开启或关闭部分控件填写。
+ */
 
-const BasicFieldText: React.FC = () => {
+import React, { useState } from 'react'
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+
+const BasicFieldSwitch: React.FC = () => {
   const [value, setValue] = useState(true)
 
   return (
-    <CellGroup title="Field Text">
+    <Cell.Group title="Field Switch">
       <Field.Switch
         title="默认数据"
         onChange={v => {
@@ -46,17 +51,16 @@ const BasicFieldText: React.FC = () => {
         onChange={v => {
           console.log(v)
         }}
-        bordered={false}
       />
 
       <Field.Switch
         title="受控:有onChange"
         value={value}
         onChange={setValue}
-        bordered={false}
+        divider={false}
       />
-    </CellGroup>
+    </Cell.Group>
   )
 }
 
-export default BasicFieldText
+export default BasicFieldSwitch

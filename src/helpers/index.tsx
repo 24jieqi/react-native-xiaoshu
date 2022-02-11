@@ -1,3 +1,5 @@
+import omit from 'lodash/omit'
+import pick from 'lodash/pick'
 import React, { isValidElement } from 'react'
 import type {
   TextStyle,
@@ -7,8 +9,6 @@ import type {
   ViewProps,
 } from 'react-native'
 import { Text } from 'react-native'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
 
 export * from './color'
 export * from './z-index'
@@ -16,6 +16,7 @@ export { default as easing } from './easing'
 export * from './interceptor'
 export * from './typeof'
 export * from './format/number'
+export * from './attach-properties-to-component'
 
 import { isValue, isDef } from './typeof'
 
@@ -79,8 +80,10 @@ export const isTouchableNode = (props: TouchableWithoutFeedbackProps) => {
 /**
  * 挑选出点击事件的属性
  */
-export const pickTouchablePropsField = (props: Partial<ViewProps>) => {
-  return pick<ViewProps>(props, touchablePropsFields)
+export const pickTouchablePropsField = (
+  props: Partial<ViewProps & TouchableWithoutFeedbackProps>,
+) => {
+  return pick(props, touchablePropsFields)
 }
 
 /**

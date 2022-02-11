@@ -1,8 +1,13 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
-import { View, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, CellGroup, Selector } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicActionSheet: React.FC = () => {
   const [state, setState] = useState({
@@ -17,7 +22,7 @@ const BasicActionSheet: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <Cell.Group title="基础用法">
         <Cell
           title="没有超过一屏"
           isLink
@@ -149,7 +154,7 @@ const BasicActionSheet: React.FC = () => {
         <Cell
           title="超过一屏"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             const v: SelectorOption[] = []
 
@@ -173,13 +178,13 @@ const BasicActionSheet: React.FC = () => {
               .catch(() => {})
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="组件调用" bordered={false}>
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用 -> show')
             setState(s => ({
@@ -188,7 +193,7 @@ const BasicActionSheet: React.FC = () => {
             }))
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <Selector.Component
         title="这里应该有一个标题"
@@ -213,8 +218,6 @@ const BasicActionSheet: React.FC = () => {
           }))
         }}
       />
-
-      <View style={{ height: 20 }} />
     </ScrollView>
   )
 }

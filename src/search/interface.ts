@@ -1,4 +1,5 @@
 import type { ViewProps } from 'react-native'
+
 import type { TextInputProps } from '../text-input/interface'
 
 export interface SearchProps

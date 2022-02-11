@@ -3,15 +3,17 @@ import type { ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 import { Svg } from 'react-native-svg'
 
-import type { ThemeVarType } from '../../theme'
-import { useTheme } from '../../theme'
 import {
   getDefaultValue,
   hex2rgba,
   pickTouchablePropsField,
   omitTouchablePropsField,
+  isDef,
 } from '../../helpers'
+import type { ThemeVarType } from '../../theme'
+import { useTheme } from '../../theme'
 import type { IconCommonProps } from '../interface'
+
 import * as helper from './'
 
 type OutlineRender = (
@@ -78,7 +80,11 @@ export const genIcon = ({
         <TouchableWithoutFeedback {...touchableOpacityProps} hitSlop={hitSlop}>
           <View
             style={style || touchableOpacityStyle}
-            pointerEvents={svgProps.pointerEvents}>
+            pointerEvents={
+              isDef(touchableOpacityProps.onPress)
+                ? svgProps.pointerEvents
+                : 'none'
+            }>
             <Svg
               {...svgProps}
               style={svgStyle || touchableOpacityStyle}

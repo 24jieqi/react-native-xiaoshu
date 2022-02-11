@@ -45,6 +45,13 @@ import DemoUploader from '../../src/uploader/__fixtures__/basic'
 import DemoPasswordInput from '../../src/password-input/__fixtures__/basic'
 import DemoSearch from '../../src/search/__fixtures__/basic'
 import DemoPicker from '../../src/picker/__fixtures__/basic'
+import DemoPickerView from '../../src/picker-view/__fixtures__/basic'
+import DemoSpace from '../../src/space/__fixtures__/basic'
+import DemoDatePickerView from '../../src/date-picker-view/__fixtures__/basic'
+import DemoDatePicker from '../../src/date-picker/__fixtures__/basic'
+import DemoCard from '../../src/card/__fixtures__/basic'
+import DemoSkeleton from '../../src/skeleton/__fixtures__/basic'
+import DemoSidebar from '../../src/sidebar/__fixtures__/basic'
 import DemoWrapper from './demo-wrapper'
 
 export type DemoPaths =
@@ -89,23 +96,30 @@ export type DemoPaths =
   | 'DemoPasswordInput'
   | 'DemoSearch'
   | 'DemoPicker'
+  | 'DemoPickerView'
+  | 'DemoSpace'
+  | 'DemoDatePickerView'
+  | 'DemoDatePicker'
+  | 'DemoCard'
+  | 'DemoSkeleton'
+  | 'DemoSidebar'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
 }
 
-export const demoConfigs: { path: DemoPaths; page: any }[] = [
+export const demoConfigs: { path: DemoPaths; Page: any }[] = [
   {
     path: 'DemoHome',
-    page: DemoHome,
+    Page: DemoHome,
   },
   {
     path: 'DemoFull',
-    page: DemoFull,
+    Page: DemoFull,
   },
   {
     path: 'DemoNavBar',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoNavBar />
       </DemoWrapper>
@@ -113,7 +127,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoLoading',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoLoading />
       </DemoWrapper>
@@ -121,7 +135,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoOverlay',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoOverlay />
       </DemoWrapper>
@@ -129,7 +143,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoButton',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoButton />
       </DemoWrapper>
@@ -137,7 +151,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoBadge',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoBadge />
       </DemoWrapper>
@@ -145,7 +159,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   // {
   //   path: 'DemoActionBar',
-  //   page: () => (
+  //   Page: () => (
   //     <DemoWrapper>
   //       <DemoActionBar />
   //     </DemoWrapper>
@@ -153,7 +167,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   // },
   {
     path: 'DemoPopup',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoPopup />
       </DemoWrapper>
@@ -161,7 +175,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoCell',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoCell />
       </DemoWrapper>
@@ -169,7 +183,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoToast',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoToast />
       </DemoWrapper>
@@ -177,7 +191,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoActionSheet',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoActionSheet />
       </DemoWrapper>
@@ -185,7 +199,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoNotify',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoNotify />
       </DemoWrapper>
@@ -193,7 +207,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   // {
   //   path: 'DemoImage',
-  //   page: () => (
+  //   Page: () => (
   //     <DemoWrapper style={pageStyle}>
   //       <DemoImage />
   //     </DemoWrapper>
@@ -201,7 +215,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   // },
   {
     path: 'DemoTag',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoTag />
       </DemoWrapper>
@@ -209,7 +223,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoDivider',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoDivider />
       </DemoWrapper>
@@ -217,7 +231,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoGrid',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoGrid />
       </DemoWrapper>
@@ -225,7 +239,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoSteps',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoSteps />
       </DemoWrapper>
@@ -233,7 +247,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoSwitch',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoSwitch />
       </DemoWrapper>
@@ -241,7 +255,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoDialog',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoDialog />
       </DemoWrapper>
@@ -249,7 +263,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoTextInput',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
@@ -261,7 +275,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoNumberInput',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
@@ -273,7 +287,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoField',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
@@ -285,7 +299,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoDropdown',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoDropdown />
       </DemoWrapper>
@@ -293,7 +307,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoCheckbox',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoCheckbox />
       </DemoWrapper>
@@ -301,7 +315,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoEmpty',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoEmpty />
       </DemoWrapper>
@@ -309,7 +323,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoSelector',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoSelector />
       </DemoWrapper>
@@ -317,7 +331,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoProgress',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoProgress />
       </DemoWrapper>
@@ -325,7 +339,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoCollapse',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoCollapse />
       </DemoWrapper>
@@ -333,7 +347,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoFlex',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoFlex />
       </DemoWrapper>
@@ -341,7 +355,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoIcon',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoIcon />
       </DemoWrapper>
@@ -349,7 +363,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoResult',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoResult />
       </DemoWrapper>
@@ -357,7 +371,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoErrorBoundary',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoErrorBoundary />
       </DemoWrapper>
@@ -365,7 +379,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoNoticeBar',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoNoticeBar />
       </DemoWrapper>
@@ -373,7 +387,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoForm',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <KeyboardAwareScrollView
           keyboardShouldPersistTaps="handled"
@@ -385,7 +399,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoTabBar',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoTabBar />
       </DemoWrapper>
@@ -393,7 +407,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoButtonBar',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoButtonBar />
       </DemoWrapper>
@@ -401,7 +415,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoUploader',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoUploader />
       </DemoWrapper>
@@ -409,7 +423,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoPasswordInput',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoPasswordInput />
       </DemoWrapper>
@@ -417,7 +431,7 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoSearch',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoSearch />
       </DemoWrapper>
@@ -425,9 +439,65 @@ export const demoConfigs: { path: DemoPaths; page: any }[] = [
   },
   {
     path: 'DemoPicker',
-    page: () => (
+    Page: () => (
       <DemoWrapper>
         <DemoPicker />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoPickerView',
+    Page: () => (
+      <DemoWrapper>
+        <DemoPickerView />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoSpace',
+    Page: () => (
+      <DemoWrapper>
+        <DemoSpace />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoDatePickerView',
+    Page: () => (
+      <DemoWrapper>
+        <DemoDatePickerView />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoDatePicker',
+    Page: () => (
+      <DemoWrapper>
+        <DemoDatePicker />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoCard',
+    Page: () => (
+      <DemoWrapper>
+        <DemoCard />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoSkeleton',
+    Page: () => (
+      <DemoWrapper>
+        <DemoSkeleton />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoSidebar',
+    Page: () => (
+      <DemoWrapper>
+        <DemoSidebar />
       </DemoWrapper>
     ),
   },

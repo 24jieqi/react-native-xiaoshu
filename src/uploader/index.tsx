@@ -3,8 +3,9 @@ import { View, Text, Image } from 'react-native'
 
 import { PlusOutline } from '../icon'
 import { useTheme, widthStyle } from '../theme'
-import type { UploaderProps, UploaderValue } from './interface'
+
 import UploaderImage from './image'
+import type { UploaderProps, UploaderValue } from './interface'
 import { createStyles } from './style'
 
 /**
@@ -20,6 +21,7 @@ const Uploader = <T extends UploaderValue>({
   uploadIcon,
   onPressUpload,
   imageSize = 80,
+  imageGap,
   onPressImage,
   onPressDelete,
   onPressError,
@@ -48,6 +50,7 @@ const Uploader = <T extends UploaderValue>({
             imageComponent={imageComponent}
             deletable={deletable}
             size={imageSize}
+            gap={imageGap}
             onPress={genOnPressImage(item, index)}
             onPressDelete={genOnPressDelete(item, index)}
           />
@@ -55,7 +58,11 @@ const Uploader = <T extends UploaderValue>({
       })}
 
       {showUpload && list.length < maxCount ? (
-        <UploaderImage isUpload size={imageSize} onPress={onPressUpload}>
+        <UploaderImage
+          isUpload
+          size={imageSize}
+          gap={imageGap}
+          onPress={onPressUpload}>
           {isValidElement(uploadIcon) ? (
             uploadIcon
           ) : (

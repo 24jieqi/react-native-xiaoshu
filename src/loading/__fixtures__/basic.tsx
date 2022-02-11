@@ -1,61 +1,48 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
 
 import {
   Loading,
   LoadingCircular,
   LoadingSpinner,
+  Cell,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicLoading: React.FC = () => {
   return (
-    <ScrollView>
-      <Text>单独使用图标</Text>
+    <>
+      <Cell.Group title="单独使用图标" bodyPaddingHorizontal>
+        <LoadingCircular />
+        <LoadingSpinner />
+      </Cell.Group>
 
-      <LoadingCircular />
-      <LoadingSpinner />
-
-      <View style={{ height: 20 }} />
-
-      <Text>加载类型</Text>
-
-      <View style={{ flexDirection: 'row' }}>
+      <Cell.Group title="加载类型" bodyPaddingHorizontal>
         <Loading />
         <Loading type="spinner" />
-      </View>
+      </Cell.Group>
 
-      <View style={{ height: 20 }} />
-
-      <Text>自定义颜色</Text>
-
-      <View style={{ flexDirection: 'row' }}>
+      <Cell.Group title="自定义颜色" bodyPaddingHorizontal>
         <Loading color="#f30" />
         <Loading color="#690" type="spinner" />
-      </View>
+      </Cell.Group>
 
-      <View style={{ height: 20 }} />
-
-      <Text>自定义大小</Text>
-
-      <View style={{ flexDirection: 'row' }}>
+      <Cell.Group title="自定义大小" bodyPaddingHorizontal>
         <Loading size={18} />
         <Loading size={18} type="spinner" />
-      </View>
+      </Cell.Group>
 
-      <View style={{ height: 20 }} />
+      <Cell.Group title="加载文案" bodyPaddingHorizontal>
+        <Loading>加载文案...</Loading>
+      </Cell.Group>
 
-      <Text>加载文案</Text>
-
-      <Loading>加载文案...</Loading>
-
-      <View style={{ height: 20 }} />
-
-      <Text>垂直排列</Text>
-
-      <Loading vertical>加载文案...</Loading>
-
-      <View style={{ height: 20 }} />
-    </ScrollView>
+      <Cell.Group title="垂直排列" bodyPaddingHorizontal>
+        <Loading vertical>加载文案...</Loading>
+      </Cell.Group>
+    </>
   )
 }
 

@@ -1,4 +1,5 @@
 import type React from 'react'
+
 import type { PopupPropsCommon } from '../popup/interface'
 
 export type ToastType = 'text' | 'loading' | 'success' | 'fail' | 'icon'
@@ -26,7 +27,7 @@ export interface ToastProps
   position?: 'top' | 'bottom' | 'middle'
 
   /**
-   * 文本内容，(支持通过\n换行)?
+   * 文本内容，(支持模板字符串\n换行)?
    * @default ''
    */
   message?: string
@@ -57,7 +58,7 @@ export interface ToastProps
 
   /**
    * 加载图标类型, 可选值为 `'circular' | 'spinner'`
-   * @default 'circular'
+   * @default 'spinner'
    */
   loadingType?: 'circular' | 'spinner'
 

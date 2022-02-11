@@ -13,24 +13,24 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     search_back: {
-      paddingLeft: themeVar.padding_xs,
+      paddingLeft: themeVar.search_gap,
     },
 
     text_input: {
-      marginLeft: themeVar.padding_xs,
+      marginLeft: themeVar.search_gap,
     },
 
     text_input_group: {
       flex: 1,
       backgroundColor: themeVar.search_text_input_background_color,
       borderRadius: 4,
-      marginRight: themeVar.padding_xs,
+      marginRight: themeVar.search_gap,
     },
 
     icon_back: {
       alignItems: 'center',
       justifyContent: 'center',
-      marginRight: themeVar.padding_xs,
+      marginRight: themeVar.search_gap,
       // backgroundColor: '#f30',
     },
   })

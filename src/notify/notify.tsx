@@ -2,11 +2,12 @@ import React, { isValidElement, memo } from 'react'
 import { View, Text, TouchableWithoutFeedback } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { isDef } from '../helpers'
 import Popup from '../popup/popup'
 import { useTheme, widthStyle } from '../theme'
-import { isDef } from '../helpers'
-import { createStyles } from './style'
+
 import type { NotifyProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Notify 消息提示
@@ -60,7 +61,10 @@ const Notify: React.FC<NotifyProps> = ({
                 ? backgroundColor
                 : THEME_VAR[`notify_${type}_background_color`] ||
                   THEME_VAR.notify_primary_background_color,
-              paddingTop: insets.top,
+              paddingTop:
+                insets.top > THEME_VAR.notify_padding_vertical
+                  ? insets.top
+                  : THEME_VAR.notify_padding_vertical,
             },
             style,
           ]}>

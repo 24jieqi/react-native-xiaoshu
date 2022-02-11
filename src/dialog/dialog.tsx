@@ -1,13 +1,14 @@
 import React, { useRef, useCallback, memo, isValidElement } from 'react'
 import { View, Text, Animated } from 'react-native'
 
-import Popup from '../popup/popup'
 import Button from '../button'
-import { useTheme, widthStyle } from '../theme'
-import { usePersistFn } from '../hooks'
 import { getDefaultValue, easing, renderTextLikeJSX, isDef } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn } from '../hooks'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { DialogProps } from './interface'
+import { createStyles } from './style'
 
 /**
  * Dialog 弹出框
@@ -91,14 +92,14 @@ const Dialog: React.FC<DialogProps> = ({
   ) : null
 
   const cancelButtonProps = {
-    textColor: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
+    color: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
     text: cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
-    textColor: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
+    color: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
     text: confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
@@ -140,7 +141,8 @@ const Dialog: React.FC<DialogProps> = ({
             <Button
               {...cancelButtonProps}
               type="link"
-              size="large"
+              size="xl"
+              square
               style={STYLES.btn}
             />
           ) : null}
@@ -148,10 +150,18 @@ const Dialog: React.FC<DialogProps> = ({
             <Button
               {...confirmButtonProps}
               type="link"
-              size="large"
+              size="xl"
+              square
               style={[
                 STYLES.btn,
-                showCancelButton ? STYLES.btn_border_left : null,
+                showCancelButton
+                  ? // eslint-disable-next-line react-native/no-inline-styles
+                    {
+                      // react-native-web 覆盖原 button 样式
+                      borderLeftWidth: 1,
+                      borderColor: THEME_VAR.divider_color_dark,
+                    }
+                  : null,
               ]}
               textStyle={STYLES.btn_confirm}
             />

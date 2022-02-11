@@ -9,14 +9,15 @@ import {
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import Popup from '../popup/popup'
-import PopupHeader from '../popup/header'
-import Empty from '../empty'
 import Button from '../button'
 import CheckboxIcon from '../checkbox/icon'
-import { SuccessOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
+import Empty from '../empty'
 import { getDefaultValue } from '../helpers'
+import { SuccessOutline } from '../icon'
+import PopupHeader from '../popup/header'
+import Popup from '../popup/popup'
+import { useTheme, widthStyle } from '../theme'
+
 import type { SelectorProps, SelectorValue } from './interface'
 import { createStyles } from './style'
 
@@ -167,7 +168,7 @@ const Selector: React.FC<SelectorProps> = ({
                   key={item.value}
                   disabled={item.disabled}
                   onPress={genOnPressOption(item.value)}
-                  activeOpacity={THEME_VAR.active_opacity}>
+                  activeOpacity={THEME_VAR.button_active_opacity}>
                   <View style={STYLES.option_item}>
                     <Text style={STYLES.option_item_text} numberOfLines={1}>
                       {item.label}
@@ -181,7 +182,7 @@ const Selector: React.FC<SelectorProps> = ({
                       />
                     ) : isSelected ? (
                       <SuccessOutline
-                        color={THEME_VAR.primary}
+                        color={THEME_VAR.selector_icon_selected_color}
                         size={THEME_VAR.checkbox_icon_size}
                       />
                     ) : null}

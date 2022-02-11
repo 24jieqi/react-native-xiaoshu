@@ -1,5 +1,5 @@
 ---
-title: DropdownMenu 下拉菜单
+title: Dropdown 下拉菜单
 nav:
   title: 组件
   path: /component
@@ -9,16 +9,28 @@ group:
   order: 2
 ---
 
-# DropdownMenu 下拉菜单
+# Dropdown 下拉菜单
 
 > 向下弹出的菜单列表。
+
+## 何时使用
+
+适用于列表顶部、底部筛选条件。
 
 ## 注意
 
 组件嵌套到 `ScrollView` 组件中，iOS 用户点击到了状态栏会触发滚动区域回到顶部，可以通过 `ScrollView` 组件的 `scrollsToTop` 阻止
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./menu.tsx"></API>
+## API
+
+### DropdownMenu
+
+<API src="./menu.tsx" hideTitle></API>
+
+### DropdownItem
+
+<API src="./item.tsx" hideTitle>

@@ -13,6 +13,4 @@ group:
 
 > 用于固定在屏幕底部。
 
-## DEMO
-
-<API></API>
+<API hideTitle></API>

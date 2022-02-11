@@ -1,10 +1,12 @@
 import React, { createContext, memo, useRef, useMemo } from 'react'
 import type { FC } from 'react'
 import { ScrollView, View } from 'react-native'
+
 import { useTheme, widthStyle } from '../theme'
-import { createStyles } from './style'
+
 import type { StepsPropsType } from './interface'
 import Step from './step'
+import { createStyles } from './style'
 
 export const StepsContext = createContext<{
   current?: number

@@ -4,6 +4,7 @@ import { View, Text } from 'react-native'
 
 import { isDef } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
+
 import type { BadgeProps } from './interface'
 import { createStyles } from './style'
 
@@ -28,7 +29,7 @@ const Badge: React.FC<BadgeProps> = ({
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
-  if (max && typeof count === 'number' && count > max) {
+  if (isDef(max) && typeof count === 'number' && count > max) {
     count = `${max}+`
   }
 
@@ -37,7 +38,9 @@ const Badge: React.FC<BadgeProps> = ({
     STYLES.count,
     {
       backgroundColor:
-        color || THEME_VAR[status] || THEME_VAR.badge_background_color,
+        color ||
+        THEME_VAR[`badge_status_${status}`] ||
+        THEME_VAR.badge_background_color,
     },
     dot ? STYLES.count_dot : null,
     isDef(children)

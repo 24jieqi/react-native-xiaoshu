@@ -13,8 +13,8 @@ group:
 
 > 创建一个遮罩层，用于强调特定的页面元素，并阻止用户进行其他操作。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API src="./overlay.tsx"></API>

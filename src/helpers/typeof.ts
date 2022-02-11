@@ -4,6 +4,7 @@ const isType =
       | 'Array'
       | 'Object'
       | 'Function'
+      | 'Date'
       | 'String'
       | 'Number'
       | 'Null'
@@ -25,6 +26,9 @@ export const isObject = <T>(v: T): v is T => isType('Object')(v)
 
 /** 是函数 */
 export const isFunction = (v: any): v is Function => isType('Function')(v)
+
+/** 是时间对象 */
+export const isDate = <T>(v: T): v is T => isType('Date')(v)
 
 /** 是一个 Promise */
 export const isPromise = <T = any>(val: any): val is Promise<T> => {

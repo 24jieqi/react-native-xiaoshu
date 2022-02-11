@@ -1,13 +1,14 @@
 import React, { useEffect, memo } from 'react'
 
-import useState from '../hooks/useStateUpdate'
 import { callInterceptor } from '../helpers'
+import useState from '../hooks/useStateUpdate'
+
+import Dialog from './dialog'
 import type {
   DialogMethodProps,
   DialogAction,
   DialogMethodState,
 } from './interface'
-import Dialog from './dialog'
 
 /**
  * Dialog 弹出框

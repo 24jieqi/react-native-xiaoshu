@@ -2,10 +2,11 @@ import React, { useState, useCallback, useRef, useEffect, memo } from 'react'
 import type { LayoutChangeEvent, ViewStyle } from 'react-native'
 import { View, Text, Animated } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue } from '../helpers'
 import * as helpers from '../helpers'
 import { usePersistFn } from '../hooks'
+import { useTheme } from '../theme'
+
 import type { ProgressProps } from './interface'
 
 type ViewLayout = { width: number; height: number }

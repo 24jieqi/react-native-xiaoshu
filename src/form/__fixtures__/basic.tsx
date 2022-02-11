@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Space } from '@fruits-chain/react-native-xiaoshu'
 
 import Base from './base'
 import Ref from './ref'
@@ -9,17 +9,13 @@ import List from './list'
 
 const BasicForm: React.FC = () => {
   return (
-    <>
+    <Space head tail>
       <Base />
-      <View style={{ height: 20 }} />
       <Ref />
-      <View style={{ height: 20 }} />
       <Context />
-      <View style={{ height: 20 }} />
       <Deps />
-      <View style={{ height: 20 }} />
       <List />
-    </>
+    </Space>
   )
 }
 

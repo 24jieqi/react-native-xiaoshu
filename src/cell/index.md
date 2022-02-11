@@ -13,10 +13,26 @@ group:
 
 > 单元格为列表中的单个展示项。
 
-## DEMO
+## 何时使用
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+最基础的列表展示，可承载文字、输入框。
 
-<API></API>
+## 代码演示
 
-<API src="./group.tsx"></API>
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/layout.tsx"></code>
+
+<code src="./__fixtures__/extra.tsx"></code>
+
+<code src="./__fixtures__/group.tsx"></code>
+
+## API
+
+### Cell
+
+<API hideTitle></API>
+
+### CellGroup
+
+<API src="./group.tsx" hideTitle></API>

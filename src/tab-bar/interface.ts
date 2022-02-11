@@ -1,6 +1,6 @@
-import React from 'react'
+import type React from 'react'
 
-import { BottomBarProps } from '../bottom-bar/interface'
+import type { BottomBarProps } from '../bottom-bar/interface'
 
 export type TabValue = number | string
 

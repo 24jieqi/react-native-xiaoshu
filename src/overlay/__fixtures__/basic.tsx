@@ -1,7 +1,17 @@
-import React, { useState } from 'react'
-import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native'
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
 
-import { Overlay, Button } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react'
+import { View, TouchableWithoutFeedback } from 'react-native'
+
+import {
+  Overlay,
+  Button,
+  Card,
+  Space,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicOverlay: React.FC = () => {
   const [state, setState] = useState<Record<'normal' | 'inset', boolean>>({
@@ -10,19 +20,34 @@ const BasicOverlay: React.FC = () => {
   })
 
   return (
-    <ScrollView>
-      <Text>单独使用图标</Text>
+    <>
+      <Space tail head>
+        <Card title="简单使用" square>
+          <Button
+            text="显示遮罩层 Android 返回关闭"
+            type="primary"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                normal: true,
+              }))
+            }}
+          />
+        </Card>
 
-      <Button
-        text="显示遮罩层 Android 返回关闭"
-        type="primary"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            normal: true,
-          }))
-        }}
-      />
+        <Card title="嵌入内容" square>
+          <Button
+            text="嵌入内容"
+            type="primary"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                inset: true,
+              }))
+            }}
+          />
+        </Card>
+      </Space>
 
       <Overlay
         visible={state.normal}
@@ -39,21 +64,6 @@ const BasicOverlay: React.FC = () => {
             normal: false,
           }))
           return true
-        }}
-      />
-
-      <View style={{ height: 20 }} />
-
-      <Text>嵌入内容</Text>
-
-      <Button
-        text="嵌入内容"
-        type="primary"
-        onPress={() => {
-          setState(s => ({
-            ...s,
-            inset: true,
-          }))
         }}
       />
 
@@ -81,7 +91,7 @@ const BasicOverlay: React.FC = () => {
           />
         </TouchableWithoutFeedback>
       </Overlay>
-    </ScrollView>
+    </>
   )
 }
 

@@ -1,9 +1,13 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
 import {
   Cell,
-  CellGroup,
   TextInput,
   Button,
   Icon,
@@ -11,10 +15,11 @@ import {
 
 const BasicTextInput: React.FC = () => {
   const [value, setValue] = useState('')
+  const [value2, setValue2] = useState('')
 
   return (
     <>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="text"
           value={<TextInput placeholder="不可编辑" editable={false} />}
@@ -35,6 +40,18 @@ const BasicTextInput: React.FC = () => {
               editable={false}
             />
           }
+        />
+
+        <Cell
+          title="text:受控"
+          value={
+            <TextInput placeholder="受控" value={value2} onChange={setValue2} />
+          }
+        />
+
+        <Cell
+          title="text:受控:不更新"
+          value={<TextInput placeholder="受控:不更新" value={value2} />}
         />
 
         <Cell title="text" value={<TextInput placeholder="内容左对齐" />} />
@@ -91,7 +108,7 @@ const BasicTextInput: React.FC = () => {
               suffix={
                 <Button
                   type="primary"
-                  size="mini"
+                  size="xs"
                   text="发送验证码"
                   style={{ marginLeft: 8 }}
                 />
@@ -244,7 +261,7 @@ const BasicTextInput: React.FC = () => {
               type="digit"
               placeholder="受控使用"
               value={value}
-              onChangeText={t => {
+              onChange={t => {
                 if (+t > 100) {
                   t = '100'
                 }
@@ -253,11 +270,11 @@ const BasicTextInput: React.FC = () => {
               }}
             />
           }
-          bordered={false}
+          divider={false}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <CellGroup title="其他用法">
+      <Cell.Group title="其他用法">
         <Text>自定义宽</Text>
         <View
           style={{
@@ -287,11 +304,11 @@ const BasicTextInput: React.FC = () => {
             backgroundColor: '#fff',
             paddingHorizontal: 12,
           }}>
-          <TextInput size="large" placeholder="请输入" bordered />
+          <TextInput size="l" placeholder="请输入" bordered />
           <View style={{ height: 10 }} />
           <TextInput placeholder="请输入" bordered />
           <View style={{ height: 10 }} />
-          <TextInput size="small" placeholder="请输入" bordered />
+          <TextInput size="s" placeholder="请输入" bordered />
           <View style={{ height: 10 }} />
         </View>
         <Text>可能高度消失</Text>
@@ -316,7 +333,7 @@ const BasicTextInput: React.FC = () => {
         />
         <Text>placeholder</Text>
         <Text>placeholder</Text>
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

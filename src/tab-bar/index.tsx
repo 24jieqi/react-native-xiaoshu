@@ -2,9 +2,9 @@ import React, { memo } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 import BottomBar from '../bottom-bar'
-import { useTheme, widthStyle } from '../theme'
-import { useControllableValue } from '../hooks'
 import { getDefaultValue } from '../helpers'
+import { useControllableValue } from '../hooks'
+import { useTheme, widthStyle } from '../theme'
 
 import type { TabBarProps, TabValue } from './interface'
 import { createStyles } from './style'
@@ -46,7 +46,7 @@ const TabBar: React.FC<TabBarProps> = ({
           <TouchableOpacity
             key={item.value}
             style={STYLES.item}
-            activeOpacity={THEME_VAR.active_opacity}
+            activeOpacity={THEME_VAR.button_active_opacity}
             onPress={isActive ? undefined : genOnPress(item.value)}>
             {item.iconRender(isActive ? activeIconColor : iconColor)}
             <Text

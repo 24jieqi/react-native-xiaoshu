@@ -2,9 +2,10 @@ import React, { useMemo, memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { getDefaultValue } from '../helpers'
 
+import { getDefaultValue } from '../helpers'
 import { useTheme } from '../theme'
+
 import type { BottomBarProps } from './interface'
 
 const BottomBar: React.FC<BottomBarProps> = ({
@@ -29,9 +30,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
           THEME_VAR.bottom_bar_height + (safeAreaInsetBottom ? bottom : 0),
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
+        borderTopColor: THEME_VAR.divider_color_light,
         borderTopWidth: 1,
-        borderStyle: 'solid',
-        borderColor: THEME_VAR.bottom_bar_border_top_color,
       },
       style,
     ],
@@ -41,7 +41,7 @@ const BottomBar: React.FC<BottomBarProps> = ({
       bottom,
       backgroundColor,
       THEME_VAR.bottom_bar_height,
-      THEME_VAR.bottom_bar_border_top_color,
+      THEME_VAR.divider_color_light,
     ],
   )
 

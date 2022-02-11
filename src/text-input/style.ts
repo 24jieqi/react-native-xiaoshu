@@ -14,7 +14,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     input_border: {
       borderWidth: 1,
-      borderRadius: themeVar.border_radius_sm,
+      borderRadius: themeVar.text_input_border_radio,
       borderColor: themeVar.border_color,
     },
 
@@ -89,8 +89,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
       position: 'absolute',
       bottom: 0,
       right: 0,
-      fontSize: themeVar.font_size_text,
-      color: themeVar.text_color_2,
+      fontSize: themeVar.text_input_word_limit_text_font_size,
+      color: themeVar.text_input_word_limit_text_color,
     },
 
     accessory: {

@@ -2,9 +2,6 @@ import React, { memo, useState, useCallback } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 
-import { CrossOutline, ArrowRightOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
-import { usePersistFn } from '../hooks'
 import {
   getDefaultValue,
   isDef,
@@ -13,8 +10,12 @@ import {
   omitTouchablePropsField,
   noop,
 } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn } from '../hooks'
+import { CrossOutline, ArrowRightOutline } from '../icon'
+import { useTheme, widthStyle } from '../theme'
+
 import type { NoticeBarProps, NoticeBarMode } from './interface'
+import { createStyles } from './style'
 
 const getModeIcon = (mode: NoticeBarMode) => {
   switch (mode) {
@@ -31,7 +32,7 @@ const getModeIcon = (mode: NoticeBarMode) => {
 const NoticeBar: React.FC<NoticeBarProps> = ({
   message,
   messageTextStyle,
-  type = 'warning',
+  status = 'warning',
   mode,
   color,
   backgroundColor,
@@ -51,10 +52,10 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   const [visible, setVisible] = useState(true)
 
   const textColor =
-    THEME_VAR[`notice_bar_${type}_text_color`] ||
+    THEME_VAR[`notice_bar_${status}_text_color`] ||
     THEME_VAR.notice_bar_warning_text_color
   const barBackgroundColor =
-    THEME_VAR[`notice_bar_${type}_background_color`] ||
+    THEME_VAR[`notice_bar_${status}_background_color`] ||
     THEME_VAR.notice_bar_warning_background_color
 
   // 修正数据

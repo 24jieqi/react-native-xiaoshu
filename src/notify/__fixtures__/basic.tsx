@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
-import { View, ScrollView } from 'react-native'
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
 
-import { Cell, CellGroup, Notify } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react'
+import { ScrollView } from 'react-native'
+
+import { Cell, Notify } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicNotify: React.FC = () => {
   const [state, setState] = useState({
@@ -12,20 +17,18 @@ const BasicNotify: React.FC = () => {
 
   return (
     <ScrollView>
-      <CellGroup title="基础用法" bordered={false}>
+      <Cell.Group title="基础用法">
         <Cell
           title="基础用法"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Notify('基础用法')
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <View style={{ height: 20 }} />
-
-      <CellGroup title="通知类型" bordered={false}>
+      <Cell.Group title="通知类型">
         <Cell
           title="主要通知"
           isLink
@@ -59,7 +62,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="警告通知"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Notify({
               type: 'warning',
@@ -67,11 +70,9 @@ const BasicNotify: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <View style={{ height: 20 }} />
-
-      <CellGroup title="自定义配置" bordered={false}>
+      <Cell.Group title="自定义配置">
         <Cell
           title="自定义颜色"
           isLink
@@ -86,7 +87,7 @@ const BasicNotify: React.FC = () => {
         <Cell
           title="自定义时长"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             Notify({
               message: '自定义时长',
@@ -94,15 +95,13 @@ const BasicNotify: React.FC = () => {
             })
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
-      <View style={{ height: 20 }} />
-
-      <CellGroup title="组件调用" bordered={false}>
+      <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
           isLink
-          bordered={false}
+          divider={false}
           onPress={() => {
             console.log('组件调用')
             setState(s => ({
@@ -124,7 +123,7 @@ const BasicNotify: React.FC = () => {
             }, 3000)
           }}
         />
-      </CellGroup>
+      </Cell.Group>
 
       <Notify.Component
         visible={state.cNotify1.show}
@@ -134,8 +133,6 @@ const BasicNotify: React.FC = () => {
           console.log('点击了「哈哈哈哈哈哈哈嗝」')
         }}
       />
-
-      <View style={{ height: 20 }} />
     </ScrollView>
   )
 }

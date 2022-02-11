@@ -10,6 +10,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
+
 import PortalManager from './portal-manager'
 
 export type PortalHostProps = {

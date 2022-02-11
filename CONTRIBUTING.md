@@ -91,3 +91,4 @@ yarn release
 - [ ] 文档部署
 - [ ] issus 到改 bug 更规范
 - [x] 生成 changelog，并且规范化
+- [ ] 优化 PickerView，支持阻尼，ViewScroll？

@@ -2,12 +2,13 @@ import React, { useEffect, useMemo, useRef, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Keyboard } from 'react-native'
 
+import { callInterceptor, isDef, getDefaultValue } from '../helpers'
+import { usePersistFn } from '../hooks'
+import useState from '../hooks/useStateUpdate'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { useTheme } from '../theme'
-import useState from '../hooks/useStateUpdate'
-import { usePersistFn } from '../hooks'
-import { callInterceptor, isDef, getDefaultValue } from '../helpers'
+
 import Dialog from './dialog'
 import type {
   DialogInputProps,
@@ -50,13 +51,13 @@ const DialogInput: React.FC<DialogInputProps> = ({
   })
   const boxStyle = useMemo<ViewStyle>(
     () => ({
-      marginHorizontal: THEME_VAR.padding_md,
-      marginTop: THEME_VAR.padding_md,
+      marginHorizontal: THEME_VAR.dialog_input_gap,
+      marginTop: THEME_VAR.dialog_input_gap,
       overflow: 'hidden',
       borderStartColor: '#f30',
       // height: 100,
     }),
-    [THEME_VAR.padding_md],
+    [THEME_VAR.dialog_input_gap],
   )
 
   duration = getDefaultValue(duration, THEME_VAR.dialog_transition)

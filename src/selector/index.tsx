@@ -1,11 +1,10 @@
 import React, { memo } from 'react'
 
 import Portal from '../portal'
+
 import type { SelectorInstance } from './interface'
 import SelectorBase from './selector'
 import SelectorMethod from './selector-method'
-
-export { conversionSelectorOptions } from './helper'
 
 const Selector: SelectorInstance = opt =>
   new Promise((resolve, reject) => {

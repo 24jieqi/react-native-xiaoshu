@@ -4,19 +4,25 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 展示组件
-  path: /show
-  order: 3
+  title: 反馈组件
+  path: /feedback
+  order: 2
 ---
 
 # Progress 进度条
 
 > 用于展示操作的当前进度。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./progress.tsx"></API>
+## API
 
-<API src="./page.tsx"></API>
+### Progress
+
+<API hideTitle src="./progress.tsx"></API>
+
+### ProgressPage
+
+<API hideTitle src="./page.tsx"></API>

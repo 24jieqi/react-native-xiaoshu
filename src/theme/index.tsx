@@ -1,7 +1,7 @@
 import React, { useMemo, useContext, createContext, memo } from 'react'
 
-import type { ThemeProviderProps, ThemeVarType } from './interface'
 import * as defaultVar from './default-var'
+import type { ThemeProviderProps, ThemeVarType } from './interface'
 
 export type { ThemeVarType } from './interface'
 export { widthStyle } from './width-style'

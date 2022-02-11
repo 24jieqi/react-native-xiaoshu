@@ -2,9 +2,10 @@ import type { ErrorInfo } from 'react'
 import React, { PureComponent } from 'react'
 import type { ViewStyle } from 'react-native'
 
-import Result from '../result'
-import { ResultIconError } from '../result/icons'
 import Button from '../button'
+import Result from '../result'
+import ResultIconError from '../result/icons/error'
+
 import type { ErrorBoundaryProps } from './interface'
 
 type ErrorBoundaryState = {
@@ -65,7 +66,7 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
           extra={
             <Button
               type="primary"
-              size="small"
+              size="s"
               text={this.props.reloadText || '重新加载'}
               onPress={this.onPressReload}
             />

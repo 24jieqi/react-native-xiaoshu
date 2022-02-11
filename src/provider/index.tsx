@@ -1,8 +1,9 @@
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import Theme from '../theme'
 import Portal from '../portal'
+import Theme from '../theme'
+
 import type { ProviderProps } from './interface'
 
 /**

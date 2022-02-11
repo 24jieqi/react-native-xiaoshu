@@ -1,25 +1,31 @@
+/**
+ * title: Form.List
+ * desc: 使用 Form.List 渲染一组控件。
+ */
+
 import React from 'react'
 import {
-  CellGroup,
+  Card,
   Form,
   Field,
   Button,
   Toast,
   Dialog,
   Icon,
+  Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFormList: React.FC = () => {
   const [form] = Form.useForm()
 
   return (
-    <Form
-      form={form}
-      onFinish={values => {
-        console.log(values)
-        Toast(JSON.stringify(values))
-      }}>
-      <CellGroup title="List" bordered={false}>
+    <Card title="List" square>
+      <Form
+        form={form}
+        onFinish={values => {
+          console.log(values)
+          Toast(JSON.stringify(values))
+        }}>
         <Form.Item
           name="username"
           rules={[
@@ -32,7 +38,7 @@ const BasicFormList: React.FC = () => {
             required
             title="用户名"
             placeholder="请输入用户名"
-            bordered={false}
+            divider={false}
           />
         </Form.Item>
 
@@ -42,7 +48,7 @@ const BasicFormList: React.FC = () => {
               <>
                 {fields.map((field, fieldIndex) => {
                   return (
-                    <CellGroup
+                    <Card
                       key={field.key}
                       title={`地址 ${fieldIndex + 1}`}
                       extra={
@@ -89,15 +95,15 @@ const BasicFormList: React.FC = () => {
                           required
                           title="城市"
                           placeholder="请输入城市"
-                          bordered={false}
+                          divider={false}
                         />
                       </Form.Item>
-                    </CellGroup>
+                    </Card>
                   )
                 })}
                 <Button
                   text="新增地址"
-                  type="warning"
+                  color="#780"
                   onPress={() => {
                     add({})
                   }}
@@ -107,9 +113,11 @@ const BasicFormList: React.FC = () => {
           }}
         </Form.List>
 
-        <Button text="提交" type="primary" onPress={form.submit} />
-      </CellGroup>
-    </Form>
+        <Space head>
+          <Button text="提交" type="primary" onPress={form.submit} />
+        </Space>
+      </Form>
+    </Card>
   )
 }
 

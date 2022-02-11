@@ -27,9 +27,6 @@ import {
   useColorScheme,
 } from 'react-native'
 
-import IconSvgCross from '../icon/cross'
-import { useTheme } from '../theme'
-import { usePersistFn, useUpdateEffect } from '../hooks'
 import {
   getDefaultValue,
   renderTextLikeJSX,
@@ -38,8 +35,12 @@ import {
   isDef,
   formatNumber,
 } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn, useControllableValue } from '../hooks'
+import IconSvgCross from '../icon/cross'
+import { useTheme, widthStyle } from '../theme'
+
 import type { TextInputProps, TextInputInstance } from './interface'
+import { createStyles } from './style'
 
 const defaultFormatter = <T,>(t: T): T => t
 
@@ -77,12 +78,9 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       prefix,
       suffix,
       inputWidth,
-      size = 'middle',
-      onChange,
+      size = 'm',
 
       // TextInput 的属性
-      value,
-      defaultValue,
       style,
       multiline,
       selectionColor,
@@ -124,11 +122,8 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
     const onFocusPersistFn = usePersistFn(onFocus || noop)
     const onBlurPersistFn = usePersistFn(onBlur || noop)
-    const onChangePersistFn = usePersistFn(onChange || noop)
     const formatterPersistFn = usePersistFn(formatter || defaultFormatter)
-    const [localValue, setLocalValue] = useState(
-      isValue(value) ? value : defaultValue,
-    )
+    const [value, onChange] = useControllableValue(resetProps)
     const [focus, setFocus] = useState(false)
     const TextInputRef = useRef<TextInputInstance>(null)
     const colorScheme = useColorScheme()
@@ -137,18 +132,14 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       () => `TextInputBase_${getNextInputAccessoryViewID()}`,
       [],
     )
-    const STYLES = createStyles(THEME_VAR)
+    const STYLES = widthStyle(THEME_VAR, createStyles)
     /** 显示禁用样子 bordered 才显示 */
     const showDisabledInput =
       bordered && isDef(resetProps.editable) && !resetProps.editable
     /** 输入框最小高度 */
-    const textInputMinHeight =
-      THEME_VAR[`text_input_${size}_min_height`] ||
-      THEME_VAR.text_input_middle_min_height
+    const textInputMinHeight = THEME_VAR[`text_input_${size}_min_height`]
     /** 所有文字/文案相关的大小 */
-    const textInputFontSize =
-      THEME_VAR[`text_input_${size}_font_size`] ||
-      THEME_VAR.text_input_middle_font_size
+    const textInputFontSize = THEME_VAR[`text_input_${size}_font_size`]
 
     selectionColor = getDefaultValue(
       selectionColor,
@@ -159,21 +150,12 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       THEME_VAR.text_input_placeholder_text_color,
     )
 
-    /**
-     * 转发实例
-     */
+    // 转发实例
     useImperativeHandle(ref, () => {
       return TextInputRef.current
     })
 
-    // 同步外部的数据
-    useUpdateEffect(() => {
-      setLocalValue(value)
-    }, [value])
-
-    /**
-     * 点击完成收起软键盘
-     */
+    /** 点击完成收起软键盘 */
     const onPressFinish = useCallback(() => {
       Keyboard.dismiss()
       setFocus(false)
@@ -205,7 +187,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
           t = formatterPersistFn(t)
         }
 
-        setLocalValue(t)
+        onChange(t)
         onChangeTextPersistFn(t)
       },
       [
@@ -214,32 +196,29 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
         formatTrigger,
         formatterPersistFn,
         onChangeTextPersistFn,
+        onChange,
       ],
     )
 
-    /**
-     * 编辑结束的时候
-     */
+    /** 编辑结束的时候 */
     const onEndEditingTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
         if (formatTrigger === 'onEndEditing') {
           e.nativeEvent.text = formatterPersistFn(e.nativeEvent.text)
         }
 
-        setLocalValue(e.nativeEvent.text)
+        onChange(e.nativeEvent.text)
         onEndEditingPersistFn(e)
       },
-      [onEndEditingPersistFn, formatterPersistFn, formatTrigger],
+      [onEndEditingPersistFn, formatterPersistFn, formatTrigger, onChange],
     )
 
-    /**
-     * 当文本框内容变化时
-     */
+    /** 当文本框内容变化时 */
     const onChangeTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-        onChangePersistFn(e.nativeEvent.text)
+        onChange(e.nativeEvent.text)
       },
-      [onChangePersistFn],
+      [onChange],
     )
 
     /**
@@ -248,14 +227,12 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
      */
     const onPressClearable = useCallback(() => {
       TextInputRef.current?.clear()
-      setLocalValue('')
+      onChange('')
       onChangeTextPersistFn('')
       onPressTextInput()
-    }, [onChangeTextPersistFn, onPressTextInput])
+    }, [onChangeTextPersistFn, onPressTextInput, onChange])
 
-    /**
-     * 输入框聚焦
-     */
+    /** 输入框聚焦 */
     const onFocusTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
         setFocus(true)
@@ -264,9 +241,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       [onFocusPersistFn],
     )
 
-    /**
-     * 输入框失焦
-     */
+    /** 输入框失焦 */
     const onBlurTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
         setFocus(false)
@@ -376,8 +351,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
               ? undefined
               : resetProps.placeholder
           }
-          value={isValue(value) ? value : localValue}
-          defaultValue={defaultValue}
+          value={value}
           multiline={multiline}
           secureTextEntry={secureTextEntry}
           keyboardType={keyboardType}
@@ -398,8 +372,8 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
 
         {clearable &&
         (clearTrigger === 'focus' ? focus : true) &&
-        localValue &&
-        localValue.length ? (
+        value &&
+        value.length ? (
           <IconSvgCross
             style={STYLES.clearable}
             color={THEME_VAR.text_input_clearable_color}
@@ -410,7 +384,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
 
         {showWordLimit ? (
           <Text style={STYLES.word_limit_text}>
-            {localValue?.length || 0}/{maxLength}
+            {value?.length || 0}/{maxLength}
           </Text>
         ) : null}
       </TouchableOpacity>
@@ -429,7 +403,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
             <View style={STYLES.accessory}>
               <TouchableOpacity
                 onPress={onPressFinish}
-                activeOpacity={THEME_VAR.active_opacity}>
+                activeOpacity={THEME_VAR.button_active_opacity}>
                 <Text style={STYLES.accessory_text}>完成</Text>
               </TouchableOpacity>
             </View>

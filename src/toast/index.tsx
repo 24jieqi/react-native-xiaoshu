@@ -1,6 +1,7 @@
 import React, { createRef } from 'react'
 
 import Portal from '../portal'
+
 import type {
   ToastOptions,
   ToastType,
@@ -26,7 +27,7 @@ const defaultOptions: ToastOptions = {
   forbidPress: false,
   closeOnPressOverlay: false,
   overlay: false,
-  loadingType: 'circular',
+  loadingType: 'spinner',
 }
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions

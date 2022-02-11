@@ -1,11 +1,12 @@
-import React, { useState, useCallback, memo, forwardRef } from 'react'
+import React, { memo, forwardRef } from 'react'
 
+import { getDefaultValue } from '../helpers'
+import { useControllableValue, usePersistFn } from '../hooks'
+import { EyeOutline, EyeCloseOutline } from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { EyeOutline, EyeCloseOutline } from '../icon'
 import { useTheme } from '../theme'
-import { useUpdateEffect } from '../hooks'
-import { getDefaultValue } from '../helpers'
+
 import type { PasswordInputProps } from './interface'
 
 /**
@@ -14,7 +15,6 @@ import type { PasswordInputProps } from './interface'
 const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
   (
     {
-      secureTextEntry = true,
       iconSize = 20,
       iconColor,
 
@@ -23,18 +23,19 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     ref,
   ) => {
     const THEME_VAR = useTheme()
-    const [secure, setSecure] = useState(secureTextEntry)
+    const [secure, onChangeSecureTextEntry] = useControllableValue(restProps, {
+      valuePropName: 'secureTextEntry',
+      defaultValuePropName: 'defaultSecureTextEntry',
+      defaultValue: true,
+      trigger: 'onChangeSecureTextEntry',
+    })
 
-    iconColor = getDefaultValue(iconColor, THEME_VAR.text_color_3)
+    iconColor = getDefaultValue(iconColor, THEME_VAR.gray_6)
 
-    // 同步数据
-    useUpdateEffect(() => {
-      setSecure(secureTextEntry)
-    }, [secureTextEntry])
+    const onPressIcon = usePersistFn(() => {
+      onChangeSecureTextEntry(!secure)
+    })
 
-    const onPressIcon = useCallback(() => {
-      setSecure(v => !v)
-    }, [])
     const IconSuffix = secure ? EyeCloseOutline : EyeOutline
 
     return (

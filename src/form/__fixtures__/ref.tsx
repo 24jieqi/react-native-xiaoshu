@@ -1,24 +1,30 @@
+/**
+ * title: ref 使用
+ * desc: 通过 ref 关联表单实例。
+ */
+
 import React, { useRef } from 'react'
 import type { FormInstance } from '@fruits-chain/react-native-xiaoshu'
 import {
-  CellGroup,
+  Card,
   Form,
   Field,
   Button,
   Toast,
+  Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
-const BasicFormBase: React.FC = () => {
+const BasicFormRef: React.FC = () => {
   const FormRef = useRef<FormInstance>(null)
 
   return (
-    <Form
-      ref={FormRef}
-      onFinish={values => {
-        console.log(values)
-        Toast(JSON.stringify(values))
-      }}>
-      <CellGroup title="用户登录 useRef">
+    <Card title="用户登录 useRef" square>
+      <Form
+        ref={FormRef}
+        onFinish={values => {
+          console.log(values)
+          Toast(JSON.stringify(values))
+        }}>
         <Form.Item
           name="username"
           rules={[
@@ -45,26 +51,28 @@ const BasicFormBase: React.FC = () => {
           />
         </Form.Item>
 
-        <Button
-          text="管理员"
-          type="error"
-          onPress={() => {
-            FormRef.current.setFieldsValue({
-              username: 'admin',
-            })
-          }}
-        />
+        <Space head>
+          <Button
+            text="管理员"
+            danger
+            onPress={() => {
+              FormRef.current.setFieldsValue({
+                username: 'admin',
+              })
+            }}
+          />
 
-        <Button
-          text="提交"
-          type="primary"
-          onPress={() => {
-            FormRef.current.submit()
-          }}
-        />
-      </CellGroup>
-    </Form>
+          <Button
+            text="提交"
+            type="primary"
+            onPress={() => {
+              FormRef.current.submit()
+            }}
+          />
+        </Space>
+      </Form>
+    </Card>
   )
 }
 
-export default BasicFormBase
+export default BasicFormRef

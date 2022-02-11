@@ -1,5 +1,6 @@
 // import type React from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
+
 import type { NavBarProps } from '../nav-bar/interface'
 
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center'

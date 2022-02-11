@@ -14,8 +14,8 @@ const CustomHeaderRed: React.FC<ScreenProps> = ({ navigation }) => {
     <Layout.Page
       title="CustomHeaderRed"
       barStyle="light-content"
-      headerBackgroundColor={themeVar.error}
-      headerTintColor="#fff">
+      headerBackgroundColor={themeVar.red_6}
+      headerTintColor={themeVar.white}>
       <Text
         onPress={() => {
           navigation.navigate('CustomHeaderPrimary')

@@ -3,14 +3,15 @@ import type { ViewStyle, StyleProp } from 'react-native'
 import { Animated, BackHandler } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import * as helpers from '../helpers'
+import { usePersistFn } from '../hooks'
+import useState from '../hooks/useStateUpdate'
 import Overlay from '../overlay/overlay'
 import { useTheme, widthStyle } from '../theme'
-import useState from '../hooks/useStateUpdate'
-import { usePersistFn } from '../hooks'
-import * as helpers from '../helpers'
+
 import { getPosition, getTransform } from './helper'
-import { createStyles, getBorderRadius, PopupPositionMap } from './style'
 import type { PopupProps, State } from './interface'
+import { createStyles, getBorderRadius, PopupPositionMap } from './style'
 
 /**
  * Popup 弹出层

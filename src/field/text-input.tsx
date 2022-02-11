@@ -3,6 +3,7 @@ import React, { memo } from 'react'
 import Cell from '../cell'
 import TextInput from '../text-input'
 import { useTheme } from '../theme'
+
 import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
 
 /**
@@ -22,7 +23,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   valueStyle,
   valueExtra,
   contentStyle,
-  bordered = true,
+  divider = true,
   isLink = false,
   onPressLink,
   center = false,
@@ -60,7 +61,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
     valueStyle,
     valueExtra,
     contentStyle,
-    bordered,
+    divider,
     isLink,
     onPressLink,
     center,
@@ -75,7 +76,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
       valueStyle={
         vertical
           ? {
-              marginTop: THEME_VAR.padding_xs,
+              marginTop: THEME_VAR.space_2,
             }
           : null
       }

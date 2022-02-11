@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
 
-import { CrossOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
-import NavBar from '../nav-bar'
 import { usePersistFn } from '../hooks'
+import { CrossOutline } from '../icon'
+import NavBar from '../nav-bar'
+import { useTheme, widthStyle } from '../theme'
+
 import type { PopupHeaderProps } from './interface'
 import { createStyles } from './style.header'
 
@@ -37,7 +38,7 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
       {...restProps}
       rightExtra={rightExtraJSX}
       showBackArrow={false}
-      bordered={false}
+      divider={false}
     />
   )
 }

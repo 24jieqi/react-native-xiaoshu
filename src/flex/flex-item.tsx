@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { TouchableWithoutFeedback, View } from 'react-native'
+
 import type { FlexItemProps } from './interface'
 
 const FlexItem: React.FC<FlexItemProps> = props => {

@@ -1,16 +1,16 @@
+/**
+ * title: 综合用法
+ * desc: 把各种场景、API 都运用了
+ */
+
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
-import {
-  Cell,
-  CellGroup,
-  NumberInput,
-  helpers,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, NumberInput, helpers } from '@fruits-chain/react-native-xiaoshu'
 
 const formatterTo = (t: string, sign?: string) => {
   !sign && (sign = ',')
-  var parts = t.split('.')
+  var parts = (t || '').split('.')
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sign)
   return parts.join('.')
 }
@@ -31,7 +31,7 @@ const BasicNumberInput: React.FC = () => {
 
   return (
     <>
-      <CellGroup title="基础用法">
+      <Cell.Group title="基础用法">
         <Cell
           title="默认值"
           value={
@@ -55,12 +55,12 @@ const BasicNumberInput: React.FC = () => {
         />
 
         <Cell
-          title="默认值:小数限制"
+          title="默认值:4位小数限制"
           value={
             <NumberInput
               type="number"
               placeholder="请输入"
-              limitDecimals={1}
+              limitDecimals={4}
               onChange={consoleNum}
             />
           }
@@ -190,10 +190,10 @@ const BasicNumberInput: React.FC = () => {
               textAlign="right"
             />
           }
-          bordered={false}
+          divider={false}
         />
-      </CellGroup>
-      <CellGroup title="其他用法">
+      </Cell.Group>
+      <Cell.Group title="其他用法">
         <Text>自定义宽</Text>
         <View
           style={{
@@ -223,7 +223,7 @@ const BasicNumberInput: React.FC = () => {
             bordered
           />
         </View>
-      </CellGroup>
+      </Cell.Group>
     </>
   )
 }

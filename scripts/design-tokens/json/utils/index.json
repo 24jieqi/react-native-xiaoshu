@@ -1,0 +1,72 @@
+{
+  "utils": {
+    "space-1": {
+      "spacer": 4,
+      "type": "utils"
+    },
+    "space-2": {
+      "spacer": 8,
+      "type": "utils"
+    },
+    "space-3": {
+      "spacer": 12.00000000000006,
+      "type": "utils"
+    },
+    "space-4": {
+      "spacer": 16,
+      "type": "utils"
+    },
+    "space-5": {
+      "spacer": 20,
+      "type": "utils"
+    },
+    "space-6": {
+      "spacer": 24,
+      "type": "utils"
+    },
+    "space-7": {
+      "spacer": 32.00000000000006,
+      "type": "utils"
+    },
+    "space-8": {
+      "spacer": 36.00000000000006,
+      "type": "utils"
+    },
+    "space-9": {
+      "spacer": 40,
+      "type": "utils"
+    },
+    "space-10": {
+      "spacer": 56,
+      "type": "utils"
+    },
+    "radius-xxs": {
+      "radius": [0, 0, 0, 0],
+      "type": "utils"
+    },
+    "radius-xs": {
+      "radius": [2, 2, 2, 2],
+      "type": "utils"
+    },
+    "radius-s": {
+      "radius": [4, 4, 4, 4],
+      "type": "utils"
+    },
+    "radius-m": {
+      "radius": [8, 8, 8, 8],
+      "type": "utils"
+    },
+    "radius-l": {
+      "radius": [12, 12, 12, 12],
+      "type": "utils"
+    },
+    "radius-xl": {
+      "radius": [16, 16, 16, 16],
+      "type": "utils"
+    },
+    "radius-max": {
+      "radius": [214, 214, 214, 214],
+      "type": "utils"
+    }
+  }
+}

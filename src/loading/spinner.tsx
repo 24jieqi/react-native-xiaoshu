@@ -1,8 +1,9 @@
 import React, { useRef, memo } from 'react'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
-import { useTheme } from '../theme'
 import { getDefaultValue } from '../helpers'
+import { useTheme } from '../theme'
+
 import useLoop from './useLoop'
 
 export interface SpinnerProps {
@@ -17,7 +18,7 @@ export interface SpinnerProps {
   color?: string
 }
 
-const PETAL_COUNT = 12
+const PETAL_COUNT = 8
 const PETALS = new Array(PETAL_COUNT).fill(0)
 const A_OPACITY = 1 / PETAL_COUNT
 const A_ROTATE = 360 / PETAL_COUNT
@@ -26,12 +27,12 @@ const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
   const THEME_VAR = useTheme()
   const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
 
-  size = getDefaultValue(size, THEME_VAR.loading_spinner_size)
-  color = getDefaultValue(color, THEME_VAR.primary)
+  size = getDefaultValue(size, THEME_VAR.loading_icon_size)
+  color = getDefaultValue(color, THEME_VAR.loading_icon_color)
 
   useLoop(AnimatedSpinnerValue, 0, {
     toValue: 1,
-    duration: THEME_VAR.loading_spinner_animation_duration,
+    duration: THEME_VAR.loading_icon_animation_duration,
     easing: Easing.linear,
   })
 
@@ -107,7 +108,7 @@ const STYLES = StyleSheet.create({
 
   inner: {
     width: 2,
-    height: '25%',
+    height: '30%',
     borderRadius: 1,
     // backgroundColor: '#000',
   },

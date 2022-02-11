@@ -5,7 +5,7 @@ import type {
   StyleProp,
 } from 'react-native'
 
-export type NoticeBarType = 'primary' | 'success' | 'warning' | 'error'
+export type NoticeBarStatus = 'primary' | 'success' | 'warning' | 'error'
 
 export type NoticeBarMode = 'closeable' | 'link'
 
@@ -21,10 +21,10 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
   message?: React.ReactNode
 
   /**
-   * 内置样式
+   * 内置状态
    * @default 'warning'
    */
-  type?: NoticeBarType
+  status?: NoticeBarStatus
 
   /**
    * 通知栏模式，可选值为 `'closeable' | 'link'`
@@ -33,19 +33,19 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
 
   /**
    * 通知文本颜色
-   * @default 'notice_bar_text_color'
+   * @default notice_bar_text_color
    */
   color?: string
 
   /**
    * 通知背景颜色
-   * @default 'notice_bar_background_color'
+   * @default notice_bar_background_color
    */
   backgroundColor?: string
 
   /**
    * 图标颜色
-   * @default 'notice_bar_text_color'
+   * @default notice_bar_text_color
    */
   iconColor?: string
 

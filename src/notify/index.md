@@ -13,8 +13,8 @@ group:
 
 > 在页面顶部展示消息提示，支持函数调用和组件调用两种方式。
 
-## DEMO
+## 代码演示
 
-<code defaultShowCode src="./__fixtures__/doc.tsx"></code>
+<code src="./__fixtures__/basic.tsx"></code>
 
 <API src="./notify.tsx"></API>

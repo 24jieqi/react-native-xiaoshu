@@ -15,35 +15,53 @@ export type CellGroupProps = {
   title?: React.ReactNode
 
   /**
+   * 头部右侧自定义内容
+   */
+  extra?: React.ReactNode
+
+  /**
    * 自定义样式
    */
   style?: StyleProp<ViewStyle>
 
   /**
-   * 自定义文字样式
+   * 分组名自定义文字样式
    */
-  textStyle?: StyleProp<TextStyle>
+  titleTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 内容自定义样式
+   * body 区域自定义样式
    */
   bodyStyle?: StyleProp<ViewStyle>
 
   /**
-   * 是否显示外边框
-   * @default true
+   * 是否显示 body 区域上分割线
+   * @default false
    */
-  bordered?: boolean
+  bodyTopDivider?: boolean
 
   /**
-   * 点击头部文案
+   * 是否显示 body 区域上分割线
+   * @default false
+   */
+  bodyBottomDivider?: boolean
+
+  /**
+   * body 区域左右有内边距
+   * @default false
+   * @deprecated 并不推荐使用
+   */
+  bodyPaddingHorizontal?: boolean
+
+  /**
+   * 点击分组名称区域，包含 title、extra
+   */
+  onPressTitle?: TextProps['onPress']
+
+  /**
+   * 点击分组名称文案
    */
   onPressTitleText?: TextProps['onPress']
-
-  /**
-   * 头部右侧自定义内容
-   */
-  extra?: React.ReactNode
 }
 
 export interface CellPrivateProps {
@@ -58,7 +76,7 @@ export interface CellPrivateProps {
   title?: React.ReactNode
 
   /**
-   * 左侧标题样式
+   * 左侧标题样式，作用元素内部有必填标志、titleExtra、title
    */
   titleStyle?: StyleProp<ViewStyle>
 
@@ -78,7 +96,7 @@ export interface CellPrivateProps {
   value?: React.ReactNode
 
   /**
-   * 右侧内容样式
+   * 右侧内容样式，作用元素内部有 value
    */
   valueStyle?: StyleProp<ViewStyle>
 
@@ -93,24 +111,36 @@ export interface CellPrivateProps {
   valueExtra?: React.ReactNode
 
   /**
-   * 内容部分的样式 垂直模式模式下有小
+   * 垂直模式模式下右侧内容包裹的样式，作用元素内部有 valueStyle、valueExtra、linkJSX
    */
   contentStyle?: StyleProp<ViewStyle>
 
   /**
-   * 是否显示内边框
+   * 是否显示分割线
    * @default true
    */
-  bordered?: boolean
+  divider?: boolean
 
   /**
-   * 是否展示右侧箭头并开启点击反馈
+   * 分割线左侧边距
+   * @default cell_group_title_padding_horizontal
+   */
+  dividerLeftGap?: number
+
+  /**
+   * 分割线左侧边距
+   * @default cell_group_title_padding_horizontal
+   */
+  dividerRightGap?: number
+
+  /**
+   * 是否展示右侧箭头
    * @default false
    */
   isLink?: boolean
 
   /**
-   * 点击右侧图标
+   * 点击右侧箭头图标
    */
   onPressLink?: TouchableOpacityProps['onPress']
 
@@ -133,7 +163,7 @@ export interface CellPrivateProps {
   required?: boolean
 
   /**
-   * 垂直对齐
+   * 垂直布局，title 在上，value 在下
    * @default false
    */
   vertical?: boolean

@@ -13,10 +13,10 @@ group:
 
 > SVG 图标
 
-有 24\*24、16\*16 两种尺寸的图标，默认可触摸、点击区域是 44\*44。
+24\*24 大小图标，默认触摸、点击尺寸大小是 44\*44，可通过 `hitSlop` 自定义向外扩展触摸、点击的范围。可添加 `onPress` 点击事件，如果没有图标将事件冒泡到父级， `pointerEvents="none"`。
 
-可通过 `hitSlop` 自定义向外扩展触摸、点击的范围。
+## 代码演示
 
-## DEMO
+<code src="./__fixtures__/basic.tsx"></code>
 
-<code defaultShowCode src="./__fixtures__/basic.tsx"></code>
+<API src="./arrow-down.fill.tsx"></API>

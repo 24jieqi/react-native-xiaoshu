@@ -1,0 +1,509 @@
+{
+  "color": {
+    "yellow-1": {
+      "hex": "#fffaf0",
+      "rgba": "rgba(255, 250, 240, 100%)",
+      "type": "color"
+    },
+    "yellow-2": {
+      "hex": "#fff3db",
+      "rgba": "rgba(255, 243, 219, 100%)",
+      "type": "color"
+    },
+    "yellow-3": {
+      "hex": "#ffe3b3",
+      "rgba": "rgba(255, 227, 179, 100%)",
+      "type": "color"
+    },
+    "yellow-4": {
+      "hex": "#ffd08a",
+      "rgba": "rgba(255, 208, 138, 100%)",
+      "type": "color"
+    },
+    "yellow-5": {
+      "hex": "#ffba61",
+      "rgba": "rgba(255, 186, 97, 100%)",
+      "type": "color"
+    },
+    "yellow-6": {
+      "hex": "#ffa238",
+      "rgba": "rgba(255, 162, 56, 100%)",
+      "type": "color"
+    },
+    "yellow-7": {
+      "hex": "#d97f25",
+      "rgba": "rgba(217, 127, 37, 100%)",
+      "type": "color"
+    },
+    "yellow-8": {
+      "hex": "#b35f15",
+      "rgba": "rgba(179, 95, 21, 100%)",
+      "type": "color"
+    },
+    "yellow-9": {
+      "hex": "#8c420a",
+      "rgba": "rgba(140, 66, 10, 100%)",
+      "type": "color"
+    },
+    "yellow-10": {
+      "hex": "#662c06",
+      "rgba": "rgba(102, 44, 6, 100%)",
+      "type": "color"
+    },
+    "green-1": {
+      "hex": "#e7f5e6",
+      "rgba": "rgba(231, 245, 230, 100%)",
+      "type": "color"
+    },
+    "green-2": {
+      "hex": "#d8e8d8",
+      "rgba": "rgba(216, 232, 216, 100%)",
+      "type": "color"
+    },
+    "green-3": {
+      "hex": "#a9dbab",
+      "rgba": "rgba(169, 219, 171, 100%)",
+      "type": "color"
+    },
+    "green-4": {
+      "hex": "#7ecf83",
+      "rgba": "rgba(126, 207, 131, 100%)",
+      "type": "color"
+    },
+    "green-5": {
+      "hex": "#57c262",
+      "rgba": "rgba(87, 194, 98, 100%)",
+      "type": "color"
+    },
+    "green-6": {
+      "hex": "#34b545",
+      "rgba": "rgba(52, 181, 69, 100%)",
+      "type": "color"
+    },
+    "green-7": {
+      "hex": "#228f34",
+      "rgba": "rgba(34, 143, 52, 100%)",
+      "type": "color"
+    },
+    "green-8": {
+      "hex": "#146925",
+      "rgba": "rgba(20, 105, 37, 100%)",
+      "type": "color"
+    },
+    "green-9": {
+      "hex": "#094217",
+      "rgba": "rgba(9, 66, 23, 100%)",
+      "type": "color"
+    },
+    "green-10": {
+      "hex": "#041c0a",
+      "rgba": "rgba(4, 28, 10, 100%)",
+      "type": "color"
+    },
+    "brand-1": {
+      "hex": "#e6f0ff",
+      "rgba": "rgba(230, 240, 255, 100%)",
+      "type": "color"
+    },
+    "brand-2": {
+      "hex": "#a3d4ff",
+      "rgba": "rgba(163, 212, 255, 100%)",
+      "type": "color"
+    },
+    "brand-3": {
+      "hex": "#7abdff",
+      "rgba": "rgba(122, 189, 255, 100%)",
+      "type": "color"
+    },
+    "brand-4": {
+      "hex": "#52a3ff",
+      "rgba": "rgba(82, 163, 255, 100%)",
+      "type": "color"
+    },
+    "brand-5": {
+      "hex": "#2986ff",
+      "rgba": "rgba(41, 134, 255, 100%)",
+      "type": "color"
+    },
+    "brand-6": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 100%)",
+      "type": "color"
+    },
+    "brand-7": {
+      "hex": "#004fd9",
+      "rgba": "rgba(0, 79, 217, 100%)",
+      "type": "color"
+    },
+    "brand-8": {
+      "hex": "#003bb3",
+      "rgba": "rgba(0, 59, 179, 100%)",
+      "type": "color"
+    },
+    "brand-9": {
+      "hex": "#002a8c",
+      "rgba": "rgba(0, 42, 140, 100%)",
+      "type": "color"
+    },
+    "brand-10": {
+      "hex": "#001b66",
+      "rgba": "rgba(0, 27, 102, 100%)",
+      "type": "color"
+    },
+    "red-1": {
+      "hex": "#fff2f0",
+      "rgba": "rgba(255, 242, 240, 100%)",
+      "type": "color"
+    },
+    "red-2": {
+      "hex": "#ffd9d4",
+      "rgba": "rgba(255, 217, 212, 100%)",
+      "type": "color"
+    },
+    "red-3": {
+      "hex": "#ffb3ab",
+      "rgba": "rgba(255, 179, 171, 100%)",
+      "type": "color"
+    },
+    "red-4": {
+      "hex": "#ff8a82",
+      "rgba": "rgba(255, 138, 130, 100%)",
+      "type": "color"
+    },
+    "red-5": {
+      "hex": "#ff5f59",
+      "rgba": "rgba(255, 95, 89, 100%)",
+      "type": "color"
+    },
+    "red-6": {
+      "hex": "#f92f2f",
+      "rgba": "rgba(249, 47, 47, 100%)",
+      "type": "color"
+    },
+    "red-7": {
+      "hex": "#d41e24",
+      "rgba": "rgba(212, 30, 36, 100%)",
+      "type": "color"
+    },
+    "red-8": {
+      "hex": "#ad101a",
+      "rgba": "rgba(173, 16, 26, 100%)",
+      "type": "color"
+    },
+    "red-9": {
+      "hex": "#870512",
+      "rgba": "rgba(135, 5, 18, 100%)",
+      "type": "color"
+    },
+    "red-10": {
+      "hex": "#61030f",
+      "rgba": "rgba(97, 3, 15, 100%)",
+      "type": "color"
+    },
+    "db-1": {
+      "hex": "#e8faff",
+      "rgba": "rgba(232, 250, 255, 100%)",
+      "type": "color"
+    },
+    "db-2": {
+      "hex": "#bfeeff",
+      "rgba": "rgba(191, 238, 255, 100%)",
+      "type": "color"
+    },
+    "db-3": {
+      "hex": "#96e0ff",
+      "rgba": "rgba(150, 224, 255, 100%)",
+      "type": "color"
+    },
+    "db-4": {
+      "hex": "#6ecfff",
+      "rgba": "rgba(110, 207, 255, 100%)",
+      "type": "color"
+    },
+    "db-5": {
+      "hex": "#45bbff",
+      "rgba": "rgba(69, 187, 255, 100%)",
+      "type": "color"
+    },
+    "db-6": {
+      "hex": "#1ba2fc",
+      "rgba": "rgba(27, 162, 252, 100%)",
+      "type": "color"
+    },
+    "db-7": {
+      "hex": "#0d7fd6",
+      "rgba": "rgba(13, 127, 214, 100%)",
+      "type": "color"
+    },
+    "db-8": {
+      "hex": "#025fb0",
+      "rgba": "rgba(2, 95, 176, 100%)",
+      "type": "color"
+    },
+    "db-9": {
+      "hex": "#00458a",
+      "rgba": "rgba(0, 69, 138, 100%)",
+      "type": "color"
+    },
+    "db-10": {
+      "hex": "#002e63",
+      "rgba": "rgba(0, 46, 99, 100%)",
+      "type": "color"
+    },
+    "purper-1": {
+      "hex": "#f8f0ff",
+      "rgba": "rgba(248, 240, 255, 100%)",
+      "type": "color"
+    },
+    "purper-2": {
+      "hex": "#f7f0ff",
+      "rgba": "rgba(247, 240, 255, 100%)",
+      "type": "color"
+    },
+    "purper-3": {
+      "hex": "#e0c7ff",
+      "rgba": "rgba(224, 199, 255, 100%)",
+      "type": "color"
+    },
+    "purper-4": {
+      "hex": "#c69eff",
+      "rgba": "rgba(198, 158, 255, 100%)",
+      "type": "color"
+    },
+    "purper-5": {
+      "hex": "#a26ff2",
+      "rgba": "rgba(162, 111, 242, 100%)",
+      "type": "color"
+    },
+    "purper-6": {
+      "hex": "#7d45e6",
+      "rgba": "rgba(125, 69, 230, 100%)",
+      "type": "color"
+    },
+    "purper-7": {
+      "hex": "#5d30bf",
+      "rgba": "rgba(93, 48, 191, 100%)",
+      "type": "color"
+    },
+    "purper-8": {
+      "hex": "#411f99",
+      "rgba": "rgba(65, 31, 153, 100%)",
+      "type": "color"
+    },
+    "purper-9": {
+      "hex": "#2a1173",
+      "rgba": "rgba(42, 17, 115, 100%)",
+      "type": "color"
+    },
+    "purper-10": {
+      "hex": "#190b4d",
+      "rgba": "rgba(25, 11, 77, 100%)",
+      "type": "color"
+    },
+    "volcano-1": {
+      "hex": "#fff2e6",
+      "rgba": "rgba(255, 242, 230, 100%)",
+      "type": "color"
+    },
+    "volcano-2": {
+      "hex": "#ffd9b8",
+      "rgba": "rgba(255, 217, 184, 100%)",
+      "type": "color"
+    },
+    "volcano-3": {
+      "hex": "#ffbf8f",
+      "rgba": "rgba(255, 191, 143, 100%)",
+      "type": "color"
+    },
+    "volcano-4": {
+      "hex": "#ffa366",
+      "rgba": "rgba(255, 163, 102, 100%)",
+      "type": "color"
+    },
+    "volcano-5": {
+      "hex": "#ff843d",
+      "rgba": "rgba(255, 132, 61, 100%)",
+      "type": "color"
+    },
+    "volcano-6": {
+      "hex": "#fa541c",
+      "rgba": "rgba(250, 84, 28, 100%)",
+      "type": "color"
+    },
+    "volcano-7": {
+      "hex": "#d94100",
+      "rgba": "rgba(217, 65, 0, 100%)",
+      "type": "color"
+    },
+    "volcano-8": {
+      "hex": "#b33000",
+      "rgba": "rgba(179, 48, 0, 100%)",
+      "type": "color"
+    },
+    "volcano-9": {
+      "hex": "#8c2100",
+      "rgba": "rgba(140, 33, 0, 100%)",
+      "type": "color"
+    },
+    "volcano-10": {
+      "hex": "#661400",
+      "rgba": "rgba(102, 20, 0, 100%)",
+      "type": "color"
+    },
+    "cyan-1": {
+      "hex": "#f0fffe",
+      "rgba": "rgba(240, 255, 254, 100%)",
+      "type": "color"
+    },
+    "cyan-2": {
+      "hex": "#e3ffff",
+      "rgba": "rgba(227, 255, 255, 100%)",
+      "type": "color"
+    },
+    "cyan-3": {
+      "hex": "#bafeff",
+      "rgba": "rgba(186, 254, 255, 100%)",
+      "type": "color"
+    },
+    "cyan-4": {
+      "hex": "#91faff",
+      "rgba": "rgba(145, 250, 255, 100%)",
+      "type": "color"
+    },
+    "cyan-5": {
+      "hex": "#66eefa",
+      "rgba": "rgba(102, 238, 250, 100%)",
+      "type": "color"
+    },
+    "cyan-6": {
+      "hex": "#3bd8ed",
+      "rgba": "rgba(59, 216, 237, 100%)",
+      "type": "color"
+    },
+    "cyan-7": {
+      "hex": "#28afc7",
+      "rgba": "rgba(40, 175, 199, 100%)",
+      "type": "color"
+    },
+    "cyan-8": {
+      "hex": "#1888a1",
+      "rgba": "rgba(24, 136, 161, 100%)",
+      "type": "color"
+    },
+    "cyan-9": {
+      "hex": "#0c637a",
+      "rgba": "rgba(12, 99, 122, 100%)",
+      "type": "color"
+    },
+    "cyan-10": {
+      "hex": "#084154",
+      "rgba": "rgba(8, 65, 84, 100%)",
+      "type": "color"
+    },
+    "gray-1": {
+      "hex": "#f7f9fc",
+      "rgba": "rgba(247, 249, 252, 100%)",
+      "type": "color"
+    },
+    "gray-2": {
+      "hex": "#eff3f9",
+      "rgba": "rgba(239, 243, 249, 100%)",
+      "type": "color"
+    },
+    "gray-3": {
+      "hex": "#edeff2",
+      "rgba": "rgba(237, 239, 242, 100%)",
+      "type": "color"
+    },
+    "gray-4": {
+      "hex": "#e3e5e8",
+      "rgba": "rgba(227, 229, 232, 100%)",
+      "type": "color"
+    },
+    "gray-5": {
+      "hex": "#b9bec5",
+      "rgba": "rgba(185, 190, 197, 100%)",
+      "type": "color"
+    },
+    "gray-6": {
+      "hex": "#8c9199",
+      "rgba": "rgba(140, 145, 153, 100%)",
+      "type": "color"
+    },
+    "gray-7": {
+      "hex": "#5a6068",
+      "rgba": "rgba(90, 96, 104, 100%)",
+      "type": "color"
+    },
+    "gray-8": {
+      "hex": "#11151a",
+      "rgba": "rgba(17, 21, 26, 100%)",
+      "type": "color"
+    },
+    "black": {
+      "hex": "#000000",
+      "rgba": "rgba(0, 0, 0, 100%)",
+      "type": "color"
+    },
+    "white": {
+      "hex": "#ffffff",
+      "rgba": "rgba(255, 255, 255, 100%)",
+      "type": "color"
+    },
+    "opacity-10": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 10.196078431372548%)",
+      "type": "color"
+    },
+    "opacity-5": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 5.098039215686274%)",
+      "type": "color"
+    },
+    "opacity-20": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 20%)",
+      "type": "color"
+    },
+    "opacity-30": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 30.19607843137255%)",
+      "type": "color"
+    },
+    "opacity-40": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 40%)",
+      "type": "color"
+    },
+    "opacity-50": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 50.19607843137255%)",
+      "type": "color"
+    },
+    "opacity-60": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 60%)",
+      "type": "color"
+    },
+    "opacity-70": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 70.19607843137254%)",
+      "type": "color"
+    },
+    "opacity-80": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 80%)",
+      "type": "color"
+    },
+    "opacity-90": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 90.19607843137256%)",
+      "type": "color"
+    },
+    "opacity-100": {
+      "hex": "#0065fe",
+      "rgba": "rgba(0, 101, 254, 100%)",
+      "type": "color"
+    }
+  }
+}

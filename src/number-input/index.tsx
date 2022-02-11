@@ -4,10 +4,11 @@ import type {
   TextInputEndEditingEventData,
 } from 'react-native'
 
+import { noop, isValue, isDef, formatDecimal } from '../helpers'
+import { usePersistFn, useUpdateEffect } from '../hooks'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { usePersistFn, useUpdateEffect } from '../hooks'
-import { noop, isValue, isDef, formatDecimal } from '../helpers'
+
 import type { NumberInputProps } from './interface'
 
 const parserNumberToString = (n?: number) => `${isDef(n) ? n : ''}`
@@ -30,7 +31,6 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
       value,
       defaultValue,
-      onChangeText,
       onEndEditing,
       onChange,
       ...restProps
@@ -41,7 +41,6 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       limitDecimals = -1
     }
 
-    const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
     const onChangePersistFn = usePersistFn(onChange || noop)
     const parserPersistFn = usePersistFn(parser || defaultParser)
@@ -63,25 +62,22 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       setLocalValue(formatterPersistFn(parserNumberToString(value)))
     }, [value])
 
+    /** 数据过滤，限制小数位，返回数字的字符串 */
     const parserInputValue = usePersistFn((t: string) =>
       formatDecimal(t, limitDecimals),
     )
 
-    const computeValue = useCallback(
-      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-      (t: string, isEnd: boolean = false) => {
+    /** 计算数据 */
+    const computeValueStringify = useCallback(
+      (t: string, isEnd: boolean) => {
         // 解析数据
         let newValueStringify = parserInputValue(t)
 
-        // 同步更新到组件状态
-        setLocalValue(formatterPersistFn(newValueStringify))
-
-        // 约束后的字符串是空字符串，上一次的值是 null 才触发 onChange
-        if (newValueStringify === '' && LastValue.current !== null) {
-          onChangePersistFn(null)
-        } else if (isEnd) {
-          // 非空字符串 + 非 null、非空字符串 + null
-          if (newValueStringify) {
+        if (newValueStringify === '') {
+          return null
+        } else {
+          // 结束的时候限制最大最小值
+          if (isEnd) {
             const newValueNum = Number(newValueStringify)
             // 输入结束做最大、最小限制
             if (newValueNum > max) {
@@ -90,59 +86,85 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
             if (newValueNum < min) {
               newValueStringify = String(min)
             }
+          }
+        }
 
+        return newValueStringify
+      },
+      [max, min, parserInputValue],
+    )
+
+    const triggerValueUpdate = useCallback(
+      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+      (t: string, isEnd: boolean) => {
+        let newValueStringify = computeValueStringify(t || '', isEnd)
+        let finallyValue = newValueStringify
+
+        // 同步更新到组件状态
+        setLocalValue(formatterPersistFn(newValueStringify))
+
+        // 1. 空字符串 + 非 null
+        // 2. 空字符串 + null
+        // 3. 非空字符串 + null
+        // 4. 非空字符串 + 非 null
+
+        if (newValueStringify === '' && LastValue.current !== null) {
+          // 状态 1 触发 onChange
+          onChangePersistFn(null)
+
+          finallyValue = null
+        } else if (newValueStringify) {
+          // 状态 3 和 状态 4
+          if (isEnd) {
+            // 按照提供的解析函数转成数字
             const returnValue = parserPersistFn(newValueStringify)
+            finallyValue = parserNumberToString(returnValue)
 
-            setLocalValue(formatterPersistFn(`${returnValue}`))
+            // 新数字转成字符串
+            setLocalValue(formatterPersistFn(parserNumberToString(returnValue)))
 
             if (returnValue !== LastValue.current) {
+              // 当最终值和上次值不同时触发 onChange
               onChangePersistFn(returnValue)
               LastValue.current = returnValue
             }
+          } else {
+            // 聚焦输入中
+            // 字符串有数字
+            // 格式化后的值和最新值不相同
+            // '1.' 和 1 在 Number 后是一致的
+            // '1.0' 和 1 在 Number 后是一致的
+            const newValueNum = Number(newValueStringify)
+            if (newValueStringify && newValueNum !== LastValue.current) {
+              onChangePersistFn(newValueNum)
+              LastValue.current = newValueNum
+            }
           }
-
-          // 空字符串 + null
-        } else {
-          // 非空字符串 + 非 null、非空字符串 + null
-
-          // 聚焦输入中
-          // 字符串有数字
-          // 格式化后的值和最新值不相同
-          // '1.' 和 1 在 Number 后是一致的
-          // '1.0' 和 1 在 Number 后是一致的
-          const newValueNum = Number(newValueStringify)
-          if (newValueStringify && newValueNum !== LastValue.current) {
-            onChangePersistFn(newValueNum)
-            LastValue.current = newValueNum
-          }
-
-          // 空字符串 + null
         }
+
+        return finallyValue
       },
       [
+        computeValueStringify,
         formatterPersistFn,
-        max,
-        min,
         onChangePersistFn,
-        parserInputValue,
         parserPersistFn,
       ],
     )
 
     const onChangeTextTextInput = useCallback(
       (t: string) => {
-        computeValue(t)
-        onChangeTextPersistFn(t)
+        triggerValueUpdate(t, false)
       },
-      [computeValue, onChangeTextPersistFn],
+      [triggerValueUpdate],
     )
 
     const onEndEditingTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
-        computeValue(e.nativeEvent.text, true)
+        e.nativeEvent.text = triggerValueUpdate(e.nativeEvent.text, true)
         onEndEditingPersistFn(e)
       },
-      [computeValue, onEndEditingPersistFn],
+      [onEndEditingPersistFn, triggerValueUpdate],
     )
 
     return (
@@ -150,7 +172,6 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         {...restProps}
         ref={ref}
         type={type}
-        defaultValue={formatterPersistFn(parserNumberToString(defaultValue))}
         value={localValue}
         onChangeText={onChangeTextTextInput}
         onEndEditing={onEndEditingTextInput}

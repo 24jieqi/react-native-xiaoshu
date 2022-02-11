@@ -1,9 +1,15 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
+import { attachPropertiesToComponent, renderTextLikeJSX } from '../helpers'
 import { SuccessOutline, WarningOutline, CrossOutline } from '../icon'
-import { renderTextLikeJSX } from '../helpers'
+import Space from '../space'
+import { useTheme, widthStyle } from '../theme'
+
+import IconBox from './icons/box'
+import IconEmpty from './icons/empty'
+import IconError from './icons/error'
+import IconWarning from './icons/warning'
 import type { ResultProps, ResultStatus } from './interface'
 import { createStyles } from './style'
 
@@ -41,13 +47,12 @@ const Result: React.FC<ResultProps> = ({
   extra,
   renderIcon,
   status,
-  style,
 
   ...restProps
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
-  const color = THEME_VAR[`result_${status}_color`] || THEME_VAR.primary
+  const color = THEME_VAR[`result_${status}_color`]
   const iconSize = (THEME_VAR.result_icon_size / 4) * 3
 
   const iconJSX = renderIcon ? (
@@ -70,13 +75,18 @@ const Result: React.FC<ResultProps> = ({
   ])
 
   return (
-    <View {...restProps} style={[STYLES.result, style]}>
+    <Space {...restProps} justify="center" align="center">
       {iconJSX}
       {titleJSX}
       {subtitleJSX}
       {extra}
-    </View>
+    </Space>
   )
 }
 
-export default memo(Result)
+export default attachPropertiesToComponent(memo(Result), {
+  IconBox,
+  IconEmpty,
+  IconError,
+  IconWarning,
+})

@@ -1,6 +1,9 @@
 import React, { memo } from 'react'
 
+import { attachPropertiesToComponent } from '../helpers'
 import Portal from '../portal'
+
+import PopupHeader from './header'
 import type { PopupProps } from './interface'
 import Popup from './popup'
 
@@ -16,4 +19,9 @@ const PopupContainer: React.FC<PopupProps> = props => {
   )
 }
 
-export default memo<typeof PopupContainer>(PopupContainer)
+export default attachPropertiesToComponent(
+  memo<typeof PopupContainer>(PopupContainer),
+  {
+    Header: PopupHeader,
+  },
+)

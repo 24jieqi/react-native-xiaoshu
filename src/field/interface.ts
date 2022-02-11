@@ -1,9 +1,10 @@
 import type { StyleProp, TextStyle, ViewStyle } from 'react-native'
+
 import type { CellProps, CellPrivateProps } from '../cell/interface'
-import type { SelectorProps } from '../selector/interface'
-import type { TextInputProps } from '../text-input/interface'
 import type { NumberInputProps } from '../number-input/interface'
+import type { SelectorProps } from '../selector/interface'
 import type { SwitchProps } from '../switch/interface'
+import type { TextInputProps } from '../text-input/interface'
 
 export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**
@@ -13,7 +14,7 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
 
   /**
    * 占位字符串显示的文字颜色
-   * @default 'text_input_placeholder_text_color'
+   * @default text_input_placeholder_text_color
    */
   placeholderTextColor?: string
 

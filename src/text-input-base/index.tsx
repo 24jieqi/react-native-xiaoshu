@@ -16,9 +16,6 @@ import type {
 } from 'react-native'
 import { View, TextInput as RNTextInput, Platform } from 'react-native'
 
-import IconSvgCross from '../icon/cross'
-import { useTheme } from '../theme'
-import { usePersistFn, useUpdateEffect } from '../hooks'
 import {
   getDefaultValue,
   renderTextLikeJSX,
@@ -26,8 +23,12 @@ import {
   isValue,
   isDef,
 } from '../helpers'
-import { createStyles } from './style'
+import { usePersistFn, useUpdateEffect } from '../hooks'
+import IconSvgCross from '../icon/cross'
+import { useTheme } from '../theme'
+
 import type { TextInputBaseProps } from './interface'
+import { createStyles } from './style'
 
 const defaultFormatter = (t: string) => t
 
@@ -86,13 +87,9 @@ const TextInputBase = forwardRef<RNTextInput, TextInputBaseProps>(
       bordered && isDef(resetProps.editable) && !resetProps.editable
 
     /** 输入框最小高度 */
-    const textInputMinHeight =
-      THEME_VAR[`text_input_${size}_min_height`] ||
-      THEME_VAR.text_input_middle_min_height
+    const textInputMinHeight = THEME_VAR[`text_input_${size}_min_height`]
     /** 所有文字/文案相关的大小 */
-    const textInputFontSize =
-      THEME_VAR[`text_input_${size}_font_size`] ||
-      THEME_VAR.text_input_middle_font_size
+    const textInputFontSize = THEME_VAR[`text_input_${size}_font_size`]
 
     // 修正数据
     resetProps.selectionColor = getDefaultValue(

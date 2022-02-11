@@ -1,10 +1,11 @@
 import React, { useMemo, useRef, memo } from 'react'
 import { View } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
 import { getDefaultValue } from '../helpers'
-import type { DropdownMenuProps } from './interface'
+import { useTheme, widthStyle } from '../theme'
+
 import { DropdownConfig } from './context'
+import type { DropdownMenuProps } from './interface'
 import { createStyles } from './style.menu'
 
 /**
