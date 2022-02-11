@@ -84,9 +84,11 @@ const Result: React.FC<ResultProps> = ({
   )
 }
 
-export default attachPropertiesToComponent(memo(Result), {
-  IconBox,
-  IconEmpty,
-  IconError,
-  IconWarning,
+const ResultMemo = memo(Result)
+
+export default attachPropertiesToComponent(ResultMemo, {
+  IconBox: IconBox,
+  IconEmpty: IconEmpty,
+  IconError: IconError,
+  IconWarning: IconWarning,
 })

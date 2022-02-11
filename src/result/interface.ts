@@ -1,5 +1,6 @@
 import type React from 'react'
 import type { TextStyle, StyleProp, ViewProps } from 'react-native'
+import type { SvgProps } from 'react-native-svg'
 
 export type ResultStatus = 'success' | 'error' | 'info' | 'warning'
 
@@ -38,4 +39,9 @@ export interface ResultProps extends ViewProps {
    * title 文字
    */
   title?: React.ReactNode
+}
+
+export interface ResultIconProps extends SvgProps {
+  width?: number
+  height?: number
 }

@@ -1,18 +1,14 @@
 import React, { memo } from 'react'
 import type { ViewStyle } from 'react-native'
-import type { SvgProps } from 'react-native-svg'
 import { SvgXml } from 'react-native-svg'
 
-interface ResultIconEmptyProps extends SvgProps {
-  width?: number
-  height?: number
-}
+import type { ResultIconProps } from '../interface'
 
 const SVG_STYLE: ViewStyle = {
   alignSelf: 'center',
 }
 
-const ResultIconEmpty: React.FC<ResultIconEmptyProps> = ({
+const ResultIconEmpty: React.FC<ResultIconProps> = ({
   style,
   width = 150,
   height = 150,
