@@ -18,7 +18,6 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     button_text: {
-      color: themeVar.action_sheet_text_color,
       fontSize: themeVar.action_sheet_text_font_size,
       fontWeight: 'bold',
     },

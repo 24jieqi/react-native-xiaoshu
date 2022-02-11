@@ -31,9 +31,10 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const isTitleDef = isDef(title)
   const isCancelTextDef = isDef(cancelText)
+  const isDescriptionDef = isDef(description)
 
   /** 描述文案 纯文字或自定义 JSX */
-  const descriptionJSX = isDef(description) ? (
+  const descriptionJSX = isDescriptionDef ? (
     isValidElement(description) ? (
       description
     ) : (
@@ -51,16 +52,18 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
     )
   ) : null
 
-  const btnHeight = THEME_VAR.button_l_height
+  const btnHeight = THEME_VAR.button_xl_height
   const descriptionHeight =
-    THEME_VAR.action_sheet_description_line_height + (isTitleDef ? 12 : 12 * 2)
+    THEME_VAR.action_sheet_description_line_height +
+    (isTitleDef ? 12 : 12 * 2) +
+    1
   const contentHeight =
     safeHeight -
     (isTitleDef ? THEME_VAR.nav_bar_height : 0) -
     (isCancelTextDef
       ? THEME_VAR.action_sheet_cancel_padding_top + btnHeight
       : 0) -
-    (descriptionJSX ? descriptionHeight : 0)
+    (isDescriptionDef ? descriptionHeight : 0)
 
   return (
     <Popup {...restProps} safeAreaInsetBottom position="bottom" round={round}>
@@ -75,7 +78,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
               text={item.name}
               disabled={item.disabled}
               loading={item.loading}
-              color={item.color}
+              color={item.color || THEME_VAR.action_sheet_text_color}
               type="link"
               size="xl"
               textStyle={STYLES.button_text}
@@ -96,6 +99,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
             text={cancelText}
             type="link"
             size="xl"
+            color={THEME_VAR.action_sheet_text_color}
             textStyle={STYLES.button_text}
             onPress={onCancel}
           />
