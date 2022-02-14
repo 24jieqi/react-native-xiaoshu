@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   textStyle,
   type = 'primary',
   danger = false,
-  size = 'm',
+  size = 'l',
   hairline = false,
   disabled = false,
   loading = false,

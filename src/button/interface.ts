@@ -23,7 +23,7 @@ export interface ButtonProps
 
   /**
    * 大小
-   * @default 'm'
+   * @default 'l'
    */
   size?: ButtonSize
 
