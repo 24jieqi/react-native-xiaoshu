@@ -50,12 +50,11 @@ export interface DatePickerSingleMethodProps
   ) => boolean | Promise<boolean>
 }
 
-export interface DatePickerRangeMethodProps
+export interface DatePickerRangeViewProps
   extends Omit<
-      DatePickerViewProps,
-      'value' | 'defaultValue' | 'onChange' | 'loading' | 'mode'
-    >,
-    Omit<PopupPropsCommon, 'onPressOverlay' | 'visible'> {
+    DatePickerViewProps,
+    'value' | 'defaultValue' | 'onChange' | 'mode'
+  > {
   /**
    * 日期选择的类型
    * @default 'Y-D'
@@ -68,27 +67,41 @@ export interface DatePickerRangeMethodProps
   defaultValue?: [Date, Date]
 
   /**
-   * 顶部栏标题
-   */
-  title?: React.ReactNode
-
-  /**
    * 确认按钮文字
    * @default '确认'
    */
   confirmButtonText?: string
 
   /**
-   * 取消按钮文字
-   * @default '取消'
-   */
-  cancelButtonText?: string
-
-  /**
    * 重置按钮文字
    * @default '重置'
    */
   resetButtonText?: string
+
+  /**
+   * 站位文案
+   * @default '请选择'
+   */
+  placeholder?: string
+
+  /**
+   * 点击确定
+   */
+  onConfirm?: (values: [Date, Date]) => void
+
+  /**
+   * 触发改变
+   */
+  onChange?: (values: [Date, Date]) => void
+}
+
+export interface DatePickerRangeMethodProps
+  extends Omit<DatePickerRangeViewProps, 'loading' | 'onChange' | 'onConfirm'>,
+    Omit<PopupPropsCommon, 'visible' | 'onPressOverlay'> {
+  /**
+   * 顶部栏标题
+   */
+  title?: React.ReactNode
 
   /**
    * 点击取消
@@ -112,12 +125,6 @@ export interface DatePickerRangeMethodProps
     action: DatePickerAction,
     value: Date,
   ) => boolean | Promise<boolean>
-
-  /**
-   * 站位文案
-   * @default '请选择'
-   */
-  placeholder?: string
 }
 
 export interface DatePickerInstance {
@@ -129,4 +136,5 @@ export interface DatePickerInstance {
     action: DatePickerAction
     values: [Date, Date]
   }>
+  RangeView: React.FC<DatePickerRangeViewProps>
 }

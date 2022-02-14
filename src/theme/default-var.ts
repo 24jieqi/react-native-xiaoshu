@@ -237,6 +237,7 @@ export const overlay_background_color: string = 'rgba(0, 0, 0, 0.7)'
 
 // Picker
 export const picker_bottom_gap = TOKENS.space_4
+export const picker_action_gap = TOKENS.space_3
 export const picker_header_text_line_height: number = 44
 export const picker_header_action_font_size = TOKENS.font_size_5
 export const picker_header_cancel_text_color = TOKENS.gray_7

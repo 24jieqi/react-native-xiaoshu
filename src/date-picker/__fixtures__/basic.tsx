@@ -18,6 +18,11 @@ const Y_M_LIMIT = {
   max: new Date(2026, 2, 10, 12, 20, 50),
 }
 
+const defaultValueView: [Date, Date] = [
+  new Date(2020, 6, 20, 18, 40, 10),
+  new Date(2022, 1, 2, 18, 40, 10),
+]
+
 const BasicDatePickerView: React.FC = () => {
   return (
     <ScrollView>
@@ -92,6 +97,13 @@ const BasicDatePickerView: React.FC = () => {
           </Space>
         </Card>
 
+        <Card title="时间段视图">
+          <Space>
+            <DatePicker.RangeView />
+            <DatePicker.RangeView defaultValue={defaultValueView} />
+          </Space>
+        </Card>
+
         <Card title="日期段" square>
           <Space>
             <Button
@@ -102,6 +114,30 @@ const BasicDatePickerView: React.FC = () => {
                 }).then(({ action, values }) => {
                   console.log('日期段:Y-D:Promise  =>>  action  =>', action)
                   console.log('日期段:Y-D:Promise  =>>  values  =>', values)
+                })
+              }}
+            />
+            <Button
+              text="日期段:Y-D:beforeClose:Promise"
+              onPress={() => {
+                DatePicker.range({
+                  title: '某个时间',
+                  beforeClose: (action, value) => {
+                    console.log(
+                      '日期段:Y-D:beforeClose:Promise   =>  action  => ',
+                      action,
+                    )
+                    console.log(
+                      '日期段:Y-D:beforeClose:Promise   =>  value  => ',
+                      value,
+                    )
+
+                    return new Promise<boolean>(resolve => {
+                      setTimeout(() => {
+                        resolve(true)
+                      }, 2000)
+                    })
+                  },
                 })
               }}
             />

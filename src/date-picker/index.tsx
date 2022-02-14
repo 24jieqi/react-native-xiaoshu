@@ -4,6 +4,7 @@ import Portal from '../portal'
 
 import type { DatePickerInstance } from './interface'
 import DatePickerRangeMethodView from './range-method'
+import DatePickerRangeViewView from './range-view'
 import DatePickerSingleMethodView from './single-method'
 
 const DatePicker: DatePickerInstance = opts => {
@@ -40,6 +41,8 @@ const DatePicker: DatePickerInstance = opts => {
     )
   })
 }
+
+DatePicker.RangeView = DatePickerRangeViewView
 
 DatePicker.range = opts => {
   return new Promise(resolve => {
