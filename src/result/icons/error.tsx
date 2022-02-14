@@ -10,8 +10,8 @@ const SVG_STYLE: ViewStyle = {
 
 const ResultIconError: React.FC<ResultIconProps> = ({
   style,
-  width = 150,
-  height = 150,
+  width = 90,
+  height = 90,
   ...restProps
 }) => {
   return SvgXml ? (
@@ -20,7 +20,7 @@ const ResultIconError: React.FC<ResultIconProps> = ({
       style={style || SVG_STYLE}
       width={width}
       height={height}
-      xml={`<svg width="${width}" height="${height}" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M0 0h150v150H0z"/><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="c"><stop stop-color="#DFE4EB" offset="0%"/><stop stop-color="#E0E4EA" stop-opacity="0" offset="100%"/></linearGradient><filter x="-14%" y="-75%" width="127.9%" height="250%" filterUnits="objectBoundingBox" id="d"><feGaussianBlur stdDeviation="4" in="SourceGraphic"/></filter><radialGradient cx="53.842%" cy="25.543%" fx="53.842%" fy="25.543%" r="92.917%" id="f"><stop stop-color="#E2E7EF" offset="0%"/><stop stop-color="#D2DAE7" offset="100%"/></radialGradient><circle id="e" cx="36" cy="36" r="36"/><filter x="-53.8%" y="-53.8%" width="207.7%" height="207.7%" filterUnits="objectBoundingBox" id="g"><feGaussianBlur stdDeviation="7" in="SourceGraphic"/></filter><linearGradient x1="47.689%" y1="79.339%" x2="52.534%" y2="50%" id="i"><stop stop-color="#D5DDE9" offset="0%"/><stop stop-color="#C8CED7" offset="100%"/></linearGradient><linearGradient x1="20.522%" y1="79.339%" x2="82.327%" y2="50%" id="j"><stop stop-color="#D5DDE9" offset="0%"/><stop stop-color="#C8CED7" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><g mask="url(#b)"><g transform="translate(32 47)"><ellipse fill="url(#c)" filter="url(#d)" cx="43" cy="72" rx="43" ry="8"/><g transform="translate(7)"><mask id="h" fill="#fff"><use xlink:href="#e"/></mask><use fill="url(#f)" xlink:href="#e"/><circle fill="#FFF" opacity=".397" filter="url(#g)" mask="url(#h)" cx="31" cy="19" r="19.5"/></g><g transform="translate(41 17)"><rect fill="#EDF1F8" width="8" height="25" rx="4"/><rect fill="url(#i)" width="7" height="25" rx="3.5"/></g><g transform="translate(40.818 46.942)"><rect fill="#EDF1F8" width="8.4" height="8.4" rx="4.1"/><rect fill="url(#j)" width="7.81" height="7.81" rx="3.905"/></g></g></g></g></svg>`}
+      xml={`<svg width="${width}" height="${height}" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><g transform="translate(1 15)" fill="none" fill-rule="evenodd"><ellipse fill="#EDEFF2" cx="44" cy="61" rx="44" ry="8"/><path d="M33.25.75c.966 0 1.75.784 1.75 1.75l-.001 5.417h18.072V2.5A1.75 1.75 0 0 1 54.678.756L54.82.75H68A3.25 3.25 0 0 1 71.25 4v56A3.25 3.25 0 0 1 68 63.25H20A3.25 3.25 0 0 1 16.75 60V4A3.25 3.25 0 0 1 20 .75zM48.5 0A2.5 2.5 0 0 1 51 2.5v2a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-2A2.5 2.5 0 0 1 39.5 0h9z" fill="#E1E3E6" fill-rule="nonzero"/><path d="M55.571 8.667V3.25H68a.75.75 0 0 1 .75.75v56a.75.75 0 0 1-.75.75H20a.75.75 0 0 1-.75-.75V4l.007-.102A.75.75 0 0 1 20 3.25h12.499v5.417c0 .967.784 1.75 1.75 1.75h19.572a1.75 1.75 0 0 0 1.75-1.75z" fill="#FFF" fill-rule="nonzero"/><path d="M44 22c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13zm.011 17.727a1.477 1.477 0 1 0 0 2.955 1.477 1.477 0 0 0 0-2.955zm.143-13h-.308a2 2 0 0 0-1.99 2.2l.845 8.443a1.306 1.306 0 0 0 2.598 0l.845-8.444a2 2 0 0 0-1.99-2.199z" fill="#E1E3E6"/></g></svg>`}
     />
   ) : null
 }

@@ -6,7 +6,7 @@ import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Result from '../result'
-import ResultIconBox from '../result/icons/box'
+import ResultIconEmpty from '../result/icons/empty'
 import { useTheme, widthStyle } from '../theme'
 
 import type { SidebarProps } from './interface'
@@ -47,7 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             status="warning"
             subtitle="暂无数据"
             renderIcon={() => {
-              return <ResultIconBox />
+              return <ResultIconEmpty width={60} height={60} />
             }}
           />
         ) : null}
