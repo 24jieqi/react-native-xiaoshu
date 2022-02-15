@@ -67,6 +67,11 @@ export interface DatePickerRangeViewProps
   defaultValue?: [Date, Date]
 
   /**
+   * 选中时间组
+   */
+  value?: [Date, Date]
+
+  /**
    * 确认按钮文字
    * @default '确认'
    */
@@ -96,7 +101,10 @@ export interface DatePickerRangeViewProps
 }
 
 export interface DatePickerRangeMethodProps
-  extends Omit<DatePickerRangeViewProps, 'loading' | 'onChange' | 'onConfirm'>,
+  extends Omit<
+      DatePickerRangeViewProps,
+      'loading' | 'value' | 'onChange' | 'onConfirm'
+    >,
     Omit<PopupPropsCommon, 'visible' | 'onPressOverlay'> {
   /**
    * 顶部栏标题

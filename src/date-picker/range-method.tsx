@@ -89,7 +89,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
 
   const rangeProps = {
     mode,
-    defaultValue,
+    defaultValue: Values.current,
     confirmButtonText,
     resetButtonText,
     placeholder,

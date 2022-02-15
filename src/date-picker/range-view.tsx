@@ -9,7 +9,7 @@ import type {
 } from '../date-picker-view/interface'
 import { serializeMode, toDateObject } from '../date-picker-view/useDatePicker'
 import { Row, Col } from '../grid'
-import { usePersistFn } from '../hooks'
+import { usePersistFn, useControllableValue } from '../hooks'
 import { createStyles } from '../picker/style'
 import { useTheme, widthStyle } from '../theme'
 
@@ -39,12 +39,10 @@ const renderDate = (day: Date, mode: DatePickerColumnMode) => {
 }
 
 const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
-  defaultValue,
   confirmButtonText = '确定',
   resetButtonText = '重置',
   onConfirm,
   placeholder = '请选择',
-  onChange,
 
   // DateView
   mode = 'Y-D',
@@ -52,6 +50,8 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   max,
   renderLabel,
   loading,
+
+  ...restProps
 }) => {
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
@@ -62,13 +62,13 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     [THEME_VAR.picker_action_gap],
   )
 
+  const [value, onChange] = useControllableValue<[Date, Date]>(restProps, {
+    defaultValue: [null, null],
+  })
   const nullDate = useMemo(() => new Date(), [])
   const [dayActive, setDayActive] = useState<0 | 1>(0)
-  const Values = useRef<[Date, Date]>(
-    defaultValue && defaultValue.length === 2 ? defaultValue : [null, null],
-  )
+  const Values = useRef(value)
   const OriginalValues = useRef(Values.current.concat([]) as [Date, Date])
-  const [value, setValue] = useState(Values.current[0])
   const [limitDates, setLimitDates] = useState<[Date, Date]>([
     min,
     Values.current[1] || max,
@@ -76,8 +76,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const onChangePickView = usePersistFn((v: Date) => {
     Values.current[dayActive] = v
-    setValue(v)
-    onChange?.(Values.current)
+    onChange([...Values.current])
   })
 
   const onPressConfirm = usePersistFn(() => {
@@ -86,13 +85,11 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const onPressDay1 = usePersistFn(() => {
     setDayActive(0)
-    setValue(Values.current[0])
     setLimitDates([min, Values.current[1] || max])
   })
 
   const onPressDay2 = usePersistFn(() => {
     setDayActive(1)
-    setValue(Values.current[1])
     setLimitDates([Values.current[0] || min, max])
   })
 
@@ -100,7 +97,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     Values.current = OriginalValues.current.concat([]) as [Date, Date]
     onPressDay1()
 
-    onChange?.(Values.current)
+    onChange(Values.current)
   })
 
   return (
@@ -140,7 +137,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
       <DatePickerView
         mode={mode}
-        value={value || nullDate}
+        value={value[dayActive] || nullDate}
         renderLabel={renderLabel}
         onChange={onChangePickView}
         min={limitDates[0]}
@@ -153,13 +150,15 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
           <Button
             type="hazy"
             text={resetButtonText}
-            onPress={loading ? undefined : onPressReset}
+            loading={loading}
+            onPress={onPressReset}
           />
         </Col>
         <Col span={12}>
           <Button
             text={confirmButtonText}
-            onPress={loading ? undefined : onPressConfirm}
+            loading={loading}
+            onPress={onPressConfirm}
           />
         </Col>
       </Row>

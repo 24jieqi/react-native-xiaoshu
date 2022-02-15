@@ -3,7 +3,7 @@
  * desc: 把各种场景、API 都运用了
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
 import {
@@ -24,6 +24,8 @@ const defaultValueView: [Date, Date] = [
 ]
 
 const BasicDatePickerView: React.FC = () => {
+  const [value, setValue] = useState(defaultValueView)
+
   return (
     <ScrollView>
       <Space tail head>
@@ -101,6 +103,8 @@ const BasicDatePickerView: React.FC = () => {
           <Space>
             <DatePicker.RangeView />
             <DatePicker.RangeView defaultValue={defaultValueView} />
+            <DatePicker.RangeView value={value} />
+            <DatePicker.RangeView value={value} onChange={setValue} />
           </Space>
         </Card>
 
