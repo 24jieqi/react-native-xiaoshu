@@ -6,6 +6,8 @@ import type { PopupPropsCommon } from '../popup/interface'
 
 export type DatePickerAction = 'cancel' | 'confirm' | 'overlay'
 
+export type DatePickerRangeValue = [Date, Date]
+
 export interface DatePickerSingleMethodProps
   extends Omit<DatePickerViewProps, 'value' | 'onChange' | 'loading'>,
     Omit<PopupPropsCommon, 'onPressOverlay' | 'visible'> {
@@ -64,12 +66,12 @@ export interface DatePickerRangeViewProps
   /**
    * 默认时间组
    */
-  defaultValue?: [Date, Date]
+  defaultValue?: DatePickerRangeValue
 
   /**
    * 选中时间组
    */
-  value?: [Date, Date]
+  value?: DatePickerRangeValue
 
   /**
    * 确认按钮文字
@@ -92,12 +94,12 @@ export interface DatePickerRangeViewProps
   /**
    * 点击确定
    */
-  onConfirm?: (values: [Date, Date]) => void
+  onConfirm?: (values: DatePickerRangeValue) => void
 
   /**
    * 触发改变
    */
-  onChange?: (values: [Date, Date]) => void
+  onChange?: (values: DatePickerRangeValue) => void
 }
 
 export interface DatePickerRangeMethodProps
@@ -114,17 +116,17 @@ export interface DatePickerRangeMethodProps
   /**
    * 点击取消
    */
-  onCancel?: (values: [Date, Date]) => void
+  onCancel?: (values: DatePickerRangeValue) => void
 
   /**
    * 点击确定
    */
-  onConfirm?: (values: [Date, Date]) => void
+  onConfirm?: (values: DatePickerRangeValue) => void
 
   /**
    * 点击遮罩层
    */
-  onPressOverlay?: (values: [Date, Date]) => void
+  onPressOverlay?: (values: DatePickerRangeValue) => void
 
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
@@ -142,7 +144,7 @@ export interface DatePickerInstance {
   }>
   range: (p: DatePickerRangeMethodProps) => Promise<{
     action: DatePickerAction
-    values: [Date, Date]
+    values: DatePickerRangeValue
   }>
   RangeView: React.FC<DatePickerRangeViewProps>
 }

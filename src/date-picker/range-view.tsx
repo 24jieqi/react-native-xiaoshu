@@ -13,7 +13,10 @@ import { usePersistFn, useControllableValue } from '../hooks'
 import { createStyles } from '../picker/style'
 import { useTheme, widthStyle } from '../theme'
 
-import type { DatePickerRangeViewProps } from './interface'
+import type {
+  DatePickerRangeViewProps,
+  DatePickerRangeValue,
+} from './interface'
 
 const renderDate = (day: Date, mode: DatePickerColumnMode) => {
   const dayDateObject = toDateObject(day)
@@ -62,14 +65,17 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     [THEME_VAR.picker_action_gap],
   )
 
-  const [value, onChange] = useControllableValue<[Date, Date]>(restProps, {
-    defaultValue: [null, null],
-  })
+  const [value, onChange] = useControllableValue<DatePickerRangeValue>(
+    restProps,
+    {
+      defaultValue: [null, null],
+    },
+  )
   const nullDate = useMemo(() => new Date(), [])
   const [dayActive, setDayActive] = useState<0 | 1>(0)
-  const Values = useRef(value)
-  const OriginalValues = useRef(Values.current.concat([]) as [Date, Date])
-  const [limitDates, setLimitDates] = useState<[Date, Date]>([
+  const Values = useRef<DatePickerRangeValue>([...value])
+  const OriginalValues = useRef<DatePickerRangeValue>([...value])
+  const [limitDates, setLimitDates] = useState<DatePickerRangeValue>([
     min,
     Values.current[1] || max,
   ])
@@ -94,10 +100,10 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   })
 
   const onPressReset = usePersistFn(() => {
-    Values.current = OriginalValues.current.concat([]) as [Date, Date]
+    Values.current = [...OriginalValues.current]
     onPressDay1()
 
-    onChange(Values.current)
+    onChange([...Values.current])
   })
 
   return (
