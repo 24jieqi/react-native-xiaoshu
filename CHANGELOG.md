@@ -1,3 +1,16 @@
+## [0.1.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.1...v0.1.2) (2022-02-15)
+
+### Features
+
+- **Button:** 🎸 默认大小 ([2b847d4](https://github.com/hjfruit/react-native-xiaoshu/commit/2b847d4c61dc4ceb6504c693c24264dd090b6c51))
+- **DatePicker:** 🎸 操作按钮放置在下方 ([2cbe82a](https://github.com/hjfruit/react-native-xiaoshu/commit/2cbe82acefe6c030d4d5df40a5bc5ce4d53faefe))
+- **DatePicker:** 🎸 时间段选择视图新增受控模式 ([6439090](https://github.com/hjfruit/react-native-xiaoshu/commit/643909035696b72338e65c89c3aea4ff0384d522))
+- **Result:** 🎸 更新图标 ([9e0339e](https://github.com/hjfruit/react-native-xiaoshu/commit/9e0339e8e704a46278acedd588528c1f67c0976b))
+
+### BREAKING CHANGES
+
+- **Button:** 🧨 size -> l
+
 ## [0.1.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.0...v0.1.1) (2022-02-11)
 
 ### Bug Fixes
