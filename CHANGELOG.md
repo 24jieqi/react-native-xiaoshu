@@ -1,3 +1,9 @@
+## [0.1.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.2...v0.1.3) (2022-02-15)
+
+### Bug Fixes
+
+- **DatePicker:** 🐛 时间段选择器视图污染外部变量 ([2220f6b](https://github.com/hjfruit/react-native-xiaoshu/commit/2220f6bf51f71cfc166a4f644dabf3f1d6fe9b3b))
+
 ## [0.1.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.1...v0.1.2) (2022-02-15)
 
 ### Features
