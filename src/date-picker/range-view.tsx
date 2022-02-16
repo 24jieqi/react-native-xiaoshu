@@ -9,6 +9,7 @@ import type {
 } from '../date-picker-view/interface'
 import { serializeMode, toDateObject } from '../date-picker-view/useDatePicker'
 import { Row, Col } from '../grid'
+import { isDef } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import { createStyles } from '../picker/style'
 import { useTheme, widthStyle } from '../theme'
@@ -41,7 +42,10 @@ const renderDate = (day: Date, mode: DatePickerColumnMode) => {
   return [time1, time2].filter(Boolean).join(' ')
 }
 
+const defaultInitialValue: DatePickerRangeValue = [null, null]
+
 const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
+  initialValue,
   confirmButtonText = '确定',
   resetButtonText = '重置',
   onConfirm,
@@ -56,6 +60,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   ...restProps
 }) => {
+  const _initialValue = isDef(initialValue) ? initialValue : defaultInitialValue
   const THEME_VAR = useTheme()
   const STYLES = widthStyle(THEME_VAR, createStyles)
   const btnStyle = useMemo(
@@ -68,13 +73,13 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   const [value, onChange] = useControllableValue<DatePickerRangeValue>(
     restProps,
     {
-      defaultValue: [null, null],
+      defaultValue: [..._initialValue],
     },
   )
   const nullDate = useMemo(() => new Date(), [])
   const [dayActive, setDayActive] = useState<0 | 1>(0)
   const Values = useRef<DatePickerRangeValue>([...value])
-  const OriginalValues = useRef<DatePickerRangeValue>([...value])
+  const OriginalValues = useRef(_initialValue)
   const [limitDates, setLimitDates] = useState<DatePickerRangeValue>([
     min,
     Values.current[1] || max,
@@ -117,9 +122,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
                 STYLES.data_range_day,
                 dayActive === 0 ? STYLES.data_range_day_active : null,
               ]}>
-              {Values.current[0]
-                ? renderDate(Values.current[0], mode)
-                : placeholder}
+              {value[0] ? renderDate(value[0], mode) : placeholder}
             </Text>
           </TouchableOpacity>
         </View>
@@ -133,9 +136,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
                 STYLES.data_range_day,
                 dayActive === 1 ? STYLES.data_range_day_active : null,
               ]}>
-              {Values.current[1]
-                ? renderDate(Values.current[1], mode)
-                : placeholder}
+              {value[1] ? renderDate(value[1], mode) : placeholder}
             </Text>
           </TouchableOpacity>
         </View>

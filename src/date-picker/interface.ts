@@ -74,6 +74,12 @@ export interface DatePickerRangeViewProps
   value?: DatePickerRangeValue
 
   /**
+   * 初始值，只有初始化以及重置时生效
+   * @default [null, null]
+   */
+  initialValue?: DatePickerRangeValue
+
+  /**
    * 确认按钮文字
    * @default '确认'
    */
