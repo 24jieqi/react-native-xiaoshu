@@ -49,6 +49,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
 
   const labelJSX = isDef(label) ? (
     <Text
+      suppressHighlighting
       style={[
         STYLES.label,
         {

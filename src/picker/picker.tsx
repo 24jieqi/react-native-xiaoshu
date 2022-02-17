@@ -44,6 +44,7 @@ const Picker: React.FC<PickerProps> = ({
       title={title}
       leftExtra={
         <Text
+          suppressHighlighting
           style={STYLES.cancel_text}
           onPress={restProps.loading ? undefined : onCancel}>
           {cancelButtonText}
@@ -51,6 +52,7 @@ const Picker: React.FC<PickerProps> = ({
       }
       rightExtra={
         <Text
+          suppressHighlighting
           style={STYLES.confirm_text}
           onPress={restProps.loading ? undefined : onConfirm}>
           {confirmButtonText}

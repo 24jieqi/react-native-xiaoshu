@@ -108,6 +108,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
         title={title}
         leftExtra={
           <Text
+            suppressHighlighting
             style={STYLES.cancel_text}
             onPress={loading ? undefined : onPressCancel}>
             {cancelButtonText}
@@ -115,6 +116,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
         }
         rightExtra={
           <Text
+            suppressHighlighting
             style={STYLES.confirm_text}
             onPress={loading ? undefined : onPressConfirm}>
             {confirmButtonText}
