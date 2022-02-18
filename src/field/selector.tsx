@@ -3,9 +3,11 @@ import { Keyboard } from 'react-native'
 
 import { isArray, isValue } from '../helpers'
 import { usePersistFn } from '../hooks'
+import IconSvgCross from '../icon/cross'
 import Selector from '../selector'
 import type { SelectorValue } from '../selector/interface'
-import { useTheme } from '../theme'
+import { createStyles as createTextInputStyles } from '../text-input/style'
+import { useTheme, widthStyle } from '../theme'
 
 import type { FieldSelectorProps } from './interface'
 import FieldText from './text'
@@ -21,11 +23,13 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   optionsLoading = false,
   innerStyle,
   editable = true,
+  clearable = false,
 
   isLink = true,
   ...restProps
 }) => {
   const THEME_VAR = useTheme()
+  const TEXT_INPUT_STYLES = widthStyle(THEME_VAR, createTextInputStyles)
 
   const onPressCell = usePersistFn(() => {
     Keyboard.dismiss()
@@ -70,7 +74,24 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
       }
       onPress={optionsLoading ? undefined : onPressCell}
       value={value2text}
-      isLink={isLink}
+      isLink={hasValue && clearable ? false : isLink}
+      valueExtra={
+        hasValue && clearable ? (
+          <>
+            {restProps.valueExtra}
+            <IconSvgCross
+              style={TEXT_INPUT_STYLES.clearable}
+              color={THEME_VAR.text_input_clearable_color}
+              size={(THEME_VAR.text_input_clearable_size / 4) * 3}
+              onPress={() => {
+                onChange(multiple ? [] : undefined, multiple ? [] : undefined)
+              }}
+            />
+          </>
+        ) : (
+          restProps.valueExtra
+        )
+      }
     />
   )
 }

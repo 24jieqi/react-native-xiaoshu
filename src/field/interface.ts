@@ -53,6 +53,12 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
    * @default true
    */
   editable?: boolean
+
+  /**
+   * 是否启用清除图标，且箭头会消失，点击清除图标后会清空 value
+   * @default false
+   */
+  clearable?: boolean
 }
 
 export interface FieldTextCellPropsUsed
