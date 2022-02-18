@@ -9,6 +9,14 @@ export const createStyles = (themeVar: ThemeVarType) => {
       alignItems: 'center',
     },
 
+    divider_vertical: {
+      flex: 1,
+      minHeight: themeVar.divider_vertical_min_height,
+      width: 1,
+      // flexDirection: 'column',
+      // alignItems: 'stretch',
+    },
+
     text: {
       color: themeVar.divider_text_color,
       fontSize: themeVar.divider_font_size,

@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
 import { Divider, Space, Card } from '@fruits-chain/react-native-xiaoshu'
 
@@ -18,6 +18,20 @@ const BasicDivider: React.FC = () => {
             <Divider type="light" />
             <Divider dashed />
             <Divider dashed type="light" />
+          </Space>
+        </Card>
+
+        <Card title="基础用法:竖向" square>
+          <Space direction="horizontal">
+            <Divider direction="vertical" />
+            <Divider direction="vertical" type="light" />
+            <Divider direction="vertical" dashed />
+            <Divider direction="vertical" dashed type="light" />
+            <View style={{ height: 30 }}>
+              <Divider direction="vertical" />
+            </View>
+            <Divider direction="vertical" color="#000" />
+            <Divider direction="vertical" color="#000" dashed />
           </Space>
         </Card>
 

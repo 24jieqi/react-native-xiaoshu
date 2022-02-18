@@ -154,6 +154,7 @@ export const dialog_cancel_button_text_color = TOKENS.gray_7
 export const dialog_input_gap = TOKENS.space_4
 
 // Divider
+export const divider_vertical_min_height: number = 12
 export const divider_color_dark: string = TOKENS.gray_4
 export const divider_color_light: string = TOKENS.gray_2
 export const divider_margin_horizontal = TOKENS.space_4

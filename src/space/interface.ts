@@ -6,7 +6,7 @@ type SpaceDirection = 'vertical' | 'horizontal'
 
 export interface SpaceProps extends ViewProps {
   /**
-   * 间距方向
+   * 间距方向 `'vertical' | 'horizontal'`
    * @default 'vertical'
    */
   direction?: SpaceDirection

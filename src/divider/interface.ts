@@ -1,5 +1,7 @@
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 
+type DividerDirection = 'vertical' | 'horizontal'
+
 export interface DividerProps {
   /**
    * 外层容器自定义样式
@@ -16,6 +18,12 @@ export interface DividerProps {
    * @default 'light'
    */
   type?: 'dark' | 'light'
+
+  /**
+   * 间距方向 `'vertical' | 'horizontal'`，vertical 只有线无文案
+   * @default 'horizontal'
+   */
+  direction?: DividerDirection
 
   /**
    * 是否使用虚线
@@ -47,4 +55,10 @@ export interface DividerLineProps
    * @default true
    */
   adaptive?: boolean
+
+  /**
+   * 间距方向 `'vertical' | 'horizontal'`，vertical 只有线无文案
+   * @default 'horizontal'
+   */
+  direction?: DividerDirection
 }
