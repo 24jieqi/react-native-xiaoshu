@@ -184,6 +184,9 @@ export const empty_text_color = TOKENS.gray_6
 export const empty_text_font_size = TOKENS.font_size_3
 export const empty_text_line_height = TOKENS.line_height_1
 
+// Field
+export const field_checkbox_gap = TOKENS.space_6
+
 // Icon
 export const icon_color = TOKENS.gray_7
 export const icon_disabled_color = TOKENS.gray_5

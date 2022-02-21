@@ -1,3 +1,4 @@
+import FieldCheckbox from './checkbox'
 import FieldDate from './date'
 import FieldNumberInput from './number-input'
 import FieldSelector from './selector'
@@ -12,4 +13,5 @@ export default {
   Text: FieldText,
   TextInput: FieldTextInput,
   Date: FieldDate,
+  Checkbox: FieldCheckbox,
 }

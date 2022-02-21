@@ -1,6 +1,6 @@
 /**
  * title: 时间选择
- * desc: 单个时间选择器
+ * desc: 单个时间选择器。
  */
 
 import React, { useState } from 'react'

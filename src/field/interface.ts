@@ -140,3 +140,36 @@ export interface FieldDateProps
    */
   clearable?: boolean
 }
+
+export type FieldCheckboxValue = string | number
+
+export type FieldCheckboxOption = {
+  value: FieldCheckboxValue
+  label: string
+}
+
+export interface FieldCheckboxProps
+  extends Omit<CellProps, 'value' | 'isLink' | 'center'> {
+  /**
+   * 是否多选
+   * @default false
+   */
+  multiple?: boolean
+
+  value?: FieldCheckboxValue | FieldCheckboxValue[]
+
+  defaultValue?: FieldCheckboxValue
+
+  options: FieldCheckboxOption[]
+
+  onChange?: (
+    value: FieldCheckboxValue[] | FieldCheckboxValue,
+    options: FieldCheckboxOption | FieldCheckboxOption[],
+  ) => void
+
+  /**
+   * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
+   * @default true
+   */
+  editable?: boolean
+}

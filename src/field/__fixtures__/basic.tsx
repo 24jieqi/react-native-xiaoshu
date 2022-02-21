@@ -6,6 +6,7 @@ import DemoTextInput from './text-input'
 import DemoNumberInput from './number-input'
 import DemoSwitch from './switch'
 import DemoDate from './date'
+import DemoCheckbox from './checkbox'
 
 const BasicField: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const BasicField: React.FC = () => {
       <DemoNumberInput />
       <DemoSwitch />
       <DemoDate />
+      <DemoCheckbox />
     </>
   )
 }
