@@ -46,7 +46,6 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
     titleStyle,
     titleTextStyle,
     titleExtra,
-    valueStyle,
     valueExtra,
     contentStyle,
     divider,
@@ -61,13 +60,14 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
   return (
     <Cell
       {...cellProps}
-      valueStyle={
+      valueStyle={[
+        valueStyle,
         vertical
           ? {
               marginTop: THEME_VAR.space_2,
             }
-          : null
-      }
+          : null,
+      ]}
       value={
         <NumberInput
           {...restProps}

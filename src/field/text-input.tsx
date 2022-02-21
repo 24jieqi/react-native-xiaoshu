@@ -58,7 +58,6 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
     titleStyle,
     titleTextStyle,
     titleExtra,
-    valueStyle,
     valueExtra,
     contentStyle,
     divider,
@@ -73,13 +72,14 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   return (
     <Cell
       {...cellProps}
-      valueStyle={
+      valueStyle={[
+        valueStyle,
         vertical
           ? {
               marginTop: THEME_VAR.space_2,
             }
-          : null
-      }
+          : null,
+      ]}
       value={
         <TextInput
           {...restProps}
