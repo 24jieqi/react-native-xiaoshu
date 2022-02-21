@@ -1,5 +1,5 @@
-import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import React from 'react'
 
 import Home from '@/pages/bottom-tab/home'
 import UserCenter from '@/pages/bottom-tab/user-center'

@@ -1,4 +1,4 @@
-import React from 'react'
+import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs'
 import type { CompositeNavigationProp } from '@react-navigation/native'
 import { NavigationContainer } from '@react-navigation/native'
 import type {
@@ -6,15 +6,15 @@ import type {
   StackNavigationProp,
 } from '@react-navigation/stack'
 import { createStackNavigator } from '@react-navigation/stack'
-import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs'
+import React from 'react'
 
 import BackArrow from '@/components/back-arrow'
-import CustomHeaderRed from '@/pages/demo/custom-header-red'
 import CustomHeaderPrimary from '@/pages/demo/custom-header-primary'
+import CustomHeaderRed from '@/pages/demo/custom-header-red'
 
-import { sceneContainerStyle, buildHeaderTitleStyle } from './config'
 import type { BottomTabParamList } from './bottom-tab'
 import TabsView from './bottom-tab'
+import { sceneContainerStyle, buildHeaderTitleStyle } from './config'
 import type { DemoPaths } from './demo-config'
 import { demoConfigs } from './demo-config'
 

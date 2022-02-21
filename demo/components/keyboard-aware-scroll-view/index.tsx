@@ -21,6 +21,7 @@ const KeyboardAwareScrollViewCustom = forwardRef<
     ref,
     () =>
       KeyboardAwareScrollViewRNRef.current ||
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       ({} as KeyboardAwareScrollViewInstance),
   )
 

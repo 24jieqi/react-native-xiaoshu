@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text } from 'react-native'
+
 import { useTheme } from '@fruits-chain/react-native-xiaoshu'
 
 import Layout from '@/layouts/layout'

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, Image } from 'react-native'
+
 import Layout from '@/layouts/layout'
 import type { BottomTabScreenProps } from '@/routes'
 

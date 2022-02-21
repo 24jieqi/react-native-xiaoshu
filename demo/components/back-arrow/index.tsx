@@ -1,6 +1,7 @@
+import type { HeaderBackButtonProps } from '@react-navigation/elements'
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import type { HeaderBackButtonProps } from '@react-navigation/elements'
+
 import { Icon } from '@fruits-chain/react-native-xiaoshu'
 
 interface BackArrowProps extends HeaderBackButtonProps {}

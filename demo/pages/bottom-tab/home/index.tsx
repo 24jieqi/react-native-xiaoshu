@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+
 import Layout from '@/layouts/layout'
 import type { BottomTabScreenProps } from '@/routes'
 import { sceneContainerStyle } from '@/routes/config'

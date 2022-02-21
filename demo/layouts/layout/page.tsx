@@ -1,11 +1,13 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useLayoutEffect, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Platform } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
 import { useTheme } from '@fruits-chain/react-native-xiaoshu'
 
 import FocusAwareStatusBar from '../focus-aware-status-bar'
+
 import type { PageProps } from './interface'
 
 /** 没有头部阴影 */
