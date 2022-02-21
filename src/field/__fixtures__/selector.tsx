@@ -27,6 +27,16 @@ const BasicFieldSelector: React.FC = () => {
         }}
       />
       <Field.Selector
+        title="单选:禁用"
+        placeholder="请选择"
+        editable={false}
+        value={s1}
+        options={options}
+        onChange={v => {
+          setS1(v as number)
+        }}
+      />
+      <Field.Selector
         clearable
         title="单选:clearable"
         placeholder="请选择"

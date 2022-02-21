@@ -19,7 +19,7 @@ import type {
   DatePickerRangeValue,
 } from './interface'
 
-const renderDate = (day: Date, mode: DatePickerColumnMode) => {
+export const renderDate = (day: Date, mode: DatePickerColumnMode) => {
   const dayDateObject = toDateObject(day)
   const modes = serializeMode(mode.split('-') as DatePickerColumnType[])
   const hasKey = (k: DatePickerColumnType) => modes.includes(k)

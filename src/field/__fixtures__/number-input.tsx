@@ -19,6 +19,14 @@ const BasicFieldTextInput: React.FC = () => {
         }}
       />
       <Field.NumberInput
+        title="非受控输入框:禁止输入"
+        placeholder="请输入"
+        onChange={v => {
+          console.log(v)
+        }}
+        editable={false}
+      />
+      <Field.NumberInput
         title="非受控输入框:整数"
         type="digit"
         placeholder="请输入"

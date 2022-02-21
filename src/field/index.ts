@@ -1,3 +1,4 @@
+import FieldDate from './date'
 import FieldNumberInput from './number-input'
 import FieldSelector from './selector'
 import FieldSwitch from './switch'
@@ -10,4 +11,5 @@ export default {
   Switch: FieldSwitch,
   Text: FieldText,
   TextInput: FieldTextInput,
+  Date: FieldDate,
 }

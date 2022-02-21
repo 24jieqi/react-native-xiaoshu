@@ -1,6 +1,7 @@
 import type { StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import type { CellProps, CellPrivateProps } from '../cell/interface'
+import type { DatePickerSingleMethodProps } from '../date-picker/interface'
 import type { NumberInputProps } from '../number-input/interface'
 import type { SelectorProps } from '../selector/interface'
 import type { SwitchProps } from '../switch/interface'
@@ -104,3 +105,38 @@ export interface FieldSwitchCellPropsUsed
 export interface FieldSwitchProps<ActiveValueT = any, InactiveValueT = any>
   extends SwitchProps<ActiveValueT, InactiveValueT>,
     FieldSwitchCellPropsUsed {}
+
+export interface FieldDateProps
+  extends Omit<FieldTextProps, 'value' | 'onPress' | 'isLink'>,
+    Pick<
+      DatePickerSingleMethodProps,
+      | 'confirmButtonText'
+      | 'cancelButtonText'
+      | 'mode'
+      | 'min'
+      | 'max'
+      | 'renderLabel'
+    > {
+  defaultValue?: Date
+
+  value?: Date
+
+  onChange?: (v: Date) => void
+
+  /**
+   * @default true
+   */
+  isLink?: boolean
+
+  /**
+   * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
+   * @default true
+   */
+  editable?: boolean
+
+  /**
+   * 是否启用清除图标，且箭头会消失，点击清除图标后会清空 value
+   * @default false
+   */
+  clearable?: boolean
+}

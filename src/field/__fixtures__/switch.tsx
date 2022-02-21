@@ -19,6 +19,14 @@ const BasicFieldSwitch: React.FC = () => {
       />
 
       <Field.Switch
+        title="默认数据:禁用"
+        disabled
+        onChange={v => {
+          console.log(v)
+        }}
+      />
+
+      <Field.Switch
         title="默认数据:默认值"
         defaultValue
         onChange={v => {

@@ -13,6 +13,12 @@ const BasicFieldTextInput: React.FC = () => {
     <Cell.Group title="Field TextInput">
       <Field.TextInput title="非受控输入框" placeholder="请输入" />
       <Field.TextInput
+        title="非受控输入框:禁用"
+        placeholder="请输入"
+        editable={false}
+        defaultValue="不能输入"
+      />
+      <Field.TextInput
         title="非受控输入框"
         placeholder="请输入"
         defaultValue="自带默认数据"
