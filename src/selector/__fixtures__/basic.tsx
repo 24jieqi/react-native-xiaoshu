@@ -4,10 +4,20 @@
  */
 
 import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
 
 import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Selector, Field } from '@fruits-chain/react-native-xiaoshu'
+
+const units: SelectorOption[] = [
+  {
+    value: 1,
+    label: '元/kg',
+  },
+  {
+    value: 2,
+    label: '元/件',
+  },
+]
 
 const BasicActionSheet: React.FC = () => {
   const [state, setState] = useState({
@@ -20,8 +30,10 @@ const BasicActionSheet: React.FC = () => {
     value: null,
   })
 
+  const [unitValue, setUnitValue] = useState<number | string>(units[0].value)
+
   return (
-    <ScrollView>
+    <>
       <Cell.Group title="基础用法">
         <Cell
           title="没有超过一屏"
@@ -180,6 +192,62 @@ const BasicActionSheet: React.FC = () => {
         />
       </Cell.Group>
 
+      <Cell.Group title="显示文案">
+        <Field.TextInput
+          title="在 Field.TextInput 中使用"
+          defaultValue="100"
+          valueExtra={
+            <Selector.Text
+              value={unitValue}
+              options={units}
+              onChange={setUnitValue}
+            />
+          }
+        />
+        <Field.TextInput
+          title="在 Field.TextInput 中使用"
+          defaultValue="100"
+          textInputBordered
+          valueExtra={
+            <Selector.Text
+              value={unitValue}
+              options={units}
+              onChange={setUnitValue}
+              divider={false}
+            />
+          }
+        />
+        <Field.TextInput
+          title="在输入框中使用"
+          defaultValue="100"
+          textInputBordered
+          addonAfter={
+            <Selector.Text
+              value={unitValue}
+              options={units}
+              onChange={setUnitValue}
+              divider={false}
+            />
+          }
+        />
+        <Cell
+          title="在单元格中使用"
+          center
+          value={
+            <Selector.Text
+              value={unitValue}
+              options={units}
+              onChange={setUnitValue}
+              arrowDirection="down"
+              divider={false}
+              title="单位切换"
+              head={false}
+            />
+          }
+          divider={false}
+        />
+      </Cell.Group>
+
       <Cell.Group title="组件调用">
         <Cell
           title="组件调用"
@@ -218,7 +286,7 @@ const BasicActionSheet: React.FC = () => {
           }))
         }}
       />
-    </ScrollView>
+    </>
   )
 }
 

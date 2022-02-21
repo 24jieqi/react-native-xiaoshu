@@ -32,8 +32,9 @@ export interface SelectorProps
 
   /**
    * 标题
+   * @default '请选择'
    */
-  title: React.ReactNode
+  title?: React.ReactNode
 
   /**
    * 是否显示关闭图标
@@ -89,7 +90,49 @@ export interface SelectorOptions extends Omit<SelectorMethodProps, 'onChange'> {
   ) => void
 }
 
+export interface SelectorTextProps {
+  /**
+   * 标题
+   * @default '请选择'
+   */
+  title?: React.ReactNode
+
+  /**
+   * 当前选中的值
+   */
+  value: SelectorValue
+
+  /**
+   * 当前的选项
+   */
+  options: SelectorOption[]
+
+  /**
+   * 选择后的回调
+   */
+  onChange?: (value: SelectorValue, options: SelectorOption) => void
+
+  /**
+   * 箭头方向
+   * @default 'right'
+   */
+  arrowDirection?: 'left' | 'up' | 'right' | 'down'
+
+  /**
+   * 显示分割线
+   * @default true
+   */
+  divider?: boolean
+
+  /**
+   * 左侧是否有间距
+   * @default true
+   */
+  head?: boolean
+}
+
 export interface SelectorInstance {
   (p: SelectorOptions): Promise<SelectorValue[] | SelectorValue>
   Component: React.FC<SelectorProps>
+  Text: React.FC<SelectorTextProps>
 }

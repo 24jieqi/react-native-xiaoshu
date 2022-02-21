@@ -26,7 +26,7 @@ import { createStyles } from './style'
  * @description 类似 Web 端的 Select 组件，可以多选、单选。
  */
 const Selector: React.FC<SelectorProps> = ({
-  title,
+  title = '请选择',
   options,
   value,
   multiple = false,

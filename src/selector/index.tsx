@@ -5,6 +5,7 @@ import Portal from '../portal'
 import type { SelectorInstance } from './interface'
 import SelectorBase from './selector'
 import SelectorMethod from './selector-method'
+import SelectorText from './text'
 
 const Selector: SelectorInstance = opt =>
   new Promise((resolve, reject) => {
@@ -36,5 +37,7 @@ Selector.Component = memo(props => {
     </Portal>
   )
 })
+
+Selector.Text = SelectorText
 
 export default Selector
