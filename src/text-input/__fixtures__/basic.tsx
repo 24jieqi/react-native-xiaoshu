@@ -14,7 +14,6 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTextInput: React.FC = () => {
-  const [value, setValue] = useState('')
   const [value2, setValue2] = useState('')
 
   return (
@@ -174,58 +173,12 @@ const BasicTextInput: React.FC = () => {
         />
 
         <Cell
-          title="text"
-          value={
-            <TextInput
-              type="number"
-              placeholder="请输入其他费用"
-              addonAfter="元"
-              textAlign="right"
-              clearable
-            />
-          }
-        />
-
-        <Cell
-          title="text"
-          innerStyle={{
-            justifyContent: 'space-between',
-          }}
-          valueStyle={{
-            width: 140,
-            flex: 0,
-          }}
-          value={
-            <TextInput
-              type="number"
-              placeholder="请输入其他费用"
-              addonAfter="元"
-              textAlign="right"
-              bordered
-              clearable
-            />
-          }
-        />
-
-        <Cell
-          title="number"
-          value={<TextInput type="number" placeholder="数字和小数点" />}
-        />
-
-        <Cell
-          title="digit"
-          value={
-            <TextInput type="digit" placeholder="数字" textAlign="right" />
-          }
-        />
-
-        <Cell
           title="password"
           value={
             <TextInput
-              type="password"
-              placeholder="内容不可见"
+              secureTextEntry
               bordered
+              placeholder="内容不可见"
               keyboardAppearance="dark"
             />
           }
@@ -252,24 +205,6 @@ const BasicTextInput: React.FC = () => {
         <Cell
           title="clear:需要聚焦才显示"
           value={<TextInput clearable placeholder="单行文本" />}
-        />
-
-        <Cell
-          title="受控使用"
-          value={
-            <TextInput
-              type="digit"
-              placeholder="受控使用"
-              value={value}
-              onChange={t => {
-                if (+t > 100) {
-                  t = '100'
-                }
-
-                setValue(t)
-              }}
-            />
-          }
           divider={false}
         />
       </Cell.Group>

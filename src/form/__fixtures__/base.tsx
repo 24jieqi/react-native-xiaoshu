@@ -44,8 +44,8 @@ const BasicFormBase: React.FC = () => {
           ]}>
           <Field.TextInput
             required
+            secureTextEntry
             title="密码"
-            type="password"
             placeholder="请输入密码"
           />
         </Form.Item>

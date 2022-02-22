@@ -42,11 +42,9 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
 
   /**
    * 输入内容格式
-   * @description digit 整数
-   * @description number 允许小数
    * @default 'text'
    */
-  type?: 'text' | 'digit' | 'number' | 'textarea' | 'password'
+  type?: 'text' | 'textarea'
 
   /**
    * 多行的时候最低多少行的高度

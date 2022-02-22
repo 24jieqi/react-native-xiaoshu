@@ -247,9 +247,8 @@ const BasicDialog: React.FC = () => {
           }}
         />
         <Cell
-          title="数字"
+          title="数字:digit"
           isLink
-          divider={false}
           onPress={() => {
             Dialog.input({
               title: '输入框？',
@@ -258,6 +257,40 @@ const BasicDialog: React.FC = () => {
               onPressConfirm: t => {
                 console.log(t)
                 return true
+              },
+            })
+          }}
+        />
+        <Cell
+          title="数字:number"
+          isLink
+          onPress={() => {
+            Dialog.input({
+              title: '输入框？',
+              type: 'number',
+              placeholder: '请输入内容',
+              onPressConfirm: t => {
+                console.log(t)
+                return true
+              },
+            })
+          }}
+        />
+        <Cell
+          title="数字:number:4位小数"
+          isLink
+          divider={false}
+          onPress={() => {
+            Dialog.input({
+              title: '输入框？',
+              type: 'number',
+              placeholder: '请输入内容',
+              onPressConfirm: t => {
+                console.log(t)
+                return true
+              },
+              numberInput: {
+                limitDecimals: 4,
               },
             })
           }}

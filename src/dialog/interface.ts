@@ -1,5 +1,6 @@
 import type * as React from 'react'
 
+import type { NumberInputProps } from '../number-input/interface'
 import type { PopupPropsCommon } from '../popup/interface'
 import type { TextInputProps } from '../text-input/interface'
 
@@ -116,7 +117,7 @@ export interface DialogMethodProps
 export interface DialogOptions extends Omit<DialogMethodProps, 'callback'> {}
 
 export type DialogInputState = {
-  value: string
+  value: string | number
 } & DialogMethodState
 
 export interface DialogInputProps
@@ -151,10 +152,24 @@ export interface DialogInputProps
 
   /**
    * 输入框类型
+   * @default 'text'
    */
-  type?: TextInputProps['type']
+  type?: TextInputProps['type'] | NumberInputProps['type']
 
-  textInput?: Omit<TextInputProps, 'defaultValue' | 'placeholder' | 'type'>
+  /**
+   * @default true
+   */
+  autoFocus?: boolean
+
+  textInput?: Omit<
+    TextInputProps,
+    'defaultValue' | 'placeholder' | 'type' | 'autoFocus'
+  >
+
+  numberInput?: Omit<
+    NumberInputProps,
+    'defaultValue' | 'placeholder' | 'type' | 'autoFocus'
+  >
 }
 
 export interface DialogInputOptions extends DialogInputProps {}
