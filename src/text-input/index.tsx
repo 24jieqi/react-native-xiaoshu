@@ -33,7 +33,6 @@ import {
   noop,
   isValue,
   isDef,
-  formatNumber,
 } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import IconSvgCross from '../icon/cross'
@@ -84,15 +83,12 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       style,
       multiline,
       selectionColor,
-      secureTextEntry,
       placeholderTextColor,
-      keyboardType,
       onChangeText,
       onEndEditing,
       onFocus,
       onBlur,
       maxLength,
-      scrollEnabled = false,
       returnKeyType,
       ...resetProps
     },
@@ -105,15 +101,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
     } else {
       returnKeyType = getDefaultValue(returnKeyType, 'done')
     }
-    if (type === 'password') {
-      secureTextEntry = true
-    }
-    if (type === 'number') {
-      keyboardType = 'numeric'
-    }
-    if (type === 'digit') {
-      keyboardType = 'number-pad'
-    }
+
     if (showWordLimit && isValue(maxLength)) {
       showWordLimit = false
     }
@@ -172,13 +160,6 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
      */
     const onChangeTextTextInput = useCallback(
       (t: string) => {
-        // 部分数据开始格式化
-        // 允许输入正整数
-        if (type === 'digit' || type === 'number') {
-          const isNumber = type === 'number'
-          t = formatNumber(t, isNumber, isNumber)
-        }
-
         if (typeof maxLength === 'number' && t.length > maxLength) {
           t = t.slice(0, maxLength)
         }
@@ -191,12 +172,11 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
         onChangeTextPersistFn(t)
       },
       [
-        type,
         maxLength,
         formatTrigger,
         formatterPersistFn,
-        onChangeTextPersistFn,
         onChange,
+        onChangeTextPersistFn,
       ],
     )
 
@@ -324,8 +304,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
      * 显示辅助工具栏
      * @description 单行输入框回车键已具备收起键盘的作用
      */
-    const showInputAccessoryView =
-      iOSPlatform && type !== 'text' && type !== 'password'
+    const showInputAccessoryView = iOSPlatform && type !== 'text'
     const keyboardAppearance =
       !isValue(resetProps.keyboardAppearance) ||
       resetProps.keyboardAppearance === 'default'
@@ -353,10 +332,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
           }
           value={value}
           multiline={multiline}
-          secureTextEntry={secureTextEntry}
-          keyboardType={keyboardType}
           returnKeyType={returnKeyType}
-          scrollEnabled={scrollEnabled}
           selectionColor={selectionColor}
           placeholderTextColor={placeholderTextColor}
           onChangeText={onChangeTextTextInput}

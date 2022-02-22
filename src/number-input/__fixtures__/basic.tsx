@@ -67,7 +67,7 @@ const BasicNumberInput: React.FC = () => {
         />
 
         <Cell
-          title={`受控${value}`}
+          title="受控"
           value={
             <NumberInput
               placeholder="请输入"
@@ -78,7 +78,7 @@ const BasicNumberInput: React.FC = () => {
         />
 
         <Cell
-          title={`受控${value}:千分位&手动45`}
+          title="受控:千分位 手动"
           value={
             <NumberInput
               placeholder="请输入"

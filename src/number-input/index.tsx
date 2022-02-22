@@ -4,7 +4,7 @@ import type {
   TextInputEndEditingEventData,
 } from 'react-native'
 
-import { noop, isValue, isDef, formatDecimal } from '../helpers'
+import { noop, isValue, isDef, formatDecimal, formatNumber } from '../helpers'
 import { usePersistFn, useUpdateEffect } from '../hooks'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
@@ -37,7 +37,11 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
     },
     ref,
   ) => {
+    if (type === 'number') {
+      restProps.keyboardType = 'numeric'
+    }
     if (type === 'digit') {
+      restProps.keyboardType = 'number-pad'
       limitDecimals = -1
     }
 
@@ -70,6 +74,13 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
     /** 计算数据 */
     const computeValueStringify = useCallback(
       (t: string, isEnd: boolean) => {
+        // 部分数据开始格式化
+        // 允许输入正整数
+        if (type === 'digit' || type === 'number') {
+          const isNumber = type === 'number'
+          t = formatNumber(t, isNumber, isNumber)
+        }
+
         // 解析数据
         let newValueStringify = parserInputValue(t)
 
@@ -91,7 +102,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
         return newValueStringify
       },
-      [max, min, parserInputValue],
+      [max, min, parserInputValue, type],
     )
 
     const triggerValueUpdate = useCallback(
@@ -171,7 +182,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       <TextInput
         {...restProps}
         ref={ref}
-        type={type}
+        type="text"
         value={localValue}
         onChangeText={onChangeTextTextInput}
         onEndEditing={onEndEditingTextInput}
