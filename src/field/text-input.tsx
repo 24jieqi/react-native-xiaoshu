@@ -15,6 +15,7 @@ import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
 const FieldTextInput: React.FC<FieldTextInputProps> = ({
   value,
   // TODO 优化属性传递
+  style,
   innerStyle,
   title,
   titleStyle,
@@ -53,6 +54,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   const THEME_VAR = useTheme()
 
   const cellProps: FieldTextCellPropsUsed = {
+    style,
     innerStyle,
     title,
     titleStyle,
