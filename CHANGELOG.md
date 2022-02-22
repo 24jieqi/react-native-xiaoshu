@@ -1,3 +1,9 @@
+## [0.1.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.4...v0.1.5) (2022-02-22)
+
+### Bug Fixes
+
+- **Field:** 🐛 style 传递给 Cell ([18fec90](https://github.com/hjfruit/react-native-xiaoshu/commit/18fec902a8e504bb9162f8aae956ef60841eb563))
+
 ## [0.1.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.3...v0.1.4) (2022-02-22)
 
 ### Bug Fixes
