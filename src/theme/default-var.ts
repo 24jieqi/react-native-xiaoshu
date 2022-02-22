@@ -134,6 +134,16 @@ export const collapse_background_color = TOKENS.white
 export const collapse_icon_color = TOKENS.gray_6
 export const collapse_icon_size = TOKENS.font_size_5
 
+// Description
+export const description_l_font_size = TOKENS.font_size_5
+export const description_l_line_height = TOKENS.line_height_4
+export const description_m_font_size = TOKENS.font_size_4
+export const description_m_line_height = TOKENS.line_height_2
+export const description_s_font_size = TOKENS.font_size_4
+export const description_s_line_height = TOKENS.line_height_1
+export const description_label_color = TOKENS.gray_7
+export const description_text_color = TOKENS.gray_8
+
 // Dialog
 export const dialog_width: number = 300
 export const dialog_transition = animation_duration_base

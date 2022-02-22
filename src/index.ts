@@ -35,6 +35,12 @@ export { default as DatePicker } from './date-picker'
 export type { DatePickerColumnMode } from './date-picker-view/interface'
 export { default as DatePickerView } from './date-picker-view'
 
+export type {
+  DescriptionGroupProps,
+  DescriptionProps,
+} from './description/interface'
+export { default as Description } from './description'
+
 export type { DialogInstance, DialogProps } from './dialog/interface'
 export { default as Dialog } from './dialog'
 

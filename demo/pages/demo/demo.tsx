@@ -177,6 +177,10 @@ const navDatas: {
         name: 'DemoCollapse',
       },
       {
+        title: 'Description',
+        name: 'DemoDescription',
+      },
+      {
         title: 'Divider',
         name: 'DemoDivider',
       },

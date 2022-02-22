@@ -16,6 +16,7 @@ import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
 import DemoCollapse from '../../src/collapse/__fixtures__/basic'
 import DemoDatePickerView from '../../src/date-picker-view/__fixtures__/basic'
 import DemoDatePicker from '../../src/date-picker/__fixtures__/basic'
+import DemoDescription from '../../src/description/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoDivider from '../../src/divider/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
@@ -102,6 +103,7 @@ export type DemoPaths =
   | 'DemoCard'
   | 'DemoSkeleton'
   | 'DemoSidebar'
+  | 'DemoDescription'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -501,6 +503,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoSidebar />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoDescription',
+    Page: () => (
+      <DemoWrapper>
+        <DemoDescription />
       </DemoWrapper>
     ),
   },

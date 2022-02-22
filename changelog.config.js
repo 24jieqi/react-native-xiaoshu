@@ -12,6 +12,7 @@ module.exports = {
     'Collapse',
     'DatePicker',
     'DatePickerView',
+    'Description',
     'Dialog',
     'Divider',
     'Dropdown',
