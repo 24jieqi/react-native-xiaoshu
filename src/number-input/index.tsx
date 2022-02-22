@@ -112,7 +112,8 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         let finallyValue = newValueStringify
 
         // 同步更新到组件状态
-        setLocalValue(formatterPersistFn(newValueStringify))
+        // 第一个字符串非数字，newValueStringify 是 null，setLocalValue(null) 不能触发更新，导致限制其他字符输入失败
+        setLocalValue(formatterPersistFn(newValueStringify) || '')
 
         // 1. 空字符串 + 非 null
         // 2. 空字符串 + null
