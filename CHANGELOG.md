@@ -1,3 +1,26 @@
+## [0.1.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.3...v0.1.4) (2022-02-22)
+
+### Bug Fixes
+
+- **Field:** 🐛 valueStyle 传递失效 ([3e848ff](https://github.com/hjfruit/react-native-xiaoshu/commit/3e848ff42420901e0ca7797c9865158be159bade))
+- **NumberInput:** 🐛 切换其他键盘,第一位是非数字的情况无法限制字符 ([6c5bced](https://github.com/hjfruit/react-native-xiaoshu/commit/6c5bced1f81d0b7f6758b39e27ead594a92138ee))
+
+### Features
+
+- **DatePicker:** 🎸 新增 initialValue 用于重置时间\初始化值 ([9f3c55c](https://github.com/hjfruit/react-native-xiaoshu/commit/9f3c55cd8ba8c9fb07deb03c4c0fbace6779ef4f))
+- **Description:** 🎸 新增 Description 组件 ([c03eac1](https://github.com/hjfruit/react-native-xiaoshu/commit/c03eac10747f0cd44c1c8027d1d8537c7eb2f0d3))
+- **Divider:** 🎸 支持竖向分割线 ([76ad107](https://github.com/hjfruit/react-native-xiaoshu/commit/76ad107a665a7c321951a50c905f442794d72a3b))
+- **Field:** 🎸 新增 Field.Checkbox 组件 ([c176eb1](https://github.com/hjfruit/react-native-xiaoshu/commit/c176eb1c4a8508d22dddba861adc7a973beaecec))
+- **Field:** 🎸 新增 Field.Date 组件 ([2b738be](https://github.com/hjfruit/react-native-xiaoshu/commit/2b738bea2418725d41882e1196f79a00f170905d))
+- **Field:** 🎸 Field.Selector 支持 clearable ([4f371ef](https://github.com/hjfruit/react-native-xiaoshu/commit/4f371ef2b588c3476078da7dcac53c140c9cc772))
+- **Selector:** 🎸 新增文案显示方式的组件 ([a53155d](https://github.com/hjfruit/react-native-xiaoshu/commit/a53155dabc79fe102a3863c58c755dbb25acd5ff))
+- **TextInput:** 🎸 把 digit\number\password 移除,保障输入框相对简单 ([a695ea8](https://github.com/hjfruit/react-native-xiaoshu/commit/a695ea85bc9bda87fb9fb7ceb5e944a1d3127a71))
+
+### BREAKING CHANGES
+
+- **TextInput:** 🧨 TextInput 的 type 不能设置 digit\number\password,使用 NumberInput\PasswordInput
+  代替
+
 ## [0.1.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.2...v0.1.3) (2022-02-15)
 
 ### Bug Fixes
