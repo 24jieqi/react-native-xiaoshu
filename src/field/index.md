@@ -31,6 +31,10 @@ group:
 
 <code src="./__fixtures__/switch.tsx"></code>
 
+<code src="./__fixtures__/date.tsx"></code>
+
+<code src="./__fixtures__/checkbox.tsx"></code>
+
 ## API
 
 ### Field.Text
@@ -43,12 +47,20 @@ group:
 
 ### Field.TextInput
 
-<!-- <API hideTitle src="./text-input.tsx"></API> -->
+<API hideTitle src="./text-input.tsx"></API>
 
 ### Field.NumberInput
 
-<!-- <API hideTitle src="./number-input.tsx"></API> -->
+<API hideTitle src="./number-input.tsx"></API>
 
 ### Field.Switch
 
 <API hideTitle src="./switch.tsx"></API>
+
+### Field.Date
+
+<API hideTitle src="./date.tsx"></API>
+
+### Field.Checkbox
+
+<API hideTitle src="./checkbox.tsx"></API>

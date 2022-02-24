@@ -17,4 +17,12 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./selector.tsx"></API>
+## API
+
+### Selector
+
+<API hideTitle src="./selector.tsx"></API>
+
+### Selector.Text
+
+<API hideTitle src="./text.tsx"></API>
