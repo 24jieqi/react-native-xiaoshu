@@ -2,7 +2,7 @@ import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
 import p from './package.json'
 
-const repo = 'xiaoshu-doc/'
+const repo = ''
 
 export default defineConfig({
   chainWebpack(memo: WebpackChain) {
@@ -33,8 +33,6 @@ export default defineConfig({
   resolve: {
     includes: ['docs', 'src'],
   },
-  themeConfig: {
-    carrier: '小暑',
-  },
+  locales: [['zh-CN', '中文']],
   styles: [],
 })

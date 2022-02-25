@@ -82,4 +82,8 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
   )
 }
 
-export default memo(FieldNumberInput)
+// TODO: 临时解决 dumi 文档解析错误
+const FieldNumberInputMemo: React.FC<FieldNumberInputProps> =
+  memo(FieldNumberInput)
+
+export default FieldNumberInputMemo

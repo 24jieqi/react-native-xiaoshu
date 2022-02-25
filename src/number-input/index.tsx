@@ -192,4 +192,6 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
   },
 )
 
-export default memo(NumberInput)
+const NumberInputMemo: typeof NumberInput = memo(NumberInput)
+
+export default NumberInputMemo

@@ -32,7 +32,7 @@ import { createStyles } from './style'
 
 const defaultFormatter = (t: string) => t
 
-const TextInputBase = forwardRef<RNTextInput, TextInputBaseProps>(
+const TextInputBase2 = forwardRef<RNTextInput, TextInputBaseProps>(
   (
     {
       fixGroupStyle,
@@ -257,4 +257,4 @@ const TextInputBase = forwardRef<RNTextInput, TextInputBaseProps>(
   },
 )
 
-export default memo(TextInputBase)
+export default memo(TextInputBase2)

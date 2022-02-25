@@ -30,8 +30,8 @@ group:
 
 ### Row
 
-<API src="./row.tsx" hideTitle></API>
+<API hideTitle src="./row.tsx"></API>
 
 ### Col
 
-<API src="./col.tsx" hideTitle></API>
+<API hideTitle src="./col.tsx"></API>

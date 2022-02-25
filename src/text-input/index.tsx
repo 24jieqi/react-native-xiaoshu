@@ -428,4 +428,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
   },
 )
 
-export default memo(TextInputBase)
+// TODO: 临时解决 dumi 文档解析错误
+const TextInputBaseMemo: typeof TextInputBase = memo(TextInputBase)
+
+export default TextInputBaseMemo

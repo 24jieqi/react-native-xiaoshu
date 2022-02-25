@@ -97,4 +97,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   )
 }
 
-export default memo(FieldTextInput)
+// TODO: 临时解决 dumi 文档解析错误
+const FieldTextInputMemo: React.FC<FieldTextInputProps> = memo(FieldTextInput)
+
+export default FieldTextInputMemo

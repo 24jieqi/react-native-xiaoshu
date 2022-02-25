@@ -46,4 +46,8 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
   )
 }
 
-export default memo(DescriptionGroup)
+// TODO: 临时解决 dumi 文档解析错误
+const DescriptionGroupMemo: typeof DescriptionGroup =
+  memo<typeof DescriptionGroup>(DescriptionGroup)
+
+export default DescriptionGroupMemo

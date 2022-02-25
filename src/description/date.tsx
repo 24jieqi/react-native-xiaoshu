@@ -15,4 +15,7 @@ const DescriptionDate: React.FC<DescriptionDateProps> = ({
   return <Description {...restProps} text={value} />
 }
 
-export default memo<typeof DescriptionDate>(DescriptionDate)
+const DescriptionDateMemo: typeof DescriptionDate =
+  memo<typeof DescriptionDate>(DescriptionDate)
+
+export default DescriptionDateMemo

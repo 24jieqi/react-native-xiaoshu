@@ -33,6 +33,6 @@ group:
 
 <API hideTitle src="./cell.tsx"></API>
 
-### CellGroup
+### Cell.Group
 
-<API src="./group.tsx" hideTitle></API>
+<API hideTitle src="./group.tsx"></API>
