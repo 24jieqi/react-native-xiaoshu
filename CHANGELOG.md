@@ -1,3 +1,9 @@
+## [0.1.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.5...v0.1.6) (2022-03-03)
+
+### Bug Fixes
+
+- **Selector:** 🐛 循环引用 ([d9c05a5](https://github.com/hjfruit/react-native-xiaoshu/commit/d9c05a5d1daaa66099074633199589f4b295464a))
+
 ## [0.1.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.4...v0.1.5) (2022-02-22)
 
 ### Bug Fixes
