@@ -4,31 +4,10 @@ import Portal from '../portal'
 
 import type { SelectorInstance } from './interface'
 import SelectorBase from './selector'
-import SelectorMethod from './selector-method'
+import SelectorFn from './selector-fn'
 import SelectorText from './text'
 
-const Selector: SelectorInstance = opt =>
-  new Promise((resolve, reject) => {
-    const key = Portal.add(
-      <SelectorMethod
-        {...opt}
-        onChange={(v, o) => {
-          opt.onChange?.(v, o)
-          resolve(v)
-        }}
-        onClose={() => {
-          opt.onClose?.()
-          // eslint-disable-next-line prefer-promise-reject-errors
-          reject()
-        }}
-        onClosed={() => {
-          opt.onClosed?.()
-
-          Portal.remove(key)
-        }}
-      />,
-    )
-  })
+const Selector: SelectorInstance = opt => SelectorFn(opt)
 
 Selector.Component = memo(props => {
   return (

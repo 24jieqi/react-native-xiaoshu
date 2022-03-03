@@ -131,8 +131,11 @@ export interface SelectorTextProps {
   head?: boolean
 }
 
-export interface SelectorInstance {
-  (p: SelectorOptions): Promise<SelectorValue[] | SelectorValue>
+export type SelectorFnInstance = (
+  p: SelectorOptions,
+) => Promise<SelectorValue[] | SelectorValue>
+
+export interface SelectorInstance extends SelectorFnInstance {
   Component: React.FC<SelectorProps>
   Text: React.FC<SelectorTextProps>
 }

@@ -8,9 +8,8 @@ import Space from '../space'
 import { useTheme, widthStyle } from '../theme'
 
 import type { SelectorTextProps } from './interface'
+import SelectorFn from './selector-fn'
 import { createStyles } from './style.text'
-
-import Selector from './'
 
 const SelectorText: React.FC<SelectorTextProps> = ({
   title,
@@ -25,7 +24,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
   const STYLES = widthStyle(THEME_VAR, createStyles)
 
   const onPress = usePersistFn(() => {
-    Selector({
+    SelectorFn({
       title,
       options: options,
       value,
