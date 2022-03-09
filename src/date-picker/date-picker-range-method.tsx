@@ -7,8 +7,8 @@ import { usePersistFn } from '../hooks'
 import Popup from '../popup'
 import { useTheme } from '../theme'
 
+import DatePickerRangeView from './date-picker-range-view'
 import type { DatePickerRangeMethodProps, DatePickerAction } from './interface'
-import DatePickerRangeView from './range-view'
 
 const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
   title,

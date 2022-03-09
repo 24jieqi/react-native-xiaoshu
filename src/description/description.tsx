@@ -116,8 +116,4 @@ const Description: React.FC<DescriptionProps> = ({
   )
 }
 
-// TODO: 临时解决 dumi 文档解析错误
-const DescriptionMemo: typeof Description =
-  memo<typeof Description>(Description)
-
-export default DescriptionMemo
+export default memo<typeof Description>(Description)

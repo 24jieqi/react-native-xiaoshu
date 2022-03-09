@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import type { StyleProp, TextStyle } from 'react-native'
 import { View } from 'react-native'
 
-import { renderDate } from '../date-picker/range-view'
+import { renderDate } from '../date-picker/date-picker-range-view'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import { useTheme, widthStyle } from '../theme'
 
@@ -65,8 +65,4 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   )
 }
 
-// TODO: 临时解决 dumi 文档解析错误
-const DescriptionDateRangeMemo: typeof DescriptionDateRange =
-  memo<typeof DescriptionDateRange>(DescriptionDateRange)
-
-export default DescriptionDateRangeMemo
+export default memo<typeof DescriptionDateRange>(DescriptionDateRange)

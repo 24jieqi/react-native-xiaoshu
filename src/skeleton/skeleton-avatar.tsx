@@ -4,8 +4,8 @@ import { PlaceholderMedia } from 'rn-placeholder'
 
 import { useTheme } from '../theme'
 
-import SkeletonActive from './active'
 import type { SkeletonAvatarProps } from './interface'
+import SkeletonActive from './skeleton-active'
 
 const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
   active = true,

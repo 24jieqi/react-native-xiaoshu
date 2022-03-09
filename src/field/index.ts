@@ -1,10 +1,10 @@
-import FieldCheckbox from './checkbox'
-import FieldDate from './date'
-import FieldNumberInput from './number-input'
-import FieldSelector from './selector'
-import FieldSwitch from './switch'
-import FieldText from './text'
-import FieldTextInput from './text-input'
+import FieldCheckbox from './field-checkbox'
+import FieldDate from './field-date'
+import FieldNumberInput from './field-number-input'
+import FieldSelector from './field-selector'
+import FieldSwitch from './field-switch'
+import FieldText from './field-text'
+import FieldTextInput from './field-text-input'
 
 export default {
   NumberInput: FieldNumberInput,

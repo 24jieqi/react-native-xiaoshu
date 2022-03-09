@@ -35,4 +35,4 @@ group:
 
 ### Cell.Group
 
-<API hideTitle src="./group.tsx"></API>
+<API hideTitle src="./cell-group.tsx"></API>

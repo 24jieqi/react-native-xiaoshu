@@ -4,7 +4,7 @@ import type { ViewStyle } from 'react-native'
 
 import Button from '../button'
 import Result from '../result'
-import ResultIconError from '../result/icons/error'
+import ResultIconError from '../result/icons/result-icon-error'
 
 import type { ErrorBoundaryProps } from './interface'
 

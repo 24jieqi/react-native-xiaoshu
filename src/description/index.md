@@ -33,16 +33,16 @@ group:
 
 ### Description.Group
 
-<API hideTitle src="./group.tsx"></API>
+<API hideTitle src="./description-group.tsx"></API>
 
 ### Description.Thousand
 
-<API hideTitle src="./thousand.tsx"></API>
+<API hideTitle src="./description-thousand.tsx"></API>
 
 ### Description.Date
 
-<API hideTitle src="./date.tsx"></API>
+<API hideTitle src="./description-date.tsx"></API>
 
 ### Description.DateRange
 
-<API hideTitle src="./date-range.tsx"></API>
+<API hideTitle src="./description-date-range.tsx"></API>

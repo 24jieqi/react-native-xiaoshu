@@ -1,5 +1,5 @@
 ---
-title: react-native-xiaoshu - 🌈 React Native UI library
+title: 小暑 - 🌈 React Native UI library
 hero:
   title: 小暑
   desc: 🌈 轻量、可靠的 React Native 组件库

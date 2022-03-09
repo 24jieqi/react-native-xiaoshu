@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import { renderDate } from '../date-picker/range-view'
+import { renderDate } from '../date-picker/date-picker-range-view'
 
 import Description from './description'
 import type { DescriptionDateProps } from './interface'

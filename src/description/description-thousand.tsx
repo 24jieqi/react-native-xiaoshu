@@ -14,8 +14,4 @@ const DescriptionThousand: React.FC<DescriptionThousandProps> = ({
   return <Description {...restProps} text={value} />
 }
 
-// TODO: 临时解决 dumi 文档解析错误
-const DescriptionThousandMemo: typeof DescriptionThousand =
-  memo<typeof DescriptionThousand>(DescriptionThousand)
-
-export default DescriptionThousandMemo
+export default memo<typeof DescriptionThousand>(DescriptionThousand)

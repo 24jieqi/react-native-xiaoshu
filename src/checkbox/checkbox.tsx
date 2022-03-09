@@ -6,7 +6,7 @@ import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import { useTheme, widthStyle } from '../theme'
 
-import CheckboxIcon from './icon'
+import CheckboxIcon from './checkbox-icon'
 import type { CheckboxProps } from './interface'
 import { createStyles } from './style'
 

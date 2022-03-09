@@ -25,4 +25,4 @@ group:
 
 ### Selector.Text
 
-<API hideTitle src="./text.tsx"></API>
+<API hideTitle src="./selector-text.tsx"></API>

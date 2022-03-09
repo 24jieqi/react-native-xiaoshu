@@ -1,11 +1,11 @@
 import { attachPropertiesToComponent } from '../helpers'
 
-import DescriptionDate from './date'
-import DescriptionDateRange from './date-range'
 import Description from './description'
-import DescriptionGroup from './group'
+import DescriptionDate from './description-date'
+import DescriptionDateRange from './description-date-range'
+import DescriptionGroup from './description-group'
+import DescriptionThousand from './description-thousand'
 import { renderAlignCenter, renderDateRangeAlignFlexStart } from './render'
-import DescriptionThousand from './thousand'
 
 export default attachPropertiesToComponent(Description, {
   Group: DescriptionGroup,

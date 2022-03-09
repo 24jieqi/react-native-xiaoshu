@@ -31,8 +31,8 @@ group:
 
 ### SkeletonAvatarProps
 
-<API hideTitle src="./avatar.tsx"></API>
+<API hideTitle src="./skeleton-avatar.tsx"></API>
 
 ### SkeletonParagraphProps
 
-<API hideTitle src="./paragraph.tsx"></API>
+<API hideTitle src="./skeleton-paragraph.tsx"></API>

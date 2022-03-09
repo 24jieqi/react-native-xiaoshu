@@ -4,14 +4,14 @@ import { View, StyleSheet } from 'react-native'
 import { isDef, isObject } from '../helpers'
 import Space from '../space'
 
-import SkeletonAvatar from './avatar'
 import type {
   SkeletonProps,
   SkeletonTitleProps,
   SkeletonParagraphProps,
   SkeletonAvatarProps,
 } from './interface'
-import SkeletonParagraph from './paragraph'
+import SkeletonAvatar from './skeleton-avatar'
+import SkeletonParagraph from './skeleton-paragraph'
 
 const defaultTitleWidths = [38]
 

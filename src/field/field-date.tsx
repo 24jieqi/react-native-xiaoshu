@@ -3,14 +3,14 @@ import React, { useMemo, memo } from 'react'
 import { Keyboard } from 'react-native'
 
 import DatePicker from '../date-picker'
-import { renderDate } from '../date-picker/range-view'
+import { renderDate } from '../date-picker/date-picker-range-view'
 import { useControllableValue, usePersistFn } from '../hooks'
 import IconSvgCross from '../icon/cross'
 import { createStyles as createTextInputStyles } from '../text-input/style'
 import { useTheme, widthStyle } from '../theme'
 
+import FieldText from './field-text'
 import type { FieldDateProps } from './interface'
-import FieldText from './text'
 
 const FieldDate: React.FC<FieldDateProps> = ({
   confirmButtonText,

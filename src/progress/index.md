@@ -25,4 +25,4 @@ group:
 
 ### ProgressPage
 
-<API hideTitle src="./page.tsx"></API>
+<API hideTitle src="./progress-page.tsx"></API>

@@ -1,7 +1,7 @@
 import { attachPropertiesToComponent } from '../helpers'
 
-import DropdownItem from './item'
-import DropdownMenu from './menu'
+import DropdownItem from './dropdown-item'
+import DropdownMenu from './dropdown-menu'
 
 export default attachPropertiesToComponent(DropdownMenu, {
   Item: DropdownItem,

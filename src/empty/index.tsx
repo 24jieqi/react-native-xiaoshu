@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 import { isDef } from '../helpers'
 import Result from '../result'
-import ResultIconEmpty from '../result/icons/empty'
+import ResultIconEmpty from '../result/icons/result-icon-empty'
 import { useTheme, widthStyle } from '../theme'
 
 import type { EmptyProps } from './interface'

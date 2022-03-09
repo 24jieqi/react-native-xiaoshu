@@ -65,7 +65,4 @@ const CellGroup: React.FC<CellGroupProps> = ({
   )
 }
 
-// TODO: 临时解决 dumi 文档解析错误
-const CellGroupMemo: typeof CellGroup = memo<typeof CellGroup>(CellGroup)
-
-export default CellGroupMemo
+export default memo<typeof CellGroup>(CellGroup)

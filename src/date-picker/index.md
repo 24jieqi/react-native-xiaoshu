@@ -21,8 +21,8 @@ group:
 
 ### DatePicker
 
-<API hideTitle src="./single-method.tsx"></API>
+<API hideTitle src="./date-picker-single-method.tsx"></API>
 
 ### DatePicker.range
 
-<API hideTitle src="./range-method.tsx"></API>
+<API hideTitle src="./date-picker-range-method.tsx"></API>

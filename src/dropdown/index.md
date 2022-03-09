@@ -29,8 +29,8 @@ group:
 
 ### Dropdown
 
-<API hideTitle src="./menu.tsx"></API>
+<API hideTitle src="./dropdown-menu.tsx"></API>
 
 ### Dropdown.Item
 
-<API hideTitle src="./item.tsx">
+<API hideTitle src="./dropdown-item.tsx">

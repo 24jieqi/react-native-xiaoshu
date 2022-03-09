@@ -10,12 +10,12 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Button from '../button'
-import CheckboxIcon from '../checkbox/icon'
+import CheckboxIcon from '../checkbox/checkbox-icon'
 import Empty from '../empty'
 import { getDefaultValue } from '../helpers'
 import { SuccessOutline } from '../icon'
-import PopupHeader from '../popup/header'
 import Popup from '../popup/popup'
+import PopupHeader from '../popup/popup-header'
 import { useTheme, widthStyle } from '../theme'
 
 import type { SelectorProps, SelectorValue } from './interface'

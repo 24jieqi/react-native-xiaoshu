@@ -8,7 +8,6 @@ import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import { useTheme, widthStyle } from '../theme'
 
-import PickerColumn from './column'
 import {
   getDataType,
   findDefaultValue,
@@ -17,6 +16,7 @@ import {
   buildSelectedValue,
 } from './helper/picker'
 import type { PickerViewProps, PickerValue, PickerOption } from './interface'
+import PickerColumn from './picker-view-column'
 import { createStyles } from './style'
 
 /**

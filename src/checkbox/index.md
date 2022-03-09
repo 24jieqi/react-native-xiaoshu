@@ -31,4 +31,4 @@ group:
 
 ### Checkbox.Icon
 
-<API hideTitle src="./icon.tsx"></API>
+<API hideTitle src="./checkbox-icon.tsx"></API>

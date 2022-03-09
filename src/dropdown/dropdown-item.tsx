@@ -18,8 +18,8 @@ import Popup from '../popup/popup'
 import Portal from '../portal'
 
 import { useDropdownConfig } from './context'
+import DropdownText from './dropdown-text'
 import type { DropdownItemProps, DropdownItemOption } from './interface'
-import DropdownText from './text'
 
 const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' }
 

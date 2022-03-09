@@ -9,8 +9,8 @@ import type { SelectorValue } from '../selector/interface'
 import { createStyles as createTextInputStyles } from '../text-input/style'
 import { useTheme, widthStyle } from '../theme'
 
+import FieldText from './field-text'
 import type { FieldSelectorProps } from './interface'
-import FieldText from './text'
 
 /**
  * 输入框 选择输入

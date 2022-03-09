@@ -39,28 +39,28 @@ group:
 
 ### Field.Text
 
-<API hideTitle src="./text.tsx"></API>
+<API hideTitle src="./field-text.tsx"></API>
 
 ### Field.Selector
 
-<API hideTitle src="./selector.tsx"></API>
+<API hideTitle src="./field-selector.tsx"></API>
 
 ### Field.TextInput
 
-<API hideTitle src="./text-input.tsx"></API>
+<API hideTitle src="./field-text-input.tsx"></API>
 
 ### Field.NumberInput
 
-<API hideTitle src="./number-input.tsx"></API>
+<API hideTitle src="./field-number-input.tsx"></API>
 
 ### Field.Switch
 
-<API hideTitle src="./switch.tsx"></API>
+<API hideTitle src="./field-switch.tsx"></API>
 
 ### Field.Date
 
-<API hideTitle src="./date.tsx"></API>
+<API hideTitle src="./field-date.tsx"></API>
 
 ### Field.Checkbox
 
-<API hideTitle src="./checkbox.tsx"></API>
+<API hideTitle src="./field-checkbox.tsx"></API>

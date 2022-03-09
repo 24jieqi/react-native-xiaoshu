@@ -5,8 +5,8 @@ import { PlaceholderLine } from 'rn-placeholder'
 import Space from '../space'
 import { useTheme } from '../theme'
 
-import SkeletonActive from './active'
 import type { SkeletonParagraphProps } from './interface'
+import SkeletonActive from './skeleton-active'
 
 const SkeletonParagraph: React.FC<SkeletonParagraphProps> = ({
   active = true,

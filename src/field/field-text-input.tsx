@@ -1,16 +1,19 @@
 import React, { memo } from 'react'
 
 import Cell from '../cell'
-import NumberInput from '../number-input'
+import TextInput from '../text-input'
 import { useTheme } from '../theme'
 
-import type { FieldNumberInputProps, FieldTextCellPropsUsed } from './interface'
+import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
 
 /**
  * Field 输入框
  * @description 表单中的输入框组件。
+ * @description TODO 自定义输入项
+ * @description TODO 解决多行输入高度没对齐的问题
  */
-const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
+const FieldTextInput: React.FC<FieldTextInputProps> = ({
+  value,
   // TODO 优化属性传递
   style,
   innerStyle,
@@ -31,12 +34,21 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
 
   // TextInput 属性
   textAlign = 'right',
+  placeholder,
+  type,
   textInputStyle,
   textInputBordered,
   ...restProps
 }) => {
   if (vertical) {
     textAlign = 'left'
+    type = 'textarea'
+  }
+
+  if (type === 'textarea') {
+    textAlign = 'left'
+    textInputBordered = true
+    vertical = true
   }
 
   const THEME_VAR = useTheme()
@@ -71,10 +83,13 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
           : null,
       ]}
       value={
-        <NumberInput
+        <TextInput
           {...restProps}
           style={textInputStyle}
+          type={type}
           bordered={textInputBordered}
+          value={value}
+          placeholder={placeholder}
           textAlign={textAlign}
         />
       }
@@ -82,8 +97,4 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
   )
 }
 
-// TODO: 临时解决 dumi 文档解析错误
-const FieldNumberInputMemo: React.FC<FieldNumberInputProps> =
-  memo(FieldNumberInput)
-
-export default FieldNumberInputMemo
+export default memo(FieldTextInput)
