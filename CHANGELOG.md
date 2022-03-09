@@ -1,3 +1,13 @@
+## [0.1.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.6...v0.1.7) (2022-03-09)
+
+### Bug Fixes
+
+- **docs:** 🐛 适配 dumi 收集 props ([e336363](https://github.com/hjfruit/react-native-xiaoshu/commit/e33636308f8f1bf824e8bee2c1996b98883fd4d7))
+
+### BREAKING CHANGES
+
+- **docs:** 🧨 文件名添加私有前缀
+
 ## [0.1.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.5...v0.1.6) (2022-03-03)
 
 ### Bug Fixes
