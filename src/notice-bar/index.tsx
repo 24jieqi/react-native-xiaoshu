@@ -1,4 +1,5 @@
-import React, { memo, useState, useCallback } from 'react'
+import Color from 'color'
+import React, { memo, useState, useCallback, useMemo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 
@@ -54,10 +55,13 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
 
   const textColor =
     CV[`notice_bar_${status}_text_color`] || CV.notice_bar_warning_text_color
-  // TODO 背景应该是计算后的结果
-  const barBackgroundColor =
-    CV[`notice_bar_${status}_background_color`] ||
-    CV.notice_bar_warning_background_color
+  const barBackgroundColor = useMemo(
+    () =>
+      Color(textColor)
+        .lightness(CV.notice_bar_background_color_lightness)
+        .hex(),
+    [CV.notice_bar_background_color_lightness, textColor],
+  )
 
   // 修正数据
   color = getDefaultValue(color, textColor)
