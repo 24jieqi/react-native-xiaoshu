@@ -1,8 +1,33 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    tag_l_close_icon: TOKENS.font_size_5,
+    tag_l_height: 24,
+    tag_l_font_size: TOKENS.font_size_3,
+    tag_l_padding_horizontal: TOKENS.space_2,
+    tag_m_close_icon: TOKENS.font_size_3,
+    tag_m_height: 20,
+    tag_m_font_size: TOKENS.font_size_2,
+    tag_m_padding_horizontal: 4,
+    tag_s_close_icon: TOKENS.font_size_2,
+    tag_s_height: 16,
+    tag_s_font_size: TOKENS.font_size_2,
+    tag_s_padding_horizontal: 2,
+    tag_padding_horizontal: TOKENS.space_1,
+    tag_text_color: TOKENS.white,
+    tag_border_radius: TOKENS.border_radius_xs,
+    tag_primary_color: TOKENS.brand_6,
+    tag_ghost_background_color: 'transparent',
+    tag_hazy_lightness: 95,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     tag: {
       backgroundColor: 'transparent',
@@ -10,39 +35,39 @@ export const createStyles = (themeVar: ThemeVarType) => {
       overflow: 'visible',
     },
     tag_inner_l: {
-      paddingHorizontal: themeVar.tag_l_padding_horizontal,
-      height: themeVar.tag_l_height,
+      paddingHorizontal: cv.tag_l_padding_horizontal,
+      height: cv.tag_l_height,
     },
     tag_inner_m: {
-      paddingHorizontal: themeVar.tag_m_padding_horizontal,
-      height: themeVar.tag_m_height,
+      paddingHorizontal: cv.tag_m_padding_horizontal,
+      height: cv.tag_m_height,
     },
     tag_inner_s: {
-      paddingHorizontal: themeVar.tag_s_padding_horizontal,
-      height: themeVar.tag_s_height,
+      paddingHorizontal: cv.tag_s_padding_horizontal,
+      height: cv.tag_s_height,
     },
     tag_inner: {
-      borderRadius: themeVar.tag_border_radius,
+      borderRadius: cv.tag_border_radius,
       flexDirection: 'row',
       alignItems: 'center',
     },
     tag_text_l: {
-      fontSize: themeVar.tag_l_font_size,
+      fontSize: cv.tag_l_font_size,
     },
     tag_text_m: {
-      fontSize: themeVar.tag_m_font_size,
+      fontSize: cv.tag_m_font_size,
     },
     tag_text_s: {
-      fontSize: themeVar.tag_s_font_size,
+      fontSize: cv.tag_s_font_size,
     },
     close_icon_size_l: {
-      fontSize: themeVar.tag_l_close_icon,
+      fontSize: cv.tag_l_close_icon,
     },
     close_icon_size_m: {
-      fontSize: themeVar.tag_m_close_icon,
+      fontSize: cv.tag_m_close_icon,
     },
     close_icon_size_s: {
-      fontSize: themeVar.tag_s_close_icon,
+      fontSize: cv.tag_s_close_icon,
     },
   })
 }

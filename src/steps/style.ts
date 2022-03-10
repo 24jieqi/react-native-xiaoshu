@@ -1,16 +1,31 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    steps_background_color: TOKENS.brand_6,
+    steps_padding_vertical: TOKENS.space_4,
+    steps_padding_horizontal: TOKENS.space_6,
+    steps_icon_dot_size: 10,
+    steps_icon_dot_active_size: 16,
+    steps_icon_success_active_size: 16,
+    steps_title_size: TOKENS.font_size_4,
+    steps_title_color: TOKENS.white,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
   return StyleSheet.create({
     scrollViewBox: {
       width: '100%',
     },
     outWrap: {
-      backgroundColor: themeVar.steps_background_color,
-      paddingVertical: themeVar.steps_padding_vertical,
-      paddingHorizontal: themeVar.steps_padding_horizontal,
+      backgroundColor: cv.steps_background_color,
+      paddingVertical: cv.steps_padding_vertical,
+      paddingHorizontal: cv.steps_padding_horizontal,
     },
     stepsBox: {
       alignItems: 'flex-start',
@@ -26,44 +41,46 @@ export const createStyles = (themeVar: ThemeVarType) => {
       flexShrink: 0,
     },
     stepIconWrap: {
-      height: themeVar.steps_icon_dot_active_size,
+      height: cv.steps_icon_dot_active_size,
       justifyContent: 'center',
-      backgroundColor: themeVar.steps_background_color,
-      paddingHorizontal: themeVar.space_1,
+      backgroundColor: cv.steps_background_color,
+      paddingHorizontal: TOKENS.space_1,
       position: 'relative',
       zIndex: 10,
-      marginBottom: themeVar.space_2,
+      marginBottom: TOKENS.space_2,
     },
     line: {
       position: 'absolute',
-      top: themeVar.steps_icon_dot_active_size / 2,
+      top: cv.steps_icon_dot_active_size / 2,
       zIndex: 1,
       height: 1,
-      backgroundColor: themeVar.white,
+      backgroundColor: TOKENS.white,
     },
     dot: {
-      width: themeVar.steps_icon_dot_size,
-      height: themeVar.steps_icon_dot_size,
-      backgroundColor: themeVar.steps_title_color,
-      borderRadius: themeVar.steps_icon_dot_size,
-      opacity: themeVar.button_active_opacity,
+      width: cv.steps_icon_dot_size,
+      height: cv.steps_icon_dot_size,
+      backgroundColor: cv.steps_title_color,
+      borderRadius: cv.steps_icon_dot_size,
+      // TODO 新增变量
+      // opacity: cv.button_active_opacity,
     },
     dotActive: {
-      width: themeVar.steps_icon_dot_active_size,
-      height: themeVar.steps_icon_dot_active_size,
-      backgroundColor: themeVar.white,
-      borderRadius: themeVar.steps_icon_dot_size,
+      width: cv.steps_icon_dot_active_size,
+      height: cv.steps_icon_dot_active_size,
+      backgroundColor: TOKENS.white,
+      borderRadius: cv.steps_icon_dot_size,
     },
     titleText: {
-      fontSize: themeVar.steps_title_size,
-      color: themeVar.steps_title_color,
-      opacity: themeVar.button_active_opacity,
-      marginHorizontal: themeVar.space_1,
+      fontSize: cv.steps_title_size,
+      color: cv.steps_title_color,
+      // TODO 新增变量
+      // opacity: cv.button_active_opacity,
+      marginHorizontal: TOKENS.space_1,
     },
     activeTitleText: {
-      fontSize: themeVar.steps_title_size,
-      color: themeVar.steps_title_color,
-      marginHorizontal: themeVar.space_1,
+      fontSize: cv.steps_title_size,
+      color: cv.steps_title_color,
+      marginHorizontal: TOKENS.space_1,
     },
   })
 }

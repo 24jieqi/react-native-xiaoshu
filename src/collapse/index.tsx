@@ -8,10 +8,10 @@ import Divider from '../divider'
 import { easing, isValue, getDefaultValue } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import { getArrowOutline } from '../icon/helper/arrow'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { CollapseProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Collapse 折叠面板
@@ -37,8 +37,9 @@ const Collapse: React.FC<CollapseProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator, TOKENS)
 
   bodyDivider = getDefaultValue(bodyDivider, type === 'cell')
 
@@ -60,7 +61,7 @@ const Collapse: React.FC<CollapseProps> = ({
     (v: boolean, immediately: boolean) => {
       const action = Animated.timing(AnimatedValue, {
         toValue: v ? BodyHeight.current : 0,
-        duration: immediately ? 0 : THEME_VAR.collapse_transition_duration,
+        duration: immediately ? 0 : CV.collapse_transition_duration,
         useNativeDriver: false,
         easing: v ? easing.easeOutCirc : easing.easeInCubic,
       })
@@ -71,11 +72,7 @@ const Collapse: React.FC<CollapseProps> = ({
         }
       })
     },
-    [
-      AnimatedValue,
-      onAnimationEndPersistFn,
-      THEME_VAR.collapse_transition_duration,
-    ],
+    [AnimatedValue, onAnimationEndPersistFn, CV.collapse_transition_duration],
   )
 
   // 初始化好组件
@@ -108,8 +105,8 @@ const Collapse: React.FC<CollapseProps> = ({
   const arrowJSX = (
     <ArrowOutline
       style={iconStyle}
-      color={isValue(iconColor) ? iconColor : THEME_VAR.collapse_icon_color}
-      size={isValue(iconSize) ? iconSize : THEME_VAR.collapse_icon_size}
+      color={isValue(iconColor) ? iconColor : CV.collapse_icon_color}
+      size={isValue(iconSize) ? iconSize : CV.collapse_icon_size}
     />
   )
   const titleJSX = renderTitle ? renderTitle(collapse) : title

@@ -1,49 +1,76 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    toast_max_width: '70%',
+    toast_background_color: `rgba(0,0,0,${TOKENS.opacity_70})`,
+    toast_border_radius: TOKENS.border_radius_xl,
+    toast_text_border_radius: TOKENS.border_radius_m,
+    toast_icon_color: TOKENS.white,
+    toast_icon_padding: TOKENS.space_1,
+    toast_icon_size: 36,
+    toast_inner_padding_vertical: TOKENS.space_4,
+    toast_inner_padding_horizontal: TOKENS.space_4,
+    toast_inner_width: 120,
+    toast_inner_min_height: 120,
+    toast_font_size: TOKENS.font_size_3,
+    toast_text_color: TOKENS.white,
+    toast_line_height: 20,
+    toast_text_min_width: 96,
+    toast_text_padding_vertical: TOKENS.space_2,
+    toast_text_padding_horizontal: TOKENS.space_3,
+    toast_text_margin_top: TOKENS.space_2,
+    toast_position_top_distance: '20%',
+    toast_position_bottom_distance: '20%',
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     toast: {
       // backgroundColor: '#f30', // to test ui
       flex: 1,
       width: '100%',
       alignItems: 'center',
-      paddingTop: themeVar.toast_position_top_distance,
-      paddingBottom: themeVar.toast_position_bottom_distance,
+      paddingTop: cv.toast_position_top_distance,
+      paddingBottom: cv.toast_position_bottom_distance,
     },
 
     inner: {
-      backgroundColor: themeVar.toast_background_color,
-      borderRadius: themeVar.toast_border_radius,
-      paddingHorizontal: themeVar.toast_inner_padding_horizontal,
-      paddingVertical: themeVar.toast_inner_padding_vertical,
-      maxWidth: themeVar.toast_max_width,
-      minHeight: themeVar.toast_inner_min_height,
-      width: themeVar.toast_inner_width,
+      backgroundColor: cv.toast_background_color,
+      borderRadius: cv.toast_border_radius,
+      paddingHorizontal: cv.toast_inner_padding_horizontal,
+      paddingVertical: cv.toast_inner_padding_vertical,
+      maxWidth: cv.toast_max_width,
+      minHeight: cv.toast_inner_min_height,
+      width: cv.toast_inner_width,
       justifyContent: 'center',
     },
 
     inner_type_text: {
-      borderRadius: themeVar.toast_text_border_radius,
-      lineHeight: themeVar.toast_line_height,
-      paddingHorizontal: themeVar.toast_text_padding_horizontal,
-      paddingVertical: themeVar.toast_text_padding_vertical,
-      minWidth: themeVar.toast_text_min_width,
+      borderRadius: cv.toast_text_border_radius,
+      lineHeight: cv.toast_line_height,
+      paddingHorizontal: cv.toast_text_padding_horizontal,
+      paddingVertical: cv.toast_text_padding_vertical,
+      minWidth: cv.toast_text_min_width,
       minHeight: 0,
       width: 'auto',
     },
 
     icon: {
       alignItems: 'center',
-      padding: themeVar.toast_icon_padding,
+      padding: cv.toast_icon_padding,
     },
 
     text: {
-      fontSize: themeVar.toast_font_size,
-      color: themeVar.toast_text_color,
+      fontSize: cv.toast_font_size,
+      color: cv.toast_text_color,
       textAlign: 'center',
-      marginTop: themeVar.toast_text_margin_top,
+      marginTop: cv.toast_text_margin_top,
     },
 
     text_top_0: {

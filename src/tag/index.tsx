@@ -5,10 +5,10 @@ import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 
 import { isDef } from '../helpers'
 import { CrossOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { TagProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Tag 标签
@@ -27,9 +27,10 @@ const Tag: React.FC<TagProps> = ({
   color,
   textColor,
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
-  const mainColor = isDef(color) ? color : THEME_VAR.tag_primary_color
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
+  const mainColor = isDef(color) ? color : CV.tag_primary_color
   const { innerTypeStyle, textTypeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = {}
     const tempTextStyle: TextStyle = {}
@@ -37,11 +38,11 @@ const Tag: React.FC<TagProps> = ({
       case 'primary': {
         tempInnerStyle.backgroundColor = mainColor
         tempInnerStyle.borderColor = mainColor
-        tempTextStyle.color = THEME_VAR.tag_text_color
+        tempTextStyle.color = CV.tag_text_color
         break
       }
       case 'ghost': {
-        tempInnerStyle.backgroundColor = THEME_VAR.tag_ghost_background_color
+        tempInnerStyle.backgroundColor = CV.tag_ghost_background_color
         tempInnerStyle.borderColor = mainColor
         tempInnerStyle.borderWidth = StyleSheet.hairlineWidth
         tempTextStyle.color = mainColor
@@ -49,7 +50,7 @@ const Tag: React.FC<TagProps> = ({
       }
       case 'hazy': {
         const hazyColor = Color(mainColor)
-          .lightness(THEME_VAR.tag_hazy_lightness)
+          .lightness(CV.tag_hazy_lightness)
           .hex()
         tempInnerStyle.backgroundColor = hazyColor
         tempInnerStyle.borderColor = hazyColor
@@ -66,9 +67,9 @@ const Tag: React.FC<TagProps> = ({
   }, [
     type,
     mainColor,
-    THEME_VAR.tag_text_color,
-    THEME_VAR.tag_ghost_background_color,
-    THEME_VAR.tag_hazy_lightness,
+    CV.tag_text_color,
+    CV.tag_ghost_background_color,
+    CV.tag_hazy_lightness,
   ])
   const { innerSizeStyle, textSizeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = STYLES[`tag_inner_${size}`]
@@ -101,7 +102,7 @@ const Tag: React.FC<TagProps> = ({
       ) : (
         <CrossOutline
           onPress={onClose}
-          size={THEME_VAR[`tag_${size}_close_icon`]}
+          size={CV[`tag_${size}_close_icon`]}
           color={textStyle.color as string}
         />
       )

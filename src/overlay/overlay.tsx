@@ -7,9 +7,10 @@ import {
 } from 'react-native'
 
 import { getDefaultValue, isValue } from '../helpers'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { OverlayProps } from './interface'
+import { varCreator } from './style'
 
 /**
  * Overlay 遮罩层
@@ -25,12 +26,13 @@ const Overlay: React.FC<OverlayProps> = ({
   onPress,
   onRequestClose,
 }) => {
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
   const fadeAnim = useRef(new Animated.Value(0))
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
   const [localVisible, setLocalVisible] = useState(visible)
-  const THEME_VAR = useTheme()
 
-  duration = getDefaultValue(duration, THEME_VAR.animation_duration_base)
+  duration = getDefaultValue(duration, TOKENS.animation_duration_base)
 
   // 监听状态变化，执行动画
   useEffect(() => {
@@ -94,8 +96,8 @@ const Overlay: React.FC<OverlayProps> = ({
         localVisible ? STYLES.overlay_active : null,
         {
           opacity: fadeAnim.current,
-          backgroundColor: THEME_VAR.overlay_background_color,
-          zIndex: isValue(zIndex) ? zIndex : THEME_VAR.overlay_z_index,
+          backgroundColor: CV.overlay_background_color,
+          zIndex: isValue(zIndex) ? zIndex : CV.overlay_z_index,
         },
       ]}>
       <TouchableOpacity

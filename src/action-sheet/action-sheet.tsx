@@ -2,15 +2,17 @@ import React, { memo, isValidElement } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 
 import Button from '../button'
+import { varCreator as varCreatorButton } from '../button/style'
 import Divider from '../divider'
 import { isDef } from '../helpers'
 import { useSafeHeight } from '../hooks'
+import { varCreator as varCreatorNavBar } from '../nav-bar/style'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { ActionSheetProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * ActionSheet 动作面板
@@ -27,8 +29,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   ...restProps
 }) => {
   const safeHeight = useSafeHeight()
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_NAV_BAR = createVar(TOKENS, varCreatorNavBar)
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const STYLES = createStyle(CV, styleCreator)
   const isTitleDef = isDef(title)
   const isCancelTextDef = isDef(cancelText)
   const isDescriptionDef = isDef(description)
@@ -52,17 +57,13 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
     )
   ) : null
 
-  const btnHeight = THEME_VAR.button_xl_height
+  const btnHeight = CV_BUTTON.button_xl_height
   const descriptionHeight =
-    THEME_VAR.action_sheet_description_line_height +
-    (isTitleDef ? 12 : 12 * 2) +
-    1
+    CV.action_sheet_description_line_height + (isTitleDef ? 12 : 12 * 2) + 1
   const contentHeight =
     safeHeight -
-    (isTitleDef ? THEME_VAR.nav_bar_height : 0) -
-    (isCancelTextDef
-      ? THEME_VAR.action_sheet_cancel_padding_top + btnHeight
-      : 0) -
+    (isTitleDef ? CV_NAV_BAR.nav_bar_height : 0) -
+    (isCancelTextDef ? CV.action_sheet_cancel_padding_top + btnHeight : 0) -
     (isDescriptionDef ? descriptionHeight : 0)
 
   return (
@@ -78,7 +79,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
               text={item.name}
               disabled={item.disabled}
               loading={item.loading}
-              color={item.color || THEME_VAR.action_sheet_text_color}
+              color={item.color || CV.action_sheet_text_color}
               type="link"
               size="xl"
               textStyle={STYLES.button_text}
@@ -99,7 +100,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
             text={cancelText}
             type="link"
             size="xl"
-            color={THEME_VAR.action_sheet_text_color}
+            color={CV.action_sheet_text_color}
             textStyle={STYLES.button_text}
             onPress={onCancel}
           />

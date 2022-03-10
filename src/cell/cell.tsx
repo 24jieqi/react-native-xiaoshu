@@ -5,10 +5,10 @@ import { Text, View, TouchableHighlight } from 'react-native'
 import Divider from '../divider'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import { getArrowOutline } from '../icon/helper/arrow'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { CellProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Cell 单元格
@@ -42,18 +42,19 @@ const Cell: React.FC<CellProps> = ({
   style,
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   // 一定要绑定 Press 事件才有这个效果
-  underlayColor = getDefaultValue(underlayColor, THEME_VAR.cell_active_color)
+  underlayColor = getDefaultValue(underlayColor, CV.cell_active_color)
   dividerLeftGap = getDefaultValue(
     dividerLeftGap,
-    THEME_VAR.cell_group_title_padding_horizontal,
+    CV.cell_group_title_padding_horizontal,
   )
   dividerRightGap = getDefaultValue(
     dividerRightGap,
-    THEME_VAR.cell_group_title_padding_horizontal,
+    CV.cell_group_title_padding_horizontal,
   )
 
   if (vertical) {
@@ -84,8 +85,8 @@ const Cell: React.FC<CellProps> = ({
   const IconArrow = getArrowOutline(arrowDirection)
   const linkJSX = isLink ? (
     <IconArrow
-      size={THEME_VAR.cell_icon_size}
-      color={THEME_VAR.cell_icon_color}
+      size={CV.cell_icon_size}
+      color={CV.cell_icon_color}
       onPress={onPressLink}
       style={STYLES.icon_link}
     />

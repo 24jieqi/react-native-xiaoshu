@@ -2,11 +2,11 @@ import React, { createContext, memo, useRef, useMemo } from 'react'
 import type { FC } from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { StepsPropsType } from './interface'
 import Step from './step'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 export const StepsContext = createContext<{
   current?: number
@@ -16,10 +16,11 @@ export const StepsContext = createContext<{
 export const maxSteps = 3
 
 const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
   const ctx = useMemo(() => ({ current, data }), [current, data])
-  const THEME_VAR = useTheme()
   const scrollRef = useRef<ScrollView>(null)
-  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   let inner = null
   if (data?.length > 0) {

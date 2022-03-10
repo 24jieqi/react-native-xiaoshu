@@ -3,7 +3,8 @@ import type { TextStyle, StyleProp } from 'react-native'
 
 import Cell from '../cell'
 import { getDefaultValue, isDef } from '../helpers'
-import { useTheme } from '../theme'
+import { varCreator as varCreatorTextInput } from '../text-input/style'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { FieldTextProps } from './interface'
 
@@ -20,12 +21,13 @@ const FieldText: React.FC<FieldTextProps> = ({
 }) => {
   const hasValue = isDef(value)
   const text = hasValue ? value : placeholder
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV_TEXT_INPUT = createVar(TOKENS, varCreatorTextInput)
 
   // 修正数据
   placeholderTextColor = getDefaultValue(
     placeholderTextColor,
-    THEME_VAR.text_input_placeholder_text_color,
+    CV_TEXT_INPUT.text_input_placeholder_text_color,
   )
 
   const valueTextStyles = useMemo<StyleProp<TextStyle>>(() => {

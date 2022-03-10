@@ -12,10 +12,10 @@ import {
 } from '../helpers'
 import { usePersistFn } from '../hooks'
 import { CrossOutline, ArrowRightOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { NoticeBarProps, NoticeBarMode } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const getModeIcon = (mode: NoticeBarMode) => {
   switch (mode) {
@@ -47,16 +47,17 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   ...restProps
 }) => {
   const onPressClosePersistFn = usePersistFn(onPressClose || noop)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
   const [visible, setVisible] = useState(true)
 
   const textColor =
-    THEME_VAR[`notice_bar_${status}_text_color`] ||
-    THEME_VAR.notice_bar_warning_text_color
+    CV[`notice_bar_${status}_text_color`] || CV.notice_bar_warning_text_color
+  // TODO 背景应该是计算后的结果
   const barBackgroundColor =
-    THEME_VAR[`notice_bar_${status}_background_color`] ||
-    THEME_VAR.notice_bar_warning_background_color
+    CV[`notice_bar_${status}_background_color`] ||
+    CV.notice_bar_warning_background_color
 
   // 修正数据
   color = getDefaultValue(color, textColor)
@@ -72,14 +73,8 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   ]
 
   const ModeIcon = getModeIcon(mode)
-  const leftIconJSX = renderLeftIcon?.(
-    iconColor,
-    THEME_VAR.notice_bar_icon_size,
-  )
-  const rightIconJSX = renderRightIcon?.(
-    iconColor,
-    THEME_VAR.notice_bar_icon_size,
-  )
+  const leftIconJSX = renderLeftIcon?.(iconColor, CV.notice_bar_icon_size)
+  const rightIconJSX = renderRightIcon?.(iconColor, CV.notice_bar_icon_size)
   const messageJSX = renderTextLikeJSX(
     message,
     [
@@ -87,11 +82,11 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
       {
         color,
         marginLeft: isDef(leftIconJSX)
-          ? THEME_VAR.notice_bar_icon_margin_horizontal
+          ? CV.notice_bar_icon_margin_horizontal
           : 0,
         marginRight:
           isDef(rightIconJSX) || mode
-            ? THEME_VAR.notice_bar_icon_margin_horizontal
+            ? CV.notice_bar_icon_margin_horizontal
             : 0,
       },
       messageTextStyle,
@@ -121,7 +116,7 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
           {mode ? (
             <ModeIcon
               color={iconColor}
-              size={THEME_VAR.notice_bar_icon_size}
+              size={CV.notice_bar_icon_size}
               onPress={onPressModeIcon}
               pointerEvents={mode === 'closeable' ? 'auto' : 'none'}
             />

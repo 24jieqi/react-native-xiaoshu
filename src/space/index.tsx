@@ -3,9 +3,10 @@ import type { ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
 import { isDef } from '../helpers'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { SpaceProps } from './interface'
+import { varCreator } from './style'
 
 const NO_GAP = 0
 
@@ -43,17 +44,14 @@ const Space: React.FC<SpaceProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
 
   const isVertical = direction === 'vertical'
-  const _gapVertical = getDefaultGap(
-    gapVertical,
-    THEME_VAR.space_gap_vertical,
-    gap,
-  )
+  const _gapVertical = getDefaultGap(gapVertical, CV.space_gap_vertical, gap)
   const _gapHorizontal = getDefaultGap(
     gapHorizontal,
-    THEME_VAR.space_gap_horizontal,
+    CV.space_gap_horizontal,
     gap,
   )
   const wrapperStyle: ViewStyle = {

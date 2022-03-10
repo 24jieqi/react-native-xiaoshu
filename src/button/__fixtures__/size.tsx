@@ -5,71 +5,24 @@
 
 import React, { memo } from 'react'
 
-import {
-  Button,
-  Card,
-  Space,
-  useTheme,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const ButtonSize: React.FC = () => {
-  const THEME_VAR = useTheme()
-
   return (
     <Card title="按钮尺寸" square>
       <Space tail>
-        <Button
-          type="primary"
-          size="xl"
-          text={`xl ${THEME_VAR.button_xl_height}`}
-        />
-        <Button
-          type="primary"
-          size="l"
-          text={`l ${THEME_VAR.button_l_height}`}
-        />
-        <Button
-          type="primary"
-          size="m"
-          text={`m ${THEME_VAR.button_m_height}`}
-        />
-        <Button
-          type="primary"
-          size="s"
-          text={`s ${THEME_VAR.button_s_height}`}
-        />
-        <Button
-          type="primary"
-          size="xs"
-          text={`xs ${THEME_VAR.button_xs_height}`}
-        />
+        <Button type="primary" size="xl" text="xl" />
+        <Button type="primary" size="l" text="l" />
+        <Button type="primary" size="m" text="m" />
+        <Button type="primary" size="s" text="s" />
+        <Button type="primary" size="xs" text="xs" />
       </Space>
       <Space direction="horizontal">
-        <Button
-          type="primary"
-          size="xl"
-          text={`xl ${THEME_VAR.button_xl_height}`}
-        />
-        <Button
-          type="primary"
-          size="l"
-          text={`l ${THEME_VAR.button_l_height}`}
-        />
-        <Button
-          type="primary"
-          size="m"
-          text={`m ${THEME_VAR.button_m_height}`}
-        />
-        <Button
-          type="primary"
-          size="s"
-          text={`s ${THEME_VAR.button_s_height}`}
-        />
-        <Button
-          type="primary"
-          size="xs"
-          text={`xs ${THEME_VAR.button_xs_height}`}
-        />
+        <Button type="primary" size="xl" text="xl" />
+        <Button type="primary" size="l" text="l" />
+        <Button type="primary" size="m" text="m" />
+        <Button type="primary" size="s" text="s" />
+        <Button type="primary" size="xs" text="xs" />
       </Space>
       <Space>
         <Button round size="xs" text="round" />

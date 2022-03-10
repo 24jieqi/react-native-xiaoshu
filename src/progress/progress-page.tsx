@@ -3,10 +3,11 @@ import type { ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { ProgressPageProps } from './interface'
 import Progress from './progress'
+import { varCreator } from './style'
 
 const ProgressPage: React.FC<ProgressPageProps> = ({
   children,
@@ -14,11 +15,12 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   backgroundColor,
   defaultPercentage = 10,
 }) => {
-  const themeVar = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
 
   backgroundColor = getDefaultValue(
     backgroundColor,
-    themeVar.progress_page_background_color,
+    CV.progress_page_background_color,
   )
 
   const [state, setState] = useState({

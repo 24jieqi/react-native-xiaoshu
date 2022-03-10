@@ -7,10 +7,10 @@ import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { SidebarProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const Sidebar: React.FC<SidebarProps> = ({
   width = 88,
@@ -23,8 +23,9 @@ const Sidebar: React.FC<SidebarProps> = ({
     valuePropName: 'activeValue',
     defaultValuePropName: 'defaultActiveValue',
   })
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
   const isEmpty = loading || options.length === 0
   const curIndex = options.findIndex(o => o.value === value)
 
@@ -74,7 +75,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               return (
                 <TouchableHighlight
                   key={item.value}
-                  underlayColor={THEME_VAR.sidebar_item_underlay_color}
+                  underlayColor={CV.sidebar_item_underlay_color}
                   onPress={() => {
                     onChange(item.value)
                   }}

@@ -27,6 +27,7 @@ import {
   useColorScheme,
 } from 'react-native'
 
+import { varCreator as varCreatorButton } from '../button/style'
 import {
   getDefaultValue,
   renderTextLikeJSX,
@@ -35,11 +36,11 @@ import {
   isDef,
 } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
-import IconSvgCross from '../icon/cross'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { TextInputProps, TextInputInstance } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
+import TextInputClear from './text-input-clear'
 
 const defaultFormatter = <T,>(t: T): T => t
 
@@ -106,6 +107,11 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       showWordLimit = false
     }
 
+    const TOKENS = useThemeTokens()
+    const CV = createVar(TOKENS, varCreator)
+    const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+    const STYLES = createStyle(CV, styleCreator)
+
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
     const onFocusPersistFn = usePersistFn(onFocus || noop)
@@ -115,27 +121,25 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
     const [focus, setFocus] = useState(false)
     const TextInputRef = useRef<TextInputInstance>(null)
     const colorScheme = useColorScheme()
-    const THEME_VAR = useTheme()
     const inputAccessoryViewID = useMemo(
       () => `TextInputBase_${getNextInputAccessoryViewID()}`,
       [],
     )
-    const STYLES = widthStyle(THEME_VAR, createStyles)
     /** 显示禁用样子 bordered 才显示 */
     const showDisabledInput =
       bordered && isDef(resetProps.editable) && !resetProps.editable
     /** 输入框最小高度 */
-    const textInputMinHeight = THEME_VAR[`text_input_${size}_min_height`]
+    const textInputMinHeight = CV[`text_input_${size}_min_height`]
     /** 所有文字/文案相关的大小 */
-    const textInputFontSize = THEME_VAR[`text_input_${size}_font_size`]
+    const textInputFontSize = CV[`text_input_${size}_font_size`]
 
     selectionColor = getDefaultValue(
       selectionColor,
-      THEME_VAR.text_input_selection_color,
+      CV.text_input_selection_color,
     )
     placeholderTextColor = getDefaultValue(
       placeholderTextColor,
-      THEME_VAR.text_input_placeholder_text_color,
+      CV.text_input_placeholder_text_color,
     )
 
     // 转发实例
@@ -350,12 +354,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
         (clearTrigger === 'focus' ? focus : true) &&
         value &&
         value.length ? (
-          <IconSvgCross
-            style={STYLES.clearable}
-            color={THEME_VAR.text_input_clearable_color}
-            size={(THEME_VAR.text_input_clearable_size / 4) * 3}
-            onPress={onPressClearable}
-          />
+          <TextInputClear onPress={onPressClearable} />
         ) : null}
 
         {showWordLimit ? (
@@ -372,14 +371,12 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
           <InputAccessoryView
             nativeID={inputAccessoryViewID}
             backgroundColor={
-              THEME_VAR[
-                `text_input_${keyboardAppearance}_accessory_background_color`
-              ]
+              CV[`text_input_${keyboardAppearance}_accessory_background_color`]
             }>
             <View style={STYLES.accessory}>
               <TouchableOpacity
                 onPress={onPressFinish}
-                activeOpacity={THEME_VAR.button_active_opacity}>
+                activeOpacity={CV_BUTTON.button_active_opacity}>
                 <Text style={STYLES.accessory_text}>完成</Text>
               </TouchableOpacity>
             </View>

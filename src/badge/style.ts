@@ -1,32 +1,53 @@
+import type { TextStyle } from 'react-native'
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    badge_size: 16,
+    badge_color: TOKENS.white,
+    badge_padding_vertical: 0,
+    badge_padding_horizontal: 3,
+    badge_font_size: TOKENS.font_size_1,
+    badge_font_weight: 'bold' as TextStyle['fontWeight'],
+    badge_background_color: TOKENS.red_6,
+    badge_count_border_radius: TOKENS.border_radius_max,
+    badge_dot_size: 8,
+    badge_status_primary: TOKENS.brand_6,
+    badge_status_success: TOKENS.green_6,
+    badge_status_warning: TOKENS.yellow_6,
+    badge_status_error: TOKENS.red_6,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     badge: {
       position: 'relative',
     },
 
     count: {
-      minWidth: themeVar.badge_size,
-      borderRadius: themeVar.border_radius_max,
-      paddingHorizontal: themeVar.badge_padding_horizontal,
-      paddingVertical: themeVar.badge_padding_vertical,
+      minWidth: cv.badge_size,
+      borderRadius: cv.badge_count_border_radius,
+      paddingHorizontal: cv.badge_padding_horizontal,
+      paddingVertical: cv.badge_padding_vertical,
     },
 
     count_text: {
-      color: themeVar.badge_color,
-      fontSize: themeVar.badge_font_size,
-      fontWeight: themeVar.badge_font_weight,
+      color: cv.badge_color,
+      fontSize: cv.badge_font_size,
+      fontWeight: cv.badge_font_weight,
       textAlign: 'center',
-      height: themeVar.badge_size,
-      lineHeight: themeVar.badge_size,
+      height: cv.badge_size,
+      lineHeight: cv.badge_size,
     },
 
     count_dot: {
-      width: themeVar.badge_dot_size,
-      height: themeVar.badge_dot_size,
+      width: cv.badge_dot_size,
+      height: cv.badge_dot_size,
       minWidth: 0,
     },
 
@@ -38,10 +59,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
       zIndex: 2,
       transform: [
         {
-          translateX: themeVar.badge_size / 2,
+          translateX: cv.badge_size / 2,
         },
         {
-          translateY: -themeVar.badge_size / 2,
+          translateY: -cv.badge_size / 2,
         },
       ],
     },
@@ -49,10 +70,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
     count_dot_fixed: {
       transform: [
         {
-          translateX: themeVar.badge_dot_size / 2,
+          translateX: cv.badge_dot_size / 2,
         },
         {
-          translateY: -themeVar.badge_dot_size / 2,
+          translateY: -cv.badge_dot_size / 2,
         },
       ],
     },

@@ -1,24 +1,24 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { ComponentVars } from './style'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     image: {
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: themeVar.uploader_image_border_radius,
+      borderRadius: cv.uploader_image_border_radius,
       overflow: 'hidden',
-      backgroundColor: themeVar.uploader_image_background_color,
+      backgroundColor: cv.uploader_image_background_color,
     },
 
     delete: {
       position: 'absolute',
       right: 0,
       top: 0,
-      width: themeVar.uploader_image_delete_size,
-      height: themeVar.uploader_image_delete_size,
-      borderBottomLeftRadius: themeVar.uploader_image_border_radius,
+      width: cv.uploader_image_delete_size,
+      height: cv.uploader_image_delete_size,
+      borderBottomLeftRadius: cv.uploader_image_border_radius,
       backgroundColor: 'rgba(0,0,0,0.5)',
       justifyContent: 'center',
       alignItems: 'center',

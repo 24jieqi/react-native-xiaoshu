@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { ComponentVars } from './style'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     column: {
       flex: 1,
@@ -20,12 +20,12 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     text: {
       textAlign: 'center',
-      fontSize: themeVar.picker_view_column_text_font_size,
-      color: themeVar.picker_view_column_text_color,
+      fontSize: cv.picker_view_column_text_font_size,
+      color: cv.picker_view_column_text_color,
     },
 
     text_disabled: {
-      color: themeVar.picker_view_column_text_disabled_color,
+      color: cv.picker_view_column_text_disabled_color,
     },
   })
 }

@@ -3,9 +3,10 @@ import type { ViewStyle, LayoutChangeEvent } from 'react-native'
 import { View, useWindowDimensions } from 'react-native'
 import { Line, Svg } from 'react-native-svg'
 
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { DividerLineProps } from './interface'
+import { varCreator } from './style'
 
 /**
  * 分割线
@@ -19,9 +20,10 @@ const DividerLine: React.FC<DividerLineProps> = ({
 }) => {
   const isVertical = direction === 'vertical'
   const { width } = useWindowDimensions()
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const VC = createVar(TOKENS, varCreator)
   const [size, setSize] = useState(
-    isVertical ? THEME_VAR.divider_vertical_min_height : width,
+    isVertical ? VC.divider_vertical_min_height : width,
   )
 
   const viewStyle = useMemo(() => {
@@ -39,18 +41,18 @@ const DividerLine: React.FC<DividerLineProps> = ({
     }
 
     if (position === 'left') {
-      s.marginRight = THEME_VAR.divider_margin_horizontal
+      s.marginRight = VC.divider_margin_horizontal
     }
 
     if (position === 'right') {
-      s.marginLeft = THEME_VAR.divider_margin_horizontal
+      s.marginLeft = VC.divider_margin_horizontal
     }
 
     if (!adaptive) {
       s.maxWidth =
         position === 'left'
-          ? THEME_VAR.divider_content_left_width
-          : THEME_VAR.divider_content_right_width
+          ? VC.divider_content_left_width
+          : VC.divider_content_right_width
     }
 
     return s
@@ -58,9 +60,9 @@ const DividerLine: React.FC<DividerLineProps> = ({
     isVertical,
     position,
     adaptive,
-    THEME_VAR.divider_margin_horizontal,
-    THEME_VAR.divider_content_left_width,
-    THEME_VAR.divider_content_right_width,
+    VC.divider_margin_horizontal,
+    VC.divider_content_left_width,
+    VC.divider_content_right_width,
   ])
 
   const onLayout = useCallback(

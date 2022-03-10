@@ -1,15 +1,26 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    description_l_font_size: TOKENS.font_size_5,
+    description_l_line_height: TOKENS.line_height_4,
+    description_m_font_size: TOKENS.font_size_4,
+    description_m_line_height: TOKENS.line_height_2,
+    description_s_font_size: TOKENS.font_size_4,
+    description_s_line_height: TOKENS.line_height_1,
+    description_label_color: TOKENS.gray_7,
+    description_text_color: TOKENS.gray_8,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
-    description: {},
-
-    label: {},
-
     label_text: {
-      color: themeVar.description_label_color,
+      color: cv.description_label_color,
     },
 
     content: {
@@ -20,7 +31,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     content_text: {
-      color: themeVar.description_text_color,
+      color: cv.description_text_color,
     },
 
     content_date_range: {
@@ -29,18 +40,18 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     size_l_text: {
-      fontSize: themeVar.description_l_font_size,
-      lineHeight: themeVar.description_l_line_height,
+      fontSize: cv.description_l_font_size,
+      lineHeight: cv.description_l_line_height,
     },
 
     size_m_text: {
-      fontSize: themeVar.description_m_font_size,
-      lineHeight: themeVar.description_m_line_height,
+      fontSize: cv.description_m_font_size,
+      lineHeight: cv.description_m_line_height,
     },
 
     size_s_text: {
-      fontSize: themeVar.description_s_font_size,
-      lineHeight: themeVar.description_s_line_height,
+      fontSize: cv.description_s_font_size,
+      lineHeight: cv.description_s_line_height,
     },
   })
 }

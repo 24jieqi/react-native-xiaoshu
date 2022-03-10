@@ -8,7 +8,7 @@ import useState from '../hooks/useStateUpdate'
 import NumberInput from '../number-input'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import Dialog from './dialog'
 import type {
@@ -16,6 +16,7 @@ import type {
   DialogAction,
   DialogInputState,
 } from './interface'
+import { varCreator } from './style'
 
 /**
  * Dialog 弹出框
@@ -51,7 +52,8 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const realValue = isInputText ? textInputValue : numberInputValue
 
   const TextInputRef = useRef<TextInputInstance>(null)
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
   const [state, setState] = useState<DialogInputState>({
     visible: false,
     value: defaultValue,
@@ -61,16 +63,16 @@ const DialogInput: React.FC<DialogInputProps> = ({
   })
   const boxStyle = useMemo<ViewStyle>(
     () => ({
-      marginHorizontal: THEME_VAR.dialog_input_gap,
-      marginTop: THEME_VAR.dialog_input_gap,
+      marginHorizontal: CV.dialog_input_gap,
+      marginTop: CV.dialog_input_gap,
       overflow: 'hidden',
       // borderStartColor: '#f30',
       // height: 100,
     }),
-    [THEME_VAR.dialog_input_gap],
+    [CV.dialog_input_gap],
   )
 
-  duration = getDefaultValue(duration, THEME_VAR.dialog_transition)
+  duration = getDefaultValue(duration, CV.dialog_transition)
 
   const onChangeTextPersistFn = usePersistFn((t: string) => {
     setState({

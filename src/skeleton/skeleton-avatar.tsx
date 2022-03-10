@@ -2,31 +2,28 @@ import React, { useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { PlaceholderMedia } from 'rn-placeholder'
 
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { SkeletonAvatarProps } from './interface'
 import SkeletonActive from './skeleton-active'
+import { varCreator } from './style'
 
 const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
   active = true,
   size = 40,
   shape = 'circle',
 }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
   const style = useMemo<ViewStyle>(
     () => ({
       height: size,
       width: size,
-      backgroundColor: THEME_VAR.skeleton_color,
+      backgroundColor: CV.skeleton_color,
       borderRadius:
-        shape === 'circle' ? size / 2 : THEME_VAR.skeleton_avatar_border_radius,
+        shape === 'circle' ? size / 2 : CV.skeleton_avatar_border_radius,
     }),
-    [
-      THEME_VAR.skeleton_avatar_border_radius,
-      THEME_VAR.skeleton_color,
-      shape,
-      size,
-    ],
+    [CV.skeleton_avatar_border_radius, CV.skeleton_color, shape, size],
   )
   const nodeJSX = <PlaceholderMedia style={style} />
 

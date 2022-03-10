@@ -4,8 +4,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
+import { varCreator as varCreatorPicker } from '../picker/style'
 import Popup from '../popup'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import DatePickerRangeView from './date-picker-range-view'
 import type { DatePickerRangeMethodProps, DatePickerAction } from './interface'
@@ -29,7 +30,8 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV_PICKER = createVar(TOKENS, varCreatorPicker)
   const insets = useSafeAreaInsets()
 
   const [visible, setVisible] = useState(false)
@@ -114,7 +116,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
         loading={loading}
       />
 
-      <View style={{ height: insets.bottom + THEME_VAR.picker_bottom_gap }} />
+      <View style={{ height: insets.bottom + CV_PICKER.picker_bottom_gap }} />
     </Popup>
   )
 }

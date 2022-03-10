@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 import Cell from '../cell'
 import TextInput from '../text-input'
-import { useTheme } from '../theme'
+import { useThemeTokens } from '../theme'
 
 import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
 
@@ -51,7 +51,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
     vertical = true
   }
 
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
 
   const cellProps: FieldTextCellPropsUsed = {
     style,
@@ -78,7 +78,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
         valueStyle,
         vertical
           ? {
-              marginTop: THEME_VAR.space_2,
+              marginTop: TOKENS.space_2,
             }
           : null,
       ]}

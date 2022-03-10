@@ -12,10 +12,10 @@ import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
 import Circular from '../loading/circular'
 import Spinner from '../loading/spinner'
 import Popup from '../popup/popup'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { ToastProps, ToastMethods } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const Toast = forwardRef<ToastMethods, ToastProps>(
   (
@@ -34,9 +34,9 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
     },
     ref,
   ) => {
-    const THEME_VAR = useTheme()
-    const STYLES = widthStyle(THEME_VAR, createStyles)
-
+    const TOKENS = useThemeTokens()
+    const CV = createVar(TOKENS, varCreator)
+    const STYLES = createStyle(CV, styleCreator)
     const [show, setShow] = useState(false)
     const [msg, setMsg] = useState(message)
 
@@ -132,28 +132,28 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                   {type === 'loading' ? (
                     loadingType === 'circular' ? (
                       <Circular
-                        color={THEME_VAR.toast_icon_color}
-                        size={THEME_VAR.toast_icon_size}
+                        color={CV.toast_icon_color}
+                        size={CV.toast_icon_size}
                       />
                     ) : (
                       <Spinner
-                        color={THEME_VAR.toast_icon_color}
-                        size={THEME_VAR.toast_icon_size}
+                        color={CV.toast_icon_color}
+                        size={CV.toast_icon_size}
                       />
                     )
                   ) : null}
 
                   {type === 'success' ? (
                     <SuccessCircleOutline
-                      color={THEME_VAR.toast_icon_color}
-                      size={THEME_VAR.toast_icon_size}
+                      color={CV.toast_icon_color}
+                      size={CV.toast_icon_size}
                     />
                   ) : null}
 
                   {type === 'fail' ? (
                     <CrossCircleOutline
-                      color={THEME_VAR.toast_icon_color}
-                      size={THEME_VAR.toast_icon_size}
+                      color={CV.toast_icon_color}
+                      size={CV.toast_icon_size}
                     />
                   ) : null}
 

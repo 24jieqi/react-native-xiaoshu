@@ -5,9 +5,7 @@ import { Keyboard } from 'react-native'
 import DatePicker from '../date-picker'
 import { renderDate } from '../date-picker/date-picker-range-view'
 import { useControllableValue, usePersistFn } from '../hooks'
-import IconSvgCross from '../icon/cross'
-import { createStyles as createTextInputStyles } from '../text-input/style'
-import { useTheme, widthStyle } from '../theme'
+import TextInputClear from '../text-input/text-input-clear'
 
 import FieldText from './field-text'
 import type { FieldDateProps } from './interface'
@@ -30,8 +28,6 @@ const FieldDate: React.FC<FieldDateProps> = ({
     () => (value ? renderDate(value, mode) : undefined),
     [value, mode],
   )
-  const THEME_VAR = useTheme()
-  const TEXT_INPUT_STYLES = widthStyle(THEME_VAR, createTextInputStyles)
 
   const onPress = usePersistFn(() => {
     if (editable) {
@@ -63,12 +59,8 @@ const FieldDate: React.FC<FieldDateProps> = ({
         value && clearable ? (
           <>
             {restProps.valueExtra}
-            <IconSvgCross
-              style={TEXT_INPUT_STYLES.clearable}
-              color={THEME_VAR.text_input_clearable_color}
-              size={(THEME_VAR.text_input_clearable_size / 4) * 3}
+            <TextInputClear
               onPress={() => {
-                console.log('???')
                 onChange(undefined)
               }}
             />

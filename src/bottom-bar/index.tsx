@@ -3,10 +3,12 @@ import type { ViewStyle, StyleProp } from 'react-native'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { varCreator as varCreatorDivider } from '../divider/style'
 import { getDefaultValue } from '../helpers'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { BottomBarProps } from './interface'
+import { varCreator } from './style'
 
 const BottomBar: React.FC<BottomBarProps> = ({
   safeAreaInsetBottom = true,
@@ -16,32 +18,33 @@ const BottomBar: React.FC<BottomBarProps> = ({
   ...restProps
 }) => {
   const { bottom } = useSafeAreaInsets()
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_DIVIDER = createVar(TOKENS, varCreatorDivider)
 
   backgroundColor = getDefaultValue(
     backgroundColor,
-    THEME_VAR.bottom_bar_background_color,
+    CV.bottom_bar_background_color,
   )
 
   const viewStyles = useMemo<StyleProp<ViewStyle>>(
     () => [
       {
-        height:
-          THEME_VAR.bottom_bar_height + (safeAreaInsetBottom ? bottom : 0),
+        height: CV.bottom_bar_height + (safeAreaInsetBottom ? bottom : 0),
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
-        borderTopColor: THEME_VAR.divider_color_light,
+        borderTopColor: CV_DIVIDER.divider_color_light,
         borderTopWidth: 1,
       },
       style,
     ],
     [
-      style,
-      safeAreaInsetBottom,
       bottom,
       backgroundColor,
-      THEME_VAR.bottom_bar_height,
-      THEME_VAR.divider_color_light,
+      CV.bottom_bar_height,
+      CV_DIVIDER.divider_color_light,
+      safeAreaInsetBottom,
+      style,
     ],
   )
 

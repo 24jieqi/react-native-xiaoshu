@@ -5,10 +5,10 @@ import Button from '../button'
 import { getDefaultValue, easing, renderTextLikeJSX, isDef } from '../helpers'
 import { usePersistFn } from '../hooks'
 import Popup from '../popup/popup'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { DialogProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Dialog 弹出框
@@ -38,11 +38,12 @@ const Dialog: React.FC<DialogProps> = ({
 }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
-  width = getDefaultValue(width, THEME_VAR.dialog_width)
-  duration = getDefaultValue(duration, THEME_VAR.dialog_transition)
+  width = getDefaultValue(width, CV.dialog_width)
+  duration = getDefaultValue(duration, CV.dialog_transition)
 
   const showDialog = useCallback(
     (show: boolean) => {
@@ -92,14 +93,14 @@ const Dialog: React.FC<DialogProps> = ({
   ) : null
 
   const cancelButtonProps = {
-    color: cancelButtonColor || THEME_VAR.dialog_cancel_button_text_color,
+    color: cancelButtonColor || CV.dialog_cancel_button_text_color,
     text: cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
-    color: confirmButtonColor || THEME_VAR.dialog_confirm_button_text_color,
+    color: confirmButtonColor || CV.dialog_confirm_button_text_color,
     text: confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
@@ -159,7 +160,7 @@ const Dialog: React.FC<DialogProps> = ({
                     {
                       // react-native-web 覆盖原 button 样式
                       borderLeftWidth: 1,
-                      borderColor: THEME_VAR.divider_color_dark,
+                      borderColor: CV.dialog_footer_divider_color,
                     }
                   : null,
               ]}

@@ -1,23 +1,37 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    nav_bar_arrow_size: 20,
+    nav_bar_height: 44,
+    nav_bar_gap: TOKENS.space_3,
+    nav_bar_background_color: TOKENS.white,
+    nav_bar_title_text_color: TOKENS.gray_8,
+    nav_bar_title_font_size: TOKENS.font_size_5,
+    nav_bar_icon_color: TOKENS.gray_8,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     bar: {
-      height: themeVar.nav_bar_height,
+      height: cv.nav_bar_height,
       width: '100%',
       justifyContent: 'center',
       position: 'relative',
-      backgroundColor: themeVar.nav_bar_background_color,
-      paddingHorizontal: themeVar.nav_bar_gap,
+      backgroundColor: cv.nav_bar_background_color,
+      paddingHorizontal: cv.nav_bar_gap,
     },
 
     left: {
       position: 'absolute',
       top: 0,
       bottom: 0,
-      left: themeVar.nav_bar_gap,
+      left: cv.nav_bar_gap,
       flexDirection: 'row',
       alignItems: 'center',
       zIndex: 3,
@@ -25,10 +39,10 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     back_arrow: {
-      color: themeVar.nav_bar_icon_color,
-      // marginRight: themeVar.padding_base,
-      height: themeVar.nav_bar_height,
-      minWidth: themeVar.nav_bar_arrow_size,
+      color: cv.nav_bar_icon_color,
+      // marginRight: cv.padding_base,
+      height: cv.nav_bar_height,
+      minWidth: cv.nav_bar_arrow_size,
       justifyContent: 'center',
       // backgroundColor: '#000', // to test ui
     },
@@ -37,16 +51,16 @@ export const createStyles = (themeVar: ThemeVarType) => {
       position: 'absolute',
       top: 0,
       bottom: 0,
-      right: themeVar.nav_bar_gap,
+      right: cv.nav_bar_gap,
       flexDirection: 'row',
       alignItems: 'center',
       zIndex: 3,
     },
 
     title_text: {
-      color: themeVar.nav_bar_title_text_color,
+      color: cv.nav_bar_title_text_color,
       textAlign: 'center',
-      fontSize: themeVar.nav_bar_title_font_size,
+      fontSize: cv.nav_bar_title_font_size,
       fontWeight: 'bold',
     },
   })

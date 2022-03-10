@@ -1,16 +1,22 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import { varCreator as varCreatorCell } from '../cell/style'
+import type { TokensType } from '../theme'
+import { createVar } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+import type { ComponentVars } from './style'
+
+export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+  const CV_CELL = createVar(TOKENS, varCreatorCell)
+
   return StyleSheet.create({
     text: {
       justifyContent: 'center',
     },
 
     text_text: {
-      fontSize: themeVar.cell_font_size,
-      color: themeVar.cell_value_text_color,
+      fontSize: CV_CELL.cell_font_size,
+      color: CV_CELL.cell_value_text_color,
     },
   })
 }

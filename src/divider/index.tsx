@@ -2,11 +2,11 @@ import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
 import { getDefaultValue, isDef } from '../helpers'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { DividerProps } from './interface'
 import DividerLine from './line'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Divider 分割线
@@ -22,15 +22,14 @@ const Divider: React.FC<DividerProps> = ({
   color,
   contentPosition = 'center',
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
   const isVertical = direction === 'vertical'
 
   color = getDefaultValue(
     color,
-    type === 'dark'
-      ? THEME_VAR.divider_color_dark
-      : THEME_VAR.divider_color_light,
+    type === 'dark' ? CV.divider_color_dark : CV.divider_color_light,
   )
 
   return (

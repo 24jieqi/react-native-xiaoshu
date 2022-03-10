@@ -2,11 +2,11 @@ import React, { memo } from 'react'
 import { View } from 'react-native'
 
 import { isDef, renderTextLikeJSX, getDefaultValue } from '../helpers'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import { useDescription } from './context'
 import type { DescriptionProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const Description: React.FC<DescriptionProps> = ({
   colon,
@@ -31,8 +31,9 @@ const Description: React.FC<DescriptionProps> = ({
   style,
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
   const descriptionContext = useDescription()
 
   // 整理默认值
@@ -102,10 +103,9 @@ const Description: React.FC<DescriptionProps> = ({
   }
 
   return (
-    <View {...restProps} style={[STYLES.description, { flexDirection }, style]}>
+    <View {...restProps} style={[{ flexDirection }, style]}>
       <View
         style={[
-          STYLES.label,
           isDef(_labelWidth) ? { width: _labelWidth } : null,
           _labelStyle,
         ]}>

@@ -1,0 +1,37 @@
+import { isDef } from '../helpers'
+
+import type { TokensType } from './interface'
+
+type Creator<T> = (v: TokensType) => T
+
+type KeyType = [TokensType, Creator<any>]
+
+const StyleMap: Map<KeyType, any> = new Map()
+
+export const createVar = <T>(token: TokensType, creator: Creator<T>): T => {
+  let myStyle: T
+
+  for (let [key, value] of StyleMap) {
+    if (key[1] === creator) {
+      if (key[0] === token) {
+        myStyle = value
+      } else {
+        StyleMap.delete(key)
+      }
+    }
+  }
+
+  if (!myStyle) {
+    myStyle = creator(token)
+    // 变量覆盖
+    Object.keys(myStyle).forEach(field => {
+      if (isDef(token[field])) {
+        myStyle[field] = token[field]
+      }
+    })
+
+    StyleMap.set([token, creator], myStyle)
+  }
+
+  return myStyle
+}

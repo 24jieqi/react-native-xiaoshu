@@ -1,27 +1,43 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    result_success_color: TOKENS.green_6,
+    result_error_color: TOKENS.red_6,
+    result_info_color: TOKENS.brand_6,
+    result_warning_color: TOKENS.yellow_6,
+    result_icon_size: 72,
+    result_title_font_size: TOKENS.font_size_7,
+    result_title_color: TOKENS.gray_8,
+    result_subtitle_font_size: TOKENS.font_size_3,
+    result_subtitle_color: TOKENS.gray_7,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     icon: {
-      width: themeVar.result_icon_size,
-      height: themeVar.result_icon_size,
-      borderRadius: themeVar.result_icon_size / 2,
+      width: cv.result_icon_size,
+      height: cv.result_icon_size,
+      borderRadius: cv.result_icon_size / 2,
       justifyContent: 'center',
     },
 
     titleText: {
       lineHeight: 24,
-      fontSize: themeVar.result_title_font_size,
-      color: themeVar.result_title_color,
+      fontSize: cv.result_title_font_size,
+      color: cv.result_title_color,
       textAlign: 'center',
     },
 
     subtitleText: {
       lineHeight: 20,
-      fontSize: themeVar.result_subtitle_font_size,
-      color: themeVar.result_subtitle_color,
+      fontSize: cv.result_subtitle_font_size,
+      color: cv.result_subtitle_color,
       textAlign: 'center',
     },
   })

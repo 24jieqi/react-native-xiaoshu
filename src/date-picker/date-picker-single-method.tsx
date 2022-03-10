@@ -8,9 +8,12 @@ import DatePickerView from '../date-picker-view'
 import type { DatePickerViewProps } from '../date-picker-view/interface'
 import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
-import { createStyles } from '../picker/style'
+import {
+  varCreator as varCreatorPicker,
+  styleCreator as styleCreatorPicker,
+} from '../picker/style'
 import Popup from '../popup'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { DatePickerSingleMethodProps, DatePickerAction } from './interface'
 
@@ -33,8 +36,9 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV_PICKER = createVar(TOKENS, varCreatorPicker)
+  const STYLES_PICKER = createStyle(CV_PICKER, styleCreatorPicker)
   const insets = useSafeAreaInsets()
 
   const [visible, setVisible] = useState(false)
@@ -109,7 +113,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
         leftExtra={
           <Text
             suppressHighlighting
-            style={STYLES.cancel_text}
+            style={STYLES_PICKER.cancel_text}
             onPress={loading ? undefined : onPressCancel}>
             {cancelButtonText}
           </Text>
@@ -117,7 +121,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
         rightExtra={
           <Text
             suppressHighlighting
-            style={STYLES.confirm_text}
+            style={STYLES_PICKER.confirm_text}
             onPress={loading ? undefined : onPressConfirm}>
             {confirmButtonText}
           </Text>
@@ -130,7 +134,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
         onChange={onChange}
       />
 
-      <View style={{ height: insets.bottom + THEME_VAR.picker_bottom_gap }} />
+      <View style={{ height: insets.bottom + CV_PICKER.picker_bottom_gap }} />
     </Popup>
   )
 }

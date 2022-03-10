@@ -10,16 +10,20 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Button from '../button'
+import { varCreator as varCreatorButton } from '../button/style'
 import CheckboxIcon from '../checkbox/checkbox-icon'
+import { varCreator as varCreatorCheckbox } from '../checkbox/style'
 import Empty from '../empty'
 import { getDefaultValue } from '../helpers'
 import { SuccessOutline } from '../icon'
+import { varCreator as varCreatorNavBar } from '../nav-bar/style'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
-import { useTheme, widthStyle } from '../theme'
+import { varCreator as varCreatorPopup } from '../popup/style'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { SelectorProps, SelectorValue } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Selector 弹出层式 Select
@@ -40,7 +44,13 @@ const Selector: React.FC<SelectorProps> = ({
   onClose,
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_NAV_BAR = createVar(TOKENS, varCreatorNavBar)
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const CV_CHECKBOX = createVar(TOKENS, varCreatorCheckbox)
+  const CV_POPUP = createVar(TOKENS, varCreatorPopup)
+  const STYLES = createStyle(CV, styleCreator)
   const insets = useSafeAreaInsets()
   const windowDimensions = useWindowDimensions()
   const ScrollViewRef = useRef<ScrollView>(null)
@@ -53,7 +63,6 @@ const Selector: React.FC<SelectorProps> = ({
       ? [value as SelectorValue]
       : [],
   )
-  const STYLES = widthStyle(THEME_VAR, createStyles)
 
   safeAreaInsetTop = getDefaultValue(safeAreaInsetTop, insets.top)
 
@@ -61,23 +70,23 @@ const Selector: React.FC<SelectorProps> = ({
   const selectHeight = useMemo(() => {
     /** 选项/内容高度 选项个数 + 标题高度 + 圆角边缘 + 多选按钮高度 + 底部安全距离 */
     const pickHeight =
-      options.length * THEME_VAR.selector_option_text_line_height +
-      THEME_VAR.nav_bar_height +
-      THEME_VAR.popup_round_border_radius +
+      options.length * CV.selector_option_text_line_height +
+      CV_NAV_BAR.nav_bar_height +
+      CV_POPUP.popup_round_border_radius +
       (multiple ? 60 : 0) +
       insets.bottom
     const maxHeight = windowDimensions.height - safeAreaInsetTop
 
     return pickHeight > maxHeight
       ? maxHeight
-      : pickHeight < THEME_VAR.selector_min_height
-      ? THEME_VAR.selector_min_height
+      : pickHeight < CV.selector_min_height
+      ? CV.selector_min_height
       : pickHeight
   }, [
-    THEME_VAR.nav_bar_height,
-    THEME_VAR.popup_round_border_radius,
-    THEME_VAR.selector_min_height,
-    THEME_VAR.selector_option_text_line_height,
+    CV_NAV_BAR.nav_bar_height,
+    CV_POPUP.popup_round_border_radius,
+    CV.selector_min_height,
+    CV.selector_option_text_line_height,
     insets.bottom,
     multiple,
     options.length,
@@ -168,7 +177,7 @@ const Selector: React.FC<SelectorProps> = ({
                   key={item.value}
                   disabled={item.disabled}
                   onPress={genOnPressOption(item.value)}
-                  activeOpacity={THEME_VAR.button_active_opacity}>
+                  activeOpacity={CV_BUTTON.button_active_opacity}>
                   <View style={STYLES.option_item}>
                     <Text style={STYLES.option_item_text} numberOfLines={1}>
                       {item.label}
@@ -182,8 +191,8 @@ const Selector: React.FC<SelectorProps> = ({
                       />
                     ) : isSelected ? (
                       <SuccessOutline
-                        color={THEME_VAR.selector_icon_selected_color}
-                        size={THEME_VAR.checkbox_icon_size}
+                        color={CV.selector_icon_selected_color}
+                        size={CV_CHECKBOX.checkbox_icon_size}
                       />
                     ) : null}
                   </View>

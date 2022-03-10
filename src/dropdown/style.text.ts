@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { ComponentVars } from './style.menu'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     item: {
       flex: 1,
@@ -12,8 +12,8 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     text: {
-      fontSize: themeVar.dropdown_menu_title_font_size,
-      paddingHorizontal: themeVar.dropdown_menu_title_padding_horizontal,
+      fontSize: cv.dropdown_menu_title_font_size,
+      paddingHorizontal: cv.dropdown_menu_title_padding_horizontal,
     },
   })
 }

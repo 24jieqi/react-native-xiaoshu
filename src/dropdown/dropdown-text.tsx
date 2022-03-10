@@ -2,13 +2,15 @@ import React, { memo } from 'react'
 import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, TouchableOpacity } from 'react-native'
 
+import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
 import { getArrowFill } from '../icon/helper/arrow'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import { useDropdownConfig } from './context'
 import type { DropdownTextProps } from './interface'
-import { createStyles } from './style.text'
+import { varCreator } from './style.menu'
+import { styleCreator } from './style.text'
 
 const DropdownText: React.FC<DropdownTextProps> = ({
   textStyle,
@@ -26,22 +28,24 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ...restProps
 }) => {
   const config = useDropdownConfig()
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
 
   // 修正数据
   activeColor = getDefaultValue(activeColor, config.activeColor)
   activeOpacity = getDefaultValue(
     activeOpacity,
-    THEME_VAR.button_active_opacity,
+    CV_BUTTON.button_active_opacity,
   )
   direction = getDefaultValue(direction, config.direction)
 
   const textColor = disabled
-    ? THEME_VAR.dropdown_menu_title_disabled_text_color
+    ? CV.dropdown_menu_title_disabled_text_color
     : active
     ? activeColor
-    : THEME_VAR.dropdown_menu_title_text_color
+    : CV.dropdown_menu_title_text_color
 
   const itemStyles: StyleProp<ViewStyle> = [
     STYLES.item,
@@ -66,7 +70,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
       <Text style={textStyles}>{title}</Text>
       <ArrowFill
         style={iconStyles.length ? iconStyles : undefined}
-        size={THEME_VAR.dropdown_menu_title_icon_size}
+        size={CV.dropdown_menu_title_icon_size}
         color={active ? activeColor : textColor}
       />
     </>

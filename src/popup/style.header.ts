@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { ComponentVars } from './style'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     icon: {
-      marginLeft: themeVar.popup_close_icon_margin_left,
+      marginLeft: cv.popup_close_icon_margin_left,
     },
   })
 }

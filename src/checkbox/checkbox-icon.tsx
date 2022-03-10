@@ -2,9 +2,10 @@ import React, { memo } from 'react'
 
 import { getDefaultValue } from '../helpers'
 import { CircleOutline, CheckedFill } from '../icon'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { CheckboxIconProps } from './interface'
+import { varCreator } from './style'
 
 const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   active,
@@ -13,25 +14,19 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   disabled,
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
 
   // 从配置中拿默认值
-  size = getDefaultValue(size, THEME_VAR.checkbox_icon_size)
-  activeColor = getDefaultValue(
-    activeColor,
-    THEME_VAR.checkbox_checked_icon_color,
-  )
+  size = getDefaultValue(size, CV.checkbox_icon_size)
+  activeColor = getDefaultValue(activeColor, CV.checkbox_checked_icon_color)
 
   if (active) {
     return (
       <CheckedFill
         {...restProps}
         size={size}
-        color={
-          disabled
-            ? THEME_VAR.checkbox_checked_icon_disabled_color
-            : activeColor
-        }
+        color={disabled ? CV.checkbox_checked_icon_disabled_color : activeColor}
         disabled={disabled}
       />
     )
@@ -43,9 +38,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
       size={size}
       disabled={disabled}
       color={
-        disabled
-          ? THEME_VAR.checkbox_icon_disabled_color
-          : THEME_VAR.checkbox_icon_color
+        disabled ? CV.checkbox_icon_disabled_color : CV.checkbox_icon_color
       }
     />
   )

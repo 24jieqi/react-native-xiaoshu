@@ -4,11 +4,11 @@ import { View, Text } from 'react-native'
 
 import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import CheckboxIcon from './checkbox-icon'
 import type { CheckboxProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   labelTextStyle,
@@ -38,8 +38,9 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const active = value === activeValue
   const onChangeValue = () => {
@@ -54,7 +55,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
         STYLES.label,
         {
           [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
-            THEME_VAR.checkbox_label_margin,
+            CV.checkbox_label_margin,
         },
         disabled ? STYLES.label_disabled : null,
         labelTextStyle,

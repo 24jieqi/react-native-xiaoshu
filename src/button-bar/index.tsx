@@ -5,10 +5,10 @@ import BottomBar from '../bottom-bar'
 import Button from '../button'
 import { isArray, noop } from '../helpers'
 import Space from '../space'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { ButtonBarProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const ButtonBar: React.FC<ButtonBarProps> = ({
   alone = false,
@@ -19,8 +19,9 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   children,
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const realButtons = (buttons || []).filter(item => !item.hidden)
   const isConfig = isArray(buttons)
@@ -50,7 +51,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
           align="center"
           direction="horizontal"
           gapVertical={0}
-          gapHorizontal={THEME_VAR.button_bar_button_space}>
+          gapHorizontal={CV.button_bar_button_space}>
           {showMore ? (
             <Button type="link" text={moreText} onPress={onPressMore} />
           ) : null}

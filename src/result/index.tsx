@@ -4,14 +4,14 @@ import { View } from 'react-native'
 import { attachPropertiesToComponent, renderTextLikeJSX } from '../helpers'
 import { SuccessOutline, WarningOutline, CrossOutline } from '../icon'
 import Space from '../space'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import IconBox from './icons/result-icon-box'
 import IconEmpty from './icons/result-icon-empty'
 import IconError from './icons/result-icon-error'
 import IconWarning from './icons/result-icon-warning'
 import type { ResultProps, ResultStatus } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const renderStatusIcon = (status: ResultStatus, size: number) => {
   const props = {
@@ -50,10 +50,11 @@ const Result: React.FC<ResultProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
-  const color = THEME_VAR[`result_${status}_color`]
-  const iconSize = (THEME_VAR.result_icon_size / 4) * 3
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
+  const color = CV[`result_${status}_color`]
+  const iconSize = (CV.result_icon_size / 4) * 3
 
   const iconJSX = renderIcon ? (
     renderIcon(color, iconSize)

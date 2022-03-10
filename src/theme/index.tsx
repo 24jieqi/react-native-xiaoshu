@@ -1,28 +1,29 @@
 import React, { useMemo, useContext, createContext, memo } from 'react'
 
-import * as defaultVar from './default-var'
-import type { ThemeProviderProps, ThemeVarType } from './interface'
+import type { ThemeProviderProps, TokensType } from './interface'
+import * as TOKENS from './tokens-mix'
 
-export type { ThemeVarType } from './interface'
-export { widthStyle } from './width-style'
+export type { TokensType } from './interface'
+export { createStyle } from './create-style'
+export { createVar } from './create-var'
 
-const ThemeVarContext = createContext(defaultVar as ThemeVarType)
+const ThemeTokensContext = createContext(TOKENS)
 
-export const useTheme = () => useContext(ThemeVarContext)
+export const useThemeTokens = () => useContext(ThemeTokensContext)
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
-  const state = useMemo<ThemeVarType>(
+  const state = useMemo<TokensType>(
     () => ({
-      ...defaultVar,
+      ...TOKENS,
       ...theme,
     }),
     [theme],
   )
 
   return (
-    <ThemeVarContext.Provider value={state}>
+    <ThemeTokensContext.Provider value={state}>
       {children}
-    </ThemeVarContext.Provider>
+    </ThemeTokensContext.Provider>
   )
 }
 

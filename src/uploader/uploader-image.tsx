@@ -1,13 +1,15 @@
 import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
+import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, isDef } from '../helpers'
 import { CrossOutline, CrossCircleOutline } from '../icon'
 import LoadingCircular from '../loading/circular'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { UploaderImageProps } from './interface'
-import { createStyles } from './style.image'
+import { varCreator } from './style'
+import { styleCreator } from './style.image'
 
 /**
  * UploaderImage 文件上传的缩略图
@@ -24,11 +26,13 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   isUpload,
   children,
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const STYLES = createStyle(CV, styleCreator)
 
   // 修正数据
-  gap = getDefaultValue(gap, THEME_VAR.uploader_image_gap)
+  gap = getDefaultValue(gap, CV.uploader_image_gap)
 
   const customStyle = useMemo(
     () => ({ width: size, height: size, marginRight: gap, marginBottom: gap }),
@@ -40,7 +44,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
     <TouchableOpacity
       style={[STYLES.image, customStyle]}
       onPress={canPress ? onPress : undefined}
-      activeOpacity={canPress ? THEME_VAR.button_active_opacity : 1}>
+      activeOpacity={canPress ? CV_BUTTON.button_active_opacity : 1}>
       {isDef(children) ? (
         children
       ) : (
@@ -49,7 +53,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
 
           {deletable && status !== 'loading' ? (
             <CrossOutline
-              size={THEME_VAR.uploader_image_delete_size - 4}
+              size={CV.uploader_image_delete_size - 4}
               color="#fff"
               onPress={onPressDelete}
               style={STYLES.delete}

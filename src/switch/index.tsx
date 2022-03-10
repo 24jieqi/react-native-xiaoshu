@@ -5,10 +5,11 @@ import { TouchableWithoutFeedback, Animated } from 'react-native'
 import { getDefaultValue, isValue, callInterceptor } from '../helpers'
 import { useControllableValue } from '../hooks'
 import LoadingCircular from '../loading/circular'
-import { useTheme, widthStyle } from '../theme'
+import { varCreator as varCreatorLoading } from '../loading/style'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { SwitchProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Switch 开关
@@ -34,8 +35,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_LOADING = createVar(TOKENS, varCreatorLoading)
+  const STYLES = createStyle(CV, styleCreator)
   const [
     switchWidth,
     switchHeight,
@@ -44,10 +47,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
     translateXValueStart,
   ] = useMemo(() => {
     const _innerMiniPadding = 2
-    const _unitSize = getDefaultValue(size, THEME_VAR.switch_size)
-    const _switchWidth = _unitSize * THEME_VAR.switch_width_ratio
-    const _switchHeight = _unitSize * THEME_VAR.switch_height_ratio
-    const _nodeSize = _unitSize * THEME_VAR.switch_node_size_ratio
+    const _unitSize = getDefaultValue(size, CV.switch_size)
+    const _switchWidth = _unitSize * CV.switch_width_ratio
+    const _switchHeight = _unitSize * CV.switch_height_ratio
+    const _nodeSize = _unitSize * CV.switch_node_size_ratio
     const _isInnerNode = _switchHeight - _nodeSize < _innerMiniPadding * 2
     const _nodeRealSize = _isInnerNode
       ? _nodeSize - _innerMiniPadding * 2
@@ -66,10 +69,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       _translateXValueStart,
     ]
   }, [
-    THEME_VAR.switch_height_ratio,
-    THEME_VAR.switch_node_size_ratio,
-    THEME_VAR.switch_size,
-    THEME_VAR.switch_width_ratio,
+    CV.switch_height_ratio,
+    CV.switch_node_size_ratio,
+    CV.switch_size,
+    CV.switch_width_ratio,
     size,
   ])
 
@@ -93,7 +96,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       translateX.current, // 动画中的变量值
       {
         toValue: active ? translateXValueEnd : translateXValueStart,
-        duration: THEME_VAR.switch_transition_duration,
+        duration: CV.switch_transition_duration,
         useNativeDriver: false,
       },
     )
@@ -110,7 +113,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
     active,
     translateXValueStart,
     translateXValueEnd,
-    THEME_VAR.switch_transition_duration,
+    CV.switch_transition_duration,
   ])
 
   const switchStyles: ViewStyle[] = [
@@ -122,8 +125,8 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       // 当前过渡不支持 color/backgroundColor
       // 参考：https://stackoverflow.com/a/60586628
       backgroundColor: active
-        ? activeColor || THEME_VAR.switch_on_background_color
-        : inactiveColor || THEME_VAR.switch_background_color,
+        ? activeColor || CV.switch_on_background_color
+        : inactiveColor || CV.switch_background_color,
     },
     disabled ? STYLES.disabled : null,
   ]
@@ -152,10 +155,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
                 active
                   ? isValue(activeColor)
                     ? activeColor
-                    : THEME_VAR.switch_on_background_color
+                    : CV.switch_on_background_color
                   : isValue(inactiveColor)
                   ? inactiveColor
-                  : THEME_VAR.loading_text_color
+                  : CV_LOADING.loading_text_color
               }
             />
           ) : null}

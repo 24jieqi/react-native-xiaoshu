@@ -4,10 +4,10 @@ import { View, TouchableWithoutFeedback } from 'react-native'
 import Divider from '../divider'
 import { isDef, renderTextLikeJSX } from '../helpers'
 import Skeleton from '../skeleton'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { CardProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const Card: React.FC<CardProps> = ({
   children,
@@ -33,8 +33,9 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const isS = size === 's'
 
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const hasTitleLeftExtra = isDef(titleLeftExtra)
   const titleJSX = renderTextLikeJSX(

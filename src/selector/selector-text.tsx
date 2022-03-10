@@ -1,15 +1,18 @@
 import React, { memo } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
+import { varCreator as varCreatorButton } from '../button/style'
+import { varCreator as varCreatorCell } from '../cell/style'
 import Divider from '../divider'
 import { usePersistFn } from '../hooks'
 import { getArrowOutline } from '../icon/helper/arrow'
 import Space from '../space'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { SelectorTextProps } from './interface'
 import SelectorFn from './selector-fn'
-import { createStyles } from './style.text'
+import { varCreator } from './style'
+import { styleCreator } from './style.text'
 
 const SelectorText: React.FC<SelectorTextProps> = ({
   title,
@@ -20,8 +23,11 @@ const SelectorText: React.FC<SelectorTextProps> = ({
   divider = true,
   head = true,
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const CV_CELL = varCreatorCell(TOKENS)
+  const STYLES = createStyle(CV, styleCreator)
 
   const onPress = usePersistFn(() => {
     SelectorFn({
@@ -37,7 +43,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
 
   return (
     <TouchableOpacity
-      activeOpacity={THEME_VAR.button_active_opacity}
+      activeOpacity={CV_BUTTON.button_active_opacity}
       onPress={onPress}
       style={STYLES.text}>
       <Space direction="horizontal" align="center" gapVertical={0} head={head}>
@@ -46,8 +52,8 @@ const SelectorText: React.FC<SelectorTextProps> = ({
           {text}
         </Text>
         <IconArrow
-          size={THEME_VAR.cell_icon_size}
-          color={THEME_VAR.cell_icon_color}
+          size={CV_CELL.cell_icon_size}
+          color={CV_CELL.cell_icon_color}
         />
       </Space>
     </TouchableOpacity>
