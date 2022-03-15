@@ -445,7 +445,7 @@ export const toast_position_top_distance: string = '20%'
 export const toast_position_bottom_distance: string = '20%'
 
 // Uploader
-export const uploader_image_gap = TOKENS.border_radius_xl
+export const uploader_image_gap = TOKENS.space_5
 export const uploader_image_border_radius = TOKENS.border_radius_s
 export const uploader_image_delete_size: number = 16
 export const uploader_image_background_color = TOKENS.gray_2

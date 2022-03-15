@@ -30,6 +30,8 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   // 修正数据
   gap = getDefaultValue(gap, THEME_VAR.uploader_image_gap)
 
+  const customSizeStyle = useMemo(() => ({ width: size, height: size }), [size])
+
   const customStyle = useMemo(
     () => ({ width: size, height: size, marginRight: gap, marginBottom: gap }),
     [size, gap],
@@ -45,7 +47,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
         children
       ) : (
         <>
-          <ImageComponent style={customStyle} source={{ uri: filepath }} />
+          <ImageComponent style={customSizeStyle} source={{ uri: filepath }} />
 
           {deletable && status !== 'loading' ? (
             <CrossOutline
