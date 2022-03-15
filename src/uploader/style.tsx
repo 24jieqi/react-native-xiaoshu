@@ -4,7 +4,7 @@ import type { TokensType } from '../theme'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
-    uploader_image_gap: TOKENS.border_radius_xl,
+    uploader_image_gap: TOKENS.space_5,
     uploader_image_border_radius: TOKENS.border_radius_s,
     uploader_image_delete_size: 16,
     uploader_image_background_color: TOKENS.gray_2,
