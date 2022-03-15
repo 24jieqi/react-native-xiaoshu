@@ -1,3 +1,9 @@
+## [0.1.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.7...v0.1.8) (2022-03-15)
+
+### Bug Fixes
+
+- **Uploader:** 🐛 图片边距 ([c9f5842](https://github.com/hjfruit/react-native-xiaoshu/commit/c9f58428a91783e9e8346c5c88eddefd37f229ec))
+
 ## [0.1.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.6...v0.1.7) (2022-03-09)
 
 ### Bug Fixes
