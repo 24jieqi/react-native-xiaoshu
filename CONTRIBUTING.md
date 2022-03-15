@@ -88,7 +88,7 @@ yarn release
 
 - [x] 构建产物不包含 `demo`、`_demo`，已更换文件夹名称为 `__fixtures__`
 - [x] 打包时提示静态资源报错（已使用 SVG 的方式代替图片）
-- [ ] 文档部署
+- [x] 文档部署
 - [ ] issus 到改 bug 更规范
 - [x] 生成 changelog，并且规范化
 - [ ] 优化 PickerView，支持阻尼，ViewScroll？
