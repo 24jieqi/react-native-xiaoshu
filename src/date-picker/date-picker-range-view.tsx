@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState, memo } from 'react'
+import React, { useMemo, useRef, useState, useEffect, memo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import Button from '../button'
@@ -84,6 +84,11 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     min,
     Values.current[1] || max,
   ])
+
+  // 同步 value，避免外部 value 清空后，触发 onChangePickView 的时候把旧数据带出来
+  useEffect(() => {
+    Values.current = [...value]
+  }, [value])
 
   const onChangePickView = usePersistFn((v: Date) => {
     Values.current[dayActive] = v
