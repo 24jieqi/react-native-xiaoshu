@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState, memo } from 'react'
+import React, { useMemo, useRef, useState, useEffect, memo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import Button from '../button'
@@ -89,6 +89,11 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     Values.current[1] || max,
   ])
 
+  // 同步 value，避免外部 value 清空后，触发 onChangePickView 的时候把旧数据带出来
+  useEffect(() => {
+    Values.current = [...value]
+  }, [value])
+
   const onChangePickView = usePersistFn((v: Date) => {
     Values.current[dayActive] = v
     onChange([...Values.current])
@@ -118,32 +123,31 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   return (
     <>
       <View style={STYLES_PICKER.data_range}>
-        <View style={STYLES_PICKER.data_range_item}>
-          <TouchableOpacity onPress={onPressDay1}>
-            <Text style={STYLES_PICKER.data_range_text}>开始时间</Text>
-            <Text
-              style={[
-                STYLES_PICKER.data_range_day,
-                dayActive === 0 ? STYLES_PICKER.data_range_day_active : null,
-              ]}>
-              {value[0] ? renderDate(value[0], mode) : placeholder}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={STYLES_PICKER.data_range_item}>
-          <TouchableOpacity
-            style={STYLES_PICKER.data_range_touch}
-            onPress={onPressDay2}>
-            <Text style={STYLES_PICKER.data_range_text}>结束时间</Text>
-            <Text
-              style={[
-                STYLES_PICKER.data_range_day,
-                dayActive === 1 ? STYLES_PICKER.data_range_day_active : null,
-              ]}>
-              {value[1] ? renderDate(value[1], mode) : placeholder}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={STYLES_PICKER.data_range_item}
+          onPress={onPressDay1}>
+          <Text style={STYLES_PICKER.data_range_text}>开始时间</Text>
+          <Text
+            style={[
+              STYLES_PICKER.data_range_day,
+              dayActive === 0 ? STYLES_PICKER.data_range_day_active : null,
+            ]}>
+            {value[0] ? renderDate(value[0], mode) : placeholder}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={STYLES_PICKER.data_range_item}
+          onPress={onPressDay2}>
+          <Text style={STYLES_PICKER.data_range_text}>结束时间</Text>
+          <Text
+            style={[
+              STYLES_PICKER.data_range_day,
+              dayActive === 1 ? STYLES_PICKER.data_range_day_active : null,
+            ]}>
+            {value[1] ? renderDate(value[1], mode) : placeholder}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <DatePickerView

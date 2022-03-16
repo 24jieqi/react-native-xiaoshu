@@ -55,12 +55,6 @@ export const styleCreator = (cv: ComponentVars) => {
 
     data_range_item: {
       flex: 1,
-      alignItems: 'center',
-      overflow: 'hidden',
-    },
-
-    data_range_touch: {
-      minWidth: 120,
     },
 
     data_range_text: {

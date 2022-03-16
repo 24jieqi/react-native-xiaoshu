@@ -1,3 +1,10 @@
+## [0.1.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.8...v0.1.9) (2022-03-16)
+
+### Bug Fixes
+
+- **DatePicker:** 🐛 开始\结束时间在 MIUI 上文字显示不完整 ([fcda226](https://github.com/hjfruit/react-native-xiaoshu/commit/fcda226dd6acf298d62ca426ffa57a4a7711a522))
+- **DatePicker:** 🐛 时间段选择视图 缓存数据 ([d1c3c21](https://github.com/hjfruit/react-native-xiaoshu/commit/d1c3c21e09e016fbca4441836a2e71c2f4cdbb18))
+
 ## [0.1.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.7...v0.1.8) (2022-03-15)
 
 ### Bug Fixes
