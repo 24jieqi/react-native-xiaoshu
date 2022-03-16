@@ -119,32 +119,27 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   return (
     <>
       <View style={STYLES.data_range}>
-        <View style={STYLES.data_range_item}>
-          <TouchableOpacity onPress={onPressDay1}>
-            <Text style={STYLES.data_range_text}>开始时间</Text>
-            <Text
-              style={[
-                STYLES.data_range_day,
-                dayActive === 0 ? STYLES.data_range_day_active : null,
-              ]}>
-              {value[0] ? renderDate(value[0], mode) : placeholder}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={STYLES.data_range_item}>
-          <TouchableOpacity
-            style={STYLES.data_range_touch}
-            onPress={onPressDay2}>
-            <Text style={STYLES.data_range_text}>结束时间</Text>
-            <Text
-              style={[
-                STYLES.data_range_day,
-                dayActive === 1 ? STYLES.data_range_day_active : null,
-              ]}>
-              {value[1] ? renderDate(value[1], mode) : placeholder}
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={STYLES.data_range_item} onPress={onPressDay1}>
+          <Text style={STYLES.data_range_text}>开始时间</Text>
+          <Text
+            style={[
+              STYLES.data_range_day,
+              dayActive === 0 ? STYLES.data_range_day_active : null,
+            ]}>
+            {value[0] ? renderDate(value[0], mode) : placeholder}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={STYLES.data_range_item} onPress={onPressDay2}>
+          <Text style={STYLES.data_range_text}>结束时间</Text>
+          <Text
+            style={[
+              STYLES.data_range_day,
+              dayActive === 1 ? STYLES.data_range_day_active : null,
+            ]}>
+            {value[1] ? renderDate(value[1], mode) : placeholder}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <DatePickerView
