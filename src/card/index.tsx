@@ -30,6 +30,9 @@ const Card: React.FC<CardProps> = ({
   onPressHeader,
   onLayoutHeader,
   onLayoutBody,
+
+  style,
+  ...restProps
 }) => {
   const isS = size === 's'
 
@@ -72,7 +75,13 @@ const Card: React.FC<CardProps> = ({
   )
 
   return (
-    <View style={[STYLES.card, square ? null : STYLES.card_radius]}>
+    <View
+      {...restProps}
+      style={[
+        STYLES.card,
+        square ? null : STYLES[`card_radius_${size}`],
+        style,
+      ]}>
       {showHeader ? (
         onPressHeader ? (
           <TouchableWithoutFeedback onPress={onPressHeader}>

@@ -6,14 +6,15 @@ export const varCreator = (TOKENS: TokensType) => {
   return {
     card_background_color: TOKENS.white,
     card_padding_horizontal: TOKENS.space_3,
-    card_border_radius: TOKENS.border_radius_m,
     card_header_gap: TOKENS.space_2,
     card_m_header_height: 50,
     card_m_header_text_font_size: TOKENS.font_size_7,
     card_m_header_text_line_height: TOKENS.line_height_2,
+    card_m_border_radius: TOKENS.border_radius_m,
     card_s_header_height: 40,
     card_s_header_text_font_size: TOKENS.font_size_5,
     card_s_header_text_line_height: TOKENS.line_height_1,
+    card_s_border_radius: TOKENS.border_radius_s,
     card_header_text_color: TOKENS.gray_8,
     card_footer_text_font_size: TOKENS.font_size_3,
     card_footer_text_color: TOKENS.gray_7,
@@ -30,8 +31,12 @@ export const styleCreator = (cv: ComponentVars) => {
       backgroundColor: cv.card_background_color,
     },
 
-    card_radius: {
-      borderRadius: cv.card_border_radius,
+    card_radius_m: {
+      borderRadius: cv.card_m_border_radius,
+    },
+
+    card_radius_s: {
+      borderRadius: cv.card_s_border_radius,
     },
 
     header: {
