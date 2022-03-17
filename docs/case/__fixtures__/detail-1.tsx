@@ -17,7 +17,7 @@ import {
   useThemeTokens,
 } from '@fruits-chain/react-native-xiaoshu'
 
-const CaseList1: React.FC = () => {
+const CaseDetail1: React.FC = () => {
   const TOKENS = useThemeTokens()
 
   return (
@@ -187,4 +187,4 @@ const CaseList1: React.FC = () => {
   )
 }
 
-export default CaseList1
+export default CaseDetail1
