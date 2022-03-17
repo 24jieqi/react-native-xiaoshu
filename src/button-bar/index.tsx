@@ -59,7 +59,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
               <Button
                 key={index}
                 {...b}
-                size={b.size}
+                size={b.size || 'm'}
                 style={b.style || STYLES.btn}
               />
             )
