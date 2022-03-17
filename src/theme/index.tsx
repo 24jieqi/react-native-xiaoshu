@@ -1,7 +1,7 @@
 import React, { useMemo, useContext, createContext, memo } from 'react'
 
 import type { ThemeProviderProps, TokensType } from './interface'
-import * as TOKENS from './tokens-mix'
+import TOKENS from './tokens-mix'
 
 export type { TokensType } from './interface'
 export { createStyle } from './create-style'

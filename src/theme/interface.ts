@@ -1,4 +1,4 @@
-import type * as TOKENS from './tokens-mix'
+import type TOKENS from './tokens-mix'
 
 /** tokens */
 export type TokensType = typeof TOKENS & {
