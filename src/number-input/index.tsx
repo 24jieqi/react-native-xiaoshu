@@ -89,13 +89,16 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         } else {
           // 结束的时候限制最大最小值
           if (isEnd) {
-            const newValueNum = Number(newValueStringify)
+            const newValueNum = Number(t)
             // 输入结束做最大、最小限制
             if (newValueNum > max) {
               newValueStringify = String(max)
             }
             if (newValueNum < min) {
               newValueStringify = String(min)
+            }
+            if (t === '-') {
+              newValueStringify = null
             }
           }
         }
@@ -147,7 +150,11 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
             // '1.' 和 1 在 Number 后是一致的
             // '1.0' 和 1 在 Number 后是一致的
             const newValueNum = Number(newValueStringify)
-            if (newValueStringify && newValueNum !== LastValue.current) {
+            if (
+              newValueStringify &&
+              newValueStringify !== '-' &&
+              newValueNum !== LastValue.current
+            ) {
               onChangePersistFn(newValueNum)
               LastValue.current = newValueNum
             }
