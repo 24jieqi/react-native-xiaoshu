@@ -27,7 +27,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
   const CV = createVar(TOKENS, varCreator)
   const CV_BUTTON = createVar(TOKENS, varCreatorButton)
   const CV_CELL = varCreatorCell(TOKENS)
-  const STYLES = createStyle(CV, styleCreator)
+  const STYLES = createStyle(CV, styleCreator, TOKENS)
 
   const onPress = usePersistFn(() => {
     SelectorFn({
