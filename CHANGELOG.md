@@ -1,3 +1,9 @@
+## [0.1.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.11...v0.1.12) (2022-03-17)
+
+### Bug Fixes
+
+- **ButtonBar:** 🐛 默认按钮 m ([9b8fc26](https://github.com/hjfruit/react-native-xiaoshu/commit/9b8fc260aaa453936320f70ccfa3969d85ca58b7))
+
 ## [0.1.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.10...v0.1.11) (2022-03-17)
 
 ### Bug Fixes
