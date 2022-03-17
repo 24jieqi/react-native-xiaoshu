@@ -17,7 +17,7 @@ const Step: FC<StepsItemPropsType> = props => {
   const { current, data } = useContext(StepsContext)
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const STYLES = createStyle(CV, styleCreator, TOKENS)
   const windowWidth = Dimensions.get('window').width
   const stepWidth = windowWidth / maxSteps
   const [elementCount, setElementCount] = useState(0)

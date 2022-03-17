@@ -18,7 +18,7 @@ export const maxSteps = 3
 const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const STYLES = createStyle(CV, styleCreator, TOKENS)
   const ctx = useMemo(() => ({ current, data }), [current, data])
   const scrollRef = useRef<ScrollView>(null)
 
