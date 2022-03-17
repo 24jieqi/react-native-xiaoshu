@@ -1,3 +1,9 @@
+## [0.1.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.9...v0.1.10) (2022-03-17)
+
+### Bug Fixes
+
+- **NumberInput:** 🐛 负号做特别处理 ([0134e04](https://github.com/hjfruit/react-native-xiaoshu/commit/0134e04d58ef06b38255621ca6bde1a307f8383e))
+
 ## [0.1.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.8...v0.1.9) (2022-03-16)
 
 ### Bug Fixes
