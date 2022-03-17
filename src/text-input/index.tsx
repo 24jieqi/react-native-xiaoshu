@@ -110,7 +110,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
     const TOKENS = useThemeTokens()
     const CV = createVar(TOKENS, varCreator)
     const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-    const STYLES = createStyle(CV, styleCreator)
+    const STYLES = createStyle(CV, styleCreator, TOKENS)
 
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
