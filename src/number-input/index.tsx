@@ -89,7 +89,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         } else {
           // 结束的时候限制最大最小值
           if (isEnd) {
-            const newValueNum = Number(t)
+            const newValueNum = Number(newValueStringify)
             // 输入结束做最大、最小限制
             if (newValueNum > max) {
               newValueStringify = String(max)
