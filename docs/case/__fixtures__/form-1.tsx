@@ -4,7 +4,7 @@
  */
 
 import React, { useCallback } from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 
 import {
   ButtonBar,
@@ -13,6 +13,9 @@ import {
   Field,
   Cell,
   Space,
+  Divider,
+  Icon,
+  useThemeTokens,
 } from '@fruits-chain/react-native-xiaoshu'
 
 // App 端使用 react-native-keyboard-aware-scroll-view 代替 ScrollView
@@ -22,6 +25,7 @@ const selectOptions = new Array(10)
   .map((_, i) => ({ value: i, label: `选项${i}` }))
 
 const CaseForm1: React.FC = () => {
+  const TOKENS = useThemeTokens()
   const [form] = Form.useForm()
 
   const onFinish = useCallback((value: any) => {
@@ -83,9 +87,166 @@ const CaseForm1: React.FC = () => {
                   mode="Y-D"
                   title="落款日期"
                   placeholder="请选择日期"
+                  divider={false}
                 />
               </Form.Item>
             </Cell.Group>
+
+            <Form.List name="commodities">
+              {(fields, { add, remove }) => {
+                return (
+                  <>
+                    {fields.map(field => {
+                      // 如果已知数据结构，name 的类型可以是 keyof CommodityDataItem，有对象字段提示
+                      const buildNamePath = (name: string) => [
+                        'commodities',
+                        field.name,
+                        name,
+                      ]
+                      const commodityIdNamePath = buildNamePath('commodityId')
+
+                      return (
+                        <Form.Item
+                          key={field.key}
+                          dependencies={[commodityIdNamePath]}>
+                          {({ getFieldValue }) => {
+                            return (
+                              <Cell.Group
+                                style={{ backgroundColor: TOKENS.white }}
+                                bodyStyle={{ backgroundColor: TOKENS.white }}
+                                title={getFieldValue(
+                                  buildNamePath('commodityName'),
+                                )}
+                                extra={
+                                  <Icon.DeleteFill
+                                    onPress={() => {
+                                      remove(field.name)
+                                    }}
+                                  />
+                                }>
+                                <Text>
+                                  换算单位：1
+                                  {getFieldValue(buildNamePath('unitTypeName'))}
+                                  ={getFieldValue(buildNamePath('conversion'))}
+                                  {getFieldValue(
+                                    buildNamePath('totalTypeName'),
+                                  )}
+                                </Text>
+
+                                <Form.Item name={[field.name, 'unitQuantity']}>
+                                  <Field.NumberInput
+                                    textInputBordered
+                                    inputWidth={110}
+                                    title="数量上下应该在一行"
+                                    placeholder="请输入数量"
+                                    limitDecimals={4}
+                                    addonAfter={getFieldValue(
+                                      buildNamePath('unitTypeName'),
+                                    )}
+                                    divider={false}
+                                  />
+                                </Form.Item>
+
+                                <Form.Item name={[field.name, 'totalQuantity']}>
+                                  <Field.NumberInput
+                                    textInputBordered
+                                    inputWidth={110}
+                                    title="重量上下应该在一行"
+                                    placeholder="请输入重量"
+                                    limitDecimals={4}
+                                    addonAfter={getFieldValue(
+                                      buildNamePath('totalTypeName'),
+                                    )}
+                                    divider={false}
+                                  />
+                                </Form.Item>
+
+                                <Form.Item name={[field.name, 'unitPrice']}>
+                                  <Field.NumberInput
+                                    textInputBordered
+                                    inputWidth={110}
+                                    title="单价"
+                                    placeholder="请输入价格"
+                                    limitDecimals={4}
+                                    addonAfter={`元/${getFieldValue(
+                                      buildNamePath('unitPriceTypeName'),
+                                    )}`}
+                                    divider={false}
+                                  />
+                                </Form.Item>
+
+                                <Form.Item
+                                  dependencies={[
+                                    buildNamePath('unitPrice'),
+                                    buildNamePath('totalQuantity'),
+                                    buildNamePath('unitQuantity'),
+                                  ]}>
+                                  {() => {
+                                    // 记得使用 number-precision 计算，避免精度问题
+                                    return (
+                                      <Text style={{ textAlign: 'right' }}>
+                                        小计：
+                                        <Text>
+                                          {getFieldValue(
+                                            buildNamePath('unitPriceType'),
+                                          ) ===
+                                          getFieldValue(
+                                            buildNamePath('unitType'),
+                                          )
+                                            ? getFieldValue(
+                                                buildNamePath('unitQuantity'),
+                                              ) *
+                                              getFieldValue(
+                                                buildNamePath('unitPrice'),
+                                              )
+                                            : getFieldValue(
+                                                buildNamePath('totalQuantity'),
+                                              ) *
+                                              getFieldValue(
+                                                buildNamePath('unitPrice'),
+                                              )}
+                                          元
+                                        </Text>
+                                      </Text>
+                                    )
+                                  }}
+                                </Form.Item>
+
+                                <Divider />
+                              </Cell.Group>
+                            )
+                          }}
+                        </Form.Item>
+                      )
+                    })}
+                    <Button
+                      onPress={() => {
+                        const _id = new Date().getTime()
+                        // 跳转页面后
+                        add({
+                          commodityName: `商品名称_${_id}`,
+                          commodityId: _id,
+                          conversion: 80,
+                          unitQuantity: 20,
+                          unitType: 2,
+                          unitTypeName: '件',
+                          totalQuantity: 1600,
+                          totalType: 3,
+                          totalTypeName: 'kg',
+                          unitPrice: 10,
+                          unitPriceType: 2,
+                          unitPriceTypeName: '件',
+                        })
+                      }}
+                      square
+                      color="#fff"
+                      textColor={TOKENS.brand_6}>
+                      选择商品
+                    </Button>
+                  </>
+                )
+              }}
+            </Form.List>
           </Space>
         </Form>
       </ScrollView>
