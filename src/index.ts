@@ -120,8 +120,8 @@ export { default as Popup } from './popup'
 
 export { default as Portal } from './portal'
 
-export type { ProgressProps } from './progress/interface'
-export { Progress, ProgressPage } from './progress'
+export type { ProgressProps, ProgressPageProps } from './progress/interface'
+export { default as Progress } from './progress'
 
 export type { ProviderProps } from './provider/interface'
 export { default as Provider } from './provider'

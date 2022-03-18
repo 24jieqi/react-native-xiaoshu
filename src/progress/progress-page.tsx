@@ -40,12 +40,35 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   }, [state.percentage])
 
   useEffect(() => {
-    setState(s => ({
-      ...s,
-      percentage: loadingOut ? 90 : 100,
-      duration: loadingOut ? 1000 : 100,
-      animated: true,
-    }))
+    setState(s => {
+      const isReload = !s.loading && loadingOut
+
+      if (isReload) {
+        return {
+          ...s,
+          loading: loadingOut,
+          percentage: defaultPercentage,
+          duration: 0,
+          animated: false,
+        }
+      }
+
+      return { ...s }
+    })
+  }, [defaultPercentage, loadingOut])
+
+  useEffect(() => {
+    // 做一个延迟，避免上下两次操作状态合并在一个中，reload 的时候丢失过渡状态
+    setTimeout(() => {
+      setState(s => {
+        return {
+          ...s,
+          percentage: loadingOut ? 90 : 100,
+          duration: loadingOut ? 1000 : 100,
+          animated: true,
+        }
+      })
+    }, 0)
   }, [loadingOut])
 
   const placeholderStyle: ViewStyle = {

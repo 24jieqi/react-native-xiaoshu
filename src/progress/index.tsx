@@ -1,2 +1,8 @@
-export { default as Progress } from './progress'
-export { default as ProgressPage } from './progress-page'
+import { attachPropertiesToComponent } from '../helpers'
+
+import Progress from './progress'
+import ProgressPage from './progress-page'
+
+export default attachPropertiesToComponent(Progress, {
+  Page: ProgressPage,
+})
