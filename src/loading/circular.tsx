@@ -4,8 +4,9 @@ import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 
 import { getDefaultValue } from '../helpers'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
+import { varCreator } from './style'
 import useLoop from './useLoop'
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle)
@@ -25,13 +26,14 @@ export interface CircularProps {
 const STROKE_WIDTH = 2
 
 const Circular: React.FC<CircularProps> = ({ size, color }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
   const AnimatedCircle0Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current
 
-  size = getDefaultValue(size, THEME_VAR.loading_icon_size)
-  color = getDefaultValue(color, THEME_VAR.loading_icon_color)
+  size = getDefaultValue(size, CV.loading_icon_size)
+  color = getDefaultValue(color, CV.loading_icon_color)
 
   const circle1Props = useMemo(() => {
     const center = Math.floor(size / 2)
@@ -60,17 +62,17 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
 
   useLoop(AnimatedCircle0Value, 0, {
     toValue: 1,
-    duration: THEME_VAR.loading_icon_animation_duration,
+    duration: CV.loading_icon_animation_duration,
   })
 
   useLoop(AnimatedCircle1Value, half1Circle, {
     toValue: -half1Circle * 2,
-    duration: THEME_VAR.loading_icon_animation_duration * 1.5,
+    duration: CV.loading_icon_animation_duration * 1.5,
   })
 
   useLoop(AnimatedCircle2Value, half2Circle, {
     toValue: -half2Circle * 2,
-    duration: THEME_VAR.loading_icon_animation_duration * 2.5,
+    duration: CV.loading_icon_animation_duration * 2.5,
   })
 
   const iconStyle: ViewStyle = {

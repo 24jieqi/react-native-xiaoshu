@@ -5,7 +5,7 @@ import { useControllableValue, usePersistFn } from '../hooks'
 import { EyeOutline, EyeCloseOutline } from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { useTheme } from '../theme'
+import { useThemeTokens } from '../theme'
 
 import type { PasswordInputProps } from './interface'
 
@@ -22,7 +22,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     },
     ref,
   ) => {
-    const THEME_VAR = useTheme()
+    const TOKENS = useThemeTokens()
     const [secure, onChangeSecureTextEntry] = useControllableValue(restProps, {
       valuePropName: 'secureTextEntry',
       defaultValuePropName: 'defaultSecureTextEntry',
@@ -30,7 +30,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
       trigger: 'onChangeSecureTextEntry',
     })
 
-    iconColor = getDefaultValue(iconColor, THEME_VAR.gray_6)
+    iconColor = getDefaultValue(iconColor, TOKENS.gray_6)
 
     const onPressIcon = usePersistFn(() => {
       onChangeSecureTextEntry(!secure)

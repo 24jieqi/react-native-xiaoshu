@@ -2,10 +2,10 @@ import React, { isValidElement } from 'react'
 import { View, Text, Image } from 'react-native'
 
 import { PlusOutline } from '../icon'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { UploaderProps, UploaderValue } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 import UploaderImage from './uploader-image'
 
 /**
@@ -26,8 +26,9 @@ const Uploader = <T extends UploaderValue>({
   onPressDelete,
   onPressError,
 }: UploaderProps<T>) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const genOnPressDelete = (item: T, index: number) => () => {
     onPressDelete?.(item, index, list)
@@ -67,7 +68,7 @@ const Uploader = <T extends UploaderValue>({
             uploadIcon
           ) : (
             <PlusOutline
-              color={THEME_VAR.uploader_upload_text_color}
+              color={CV.uploader_upload_text_color}
               pointerEvents="none"
             />
           )}

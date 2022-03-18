@@ -11,8 +11,11 @@ import { serializeMode, toDateObject } from '../date-picker-view/useDatePicker'
 import { Row, Col } from '../grid'
 import { isDef } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
-import { createStyles } from '../picker/style'
-import { useTheme, widthStyle } from '../theme'
+import {
+  varCreator as varCreatorPicker,
+  styleCreator as styleCreatorPicker,
+} from '../picker/style'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type {
   DatePickerRangeViewProps,
@@ -61,13 +64,14 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   ...restProps
 }) => {
   const _initialValue = isDef(initialValue) ? initialValue : defaultInitialValue
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV_PICKER = createVar(TOKENS, varCreatorPicker)
+  const STYLES_PICKER = createStyle(CV_PICKER, styleCreatorPicker)
   const btnStyle = useMemo(
     () => ({
-      paddingHorizontal: THEME_VAR.picker_action_gap,
+      paddingHorizontal: CV_PICKER.picker_action_gap,
     }),
-    [THEME_VAR.picker_action_gap],
+    [CV_PICKER.picker_action_gap],
   )
 
   const [value, onChange] = useControllableValue<DatePickerRangeValue>(
@@ -118,24 +122,28 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   return (
     <>
-      <View style={STYLES.data_range}>
-        <TouchableOpacity style={STYLES.data_range_item} onPress={onPressDay1}>
-          <Text style={STYLES.data_range_text}>开始时间</Text>
+      <View style={STYLES_PICKER.data_range}>
+        <TouchableOpacity
+          style={STYLES_PICKER.data_range_item}
+          onPress={onPressDay1}>
+          <Text style={STYLES_PICKER.data_range_text}>开始时间</Text>
           <Text
             style={[
-              STYLES.data_range_day,
-              dayActive === 0 ? STYLES.data_range_day_active : null,
+              STYLES_PICKER.data_range_day,
+              dayActive === 0 ? STYLES_PICKER.data_range_day_active : null,
             ]}>
             {value[0] ? renderDate(value[0], mode) : placeholder}
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={STYLES.data_range_item} onPress={onPressDay2}>
-          <Text style={STYLES.data_range_text}>结束时间</Text>
+        <TouchableOpacity
+          style={STYLES_PICKER.data_range_item}
+          onPress={onPressDay2}>
+          <Text style={STYLES_PICKER.data_range_text}>结束时间</Text>
           <Text
             style={[
-              STYLES.data_range_day,
-              dayActive === 1 ? STYLES.data_range_day_active : null,
+              STYLES_PICKER.data_range_day,
+              dayActive === 1 ? STYLES_PICKER.data_range_day_active : null,
             ]}>
             {value[1] ? renderDate(value[1], mode) : placeholder}
           </Text>
@@ -152,7 +160,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
         loading={loading}
       />
 
-      <Row gap={THEME_VAR.picker_action_gap} style={btnStyle}>
+      <Row gap={CV_PICKER.picker_action_gap} style={btnStyle}>
         <Col span={12}>
           <Button
             type="hazy"

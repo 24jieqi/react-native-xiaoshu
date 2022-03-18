@@ -5,10 +5,10 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { getDefaultValue, isDef } from '../helpers'
 import Loading from '../loading'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { ButtonProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Button 按钮
@@ -33,42 +33,43 @@ const Button: React.FC<ButtonProps> = ({
   textColor,
   ...otherProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   color = getDefaultValue(
     color,
-    danger ? THEME_VAR.button_danger_color : THEME_VAR.button_primary_color,
+    danger ? CV.button_danger_color : CV.button_primary_color,
   )
-  textColor = getDefaultValue(textColor, THEME_VAR.white)
+  textColor = getDefaultValue(textColor, TOKENS.white)
 
   const [_backgroundColor, _borderColor, _textColor, _borderWidth] =
     useMemo(() => {
       switch (type) {
         case 'hazy': {
           const hazyColor = Color(color)
-            .lightness(THEME_VAR.button_hazy_lightness)
+            .lightness(CV.button_hazy_lightness)
             .hex()
           return [hazyColor, hazyColor, color, 0]
         }
 
         case 'outline': {
           return [
-            THEME_VAR.button_ghost_background_color,
-            THEME_VAR.button_border_color,
+            CV.button_ghost_background_color,
+            CV.button_border_color,
             color,
             1,
           ]
         }
 
         case 'ghost': {
-          return [THEME_VAR.button_ghost_background_color, color, color, 1]
+          return [CV.button_ghost_background_color, color, color, 1]
         }
 
         case 'link':
           return [
-            THEME_VAR.button_ghost_background_color,
-            THEME_VAR.button_ghost_background_color,
+            CV.button_ghost_background_color,
+            CV.button_ghost_background_color,
             color,
             0,
           ]
@@ -78,9 +79,9 @@ const Button: React.FC<ButtonProps> = ({
           return [color, color, textColor, 0]
       }
     }, [
-      THEME_VAR.button_border_color,
-      THEME_VAR.button_ghost_background_color,
-      THEME_VAR.button_hazy_lightness,
+      CV.button_border_color,
+      CV.button_ghost_background_color,
+      CV.button_hazy_lightness,
       color,
       textColor,
       type,
@@ -89,7 +90,7 @@ const Button: React.FC<ButtonProps> = ({
   const buttonStyles: StyleProp<ViewStyle> = [
     STYLES.button,
     {
-      height: THEME_VAR[`button_${size}_height`],
+      height: CV[`button_${size}_height`],
       backgroundColor: _backgroundColor,
       borderColor: _borderColor,
       borderWidth: _borderWidth
@@ -108,9 +109,9 @@ const Button: React.FC<ButtonProps> = ({
   const commonTextStyle = StyleSheet.flatten<TextStyle>([
     STYLES.text,
     {
-      fontSize: THEME_VAR[`button_${size}_font_size`],
+      fontSize: CV[`button_${size}_font_size`],
       color: _textColor,
-      marginLeft: renderLeftIcon ? THEME_VAR.button_icon_gap : 0,
+      marginLeft: renderLeftIcon ? CV.button_icon_gap : 0,
     },
   ])
 
@@ -118,7 +119,7 @@ const Button: React.FC<ButtonProps> = ({
     commonTextStyle,
     textStyle,
   ])
-  const iconSize = THEME_VAR[`button_${size}_loading_size`] || 24
+  const iconSize = CV[`button_${size}_loading_size`] || 24
   const iconColor = textStyleSummary.color as string
 
   const contextJSX = loading ? (
@@ -142,7 +143,7 @@ const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       disabled={disabled || loading}
       style={buttonStyles}
-      activeOpacity={THEME_VAR.button_active_opacity}
+      activeOpacity={CV.button_active_opacity}
       {...otherProps}>
       {contextJSX}
     </TouchableOpacity>

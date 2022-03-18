@@ -7,10 +7,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import PickerView from '../picker-view'
 import type { PickerViewProps } from '../picker-view/interface'
 import Popup from '../popup'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { PickerProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const PICKER_VIEW_PROPS_KEYS = [
   'value',
@@ -34,8 +34,9 @@ const Picker: React.FC<PickerProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
   const insets = useSafeAreaInsets()
 
   const headerTitleJSX = (
@@ -73,7 +74,7 @@ const Picker: React.FC<PickerProps> = ({
       <PickerView {...pickerViewProps} />
       {showToolbar && toolbarPosition === 'bottom' ? headerTitleJSX : null}
 
-      <View style={{ height: insets.bottom + THEME_VAR.picker_bottom_gap }} />
+      <View style={{ height: insets.bottom + CV.picker_bottom_gap }} />
     </Popup>
   )
 }

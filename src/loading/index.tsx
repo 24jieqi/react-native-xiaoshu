@@ -2,11 +2,12 @@ import React, { isValidElement, memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 import { getDefaultValue, isDef } from '../helpers'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import Circular from './circular'
 import type { LoadingProps } from './interface'
 import Spinner from './spinner'
+import { varCreator } from './style'
 
 /**
  * Loading 加载
@@ -22,9 +23,10 @@ const Loading: React.FC<LoadingProps> = ({
   vertical = false,
   type = 'circular',
 }) => {
-  const THEME_VAR = useTheme()
-  const ICON_COLOR = getDefaultValue(color, THEME_VAR.loading_icon_color)
-  const ICON_SIZE = getDefaultValue(size, THEME_VAR.loading_icon_size)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)
+  const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)
 
   const textJSX = isDef(children) ? (
     isValidElement(children) ? (
@@ -33,10 +35,10 @@ const Loading: React.FC<LoadingProps> = ({
       <Text
         style={StyleSheet.flatten([
           {
-            fontSize: textSize || THEME_VAR.loading_text_font_size,
-            color: color || THEME_VAR.loading_text_color,
-            marginLeft: vertical ? 0 : THEME_VAR.loading_gap,
-            marginTop: vertical ? THEME_VAR.loading_gap : 0,
+            fontSize: textSize || CV.loading_text_font_size,
+            color: color || CV.loading_text_color,
+            marginLeft: vertical ? 0 : CV.loading_gap,
+            marginTop: vertical ? CV.loading_gap : 0,
           },
           textStyle,
         ])}>

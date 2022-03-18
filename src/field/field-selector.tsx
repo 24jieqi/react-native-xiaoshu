@@ -1,13 +1,13 @@
 import React, { memo } from 'react'
 import { Keyboard } from 'react-native'
 
+import { varCreator as varCreatorButton } from '../button/style'
 import { isArray, isValue } from '../helpers'
 import { usePersistFn } from '../hooks'
-import IconSvgCross from '../icon/cross'
 import Selector from '../selector'
 import type { SelectorValue } from '../selector/interface'
-import { createStyles as createTextInputStyles } from '../text-input/style'
-import { useTheme, widthStyle } from '../theme'
+import TextInputClear from '../text-input/text-input-clear'
+import { useThemeTokens, createVar } from '../theme'
 
 import FieldText from './field-text'
 import type { FieldSelectorProps } from './interface'
@@ -28,8 +28,8 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   isLink = true,
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
-  const TEXT_INPUT_STYLES = widthStyle(THEME_VAR, createTextInputStyles)
+  const TOKENS = useThemeTokens()
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
 
   const onPressCell = usePersistFn(() => {
     Keyboard.dismiss()
@@ -67,7 +67,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
           ? [
               innerStyle,
               {
-                opacity: THEME_VAR.button_active_opacity,
+                opacity: CV_BUTTON.button_active_opacity,
               },
             ]
           : innerStyle
@@ -79,10 +79,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
         hasValue && clearable ? (
           <>
             {restProps.valueExtra}
-            <IconSvgCross
-              style={TEXT_INPUT_STYLES.clearable}
-              color={THEME_VAR.text_input_clearable_color}
-              size={(THEME_VAR.text_input_clearable_size / 4) * 3}
+            <TextInputClear
               onPress={() => {
                 onChange(multiple ? [] : undefined, multiple ? [] : undefined)
               }}

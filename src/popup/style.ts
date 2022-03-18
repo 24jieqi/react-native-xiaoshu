@@ -2,15 +2,27 @@ import omit from 'lodash/omit'
 import type { ViewStyle } from 'react-native'
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
 import type { PopupPosition } from './interface'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    popup_background_color: TOKENS.white,
+    popup_round_border_radius: TOKENS.border_radius_xl,
+    popup_close_icon_size: 24,
+    popup_close_icon_color: TOKENS.gray_7,
+    popup_close_icon_margin_left: TOKENS.space_2,
+  }
+}
+
+export type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     popup: {
       position: 'relative',
-      backgroundColor: themeVar.popup_background_color,
+      backgroundColor: cv.popup_background_color,
       overflow: 'hidden',
       height: 0,
     },
@@ -22,11 +34,11 @@ export const createStyles = (themeVar: ThemeVarType) => {
 }
 
 export const getBorderRadius = (
-  themeVar: ThemeVarType,
+  cv: ComponentVars,
   position: PopupPosition,
   round: boolean,
 ): ViewStyle => {
-  const borderRadius = round ? themeVar.popup_round_border_radius : 0
+  const borderRadius = round ? cv.popup_round_border_radius : 0
   return {
     borderTopLeftRadius:
       position === 'bottom' || position === 'right' ? borderRadius : 0,

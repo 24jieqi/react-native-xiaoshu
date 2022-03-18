@@ -4,11 +4,10 @@ import { Dimensions, View } from 'react-native'
 
 import { Icon } from '..'
 import { renderTextLikeJSX, isDef } from '../helpers'
-import { useTheme, widthStyle } from '../theme'
-// import { StepSuccess } from './images'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { StepsItemPropsType } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 import { maxSteps, StepsContext } from '.'
 
@@ -16,8 +15,9 @@ import { maxSteps, StepsContext } from '.'
 const Step: FC<StepsItemPropsType> = props => {
   const { status, icon, index, title } = props
   const { current, data } = useContext(StepsContext)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator, TOKENS)
   const windowWidth = Dimensions.get('window').width
   const stepWidth = windowWidth / maxSteps
   const [elementCount, setElementCount] = useState(0)
@@ -30,8 +30,8 @@ const Step: FC<StepsItemPropsType> = props => {
       resIcon = (
         <View style={STYLES.dotActive}>
           <Icon.SuccessOutline
-            color={THEME_VAR.steps_background_color}
-            size={THEME_VAR.steps_icon_success_active_size}
+            color={CV.steps_background_color}
+            size={CV.steps_icon_success_active_size}
           />
         </View>
       )

@@ -4,9 +4,11 @@ import { Provider } from '@fruits-chain/react-native-xiaoshu'
 
 import Routes from './routes'
 
+const colors = {}
+
 const App = () => {
   return (
-    <Provider>
+    <Provider theme={colors}>
       <Routes />
     </Provider>
   )

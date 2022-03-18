@@ -7,7 +7,7 @@ import type {
   ViewProps,
 } from 'react-native'
 
-export interface CardProps {
+export interface CardProps extends ViewProps {
   /**
    * 标题
    */

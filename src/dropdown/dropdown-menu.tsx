@@ -2,11 +2,11 @@ import React, { useMemo, useRef, memo } from 'react'
 import { View } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import { DropdownConfig } from './context'
 import type { DropdownMenuProps } from './interface'
-import { createStyles } from './style.menu'
+import { varCreator, styleCreator } from './style.menu'
 
 /**
  * DropdownMenu 下拉菜单的横条
@@ -27,14 +27,15 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   ...restProps
 }) => {
   const MenuRef = useRef<View>(null)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   activeColor = getDefaultValue(
     activeColor,
-    THEME_VAR.dropdown_menu_title_active_text_color,
+    CV.dropdown_menu_title_active_text_color,
   )
-  duration = getDefaultValue(duration, THEME_VAR.animation_duration_fast)
+  duration = getDefaultValue(duration, TOKENS.animation_duration_fast)
 
   const config = useMemo(
     () => ({

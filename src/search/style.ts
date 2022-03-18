@@ -1,36 +1,49 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    search_background_color: TOKENS.white,
+    search_padding_horizontal: TOKENS.space_3,
+    search_padding_vertical: TOKENS.space_1,
+    search_gap: TOKENS.space_2,
+    search_back_icon_color: TOKENS.gray_8,
+    search_text_input_background_color: TOKENS.gray_3,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     search: {
-      backgroundColor: themeVar.search_background_color,
-      paddingHorizontal: themeVar.search_padding_horizontal,
-      paddingVertical: themeVar.search_padding_vertical,
+      backgroundColor: cv.search_background_color,
+      paddingHorizontal: cv.search_padding_horizontal,
+      paddingVertical: cv.search_padding_vertical,
       flexDirection: 'row',
       alignItems: 'center',
     },
 
     search_back: {
-      paddingLeft: themeVar.search_gap,
+      paddingLeft: cv.search_gap,
     },
 
     text_input: {
-      marginLeft: themeVar.search_gap,
+      marginLeft: cv.search_gap,
     },
 
     text_input_group: {
       flex: 1,
-      backgroundColor: themeVar.search_text_input_background_color,
+      backgroundColor: cv.search_text_input_background_color,
       borderRadius: 4,
-      marginRight: themeVar.search_gap,
+      marginRight: cv.search_gap,
     },
 
     icon_back: {
       alignItems: 'center',
       justifyContent: 'center',
-      marginRight: themeVar.search_gap,
+      marginRight: cv.search_gap,
       // backgroundColor: '#f30',
     },
   })

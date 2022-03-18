@@ -5,6 +5,7 @@ import type {
   TextStyle,
   StyleProp,
   TextInput as RNTextInput,
+  TouchableOpacityProps,
 } from 'react-native'
 
 export type TextInputInstance = RNTextInput
@@ -124,4 +125,8 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
    * @description 与原生控件不同，这里的参数直接是值
    */
   onChange?: (value: string) => void
+}
+
+export interface TextInputClearProps {
+  onPress?: TouchableOpacityProps['onPress']
 }

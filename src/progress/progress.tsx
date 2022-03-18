@@ -5,9 +5,10 @@ import { View, Text, Animated } from 'react-native'
 import { getDefaultValue } from '../helpers'
 import * as helpers from '../helpers'
 import { usePersistFn } from '../hooks'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { ProgressProps } from './interface'
+import { varCreator } from './style'
 
 type ViewLayout = { width: number; height: number }
 
@@ -34,23 +35,24 @@ const Progress: React.FC<ProgressProps> = ({
   const onAnimationEndPersistFn = usePersistFn(() => {
     onAnimationEnd?.()
   })
-  const themeVar = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
 
   // 默认值
-  color = getDefaultValue(color, themeVar.progress_color)
+  color = getDefaultValue(color, CV.progress_color)
 
   if (inactive) {
     color = '#cacaca'
   }
 
-  trackColor = getDefaultValue(trackColor, themeVar.progress_background_color)
+  trackColor = getDefaultValue(trackColor, CV.progress_background_color)
   pivotColor = getDefaultValue(pivotColor, color)
-  textColor = getDefaultValue(textColor, themeVar.progress_pivot_text_color)
+  textColor = getDefaultValue(textColor, CV.progress_pivot_text_color)
   pivotText = getDefaultValue(pivotText, `${percentage}%`)
-  strokeWidth = getDefaultValue(strokeWidth, themeVar.progress_height)
+  strokeWidth = getDefaultValue(strokeWidth, CV.progress_height)
   animationDuration = getDefaultValue(
     animationDuration,
-    themeVar.animation_duration_base,
+    TOKENS.animation_duration_base,
   )
 
   const borderRadius = square ? 0 : strokeWidth / 2
@@ -106,8 +108,8 @@ const Progress: React.FC<ProgressProps> = ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: pivotColor,
-    paddingHorizontal: themeVar.progress_pivot_padding_horizontal,
-    borderRadius: themeVar.border_radius_max,
+    paddingHorizontal: CV.progress_pivot_padding_horizontal,
+    borderRadius: TOKENS.border_radius_max,
     transform: [
       {
         translateX: -textLayout.width / 2,
@@ -146,10 +148,10 @@ const Progress: React.FC<ProgressProps> = ({
           <Text
             style={{
               color: textColor,
-              fontSize: themeVar.progress_pivot_font_size,
+              fontSize: CV.progress_pivot_font_size,
               lineHeight:
-                themeVar.progress_pivot_line_height_scale *
-                themeVar.progress_pivot_font_size,
+                CV.progress_pivot_line_height_scale *
+                CV.progress_pivot_font_size,
             }}>
             {pivotText}
           </Text>

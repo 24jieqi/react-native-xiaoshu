@@ -1,19 +1,48 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
-  const innerHeight = themeVar.cell_title_height
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    cell_group_title_padding_horizontal: TOKENS.space_3,
+    cell_group_title_padding_top: TOKENS.space_2,
+    cell_group_title_padding_bottom: TOKENS.space_2,
+    cell_group_title_color: TOKENS.gray_8,
+    cell_group_title_font_size: TOKENS.font_size_5,
+    cell_group_title_line_height: 28,
+    cell_icon_size: TOKENS.font_size_5,
+    cell_icon_color: TOKENS.gray_6,
+    cell_active_color: TOKENS.gray_1,
+    cell_font_size: TOKENS.font_size_5,
+    cell_background_color: TOKENS.white,
+    cell_padding_vertical: TOKENS.space_3,
+    cell_padding_horizontal: TOKENS.space_3,
+    cell_mini_height: 50,
+    cell_title_text_color: TOKENS.gray_8,
+    cell_title_height: 32,
+    cell_title_line_height: TOKENS.line_height_1,
+    cell_title_line_margin_right: TOKENS.space_2,
+    cell_value_text_color: TOKENS.gray_7,
+    cell_required_color: TOKENS.red_6,
+    cell_required_width: TOKENS.space_3,
+    cell_icon_link_margin_left: TOKENS.space_2,
+  }
+}
+
+export type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
+  const innerHeight = cv.cell_title_height
 
   return StyleSheet.create({
     cell: {
-      backgroundColor: themeVar.cell_background_color,
+      backgroundColor: cv.cell_background_color,
     },
 
     cell_inner: {
       position: 'relative',
-      marginHorizontal: themeVar.cell_group_title_padding_horizontal,
-      paddingVertical: (themeVar.cell_mini_height - innerHeight) / 2,
+      marginHorizontal: cv.cell_group_title_padding_horizontal,
+      paddingVertical: (cv.cell_mini_height - innerHeight) / 2,
     },
 
     cell_inner_row: {
@@ -23,33 +52,33 @@ export const createStyles = (themeVar: ThemeVarType) => {
     title: {
       position: 'relative',
       flexDirection: 'row',
-      marginRight: themeVar.cell_title_line_margin_right,
+      marginRight: cv.cell_title_line_margin_right,
       // alignItems: 'center',
       // backgroundColor: '#f30', // to test ui
     },
 
     title_required: {
       position: 'absolute',
-      left: -themeVar.cell_required_width,
+      left: -cv.cell_required_width,
       height: innerHeight,
-      width: themeVar.cell_required_width,
+      width: cv.cell_required_width,
       // backgroundColor: '#789', // to test ui
       alignItems: 'center',
       justifyContent: 'center',
     },
 
     title_required_text: {
-      fontSize: themeVar.cell_font_size,
-      color: themeVar.cell_required_color,
+      fontSize: cv.cell_font_size,
+      color: cv.cell_required_color,
     },
 
     title_text: {
       minHeight: innerHeight,
       // backgroundColor: '#f30', // to test ui
-      color: themeVar.cell_title_text_color,
-      fontSize: themeVar.cell_font_size,
-      lineHeight: themeVar.cell_title_line_height,
-      paddingVertical: (innerHeight - themeVar.cell_title_line_height) / 2,
+      color: cv.cell_title_text_color,
+      fontSize: cv.cell_font_size,
+      lineHeight: cv.cell_title_line_height,
+      paddingVertical: (innerHeight - cv.cell_title_line_height) / 2,
     },
 
     value: {
@@ -57,16 +86,16 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     value_text: {
-      color: themeVar.cell_value_text_color,
-      fontSize: themeVar.cell_font_size,
-      lineHeight: themeVar.cell_title_line_height,
-      paddingVertical: (innerHeight - themeVar.cell_title_line_height) / 2,
+      color: cv.cell_value_text_color,
+      fontSize: cv.cell_font_size,
+      lineHeight: cv.cell_title_line_height,
+      paddingVertical: (innerHeight - cv.cell_title_line_height) / 2,
       // backgroundColor: '#f30', // to test ui
     },
 
     icon_link: {
       alignSelf: 'center',
-      marginLeft: themeVar.cell_icon_link_margin_left,
+      marginLeft: cv.cell_icon_link_margin_left,
       // backgroundColor: '#f30',
     },
 

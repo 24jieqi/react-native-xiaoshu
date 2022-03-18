@@ -163,8 +163,8 @@ export { default as Tag } from './tag'
 export type { TextInputProps, TextInputInstance } from './text-input/interface'
 export { default as TextInput } from './text-input'
 
-export type { ThemeVarType } from './theme'
-export { default as Theme, useTheme } from './theme'
+export type { TokensType } from './theme'
+export { default as Theme, useThemeTokens } from './theme'
 
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'

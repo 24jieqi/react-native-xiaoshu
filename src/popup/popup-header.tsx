@@ -3,10 +3,11 @@ import React, { memo } from 'react'
 import { usePersistFn } from '../hooks'
 import { CrossOutline } from '../icon'
 import NavBar from '../nav-bar'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { PopupHeaderProps } from './interface'
-import { createStyles } from './style.header'
+import { varCreator } from './style'
+import { styleCreator } from './style.header'
 
 const PopupHeader: React.FC<PopupHeaderProps> = ({
   showClose = true,
@@ -16,8 +17,9 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
   ...restProps
 }) => {
   const onClosePersistFn = usePersistFn(onClose)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const rightExtraJSX = (
     <>
@@ -25,8 +27,8 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
       {showClose ? (
         <CrossOutline
           style={STYLES.icon}
-          color={THEME_VAR.popup_close_icon_color}
-          size={THEME_VAR.popup_close_icon_size}
+          color={CV.popup_close_icon_color}
+          size={CV.popup_close_icon_size}
           onPress={onClosePersistFn}
         />
       ) : null}

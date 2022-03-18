@@ -2,11 +2,12 @@ import React, { useRef, useEffect, useMemo, memo } from 'react'
 import { View, Text, PanResponder, Animated } from 'react-native'
 
 import { usePersistFn } from '../hooks'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import { findUsableOptionIndex } from './helper/column'
 import type { PickerViewColumnProps, PickerValue } from './interface'
-import { createStyles } from './style.column'
+import { varCreator } from './style'
+import { styleCreator } from './style.column'
 
 /**
  * 选择器 列
@@ -18,8 +19,9 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
   value,
   onChange,
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   /** 刻度偏移量，中间一个选项的高度，各自偏移半个高度 */
   const markMargin = itemHeight / 2

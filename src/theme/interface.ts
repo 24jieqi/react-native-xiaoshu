@@ -1,12 +1,14 @@
-import type * as DefaultVar from './default-var'
+import type TOKENS from './tokens-mix'
 
-/** 默认变量 */
-export type ThemeVarType = typeof DefaultVar
+/** tokens */
+export type TokensType = typeof TOKENS
 
 /** 外界可以参与修改的变量 */
-export type StyleVar = Partial<ThemeVarType>
+export type StyleVar = Partial<TokensType>
 
 /** 默认初始化状态 */
 export interface ThemeProviderProps {
-  theme?: StyleVar
+  theme?: StyleVar & {
+    [key in string]: any
+  }
 }

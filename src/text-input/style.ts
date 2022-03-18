@@ -1,8 +1,41 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    text_input_l_font_size: TOKENS.font_size_5,
+    text_input_l_min_height: 40,
+    text_input_m_font_size: TOKENS.font_size_4,
+    text_input_m_min_height: 32,
+    text_input_s_font_size: TOKENS.font_size_4,
+    text_input_s_min_height: 24,
+    text_input_selection_color: TOKENS.brand_6,
+    text_input_placeholder_text_color: TOKENS.gray_5,
+    text_input_color: TOKENS.gray_8,
+    text_input_disabled_color: TOKENS.gray_6,
+    text_input_disabled_background_color: '#EFEFF1',
+    text_input_border_radio: TOKENS.border_radius_s,
+    text_input_padding_horizontal: TOKENS.space_2,
+    text_input_clearable_size: 16,
+    text_input_clearable_background_color: TOKENS.gray_5,
+    text_input_clearable_color: TOKENS.white,
+    text_input_fix_text_color: TOKENS.gray_8,
+    text_input_addon_text_color: TOKENS.gray_8,
+    text_input_light_accessory_background_color: '#f7f7f7',
+    text_input_dark_accessory_background_color: '#575757',
+    text_input_dark_accessory_padding_horizontal: TOKENS.space_3,
+    text_input_accessory_font_size: TOKENS.font_size_5,
+    text_input_accessory_height: 44,
+    text_input_accessory_text_color: TOKENS.brand_6,
+    text_input_word_limit_text_font_size: TOKENS.font_size_3,
+    text_input_word_limit_text_color: TOKENS.gray_7,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
   return StyleSheet.create({
     input: {
       // flex: 1,
@@ -14,12 +47,12 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     input_border: {
       borderWidth: 1,
-      borderRadius: themeVar.text_input_border_radio,
-      borderColor: themeVar.border_color,
+      borderRadius: cv.text_input_border_radio,
+      borderColor: TOKENS.border_color,
     },
 
     input_disabled: {
-      backgroundColor: themeVar.text_input_disabled_background_color,
+      backgroundColor: cv.text_input_disabled_background_color,
     },
 
     text_input: {
@@ -31,40 +64,40 @@ export const createStyles = (themeVar: ThemeVarType) => {
       margin: 0,
       borderWidth: 0,
       textAlignVertical: 'center',
-      color: themeVar.text_input_color,
+      color: cv.text_input_color,
     },
 
     text_input_disabled: {
-      color: themeVar.text_input_disabled_color,
+      color: cv.text_input_disabled_color,
     },
 
     input_fix_group: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingHorizontal: themeVar.text_input_padding_horizontal,
+      paddingHorizontal: cv.text_input_padding_horizontal,
     },
 
     input_fix_text: {
-      color: themeVar.text_input_fix_text_color,
+      color: cv.text_input_fix_text_color,
     },
 
     input_fix_text_pre: {
-      marginRight: themeVar.text_input_padding_horizontal,
+      marginRight: cv.text_input_padding_horizontal,
     },
 
     input_fix_text_suf: {
-      marginLeft: themeVar.text_input_padding_horizontal,
+      marginLeft: cv.text_input_padding_horizontal,
     },
 
     clearable: {
       alignSelf: 'center',
-      width: themeVar.text_input_clearable_size,
-      height: themeVar.text_input_clearable_size,
-      borderRadius: themeVar.text_input_clearable_size / 2,
-      backgroundColor: themeVar.text_input_clearable_background_color,
+      width: cv.text_input_clearable_size,
+      height: cv.text_input_clearable_size,
+      borderRadius: cv.text_input_clearable_size / 2,
+      backgroundColor: cv.text_input_clearable_background_color,
       alignItems: 'center',
       justifyContent: 'center',
-      marginLeft: themeVar.text_input_padding_horizontal,
+      marginLeft: cv.text_input_padding_horizontal,
     },
 
     addon_group: {
@@ -74,40 +107,40 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     addon_text: {
-      color: themeVar.text_input_addon_text_color,
+      color: cv.text_input_addon_text_color,
     },
 
     addon_text_before: {
-      marginRight: themeVar.text_input_padding_horizontal,
+      marginRight: cv.text_input_padding_horizontal,
     },
 
     addon_text_after: {
-      marginLeft: themeVar.text_input_padding_horizontal,
+      marginLeft: cv.text_input_padding_horizontal,
     },
 
     word_limit_text: {
       position: 'absolute',
       bottom: 0,
       right: 0,
-      fontSize: themeVar.text_input_word_limit_text_font_size,
-      color: themeVar.text_input_word_limit_text_color,
+      fontSize: cv.text_input_word_limit_text_font_size,
+      color: cv.text_input_word_limit_text_color,
     },
 
     accessory: {
       width: '100%',
-      height: themeVar.text_input_accessory_height,
+      height: cv.text_input_accessory_height,
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
-      borderTopColor: themeVar.border_color,
+      borderTopColor: TOKENS.border_color,
       borderTopWidth: 1,
     },
 
     accessory_text: {
-      color: themeVar.text_input_accessory_text_color,
-      fontSize: themeVar.text_input_accessory_font_size,
-      paddingHorizontal: themeVar.text_input_dark_accessory_padding_horizontal,
-      lineHeight: (themeVar.text_input_accessory_height / 3) * 2,
+      color: cv.text_input_accessory_text_color,
+      fontSize: cv.text_input_accessory_font_size,
+      paddingHorizontal: cv.text_input_dark_accessory_padding_horizontal,
+      lineHeight: (cv.text_input_accessory_height / 3) * 2,
       fontWeight: 'bold',
     },
   })

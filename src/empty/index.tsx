@@ -3,10 +3,10 @@ import React, { memo } from 'react'
 import { isDef } from '../helpers'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { EmptyProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Empty 空元素
@@ -20,8 +20,9 @@ const Empty: React.FC<EmptyProps> = ({
   icon,
   full = false,
 }) => {
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const iconJSX = isDef(icon) ? (
     icon

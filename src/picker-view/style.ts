@@ -1,13 +1,25 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    picker_view_background_color: TOKENS.white,
+    picker_view_column_mask_background_color: 'rgba(255,255,255,0.8)',
+    picker_view_column_text_color: TOKENS.gray_8,
+    picker_view_column_text_disabled_color: TOKENS.gray_6,
+    picker_view_column_text_font_size: TOKENS.font_size_5,
+  }
+}
+
+export type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     picker: {
-      backgroundColor: themeVar.picker_view_background_color,
+      backgroundColor: cv.picker_view_background_color,
       // backgroundColor: '#f30',
-      // borderRadius: themeVar.border_radius_md,
+      // borderRadius: cv.border_radius_md,
       overflow: 'hidden',
     },
 
@@ -27,7 +39,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
       left: 0,
       right: 0,
       zIndex: 3,
-      backgroundColor: themeVar.picker_view_column_mask_background_color,
+      backgroundColor: cv.picker_view_column_mask_background_color,
     },
   })
 }

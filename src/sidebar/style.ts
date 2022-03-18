@@ -1,15 +1,36 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    sidebar_background_color: TOKENS.white,
+    sidebar_item_background_color: TOKENS.gray_3,
+    sidebar_item_underlay_color: TOKENS.gray_4,
+    sidebar_item_padding_vertical: TOKENS.space_3,
+    sidebar_item_padding_horizontal: TOKENS.space_3,
+    sidebar_item_border_radius: TOKENS.border_radius_m,
+    sidebar_item_bar_width: 3,
+    sidebar_item_bar_height: 26,
+    sidebar_item_text_line_height: 20,
+    sidebar_item_text_font_size: TOKENS.font_size_3,
+    sidebar_item_bar_background_color: TOKENS.brand_6,
+    sidebar_item_active_text_color: TOKENS.gray_8,
+    sidebar_item_inactive_text_color: TOKENS.gray_7,
+    sidebar_item_disabled_inactive_text_color: TOKENS.gray_5,
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     sidebar: {
       flex: 1,
     },
 
     sidebar_active: {
-      backgroundColor: themeVar.sidebar_item_background_color,
+      backgroundColor: cv.sidebar_item_background_color,
     },
 
     scroll_view_empty: {
@@ -19,7 +40,7 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     list: {
-      backgroundColor: themeVar.sidebar_background_color,
+      backgroundColor: cv.sidebar_background_color,
     },
 
     item: {
@@ -29,47 +50,47 @@ export const createStyles = (themeVar: ThemeVarType) => {
 
     item_bar: {
       position: 'absolute',
-      backgroundColor: themeVar.sidebar_item_bar_background_color,
-      left: -themeVar.sidebar_item_bar_width,
+      backgroundColor: cv.sidebar_item_bar_background_color,
+      left: -cv.sidebar_item_bar_width,
       top: '50%',
-      marginTop: -themeVar.sidebar_item_bar_height / 2,
-      width: themeVar.sidebar_item_bar_width * 2,
-      height: themeVar.sidebar_item_bar_height,
-      borderRadius: themeVar.sidebar_item_bar_width,
+      marginTop: -cv.sidebar_item_bar_height / 2,
+      width: cv.sidebar_item_bar_width * 2,
+      height: cv.sidebar_item_bar_height,
+      borderRadius: cv.sidebar_item_bar_width,
     },
 
     item_prev: {
-      borderBottomRightRadius: themeVar.sidebar_item_border_radius,
+      borderBottomRightRadius: cv.sidebar_item_border_radius,
     },
 
     item_next: {
-      borderTopRightRadius: themeVar.sidebar_item_border_radius,
+      borderTopRightRadius: cv.sidebar_item_border_radius,
     },
 
     item_inactive: {
-      backgroundColor: themeVar.sidebar_item_background_color,
+      backgroundColor: cv.sidebar_item_background_color,
     },
 
     item_inner: {
-      paddingHorizontal: themeVar.sidebar_item_padding_horizontal,
-      paddingVertical: themeVar.sidebar_item_padding_vertical,
+      paddingHorizontal: cv.sidebar_item_padding_horizontal,
+      paddingVertical: cv.sidebar_item_padding_vertical,
     },
 
     item_text: {
-      fontSize: themeVar.sidebar_item_text_font_size,
-      lineHeight: themeVar.sidebar_item_text_line_height,
+      fontSize: cv.sidebar_item_text_font_size,
+      lineHeight: cv.sidebar_item_text_line_height,
     },
 
     item_text_disabled: {
-      color: themeVar.sidebar_item_disabled_inactive_text_color,
+      color: cv.sidebar_item_disabled_inactive_text_color,
     },
 
     item_text_active: {
-      color: themeVar.sidebar_item_active_text_color,
+      color: cv.sidebar_item_active_text_color,
     },
 
     item_text_inactive: {
-      color: themeVar.sidebar_item_inactive_text_color,
+      color: cv.sidebar_item_inactive_text_color,
     },
   })
 }

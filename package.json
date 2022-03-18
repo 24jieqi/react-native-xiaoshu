@@ -48,10 +48,10 @@
     "release": "release-it",
     "release:major": "release-it major",
     "release:minor": "release-it minor",
-    "release:patch": "release-it patch",
-    "design-tokens:generate": "ts-node --project tsconfig.nodejs.json ./scripts/design-tokens/index.ts"
+    "release:patch": "release-it patch"
   },
   "dependencies": {
+    "@fruits-chain/design-tokens-bailu": "^0.0.3",
     "color": "^4.2.0",
     "lodash": "^4.17.21",
     "rn-placeholder": "^3.0.3"

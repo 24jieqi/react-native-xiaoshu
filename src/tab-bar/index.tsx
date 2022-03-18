@@ -2,12 +2,13 @@ import React, { memo } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 import BottomBar from '../bottom-bar'
+import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
 import { useControllableValue } from '../hooks'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { TabBarProps, TabValue } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 const TabBar: React.FC<TabBarProps> = ({
   textColor,
@@ -19,18 +20,20 @@ const TabBar: React.FC<TabBarProps> = ({
   ...restProps
 }) => {
   const [value, onChange] = useControllableValue(restProps)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const STYLES = createStyle(CV, styleCreator)
 
-  textColor = getDefaultValue(textColor, THEME_VAR.tab_bar_text_color)
-  iconColor = getDefaultValue(iconColor, THEME_VAR.tab_bar_icon_color)
+  textColor = getDefaultValue(textColor, CV.tab_bar_text_color)
+  iconColor = getDefaultValue(iconColor, CV.tab_bar_icon_color)
   activeTextColor = getDefaultValue(
     activeTextColor,
-    THEME_VAR.tab_bar_active_text_color,
+    CV.tab_bar_active_text_color,
   )
   activeIconColor = getDefaultValue(
     activeIconColor,
-    THEME_VAR.tab_bar_active_icon_color,
+    CV.tab_bar_active_icon_color,
   )
 
   const genOnPress = (v: TabValue) => () => {
@@ -46,7 +49,7 @@ const TabBar: React.FC<TabBarProps> = ({
           <TouchableOpacity
             key={item.value}
             style={STYLES.item}
-            activeOpacity={THEME_VAR.button_active_opacity}
+            activeOpacity={CV_BUTTON.button_active_opacity}
             onPress={isActive ? undefined : genOnPress(item.value)}>
             {item.iconRender(isActive ? activeIconColor : iconColor)}
             <Text

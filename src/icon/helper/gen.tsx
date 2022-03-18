@@ -10,16 +10,18 @@ import {
   omitTouchablePropsField,
   isDef,
 } from '../../helpers'
-import type { ThemeVarType } from '../../theme'
-import { useTheme } from '../../theme'
+import type { TokensType } from '../../theme'
+import { useThemeTokens, createVar } from '../../theme'
 import type { IconCommonProps } from '../interface'
+
+import { varCreator } from './style'
 
 import * as helper from './'
 
 type OutlineRender = (
   color: string,
   props: {
-    themeVar: ThemeVarType
+    token: TokensType
     disabled?: boolean
   },
 ) => React.ReactNode
@@ -54,7 +56,8 @@ export const genIcon = ({
       hitSlop,
       ...restProps
     }) => {
-      const THEME_VAR = useTheme()
+      const TOKENS = useThemeTokens()
+      const CV = createVar(TOKENS, varCreator)
       /** 适用于点击的属性 */
       const touchableOpacityProps = pickTouchablePropsField(restProps)
       /** 剔除点击相关的属性 */
@@ -68,7 +71,7 @@ export const genIcon = ({
 
       // 修正数据
       iconSize = getDefaultValue(iconSize, viewBoxSize)
-      color = getDefaultValue(color, THEME_VAR.icon_color)
+      color = getDefaultValue(color, CV.icon_color)
       hitSlop = getDefaultValue(hitSlop, hitSlopSize)
 
       // 继续修正
@@ -92,7 +95,7 @@ export const genIcon = ({
               width={iconSize}
               viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
               {render(color, {
-                themeVar: THEME_VAR,
+                token: TOKENS,
                 disabled: restProps.disabled,
               })}
             </Svg>

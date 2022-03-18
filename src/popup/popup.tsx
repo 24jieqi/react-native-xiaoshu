@@ -7,11 +7,16 @@ import * as helpers from '../helpers'
 import { usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import Overlay from '../overlay/overlay'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import { getPosition, getTransform } from './helper'
 import type { PopupProps, State } from './interface'
-import { createStyles, getBorderRadius, PopupPositionMap } from './style'
+import {
+  varCreator,
+  styleCreator,
+  getBorderRadius,
+  PopupPositionMap,
+} from './style'
 
 /**
  * Popup 弹出层
@@ -41,13 +46,11 @@ const Popup: React.FC<PopupProps> = ({
   const onOpenedPersistFn = usePersistFn(onOpenedFn)
   const onClosePersistFn = usePersistFn(onCloseFn)
   const onClosedPersistFn = usePersistFn(onClosedFn)
-  const THEME_VAR = useTheme()
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
-  duration = helpers.getDefaultValue(
-    duration,
-    THEME_VAR.animation_duration_base,
-  )
+  duration = helpers.getDefaultValue(duration, TOKENS.animation_duration_base)
 
   const [state, setState] = useState<State>({
     visible,
@@ -162,7 +165,7 @@ const Popup: React.FC<PopupProps> = ({
 
   const popupStyles: StyleProp<ViewStyle> = [
     STYLES.popup,
-    getBorderRadius(THEME_VAR, position, round),
+    getBorderRadius(CV, position, round),
     {
       paddingBottom: safeAreaInsetBottom ? insets.bottom : 0,
       zIndex: state.zIndex,

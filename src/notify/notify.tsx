@@ -4,10 +4,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { isDef } from '../helpers'
 import Popup from '../popup/popup'
-import { useTheme, widthStyle } from '../theme'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { NotifyProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Notify 消息提示
@@ -26,9 +26,9 @@ const Notify: React.FC<NotifyProps> = ({
   ...restProps
 }) => {
   const insets = useSafeAreaInsets()
-  const THEME_VAR = useTheme()
-
-  const STYLES = widthStyle(THEME_VAR, createStyles)
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   const messageJSX = isDef(message) ? (
     isValidElement(message) ? (
@@ -38,7 +38,7 @@ const Notify: React.FC<NotifyProps> = ({
         style={[
           STYLES.text,
           {
-            color: isDef(color) ? color : THEME_VAR.notify_text_color,
+            color: isDef(color) ? color : CV.notify_text_color,
           },
           textStyle,
         ]}
@@ -59,12 +59,12 @@ const Notify: React.FC<NotifyProps> = ({
             {
               backgroundColor: isDef(backgroundColor)
                 ? backgroundColor
-                : THEME_VAR[`notify_${type}_background_color`] ||
-                  THEME_VAR.notify_primary_background_color,
+                : CV[`notify_${type}_background_color`] ||
+                  CV.notify_primary_background_color,
               paddingTop:
-                insets.top > THEME_VAR.notify_padding_vertical
+                insets.top > CV.notify_padding_vertical
                   ? insets.top
-                  : THEME_VAR.notify_padding_vertical,
+                  : CV.notify_padding_vertical,
             },
             style,
           ]}>

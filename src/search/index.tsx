@@ -7,10 +7,11 @@ import { usePersistFn } from '../hooks'
 import { SearchOutline, ArrowLeftOutline } from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { useTheme, widthStyle } from '../theme'
+import { varCreator as varCreatorTextInput } from '../text-input/style'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { SearchProps } from './interface'
-import { createStyles } from './style'
+import { varCreator, styleCreator } from './style'
 
 /**
  * 搜索
@@ -37,8 +38,10 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     },
     ref,
   ) => {
-    const THEME_VAR = useTheme()
-    const STYLES = widthStyle(THEME_VAR, createStyles)
+    const TOKENS = useThemeTokens()
+    const CV = createVar(TOKENS, varCreator)
+    const CV_TEXT_INPUT = createVar(TOKENS, varCreatorTextInput)
+    const STYLES = createStyle(CV, styleCreator)
     const onSearchPersistFn = usePersistFn(onSearch || noop)
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
 
@@ -47,7 +50,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
 
     placeholderTextColor = getDefaultValue(
       placeholderTextColor,
-      THEME_VAR.text_input_placeholder_text_color,
+      CV_TEXT_INPUT.text_input_placeholder_text_color,
     )
 
     iconColor = getDefaultValue(iconColor, placeholderTextColor as string)
@@ -87,7 +90,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
         {showBack ? (
           <ArrowLeftOutline
             onPress={onPressBack}
-            color={THEME_VAR.search_back_icon_color}
+            color={CV.search_back_icon_color}
             size={24}
             style={STYLES.icon_back}
           />

@@ -1,15 +1,29 @@
 import { StyleSheet } from 'react-native'
 
-import type { ThemeVarType } from '../theme'
+import type { TokensType } from '../theme'
 
-export const createStyles = (themeVar: ThemeVarType) => {
+export const varCreator = (TOKENS: TokensType) => {
+  return {
+    action_sheet_description_color: TOKENS.gray_7,
+    action_sheet_description_font_size: TOKENS.font_size_3,
+    action_sheet_description_line_height: TOKENS.line_height_1,
+    action_sheet_text_color: TOKENS.gray_8,
+    action_sheet_text_font_size: TOKENS.font_size_5,
+    action_sheet_cancel_padding_top: TOKENS.space_2,
+    action_sheet_cancel_padding_color: '#ECEEF1',
+  }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     description: {
       flexShrink: 0,
       textAlign: 'center',
-      color: themeVar.action_sheet_description_color,
-      fontSize: themeVar.action_sheet_description_font_size,
-      lineHeight: themeVar.action_sheet_description_line_height,
+      color: cv.action_sheet_description_color,
+      fontSize: cv.action_sheet_description_font_size,
+      lineHeight: cv.action_sheet_description_line_height,
       paddingBottom: 12,
     },
 
@@ -18,13 +32,13 @@ export const createStyles = (themeVar: ThemeVarType) => {
     },
 
     button_text: {
-      fontSize: themeVar.action_sheet_text_font_size,
+      fontSize: cv.action_sheet_text_font_size,
       fontWeight: 'bold',
     },
 
     gap: {
-      height: themeVar.action_sheet_cancel_padding_top,
-      backgroundColor: themeVar.action_sheet_cancel_padding_color,
+      height: cv.action_sheet_cancel_padding_top,
+      backgroundColor: cv.action_sheet_cancel_padding_color,
     },
   })
 }

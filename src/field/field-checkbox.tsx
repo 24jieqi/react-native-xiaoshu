@@ -5,9 +5,10 @@ import Cell from '../cell'
 import Checkbox from '../checkbox'
 import { useControllableValue } from '../hooks'
 import Space from '../space'
-import { useTheme } from '../theme'
+import { useThemeTokens, createVar } from '../theme'
 
 import type { FieldCheckboxProps, FieldCheckboxValue } from './interface'
+import { varCreator } from './style'
 
 const FieldCheckbox: React.FC<FieldCheckboxProps> = ({
   multiple = false,
@@ -16,7 +17,8 @@ const FieldCheckbox: React.FC<FieldCheckboxProps> = ({
 
   ...restProps
 }) => {
-  const THEME_VAR = useTheme()
+  const TOKENS = useThemeTokens()
+  const CV = createVar(TOKENS, varCreator)
 
   const [value, onChange] = useControllableValue<
     FieldCheckboxValue | FieldCheckboxValue[]
@@ -32,7 +34,7 @@ const FieldCheckbox: React.FC<FieldCheckboxProps> = ({
         <Space
           direction="horizontal"
           gapVertical={0}
-          gapHorizontal={THEME_VAR.field_checkbox_gap}
+          gapHorizontal={CV.field_checkbox_gap}
           justify="flex-end">
           {options.map(item => {
             const selected = multiple
