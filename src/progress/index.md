@@ -23,6 +23,6 @@ group:
 
 <API hideTitle src="./progress.tsx"></API>
 
-### ProgressPage
+### Progress.Page <Badge>0.2.1+</Badge>
 
 <API hideTitle src="./progress-page.tsx"></API>
