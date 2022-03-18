@@ -1,3 +1,22 @@
+# [0.2.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.12...v0.2.0) (2022-03-18)
+
+### Bug Fixes
+
+- **Selector:** 🐛 token 迁移遗留问题 ([0a2ffe0](https://github.com/hjfruit/react-native-xiaoshu/commit/0a2ffe00ff338e401a54b2cca831ae84b9b8e1cb))
+- **Steps:** 🐛 token 迁移遗留问题 ([b670cdb](https://github.com/hjfruit/react-native-xiaoshu/commit/b670cdbaf480fc74adeae7dd45f1ccdd8695a9f9))
+- **TextInput:** 🐛 token 迁移遗留问题 ([ba8a4b0](https://github.com/hjfruit/react-native-xiaoshu/commit/ba8a4b089007c6b1fdcfd5b49c11ac83d4c03826))
+
+### Features
+
+- **Card:** 🎸 新增属性并优化 s 尺寸下的圆角 ([a53ce79](https://github.com/hjfruit/react-native-xiaoshu/commit/a53ce79344eea303e277ed74cadcebad930b522f))
+- **ci:** 🎸 拆分组件变量文件 ([6ff8fd8](https://github.com/hjfruit/react-native-xiaoshu/commit/6ff8fd8b1c5a75f99f4af011071e61b06132c61b))
+- **NoticeBar:** 🎸 默认背景色通过颜色高亮计算得到 ([abb5c12](https://github.com/hjfruit/react-native-xiaoshu/commit/abb5c123c0bcc6734ab2276e7375561471ad8615))
+- **Theme:** 🎸 调整 tokens 变量类型 ([a70b580](https://github.com/hjfruit/react-native-xiaoshu/commit/a70b580befe644a1e907b89e8c9a70ad10601fe6))
+
+### BREAKING CHANGES
+
+- **ci:** 🧨 useTheme 遗弃, 不再提供全量变量集合, 整体采用 tokens 模式.
+
 ## [0.1.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.11...v0.1.12) (2022-03-17)
 
 ### Bug Fixes
