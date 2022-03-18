@@ -15,6 +15,7 @@ import {
   Space,
   Divider,
   Icon,
+  Dialog,
   useThemeTokens,
 } from '@fruits-chain/react-native-xiaoshu'
 
@@ -120,7 +121,18 @@ const CaseForm1: React.FC = () => {
                                 extra={
                                   <Icon.DeleteFill
                                     onPress={() => {
-                                      remove(field.name)
+                                      Dialog.confirm({
+                                        title: '提示',
+                                        message: '确定要删除？',
+                                        confirmButtonText: '删除',
+                                        confirmButtonColor: TOKENS.red_6,
+                                      })
+                                        .then(action => {
+                                          if (action === 'confirm') {
+                                            remove(field.name)
+                                          }
+                                        })
+                                        .catch(() => {})
                                     }}
                                   />
                                 }>
@@ -240,7 +252,13 @@ const CaseForm1: React.FC = () => {
                       }}
                       square
                       color="#fff"
-                      textColor={TOKENS.brand_6}>
+                      textColor={TOKENS.brand_6}
+                      renderLeftIcon={color => (
+                        <Icon.PlusOutline
+                          color={color}
+                          size={TOKENS.font_size_3}
+                        />
+                      )}>
                       选择商品
                     </Button>
                   </>
