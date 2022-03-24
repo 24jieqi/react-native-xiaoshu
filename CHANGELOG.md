@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.0...v0.2.1) (2022-03-24)
+
+### Features
+
+- **Loading:** 🎸 单独命名 ([40ce9e2](https://github.com/hjfruit/react-native-xiaoshu/commit/40ce9e203e01cff36ec36a2f129d892419bb181a))
+- **Progress:** 🎸 调整导出,优化页面进度 ([42d7880](https://github.com/hjfruit/react-native-xiaoshu/commit/42d7880203ff1b0f92929d6aca999660b53094ff))
+
 # [0.2.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.1.12...v0.2.0) (2022-03-18)
 
 ### Bug Fixes
