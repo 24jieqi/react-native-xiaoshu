@@ -21,12 +21,12 @@ group:
 
 ### Loading
 
-<API hideTitle></API>
+<API hideTitle src="./loading.tsx"></API>
 
-### LoadingCircular
+### Loading.Circular <Badge>0.2.1+</Badge>
 
-<API hideTitle src="./circular.tsx"></API>
+<API hideTitle src="./loading-circular.tsx"></API>
 
-### LoadingSpinner
+### Loading.Spinner <Badge>0.2.1+</Badge>
 
-<API hideTitle src="./spinner.tsx"></API>
+<API hideTitle src="./loading-spinner.tsx"></API>

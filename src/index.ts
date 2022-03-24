@@ -82,8 +82,6 @@ export { Row, Col } from './grid'
 
 export type { LoadingProps } from './loading/interface'
 export { default as Loading } from './loading'
-export { default as LoadingCircular } from './loading/circular'
-export { default as LoadingSpinner } from './loading/spinner'
 
 export type { NavBarProps } from './nav-bar/interface'
 export { default as NavBar } from './nav-bar'

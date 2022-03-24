@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, isDef } from '../helpers'
 import { CrossOutline, CrossCircleOutline } from '../icon'
-import LoadingCircular from '../loading/circular'
+import LoadingCircular from '../loading/loading-circular'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { UploaderImageProps } from './interface'

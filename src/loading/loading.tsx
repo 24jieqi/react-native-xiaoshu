@@ -4,9 +4,9 @@ import { View, Text, StyleSheet } from 'react-native'
 import { getDefaultValue, isDef } from '../helpers'
 import { useThemeTokens, createVar } from '../theme'
 
-import Circular from './circular'
 import type { LoadingProps } from './interface'
-import Spinner from './spinner'
+import Circular from './loading-circular'
+import Spinner from './loading-spinner'
 import { varCreator } from './style'
 
 /**

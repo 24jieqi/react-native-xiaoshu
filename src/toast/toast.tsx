@@ -9,8 +9,8 @@ import type { ViewStyle, StyleProp } from 'react-native'
 import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
 import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
-import Circular from '../loading/circular'
-import Spinner from '../loading/spinner'
+import Circular from '../loading/loading-circular'
+import Spinner from '../loading/loading-spinner'
 import Popup from '../popup/popup'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 

@@ -4,7 +4,7 @@ import { TouchableWithoutFeedback, Animated } from 'react-native'
 
 import { getDefaultValue, isValue, callInterceptor } from '../helpers'
 import { useControllableValue } from '../hooks'
-import LoadingCircular from '../loading/circular'
+import LoadingCircular from '../loading/loading-circular'
 import { varCreator as varCreatorLoading } from '../loading/style'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
