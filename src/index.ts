@@ -82,8 +82,6 @@ export { Row, Col } from './grid'
 
 export type { LoadingProps } from './loading/interface'
 export { default as Loading } from './loading'
-export { default as LoadingCircular } from './loading/circular'
-export { default as LoadingSpinner } from './loading/spinner'
 
 export type { NavBarProps } from './nav-bar/interface'
 export { default as NavBar } from './nav-bar'
@@ -120,8 +118,8 @@ export { default as Popup } from './popup'
 
 export { default as Portal } from './portal'
 
-export type { ProgressProps } from './progress/interface'
-export { Progress, ProgressPage } from './progress'
+export type { ProgressProps, ProgressPageProps } from './progress/interface'
+export { default as Progress } from './progress'
 
 export type { ProviderProps } from './provider/interface'
 export { default as Provider } from './provider'

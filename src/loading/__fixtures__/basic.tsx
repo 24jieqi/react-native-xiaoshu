@@ -5,19 +5,14 @@
 
 import React from 'react'
 
-import {
-  Loading,
-  LoadingCircular,
-  LoadingSpinner,
-  Cell,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Loading, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicLoading: React.FC = () => {
   return (
     <>
       <Cell.Group title="单独使用图标" bodyPaddingHorizontal>
-        <LoadingCircular />
-        <LoadingSpinner />
+        <Loading.Circular />
+        <Loading.Spinner />
       </Cell.Group>
 
       <Cell.Group title="加载类型" bodyPaddingHorizontal>

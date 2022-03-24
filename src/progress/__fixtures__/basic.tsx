@@ -8,7 +8,6 @@ import { ScrollView } from 'react-native'
 
 import {
   Progress,
-  ProgressPage,
   Button,
   Card,
   Space,
@@ -30,7 +29,7 @@ const BasicProgress: React.FC = () => {
   }, [])
 
   return (
-    <ProgressPage loading={state.loading}>
+    <Progress.Page loading={state.loading}>
       <ScrollView>
         <Space tail head>
           <Card title="基础用法" square>
@@ -84,7 +83,7 @@ const BasicProgress: React.FC = () => {
           </Card>
         </Space>
       </ScrollView>
-    </ProgressPage>
+    </Progress.Page>
   )
 }
 

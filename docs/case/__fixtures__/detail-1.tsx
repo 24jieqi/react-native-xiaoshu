@@ -1,5 +1,5 @@
 /**
- * title: 详情页
+ * title: 详情页布局
  * desc: 使用 Card、Description 组件实现各种业务需求
  */
 
