@@ -6,6 +6,7 @@ import React, { createContext, Component } from 'react'
 import type { EmitterSubscription } from 'react-native'
 import {
   DeviceEventEmitter,
+  // eslint-disable-next-line import/named
   NativeEventEmitter,
   StyleSheet,
   View,
@@ -57,7 +58,7 @@ export const portal = new PortalGuard()
  * ```js
  * import * as React from 'react';
  * import { Text } from 'react-native';
- * import { Portal } from '@ant-design/react-native';
+ * import { Portal } from '@fruits-chain/react-native-xiaoshu';
  *
  * export default class MyComponent extends React.Component {
  *   render() {

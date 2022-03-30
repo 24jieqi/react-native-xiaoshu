@@ -84,9 +84,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         // 解析数据
         let newValueStringify = parserInputValue(t)
 
-        if (newValueStringify === '') {
-          return null
-        } else {
+        if (newValueStringify !== '') {
           // 结束的时候限制最大最小值
           if (isEnd) {
             const newValueNum = Number(newValueStringify)
@@ -136,7 +134,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
             finallyValue = parserNumberToString(returnValue)
 
             // 新数字转成字符串
-            setLocalValue(formatterPersistFn(parserNumberToString(returnValue)))
+            setLocalValue(formatterPersistFn(finallyValue))
 
             if (returnValue !== LastValue.current) {
               // 当最终值和上次值不同时触发 onChange
