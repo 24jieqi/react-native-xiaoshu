@@ -4,7 +4,6 @@ import type { TokensType } from '../theme'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
-    // ButtonBar
     button_bar_padding_horizontal: TOKENS.space_3,
     button_bar_button_space: 8,
   }

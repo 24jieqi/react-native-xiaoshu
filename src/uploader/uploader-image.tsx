@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, isDef } from '../helpers'
-import { CrossOutline, CrossCircleOutline } from '../icon'
+import Icon from '../icon'
 import LoadingCircular from '../loading/loading-circular'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
@@ -54,7 +54,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
           <ImageComponent style={customSizeStyle} source={{ uri: filepath }} />
 
           {deletable && status !== 'loading' ? (
-            <CrossOutline
+            <Icon.CrossOutline
               size={CV.uploader_image_delete_size - 4}
               color="#fff"
               onPress={onPressDelete}
@@ -71,7 +71,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
 
           {status === 'error' ? (
             <View style={STYLES.mask}>
-              <CrossCircleOutline color="#fff" size={20} />
+              <Icon.CrossCircleOutline color="#fff" size={20} />
               <Text style={STYLES.mask_text}>{`上传失败\n点击重试`}</Text>
             </View>
           ) : null}

@@ -15,7 +15,7 @@ import CheckboxIcon from '../checkbox/checkbox-icon'
 import { varCreator as varCreatorCheckbox } from '../checkbox/style'
 import Empty from '../empty'
 import { getDefaultValue } from '../helpers'
-import { SuccessOutline } from '../icon'
+import Icon from '../icon'
 import { varCreator as varCreatorNavBar } from '../nav-bar/style'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
@@ -190,7 +190,7 @@ const Selector: React.FC<SelectorProps> = ({
                         onPress={genOnPressOption(item.value)}
                       />
                     ) : isSelected ? (
-                      <SuccessOutline
+                      <Icon.SuccessOutline
                         color={CV.selector_icon_selected_color}
                         size={CV_CHECKBOX.checkbox_icon_size}
                       />

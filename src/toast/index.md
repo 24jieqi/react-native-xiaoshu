@@ -17,4 +17,14 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./toast.tsx"></API>
+## API
+
+Toast.loading、Toast.success、Toast.fail 具有配置，参考 Toast。
+
+Toast.clear 暂时未实现。
+
+Toast.setDefaultOptions 设置默认参数，例如是否背景可以点击、持续时长。
+
+### Toast
+
+<API hideTitle src="./toast.tsx"></API>

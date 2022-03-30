@@ -1,13 +1,15 @@
-import React, { memo, forwardRef } from 'react'
+import React, { useMemo, memo, forwardRef } from 'react'
 
 import { getDefaultValue } from '../helpers'
 import { useControllableValue, usePersistFn } from '../hooks'
-import { EyeOutline, EyeCloseOutline } from '../icon'
+import Icon from '../icon'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { useThemeTokens } from '../theme'
 
 import type { PasswordInputProps } from './interface'
+
+const hitSlop = { top: 4, bottom: 4, left: 4, right: 4 }
 
 /**
  * 密码输入
@@ -31,12 +33,16 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     })
 
     iconColor = getDefaultValue(iconColor, TOKENS.gray_6)
+    const iconStyle = useMemo(
+      () => ({ marginLeft: TOKENS.space_2 }),
+      [TOKENS.space_2],
+    )
 
     const onPressIcon = usePersistFn(() => {
       onChangeSecureTextEntry(!secure)
     })
 
-    const IconSuffix = secure ? EyeCloseOutline : EyeOutline
+    const IconSuffix = secure ? Icon.EyeCloseOutline : Icon.EyeOutline
 
     return (
       <TextInput
@@ -44,7 +50,13 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
         ref={ref}
         secureTextEntry={secure}
         suffix={
-          <IconSuffix size={iconSize} color={iconColor} onPress={onPressIcon} />
+          <IconSuffix
+            size={iconSize}
+            color={iconColor}
+            onPress={onPressIcon}
+            style={iconStyle}
+            hitSlop={hitSlop}
+          />
         }
       />
     )

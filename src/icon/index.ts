@@ -1,38 +1,72 @@
-// Outline
-export { default as ArrowDownOutline } from './arrow-down'
-export { default as ArrowLeftOutline } from './arrow-left'
-export { default as ArrowRightOutline } from './arrow-right'
-export { default as ArrowUpOutline } from './arrow-up'
-export { default as CircleOutline } from './circle'
-export { default as ClickCopyOutline } from './click-copy'
-export { default as CoordOutline } from './coord'
-export { default as CopyOutline } from './copy'
-export { default as CrossCircleOutline } from './cross-circle'
-export { default as CrossOutline } from './cross'
-export { default as DeleatOutline } from './deleat'
-export { default as ExplainOutline } from './explain'
-export { default as EyeCloseOutline } from './eye-close'
-export { default as EyeOutline } from './eye'
-export { default as FiltrateOutline } from './filtrate'
-export { default as MobileScreenOutline } from './mobile-screen'
-export { default as PlusOutline } from './plus'
-// export { default as ScreenOutline } from './screen'
-export { default as SearchOutline } from './search'
-export { default as SOPOutline } from './sop'
-export { default as SuccessCircleOutline } from './success-circle'
-export { default as SuccessOutline } from './success'
-export { default as TelephoneOutline } from './telephone'
-export { default as VolumeOutline } from './volume'
-export { default as WarningCircleOutline } from './warning-circle'
-export { default as WarningOutline } from './warning'
-export { default as WeChatOutline } from './we-chat'
+import ArrowDownOutline from './arrow-down'
+import ArrowDownFill from './arrow-down.fill'
+import ArrowLeftOutline from './arrow-left'
+import ArrowLeftFill from './arrow-left.fill'
+import ArrowRightOutline from './arrow-right'
+import ArrowRightFill from './arrow-right.fill'
+import ArrowUpOutline from './arrow-up'
+import ArrowUpFill from './arrow-up.fill'
+import CheckedFill from './checked.fill'
+import CircleOutline from './circle'
+import ClickCopyOutline from './click-copy'
+import CoordOutline from './coord'
+import CopyOutline from './copy'
+import CrossOutline from './cross'
+import CrossCircleOutline from './cross-circle'
+import DeleatOutline from './deleat'
+import DeleteFill from './delete.fill'
+import ExplainOutline from './explain'
+import EyeOutline from './eye'
+import EyeCloseOutline from './eye-close'
+import FiltrateOutline from './filtrate'
+import MobileScreenOutline from './mobile-screen'
+import NewFill from './new.fill'
+import PlusOutline from './plus'
+// import ScreenOutline  from './screen'
+import RemoveFill from './remove.fill'
+import SearchOutline from './search'
+import SOPOutline from './sop'
+import SuccessOutline from './success'
+import SuccessCircleOutline from './success-circle'
+import TelephoneOutline from './telephone'
+import VolumeOutline from './volume'
+import WarningOutline from './warning'
+import WarningCircleOutline from './warning-circle'
+import WeChatOutline from './we-chat'
 
-// Fill
-export { default as ArrowDownFill } from './arrow-down.fill'
-export { default as ArrowLeftFill } from './arrow-left.fill'
-export { default as ArrowRightFill } from './arrow-right.fill'
-export { default as ArrowUpFill } from './arrow-up.fill'
-export { default as CheckedFill } from './checked.fill'
-export { default as DeleteFill } from './delete.fill'
-export { default as NewFill } from './new.fill'
-export { default as RemoveFill } from './remove.fill'
+export default {
+  ArrowDownOutline,
+  ArrowDownFill,
+  ArrowLeftOutline,
+  ArrowLeftFill,
+  ArrowRightOutline,
+  ArrowRightFill,
+  ArrowUpOutline,
+  ArrowUpFill,
+  CheckedFill,
+  CircleOutline,
+  ClickCopyOutline,
+  CoordOutline,
+  CopyOutline,
+  CrossOutline,
+  CrossCircleOutline,
+  DeleatOutline,
+  DeleteFill,
+  ExplainOutline,
+  EyeOutline,
+  EyeCloseOutline,
+  FiltrateOutline,
+  MobileScreenOutline,
+  NewFill,
+  PlusOutline,
+  RemoveFill,
+  SearchOutline,
+  SOPOutline,
+  SuccessOutline,
+  SuccessCircleOutline,
+  TelephoneOutline,
+  VolumeOutline,
+  WarningOutline,
+  WarningCircleOutline,
+  WeChatOutline,
+}

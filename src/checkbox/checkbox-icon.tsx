@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 import { getDefaultValue } from '../helpers'
-import { CircleOutline, CheckedFill } from '../icon'
+import Icon from '../icon'
 import { useThemeTokens, createVar } from '../theme'
 
 import type { CheckboxIconProps } from './interface'
@@ -23,7 +23,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
 
   if (active) {
     return (
-      <CheckedFill
+      <Icon.CheckedFill
         {...restProps}
         size={size}
         color={disabled ? CV.checkbox_checked_icon_disabled_color : activeColor}
@@ -33,7 +33,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   }
 
   return (
-    <CircleOutline
+    <Icon.CircleOutline
       {...restProps}
       size={size}
       disabled={disabled}

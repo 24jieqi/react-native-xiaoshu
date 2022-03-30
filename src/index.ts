@@ -1,8 +1,3 @@
-import * as helpers from './helpers'
-import * as Icon from './icon'
-
-export { Icon, helpers }
-
 export type {
   ActionSheetProps,
   ActionSheetOptions,
@@ -11,6 +6,9 @@ export { default as ActionSheet } from './action-sheet'
 
 export type { BadgeProps } from './badge/interface'
 export { default as Badge } from './badge'
+
+export type { BlankProps } from './blank/interface'
+export { default as Blank } from './blank'
 
 export type { ButtonProps } from './button/interface'
 export { default as Button } from './button'
@@ -79,6 +77,8 @@ export { default as Form, FormItemContext, ListContext } from './form'
 
 export type { RowProps, ColProps } from './grid/interface'
 export { Row, Col } from './grid'
+
+export { default as Icon } from './icon'
 
 export type { LoadingProps } from './loading/interface'
 export { default as Loading } from './loading'

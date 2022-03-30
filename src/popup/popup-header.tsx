@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 import { usePersistFn } from '../hooks'
-import { CrossOutline } from '../icon'
+import Icon from '../icon'
 import NavBar from '../nav-bar'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
@@ -25,7 +25,7 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
     <>
       {rightExtra}
       {showClose ? (
-        <CrossOutline
+        <Icon.CrossOutline
           style={STYLES.icon}
           color={CV.popup_close_icon_color}
           size={CV.popup_close_icon_size}
