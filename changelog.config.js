@@ -4,6 +4,7 @@ module.exports = {
     'docs',
     'ActionSheet',
     'Badge',
+    'Blank',
     'Button',
     'ButtonBar',
     'Card',

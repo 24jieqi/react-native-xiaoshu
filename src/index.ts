@@ -7,6 +7,9 @@ export { default as ActionSheet } from './action-sheet'
 export type { BadgeProps } from './badge/interface'
 export { default as Badge } from './badge'
 
+export type { BlankProps } from './blank/interface'
+export { default as Blank } from './blank'
+
 export type { ButtonProps } from './button/interface'
 export { default as Button } from './button'
 

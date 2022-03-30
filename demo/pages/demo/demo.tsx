@@ -30,6 +30,10 @@ const navDatas: {
     title: '基础组件',
     datas: [
       {
+        title: 'Blank',
+        name: 'DemoBlank',
+      },
+      {
         title: 'Button',
         name: 'DemoButton',
       },

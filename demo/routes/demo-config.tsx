@@ -8,6 +8,7 @@ import DemoFull from '@/pages/demo/full'
 
 import DemoActionSheet from '../../src/action-sheet/__fixtures__/basic'
 import DemoBadge from '../../src/badge/__fixtures__/basic'
+import DemoBlank from '../../src/blank/__fixtures__/basic'
 import DemoButtonBar from '../../src/button-bar/__fixtures__/basic'
 import DemoButton from '../../src/button/__fixtures__/basic'
 import DemoCard from '../../src/card/__fixtures__/basic'
@@ -104,6 +105,7 @@ export type DemoPaths =
   | 'DemoSkeleton'
   | 'DemoSidebar'
   | 'DemoDescription'
+  | 'DemoBlank'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -511,6 +513,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoDescription />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoBlank',
+    Page: () => (
+      <DemoWrapper>
+        <DemoBlank />
       </DemoWrapper>
     ),
   },
