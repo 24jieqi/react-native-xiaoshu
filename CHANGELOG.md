@@ -1,4 +1,8 @@
-## [0.2.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.0...v0.2.1) (2022-03-24)
+## [0.2.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.1...v0.2.2) (2022-03-30)
+
+### Bug Fixes
+
+- **NumberInput:** 🐛 删除到最后不触发 onChange ([4edb1e4](https://github.com/hjfruit/react-native-xiaoshu/commit/4edb1e4c6e3e290607676129beca450b2618cc65))## [0.2.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.0...v0.2.1) (2022-03-24)
 
 ### Features
 
