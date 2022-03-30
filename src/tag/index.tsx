@@ -4,7 +4,7 @@ import type { TextStyle, ViewStyle } from 'react-native'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 
 import { isDef } from '../helpers'
-import { CrossOutline } from '../icon'
+import Icon from '../icon'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { TagProps } from './interface'
@@ -100,7 +100,7 @@ const Tag: React.FC<TagProps> = ({
       return closeIcon ? (
         <TouchableOpacity onPress={onClose}>{closeIcon}</TouchableOpacity>
       ) : (
-        <CrossOutline
+        <Icon.CrossOutline
           onPress={onClose}
           size={CV[`tag_${size}_close_icon`]}
           color={textStyle.color as string}

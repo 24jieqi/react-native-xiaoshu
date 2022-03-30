@@ -8,7 +8,7 @@ import React, {
 import type { ViewStyle, StyleProp } from 'react-native'
 import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
-import { SuccessCircleOutline, CrossCircleOutline } from '../icon'
+import Icon from '../icon'
 import Circular from '../loading/loading-circular'
 import Spinner from '../loading/loading-spinner'
 import Popup from '../popup/popup'
@@ -144,14 +144,14 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                   ) : null}
 
                   {type === 'success' ? (
-                    <SuccessCircleOutline
+                    <Icon.SuccessCircleOutline
                       color={CV.toast_icon_color}
                       size={CV.toast_icon_size}
                     />
                   ) : null}
 
                   {type === 'fail' ? (
-                    <CrossCircleOutline
+                    <Icon.CrossCircleOutline
                       color={CV.toast_icon_color}
                       size={CV.toast_icon_size}
                     />

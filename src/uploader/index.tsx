@@ -1,7 +1,7 @@
 import React, { isValidElement } from 'react'
 import { View, Text, Image } from 'react-native'
 
-import { PlusOutline } from '../icon'
+import Icon from '../icon'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { UploaderProps, UploaderValue } from './interface'
@@ -67,7 +67,7 @@ const Uploader = <T extends UploaderValue>({
           {isValidElement(uploadIcon) ? (
             uploadIcon
           ) : (
-            <PlusOutline
+            <Icon.PlusOutline
               color={CV.uploader_upload_text_color}
               pointerEvents="none"
             />

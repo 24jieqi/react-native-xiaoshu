@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { View } from 'react-native'
 
 import { attachPropertiesToComponent, renderTextLikeJSX } from '../helpers'
-import { SuccessOutline, WarningOutline, CrossOutline } from '../icon'
+import Icon from '../icon'
 import Space from '../space'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
@@ -21,14 +21,14 @@ const renderStatusIcon = (status: ResultStatus, size: number) => {
 
   switch (status) {
     case 'success':
-      return <SuccessOutline {...props} />
+      return <Icon.SuccessOutline {...props} />
 
     case 'warning':
     case 'info':
-      return <WarningOutline {...props} />
+      return <Icon.WarningOutline {...props} />
 
     case 'error':
-      return <CrossOutline {...props} />
+      return <Icon.CrossOutline {...props} />
 
     default:
       return null

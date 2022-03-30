@@ -1,4 +1,8 @@
-import {
+import Icon from '../'
+
+type DirectionValue = 'left' | 'up' | 'right' | 'down'
+
+const {
   ArrowDownOutline,
   ArrowUpOutline,
   ArrowLeftOutline,
@@ -7,9 +11,7 @@ import {
   ArrowUpFill,
   ArrowLeftFill,
   ArrowRightFill,
-} from '../'
-
-type DirectionValue = 'left' | 'up' | 'right' | 'down'
+} = Icon
 
 export const getArrowOutline = (x: DirectionValue) => {
   switch (x) {
