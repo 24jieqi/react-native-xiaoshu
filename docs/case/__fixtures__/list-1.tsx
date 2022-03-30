@@ -7,6 +7,7 @@ import React, { useMemo } from 'react'
 import { ScrollView, Text } from 'react-native'
 
 import {
+  Blank,
   Card,
   Tag,
   Description,
@@ -18,20 +19,7 @@ import {
 
 const CaseList1: React.FC = () => {
   const TOKENS = useThemeTokens()
-  // 使用 react-native-extended-stylesheet 实现样式
-  // 这里仅做演示
-  const firstCardStyle = useMemo(
-    () => ({
-      marginHorizontal: TOKENS.space_2,
-      marginBottom: TOKENS.space_3,
-      marginTop: TOKENS.space_3,
-    }),
-    [TOKENS.space_2, TOKENS.space_3],
-  )
-  const cardStyle = useMemo(
-    () => ({ marginHorizontal: TOKENS.space_2, marginBottom: TOKENS.space_3 }),
-    [TOKENS.space_2, TOKENS.space_3],
-  )
+
   // 状态文案统一管理
   // 这里仅做演示
   const STATUS_STYLE_MAP = useMemo(
@@ -54,66 +42,70 @@ const CaseList1: React.FC = () => {
   return (
     <>
       <ScrollView>
-        <Card
-          size="s"
-          title="备货生产"
-          titleLeftExtra={<Tag color={TOKENS.yellow_6}>原料</Tag>}
-          extra={<Text style={STATUS_STYLE_MAP.a}>待提交</Text>}
-          footer="提交人：李默 2022-02-02 22:22"
-          style={firstCardStyle}>
-          <Description.Group colon={false} labelWidth={88}>
-            <Description label="配送客户" text="美团优选" bold />
-            <Description label="配送数量" text="1" bold />
-            <Description label="生产进度" text="0% （0/100）" bold />
-            <Description label="生产仓库" text="成都双流大仓" />
-            <Description label="计划单号" text="SJ22020022" />
-          </Description.Group>
-        </Card>
+        <Blank top bottom>
+          <Card
+            size="s"
+            title="备货生产"
+            titleLeftExtra={<Tag color={TOKENS.yellow_6}>原料</Tag>}
+            extra={<Text style={STATUS_STYLE_MAP.a}>待提交</Text>}
+            footer="提交人：李默 2022-02-02 22:22">
+            <Description.Group colon={false} labelWidth={88}>
+              <Description label="配送客户" text="美团优选" bold />
+              <Description label="配送数量" text="1" bold />
+              <Description label="生产进度" text="0% （0/100）" bold />
+              <Description label="生产仓库" text="成都双流大仓" />
+              <Description label="计划单号" text="SJ22020022" />
+            </Description.Group>
+          </Card>
+        </Blank>
 
-        <Card
-          size="s"
-          title="备货生产"
-          titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
-          extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}
-          style={cardStyle}>
-          <Description.Group colon={false} labelWidth={88}>
-            <Description label="配送客户" text="美团优选" bold />
-            <Description label="配送数量" text="1" bold />
-            <Description label="生产进度" text="1% （1/100）" bold />
-            <Description label="生产仓库" text="成都双流大仓" />
-            <Description label="计划单号" text="SJ22020021" />
-          </Description.Group>
-        </Card>
+        <Blank bottom>
+          <Card
+            size="s"
+            title="备货生产"
+            titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
+            extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}>
+            <Description.Group colon={false} labelWidth={88}>
+              <Description label="配送客户" text="美团优选" bold />
+              <Description label="配送数量" text="1" bold />
+              <Description label="生产进度" text="1% （1/100）" bold />
+              <Description label="生产仓库" text="成都双流大仓" />
+              <Description label="计划单号" text="SJ22020021" />
+            </Description.Group>
+          </Card>
+        </Blank>
 
-        <Card
-          size="s"
-          title="备货生产"
-          titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
-          extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}
-          style={cardStyle}>
-          <Description.Group colon={false} labelWidth={88}>
-            <Description label="配送客户" text="美团优选" bold />
-            <Description label="配送数量" text="1" bold />
-            <Description label="生产进度" text="1% （1/100）" bold />
-            <Description label="生产仓库" text="成都双流大仓" />
-            <Description label="计划单号" text="SJ22020021" />
-          </Description.Group>
-        </Card>
+        <Blank bottom>
+          <Card
+            size="s"
+            title="备货生产"
+            titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
+            extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}>
+            <Description.Group colon={false} labelWidth={88}>
+              <Description label="配送客户" text="美团优选" bold />
+              <Description label="配送数量" text="1" bold />
+              <Description label="生产进度" text="1% （1/100）" bold />
+              <Description label="生产仓库" text="成都双流大仓" />
+              <Description label="计划单号" text="SJ22020021" />
+            </Description.Group>
+          </Card>
+        </Blank>
 
-        <Card
-          size="s"
-          title="备货生产"
-          titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
-          extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}
-          style={cardStyle}>
-          <Description.Group colon={false} labelWidth={88}>
-            <Description label="配送客户" text="美团优选" bold />
-            <Description label="配送数量" text="1" bold />
-            <Description label="生产进度" text="1% （1/100）" bold />
-            <Description label="生产仓库" text="成都双流大仓" />
-            <Description label="计划单号" text="SJ22020021" />
-          </Description.Group>
-        </Card>
+        <Blank bottom>
+          <Card
+            size="s"
+            title="备货生产"
+            titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
+            extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}>
+            <Description.Group colon={false} labelWidth={88}>
+              <Description label="配送客户" text="美团优选" bold />
+              <Description label="配送数量" text="1" bold />
+              <Description label="生产进度" text="1% （1/100）" bold />
+              <Description label="生产仓库" text="成都双流大仓" />
+              <Description label="计划单号" text="SJ22020021" />
+            </Description.Group>
+          </Card>
+        </Blank>
       </ScrollView>
 
       <ButtonBar alone>
