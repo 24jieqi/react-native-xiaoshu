@@ -27,6 +27,7 @@ const BasicPasswordInput: React.FC = () => {
           value={
             <PasswordInput
               bordered
+              clearable
               secureTextEntry={value}
               onChangeSecureTextEntry={setValue}
             />
