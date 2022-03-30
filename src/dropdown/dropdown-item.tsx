@@ -137,7 +137,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     state.ctxStyle,
   ]
 
-  const text = (options.filter(op => op.value === value)[0] || {}).label
+  const text = options.filter(op => op.value === value)[0]?.label
   const isContextTop = state.position === 'bottom'
   const placeholderJSX = (
     <TouchableWithoutFeedback onPress={onPressShade}>
