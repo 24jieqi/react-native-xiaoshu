@@ -9,7 +9,7 @@ import { varCreator, styleCreator } from './style'
 const TextInputClear: React.FC<TextInputClearProps> = ({ onPress }) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const STYLES = createStyle(CV, styleCreator, TOKENS)
 
   return (
     <IconSvgCross
