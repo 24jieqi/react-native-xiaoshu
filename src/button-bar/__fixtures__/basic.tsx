@@ -86,6 +86,62 @@ const BasicButtonBar: React.FC = () => {
               },
             ]}
           />
+
+          <ButtonBar
+            size="l"
+            safeAreaInsetBottom={false}
+            buttons={[
+              {
+                text: '主要按钮1',
+                type: 'primary',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+              {
+                text: '次要按钮2',
+                type: 'hazy',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+              {
+                text: '次要按钮3次要按钮3',
+                type: 'hazy',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+            ]}
+          />
+
+          <ButtonBar
+            size="s"
+            safeAreaInsetBottom={false}
+            buttons={[
+              {
+                text: '主要按钮1',
+                type: 'primary',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+              {
+                text: '次要按钮2',
+                type: 'hazy',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+              {
+                text: '次要按钮3次要按钮3',
+                type: 'hazy',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+            ]}
+          />
         </Space>
       </ScrollView>
 

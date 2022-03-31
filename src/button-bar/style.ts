@@ -17,7 +17,7 @@ export const styleCreator = (cv: ComponentVars) => {
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
-      paddingHorizontal: cv.button_bar_padding_horizontal,
+      // paddingHorizontal: cv.button_bar_padding_horizontal,
     },
 
     button_bar_alone: {
