@@ -57,9 +57,9 @@
     "rn-placeholder": "^3.0.3"
   },
   "peerDependencies": {
-    "rc-field-form": "^1.24.0",
-    "react-native-safe-area-context": "^4.2.4",
-    "react-native-svg": "^12.3.0"
+    "rc-field-form": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
