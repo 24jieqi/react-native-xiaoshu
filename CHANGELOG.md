@@ -1,4 +1,14 @@
-## [0.2.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.2...v0.2.3) (2022-03-30)
+## [0.2.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.3...v0.2.4) (2022-03-31)
+
+### Bug Fixes
+
+- **TextInput:** 🐛 删除按钮样式问题 ([126b826](https://github.com/hjfruit/react-native-xiaoshu/commit/126b826f05ead56e69089c0f04089d49b294cd63))
+
+### Features
+
+- **BottomBar:** 🎸 新增高度配置 ([9583ae4](https://github.com/hjfruit/react-native-xiaoshu/commit/9583ae40562c31a804ffd0c5159b726121a59679))
+- **ButtonBar:** 🎸 新增边距尺寸,与留白组件一致 ([3965c06](https://github.com/hjfruit/react-native-xiaoshu/commit/3965c06ccc64f36ea6b47e2d5100c1661e75c125))
+- **TabBar:** 🎸 新增指示器模式 ([a521ed4](https://github.com/hjfruit/react-native-xiaoshu/commit/a521ed4b7f6bd0bd9aa5a118bd65b30465c42c2a))## [0.2.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.2...v0.2.3) (2022-03-30)
 
 ### Features
 
