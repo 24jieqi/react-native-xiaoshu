@@ -33,7 +33,7 @@ const bottomBar = [
   },
   {
     value: 2,
-    label: '其他',
+    label: '其他其他',
     iconRender: (color: string) => (
       <Icon.SearchOutline
         color={color}
@@ -45,7 +45,7 @@ const bottomBar = [
   },
   {
     value: 3,
-    label: '更多',
+    label: '更多更多更多',
     iconRender: (color: string) => (
       <Icon.VolumeOutline
         color={color}
@@ -55,6 +55,19 @@ const bottomBar = [
       />
     ),
   },
+]
+
+const bottomBar2 = bottomBar.map(({ value, label }) => ({
+  value: 10 + value,
+  label,
+}))
+
+const bottomBar3 = [
+  ...bottomBar2,
+  ...bottomBar2.map(({ value, label }) => ({
+    value: value * 2,
+    label: `${label}_2`,
+  })),
 ]
 
 const BasicSwitch: React.FC = () => {
@@ -79,6 +92,54 @@ const BasicSwitch: React.FC = () => {
             onPress={() => {
               setValue1(bottomBar[1].value)
             }}
+          />
+
+          <TabBar
+            indicator
+            indicatorWidth={20}
+            safeAreaInsetBottom={false}
+            defaultValue={bottomBar2[1].value}
+            options={bottomBar2}
+          />
+
+          <TabBar
+            indicator
+            indicatorWidth={0}
+            safeAreaInsetBottom={false}
+            defaultValue={bottomBar2[1].value}
+            options={bottomBar2}
+          />
+
+          <TabBar indicator safeAreaInsetBottom={false} options={bottomBar2} />
+
+          <TabBar
+            tabAlign="left"
+            indicator
+            safeAreaInsetBottom={false}
+            options={bottomBar2}
+          />
+
+          <TabBar
+            tabAlign="left"
+            indicator
+            safeAreaInsetBottom={false}
+            options={bottomBar3}
+          />
+
+          <TabBar
+            tabAlign="left"
+            indicator
+            indicatorWidth={0}
+            safeAreaInsetBottom={false}
+            options={bottomBar3}
+          />
+
+          <TabBar
+            tabAlign="left"
+            indicator
+            indicatorWidth={20}
+            safeAreaInsetBottom={false}
+            options={bottomBar3}
           />
         </Space>
       </ScrollView>
