@@ -13,6 +13,7 @@ import { varCreator } from './style'
 const BottomBar: React.FC<BottomBarProps> = ({
   safeAreaInsetBottom = true,
   backgroundColor,
+  height,
 
   style,
   ...restProps
@@ -26,11 +27,12 @@ const BottomBar: React.FC<BottomBarProps> = ({
     backgroundColor,
     CV.bottom_bar_background_color,
   )
+  height = getDefaultValue(height, CV.bottom_bar_height)
 
   const viewStyles = useMemo<StyleProp<ViewStyle>>(
     () => [
       {
-        height: CV.bottom_bar_height + (safeAreaInsetBottom ? bottom : 0),
+        height: height + (safeAreaInsetBottom ? bottom : 0),
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
         borderTopColor: CV_DIVIDER.divider_color_light,
@@ -41,7 +43,7 @@ const BottomBar: React.FC<BottomBarProps> = ({
     [
       bottom,
       backgroundColor,
-      CV.bottom_bar_height,
+      height,
       CV_DIVIDER.divider_color_light,
       safeAreaInsetBottom,
       style,
