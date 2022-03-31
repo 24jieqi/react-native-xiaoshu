@@ -12,4 +12,10 @@ export interface BottomBarProps extends ViewProps {
    * @default bottom_bar_background_color
    */
   backgroundColor?: string
+
+  /**
+   * 元素高度
+   * @default bottom_bar_height
+   */
+  height?: number
 }

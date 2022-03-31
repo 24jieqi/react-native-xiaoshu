@@ -1,7 +1,10 @@
+import type { BlankProps } from '../blank/interface'
 import type { BottomBarProps } from '../bottom-bar/interface'
 import type { ButtonProps } from '../button/interface'
 
-export interface ButtonBarProps extends BottomBarProps {
+export interface ButtonBarProps
+  extends BottomBarProps,
+    Pick<BlankProps, 'size'> {
   /**
    * 单独一个按钮
    * @default false

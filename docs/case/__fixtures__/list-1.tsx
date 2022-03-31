@@ -42,7 +42,7 @@ const CaseList1: React.FC = () => {
   return (
     <>
       <ScrollView>
-        <Blank top bottom>
+        <Blank top bottom size="s">
           <Card
             size="s"
             title="备货生产"
@@ -59,7 +59,7 @@ const CaseList1: React.FC = () => {
           </Card>
         </Blank>
 
-        <Blank bottom>
+        <Blank bottom size="s">
           <Card
             size="s"
             title="备货生产"
@@ -75,7 +75,7 @@ const CaseList1: React.FC = () => {
           </Card>
         </Blank>
 
-        <Blank bottom>
+        <Blank bottom size="s">
           <Card
             size="s"
             title="备货生产"
@@ -91,7 +91,7 @@ const CaseList1: React.FC = () => {
           </Card>
         </Blank>
 
-        <Blank bottom>
+        <Blank bottom size="s">
           <Card
             size="s"
             title="备货生产"
@@ -108,7 +108,7 @@ const CaseList1: React.FC = () => {
         </Blank>
       </ScrollView>
 
-      <ButtonBar alone>
+      <ButtonBar alone size="s">
         <Button
           renderLeftIcon={(color, size) => (
             <Icon.PlusOutline color={color} size={size} />

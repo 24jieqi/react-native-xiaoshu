@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import ActionSheet from '../action-sheet'
+import { varCreator as varCreatorBlank } from '../blank/style'
 import BottomBar from '../bottom-bar'
 import Button from '../button'
 import { isArray, noop } from '../helpers'
@@ -15,12 +16,14 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   buttons,
   count = 4,
   moreText = '更多',
+  size = 'm',
 
   children,
   ...restProps
 }) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
+  const CV_BLANK = createVar(TOKENS, varCreatorBlank)
   const STYLES = createStyle(CV, styleCreator)
 
   const realButtons = (buttons || []).filter(item => !item.hidden)
@@ -41,10 +44,16 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
       .catch(noop)
   }
 
+  const defaultGap = CV_BLANK[`blank_size_${size}`] || TOKENS.space_3
+
   return (
     <BottomBar
       {...restProps}
-      style={[STYLES.button_bar, alone ? STYLES.button_bar_alone : null]}>
+      style={[
+        { paddingHorizontal: defaultGap },
+        STYLES.button_bar,
+        alone ? STYLES.button_bar_alone : null,
+      ]}>
       {isConfig ? (
         <Space
           justify="flex-end"
