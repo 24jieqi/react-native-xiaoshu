@@ -22,7 +22,7 @@ const Blank: React.FC<BlankProps> = ({
 }) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
-  const defaultGap = CV[`blank_size_${size}`] || TOKENS.space_3
+  const defaultGap = CV[`blank_size_${size}`]
 
   // 重置值
   left = getGapValue(left, defaultGap)
