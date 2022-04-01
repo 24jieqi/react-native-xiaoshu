@@ -2,7 +2,9 @@
 
 ### Bug Fixes
 
-- **ButtonBar:** 🐛 修正默认值 ([cc9e783](https://github.com/hjfruit/react-native-xiaoshu/commit/cc9e783fe2afeb2fc07eb2f5e35e94cdb3e3597c))## [0.2.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.6...v0.2.7) (2022-04-01)
+- **ButtonBar:** 🐛 修正默认值 ([cc9e783](https://github.com/hjfruit/react-native-xiaoshu/commit/cc9e783fe2afeb2fc07eb2f5e35e94cdb3e3597c))
+
+## [0.2.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.6...v0.2.7) (2022-04-01)
 
 ### Bug Fixes
 
