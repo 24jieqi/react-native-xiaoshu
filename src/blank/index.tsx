@@ -12,7 +12,7 @@ const getGapValue = (v: boolean | number, initialValue: number) => {
 
 const Blank: React.FC<BlankProps> = ({
   children,
-  size,
+  size = 'm',
   left = true,
   right = true,
   top = false,
