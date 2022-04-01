@@ -2,7 +2,9 @@
 
 ### Bug Fixes
 
-- **Blank:** 🐛 默认值 ([184daa0](https://github.com/hjfruit/react-native-xiaoshu/commit/184daa07c3c544be5298609f1f5518caae6df039))## [0.2.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.4...v0.2.5) (2022-04-01)
+- **Blank:** 🐛 默认值 ([184daa0](https://github.com/hjfruit/react-native-xiaoshu/commit/184daa07c3c544be5298609f1f5518caae6df039))
+
+## [0.2.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.4...v0.2.5) (2022-04-01)
 
 ### Features
 
