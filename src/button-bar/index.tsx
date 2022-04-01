@@ -16,7 +16,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   buttons,
   count = 4,
   moreText = '更多',
-  size = 'm',
+  blankSize = 'm',
 
   children,
   ...restProps
@@ -44,7 +44,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
       .catch(noop)
   }
 
-  const defaultGap = CV_BLANK[`blank_size_${size}`] || TOKENS.space_3
+  const defaultGap = CV_BLANK[`blank_size_${blankSize}`]
 
   return (
     <BottomBar

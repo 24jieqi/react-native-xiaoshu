@@ -1,8 +1,8 @@
 import type { ViewProps, FlexStyle } from 'react-native'
 
-type SpaceDirection = 'vertical' | 'horizontal'
+import type { BlankProps } from '../blank/interface'
 
-// type SpaceSize = 'xl' | 'l' | 'm' | 's' | 'xs'
+type SpaceDirection = 'vertical' | 'horizontal'
 
 export interface SpaceProps extends ViewProps {
   /**
@@ -19,8 +19,9 @@ export interface SpaceProps extends ViewProps {
 
   /**
    * 间距大小
+   * @default 's'
    */
-  gap?: number
+  gap?: number | BlankProps['size']
 
   /**
    * 垂直方向的间距大小

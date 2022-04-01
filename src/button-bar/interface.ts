@@ -2,9 +2,7 @@ import type { BlankProps } from '../blank/interface'
 import type { BottomBarProps } from '../bottom-bar/interface'
 import type { ButtonProps } from '../button/interface'
 
-export interface ButtonBarProps
-  extends BottomBarProps,
-    Pick<BlankProps, 'size'> {
+export interface ButtonBarProps extends BottomBarProps {
   /**
    * 单独一个按钮
    * @default false
@@ -30,4 +28,10 @@ export interface ButtonBarProps
    * @default '更多'
    */
   moreText?: string
+
+  /**
+   * 左右留白大小
+   * @default 'm'
+   */
+  blankSize?: BlankProps['size']
 }

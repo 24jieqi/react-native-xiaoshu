@@ -8,17 +8,23 @@
 
 - **BottomBar:** 🎸 新增高度配置 ([9583ae4](https://github.com/hjfruit/react-native-xiaoshu/commit/9583ae40562c31a804ffd0c5159b726121a59679))
 - **ButtonBar:** 🎸 新增边距尺寸,与留白组件一致 ([3965c06](https://github.com/hjfruit/react-native-xiaoshu/commit/3965c06ccc64f36ea6b47e2d5100c1661e75c125))
-- **TabBar:** 🎸 新增指示器模式 ([a521ed4](https://github.com/hjfruit/react-native-xiaoshu/commit/a521ed4b7f6bd0bd9aa5a118bd65b30465c42c2a))## [0.2.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.2...v0.2.3) (2022-03-30)
+- **TabBar:** 🎸 新增指示器模式 ([a521ed4](https://github.com/hjfruit/react-native-xiaoshu/commit/a521ed4b7f6bd0bd9aa5a118bd65b30465c42c2a))
+
+## [0.2.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.2...v0.2.3) (2022-03-30)
 
 ### Features
 
 - **Blank:** 🎸 留白组件 ([1ec47bd](https://github.com/hjfruit/react-native-xiaoshu/commit/1ec47bdeaf4b492ac65ed2b3fc3aacae5223acee))
 - **Icon:** 🎸 适配按需加载 ([50648a4](https://github.com/hjfruit/react-native-xiaoshu/commit/50648a4690852f405056c7f09fe48f3f5666f3e7))
-- **PasswordInput:** 🎸 优化删除图标和眼睛图标的间距 ([a1be371](https://github.com/hjfruit/react-native-xiaoshu/commit/a1be3712d55306a1414d0ca03179f5340ebad1dd))## [0.2.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.1...v0.2.2) (2022-03-30)
+- **PasswordInput:** 🎸 优化删除图标和眼睛图标的间距 ([a1be371](https://github.com/hjfruit/react-native-xiaoshu/commit/a1be3712d55306a1414d0ca03179f5340ebad1dd))
+
+## [0.2.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.1...v0.2.2) (2022-03-30)
 
 ### Bug Fixes
 
-- **NumberInput:** 🐛 删除到最后不触发 onChange ([4edb1e4](https://github.com/hjfruit/react-native-xiaoshu/commit/4edb1e4c6e3e290607676129beca450b2618cc65))## [0.2.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.0...v0.2.1) (2022-03-24)
+- **NumberInput:** 🐛 删除到最后不触发 onChange ([4edb1e4](https://github.com/hjfruit/react-native-xiaoshu/commit/4edb1e4c6e3e290607676129beca450b2618cc65))
+
+## [0.2.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.0...v0.2.1) (2022-03-24)
 
 ### Features
 

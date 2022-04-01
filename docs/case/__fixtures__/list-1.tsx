@@ -108,7 +108,7 @@ const CaseList1: React.FC = () => {
         </Blank>
       </ScrollView>
 
-      <ButtonBar alone size="s">
+      <ButtonBar alone blankSize="s">
         <Button
           renderLeftIcon={(color, size) => (
             <Icon.PlusOutline color={color} size={size} />
