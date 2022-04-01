@@ -9,7 +9,9 @@
 ### BREAKING CHANGES
 
 - **ButtonBar:** 🧨 size -> blankSize
-- **Space:** 🧨 不再支持自定义 space_gap_vertical space_gap_horizontal## [0.2.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.3...v0.2.4) (2022-03-31)
+- **Space:** 🧨 不再支持自定义 space_gap_vertical space_gap_horizontal
+
+## [0.2.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.3...v0.2.4) (2022-03-31)
 
 ### Bug Fixes
 
