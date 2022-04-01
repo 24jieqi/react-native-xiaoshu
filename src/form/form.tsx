@@ -12,7 +12,6 @@ import useForm from './useForm'
  * 默认处理错误的回调
  */
 const defaultOnFinishFailed = (errorInfo: ValidateErrorEntity<unknown>) => {
-  console.log(errorInfo.values)
   Toast(errorInfo.errorFields[0].errors[0])
 }
 
