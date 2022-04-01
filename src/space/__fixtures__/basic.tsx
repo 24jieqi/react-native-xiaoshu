@@ -20,6 +20,20 @@ const BasicCell: React.FC = () => {
           </Space>
         </Card>
 
+        <Card title="距离" square>
+          <Space gap="m">
+            <Button text="Button" />
+            <Button text="Button" />
+            {Math.random() > 100 ? <Button text="Button" /> : null}
+          </Space>
+
+          <Space gap="l" head>
+            <Button text="Button" />
+            <Button text="Button" />
+            {Math.random() > 100 ? <Button text="Button" /> : null}
+          </Space>
+        </Card>
+
         <Card title="水平方向的间距" square>
           <Space direction="horizontal">
             <Button text="Button" />

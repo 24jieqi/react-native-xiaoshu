@@ -2,25 +2,13 @@ import React, { memo, Children } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
-import { isDef } from '../helpers'
+import { varCreator as varCreatorBlank } from '../blank/style'
+import { getDefaultValue } from '../helpers'
 import { useThemeTokens, createVar } from '../theme'
 
 import type { SpaceProps } from './interface'
-import { varCreator } from './style'
 
 const NO_GAP = 0
-
-const getDefaultGap = (target: number, defaultTarget: number, gap: number) => {
-  if (isDef(target)) {
-    return target
-  }
-
-  if (isDef(gap)) {
-    return gap
-  }
-
-  return defaultTarget
-}
 
 const getMarginGap = (d: boolean | number, gap: number) =>
   d ? (typeof d === 'number' ? d : gap) : 0
@@ -31,7 +19,7 @@ const getMarginGap = (d: boolean | number, gap: number) =>
 const Space: React.FC<SpaceProps> = ({
   direction = 'vertical',
   wrap = false,
-  gap,
+  gap = 's',
   gapVertical,
   gapHorizontal,
   head,
@@ -45,15 +33,13 @@ const Space: React.FC<SpaceProps> = ({
   ...restProps
 }) => {
   const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const CV_BLANK = createVar(TOKENS, varCreatorBlank)
 
+  const defaultGap: number =
+    typeof gap === 'string' ? CV_BLANK[`blank_size_${gap}`] : gap
   const isVertical = direction === 'vertical'
-  const _gapVertical = getDefaultGap(gapVertical, CV.space_gap_vertical, gap)
-  const _gapHorizontal = getDefaultGap(
-    gapHorizontal,
-    CV.space_gap_horizontal,
-    gap,
-  )
+  const _gapVertical = getDefaultValue(gapVertical, defaultGap)
+  const _gapHorizontal = getDefaultValue(gapHorizontal, defaultGap)
   const wrapperStyle: ViewStyle = {
     flexDirection: isVertical ? 'column' : 'row',
     flexWrap: wrap ? 'wrap' : 'nowrap',
