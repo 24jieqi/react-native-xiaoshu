@@ -6,7 +6,9 @@
 
 ### Features
 
-- **BottomBar:** 🎸 新增软键盘弹出时隐藏接口 ([2ea4c78](https://github.com/hjfruit/react-native-xiaoshu/commit/2ea4c7882997e85dc9ff9eff5583b3086d58ebfb))## [0.2.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.5...v0.2.6) (2022-04-01)
+- **BottomBar:** 🎸 新增软键盘弹出时隐藏接口 ([2ea4c78](https://github.com/hjfruit/react-native-xiaoshu/commit/2ea4c7882997e85dc9ff9eff5583b3086d58ebfb))
+
+## [0.2.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.5...v0.2.6) (2022-04-01)
 
 ### Bug Fixes
 
