@@ -88,7 +88,7 @@ const BasicButtonBar: React.FC = () => {
           />
 
           <ButtonBar
-            size="l"
+            blankSize="l"
             safeAreaInsetBottom={false}
             buttons={[
               {
@@ -116,7 +116,7 @@ const BasicButtonBar: React.FC = () => {
           />
 
           <ButtonBar
-            size="s"
+            blankSize="s"
             safeAreaInsetBottom={false}
             buttons={[
               {
