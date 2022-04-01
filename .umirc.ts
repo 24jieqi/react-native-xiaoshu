@@ -29,6 +29,10 @@ export default defineConfig({
       title: `GitHub v${p.version}`,
       path: 'https://github.com/hjfruit/react-native-xiaoshu',
     },
+    {
+      title: '更新日志',
+      path: 'https://github.com/hjfruit/react-native-xiaoshu/releases',
+    },
   ],
   resolve: {
     includes: ['docs', 'src'],
