@@ -1,6 +1,6 @@
-import React, { useMemo, memo } from 'react'
+import React, { useMemo, useEffect, useState, memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
-import { View } from 'react-native'
+import { View, Keyboard, Platform } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { varCreator as varCreatorDivider } from '../divider/style'
@@ -14,6 +14,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
   safeAreaInsetBottom = true,
   backgroundColor,
   height,
+  hidden = false,
+  keyboardShowNotRender = false,
 
   style,
   ...restProps
@@ -22,6 +24,26 @@ const BottomBar: React.FC<BottomBarProps> = ({
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
   const CV_DIVIDER = createVar(TOKENS, varCreatorDivider)
+  const [keyboardShow, setKeyboardShow] = useState(false)
+
+  // 监听键盘
+  useEffect(() => {
+    // 安卓才隐藏底部
+    if (keyboardShowNotRender && Platform.OS === 'android') {
+      // 注意如果你把 android:windowSoftInputMode 设置为 adjustResize 或是 adjustPan，则在 Android 上只有 keyboardDidShow 和 keyboardDidHide 事件有效。
+      const keyboardDidShow = Keyboard.addListener('keyboardDidShow', () => {
+        setKeyboardShow(true)
+      })
+      const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
+        setKeyboardShow(false)
+      })
+
+      return () => {
+        keyboardDidShow.remove()
+        keyboardDidHide.remove()
+      }
+    }
+  }, [keyboardShowNotRender])
 
   backgroundColor = getDefaultValue(
     backgroundColor,
@@ -49,6 +71,11 @@ const BottomBar: React.FC<BottomBarProps> = ({
       style,
     ],
   )
+
+  // 本身隐藏
+  if (hidden || keyboardShow) {
+    return null
+  }
 
   return <View {...restProps} style={viewStyles} />
 }

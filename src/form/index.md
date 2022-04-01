@@ -11,7 +11,7 @@ group:
 
 # Form 表单
 
-> 基于 rc-field-form 的表单。
+> 基于 [rc-field-form](https://field-form-react-component.vercel.app/) 的表单。
 
 ## 何时使用
 

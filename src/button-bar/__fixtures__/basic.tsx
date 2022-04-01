@@ -10,13 +10,14 @@ import {
   Button,
   Icon,
   Space,
+  Field,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicButtonBar: React.FC = () => {
   return (
     <>
       <ScrollView>
-        <Space head>
+        <Space head gap={100}>
           <View style={{ backgroundColor: '#fff', paddingVertical: 12 }}>
             <ButtonBar
               safeAreaInsetBottom={false}
@@ -115,6 +116,11 @@ const BasicButtonBar: React.FC = () => {
             ]}
           />
 
+          <Field.TextInput
+            title="keyboardShowNotRender"
+            placeholder="按钮隐藏"
+          />
+
           <ButtonBar
             blankSize="s"
             safeAreaInsetBottom={false}
@@ -145,7 +151,7 @@ const BasicButtonBar: React.FC = () => {
         </Space>
       </ScrollView>
 
-      <ButtonBar alone>
+      <ButtonBar alone keyboardShowNotRender>
         <Button
           text="新增数据"
           type="primary"
