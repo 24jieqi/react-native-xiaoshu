@@ -15,7 +15,7 @@ const BottomBar: React.FC<BottomBarProps> = ({
   backgroundColor,
   height,
   hidden = false,
-  keyboardShowNotRender = false,
+  keyboardShowNotRender = true,
 
   style,
   ...restProps
