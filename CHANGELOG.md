@@ -1,4 +1,15 @@
-## [0.2.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.3...v0.2.4) (2022-03-31)
+## [0.2.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.4...v0.2.5) (2022-04-01)
+
+### Features
+
+- **Blank:** 🎸 去掉兜底值 ([b299d86](https://github.com/hjfruit/react-native-xiaoshu/commit/b299d8641857b0fb76b3f27a2937aca28a10ce19))
+- **ButtonBar:** 🎸 更新左右留白属性名称 ([c425b0a](https://github.com/hjfruit/react-native-xiaoshu/commit/c425b0a28cb469608c7fc51d229970366cc0f1e6))
+- **Space:** 🎸 支持默认间距 s m l ([d871a27](https://github.com/hjfruit/react-native-xiaoshu/commit/d871a27ef4770c81f6a1549b944d3692bc9cac6f))
+
+### BREAKING CHANGES
+
+- **ButtonBar:** 🧨 size -> blankSize
+- **Space:** 🧨 不再支持自定义 space_gap_vertical space_gap_horizontal## [0.2.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.3...v0.2.4) (2022-03-31)
 
 ### Bug Fixes
 
