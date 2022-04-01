@@ -18,4 +18,16 @@ export interface BottomBarProps extends ViewProps {
    * @default bottom_bar_height
    */
   height?: number
+
+  /**
+   * 是否隐藏
+   * @default false
+   */
+  hidden?: boolean
+
+  /**
+   * 当软键盘弹出来的时候不渲染，BottomBar 固定在底部的布局中，在 Android 机器上 BottomBar 会被软键盘挤上去
+   * @description true
+   */
+  keyboardShowNotRender?: boolean
 }
