@@ -54,6 +54,7 @@ export const styleCreator = (cv: ComponentVars) => {
       flexDirection: 'row',
       marginRight: cv.cell_title_line_margin_right,
       // alignItems: 'center',
+      flexShrink: 1,
       // backgroundColor: '#f30', // to test ui
     },
 
