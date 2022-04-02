@@ -103,17 +103,6 @@ Toast.fail = options =>
   })
 
 /**
- * 清除弹窗
- */
-Toast.clear = mark => {
-  if (typeof mark === 'boolean') {
-    // 清除所有
-  } else {
-    // 清除某一个
-  }
-}
-
-/**
  * 修改默认配置，对所有 Toast 生效。传入 type 可以修改指定类型的默认配置
  */
 Toast.setDefaultOptions = (type, options) => {

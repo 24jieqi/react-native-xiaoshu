@@ -79,10 +79,6 @@ export interface ToastOptions extends ToastProps {}
 export interface ToastInstance {
   (p: ToastOptions | string): ToastMethods
   loading: (p: ToastOptions | string) => ToastMethods
-  /**
-   * @deprecated 暂未实现
-   */
-  clear: (all: boolean | number) => void
   success: (p: ToastOptions | string) => ToastMethods
   fail: (p: ToastOptions | string) => ToastMethods
   setDefaultOptions: (
