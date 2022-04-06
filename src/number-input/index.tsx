@@ -37,11 +37,12 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
     },
     ref,
   ) => {
-    if (type === 'number') {
-      restProps.keyboardType = 'numeric'
-    }
+    // iOS 数字键盘没有减号，负数无法输入，去掉限制，交给外部控制
+    // if (type === 'number') {
+    //   restProps.keyboardType = 'numeric'
+    // }
     if (type === 'digit') {
-      restProps.keyboardType = 'number-pad'
+      // restProps.keyboardType = 'number-pad'
       limitDecimals = -1
     }
 
@@ -76,10 +77,8 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       (t: string, isEnd: boolean) => {
         // 部分数据开始格式化
         // 允许输入正整数
-        if (type === 'digit' || type === 'number') {
-          const isNumber = type === 'number'
-          t = formatNumber(t, isNumber, isNumber)
-        }
+        const isNumber = type === 'number'
+        t = formatNumber(t, isNumber, true)
 
         // 解析数据
         let newValueStringify = parserInputValue(t)
