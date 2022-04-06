@@ -1,3 +1,5 @@
+import { StyleSheet } from 'react-native'
+
 import type { TokensType } from '../theme'
 
 export const varCreator = (TOKENS: TokensType) => {
@@ -11,5 +13,28 @@ export const varCreator = (TOKENS: TokensType) => {
     progress_pivot_line_height_scale: 1.6,
     progress_pivot_background_color: TOKENS.brand_6,
     progress_page_background_color: TOKENS.white,
+    progress_page_text_font_size: TOKENS.font_size_4,
+    progress_page_text_line_height: TOKENS.line_height_1,
+    progress_page_text_color: TOKENS.gray_6,
+    progress_page_button_width: 156,
   }
+}
+
+type ComponentVars = ReturnType<typeof varCreator>
+
+export const styleCreator = (cv: ComponentVars) => {
+  return StyleSheet.create({
+    fail_page: {
+      backgroundColor: cv.progress_page_background_color,
+      flex: 1,
+    },
+    text: {
+      fontSize: cv.progress_page_text_font_size,
+      lineHeight: cv.progress_page_text_line_height,
+      color: cv.progress_page_text_color,
+    },
+    btn: {
+      width: cv.progress_page_button_width,
+    },
+  })
 }

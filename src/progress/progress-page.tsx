@@ -1,22 +1,30 @@
 import React, { useState, useCallback, useEffect, memo } from 'react'
 import type { ViewStyle } from 'react-native'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 
+import Button from '../button'
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import { usePersistFn } from '../hooks'
+import Result from '../result'
+import Space from '../space'
+import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { ProgressPageProps } from './interface'
 import Progress from './progress'
-import { varCreator } from './style'
+import { varCreator, styleCreator } from './style'
 
 const ProgressPage: React.FC<ProgressPageProps> = ({
   children,
   loading: loadingOut,
   backgroundColor,
   defaultPercentage = 10,
+  fail,
+  failMessage = '加载失败，请稍后再试～',
+  onPressReload,
 }) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
+  const STYLES = createStyle(CV, styleCreator)
 
   backgroundColor = getDefaultValue(
     backgroundColor,
@@ -38,6 +46,10 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
       }))
     }
   }, [state.percentage])
+
+  const onPressReloadPersistFn = usePersistFn(() => {
+    onPressReload?.()
+  })
 
   useEffect(() => {
     setState(s => {
@@ -88,6 +100,28 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           square
         />
       </View>
+    )
+  }
+
+  if (fail) {
+    return (
+      <Result
+        style={STYLES.fail_page}
+        status="warning"
+        subtitle={
+          <Space head gap="l">
+            <Text style={STYLES.text}>{failMessage}</Text>
+            <Button
+              style={STYLES.btn}
+              text="点击刷新"
+              onPress={onPressReloadPersistFn}
+            />
+          </Space>
+        }
+        renderIcon={() => {
+          return <Result.IconWarning />
+        }}
+      />
     )
   }
 

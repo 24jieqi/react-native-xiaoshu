@@ -3,7 +3,7 @@
  * desc: 把各种场景、API 都运用了
  */
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { ScrollView } from 'react-native'
 
 import {
@@ -17,7 +17,23 @@ const BasicProgress: React.FC = () => {
   const [state, setState] = useState({
     loading: true,
     percentage: 0,
+    fail: true,
   })
+
+  const onPressReload = useCallback(() => {
+    setState(s => ({
+      ...s,
+      loading: true,
+      fail: false,
+    }))
+
+    setTimeout(() => {
+      setState(s => ({
+        ...s,
+        loading: false,
+      }))
+    }, 1000)
+  }, [])
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,7 +45,10 @@ const BasicProgress: React.FC = () => {
   }, [])
 
   return (
-    <Progress.Page loading={state.loading}>
+    <Progress.Page
+      loading={state.loading}
+      fail={state.fail}
+      onPressReload={onPressReload}>
       <ScrollView>
         <Space tail head>
           <Card title="基础用法" square>

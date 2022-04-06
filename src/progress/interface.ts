@@ -96,4 +96,20 @@ export interface ProgressPageProps {
    * @default progress_page_background_color
    */
   backgroundColor?: string
+
+  /**
+   * 加载出错
+   */
+  fail?: boolean
+
+  /**
+   * 加载失败提示
+   * @default '加载失败，请稍后再试～'
+   */
+  failMessage?: string
+
+  /**
+   * 加载失败点击重新加载
+   */
+  onPressReload?: () => void
 }
