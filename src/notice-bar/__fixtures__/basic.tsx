@@ -36,6 +36,19 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               message="一袋米要抗几楼，一袋米要抗二楼"
+              onPress={onPressNoticeBar}
+              bordered
+            />
+
+            <NoticeBar
+              message="一袋米要抗几楼，一袋米要抗二楼"
+              onPress={onPressNoticeBar}
+              bordered
+              square={false}
+            />
+
+            <NoticeBar
+              message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
               onPressClose={onPressNoticeBar}
             />
@@ -87,6 +100,7 @@ const BasicNoticeBar: React.FC = () => {
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               status="error"
+              bordered
             />
 
             <NoticeBar
@@ -96,6 +110,8 @@ const BasicNoticeBar: React.FC = () => {
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
               status="error"
+              bordered
+              square={false}
             />
 
             <NoticeBar

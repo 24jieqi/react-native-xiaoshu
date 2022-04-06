@@ -7,6 +7,7 @@ export const varCreator = (TOKENS: TokensType) => {
     notice_bar_padding_vertical: TOKENS.space_2,
     notice_bar_padding_horizontal: TOKENS.space_4,
     notice_bar_text_line_height: TOKENS.line_height_1,
+    notice_bar_border_radius: TOKENS.border_radius_s,
     notice_bar_text_font_size: TOKENS.font_size_3,
     notice_bar_icon_size: TOKENS.font_size_3,
     notice_bar_icon_margin_horizontal: TOKENS.space_2,

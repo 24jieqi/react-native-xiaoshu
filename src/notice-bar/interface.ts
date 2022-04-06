@@ -32,6 +32,12 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
   mode?: NoticeBarMode
 
   /**
+   * 是否显示边框
+   * @default false
+   */
+  bordered?: boolean
+
+  /**
    * 通知文本颜色
    * @default notice_bar_text_color
    */
@@ -54,6 +60,12 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
    * @default false
    */
   wrapable?: boolean
+
+  /**
+   * 是否为方形
+   * @default true
+   */
+  square?: boolean
 
   /**
    * 渲染左侧图标

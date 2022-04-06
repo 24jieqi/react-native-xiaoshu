@@ -35,10 +35,12 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   messageTextStyle,
   status = 'warning',
   mode,
+  bordered = false,
   color,
   backgroundColor,
   iconColor,
   wrapable = false,
+  square = true,
   renderLeftIcon,
   renderRightIcon,
   onPressClose,
@@ -72,6 +74,9 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
     STYLES.noticeBar,
     {
       backgroundColor,
+      borderRadius: square ? 0 : CV.notice_bar_border_radius,
+      borderColor: color,
+      borderWidth: bordered ? 1 : 0,
     },
     style,
   ]
