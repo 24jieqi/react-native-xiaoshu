@@ -85,6 +85,18 @@ const BasicNumberInput: React.FC = () => {
             />
           }
         />
+        <Cell
+          title="默认值:正整数"
+          value={
+            <NumberInput
+              type="digit"
+              placeholder="请输入"
+              min={0}
+              onChange={consoleNum}
+              keyboardType="number-pad"
+            />
+          }
+        />
 
         <Cell
           title="默认值:4位小数限制"
