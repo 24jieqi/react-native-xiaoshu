@@ -68,6 +68,12 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
   square?: boolean
 
   /**
+   * 大小
+   * @default 'm'
+   */
+  size?: 'm' | 's'
+
+  /**
    * 渲染左侧图标
    */
   renderLeftIcon?: (color: string, size: number) => React.ReactNode

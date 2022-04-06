@@ -41,6 +41,7 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   iconColor,
   wrapable = false,
   square = true,
+  size = 'm',
   renderLeftIcon,
   renderRightIcon,
   onPressClose,
@@ -71,7 +72,8 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   iconColor = getDefaultValue(iconColor, color)
 
   const noticeBarStyles: StyleProp<ViewStyle> = [
-    STYLES.noticeBar,
+    STYLES.notice_bar,
+    STYLES[`notice_bar_${size}`],
     {
       backgroundColor,
       borderRadius: square ? 0 : CV.notice_bar_border_radius,

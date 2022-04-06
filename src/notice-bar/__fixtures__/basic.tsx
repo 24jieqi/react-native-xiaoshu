@@ -143,6 +143,28 @@ const BasicNoticeBar: React.FC = () => {
           </Space>
         </Card>
 
+        <Card title="大小" square>
+          <Space>
+            <NoticeBar
+              renderLeftIcon={color => <Icon.NewFill color={color} size={18} />}
+              message="一袋米要抗几楼，一袋米要抗二楼"
+              mode="closeable"
+              status="error"
+              bordered
+              square={false}
+            />
+            <NoticeBar
+              renderLeftIcon={color => <Icon.NewFill color={color} size={18} />}
+              message="一袋米要抗几楼，一袋米要抗二楼"
+              mode="closeable"
+              status="error"
+              bordered
+              square={false}
+              size="s"
+            />
+          </Space>
+        </Card>
+
         <Card title="带 icon" square>
           <Space>
             <NoticeBar
