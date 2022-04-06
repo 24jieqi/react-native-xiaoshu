@@ -20,6 +20,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   defaultPercentage = 10,
   fail,
   failMessage = '加载失败，请稍后再试～',
+  failIcon,
   onPressReload,
 }) => {
   const TOKENS = useThemeTokens()
@@ -109,7 +110,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         style={STYLES.fail_page}
         status="warning"
         subtitle={
-          <Space head gap="l">
+          <Space head gap="l" align="center">
             <Text style={STYLES.text}>{failMessage}</Text>
             <Button
               style={STYLES.btn}
@@ -119,6 +120,10 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           </Space>
         }
         renderIcon={() => {
+          if (failIcon) {
+            return failIcon
+          }
+
           return <Result.IconWarning />
         }}
       />

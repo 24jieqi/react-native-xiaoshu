@@ -1,3 +1,5 @@
+import type React from 'react'
+
 export interface ProgressProps {
   /**
    * 进度百分比
@@ -107,6 +109,11 @@ export interface ProgressPageProps {
    * @default '加载失败，请稍后再试～'
    */
   failMessage?: string
+
+  /**
+   * 自定义加载出错的图标
+   */
+  failIcon?: React.ReactNode
 
   /**
    * 加载失败点击重新加载
