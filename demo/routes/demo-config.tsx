@@ -45,6 +45,7 @@ import DemoSelector from '../../src/selector/__fixtures__/basic'
 import DemoSidebar from '../../src/sidebar/__fixtures__/basic'
 import DemoSkeleton from '../../src/skeleton/__fixtures__/basic'
 import DemoSpace from '../../src/space/__fixtures__/basic'
+import DemoStepSelector from '../../src/step-selector/__fixtures__/basic'
 import DemoSteps from '../../src/steps/__fixtures__/basic'
 import DemoSwitch from '../../src/switch/__fixtures__/basic'
 import DemoTabBar from '../../src/tab-bar/__fixtures__/basic'
@@ -106,6 +107,7 @@ export type DemoPaths =
   | 'DemoSidebar'
   | 'DemoDescription'
   | 'DemoBlank'
+  | 'DemoStepSelector'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -521,6 +523,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoBlank />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoStepSelector',
+    Page: () => (
+      <DemoWrapper>
+        <DemoStepSelector />
       </DemoWrapper>
     ),
   },

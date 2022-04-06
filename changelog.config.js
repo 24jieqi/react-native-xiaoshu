@@ -44,6 +44,7 @@ module.exports = {
     'Sidebar',
     'Skeleton',
     'Space',
+    'StepSelector',
     'Steps',
     'Switch',
     'TabBar',

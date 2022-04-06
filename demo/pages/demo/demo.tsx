@@ -111,6 +111,10 @@ const navDatas: {
         name: 'DemoSelector',
       },
       {
+        title: 'StepSelector',
+        name: 'DemoStepSelector',
+      },
+      {
         title: 'Switch',
         name: 'DemoSwitch',
       },
