@@ -5,9 +5,9 @@ import type {
   StyleProp,
 } from 'react-native'
 
-export type ButtonSize = 'xl' | 'l' | 'm' | 's' | 'xs'
+// export type ButtonSize = 'xl' | 'l' | 'm' | 's' | 'xs'
 
-export type ButtonType = 'primary' | 'hazy' | 'outline' | 'ghost' | 'link'
+// export type ButtonType = 'primary' | 'hazy' | 'outline' | 'ghost' | 'link'
 
 export interface ButtonProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'> {
@@ -25,13 +25,13 @@ export interface ButtonProps
    * 大小
    * @default 'l'
    */
-  size?: ButtonSize
+  size?: 'xl' | 'l' | 'm' | 's' | 'xs'
 
   /**
    * 类型
    * @default 'primary'
    */
-  type?: ButtonType
+  type?: 'primary' | 'hazy' | 'outline' | 'ghost' | 'link'
 
   /**
    * 设置危险按钮
