@@ -27,6 +27,18 @@ export interface StepSelectorProps<T> extends PopupPropsCommon {
    */
   safeAreaInsetTop?: number
 
+  /**
+   * 是否在显示弹层时才渲染节点
+   * @default true
+   */
+  lazyRender?: boolean
+
+  /**
+   * 是否显示圆角
+   * @default true
+   */
+  round?: boolean
+
   value?: T[]
 
   defaultValue?: T[]

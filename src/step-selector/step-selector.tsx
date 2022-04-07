@@ -31,6 +31,7 @@ type LocalState<T> = {
 function StepSelector<T = number>({
   title = '请选择',
   safeAreaInsetTop,
+  round = true,
   onPressClose,
   request,
 
@@ -156,7 +157,7 @@ function StepSelector<T = number>({
     <Popup
       {...omit(resetProps, ['value', 'defaultValue', 'onChange'])}
       position="bottom"
-      round>
+      round={round}>
       <View style={bodyStyle}>
         <PopupHeader title={title} onClose={onPressClose} />
 
