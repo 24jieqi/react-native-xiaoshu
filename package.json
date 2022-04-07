@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@fruits-chain/design-tokens-bailu": "^0.0.5",
-    "color": "^4.2.1",
+    "color": "^3.2.1",
     "lodash": "^4.17.21",
     "rn-placeholder": "^3.0.3"
   },
