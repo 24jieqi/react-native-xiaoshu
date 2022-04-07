@@ -18,7 +18,9 @@
 - **StepSelector:** 🎸 完成函数\组件两种使用方式 ([ceae9b5](https://github.com/hjfruit/react-native-xiaoshu/commit/ceae9b5e594fe0f055c8dfd92837711fb09fb858))
 - **StepSelector:** 🎸 新增配置项 ([50a8d4a](https://github.com/hjfruit/react-native-xiaoshu/commit/50a8d4ad45c38ec9d674dfdadefd68ab961b4243))
 - **StepSelector:** 🎸 组件大体逻辑完成 ([be25ea6](https://github.com/hjfruit/react-native-xiaoshu/commit/be25ea6a370821e1edbb8f8091bbe505eb0226cc))
-- **Toast:** 🎸 去掉没有实现的 API ([4df83c0](https://github.com/hjfruit/react-native-xiaoshu/commit/4df83c004cdc33b412560f0a528d79d6899874de))## [0.2.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.7...v0.2.8) (2022-04-01)
+- **Toast:** 🎸 去掉没有实现的 API ([4df83c0](https://github.com/hjfruit/react-native-xiaoshu/commit/4df83c004cdc33b412560f0a528d79d6899874de))
+
+## [0.2.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.7...v0.2.8) (2022-04-01)
 
 ### Bug Fixes
 
