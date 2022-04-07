@@ -49,7 +49,7 @@ export interface PopupPropsCommon {
   onOpened?: PopupPropsCommonCallback
 
   /**
-   * 关闭弹出层时触发，And
+   * 关闭弹出层时触发
    */
   onClose?: PopupPropsCommonCallback
 
