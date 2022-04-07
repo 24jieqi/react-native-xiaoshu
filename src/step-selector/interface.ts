@@ -44,7 +44,45 @@ export interface StepSelectorProps<T> extends PopupPropsCommon {
   request: (parentId: T, index: number) => Promise<RequestResponseData<T>>
 }
 
+export interface StepSelectorLineProps {
+  /**
+   * 当前的索引
+   */
+  index: number
+
+  /**
+   * 总数量
+   */
+  total: number
+
+  /**
+   * 是否是激活的样子
+   * @default false
+   */
+  active?: boolean
+}
+
+export interface StepSelectorMethodProps<T>
+  extends Omit<
+    StepSelectorProps<T>,
+    'value' | 'onChange' | 'onPressClose' | 'visible'
+  > {
+  /**
+   * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
+   */
+  beforeClose?: (
+    v: T[],
+    o: OptionData<T>[],
+    isEnd?: boolean,
+  ) => boolean | Promise<boolean>
+
+  /**
+   * 操作完成后的回调，部分业务需要把选项其他值提取出来
+   */
+  callback?: (v: T[], o: OptionData<T>[], isEnd?: boolean) => void
+}
+
 export interface StepSelectorInstance {
-  (p: any): Promise<{}>
+  <T>(p: StepSelectorMethodProps<T>): Promise<T[]>
   Component: <T>(p: StepSelectorProps<T>) => React.ReactElement
 }

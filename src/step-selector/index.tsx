@@ -2,28 +2,30 @@ import React, { memo } from 'react'
 
 import Portal from '../portal'
 
-import type { StepSelectorInstance } from './interface'
+import type { StepSelectorInstance, StepSelectorMethodProps } from './interface'
 import StepSelectorView from './step-selector'
+import StopSelectorMethod from './step-selector-method'
 
 /**
  * 步骤选择
  */
-const StepSelector: StepSelectorInstance = opts => {
-  return new Promise(resolve => {
+const StepSelector: StepSelectorInstance = <T,>(
+  opts: StepSelectorMethodProps<T>,
+) => {
+  return new Promise<T[]>(resolve => {
     const key = Portal.add(
-      null,
-      // <DialogMethodView
-      //   {...opts}
-      //   onClosed={() => {
-      //     Portal.remove(key)
-      //     opts.onClosed?.()
-      //   }}
-      //   callback={action => {
-      //     resolve(action)
-      //   }}
-      // />,
+      <StopSelectorMethod<T>
+        {...opts}
+        onClosed={() => {
+          Portal.remove(key)
+          opts.onClosed?.()
+        }}
+        callback={(v, o, isEnd) => {
+          opts.callback?.(v, o, isEnd)
+          resolve(v)
+        }}
+      />,
     )
-    console.log(key)
   })
 }
 

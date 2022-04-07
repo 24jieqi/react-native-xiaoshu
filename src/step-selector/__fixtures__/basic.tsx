@@ -35,7 +35,36 @@ const BasicStepSelector: React.FC = () => {
   return (
     <>
       <Cell.Group title="函数使用">
-        <Cell title="选择" />
+        <Cell
+          title="选择"
+          isLink
+          onPress={() => {
+            StepSelector({
+              request: request,
+              callback: (v, o, isEnd) => {
+                console.log('v => ', v)
+                console.log('o => ', o)
+                console.log('isEnd => ', isEnd)
+              },
+            })
+          }}
+        />
+        <Cell
+          title="选择:默认值"
+          isLink
+          divider={false}
+          onPress={() => {
+            StepSelector({
+              request: request,
+              defaultValue: ['10', '111', '212'],
+              callback: (v, o, isEnd) => {
+                console.log('v => ', v)
+                console.log('o => ', o)
+                console.log('isEnd => ', isEnd)
+              },
+            })
+          }}
+        />
       </Cell.Group>
 
       <Cell.Group title="组件使用">

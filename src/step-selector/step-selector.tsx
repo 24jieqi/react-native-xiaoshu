@@ -18,6 +18,7 @@ import type {
   OptionData,
   RequestResponseData,
 } from './interface'
+import StepSelectorLine from './line'
 import { varCreator, styleCreator } from './style'
 
 type LocalState<T> = {
@@ -164,13 +165,21 @@ function StepSelector<T = number>({
             return (
               <Cell
                 key={`${item?.value}`}
+                innerStyle={STYLES.selected_cell}
                 title={item?.label || state.responseData[index].placeholder}
-                titleExtra={index === 0 ? null : null}
-                titleTextStyle={
+                titleExtra={
+                  <StepSelectorLine
+                    index={index}
+                    total={state.selected.length}
+                    active={!!item?.label}
+                  />
+                }
+                titleTextStyle={[
+                  STYLES.selected_cell_title_text,
                   index === state.index && item?.label
                     ? STYLES.option_text_active
-                    : null
-                }
+                    : null,
+                ]}
                 isLink
                 disabled={state.loading}
                 divider={index === state.selected.length - 1}
