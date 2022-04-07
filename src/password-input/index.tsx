@@ -2,7 +2,8 @@ import React, { useMemo, memo, forwardRef } from 'react'
 
 import { getDefaultValue } from '../helpers'
 import { useControllableValue, usePersistFn } from '../hooks'
-import Icon from '../icon'
+import EyeOutline from '../icon/eye'
+import EyeCloseOutline from '../icon/eye-close'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { useThemeTokens } from '../theme'
@@ -42,7 +43,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
       onChangeSecureTextEntry(!secure)
     })
 
-    const IconSuffix = secure ? Icon.EyeCloseOutline : Icon.EyeOutline
+    const IconSuffix = secure ? EyeCloseOutline : EyeOutline
 
     return (
       <TextInput

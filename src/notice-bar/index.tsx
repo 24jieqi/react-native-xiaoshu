@@ -12,7 +12,8 @@ import {
   noop,
 } from '../helpers'
 import { usePersistFn } from '../hooks'
-import Icon from '../icon'
+import ArrowRightOutline from '../icon/arrow-right'
+import CrossOutline from '../icon/cross'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { NoticeBarProps, NoticeBarMode } from './interface'
@@ -21,9 +22,9 @@ import { varCreator, styleCreator } from './style'
 const getModeIcon = (mode: NoticeBarMode) => {
   switch (mode) {
     case 'closeable':
-      return Icon.CrossOutline
+      return CrossOutline
     default:
-      return Icon.ArrowRightOutline
+      return ArrowRightOutline
   }
 }
 

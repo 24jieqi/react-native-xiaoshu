@@ -4,7 +4,7 @@ import { View, TouchableOpacity } from 'react-native'
 import { varCreator as varCreatorButton } from '../button/style'
 import Divider from '../divider'
 import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
-import Icon from '../icon'
+import ArrowLeftOutline from '../icon/arrow-left'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { NavBarProps } from './interface'
@@ -55,10 +55,7 @@ const NavBar: React.FC<NavBarProps> = ({
                 onPress={onPressBackArrow}
                 activeOpacity={CV_BUTTON.button_active_opacity}
                 hitSlop={BACK_ARROW_HIT_SLOP}>
-                <Icon.ArrowLeftOutline
-                  size={backArrowSize}
-                  color={backArrowColor}
-                />
+                <ArrowLeftOutline size={backArrowSize} color={backArrowColor} />
               </TouchableOpacity>
             ) : null}
 

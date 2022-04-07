@@ -4,7 +4,8 @@ import { View } from 'react-native'
 import Button from '../button'
 import { getDefaultValue, isValue, noop } from '../helpers'
 import { usePersistFn } from '../hooks'
-import Icon from '../icon'
+import ArrowLeftOutline from '../icon/arrow-left'
+import SearchOutline from '../icon/search'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { varCreator as varCreatorTextInput } from '../text-input/style'
@@ -88,7 +89,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
         {...restProps}
         style={[STYLES.search, showBack ? STYLES.search_back : null, style]}>
         {showBack ? (
-          <Icon.ArrowLeftOutline
+          <ArrowLeftOutline
             onPress={onPressBack}
             color={CV.search_back_icon_color}
             size={24}
@@ -105,7 +106,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           value={value}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
-          prefix={<Icon.SearchOutline color={iconColor} size={iconSize} />}
+          prefix={<SearchOutline color={iconColor} size={iconSize} />}
           onChange={onChange}
           onChangeText={_onChangeText}
           autoFocus={autoFocus}
