@@ -1,4 +1,24 @@
-## [0.2.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.7...v0.2.8) (2022-04-01)
+## [0.2.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.8...v0.2.9) (2022-04-07)
+
+### Bug Fixes
+
+- cell width ([733697e](https://github.com/hjfruit/react-native-xiaoshu/commit/733697e039238bf973cf9d83eec813058a975718))
+- **ci:** 🐛 color ([0556d6f](https://github.com/hjfruit/react-native-xiaoshu/commit/0556d6fd71394590390cd5967e74d76e657df04d))
+- **Progress:** 🐛 没有点击事件不显示按钮 ([9fb4998](https://github.com/hjfruit/react-native-xiaoshu/commit/9fb49987f60c982fe29036b858d51fb8e4dd4cde))
+
+### Features
+
+- **ActionSheet:** 🎸 新增自定义顶部边距 ([36e4217](https://github.com/hjfruit/react-native-xiaoshu/commit/36e42171f4e1f538f8cba3dbc2a2635c3e36eb0f))
+- **Icon:** 🎸 新增图标 ([8dbf0a7](https://github.com/hjfruit/react-native-xiaoshu/commit/8dbf0a70d6de73f922f51198e87800000ef6b9dc))
+- **NoticeBar:** 🎸 新增大小,优化间距 ([3358e0e](https://github.com/hjfruit/react-native-xiaoshu/commit/3358e0edcc1fc1a48bd8a514ccd9bbf157cedb88))
+- **NoticeBar:** 🎸 新增显示边框\非直角 ([1402a61](https://github.com/hjfruit/react-native-xiaoshu/commit/1402a61c291712e4f808f85acc9c0e5dbaa8cf3c))
+- **NumberInput:** 🎸 去掉软键盘限制\整数允许输入符号 ([26ca465](https://github.com/hjfruit/react-native-xiaoshu/commit/26ca4651ec710ae13302bad26edad3128baf2579))
+- **Progress:** 🎸 新增自定义加载出错时的图标 ([d75cd0f](https://github.com/hjfruit/react-native-xiaoshu/commit/d75cd0f14b8a0aa0198f9fe38cb3bf0ea4d038e1))
+- **Progress:** 🎸 页面进度新增错误提示 ([86c0bda](https://github.com/hjfruit/react-native-xiaoshu/commit/86c0bdaf42f0c789899dc01a1c6d2ea5afc74282))
+- **StepSelector:** 🎸 完成函数\组件两种使用方式 ([ceae9b5](https://github.com/hjfruit/react-native-xiaoshu/commit/ceae9b5e594fe0f055c8dfd92837711fb09fb858))
+- **StepSelector:** 🎸 新增配置项 ([50a8d4a](https://github.com/hjfruit/react-native-xiaoshu/commit/50a8d4ad45c38ec9d674dfdadefd68ab961b4243))
+- **StepSelector:** 🎸 组件大体逻辑完成 ([be25ea6](https://github.com/hjfruit/react-native-xiaoshu/commit/be25ea6a370821e1edbb8f8091bbe505eb0226cc))
+- **Toast:** 🎸 去掉没有实现的 API ([4df83c0](https://github.com/hjfruit/react-native-xiaoshu/commit/4df83c004cdc33b412560f0a528d79d6899874de))## [0.2.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.7...v0.2.8) (2022-04-01)
 
 ### Bug Fixes
 
