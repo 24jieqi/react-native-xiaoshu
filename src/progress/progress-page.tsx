@@ -112,11 +112,13 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         subtitle={
           <Space head gap="l" align="center">
             <Text style={STYLES.text}>{failMessage}</Text>
-            <Button
-              style={STYLES.btn}
-              text="点击刷新"
-              onPress={onPressReloadPersistFn}
-            />
+            {onPressReload ? (
+              <Button
+                style={STYLES.btn}
+                text="点击刷新"
+                onPress={onPressReloadPersistFn}
+              />
+            ) : null}
           </Space>
         }
         renderIcon={() => {
