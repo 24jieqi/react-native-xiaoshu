@@ -23,6 +23,8 @@ import MobileScreenOutline from './mobile-screen'
 import NewFill from './new.fill'
 import PlusOutline from './plus'
 // import ScreenOutline  from './screen'
+import QuestionOutline from './question'
+import QuestionCircleOutline from './question-circle'
 import RemoveFill from './remove.fill'
 import SearchOutline from './search'
 import SOPOutline from './sop'
@@ -59,6 +61,8 @@ export default {
   MobileScreenOutline,
   NewFill,
   PlusOutline,
+  QuestionOutline,
+  QuestionCircleOutline,
   RemoveFill,
   SearchOutline,
   SOPOutline,
