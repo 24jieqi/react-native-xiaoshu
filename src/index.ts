@@ -147,6 +147,12 @@ export { default as Skeleton } from './skeleton'
 export type { SpaceProps } from './space/interface'
 export { default as Space } from './space'
 
+export type {
+  StepSelectorInstance,
+  StepSelectorProps,
+} from './step-selector/interface'
+export { default as StepSelector } from './step-selector'
+
 export { default as Steps } from './steps'
 
 export type { SwitchProps } from './switch/interface'

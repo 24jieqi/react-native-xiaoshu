@@ -43,6 +43,12 @@ export interface ActionSheetProps extends PopupPropsCommon {
   description?: React.ReactNode
 
   /**
+   * 顶部安全高度
+   * @default safeAreaInsets.top
+   */
+  safeAreaInsetTop?: number
+
+  /**
    * 是否显示圆角
    * @default true
    */

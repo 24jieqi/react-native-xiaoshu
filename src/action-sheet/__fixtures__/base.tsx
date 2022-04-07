@@ -51,6 +51,28 @@ const ActionSheetBase: React.FC = () => {
           }}
         />
         <Cell
+          title="出现滚动条:自定义顶部边距"
+          isLink
+          onPress={() => {
+            ActionSheet({
+              safeAreaInsetTop: 100,
+              title: '出现滚动条',
+              actions: new Array(20).fill(0).map((_, i) => `选项-${i}`),
+              cancelText: '取消了',
+              description: '会出现的',
+            })
+              .then(({ item, index }) => {
+                console.log('提示弹窗 -> 选项')
+                console.log(item)
+                console.log(index)
+              })
+              .catch(e => {
+                console.log('提示弹窗 -> 关闭')
+                console.log(e)
+              })
+          }}
+        />
+        <Cell
           title="展示取消按钮"
           isLink
           onPress={() => {
