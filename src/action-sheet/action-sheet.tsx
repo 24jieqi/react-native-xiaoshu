@@ -23,12 +23,13 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   title,
   cancelText,
   description,
+  safeAreaInsetTop,
   round = true,
   onCancel,
   onSelect,
   ...restProps
 }) => {
-  const safeHeight = useSafeHeight()
+  const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
   const CV_NAV_BAR = createVar(TOKENS, varCreatorNavBar)
