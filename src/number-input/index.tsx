@@ -125,6 +125,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
           onChangePersistFn(null)
 
           finallyValue = null
+          LastValue.current = null
         } else if (newValueStringify) {
           // 状态 3 和 状态 4
           if (isEnd) {
@@ -147,6 +148,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
             // '1.' 和 1 在 Number 后是一致的
             // '1.0' 和 1 在 Number 后是一致的
             const newValueNum = Number(newValueStringify)
+
             if (
               newValueStringify &&
               newValueStringify !== '-' &&
