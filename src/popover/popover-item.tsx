@@ -7,13 +7,13 @@ import { useThemeTokens, createVar, createStyle } from '../theme'
 import type { PopoverItemProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const PopoverItem: React.FC<PopoverItemProps> = ({
+const PopoverItem = <T,>({
   value,
   disabled,
   children,
   onSelect,
   style,
-}) => {
+}: React.PropsWithChildren<PopoverItemProps<T>>) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
   const CV_BUTTON = createVar(TOKENS, varCreatorButton)
@@ -34,4 +34,6 @@ const PopoverItem: React.FC<PopoverItemProps> = ({
   )
 }
 
-export default memo<typeof PopoverItem>(PopoverItem)
+export default memo<typeof PopoverItem>(PopoverItem) as <T>(
+  p: React.PropsWithChildren<PopoverItemProps<T>>,
+) => React.ReactElement

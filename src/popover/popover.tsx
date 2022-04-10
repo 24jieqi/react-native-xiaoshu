@@ -3,6 +3,7 @@ import { ScrollView, StatusBar, TouchableOpacity } from 'react-native'
 import { Popover as Pop, PopoverController } from 'react-native-modal-popover'
 
 import { varCreator as varCreatorButton } from '../button/style'
+import { getDefaultValue } from '../helpers'
 import { useThemeTokens, createVar, createStyle } from '../theme'
 
 import type { PopoverProps } from './interface'
@@ -18,10 +19,12 @@ const getRectY = (y: number, calculateStatusBar?: boolean | number) => {
 
 const defaultOnSelect = () => {}
 
-const Popover: React.FC<PopoverProps> = ({
+const Popover = <T,>({
   children,
+  dark = false,
   triggerStyle,
   arrowStyle,
+  contentStyle,
   onSelect = defaultOnSelect,
   overlay,
   disabled,
@@ -32,31 +35,38 @@ const Popover: React.FC<PopoverProps> = ({
   useNativeDriver,
   onDismiss,
   calculateStatusBar = false,
-}) => {
+}: React.PropsWithChildren<PopoverProps<T>>) => {
   const TOKENS = useThemeTokens()
   const CV = createVar(TOKENS, varCreator)
   const CV_BUTTON = createVar(TOKENS, varCreatorButton)
   const STYLES = createStyle(CV, styleCreator)
 
-  const _onSelect = (value: any, closePopover: any) => {
+  duration = getDefaultValue(duration, TOKENS.animation_duration_base)
+
+  const _onSelect = (value: T, closePopover: () => void) => {
     if (onSelect) {
       onSelect(value)
     }
+
     closePopover()
   }
 
-  const renderOverlay = (closePopover: any) => {
+  const renderOverlay = (closePopover: () => void) => {
     const items = Children.map(overlay, child => {
       if (!isValidElement(child)) {
         return child
       }
+
       return cloneElement(child, {
-        onSelect: (v: any) => _onSelect(v, closePopover),
-      } as any)
+        onSelect: (v: T) => _onSelect(v, closePopover),
+        dark: dark,
+      })
     })
+
     if (typeof renderOverlayComponent === 'function') {
       return renderOverlayComponent(items, closePopover)
     }
+
     return <ScrollView>{items}</ScrollView>
   }
 
@@ -73,15 +83,23 @@ const Popover: React.FC<PopoverProps> = ({
           <TouchableOpacity
             ref={setPopoverAnchor}
             onPress={openPopover}
-            style={triggerStyle}
+            style={[STYLES.trigger, triggerStyle]}
             disabled={disabled}
             activeOpacity={CV_BUTTON.button_active_opacity}>
             {children}
           </TouchableOpacity>
 
           <Pop
-            contentStyle={STYLES.content}
-            arrowStyle={[STYLES.arrow, arrowStyle]}
+            contentStyle={[
+              STYLES.content,
+              dark ? STYLES.content_dark : null,
+              contentStyle,
+            ]}
+            arrowStyle={[
+              STYLES.arrow,
+              dark ? STYLES.arrow_dark : null,
+              arrowStyle,
+            ]}
             backgroundStyle={STYLES.background}
             visible={popoverVisible}
             onClose={closePopover}
@@ -103,4 +121,6 @@ const Popover: React.FC<PopoverProps> = ({
   )
 }
 
-export default memo<typeof Popover>(Popover)
+export default memo<typeof Popover>(Popover) as <T>(
+  p: React.PropsWithChildren<PopoverProps<T>>,
+) => React.ReactElement
