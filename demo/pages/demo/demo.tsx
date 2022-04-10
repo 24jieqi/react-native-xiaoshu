@@ -156,6 +156,10 @@ const navDatas: {
         name: 'DemoOverlay',
       },
       {
+        title: 'Popover',
+        name: 'DemoPopover',
+      },
+      {
         title: 'Progress',
         name: 'DemoProgress',
       },

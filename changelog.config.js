@@ -34,6 +34,7 @@ module.exports = {
     'PasswordInput',
     'Picker',
     'PickerView',
+    'Popover',
     'Popup',
     'Portal',
     'Progress',

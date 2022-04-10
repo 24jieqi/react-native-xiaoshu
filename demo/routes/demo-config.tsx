@@ -37,6 +37,7 @@ import DemoOverlay from '../../src/overlay/__fixtures__/basic'
 import DemoPasswordInput from '../../src/password-input/__fixtures__/basic'
 import DemoPickerView from '../../src/picker-view/__fixtures__/basic'
 import DemoPicker from '../../src/picker/__fixtures__/basic'
+import DemoPopover from '../../src/popover/__fixtures__/basic'
 import DemoPopup from '../../src/popup/__fixtures__/basic'
 import DemoProgress from '../../src/progress/__fixtures__/basic'
 import DemoResult from '../../src/result/__fixtures__/basic'
@@ -108,6 +109,7 @@ export type DemoPaths =
   | 'DemoDescription'
   | 'DemoBlank'
   | 'DemoStepSelector'
+  | 'DemoPopover'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -531,6 +533,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoStepSelector />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoPopover',
+    Page: () => (
+      <DemoWrapper>
+        <DemoPopover />
       </DemoWrapper>
     ),
   },

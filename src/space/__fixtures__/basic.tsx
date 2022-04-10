@@ -8,7 +8,7 @@ import { ScrollView } from 'react-native'
 
 import { Card, Space, Button } from '@fruits-chain/react-native-xiaoshu'
 
-const BasicCell: React.FC = () => {
+const BasicSpace: React.FC = () => {
   return (
     <ScrollView>
       <Space tail head>
@@ -104,4 +104,4 @@ const BasicCell: React.FC = () => {
   )
 }
 
-export default BasicCell
+export default BasicSpace

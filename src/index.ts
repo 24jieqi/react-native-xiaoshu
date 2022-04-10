@@ -113,6 +113,9 @@ export type {
 } from './picker-view/interface'
 export { default as PickerView } from './picker-view'
 
+export type { PopoverProps } from './popover/interface'
+export { default as Popover } from './popover'
+
 export type { PopupProps, PopupPosition } from './popup/interface'
 export { default as Popup } from './popup'
 
