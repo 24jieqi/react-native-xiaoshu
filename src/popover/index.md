@@ -25,12 +25,12 @@ group:
 
 ### Popover
 
-<API src="./popover.tsx"></API>
+<API hideTitle src="./popover.tsx"></API>
 
 ### Popover.Item
 
-<API src="./popover-item.tsx"></API>
+<API hideTitle src="./popover-item.tsx"></API>
 
 ### Popover.Text
 
-<API src="./popover-text.tsx"></API>
+<API hideTitle src="./popover-text.tsx"></API>
