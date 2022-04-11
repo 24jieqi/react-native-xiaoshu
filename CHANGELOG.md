@@ -1,4 +1,14 @@
-## [0.2.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.8...v0.2.9) (2022-04-07)
+## [0.2.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.9...v0.2.10) (2022-04-11)
+
+### Bug Fixes
+
+- **NumberInput:** 🐛 清空数据 ([636773b](https://github.com/hjfruit/react-native-xiaoshu/commit/636773bcb10ad5ccbe166b529d3497b5d0edeb1e))
+
+### Features
+
+- **ci:** 🎸 添加 lock 文件 ([0f75860](https://github.com/hjfruit/react-native-xiaoshu/commit/0f75860dcf713c744f23c685223e3b3ba7c46f44))
+- **Popover:** 🎸 新增组件 ([4e464e9](https://github.com/hjfruit/react-native-xiaoshu/commit/4e464e905808472cba93bb9a70469d7e9b0ffdbc))
+- **Popover:** 🎸 新增组件 ([945ae41](https://github.com/hjfruit/react-native-xiaoshu/commit/945ae41cda87ed36c2a64381271e55b5186bd9e4))## [0.2.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.8...v0.2.9) (2022-04-07)
 
 ### Bug Fixes
 
