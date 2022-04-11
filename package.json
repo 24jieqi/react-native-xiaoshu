@@ -54,7 +54,7 @@
     "@fruits-chain/design-tokens-bailu": "^0.0.5",
     "color": "^3.2.1",
     "lodash": "^4.17.21",
-    "react-native-modal-popover": "^2.1.0",
+    "react-native-popover-view": "^5.0.1",
     "rn-placeholder": "^3.0.3"
   },
   "peerDependencies": {

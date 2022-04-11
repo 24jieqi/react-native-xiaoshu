@@ -1,14 +1,45 @@
+import type React from 'react'
 import type { StyleProp, ViewStyle, TextProps } from 'react-native'
-import type { PopoverProps as PopProps } from 'react-native-modal-popover'
-
+import type { PopoverProps as RNPVProps } from 'react-native-popover-view/src/Types'
 export interface PopoverItemProps<T> {
   value: T
-  [key: string]: any
+
+  /**
+   * 禁用选项
+   */
   disabled?: boolean
+
+  /**
+   * 弹出层 深色 Popover 会覆盖该值
+   */
+  dark?: boolean
+
   style?: StyleProp<ViewStyle>
+  /**
+   * 是否显示分割线
+   * @default false
+   */
+  divider?: boolean
+
+  [key: string]: any
 }
 
-export interface PopoverProps<T> {
+export interface PopoverProps<T>
+  extends Omit<
+    RNPVProps,
+    'from' | 'isVisible' | 'animationConfig' | 'onRequestClose'
+  > {
+  /**
+   * 卡片内容
+   */
+  content: React.ReactNode
+
+  /**
+   * 触发方式
+   * @default 'onPress'
+   */
+  trigger?: 'onLongPress' | 'onPress' | 'onPressIn'
+
   /**
    * 弹出层 深色
    * @default false
@@ -21,24 +52,9 @@ export interface PopoverProps<T> {
   triggerStyle?: StyleProp<ViewStyle>
 
   /**
-   * 箭头样式 通过 borderTopColor 隐藏箭头
-   */
-  arrowStyle?: StyleProp<ViewStyle>
-
-  /**
-   * 内容区域样式
-   */
-  contentStyle?: StyleProp<ViewStyle>
-
-  /**
    * 点击 Popover.Item 的回调
    */
   onSelect?: (node: T, index?: number) => void
-
-  /**
-   * 弹出层，多个 Item 使用 JSX 数组
-   */
-  overlay: React.ReactNode
 
   /**
    * 点击显示弹层是否禁用
@@ -48,16 +64,10 @@ export interface PopoverProps<T> {
   /**
    * 自定义渲染弹出层
    */
-  renderOverlayComponent?: (
+  renderContentComponent?: (
     nodes: React.ReactNode,
     closePopover: () => void,
   ) => React.ReactNode
-
-  /**
-   * 弹出的位置
-   * @default 'auto'
-   */
-  placement?: PopProps['placement']
 
   /**
    * 弹出的动画过渡时间
@@ -66,23 +76,9 @@ export interface PopoverProps<T> {
   duration?: number
 
   /**
-   * 自定义动画
+   * 'rn-modal' mode on Android only.
    */
-  easing?: (show: boolean) => (value: number) => number
-  /**
-   * @default false
-   */
-  useNativeDriver?: boolean
-
-  /**
-   * Modal 的 onDismiss
-   */
-  onDismiss?: () => void
-
-  /**
-   * 计算状态栏，也可以自动状态栏高度
-   */
-  calculateStatusBar?: boolean | number
+  statusBarTranslucent?: boolean
 }
 
 export interface PopoverTextProps extends TextProps {
@@ -95,6 +91,17 @@ export interface PopoverTextProps extends TextProps {
    * 弹出层 深色 Popover 会覆盖该值
    */
   dark?: boolean
+
+  /**
+   * 是否显示分割线
+   * @default false
+   */
+  divider?: boolean
+
+  /**
+   * 禁用选项
+   */
+  disabled?: boolean
 
   [key: string]: any
 }

@@ -7,60 +7,108 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 import { Text } from 'react-native'
 
-import { Popover, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Popover,
+  PopoverPlacement,
+  Space,
+  Toast,
+} from '@fruits-chain/react-native-xiaoshu'
+
+const onSelect = (v: string, index: number) => {
+  Toast(`第 ${index} 个选项 => ${v}`)
+}
 
 const BasicPopover: React.FC = () => {
   return (
     <ScrollView>
-      <Space gap={100} tail>
+      <Space gap={300} tail>
         <Popover<string>
           triggerStyle={{ backgroundColor: '#f30' }}
-          arrowStyle={{ borderTopColor: '#000' }}
-          contentStyle={{ backgroundColor: '#000' }}
+          popoverStyle={{ backgroundColor: '#000' }}
+          statusBarTranslucent
           duration={0}
-          onSelect={v => {
-            console.log('onSelect == > ', v)
-          }}
-          overlay={[
-            <Popover.Item key="1" value="1">
+          onSelect={onSelect}
+          content={[
+            <Popover.Item key="1" value="1" divider>
               <Text style={{ color: '#fff' }}>弹出1</Text>
             </Popover.Item>,
-            <Popover.Item key="2" value="2">
-              <Text style={{ color: '#fff' }}>弹出2</Text>
+            <Popover.Item key="2" value="2" disabled>
+              <Text style={{ color: '#fff' }}>弹出2 disabled</Text>
             </Popover.Item>,
             <Popover.Item key="3" value="3">
               <Text style={{ color: '#fff' }}>弹出3</Text>
             </Popover.Item>,
           ]}>
-          <Text>啊哈哈哈</Text>
+          <Text>自构 UI:多选项:自定义样式</Text>
+        </Popover>
+
+        <Popover<string>
+          statusBarTranslucent
+          duration={0}
+          onSelect={onSelect}
+          content={[
+            <Popover.Item key="1" value="1">
+              <Text>弹出1</Text>
+            </Popover.Item>,
+            <Popover.Item key="2" value="2">
+              <Text>弹出2</Text>
+            </Popover.Item>,
+            <Popover.Item key="3" value="3">
+              <Text>弹出3</Text>
+            </Popover.Item>,
+          ]}>
+          <Text>自构 UI:多选项:亮色</Text>
         </Popover>
 
         <Popover
           dark
-          placement="bottom"
-          overlay={
+          statusBarTranslucent
+          placement={PopoverPlacement.BOTTOM}
+          onSelect={onSelect}
+          content={
             <Popover.Item value="1">
               <Text style={{ color: '#fff' }}>弹出</Text>
             </Popover.Item>
           }>
-          <Text>啊哈哈哈</Text>
+          <Text>自构 UI:单选项:深色</Text>
         </Popover>
 
         <Popover
           dark
-          overlay={<Popover.Text text="哈哈哈 dark" />}
-          onSelect={e => {
-            console.log(e)
-          }}>
-          <Text>啊哈哈哈 dark</Text>
+          statusBarTranslucent
+          content={<Popover.Text text="哈哈哈 dark" />}
+          onSelect={onSelect}>
+          <Text>内置 UI:单选项:深色</Text>
         </Popover>
 
         <Popover
-          overlay={<Popover.Text text="哈哈哈 not dark" />}
-          onSelect={e => {
-            console.log(e)
-          }}>
-          <Text>啊哈哈哈 not dark</Text>
+          dark
+          statusBarTranslucent
+          content={[
+            <Popover.Text key="1" text="哈哈哈 dark" divider />,
+            <Popover.Text key="2" text="哈哈哈 dark disabled" disabled />,
+            <Popover.Text key="3" text="哈哈哈 dark" />,
+          ]}
+          onSelect={onSelect}>
+          <Text>内置 UI:多选项:深色</Text>
+        </Popover>
+
+        <Popover
+          statusBarTranslucent
+          content={<Popover.Text text="哈哈哈 not dark" />}
+          onSelect={onSelect}>
+          <Text>内置 UI:单选项:亮色</Text>
+        </Popover>
+
+        <Popover
+          statusBarTranslucent
+          content={[
+            <Popover.Text key="1" text="哈哈哈 dark" divider />,
+            <Popover.Text key="2" text="哈哈哈 dark" />,
+            <Popover.Text key="3" text="哈哈哈 dark" />,
+          ]}
+          onSelect={onSelect}>
+          <Text>内置 UI:多选项:亮色</Text>
         </Popover>
       </Space>
     </ScrollView>

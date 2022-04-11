@@ -1,5 +1,5 @@
 ---
-title: Popover气泡卡片
+title: Popover 气泡卡片
 nav:
   title: 组件
   path: /component
@@ -11,7 +11,9 @@ group:
 
 # Popover 气泡卡片
 
-> 点击元素，弹出气泡式的卡片浮层。
+> 使用 [react-native-popover-view](https://github.com/SteffeyDev/react-native-popover-view) 实现。
+
+点击元素，弹出气泡式的卡片浮层。
 
 ## 何时使用
 

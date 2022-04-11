@@ -1,3 +1,5 @@
+export { PopoverMode, PopoverPlacement } from 'react-native-popover-view'
+
 export type {
   ActionSheetProps,
   ActionSheetOptions,

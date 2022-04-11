@@ -11,6 +11,8 @@ const PopoverText: React.FC<PopoverTextProps> = ({
   text,
   onSelect,
   dark,
+  disabled,
+  divider = false,
 
   style,
   ...restProps
@@ -20,7 +22,12 @@ const PopoverText: React.FC<PopoverTextProps> = ({
   const STYLES = createStyle(CV, styleCreator)
 
   return (
-    <PopoverItem value={text} onSelect={onSelect}>
+    <PopoverItem
+      value={text}
+      onSelect={onSelect}
+      disabled={disabled}
+      divider={divider}
+      dark={dark}>
       <Text
         {...restProps}
         style={[STYLES.text, dark ? STYLES.text_dark : null, style]}>

@@ -6,9 +6,11 @@ export const varCreator = (TOKENS: TokensType) => {
   return {
     popover_border_radius: TOKENS.border_radius_s,
     popover_color: TOKENS.white,
-    popover_color_dark: TOKENS.gray_8,
+    popover_color_dark: 'rgba(0,0,0,0.7)',
     popover_item_padding_horizontal: TOKENS.space_3,
     popover_item_padding_vertical: TOKENS.space_3,
+    popover_item_divider: TOKENS.gray_2,
+    popover_item_divider_dark: 'rgba(255,255,255,0.15)',
     popover_text_color: TOKENS.gray_8,
     popover_text_color_dark: TOKENS.white,
     popover_text_font_size: TOKENS.font_size_3,
@@ -26,8 +28,9 @@ export const styleCreator = (cv: ComponentVars) => {
     content: {
       backgroundColor: cv.popover_color,
       borderRadius: cv.popover_border_radius,
-      padding: 0,
-      elevation: 3,
+      paddingVertical: 0,
+      paddingHorizontal: 0,
+      elevation: 0,
     },
 
     content_dark: {
@@ -46,9 +49,18 @@ export const styleCreator = (cv: ComponentVars) => {
       backgroundColor: 'transparent',
     },
 
-    item: {
-      paddingHorizontal: cv.popover_item_padding_horizontal,
+    item_inner: {
+      marginHorizontal: cv.popover_item_padding_horizontal,
       paddingVertical: cv.popover_item_padding_vertical,
+    },
+
+    item_inner_divider: {
+      borderBottomWidth: 1,
+      borderBottomColor: cv.popover_item_divider,
+    },
+
+    item_inner_divider_dark: {
+      borderBottomColor: cv.popover_item_divider_dark,
     },
 
     text: {
