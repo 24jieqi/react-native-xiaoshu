@@ -7,7 +7,8 @@ import StopSelector from './step-selector'
 
 function StopSelectorMethod<T>({
   beforeClose,
-  callback,
+  onConfirm,
+  onCancel,
   ...restProps
 }: StepSelectorMethodProps<T>) {
   const [visible, setVisible] = useState(false)
@@ -17,8 +18,9 @@ function StopSelectorMethod<T>({
   }, [])
 
   const onPressClose = useCallback(() => {
+    onCancel()
     setVisible(false)
-  }, [])
+  }, [onCancel])
 
   const onChange = useCallback(
     (v: T[], o: OptionData<T>[], isEnd?: boolean) => {
@@ -26,13 +28,13 @@ function StopSelectorMethod<T>({
         callInterceptor(beforeClose, {
           args: [v, o, isEnd],
           done: () => {
-            callback(v, o, isEnd)
+            onConfirm(v, o, isEnd)
             setVisible(false)
           },
         })
       }
     },
-    [beforeClose, callback],
+    [beforeClose, onConfirm],
   )
 
   return (

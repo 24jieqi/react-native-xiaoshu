@@ -41,7 +41,7 @@ const BasicStepSelector: React.FC = () => {
           onPress={() => {
             StepSelector({
               request: request,
-              callback: (v, o, isEnd) => {
+              onConfirm: (v, o, isEnd) => {
                 console.log('v => ', v)
                 console.log('o => ', o)
                 console.log('isEnd => ', isEnd)
@@ -57,7 +57,7 @@ const BasicStepSelector: React.FC = () => {
             StepSelector({
               request: request,
               defaultValue: ['10', '111', '212'],
-              callback: (v, o, isEnd) => {
+              onConfirm: (v, o, isEnd) => {
                 console.log('v => ', v)
                 console.log('o => ', o)
                 console.log('isEnd => ', isEnd)

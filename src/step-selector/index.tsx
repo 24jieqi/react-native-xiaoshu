@@ -12,7 +12,7 @@ import StopSelectorMethod from './step-selector-method'
 const StepSelector: StepSelectorInstance = <T,>(
   opts: StepSelectorMethodProps<T>,
 ) => {
-  return new Promise<T[]>(resolve => {
+  return new Promise<T[]>((resolve, reject) => {
     const key = Portal.add(
       <StopSelectorMethod<T>
         {...opts}
@@ -20,9 +20,13 @@ const StepSelector: StepSelectorInstance = <T,>(
           Portal.remove(key)
           opts.onClosed?.()
         }}
-        callback={(v, o, isEnd) => {
-          opts.callback?.(v, o, isEnd)
+        onConfirm={(v, o, isEnd) => {
+          opts.onConfirm?.(v, o, isEnd)
           resolve(v)
+        }}
+        onCancel={() => {
+          opts.onCancel?.()
+          reject(new Error('取消选择'))
         }}
       />,
     )

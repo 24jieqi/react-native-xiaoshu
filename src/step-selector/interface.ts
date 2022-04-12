@@ -80,7 +80,7 @@ export interface StepSelectorMethodProps<T>
     'value' | 'onChange' | 'onPressClose' | 'visible'
   > {
   /**
-   * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
+   * 当选择到最末端时触发，返回 false 可阻止关闭，支持返回 Promise
    */
   beforeClose?: (
     v: T[],
@@ -89,9 +89,14 @@ export interface StepSelectorMethodProps<T>
   ) => boolean | Promise<boolean>
 
   /**
-   * 操作完成后的回调，部分业务需要把选项其他值提取出来
+   * 类似确定的回调，当选择到最末端时触发，部分业务需要把选项其他值提取出来
    */
-  callback?: (v: T[], o: OptionData<T>[], isEnd?: boolean) => void
+  onConfirm?: (v: T[], o: OptionData<T>[], isEnd?: boolean) => void
+
+  /**
+   * 取消
+   */
+  onCancel?: () => void
 }
 
 export interface StepSelectorInstance {
