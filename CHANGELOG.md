@@ -1,4 +1,12 @@
-## [0.2.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.9...v0.2.10) (2022-04-11)
+## [0.2.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.10...v0.2.11) (2022-04-12)
+
+### Features
+
+- **StepSelector:** 🎸 优化接口 ([de0f5c9](https://github.com/hjfruit/react-native-xiaoshu/commit/de0f5c9d489fe1c565ddaa278f43d2fd5022ee73))
+
+### BREAKING CHANGES
+
+- **StepSelector:** 🧨 callback 重命名为 onConfirm## [0.2.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.9...v0.2.10) (2022-04-11)
 
 ### Bug Fixes
 
