@@ -1,4 +1,4 @@
-import type { TokensType } from '../theme'
+import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {

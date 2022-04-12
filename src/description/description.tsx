@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { View } from 'react-native'
 
 import { isDef, renderTextLikeJSX, getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import { useDescription } from './context'
 import type { DescriptionProps } from './interface'
@@ -31,9 +31,9 @@ const Description: React.FC<DescriptionProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const descriptionContext = useDescription()
 
   // 整理默认值

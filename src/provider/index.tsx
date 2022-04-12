@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import Portal from '../portal'
@@ -20,4 +20,4 @@ const Provider: React.FC<ProviderProps> = ({ children, theme }) => {
   )
 }
 
-export default Provider
+export default memo<typeof Provider>(Provider)

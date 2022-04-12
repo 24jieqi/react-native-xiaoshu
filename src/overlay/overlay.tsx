@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 import { getDefaultValue, isValue } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { OverlayProps } from './interface'
 import { varCreator } from './style'
@@ -26,8 +26,8 @@ const Overlay: React.FC<OverlayProps> = ({
   onPress,
   onRequestClose,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const fadeAnim = useRef(new Animated.Value(0))
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
   const [localVisible, setLocalVisible] = useState(visible)

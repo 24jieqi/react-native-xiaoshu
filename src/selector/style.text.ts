@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native'
 
 import { varCreator as varCreatorCell } from '../cell/style'
-import type { TokensType } from '../theme'
-import { createVar } from '../theme'
+import Theme from '../theme'
+import type { TokensType } from '../theme/interface'
 
 import type { ComponentVars } from './style'
 
 export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
-  const CV_CELL = createVar(TOKENS, varCreatorCell)
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
 
   return StyleSheet.create({
     text: {

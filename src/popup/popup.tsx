@@ -7,7 +7,7 @@ import * as helpers from '../helpers'
 import { usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import Overlay from '../overlay/overlay'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import { getPosition, getTransform } from './helper'
 import type { PopupProps, State } from './interface'
@@ -46,9 +46,9 @@ const Popup: React.FC<PopupProps> = ({
   const onOpenedPersistFn = usePersistFn(onOpenedFn)
   const onClosePersistFn = usePersistFn(onCloseFn)
   const onClosedPersistFn = usePersistFn(onClosedFn)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   duration = helpers.getDefaultValue(duration, TOKENS.animation_duration_base)
 

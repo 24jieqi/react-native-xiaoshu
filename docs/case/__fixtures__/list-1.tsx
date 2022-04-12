@@ -14,11 +14,11 @@ import {
   ButtonBar,
   Button,
   Icon,
-  useThemeTokens,
+  Theme,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const CaseList1: React.FC = () => {
-  const TOKENS = useThemeTokens()
+  const TOKENS = Theme.useThemeTokens()
 
   // 状态文案统一管理
   // 这里仅做演示

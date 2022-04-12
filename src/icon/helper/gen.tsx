@@ -10,8 +10,8 @@ import {
   omitTouchablePropsField,
   isDef,
 } from '../../helpers'
-import type { TokensType } from '../../theme'
-import { useThemeTokens, createVar } from '../../theme'
+import Theme from '../../theme'
+import type { TokensType } from '../../theme/interface'
 import type { IconCommonProps } from '../interface'
 
 import { varCreator } from './style'
@@ -56,8 +56,8 @@ export const genIcon = ({
       hitSlop,
       ...restProps
     }) => {
-      const TOKENS = useThemeTokens()
-      const CV = createVar(TOKENS, varCreator)
+      const TOKENS = Theme.useThemeTokens()
+      const CV = Theme.createVar(TOKENS, varCreator)
       /** 适用于点击的属性 */
       const touchableOpacityProps = pickTouchablePropsField(restProps)
       /** 剔除点击相关的属性 */

@@ -3,7 +3,7 @@ import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Divider from '../divider'
 import { renderTextLikeJSX, isDef } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { CellGroupProps } from './interface'
 import { varCreator } from './style'
@@ -26,9 +26,9 @@ const CellGroup: React.FC<CellGroupProps> = ({
   onPressTitle,
   onPressTitleText,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   /** 标题 可能是自定义 JSX */
   const titleJSX = renderTextLikeJSX(title, [STYLES.text, titleTextStyle], {

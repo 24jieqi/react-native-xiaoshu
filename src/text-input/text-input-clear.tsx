@@ -1,15 +1,15 @@
 import React, { memo } from 'react'
 
 import IconSvgCross from '../icon/cross'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { TextInputClearProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const TextInputClear: React.FC<TextInputClearProps> = ({ onPress }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator, TOKENS)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
 
   return (
     <IconSvgCross

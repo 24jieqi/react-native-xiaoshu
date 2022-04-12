@@ -5,7 +5,7 @@ import { View, Text, Animated } from 'react-native'
 import { getDefaultValue } from '../helpers'
 import * as helpers from '../helpers'
 import { usePersistFn } from '../hooks'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { ProgressProps } from './interface'
 import { varCreator } from './style'
@@ -35,8 +35,8 @@ const Progress: React.FC<ProgressProps> = ({
   const onAnimationEndPersistFn = usePersistFn(() => {
     onAnimationEnd?.()
   })
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
 
   // 默认值
   color = getDefaultValue(color, CV.progress_color)

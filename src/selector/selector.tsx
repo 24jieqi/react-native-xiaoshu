@@ -20,7 +20,7 @@ import { varCreator as varCreatorNavBar } from '../nav-bar/style'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
 import { varCreator as varCreatorPopup } from '../popup/style'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { SelectorProps, SelectorValue } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -44,13 +44,13 @@ const Selector: React.FC<SelectorProps> = ({
   onClose,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_NAV_BAR = createVar(TOKENS, varCreatorNavBar)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const CV_CHECKBOX = createVar(TOKENS, varCreatorCheckbox)
-  const CV_POPUP = createVar(TOKENS, varCreatorPopup)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_NAV_BAR = Theme.createVar(TOKENS, varCreatorNavBar)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const CV_CHECKBOX = Theme.createVar(TOKENS, varCreatorCheckbox)
+  const CV_POPUP = Theme.createVar(TOKENS, varCreatorPopup)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const insets = useSafeAreaInsets()
   const windowDimensions = useWindowDimensions()
   const ScrollViewRef = useRef<ScrollView>(null)

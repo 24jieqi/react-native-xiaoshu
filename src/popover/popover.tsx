@@ -13,7 +13,7 @@ import RNPopoverView from 'react-native-popover-view'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { PopoverProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -34,10 +34,10 @@ const Popover = <T,>({
   popoverStyle,
   ...restProps
 }: React.PropsWithChildren<PopoverProps<T>>) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   duration = getDefaultValue(duration, TOKENS.animation_duration_base)
 

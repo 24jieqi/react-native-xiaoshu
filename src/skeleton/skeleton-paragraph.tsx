@@ -3,7 +3,7 @@ import type { ViewStyle } from 'react-native'
 import { PlaceholderLine } from 'rn-placeholder'
 
 import Space from '../space'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { SkeletonParagraphProps } from './interface'
 import SkeletonActive from './skeleton-active'
@@ -14,8 +14,8 @@ const SkeletonParagraph: React.FC<SkeletonParagraphProps> = ({
   rows,
   widths,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const style = useMemo<ViewStyle>(
     () => ({
       backgroundColor: CV.skeleton_color,

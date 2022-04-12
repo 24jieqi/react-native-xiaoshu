@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 
 import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import CheckboxIcon from './checkbox-icon'
 import type { CheckboxProps } from './interface'
@@ -38,9 +38,9 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   const active = value === activeValue
   const onChangeValue = () => {

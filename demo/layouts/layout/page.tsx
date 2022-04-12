@@ -4,7 +4,7 @@ import type { ViewStyle } from 'react-native'
 import { View, Platform } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { useThemeTokens } from '@fruits-chain/react-native-xiaoshu'
+import { Theme } from '@fruits-chain/react-native-xiaoshu'
 
 import FocusAwareStatusBar from '../focus-aware-status-bar'
 
@@ -40,7 +40,7 @@ const Page: React.FC<PageProps> = memo(
   }) => {
     const navigation = useNavigation()
     const insets = useSafeAreaInsets()
-    const TOKENS = useThemeTokens()
+    const TOKENS = Theme.useThemeTokens()
 
     useLayoutEffect(() => {
       const options: {

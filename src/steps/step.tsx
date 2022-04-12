@@ -4,7 +4,7 @@ import { Dimensions, View } from 'react-native'
 
 import { Icon } from '..'
 import { renderTextLikeJSX, isDef } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { StepsItemPropsType } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -15,9 +15,9 @@ import { maxSteps, StepsContext } from '.'
 const Step: FC<StepsItemPropsType> = props => {
   const { status, icon, index, title } = props
   const { current, data } = useContext(StepsContext)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator, TOKENS)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
   const windowWidth = Dimensions.get('window').width
   const stepWidth = windowWidth / maxSteps
   const [elementCount, setElementCount] = useState(0)

@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
 import { getArrowFill } from '../icon/helper/arrow'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import { useDropdownConfig } from './context'
 import type { DropdownTextProps } from './interface'
@@ -28,10 +28,10 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ...restProps
 }) => {
   const config = useDropdownConfig()
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
 
   // 修正数据
   activeColor = getDefaultValue(activeColor, config.activeColor)

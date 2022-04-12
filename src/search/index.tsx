@@ -9,7 +9,7 @@ import SearchOutline from '../icon/search'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { varCreator as varCreatorTextInput } from '../text-input/style'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { SearchProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -39,10 +39,10 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     },
     ref,
   ) => {
-    const TOKENS = useThemeTokens()
-    const CV = createVar(TOKENS, varCreator)
-    const CV_TEXT_INPUT = createVar(TOKENS, varCreatorTextInput)
-    const STYLES = createStyle(CV, styleCreator)
+    const TOKENS = Theme.useThemeTokens()
+    const CV = Theme.createVar(TOKENS, varCreator)
+    const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)
+    const STYLES = Theme.createStyle(CV, styleCreator)
     const onSearchPersistFn = usePersistFn(onSearch || noop)
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
 

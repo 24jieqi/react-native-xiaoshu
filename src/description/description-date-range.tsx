@@ -4,7 +4,7 @@ import { View } from 'react-native'
 
 import { renderDate } from '../date-picker/date-picker-range-view'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import { useDescription } from './context'
 import Description from './description'
@@ -25,9 +25,9 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   const start = renderDate(text[0], mode)
   const end = renderDate(text[1], mode)
 
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const descriptionContext = useDescription()
 
   const _contentTextStyle = getDefaultValue(

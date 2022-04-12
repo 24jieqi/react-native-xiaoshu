@@ -5,7 +5,7 @@ import { varCreator as varCreatorButton } from '../button/style'
 import Divider from '../divider'
 import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
 import ArrowLeftOutline from '../icon/arrow-left'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { NavBarProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -34,10 +34,10 @@ const NavBar: React.FC<NavBarProps> = ({
   divider = true,
   onPressBackArrow,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   backArrowColor = getDefaultValue(backArrowColor, CV.nav_bar_icon_color)
   backArrowSize = getDefaultValue(backArrowSize, CV.nav_bar_arrow_size)

@@ -2,7 +2,7 @@ import React, { useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { PlaceholderMedia } from 'rn-placeholder'
 
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { SkeletonAvatarProps } from './interface'
 import SkeletonActive from './skeleton-active'
@@ -13,8 +13,8 @@ const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
   size = 40,
   shape = 'circle',
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const style = useMemo<ViewStyle>(
     () => ({
       height: size,

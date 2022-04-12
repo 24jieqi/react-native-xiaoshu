@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-import { useThemeTokens } from '@fruits-chain/react-native-xiaoshu'
+import { Theme } from '@fruits-chain/react-native-xiaoshu'
 
 import Layout from '@/layouts/layout'
 import type { RootStackScreenProps } from '@/routes'
@@ -9,7 +9,7 @@ import type { RootStackScreenProps } from '@/routes'
 type ScreenProps = RootStackScreenProps<'CustomHeaderRed'>
 
 const CustomHeaderRed: React.FC<ScreenProps> = ({ navigation }) => {
-  const TOKENS = useThemeTokens()
+  const TOKENS = Theme.useThemeTokens()
 
   return (
     <Layout.Page

@@ -4,7 +4,7 @@ import type { TextStyle, StyleProp } from 'react-native'
 import Cell from '../cell'
 import { getDefaultValue, isDef } from '../helpers'
 import { varCreator as varCreatorTextInput } from '../text-input/style'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { FieldTextProps } from './interface'
 
@@ -21,8 +21,8 @@ const FieldText: React.FC<FieldTextProps> = ({
 }) => {
   const hasValue = isDef(value)
   const text = hasValue ? value : placeholder
-  const TOKENS = useThemeTokens()
-  const CV_TEXT_INPUT = createVar(TOKENS, varCreatorTextInput)
+  const TOKENS = Theme.useThemeTokens()
+  const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)
 
   // 修正数据
   placeholderTextColor = getDefaultValue(

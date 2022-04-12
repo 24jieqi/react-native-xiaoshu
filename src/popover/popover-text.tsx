@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Text } from 'react-native'
 
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { PopoverTextProps } from './interface'
 import PopoverItem from './popover-item'
@@ -17,9 +17,9 @@ const PopoverText: React.FC<PopoverTextProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   return (
     <PopoverItem

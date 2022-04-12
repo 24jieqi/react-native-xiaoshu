@@ -13,7 +13,7 @@ import {
   styleCreator as styleCreatorPicker,
 } from '../picker/style'
 import Popup from '../popup'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { DatePickerSingleMethodProps, DatePickerAction } from './interface'
 
@@ -36,9 +36,9 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV_PICKER = createVar(TOKENS, varCreatorPicker)
-  const STYLES_PICKER = createStyle(CV_PICKER, styleCreatorPicker)
+  const TOKENS = Theme.useThemeTokens()
+  const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
+  const STYLES_PICKER = Theme.createStyle(CV_PICKER, styleCreatorPicker)
   const insets = useSafeAreaInsets()
 
   const [visible, setVisible] = useState(false)

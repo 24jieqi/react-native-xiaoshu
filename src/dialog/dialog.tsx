@@ -5,7 +5,7 @@ import Button from '../button'
 import { getDefaultValue, easing, renderTextLikeJSX, isDef } from '../helpers'
 import { usePersistFn } from '../hooks'
 import Popup from '../popup/popup'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { DialogProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -38,9 +38,9 @@ const Dialog: React.FC<DialogProps> = ({
 }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   width = getDefaultValue(width, CV.dialog_width)
   duration = getDefaultValue(duration, CV.dialog_transition)

@@ -2,7 +2,7 @@ import React, { createContext, memo, useRef, useMemo } from 'react'
 import type { FC } from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { StepsPropsType } from './interface'
 import Step from './step'
@@ -16,9 +16,9 @@ export const StepsContext = createContext<{
 export const maxSteps = 3
 
 const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator, TOKENS)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
   const ctx = useMemo(() => ({ current, data }), [current, data])
   const scrollRef = useRef<ScrollView>(null)
 

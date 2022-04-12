@@ -6,7 +6,7 @@ import CrossOutline from '../icon/cross'
 import SuccessOutline from '../icon/success'
 import WarningOutline from '../icon/warning'
 import Space from '../space'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import IconBox from './icons/result-icon-box'
 import IconEmpty from './icons/result-icon-empty'
@@ -52,9 +52,9 @@ const Result: React.FC<ResultProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const color = CV[`result_${status}_color`]
   const iconSize = (CV.result_icon_size / 4) * 3
 

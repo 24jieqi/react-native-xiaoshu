@@ -5,7 +5,7 @@ import Cell from '../cell'
 import Checkbox from '../checkbox'
 import { useControllableValue } from '../hooks'
 import Space from '../space'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { FieldCheckboxProps, FieldCheckboxValue } from './interface'
 import { varCreator } from './style'
@@ -17,8 +17,8 @@ const FieldCheckbox: React.FC<FieldCheckboxProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
 
   const [value, onChange] = useControllableValue<
     FieldCheckboxValue | FieldCheckboxValue[]

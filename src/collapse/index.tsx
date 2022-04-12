@@ -8,7 +8,7 @@ import Divider from '../divider'
 import { easing, isValue, getDefaultValue } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import { getArrowOutline } from '../icon/helper/arrow'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { CollapseProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -37,9 +37,9 @@ const Collapse: React.FC<CollapseProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator, TOKENS)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
 
   bodyDivider = getDefaultValue(bodyDivider, type === 'cell')
 

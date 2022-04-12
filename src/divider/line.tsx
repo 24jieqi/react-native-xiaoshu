@@ -3,7 +3,7 @@ import type { ViewStyle, LayoutChangeEvent } from 'react-native'
 import { View, useWindowDimensions } from 'react-native'
 import { Line, Svg } from 'react-native-svg'
 
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { DividerLineProps } from './interface'
 import { varCreator } from './style'
@@ -20,8 +20,8 @@ const DividerLine: React.FC<DividerLineProps> = ({
 }) => {
   const isVertical = direction === 'vertical'
   const { width } = useWindowDimensions()
-  const TOKENS = useThemeTokens()
-  const VC = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const VC = Theme.createVar(TOKENS, varCreator)
   const [size, setSize] = useState(
     isVertical ? VC.divider_vertical_min_height : width,
   )

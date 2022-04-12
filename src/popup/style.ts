@@ -2,7 +2,7 @@ import omit from 'lodash/omit'
 import type { ViewStyle } from 'react-native'
 import { StyleSheet } from 'react-native'
 
-import type { TokensType } from '../theme'
+import type { TokensType } from '../theme/interface'
 
 import type { PopupPosition } from './interface'
 

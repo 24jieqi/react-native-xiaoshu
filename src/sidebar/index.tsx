@@ -7,7 +7,7 @@ import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { SidebarProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -23,9 +23,9 @@ const Sidebar: React.FC<SidebarProps> = ({
     valuePropName: 'activeValue',
     defaultValuePropName: 'defaultActiveValue',
   })
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const isEmpty = loading || options.length === 0
   const curIndex = options.findIndex(o => o.value === value)
 

@@ -6,7 +6,7 @@ import EyeOutline from '../icon/eye'
 import EyeCloseOutline from '../icon/eye-close'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { useThemeTokens } from '../theme'
+import Theme from '../theme'
 
 import type { PasswordInputProps } from './interface'
 
@@ -25,7 +25,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     },
     ref,
   ) => {
-    const TOKENS = useThemeTokens()
+    const TOKENS = Theme.useThemeTokens()
     const [secure, onChangeSecureTextEntry] = useControllableValue(restProps, {
       valuePropName: 'secureTextEntry',
       defaultValuePropName: 'defaultSecureTextEntry',

@@ -7,7 +7,7 @@ import { usePersistFn } from '../hooks'
 import Selector from '../selector'
 import type { SelectorValue } from '../selector/interface'
 import TextInputClear from '../text-input/text-input-clear'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import FieldText from './field-text'
 import type { FieldSelectorProps } from './interface'
@@ -28,8 +28,8 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   isLink = true,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
+  const TOKENS = Theme.useThemeTokens()
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
 
   const onPressCell = usePersistFn(() => {
     Keyboard.dismiss()

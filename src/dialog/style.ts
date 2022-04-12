@@ -1,7 +1,7 @@
 import type { TextStyle } from 'react-native'
 import { StyleSheet } from 'react-native'
 
-import type { TokensType } from '../theme'
+import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {

@@ -2,20 +2,21 @@ import React, { useMemo, useRef, useState, useEffect, memo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import Button from '../button'
+import Col from '../col'
 import DatePickerView from '../date-picker-view'
 import type {
   DatePickerColumnMode,
   DatePickerColumnType,
 } from '../date-picker-view/interface'
 import { serializeMode, toDateObject } from '../date-picker-view/useDatePicker'
-import { Row, Col } from '../grid'
 import { isDef } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import {
   varCreator as varCreatorPicker,
   styleCreator as styleCreatorPicker,
 } from '../picker/style'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Row from '../row'
+import Theme from '../theme'
 
 import type {
   DatePickerRangeViewProps,
@@ -64,9 +65,9 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   ...restProps
 }) => {
   const _initialValue = isDef(initialValue) ? initialValue : defaultInitialValue
-  const TOKENS = useThemeTokens()
-  const CV_PICKER = createVar(TOKENS, varCreatorPicker)
-  const STYLES_PICKER = createStyle(CV_PICKER, styleCreatorPicker)
+  const TOKENS = Theme.useThemeTokens()
+  const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
+  const STYLES_PICKER = Theme.createStyle(CV_PICKER, styleCreatorPicker)
   const btnStyle = useMemo(
     () => ({
       paddingHorizontal: CV_PICKER.picker_action_gap,

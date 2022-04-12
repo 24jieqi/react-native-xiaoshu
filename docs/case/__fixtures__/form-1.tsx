@@ -16,7 +16,7 @@ import {
   Divider,
   Icon,
   Dialog,
-  useThemeTokens,
+  Theme,
 } from '@fruits-chain/react-native-xiaoshu'
 
 // App 端使用 react-native-keyboard-aware-scroll-view 代替 ScrollView
@@ -26,7 +26,7 @@ const selectOptions = new Array(10)
   .map((_, i) => ({ value: i, label: `选项${i}` }))
 
 const CaseForm1: React.FC = () => {
-  const TOKENS = useThemeTokens()
+  const TOKENS = Theme.useThemeTokens()
   const [form] = Form.useForm()
 
   const onFinish = useCallback((value: any) => {

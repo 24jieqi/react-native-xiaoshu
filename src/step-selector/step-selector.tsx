@@ -11,7 +11,7 @@ import useState from '../hooks/useStateUpdate'
 import IconSuccessOutline from '../icon/success'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type {
   StepSelectorProps,
@@ -39,9 +39,9 @@ function StepSelector<T = number>({
 }: StepSelectorProps<T>) {
   const insets = useSafeAreaInsets()
   const windowDimensions = useWindowDimensions()
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   safeAreaInsetTop = getDefaultValue(safeAreaInsetTop, insets.top)
 

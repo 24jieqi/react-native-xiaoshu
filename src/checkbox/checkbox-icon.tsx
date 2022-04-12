@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import { getDefaultValue } from '../helpers'
 import CheckedFill from '../icon/checked.fill'
 import CircleOutline from '../icon/circle'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { CheckboxIconProps } from './interface'
 import { varCreator } from './style'
@@ -15,8 +15,8 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
   disabled,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
 
   // 从配置中拿默认值
   size = getDefaultValue(size, CV.checkbox_icon_size)

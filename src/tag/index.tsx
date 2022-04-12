@@ -5,7 +5,7 @@ import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 
 import { isDef } from '../helpers'
 import CrossOutline from '../icon/cross'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { TagProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -27,9 +27,9 @@ const Tag: React.FC<TagProps> = ({
   color,
   textColor,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const mainColor = isDef(color) ? color : CV.tag_primary_color
   const { innerTypeStyle, textTypeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = {}

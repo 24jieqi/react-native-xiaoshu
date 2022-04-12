@@ -6,7 +6,7 @@ import BottomBar from '../bottom-bar'
 import Button from '../button'
 import { isArray, noop } from '../helpers'
 import Space from '../space'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { ButtonBarProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -21,10 +21,10 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   children,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_BLANK = createVar(TOKENS, varCreatorBlank)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   const realButtons = (buttons || []).filter(item => !item.hidden)
   const isConfig = isArray(buttons)

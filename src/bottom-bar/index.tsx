@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { varCreator as varCreatorDivider } from '../divider/style'
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { BottomBarProps } from './interface'
 import { varCreator } from './style'
@@ -21,9 +21,9 @@ const BottomBar: React.FC<BottomBarProps> = ({
   ...restProps
 }) => {
   const { bottom } = useSafeAreaInsets()
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_DIVIDER = createVar(TOKENS, varCreatorDivider)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_DIVIDER = Theme.createVar(TOKENS, varCreatorDivider)
   const [keyboardShow, setKeyboardShow] = useState(false)
 
   // 监听键盘

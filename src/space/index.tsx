@@ -4,7 +4,7 @@ import { View } from 'react-native'
 
 import { varCreator as varCreatorBlank } from '../blank/style'
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { SpaceProps } from './interface'
 
@@ -32,8 +32,8 @@ const Space: React.FC<SpaceProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV_BLANK = createVar(TOKENS, varCreatorBlank)
+  const TOKENS = Theme.useThemeTokens()
+  const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
 
   const defaultGap: number =
     typeof gap === 'string' ? CV_BLANK[`blank_size_${gap}`] : gap

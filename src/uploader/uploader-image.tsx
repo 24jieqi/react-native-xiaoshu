@@ -6,7 +6,7 @@ import { getDefaultValue, isDef } from '../helpers'
 import CrossOutline from '../icon/cross'
 import CrossCircleOutline from '../icon/cross-circle'
 import LoadingCircular from '../loading/loading-circular'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { UploaderImageProps } from './interface'
 import { varCreator } from './style'
@@ -27,10 +27,10 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   isUpload,
   children,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   // 修正数据
   gap = getDefaultValue(gap, CV.uploader_image_gap)

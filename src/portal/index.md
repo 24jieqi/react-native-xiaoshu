@@ -24,3 +24,34 @@ group:
 `portal-host` 统一的内部 `Provider`。
 
 `@ant-design/react-native` 在此基础上扩展出一个两个静态方法，通过事件的方式动态注入组件。
+
+## 组件使用方式
+
+```tsx | pure
+import React from 'react'
+import { Text } from 'react-native'
+import { Portal } from '@fruits-chain/react-native-xiaoshu'
+
+const SomeView = () => {
+  // 组件销毁时自动移除
+  return (
+    <Portal>
+      <Text>在 Provider 组件渲染</Text>
+    </Portal>
+  )
+}
+```
+
+## 函数使用方式
+
+```tsx | pure
+import React from 'react'
+import { Text } from 'react-native'
+import { Portal } from '@fruits-chain/react-native-xiaoshu'
+
+// 添加到视图
+const key = Portal.add(<Text>在 Provider 组件渲染</Text>)
+
+// 移除
+Portal.remove(key)
+```

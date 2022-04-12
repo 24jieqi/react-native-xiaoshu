@@ -4,7 +4,7 @@ import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import { varCreator } from './style'
 import useLoop from './useLoop'
@@ -26,8 +26,8 @@ export interface CircularProps {
 const STROKE_WIDTH = 2
 
 const Circular: React.FC<CircularProps> = ({ size, color }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const AnimatedCircle0Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current

@@ -2,7 +2,7 @@ import React, { useRef, memo } from 'react'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import { varCreator } from './style'
 import useLoop from './useLoop'
@@ -25,8 +25,8 @@ const A_OPACITY = 1 / PETAL_COUNT
 const A_ROTATE = 360 / PETAL_COUNT
 
 const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
 
   size = getDefaultValue(size, CV.loading_icon_size)

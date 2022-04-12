@@ -9,7 +9,7 @@ import { useSafeHeight } from '../hooks'
 import { varCreator as varCreatorNavBar } from '../nav-bar/style'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { ActionSheetProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -30,11 +30,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   ...restProps
 }) => {
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_NAV_BAR = createVar(TOKENS, varCreatorNavBar)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_NAV_BAR = Theme.createVar(TOKENS, varCreatorNavBar)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const isTitleDef = isDef(title)
   const isCancelTextDef = isDef(cancelText)
   const isDescriptionDef = isDef(description)

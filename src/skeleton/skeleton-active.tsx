@@ -2,13 +2,13 @@ import React, { useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { Fade } from 'rn-placeholder'
 
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import { varCreator } from './style'
 
 const SkeletonActive: React.FC = ({ children }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
 
   const style = useMemo<ViewStyle>(
     () => ({

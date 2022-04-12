@@ -6,7 +6,7 @@ import { getDefaultValue, isValue, callInterceptor } from '../helpers'
 import { useControllableValue } from '../hooks'
 import LoadingCircular from '../loading/loading-circular'
 import { varCreator as varCreatorLoading } from '../loading/style'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { SwitchProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -35,10 +35,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_LOADING = createVar(TOKENS, varCreatorLoading)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_LOADING = Theme.createVar(TOKENS, varCreatorLoading)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const [
     switchWidth,
     switchHeight,

@@ -5,7 +5,7 @@ import { Text, View, TouchableHighlight } from 'react-native'
 import Divider from '../divider'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import { getArrowOutline } from '../icon/helper/arrow'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { CellProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -42,9 +42,9 @@ const Cell: React.FC<CellProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   // 一定要绑定 Press 事件才有这个效果
   underlayColor = getDefaultValue(underlayColor, CV.cell_active_color)

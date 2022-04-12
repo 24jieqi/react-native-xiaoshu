@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import { usePersistFn } from '../hooks'
 import CrossOutline from '../icon/cross'
 import NavBar from '../nav-bar'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { PopupHeaderProps } from './interface'
 import { varCreator } from './style'
@@ -17,9 +17,9 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
   ...restProps
 }) => {
   const onClosePersistFn = usePersistFn(onClose)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   const rightExtraJSX = (
     <>

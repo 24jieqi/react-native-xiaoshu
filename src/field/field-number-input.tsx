@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 import Cell from '../cell'
 import NumberInput from '../number-input'
-import { useThemeTokens } from '../theme'
+import Theme from '../theme'
 
 import type { FieldNumberInputProps, FieldTextCellPropsUsed } from './interface'
 
@@ -39,7 +39,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
     textAlign = 'left'
   }
 
-  const TOKENS = useThemeTokens()
+  const TOKENS = Theme.useThemeTokens()
 
   const cellProps: FieldTextCellPropsUsed = {
     style,

@@ -6,7 +6,7 @@ import Divider from '../divider'
 import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Loading from '../loading'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import {
   getDataType,
@@ -34,9 +34,9 @@ const PickerView: React.FC<PickerViewProps> = ({
   const columnsHeight = visibleItemCount * itemHeight
   /** 居中选中的偏移量 */
   const markMargin = itemHeight / 2
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   /**
    * 数据类型
    * @description cascade 联级选择，multiple 多列选择，single 单列选择

@@ -7,7 +7,7 @@ import Divider from '../divider'
 import { usePersistFn } from '../hooks'
 import { getArrowOutline } from '../icon/helper/arrow'
 import Space from '../space'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { SelectorTextProps } from './interface'
 import SelectorFn from './selector-fn'
@@ -23,11 +23,11 @@ const SelectorText: React.FC<SelectorTextProps> = ({
   divider = true,
   head = true,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const CV_CELL = varCreatorCell(TOKENS)
-  const STYLES = createStyle(CV, styleCreator, TOKENS)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
+  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
 
   const onPress = usePersistFn(() => {
     SelectorFn({

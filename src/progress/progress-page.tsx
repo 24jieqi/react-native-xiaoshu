@@ -7,7 +7,7 @@ import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
 import Result from '../result'
 import Space from '../space'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { ProgressPageProps } from './interface'
 import Progress from './progress'
@@ -23,9 +23,9 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   failIcon,
   onPressReload,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   backgroundColor = getDefaultValue(
     backgroundColor,

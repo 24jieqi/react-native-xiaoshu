@@ -14,7 +14,7 @@ import {
 import { usePersistFn } from '../hooks'
 import ArrowRightOutline from '../icon/arrow-right'
 import CrossOutline from '../icon/cross'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { NoticeBarProps, NoticeBarMode } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -52,9 +52,9 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   ...restProps
 }) => {
   const onPressClosePersistFn = usePersistFn(onPressClose || noop)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const [visible, setVisible] = useState(true)
 
   const textColor =

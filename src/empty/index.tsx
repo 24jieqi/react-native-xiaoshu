@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import { isDef } from '../helpers'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { EmptyProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -20,9 +20,9 @@ const Empty: React.FC<EmptyProps> = ({
   icon,
   full = false,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   const iconJSX = isDef(icon) ? (
     icon

@@ -13,7 +13,7 @@ import SuccessCircleOutline from '../icon/success-circle'
 import Circular from '../loading/loading-circular'
 import Spinner from '../loading/loading-spinner'
 import Popup from '../popup/popup'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { ToastProps, ToastMethods } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -35,9 +35,9 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
     },
     ref,
   ) => {
-    const TOKENS = useThemeTokens()
-    const CV = createVar(TOKENS, varCreator)
-    const STYLES = createStyle(CV, styleCreator)
+    const TOKENS = Theme.useThemeTokens()
+    const CV = Theme.createVar(TOKENS, varCreator)
+    const STYLES = Theme.createStyle(CV, styleCreator)
     const [show, setShow] = useState(false)
     const [msg, setMsg] = useState(message)
 

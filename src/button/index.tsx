@@ -5,7 +5,7 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { getDefaultValue, isDef } from '../helpers'
 import Loading from '../loading'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { ButtonProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -33,9 +33,9 @@ const Button: React.FC<ButtonProps> = ({
   textColor,
   ...otherProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   color = getDefaultValue(
     color,

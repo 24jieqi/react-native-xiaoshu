@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { BlankProps } from './interface'
 import { varCreator } from './style'
@@ -20,8 +20,8 @@ const Blank: React.FC<BlankProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const defaultGap = CV[`blank_size_${size}`]
 
   // 重置值

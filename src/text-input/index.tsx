@@ -36,7 +36,7 @@ import {
   isDef,
 } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { TextInputProps, TextInputInstance } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -107,10 +107,10 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       showWordLimit = false
     }
 
-    const TOKENS = useThemeTokens()
-    const CV = createVar(TOKENS, varCreator)
-    const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-    const STYLES = createStyle(CV, styleCreator, TOKENS)
+    const TOKENS = Theme.useThemeTokens()
+    const CV = Theme.createVar(TOKENS, varCreator)
+    const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+    const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
 
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)

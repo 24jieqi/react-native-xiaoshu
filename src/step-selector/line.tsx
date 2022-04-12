@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { StepSelectorLineProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -11,9 +11,9 @@ const StepSelectorLine: React.FC<StepSelectorLineProps> = ({
   total,
   active = false,
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   return (
     <View style={STYLES.line}>

@@ -2,7 +2,7 @@ import React, { isValidElement, memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 import { getDefaultValue, isDef } from '../helpers'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import type { LoadingProps } from './interface'
 import Circular from './loading-circular'
@@ -23,8 +23,8 @@ const Loading: React.FC<LoadingProps> = ({
   vertical = false,
   type = 'circular',
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)
   const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)
 

@@ -49,7 +49,7 @@ import React from 'react'
 import { Provider, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const customThemeVar = {
-  primary: '#f30',
+  brand_6: '#098',
 }
 
 const App: React.FC = () => {

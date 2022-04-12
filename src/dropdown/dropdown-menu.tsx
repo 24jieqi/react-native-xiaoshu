@@ -2,7 +2,7 @@ import React, { useMemo, useRef, memo } from 'react'
 import { View } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import { DropdownConfig } from './context'
 import type { DropdownMenuProps } from './interface'
@@ -27,9 +27,9 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   ...restProps
 }) => {
   const MenuRef = useRef<View>(null)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   activeColor = getDefaultValue(
     activeColor,

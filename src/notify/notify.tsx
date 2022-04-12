@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { isDef } from '../helpers'
 import Popup from '../popup/popup'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { NotifyProps } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -26,9 +26,9 @@ const Notify: React.FC<NotifyProps> = ({
   ...restProps
 }) => {
   const insets = useSafeAreaInsets()
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   const messageJSX = isDef(message) ? (
     isValidElement(message) ? (

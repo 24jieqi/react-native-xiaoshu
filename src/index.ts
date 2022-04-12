@@ -27,6 +27,8 @@ export { default as Cell } from './cell'
 export type { CheckboxIconProps, CheckboxProps } from './checkbox/interface'
 export { default as Checkbox } from './checkbox'
 
+export { default as Col } from './col'
+
 export type { CollapseProps } from './collapse/interface'
 export { default as Collapse } from './collapse'
 
@@ -78,7 +80,7 @@ export type {
 export { default as Form, FormItemContext, ListContext } from './form'
 
 export type { RowProps, ColProps } from './grid/interface'
-export { Row, Col } from './grid'
+// export { Row, Col } from './grid'
 
 export { default as Icon } from './icon'
 
@@ -132,6 +134,8 @@ export { default as Provider } from './provider'
 export type { ResultProps } from './result/interface'
 export { default as Result } from './result'
 
+export { default as Row } from './row'
+
 export type { SearchProps } from './search/interface'
 export { default as Search } from './search'
 
@@ -172,8 +176,8 @@ export { default as Tag } from './tag'
 export type { TextInputProps, TextInputInstance } from './text-input/interface'
 export { default as TextInput } from './text-input'
 
-export type { TokensType } from './theme'
-export { default as Theme, useThemeTokens } from './theme'
+export type { TokensType } from './theme/interface'
+export { default as Theme } from './theme'
 
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'

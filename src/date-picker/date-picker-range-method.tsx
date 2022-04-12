@@ -6,7 +6,7 @@ import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
 import { varCreator as varCreatorPicker } from '../picker/style'
 import Popup from '../popup'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import DatePickerRangeView from './date-picker-range-view'
 import type { DatePickerRangeMethodProps, DatePickerAction } from './interface'
@@ -30,8 +30,8 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV_PICKER = createVar(TOKENS, varCreatorPicker)
+  const TOKENS = Theme.useThemeTokens()
+  const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
   const insets = useSafeAreaInsets()
 
   const [visible, setVisible] = useState(false)

@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
 import { getDefaultValue, isDef } from '../helpers'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { DividerProps } from './interface'
 import DividerLine from './line'
@@ -22,9 +22,9 @@ const Divider: React.FC<DividerProps> = ({
   color,
   contentPosition = 'center',
 }) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const isVertical = direction === 'vertical'
 
   color = getDefaultValue(

@@ -14,11 +14,11 @@ import {
   ButtonBar,
   Tag,
   Divider,
-  useThemeTokens,
+  Theme,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const CaseDetail1: React.FC = () => {
-  const TOKENS = useThemeTokens()
+  const TOKENS = Theme.useThemeTokens()
 
   return (
     <>

@@ -6,7 +6,7 @@ import BottomBar from '../bottom-bar'
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { TabBarProps, TabValue } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -33,10 +33,10 @@ const TabBar: React.FC<TabBarProps> = ({
   const [value, onChange] = useControllableValue(restProps, {
     defaultValue: options[0].value,
   })
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const CV_BUTTON = createVar(TOKENS, varCreatorButton)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const STYLES = Theme.createStyle(CV, styleCreator)
   const [state, setState] = useState({
     layoutFinish: false,
   })

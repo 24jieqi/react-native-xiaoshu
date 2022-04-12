@@ -2,7 +2,7 @@ import React, { isValidElement } from 'react'
 import { View, Text, Image } from 'react-native'
 
 import PlusOutline from '../icon/plus'
-import { useThemeTokens, createVar, createStyle } from '../theme'
+import Theme from '../theme'
 
 import type { UploaderProps, UploaderValue } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -26,9 +26,9 @@ const Uploader = <T extends UploaderValue>({
   onPressDelete,
   onPressError,
 }: UploaderProps<T>) => {
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
-  const STYLES = createStyle(CV, styleCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
+  const STYLES = Theme.createStyle(CV, styleCreator)
 
   const genOnPressDelete = (item: T, index: number) => () => {
     onPressDelete?.(item, index, list)

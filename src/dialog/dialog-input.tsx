@@ -8,7 +8,7 @@ import useState from '../hooks/useStateUpdate'
 import NumberInput from '../number-input'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
-import { useThemeTokens, createVar } from '../theme'
+import Theme from '../theme'
 
 import Dialog from './dialog'
 import type {
@@ -52,8 +52,8 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const realValue = isInputText ? textInputValue : numberInputValue
 
   const TextInputRef = useRef<TextInputInstance>(null)
-  const TOKENS = useThemeTokens()
-  const CV = createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
   const [state, setState] = useState<DialogInputState>({
     visible: false,
     value: defaultValue,
