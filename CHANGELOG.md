@@ -1,4 +1,9 @@
-## [0.2.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.10...v0.2.11) (2022-04-12)
+## [0.2.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.11...v0.2.12) (2022-04-13)
+
+### Features
+
+- **Dropdown:** 🎸 onChange 的值类型可以通过 options 推导出来 ([e0f8f95](https://github.com/hjfruit/react-native-xiaoshu/commit/e0f8f957d2c27bdfa469ea3412612b3d486f70b5))
+- **Icon:** 🎸 更新图标 ([295cb8e](https://github.com/hjfruit/react-native-xiaoshu/commit/295cb8ec46d8ddb9731abc759ca5bf2ed865c55d))## [0.2.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.10...v0.2.11) (2022-04-12)
 
 ### Features
 
