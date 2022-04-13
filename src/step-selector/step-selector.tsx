@@ -1,12 +1,10 @@
 import groupBy from 'lodash/groupBy'
 import omit from 'lodash/omit'
 import React, { useMemo, useEffect, memo, useRef, useCallback } from 'react'
-import { View, Text, ScrollView, useWindowDimensions } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { View, Text, ScrollView } from 'react-native'
 
 import Cell from '../cell/cell'
-import { getDefaultValue } from '../helpers'
-import { useControllableValue, usePersistFn } from '../hooks'
+import { useControllableValue, usePersistFn, useSafeHeight } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import IconSuccessOutline from '../icon/success'
 import Popup from '../popup/popup'
@@ -37,17 +35,14 @@ function StepSelector<T = number>({
 
   ...resetProps
 }: StepSelectorProps<T>) {
-  const insets = useSafeAreaInsets()
-  const windowDimensions = useWindowDimensions()
+  const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  safeAreaInsetTop = getDefaultValue(safeAreaInsetTop, insets.top)
-
   const requestPersistFn = usePersistFn(request)
   const ScrollViewRef = useRef<ScrollView>(null)
-  const [value, onChange] = useControllableValue(resetProps, {
+  const [value, onChange] = useControllableValue<T[]>(resetProps, {
     defaultValue: [],
   })
   const [state, setState] = useState<LocalState<T>>({
@@ -56,13 +51,7 @@ function StepSelector<T = number>({
     loading: false,
     responseData: [],
   })
-  const bodyStyle = useMemo(
-    () => ({
-      height: windowDimensions.height - safeAreaInsetTop,
-      paddingBottom: insets.bottom,
-    }),
-    [insets.bottom, safeAreaInsetTop, windowDimensions.height],
-  )
+
   const responseDataRef = useRef<Record<string, RequestResponseData<T>>>({})
   const onPressRef = useRef(false)
 
@@ -157,8 +146,9 @@ function StepSelector<T = number>({
     <Popup
       {...omit(resetProps, ['value', 'defaultValue', 'onChange'])}
       position="bottom"
-      round={round}>
-      <View style={bodyStyle}>
+      round={round}
+      safeAreaInsetBottom>
+      <View style={{ height: safeHeight }}>
         <PopupHeader title={title} onClose={onPressClose} />
 
         {state.selected.length > 1 &&
