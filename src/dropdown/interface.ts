@@ -7,7 +7,7 @@ import type {
   TextStyle,
   TouchableOpacityProps,
 } from 'react-native'
-export interface DropdownItemOption {
+export interface DropdownItemOption<T> {
   /**
    * 文字
    */
@@ -16,7 +16,7 @@ export interface DropdownItemOption {
   /**
    * 标识符
    */
-  value: string | number | null
+  value: T
 }
 
 export interface DropdownTextProps extends TouchableOpacityProps {
@@ -66,7 +66,7 @@ export interface DropdownTextProps extends TouchableOpacityProps {
   direction?: 'up' | 'down'
 }
 
-export interface DropdownItemProps
+export interface DropdownItemProps<T>
   extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled'>> {
   /**
    * 标题样式
@@ -87,22 +87,22 @@ export interface DropdownItemProps
   /**
    * 选项数组
    */
-  options: DropdownItemOption[]
+  options: DropdownItemOption<T>[]
 
   /**
    * 当前选中的选项值
    */
-  value?: string | number
+  value?: T
 
   /**
    * 默认值
    */
-  defaultValue?: string | number
+  defaultValue?: T
 
   /**
    * 点击选项导致 value 变化时触发
    */
-  onChange?: (v: string | number) => void
+  onChange?: (v: T) => void
 
   /**
    * 动画时长，单位秒
@@ -129,7 +129,7 @@ export interface DropdownContext
     >,
     Partial<
       Pick<
-        DropdownItemProps,
+        DropdownItemProps<any>,
         | 'titleStyle'
         | 'titleTextStyle'
         | 'lazyRender'

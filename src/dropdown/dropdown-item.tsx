@@ -23,7 +23,7 @@ import type { DropdownItemProps, DropdownItemOption } from './interface'
 
 const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' }
 
-const DropdownItem: React.FC<DropdownItemProps> = ({
+const DropdownItem = <T,>({
   titleStyle,
   titleTextStyle,
   lazyRender,
@@ -32,7 +32,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   zIndex,
   closeOnPressOutside,
   ...restProps
-}) => {
+}: DropdownItemProps<T>) => {
   const insets = useSafeAreaInsets()
   const { height: windowHeight } = useWindowDimensions()
   const config = useDropdownConfig()
@@ -108,7 +108,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     })
   }, [])
 
-  const genOnPressCell = (o: DropdownItemOption) => () => {
+  const genOnPressCell = (o: DropdownItemOption<T>) => () => {
     setState({
       active: false,
     })
@@ -182,7 +182,7 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
                 {options.map(opt => {
                   return (
                     <Cell
-                      key={opt.value}
+                      key={`${opt.value}`}
                       title={opt.label}
                       valueExtra={
                         opt.value === value ? (
@@ -207,4 +207,6 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   )
 }
 
-export default memo(DropdownItem)
+export default memo(DropdownItem) as <T>(
+  p: DropdownItemProps<T>,
+) => React.ReactElement
