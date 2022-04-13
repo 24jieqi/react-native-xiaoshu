@@ -6,7 +6,7 @@ import Theme from '../theme'
 
 import { DropdownConfig } from './context'
 import type { DropdownMenuProps } from './interface'
-import { varCreator, styleCreator } from './style.menu'
+import { varCreator, styleCreator } from './style'
 
 /**
  * DropdownMenu 下拉菜单的横条

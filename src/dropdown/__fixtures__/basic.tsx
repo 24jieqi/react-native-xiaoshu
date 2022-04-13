@@ -24,6 +24,22 @@ const itemOptions2 = [
   })),
 ]
 
+const itemOptions3 = [
+  { label: '全部商品', value: null, children: [] },
+  ...[1, 2, 3, 4].map(v => ({
+    label: `分类_${v}`,
+    value: `${v}`,
+    children: [6, 7, 8].map(vv => ({
+      label: `分类_${v}_${vv}`,
+      value: `${v}_${vv}`,
+      children: [9, 10, 11].map(vvv => ({
+        label: `分类_${v}_${vv}_${vvv}`,
+        value: `${v}_${vv}_${vvv}`,
+      })),
+    })),
+  })),
+]
+
 const BasicDropdown: React.FC = () => {
   const [values, setValues] = useState({
     v1: itemOptions[0].value,
@@ -117,6 +133,17 @@ const BasicDropdown: React.FC = () => {
               }))
             }}
           />
+        </Dropdown>
+
+        <View style={{ height: 500 }} />
+
+        <Dropdown>
+          <Dropdown.Item
+            options={itemOptions3}
+            defaultValue={null}
+            divider={false}
+          />
+          <Dropdown.Item options={itemOptions3} defaultValue={null} />
         </Dropdown>
 
         <View style={{ height: 300 }} />

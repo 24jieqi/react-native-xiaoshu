@@ -17,6 +17,8 @@ export interface DropdownItemOption<T> {
    * 标识符
    */
   value: T
+
+  children?: DropdownItemOption<T>[]
 }
 
 export interface DropdownTextProps extends TouchableOpacityProps {
@@ -121,6 +123,11 @@ export interface DropdownItemProps<T>
    * @default true
    */
   closeOnPressOutside?: boolean
+
+  /**
+   * 每个选项是否显示分割线
+   */
+  divider?: boolean
 }
 
 export interface DropdownContext

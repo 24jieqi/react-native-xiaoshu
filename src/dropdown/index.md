@@ -33,4 +33,6 @@ group:
 
 ### Dropdown.Item
 
+- `options` 支持树结构 <Badge>0.2.13+</Badge>
+
 <API hideTitle src="./dropdown-item.tsx">

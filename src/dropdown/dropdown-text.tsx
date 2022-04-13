@@ -9,8 +9,7 @@ import Theme from '../theme'
 
 import { useDropdownConfig } from './context'
 import type { DropdownTextProps } from './interface'
-import { varCreator } from './style.menu'
-import { styleCreator } from './style.text'
+import { varCreator, styleCreator } from './style'
 
 const DropdownText: React.FC<DropdownTextProps> = ({
   textStyle,
@@ -48,12 +47,12 @@ const DropdownText: React.FC<DropdownTextProps> = ({
     : CV.dropdown_menu_title_text_color
 
   const itemStyles: StyleProp<ViewStyle> = [
-    STYLES.item,
+    STYLES.text_item,
     config.titleStyle,
     style,
   ]
   const textStyles: StyleProp<TextStyle> = [
-    STYLES.text,
+    STYLES.text_text,
     config.titleTextStyle,
     {
       color: textColor,

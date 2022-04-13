@@ -27,5 +27,22 @@ export const styleCreator = (cv: ComponentVars) => {
       height: cv.dropdown_menu_height,
       backgroundColor: cv.dropdown_menu_background_color,
     },
+
+    item_cell_inner: {
+      paddingLeft: 12,
+      backgroundColor: cv.dropdown_menu_background_color,
+    },
+
+    text_item: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
+    text_text: {
+      fontSize: cv.dropdown_menu_title_font_size,
+      paddingHorizontal: cv.dropdown_menu_title_padding_horizontal,
+    },
   })
 }
