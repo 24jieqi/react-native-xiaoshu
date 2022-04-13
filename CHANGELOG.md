@@ -1,4 +1,8 @@
-## [0.2.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.11...v0.2.12) (2022-04-13)
+## [0.2.13](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.12...v0.2.13) (2022-04-13)
+
+### Features
+
+- **Dropdown:** 🎸 新增树结构选项 ([95b35ec](https://github.com/hjfruit/react-native-xiaoshu/commit/95b35ec88d4d4f7bdcb51a400a7294a2207746d7))## [0.2.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.11...v0.2.12) (2022-04-13)
 
 ### Features
 
