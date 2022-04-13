@@ -1,4 +1,8 @@
-## [0.2.13](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.12...v0.2.13) (2022-04-13)
+## [0.2.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.13...v0.2.14) (2022-04-13)
+
+### Features
+
+- **Dropdown:** 🎸 onChange 新增参数 ([5b12692](https://github.com/hjfruit/react-native-xiaoshu/commit/5b12692ac27491f8856c0386efffb686cf5cfb3b))## [0.2.13](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.12...v0.2.13) (2022-04-13)
 
 ### Features
 
