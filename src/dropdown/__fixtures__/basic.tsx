@@ -55,7 +55,8 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Item
             options={itemOptions}
             value={values.v1}
-            onChange={v => {
+            onChange={(v, d) => {
+              console.log(d)
               setValues(s => ({
                 ...s,
                 v1: v as number,
@@ -142,6 +143,10 @@ const BasicDropdown: React.FC = () => {
             options={itemOptions3}
             defaultValue={null}
             divider={false}
+            onChange={(v, d) => {
+              console.log(v)
+              console.log(d)
+            }}
           />
           <Dropdown.Item options={itemOptions3} defaultValue={null} />
         </Dropdown>

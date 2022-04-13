@@ -136,7 +136,7 @@ const DropdownItem = <T,>({
     setState({
       active: false,
     })
-    onChange?.(o.value)
+    onChange?.(o.value, o)
   }
 
   const shadeStyles: ViewStyle[] = [

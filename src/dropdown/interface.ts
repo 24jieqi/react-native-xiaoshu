@@ -104,7 +104,7 @@ export interface DropdownItemProps<T>
   /**
    * 点击选项导致 value 变化时触发
    */
-  onChange?: (v: T) => void
+  onChange?: (v: T, d: DropdownItemOption<T>) => void
 
   /**
    * 动画时长，单位秒
