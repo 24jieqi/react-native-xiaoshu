@@ -17,10 +17,6 @@ export type ComponentVars = ReturnType<typeof varCreator>
 
 export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
-    body: {
-      flex: 1,
-    },
-
     option_item: {
       paddingHorizontal: cv.selector_body_padding_horizontal,
       height: cv.selector_option_text_line_height,

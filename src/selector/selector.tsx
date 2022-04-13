@@ -1,25 +1,15 @@
-import React, { useRef, useEffect, useMemo, useState, memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  useWindowDimensions,
-} from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React, { useEffect, useState, memo } from 'react'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 
 import Button from '../button'
 import { varCreator as varCreatorButton } from '../button/style'
 import CheckboxIcon from '../checkbox/checkbox-icon'
 import { varCreator as varCreatorCheckbox } from '../checkbox/style'
 import Empty from '../empty'
-import { getDefaultValue } from '../helpers'
+import { useSafeHeight } from '../hooks'
 import SuccessOutline from '../icon/success'
-import { varCreator as varCreatorNavBar } from '../nav-bar/style'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
-import { varCreator as varCreatorPopup } from '../popup/style'
 import Theme from '../theme'
 
 import type { SelectorProps, SelectorValue } from './interface'
@@ -44,16 +34,12 @@ const Selector: React.FC<SelectorProps> = ({
   onClose,
   ...restProps
 }) => {
+  const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_NAV_BAR = Theme.createVar(TOKENS, varCreatorNavBar)
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const CV_CHECKBOX = Theme.createVar(TOKENS, varCreatorCheckbox)
-  const CV_POPUP = Theme.createVar(TOKENS, varCreatorPopup)
   const STYLES = Theme.createStyle(CV, styleCreator)
-  const insets = useSafeAreaInsets()
-  const windowDimensions = useWindowDimensions()
-  const ScrollViewRef = useRef<ScrollView>(null)
   const [selectedKeys, setSelectedKeys] = useState<SelectorValue[]>(
     multiple
       ? value
@@ -63,40 +49,6 @@ const Selector: React.FC<SelectorProps> = ({
       ? [value as SelectorValue]
       : [],
   )
-
-  safeAreaInsetTop = getDefaultValue(safeAreaInsetTop, insets.top)
-
-  /** select 动态高度 */
-  const selectHeight = useMemo(() => {
-    /** 选项/内容高度 选项个数 + 标题高度 + 圆角边缘 + 多选按钮高度 + 底部安全距离 */
-    const pickHeight =
-      options.length * CV.selector_option_text_line_height +
-      CV_NAV_BAR.nav_bar_height +
-      CV_POPUP.popup_round_border_radius +
-      (multiple ? 60 : 0) +
-      insets.bottom
-    const maxHeight = windowDimensions.height - safeAreaInsetTop
-
-    return pickHeight > maxHeight
-      ? maxHeight
-      : pickHeight < CV.selector_min_height
-      ? CV.selector_min_height
-      : pickHeight
-  }, [
-    CV_NAV_BAR.nav_bar_height,
-    CV_POPUP.popup_round_border_radius,
-    CV.selector_min_height,
-    CV.selector_option_text_line_height,
-    insets.bottom,
-    multiple,
-    options.length,
-    safeAreaInsetTop,
-    windowDimensions.height,
-  ])
-
-  const selectStyle = useMemo<ViewStyle>(() => {
-    return { height: selectHeight, paddingBottom: insets.bottom }
-  }, [selectHeight, insets.bottom])
 
   // 同步已选的数据
   useEffect(() => {
@@ -152,6 +104,8 @@ const Selector: React.FC<SelectorProps> = ({
     )
   }
 
+  console.log('safeHeight safeHeight => ', safeHeight)
+
   return (
     <Popup
       {...restProps}
@@ -160,53 +114,52 @@ const Selector: React.FC<SelectorProps> = ({
       closeOnPressOverlay={closeOnPressOverlay}
       onPressOverlay={onClose}
       position="bottom"
+      safeAreaInsetBottom
       round>
-      <View style={selectStyle}>
+      <View style={{ maxHeight: safeHeight }}>
         <PopupHeader title={title} onClose={onClose} />
 
-        <View style={STYLES.body}>
-          <ScrollView ref={ScrollViewRef} bounces={false}>
-            {options.length === 0 ? <Empty /> : null}
+        <ScrollView bounces={false}>
+          {options.length === 0 ? <Empty /> : null}
 
-            {options?.map(item => {
-              const isSelected =
-                selectedKeys.findIndex(key => key === item.value) >= 0
+          {options?.map(item => {
+            const isSelected =
+              selectedKeys.findIndex(key => key === item.value) >= 0
 
-              return (
-                <TouchableOpacity
-                  key={item.value}
-                  disabled={item.disabled}
-                  onPress={genOnPressOption(item.value)}
-                  activeOpacity={CV_BUTTON.button_active_opacity}>
-                  <View style={STYLES.option_item}>
-                    <Text style={STYLES.option_item_text} numberOfLines={1}>
-                      {item.label}
-                    </Text>
+            return (
+              <TouchableOpacity
+                key={item.value}
+                disabled={item.disabled}
+                onPress={genOnPressOption(item.value)}
+                activeOpacity={CV_BUTTON.button_active_opacity}>
+                <View style={STYLES.option_item}>
+                  <Text style={STYLES.option_item_text} numberOfLines={1}>
+                    {item.label}
+                  </Text>
 
-                    {multiple ? (
-                      <CheckboxIcon
-                        active={isSelected}
-                        disabled={item.disabled}
-                        onPress={genOnPressOption(item.value)}
-                      />
-                    ) : isSelected ? (
-                      <SuccessOutline
-                        color={CV.selector_icon_selected_color}
-                        size={CV_CHECKBOX.checkbox_icon_size}
-                      />
-                    ) : null}
-                  </View>
-                </TouchableOpacity>
-              )
-            })}
-          </ScrollView>
+                  {multiple ? (
+                    <CheckboxIcon
+                      active={isSelected}
+                      disabled={item.disabled}
+                      onPress={genOnPressOption(item.value)}
+                    />
+                  ) : isSelected ? (
+                    <SuccessOutline
+                      color={CV.selector_icon_selected_color}
+                      size={CV_CHECKBOX.checkbox_icon_size}
+                    />
+                  ) : null}
+                </View>
+              </TouchableOpacity>
+            )
+          })}
+        </ScrollView>
 
-          {multiple ? (
-            <View style={STYLES.btn}>
-              <Button type="primary" onPress={onPressOk} text="确定" />
-            </View>
-          ) : null}
-        </View>
+        {multiple ? (
+          <View style={STYLES.btn}>
+            <Button type="primary" onPress={onPressOk} text="确定" />
+          </View>
+        ) : null}
       </View>
     </Popup>
   )
