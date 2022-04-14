@@ -2,11 +2,20 @@ import type React from 'react'
 import type {
   View,
   ViewProps,
+  TextProps,
   StyleProp,
   ViewStyle,
   TextStyle,
   TouchableOpacityProps,
 } from 'react-native'
+
+export interface DropdownBadgeProps extends TextProps {
+  /**
+   * 徽标内容/展示的数字
+   */
+  count?: string | number | boolean
+}
+
 export interface DropdownItemOption<T> {
   /**
    * 文字
@@ -17,6 +26,11 @@ export interface DropdownItemOption<T> {
    * 标识符
    */
   value: T
+
+  /**
+   * 徽章
+   */
+  badge?: number | string | boolean
 
   children?: DropdownItemOption<T>[]
 }
@@ -57,7 +71,7 @@ export interface DropdownTextProps extends TouchableOpacityProps {
 
   /**
    * 菜单标题和选项的选中态颜色
-   * @default dropdown_menu_title_active_text_color
+   * @default dropdown_active_color
    */
   activeColor?: string
 
@@ -66,6 +80,11 @@ export interface DropdownTextProps extends TouchableOpacityProps {
    * @default 'down'
    */
   direction?: 'up' | 'down'
+
+  /**
+   * 徽章
+   */
+  badge?: number | string | boolean
 }
 
 export interface DropdownItemProps<T>

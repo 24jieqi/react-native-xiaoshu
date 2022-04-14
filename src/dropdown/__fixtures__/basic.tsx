@@ -9,10 +9,11 @@ import { View, ScrollView } from 'react-native'
 import { Cell, Dropdown } from '@fruits-chain/react-native-xiaoshu'
 
 const itemOptions = [
-  { label: '全部商品', value: null },
+  { label: '全部商品', value: null, badge: true },
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13, 14].map(v => ({
     label: `商品分类${v}`,
     value: v,
+    badge: v,
   })),
 ]
 

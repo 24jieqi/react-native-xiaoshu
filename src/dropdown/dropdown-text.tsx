@@ -3,11 +3,12 @@ import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue } from '../helpers'
+import { getDefaultValue, isDef } from '../helpers'
 import { getArrowFill } from '../icon/helper/arrow'
 import Theme from '../theme'
 
 import { useDropdownConfig } from './context'
+import DropdownBadge from './dropdown-badge'
 import type { DropdownTextProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
@@ -20,6 +21,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   pressable = true,
   activeColor,
   direction,
+  badge,
 
   // TouchableOpacity 属性
   style,
@@ -31,6 +33,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const showBadge = !active && isDef(badge) && badge !== false
 
   // 修正数据
   activeColor = getDefaultValue(activeColor, config.activeColor)
@@ -41,10 +44,10 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   direction = getDefaultValue(direction, config.direction)
 
   const textColor = disabled
-    ? CV.dropdown_menu_title_disabled_text_color
+    ? CV.dropdown_text_disabled_color
     : active
     ? activeColor
-    : CV.dropdown_menu_title_text_color
+    : CV.dropdown_text_color
 
   const itemStyles: StyleProp<ViewStyle> = [
     STYLES.text_item,
@@ -53,6 +56,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ]
   const textStyles: StyleProp<TextStyle> = [
     STYLES.text_text,
+    showBadge ? null : STYLES.text_text_gap,
     config.titleTextStyle,
     {
       color: textColor,
@@ -66,10 +70,22 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   )
   const ctxJSX = (
     <>
-      <Text style={textStyles}>{title}</Text>
+      <View style={STYLES.text_text_container}>
+        <Text style={textStyles} numberOfLines={1}>
+          {title}
+        </Text>
+      </View>
+
+      {showBadge ? (
+        <DropdownBadge
+          count={badge}
+          style={[STYLES.text_text_badge, STYLES.text_text_gap]}
+        />
+      ) : null}
+
       <ArrowFill
         style={iconStyles.length ? iconStyles : undefined}
-        size={CV.dropdown_menu_title_icon_size}
+        size={CV.dropdown_text_icon_size}
         color={active ? activeColor : textColor}
       />
     </>

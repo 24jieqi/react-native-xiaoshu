@@ -3,22 +3,29 @@ import type { ViewStyle, LayoutChangeEvent } from 'react-native'
 import {
   TouchableWithoutFeedback,
   View,
+  Text,
   ScrollView,
   useWindowDimensions,
 } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Cell from '../cell'
-import { getDefaultValue } from '../helpers'
+import {
+  varCreator as varCreatorCell,
+  styleCreator as styleCreatorCell,
+} from '../cell/style'
+import { getDefaultValue, isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import IconSuccessOutline from '../icon/success'
 import type { PopupPosition } from '../popup/interface'
 import Popup from '../popup/popup'
 import Portal from '../portal'
+import Space from '../space'
 import Theme from '../theme'
 
 import { useDropdownConfig } from './context'
+import DropdownBadge from './dropdown-badge'
 import DropdownText from './dropdown-text'
 import type { DropdownItemProps, DropdownItemOption } from './interface'
 import { varCreator, styleCreator } from './style'
@@ -43,7 +50,9 @@ const DropdownItem = <T,>({
   const config = useDropdownConfig()
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
   const STYLES = Theme.createStyle(CV, styleCreator)
+  const STYLES_CELL = Theme.createStyle(CV_CELL, styleCreatorCell)
   const [state, setState] = useState({
     active: false,
     ctxMaxHeight: 0,
@@ -54,12 +63,16 @@ const DropdownItem = <T,>({
     position: 'bottom' as PopupPosition,
   })
   const [value, onChange] = useControllableValue(restProps)
-  const text = useMemo(() => {
+  const selectOption = useMemo<DropdownItemOption<T>>(() => {
     if (loading) {
-      return '加载中...'
+      return {
+        label: '加载中...',
+        value: null,
+      }
     }
 
-    let x: DropdownItemOption<T>
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    let x = {} as DropdownItemOption<T>
 
     const findX = (list: DropdownItemOption<T>[]) => {
       list.forEach(item => {
@@ -73,7 +86,7 @@ const DropdownItem = <T,>({
 
     findX(options)
 
-    return x?.label
+    return x
   }, [loading, options, value])
 
   // 修正数据
@@ -180,7 +193,17 @@ const DropdownItem = <T,>({
         <Cell
           key={`${item.value}`}
           divider={divider}
-          title={item.label}
+          title={
+            isDef(item.badge) && item.badge !== false ? (
+              <Space direction="horizontal" align="center" gapVertical={0}>
+                <Text style={STYLES_CELL.title_text}>{item.label}</Text>
+
+                <DropdownBadge count={item.badge} />
+              </Space>
+            ) : (
+              item.label
+            )
+          }
           valueExtra={
             item.value === value ? (
               <IconSuccessOutline size={16} color={config.activeColor} />
@@ -211,7 +234,8 @@ const DropdownItem = <T,>({
         {...restProps}
         style={titleStyle}
         textStyle={titleTextStyle}
-        title={text}
+        title={selectOption.label}
+        badge={selectOption.badge}
         active={state.active}
         onPress={onPressText}
         disabled={restProps.disabled || loading}

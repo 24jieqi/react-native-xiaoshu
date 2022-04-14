@@ -31,10 +31,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  activeColor = getDefaultValue(
-    activeColor,
-    CV.dropdown_menu_title_active_text_color,
-  )
+  activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
   duration = getDefaultValue(duration, TOKENS.animation_duration_fast)
 
   const config = useMemo(
