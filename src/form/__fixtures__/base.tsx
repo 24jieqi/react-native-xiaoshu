@@ -87,6 +87,20 @@ const BasicFormBase: React.FC = () => {
               form.resetFields(['username', 'password', 'password333'])
             }}
           />
+          <Button
+            text="校验 username"
+            type="ghost"
+            onPress={() => {
+              form
+                .validateFields(['username'])
+                .then(d => {
+                  console.log(d)
+                })
+                .catch(e => {
+                  console.log(e)
+                })
+            }}
+          />
         </Space>
       </Form>
     </Card>

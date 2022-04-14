@@ -3,6 +3,8 @@ import { useForm as useRcForm } from 'rc-field-form'
 import { useMemo } from 'react'
 import { Keyboard } from 'react-native'
 
+import Toast from '../toast'
+
 export default function <Values = any>(
   form?: FormInstance<Values>,
 ): [FormInstance<Values>] {
@@ -17,6 +19,17 @@ export default function <Values = any>(
           // 触发提交的时候收齐软键盘
           Keyboard.dismiss()
           rcForm.submit(...args)
+        },
+        validateFields: (...args) => {
+          return new Promise((resolve, reject) => {
+            rcForm
+              .validateFields(...args)
+              .then(resolve)
+              .catch(e => {
+                Toast(e.errorFields[0].errors[0])
+                reject(e)
+              })
+          })
         },
       },
     [form, rcForm],
