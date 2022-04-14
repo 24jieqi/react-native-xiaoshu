@@ -34,6 +34,7 @@ const DropdownItem = <T,>({
   zIndex,
   closeOnPressOutside,
   divider,
+  loading,
 
   ...restProps
 }: DropdownItemProps<T>) => {
@@ -54,6 +55,10 @@ const DropdownItem = <T,>({
   })
   const [value, onChange] = useControllableValue(restProps)
   const text = useMemo(() => {
+    if (loading) {
+      return '加载中...'
+    }
+
     let x: DropdownItemOption<T>
 
     const findX = (list: DropdownItemOption<T>[]) => {
@@ -69,7 +74,7 @@ const DropdownItem = <T,>({
     findX(options)
 
     return x?.label
-  }, [value, options])
+  }, [loading, options, value])
 
   // 修正数据
   lazyRender = getDefaultValue(lazyRender, config.lazyRender)
@@ -209,6 +214,7 @@ const DropdownItem = <T,>({
         title={text}
         active={state.active}
         onPress={onPressText}
+        disabled={restProps.disabled || loading}
       />
 
       <Portal>

@@ -128,6 +128,11 @@ export interface DropdownItemProps<T>
    * 每个选项是否显示分割线
    */
   divider?: boolean
+
+  /**
+   * 候选项加载中
+   */
+  loading?: boolean
 }
 
 export interface DropdownContext

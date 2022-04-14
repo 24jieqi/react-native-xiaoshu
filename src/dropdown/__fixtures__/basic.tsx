@@ -90,6 +90,7 @@ const BasicDropdown: React.FC = () => {
 
         <Dropdown direction="up" activeColor="#f30">
           <Dropdown.Item
+            loading
             options={itemOptions}
             value={values.v3}
             onChange={v => {
