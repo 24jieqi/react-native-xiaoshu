@@ -40,6 +40,26 @@ const BasicToast: React.FC = () => {
           }}
         />
         <Cell
+          title="文字提示:快速移除:失败"
+          isLink
+          onPress={() => {
+            const { close } = Toast.loading('提示内容')
+
+            close()
+          }}
+        />
+        <Cell
+          title="文字提示:快速移除"
+          isLink
+          onPress={() => {
+            const { close } = Toast.loading('提示内容')
+
+            setTimeout(() => {
+              close()
+            }, 0)
+          }}
+        />
+        <Cell
           title="文字提示"
           isLink
           onPress={() => {

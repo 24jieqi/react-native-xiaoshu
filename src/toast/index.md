@@ -25,6 +25,10 @@ Toast.clear 暂时未实现。
 
 Toast.setDefaultOptions 设置默认参数，例如是否背景可以点击、持续时长。
 
+<Alert type="info">
+  如果是同步关闭提示，使用 setTimeout 一下。
+</Alert>
+
 ### Toast
 
 <API hideTitle src="./toast.tsx"></API>
