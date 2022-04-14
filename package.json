@@ -162,25 +162,7 @@
     },
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": {
-          "name": "angular",
-          "types": [
-            {
-              "type": "docs"
-            },
-            {
-              "type": "refactor"
-            },
-            {
-              "type": "style"
-            },
-            {
-              "type": "test"
-            },
-            {}
-          ]
-        },
-        "infile": "CHANGELOG.md"
+        "preset": "angular"
       }
     }
   }
