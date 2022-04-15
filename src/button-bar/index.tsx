@@ -1,10 +1,11 @@
+import isArray from 'lodash/isArray'
+import noop from 'lodash/noop'
 import React, { memo } from 'react'
 
 import ActionSheet from '../action-sheet'
 import { varCreator as varCreatorBlank } from '../blank/style'
 import BottomBar from '../bottom-bar'
 import Button from '../button'
-import { isArray, noop } from '../helpers'
 import Space from '../space'
 import Theme from '../theme'
 

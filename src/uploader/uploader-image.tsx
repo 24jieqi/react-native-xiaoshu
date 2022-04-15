@@ -1,8 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import CrossOutline from '../icon/cross'
 import CrossCircleOutline from '../icon/cross-circle'
 import LoadingCircular from '../loading/loading-circular'
@@ -48,7 +49,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
       style={[STYLES.image, customStyle]}
       onPress={canPress ? onPress : undefined}
       activeOpacity={canPress ? CV_BUTTON.button_active_opacity : 1}>
-      {isDef(children) ? (
+      {!isNil(children) ? (
         children
       ) : (
         <>

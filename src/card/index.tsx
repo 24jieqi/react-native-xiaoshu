@@ -1,8 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Divider from '../divider'
-import { isDef, renderTextLikeJSX } from '../helpers'
+import { renderTextLikeJSX } from '../helpers'
 import Skeleton from '../skeleton'
 import Theme from '../theme'
 
@@ -40,7 +41,7 @@ const Card: React.FC<CardProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  const hasTitleLeftExtra = isDef(titleLeftExtra)
+  const hasTitleLeftExtra = !isNil(titleLeftExtra)
   const titleJSX = renderTextLikeJSX(
     title,
     [
@@ -58,7 +59,7 @@ const Card: React.FC<CardProps> = ({
     footerTextStyle,
   ])
 
-  const showHeader = isDef(titleJSX) || hasTitleLeftExtra || isDef(extra)
+  const showHeader = !isNil(titleJSX) || hasTitleLeftExtra || !isNil(extra)
   const headerJSX = (
     <View>
       <View
@@ -97,7 +98,7 @@ const Card: React.FC<CardProps> = ({
         {loading ? <Skeleton loading /> : children}
       </View>
 
-      {isDef(footerJSX) ? (
+      {!isNil(footerJSX) ? (
         <>
           {footerDivider ? <Divider /> : null}
           <View style={[STYLES.footer, footerStyle]}>{footerJSX}</View>

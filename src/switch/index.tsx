@@ -1,8 +1,9 @@
+import isUndefined from 'lodash/isUndefined'
 import React, { useEffect, useRef, useMemo, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { TouchableWithoutFeedback, Animated } from 'react-native'
 
-import { getDefaultValue, isValue, callInterceptor } from '../helpers'
+import { getDefaultValue, callInterceptor } from '../helpers'
 import { useControllableValue } from '../hooks'
 import LoadingCircular from '../loading/loading-circular'
 import { varCreator as varCreatorLoading } from '../loading/style'
@@ -153,10 +154,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
               size={(nodeSize / 4) * 3}
               color={
                 active
-                  ? isValue(activeColor)
+                  ? !isUndefined(activeColor)
                     ? activeColor
                     : CV.switch_on_background_color
-                  : isValue(inactiveColor)
+                  : !isUndefined(inactiveColor)
                   ? inactiveColor
                   : CV_LOADING.loading_text_color
               }

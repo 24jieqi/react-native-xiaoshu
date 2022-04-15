@@ -1,9 +1,10 @@
+import isNil from 'lodash/isNil'
 import React, { useContext, useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { Dimensions, View } from 'react-native'
 
 import { Icon } from '..'
-import { renderTextLikeJSX, isDef } from '../helpers'
+import { renderTextLikeJSX } from '../helpers'
 import Theme from '../theme'
 
 import type { StepsItemPropsType } from './interface'
@@ -45,7 +46,7 @@ const Step: FC<StepsItemPropsType> = props => {
     default:
       break
   }
-  if (isDef(icon)) {
+  if (!isNil(icon)) {
     resIcon = icon
   }
   useEffect(() => {

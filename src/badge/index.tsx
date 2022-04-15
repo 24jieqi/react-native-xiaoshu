@@ -1,8 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { View, Text } from 'react-native'
 
-import { isDef } from '../helpers'
 import Theme from '../theme'
 
 import type { BadgeProps } from './interface'
@@ -30,11 +30,11 @@ const Badge: React.FC<BadgeProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  if (isDef(max) && typeof count === 'number' && count > max) {
+  if (!isNil(max) && typeof count === 'number' && count > max) {
     count = `${max}+`
   }
 
-  const hasCount = isDef(count) && (count === 0 ? showZero : true)
+  const hasCount = !isNil(count) && (count === 0 ? showZero : true)
   const countStyles: StyleProp<ViewStyle> = [
     STYLES.count,
     {
@@ -42,7 +42,7 @@ const Badge: React.FC<BadgeProps> = ({
         color || CV[`badge_status_${status}`] || CV.badge_background_color,
     },
     dot ? STYLES.count_dot : null,
-    isDef(children)
+    !isNil(children)
       ? [
           STYLES.count_fixed,
           dot ? STYLES.count_dot_fixed : null,

@@ -1,9 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { useMemo, useEffect, useState, useRef, memo } from 'react'
 import type { StyleProp, ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
 import Divider from '../divider'
-import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Theme from '../theme'
@@ -130,7 +130,7 @@ const PickerView: React.FC<PickerViewProps> = ({
 
         {options.map((optionItem, optionIndex) => {
           const _value = (() => {
-            if (isDef(value[optionIndex])) {
+            if (!isNil(value[optionIndex])) {
               return value[optionIndex]
             }
 
@@ -180,7 +180,7 @@ const PickerView: React.FC<PickerViewProps> = ({
                     const newValues = value.concat([])
                     // 先从默认数据中拼凑好数据
                     ColumnDefaultValues.current.forEach((cdv, cdvIndex) => {
-                      if (!isDef(newValues[cdvIndex])) {
+                      if (isNil(newValues[cdvIndex])) {
                         newValues[cdvIndex] = cdv
                       }
                     })

@@ -1,8 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { useEffect, useMemo, useRef, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Keyboard } from 'react-native'
 
-import { callInterceptor, isDef, getDefaultValue } from '../helpers'
+import { callInterceptor, getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import NumberInput from '../number-input'
@@ -97,7 +98,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
 
     const actionCallback = action === 'confirm' ? onPressConfirm : onPressCancel
 
-    const finalValue = isDef(state.value) ? `${state.value}` : ''
+    const finalValue = !isNil(state.value) ? `${state.value}` : ''
 
     callInterceptor(beforeClose, {
       args: [action, finalValue],
@@ -139,7 +140,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
   }, [duration, autoFocus])
 
   useEffect(() => {
-    if (isDef(realValue)) {
+    if (!isNil(realValue)) {
       setState({
         value: realValue,
       })

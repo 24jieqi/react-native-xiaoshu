@@ -1,9 +1,10 @@
 import Color from 'color'
+import isNil from 'lodash/isNil'
 import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import Loading from '../loading'
 import Theme from '../theme'
 
@@ -134,7 +135,7 @@ const Button: React.FC<ButtonProps> = ({
     <>
       {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
       <Text style={textStyleSummary} numberOfLines={1}>
-        {isDef(text) ? text : children}
+        {!isNil(text) ? text : children}
       </Text>
     </>
   )

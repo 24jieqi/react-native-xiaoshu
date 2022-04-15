@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined'
 import React, { useRef, useCallback, useEffect, memo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { Animated, View } from 'react-native'
@@ -5,7 +6,7 @@ import { Animated, View } from 'react-native'
 import Card from '../card'
 import Cell from '../cell'
 import Divider from '../divider'
-import { easing, isValue, getDefaultValue } from '../helpers'
+import { easing, getDefaultValue } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import { getArrowOutline } from '../icon/helper/arrow'
 import Theme from '../theme'
@@ -105,8 +106,8 @@ const Collapse: React.FC<CollapseProps> = ({
   const arrowJSX = (
     <ArrowOutline
       style={iconStyle}
-      color={isValue(iconColor) ? iconColor : CV.collapse_icon_color}
-      size={isValue(iconSize) ? iconSize : CV.collapse_icon_size}
+      color={!isUndefined(iconColor) ? iconColor : CV.collapse_icon_color}
+      size={!isUndefined(iconSize) ? iconSize : CV.collapse_icon_size}
     />
   )
   const titleJSX = renderTitle ? renderTitle(collapse) : title

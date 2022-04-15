@@ -1,8 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { isValidElement, memo } from 'react'
 import { View, Text, TouchableWithoutFeedback } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { isDef } from '../helpers'
 import Popup from '../popup/popup'
 import Theme from '../theme'
 
@@ -30,7 +30,7 @@ const Notify: React.FC<NotifyProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  const messageJSX = isDef(message) ? (
+  const messageJSX = !isNil(message) ? (
     isValidElement(message) ? (
       message
     ) : (
@@ -38,7 +38,7 @@ const Notify: React.FC<NotifyProps> = ({
         style={[
           STYLES.text,
           {
-            color: isDef(color) ? color : CV.notify_text_color,
+            color: !isNil(color) ? color : CV.notify_text_color,
           },
           textStyle,
         ]}
@@ -57,7 +57,7 @@ const Notify: React.FC<NotifyProps> = ({
           style={[
             STYLES.notify,
             {
-              backgroundColor: isDef(backgroundColor)
+              backgroundColor: !isNil(backgroundColor)
                 ? backgroundColor
                 : CV[`notify_${type}_background_color`] ||
                   CV.notify_primary_background_color,

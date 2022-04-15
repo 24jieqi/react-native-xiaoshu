@@ -1,4 +1,5 @@
-import { isArray } from '../../helpers'
+import isArray from 'lodash/isArray'
+
 import type {
   PickerValue,
   PickerOption,

@@ -1,8 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { useRef, useCallback, memo, isValidElement } from 'react'
 import { View, Text, Animated } from 'react-native'
 
 import Button from '../button'
-import { getDefaultValue, easing, renderTextLikeJSX, isDef } from '../helpers'
+import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers'
 import { usePersistFn } from '../hooks'
 import Popup from '../popup/popup'
 import Theme from '../theme'
@@ -76,7 +77,7 @@ const Dialog: React.FC<DialogProps> = ({
   })
 
   const titleJSX = renderTextLikeJSX(title, STYLES.title_text)
-  const messageJSX = isDef(message) ? (
+  const messageJSX = !isNil(message) ? (
     isValidElement(message) ? (
       message
     ) : (

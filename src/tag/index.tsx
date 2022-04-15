@@ -1,9 +1,9 @@
 import Color from 'color'
+import isNil from 'lodash/isNil'
 import React, { memo, useMemo } from 'react'
 import type { TextStyle, ViewStyle } from 'react-native'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 
-import { isDef } from '../helpers'
 import CrossOutline from '../icon/cross'
 import Theme from '../theme'
 
@@ -30,7 +30,7 @@ const Tag: React.FC<TagProps> = ({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
-  const mainColor = isDef(color) ? color : CV.tag_primary_color
+  const mainColor = !isNil(color) ? color : CV.tag_primary_color
   const { innerTypeStyle, textTypeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = {}
     const tempTextStyle: TextStyle = {}
@@ -85,7 +85,7 @@ const Tag: React.FC<TagProps> = ({
     textTypeStyle,
     textSizeStyle,
     /** 外部样式 */
-    isDef(textColor) && {
+    !isNil(textColor) && {
       color: textColor,
     },
   ])

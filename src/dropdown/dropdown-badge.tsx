@@ -1,7 +1,7 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { Text } from 'react-native'
 
-import { isDef } from '../helpers'
 import Theme from '../theme'
 
 import type { DropdownBadgeProps } from './interface'
@@ -16,7 +16,7 @@ const DropdownBadge: React.FC<DropdownBadgeProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  if (!isDef(count)) {
+  if (isNil(count)) {
     return null
   }
 

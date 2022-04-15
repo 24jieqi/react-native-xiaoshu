@@ -1,9 +1,10 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import Divider from '../divider'
-import { getDefaultValue, renderTextLikeJSX, isDef } from '../helpers'
+import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import ArrowLeftOutline from '../icon/arrow-left'
 import Theme from '../theme'
 
@@ -47,7 +48,7 @@ const NavBar: React.FC<NavBarProps> = ({
   return (
     <>
       <View style={[STYLES.bar, style]}>
-        {showBackArrow || isDef(leftExtra) ? (
+        {showBackArrow || !isNil(leftExtra) ? (
           <View style={[STYLES.left, leftStyle]}>
             {showBackArrow ? (
               <TouchableOpacity
@@ -63,7 +64,7 @@ const NavBar: React.FC<NavBarProps> = ({
           </View>
         ) : null}
 
-        {isDef(rightExtra) ? (
+        {!isNil(rightExtra) ? (
           <View style={[STYLES.right, rightStyle]}>{rightExtra}</View>
         ) : null}
 

@@ -1,4 +1,4 @@
-import { isDef } from '../helpers'
+import isNil from 'lodash/isNil'
 
 import type { TokensType } from './interface'
 
@@ -25,7 +25,7 @@ export const createVar = <T>(token: TokensType, creator: Creator<T>): T => {
     myStyle = creator(token)
     // 变量覆盖
     Object.keys(myStyle).forEach(field => {
-      if (isDef(token[field])) {
+      if (!isNil(token[field])) {
         myStyle[field] = token[field]
       }
     })

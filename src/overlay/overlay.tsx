@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined'
 import React, { useEffect, useRef, useState, memo } from 'react'
 import {
   TouchableOpacity,
@@ -6,7 +7,7 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import { getDefaultValue, isValue } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
 import type { OverlayProps } from './interface'
@@ -102,7 +103,7 @@ const Overlay: React.FC<OverlayProps> = ({
         {
           opacity: fadeAnim.current,
           backgroundColor: backgroundColor,
-          zIndex: isValue(zIndex) ? zIndex : CV.overlay_z_index,
+          zIndex: !isUndefined(zIndex) ? zIndex : CV.overlay_z_index,
         },
       ]}>
       <TouchableOpacity

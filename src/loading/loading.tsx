@@ -1,7 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { isValidElement, memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
 import type { LoadingProps } from './interface'
@@ -28,7 +29,7 @@ const Loading: React.FC<LoadingProps> = ({
   const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)
   const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)
 
-  const textJSX = isDef(children) ? (
+  const textJSX = !isNil(children) ? (
     isValidElement(children) ? (
       children
     ) : (

@@ -1,9 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { memo, isValidElement } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 
 import Button from '../button'
 import Divider from '../divider'
-import { isDef } from '../helpers'
 import { useSafeHeight } from '../hooks'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
@@ -31,9 +31,9 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
-  const isTitleDef = isDef(title)
-  const isCancelTextDef = isDef(cancelText)
-  const isDescriptionDef = isDef(description)
+  const isTitleDef = !isNil(title)
+  const isCancelTextDef = !isNil(cancelText)
+  const isDescriptionDef = !isNil(description)
 
   /** 描述文案 纯文字或自定义 JSX */
   const descriptionJSX = isDescriptionDef ? (

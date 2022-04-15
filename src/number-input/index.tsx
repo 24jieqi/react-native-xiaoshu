@@ -1,17 +1,20 @@
+import isNil from 'lodash/isNil'
+import isUndefined from 'lodash/isUndefined'
+import noop from 'lodash/noop'
 import React, { useState, useCallback, useRef, memo, forwardRef } from 'react'
 import type {
   NativeSyntheticEvent,
   TextInputEndEditingEventData,
 } from 'react-native'
 
-import { noop, isValue, isDef, formatDecimal, formatNumber } from '../helpers'
+import { formatDecimal, formatNumber } from '../helpers'
 import { usePersistFn, useUpdateEffect } from '../hooks'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 
 import type { NumberInputProps } from './interface'
 
-const parserNumberToString = (n?: number) => `${isDef(n) ? n : ''}`
+const parserNumberToString = (n?: number) => `${!isNil(n) ? n : ''}`
 const defaultFormatter = (t: string) => t
 const defaultParser = (t: string) => Number(t)
 
@@ -53,7 +56,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     const [localValue, setLocalValue] = useState(
       formatterPersistFn(
-        parserNumberToString(isValue(value) ? value : defaultValue),
+        parserNumberToString(!isUndefined(value) ? value : defaultValue),
       ),
     )
     /** 记录外部的数值 */

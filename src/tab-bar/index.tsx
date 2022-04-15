@@ -1,10 +1,11 @@
+import isNil from 'lodash/isNil'
 import React, { useState, useRef, memo, useCallback, useEffect } from 'react'
 import type { LayoutChangeEvent, LayoutRectangle } from 'react-native'
 import { Text, TouchableOpacity, ScrollView, Animated } from 'react-native'
 
 import BottomBar from '../bottom-bar'
 import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Theme from '../theme'
 
@@ -28,7 +29,7 @@ const TabBar: React.FC<TabBarProps> = ({
 }) => {
   const tabNum = options.length
   const isTabAdaption = tabAlign === 'center'
-  const isTabTextCompact = !isDef(indicatorWidth)
+  const isTabTextCompact = isNil(indicatorWidth)
   const isIndicatorWidthLayout = isTabTextCompact || indicatorWidth === 0
   const [value, onChange] = useControllableValue(restProps, {
     defaultValue: options[0].value,
@@ -48,7 +49,7 @@ const TabBar: React.FC<TabBarProps> = ({
   const ScrollViewRef = useRef<ScrollView>(null)
   const scrollViewWidth = useRef(0)
 
-  if (indicator && !isDef(height)) {
+  if (indicator && isNil(height)) {
     height = 40
   }
 

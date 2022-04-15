@@ -1,9 +1,10 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import { getArrowFill } from '../icon/helper/arrow'
 import Theme from '../theme'
 
@@ -33,7 +34,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const showBadge = !active && isDef(badge) && badge !== false
+  const showBadge = !active && !isNil(badge) && badge !== false
 
   // 修正数据
   activeColor = getDefaultValue(activeColor, config.activeColor)

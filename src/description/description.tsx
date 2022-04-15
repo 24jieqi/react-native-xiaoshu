@@ -1,7 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
-import { isDef, renderTextLikeJSX, getDefaultValue } from '../helpers'
+import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
 import { useDescription } from './context'
@@ -64,9 +65,9 @@ const Description: React.FC<DescriptionProps> = ({
   const textSizeStyle = STYLES[`size_${_size}_text`]
   const flexDirection = _layout === 'horizontal' ? 'row' : 'column'
 
-  const labelJSX = isDef(renderLabel)
+  const labelJSX = !isNil(renderLabel)
     ? renderLabel(colonStr)
-    : isDef(label)
+    : !isNil(label)
     ? renderTextLikeJSX(`${label}${colonStr}`, [
         STYLES.label_text,
         textSizeStyle,
@@ -74,7 +75,7 @@ const Description: React.FC<DescriptionProps> = ({
       ])
     : null
 
-  const contentJSX = isDef(children)
+  const contentJSX = !isNil(children)
     ? children
     : renderTextLikeJSX(
         text,
@@ -99,7 +100,7 @@ const Description: React.FC<DescriptionProps> = ({
         },
       )
 
-  const renderJSX = isDef(render) ? (
+  const renderJSX = !isNil(render) ? (
     render(contentJSX, addonBefore, addonAfter)
   ) : (
     <>
@@ -122,7 +123,7 @@ const Description: React.FC<DescriptionProps> = ({
       ]}>
       <View
         style={[
-          isDef(_labelWidth) ? { width: _labelWidth } : null,
+          !isNil(_labelWidth) ? { width: _labelWidth } : null,
           _labelStyle,
         ]}>
         {labelJSX}

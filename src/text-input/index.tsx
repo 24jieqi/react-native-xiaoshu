@@ -1,3 +1,6 @@
+import isNil from 'lodash/isNil'
+import isUndefined from 'lodash/isUndefined'
+import noop from 'lodash/noop'
 import React, {
   useState,
   useRef,
@@ -28,13 +31,7 @@ import {
 } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import {
-  getDefaultValue,
-  renderTextLikeJSX,
-  noop,
-  isValue,
-  isDef,
-} from '../helpers'
+import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import Theme from '../theme'
 
@@ -103,7 +100,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       returnKeyType = getDefaultValue(returnKeyType, 'done')
     }
 
-    if (showWordLimit && isValue(maxLength)) {
+    if (showWordLimit && !isUndefined(maxLength)) {
       showWordLimit = false
     }
 
@@ -127,7 +124,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
     )
     /** 显示禁用样子 bordered 才显示 */
     const showDisabledInput =
-      bordered && isDef(resetProps.editable) && !resetProps.editable
+      bordered && !isNil(resetProps.editable) && !resetProps.editable
     /** 输入框最小高度 */
     const textInputMinHeight = CV[`text_input_${size}_min_height`]
     /** 所有文字/文案相关的大小 */
@@ -272,7 +269,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
           textInputTextStyle,
           suffixTextStyle,
         ])
-    const customTextInputWidthStyle: TextStyle = isDef(inputWidth)
+    const customTextInputWidthStyle: TextStyle = !isNil(inputWidth)
       ? {
           flexShrink: 1,
           flexGrow: 0,
@@ -310,7 +307,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
      */
     const showInputAccessoryView = iOSPlatform && type !== 'text'
     const keyboardAppearance =
-      !isValue(resetProps.keyboardAppearance) ||
+      isUndefined(resetProps.keyboardAppearance) ||
       resetProps.keyboardAppearance === 'default'
         ? colorScheme || 'light'
         : resetProps.keyboardAppearance
@@ -393,7 +390,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
                     addonAfterJSX || addonBeforeJSX
                       ? inputAddonModeStyle
                       : null,
-                    isDef(resetProps.editable) && !resetProps.editable
+                    !isNil(resetProps.editable) && !resetProps.editable
                       ? STYLES.input_disabled
                       : null,
                   ]

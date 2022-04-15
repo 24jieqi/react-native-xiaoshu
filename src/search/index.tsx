@@ -1,8 +1,10 @@
+import isUndefined from 'lodash/isUndefined'
+import noop from 'lodash/noop'
 import React, { useRef, useCallback, memo, forwardRef } from 'react'
 import { View } from 'react-native'
 
 import Button from '../button'
-import { getDefaultValue, isValue, noop } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
 import ArrowLeftOutline from '../icon/arrow-left'
 import SearchOutline from '../icon/search'
@@ -47,7 +49,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
 
     /** 输入框内部的值，不维护状态，避免没必要的更新 */
-    const SearchText = useRef(isValue(value) ? value : defaultValue)
+    const SearchText = useRef(!isUndefined(value) ? value : defaultValue)
 
     placeholderTextColor = getDefaultValue(
       placeholderTextColor,

@@ -1,6 +1,6 @@
+import isDate from 'lodash/isDate'
 import { useMemo } from 'react'
 
-import { isDate } from '../helpers'
 import { usePersistFn } from '../hooks'
 import type { PickerOption, PickerValue } from '../picker-view/interface'
 

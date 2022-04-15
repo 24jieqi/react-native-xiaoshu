@@ -1,8 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Divider from '../divider'
-import { renderTextLikeJSX, isDef } from '../helpers'
+import { renderTextLikeJSX } from '../helpers'
 import Theme from '../theme'
 
 import type { CellGroupProps } from './interface'
@@ -44,8 +45,8 @@ const CellGroup: React.FC<CellGroupProps> = ({
 
   return (
     <>
-      {titleJSX || isDef(extra) ? (
-        isDef(onPressTitle) ? (
+      {titleJSX || !isNil(extra) ? (
+        !isNil(onPressTitle) ? (
           <TouchableWithoutFeedback onPress={onPressTitle}>
             {groupNameJSX}
           </TouchableWithoutFeedback>

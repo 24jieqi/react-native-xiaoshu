@@ -1,8 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, Text, ScrollView, TouchableHighlight } from 'react-native'
 
 import Badge from '../badge'
-import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Loading from '../loading'
 import Result from '../result'
@@ -90,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     {isActive ? <View style={STYLES.item_bar} /> : null}
 
                     <View style={STYLES.item_inner}>
-                      {isDef(item.badge) ? (
+                      {!isNil(item.badge) ? (
                         <Badge {...item.badge}>{textJSX}</Badge>
                       ) : (
                         textJSX

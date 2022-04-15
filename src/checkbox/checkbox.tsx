@@ -1,8 +1,8 @@
+import isNil from 'lodash/isNil'
 import type { PropsWithChildren } from 'react'
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
-import { isDef } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Theme from '../theme'
 
@@ -48,7 +48,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
     onChange(newValue)
   }
 
-  const labelJSX = isDef(label) ? (
+  const labelJSX = !isNil(label) ? (
     <Text
       suppressHighlighting
       style={[

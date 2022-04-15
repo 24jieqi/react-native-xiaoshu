@@ -1,3 +1,5 @@
+import isNil from 'lodash/isNil'
+import isUndefined from 'lodash/isUndefined'
 import omit from 'lodash/omit'
 import pick from 'lodash/pick'
 import React, { isValidElement } from 'react'
@@ -17,14 +19,9 @@ export * from './typeof'
 export * from './format/number'
 export * from './attach-properties-to-component'
 
-import { isValue, isDef } from './typeof'
-
-/** 空函数，用于一些没有必要实际需要的回调，同时避免抛出错误 */
-export function noop() {}
-
 /** 获取默认值 */
 export const getDefaultValue = <T,>(value: T, defaultValue: T): T => {
-  return isValue(value) ? value : defaultValue
+  return !isUndefined(value) ? value : defaultValue
 }
 
 /** 渲染类文字的 JSX */
@@ -33,7 +30,7 @@ export const renderTextLikeJSX = (
   style: StyleProp<TextStyle>,
   restProps?: Omit<TextProps, 'style'>,
 ) => {
-  return isDef(node) ? (
+  return !isNil(node) ? (
     isValidElement(node) ? (
       node
     ) : (
@@ -68,7 +65,7 @@ export const isTouchableNode = (props: TouchableWithoutFeedbackProps) => {
     if (
       touchablePropsFields.indexOf(k as keyof TouchableWithoutFeedbackProps) >
         -1 &&
-      isDef(props[k])
+      !isNil(props[k])
     ) {
       return true
     }

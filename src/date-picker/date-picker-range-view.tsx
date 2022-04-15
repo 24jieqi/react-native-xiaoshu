@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil'
 import React, { useMemo, useRef, useState, useEffect, memo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
@@ -9,7 +10,6 @@ import type {
   DatePickerColumnType,
 } from '../date-picker-view/interface'
 import { serializeMode, toDateObject } from '../date-picker-view/useDatePicker'
-import { isDef } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
 import {
   varCreator as varCreatorPicker,
@@ -64,7 +64,9 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   ...restProps
 }) => {
-  const _initialValue = isDef(initialValue) ? initialValue : defaultInitialValue
+  const _initialValue = !isNil(initialValue)
+    ? initialValue
+    : defaultInitialValue
   const TOKENS = Theme.useThemeTokens()
   const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
   const STYLES_PICKER = Theme.createStyle(CV_PICKER, styleCreatorPicker)

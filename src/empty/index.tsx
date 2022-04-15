@@ -1,6 +1,6 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 
-import { isDef } from '../helpers'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
 import Theme from '../theme'
@@ -24,7 +24,7 @@ const Empty: React.FC<EmptyProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  const iconJSX = isDef(icon) ? (
+  const iconJSX = !isNil(icon) ? (
     icon
   ) : (
     <ResultIconEmpty style={[STYLES.icon, iconStyle]} />

@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil'
 import React, { useCallback, useMemo, memo } from 'react'
 import type { ViewStyle, LayoutChangeEvent } from 'react-native'
 import {
@@ -14,7 +15,7 @@ import {
   varCreator as varCreatorCell,
   styleCreator as styleCreatorCell,
 } from '../cell/style'
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import { useControllableValue } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import IconSuccessOutline from '../icon/success'
@@ -194,7 +195,7 @@ const DropdownItem = <T,>({
           key={`${item.value}`}
           divider={divider}
           title={
-            isDef(item.badge) && item.badge !== false ? (
+            !isNil(item.badge) && item.badge !== false ? (
               <Space direction="horizontal" align="center" gapVertical={0}>
                 <Text style={STYLES_CELL.title_text}>{item.label}</Text>
 

@@ -1,4 +1,5 @@
 import Color from 'color'
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import type { ViewStyle, ColorValue } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
@@ -8,7 +9,6 @@ import {
   getDefaultValue,
   pickTouchablePropsField,
   omitTouchablePropsField,
-  isDef,
 } from '../../helpers'
 import Theme from '../../theme'
 import type { TokensType } from '../../theme/interface'
@@ -84,7 +84,7 @@ export const genIcon = ({
           <View
             style={style || touchableOpacityStyle}
             pointerEvents={
-              isDef(touchableOpacityProps.onPress)
+              !isNil(touchableOpacityProps.onPress)
                 ? svgProps.pointerEvents
                 : 'none'
             }>

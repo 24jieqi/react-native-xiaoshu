@@ -1,7 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
 import type { DividerProps } from './interface'
@@ -46,7 +47,7 @@ const Divider: React.FC<DividerProps> = ({
           position="center"
           direction={direction}
         />
-      ) : isDef(children) ? (
+      ) : !isNil(children) ? (
         <>
           <DividerLine
             color={color}

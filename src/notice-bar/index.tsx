@@ -1,15 +1,15 @@
 import Color from 'color'
+import isNil from 'lodash/isNil'
+import noop from 'lodash/noop'
 import React, { memo, useState, useCallback, useMemo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 
 import {
   getDefaultValue,
-  isDef,
   renderTextLikeJSX,
   pickTouchablePropsField,
   omitTouchablePropsField,
-  noop,
 } from '../helpers'
 import { usePersistFn } from '../hooks'
 import ArrowRightOutline from '../icon/arrow-right'
@@ -93,11 +93,11 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
       STYLES.text,
       {
         color,
-        marginLeft: isDef(leftIconJSX)
+        marginLeft: !isNil(leftIconJSX)
           ? CV.notice_bar_icon_margin_horizontal
           : 0,
         marginRight:
-          isDef(rightIconJSX) || mode
+          !isNil(rightIconJSX) || mode
             ? CV.notice_bar_icon_margin_horizontal
             : 0,
       },

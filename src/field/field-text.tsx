@@ -1,8 +1,9 @@
+import isNil from 'lodash/isNil'
 import React, { useMemo, memo } from 'react'
 import type { TextStyle, StyleProp } from 'react-native'
 
 import Cell from '../cell'
-import { getDefaultValue, isDef } from '../helpers'
+import { getDefaultValue } from '../helpers'
 import { varCreator as varCreatorTextInput } from '../text-input/style'
 import Theme from '../theme'
 
@@ -19,7 +20,7 @@ const FieldText: React.FC<FieldTextProps> = ({
   valueTextStyle,
   ...restProps
 }) => {
-  const hasValue = isDef(value)
+  const hasValue = !isNil(value)
   const text = hasValue ? value : placeholder
   const TOKENS = Theme.useThemeTokens()
   const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)

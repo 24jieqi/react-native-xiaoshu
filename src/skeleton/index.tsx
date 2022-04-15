@@ -1,7 +1,8 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, StyleSheet } from 'react-native'
 
-import { isDef, isObject } from '../helpers'
+import { isObject } from '../helpers'
 import Space from '../space'
 
 import type {
@@ -51,7 +52,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
   const paragraphOption = isObject(paragraph)
     ? (paragraph as SkeletonParagraphProps)
     : defaultParagraphOption
-  const paragraphActive = isDef(paragraphOption.active)
+  const paragraphActive = !isNil(paragraphOption.active)
     ? paragraphOption.active
     : active
 
@@ -74,10 +75,10 @@ const Skeleton: React.FC<SkeletonProps> = ({
       <View style={STYLES.avatar}>
         <SkeletonAvatar
           {...avatarOption}
-          active={isDef(avatarOption.active) ? avatarOption.active : active}
+          active={!isNil(avatarOption.active) ? avatarOption.active : active}
         />
       </View>
-      {isDef(ctxJSX) ? <View style={STYLES.ctx}>{ctxJSX}</View> : null}
+      {!isNil(ctxJSX) ? <View style={STYLES.ctx}>{ctxJSX}</View> : null}
     </View>
   ) : (
     ctxJSX

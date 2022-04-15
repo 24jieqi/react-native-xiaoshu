@@ -1,6 +1,7 @@
+import isFunction from 'lodash/isFunction'
 import { useState, useCallback } from 'react'
 
-import { isFunction, isObject } from '../helpers'
+import { isObject } from '../helpers'
 
 import useDestroyed from './useDestroyed'
 
