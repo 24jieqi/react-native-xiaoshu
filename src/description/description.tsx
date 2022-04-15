@@ -60,6 +60,10 @@ const Description: React.FC<DescriptionProps> = ({
   const _size = getDefaultValue(size, descriptionContext.size)
   const _justify = getDefaultValue(justify, descriptionContext.justify)
   const _align = getDefaultValue(align, descriptionContext.align)
+  const _numberOfLines = getDefaultValue(
+    numberOfLines,
+    descriptionContext.numberOfLines,
+  )
 
   const colonStr = _colon ? '：' : ''
   const textSizeStyle = STYLES[`size_${_size}_text`]
@@ -96,7 +100,7 @@ const Description: React.FC<DescriptionProps> = ({
           _contentTextStyle,
         ],
         {
-          numberOfLines,
+          numberOfLines: _numberOfLines,
         },
       )
 
