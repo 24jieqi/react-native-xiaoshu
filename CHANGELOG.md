@@ -2,7 +2,9 @@
 
 ### Bug Fixes
 
-- **Description:** 🐛 统一配置 numberOfLines ([6b7903d](https://github.com/hjfruit/react-native-xiaoshu/commit/6b7903ddeeef074d2353f493a4f13ac6a029f9aa))## [0.2.17](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.16...v0.2.17) (2022-04-15)
+- **Description:** 🐛 统一配置 numberOfLines ([6b7903d](https://github.com/hjfruit/react-native-xiaoshu/commit/6b7903ddeeef074d2353f493a4f13ac6a029f9aa))
+
+## [0.2.17](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.16...v0.2.17) (2022-04-15)
 
 ### Features
 
@@ -11,7 +13,9 @@
 - **Cell:** 🎸 新增 title 文字显示多少行 ([841c60c](https://github.com/hjfruit/react-native-xiaoshu/commit/841c60c8c8b6027cd72e036e839d686a922670ca))
 - **ci:** 🎸 防抖 hook ([cbafec4](https://github.com/hjfruit/react-native-xiaoshu/commit/cbafec49f6e613610264d14f9ab0e78095887d23))
 - **Description:** 🎸 新增属性 ([45715eb](https://github.com/hjfruit/react-native-xiaoshu/commit/45715eb453749954744e12b3cf0d6b58639b2130))
-- **Overlay:** 🎸 新增背景颜色 ([f84bbda](https://github.com/hjfruit/react-native-xiaoshu/commit/f84bbdab1b3be09bc6cb2c1d911f144853f18bd4))## [0.2.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.13...v0.2.14) (2022-04-13)
+- **Overlay:** 🎸 新增背景颜色 ([f84bbda](https://github.com/hjfruit/react-native-xiaoshu/commit/f84bbdab1b3be09bc6cb2c1d911f144853f18bd4))
+
+## [0.2.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.13...v0.2.14) (2022-04-13)
 
 ### Features
 
