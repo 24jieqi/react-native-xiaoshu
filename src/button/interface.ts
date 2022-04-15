@@ -3,6 +3,7 @@ import type {
   TextStyle,
   TouchableHighlightProps,
   StyleProp,
+  ColorValue,
 } from 'react-native'
 
 // export type ButtonSize = 'xl' | 'l' | 'm' | 's' | 'xs'
@@ -72,16 +73,16 @@ export interface ButtonProps
   /**
    * 渲染左侧图标
    */
-  renderLeftIcon?: (color: string, size: number) => React.ReactElement
+  renderLeftIcon?: (color: ColorValue, size: number) => React.ReactElement
 
   /**
    * 按钮颜色，不支持渐变
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 按钮文案颜色
    * @default button_primary_color
    */
-  textColor?: string
+  textColor?: ColorValue
 }

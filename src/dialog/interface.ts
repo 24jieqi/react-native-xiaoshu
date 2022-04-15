@@ -1,4 +1,5 @@
 import type * as React from 'react'
+import type { ColorValue } from 'react-native'
 
 import type { NumberInputProps } from '../number-input/interface'
 import type { PopupPropsCommon } from '../popup/interface'
@@ -54,7 +55,7 @@ interface DialogCommon extends PopupPropsCommon {
   /**
    * 确认按钮颜色
    */
-  confirmButtonColor?: string
+  confirmButtonColor?: ColorValue
 
   /**
    * 取消按钮文案
@@ -65,7 +66,7 @@ interface DialogCommon extends PopupPropsCommon {
   /**
    * 取消按钮颜色
    */
-  cancelButtonColor?: string
+  cancelButtonColor?: ColorValue
 }
 
 export interface DialogProps extends DialogCommon {

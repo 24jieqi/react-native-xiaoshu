@@ -1,11 +1,11 @@
+import Color from 'color'
 import React, { memo } from 'react'
-import type { ViewStyle } from 'react-native'
+import type { ViewStyle, ColorValue } from 'react-native'
 import { TouchableWithoutFeedback, View } from 'react-native'
 import { Svg } from 'react-native-svg'
 
 import {
   getDefaultValue,
-  hex2rgba,
   pickTouchablePropsField,
   omitTouchablePropsField,
   isDef,
@@ -19,7 +19,7 @@ import { varCreator } from './style'
 import * as helper from './'
 
 type OutlineRender = (
-  color: string,
+  color: ColorValue,
   props: {
     token: TokensType
     disabled?: boolean
@@ -76,7 +76,7 @@ export const genIcon = ({
 
       // 继续修正
       if (restProps.disabled) {
-        color = hex2rgba(color, 0.4)
+        color = Color(color).alpha(0.4).string()
       }
 
       return (

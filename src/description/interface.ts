@@ -5,6 +5,7 @@ import type {
   TextStyle,
   ViewProps,
   FlexStyle,
+  ColorValue,
 } from 'react-native'
 
 import type { DatePickerColumnMode } from '../date-picker-view/interface'
@@ -99,7 +100,7 @@ export interface DescriptionProps extends DescriptionContextState, ViewProps {
   /**
    * 字体颜色，样式优先级低于自定义样式
    */
-  color?: TextStyle['color']
+  color?: ColorValue
 
   /**
    * 内容前置标签

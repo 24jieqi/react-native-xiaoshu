@@ -1,3 +1,4 @@
+import type { ColorValue } from 'react-native'
 import type { SvgProps } from 'react-native-svg'
 
 export interface IconCommonProps extends SvgProps {
@@ -11,7 +12,7 @@ export interface IconCommonProps extends SvgProps {
    * 图片颜色
    * @default icon_color
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * svg 内部的样式

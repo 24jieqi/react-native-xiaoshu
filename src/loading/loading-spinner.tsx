@@ -1,4 +1,5 @@
 import React, { useRef, memo } from 'react'
+import type { ColorValue } from 'react-native'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
@@ -16,7 +17,7 @@ export interface SpinnerProps {
   /**
    * 颜色
    */
-  color?: string
+  color?: ColorValue
 }
 
 const PETAL_COUNT = 8

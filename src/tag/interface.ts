@@ -1,4 +1,4 @@
-import type { ViewProps, ViewStyle, StyleProp } from 'react-native'
+import type { ViewProps, ViewStyle, StyleProp, ColorValue } from 'react-native'
 
 export type TagSize = 'l' | 'm' | 's'
 export type TagType = 'primary' | 'hazy' | 'ghost'
@@ -35,11 +35,11 @@ export interface TagProps extends ViewProps {
   /**
    * 标签色
    */
-  color?: string
+  color?: ColorValue
   /**
    * 按钮文案颜色
    */
-  textColor?: string
+  textColor?: ColorValue
   /**
    * 自定义关闭按钮
    */

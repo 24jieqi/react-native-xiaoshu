@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { StyleProp, ViewStyle, TextStyle } from 'react-native'
+import type { StyleProp, ViewStyle, TextStyle, ColorValue } from 'react-native'
 
 export interface CollapseProps {
   /**
@@ -26,7 +26,7 @@ export interface CollapseProps {
    * 标题图标颜色
    * @default collapse_title_icon_color
    */
-  iconColor?: string
+  iconColor?: ColorValue
 
   /**
    * 标题图标大小

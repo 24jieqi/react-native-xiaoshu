@@ -7,6 +7,7 @@ import type {
   ViewStyle,
   TextStyle,
   TouchableOpacityProps,
+  ColorValue,
 } from 'react-native'
 
 export interface DropdownBadgeProps extends TextProps {
@@ -73,7 +74,7 @@ export interface DropdownTextProps extends TouchableOpacityProps {
    * 菜单标题和选项的选中态颜色
    * @default dropdown_active_color
    */
-  activeColor?: string
+  activeColor?: ColorValue
 
   /**
    * 箭头默认朝向

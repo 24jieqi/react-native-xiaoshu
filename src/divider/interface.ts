@@ -1,4 +1,4 @@
-import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
+import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
 
 type DividerDirection = 'vertical' | 'horizontal'
 
@@ -33,7 +33,7 @@ export interface DividerProps {
   /**
    * 自定义颜色
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 内容位置，可选值为 `'left' | 'center' | 'right'`

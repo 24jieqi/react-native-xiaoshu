@@ -1,18 +1,19 @@
+import Color from 'color'
 import React from 'react'
 import { Circle } from 'react-native-svg'
-
-import { hex2rgba, rgb2hex } from '../helpers'
 
 import { genIcon } from './helper/gen'
 
 const IconCircleOutline = genIcon({
   render: (color, { disabled }) => {
+    console.log('  Color   => ')
+
     return (
       <Circle
         cx="12"
         cy="12"
         r={11}
-        fill={disabled ? hex2rgba(rgb2hex(color), 0.05) : 'none'}
+        fill={disabled ? Color(color).alpha(0.05).string() : 'none'}
         stroke={color}
         strokeWidth={1.4}
       />

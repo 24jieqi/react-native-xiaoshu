@@ -10,7 +10,6 @@ import type {
 } from 'react-native'
 import { Text } from 'react-native'
 
-export * from './color'
 export * from './z-index'
 export { default as easing } from './easing'
 export * from './interceptor'

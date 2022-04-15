@@ -1,3 +1,5 @@
+import type { ColorValue } from 'react-native'
+
 import type { TextInputProps } from '../text-input/interface'
 
 export interface PasswordInputProps
@@ -36,5 +38,5 @@ export interface PasswordInputProps
    * 图标颜色
    * @default text_color_3
    */
-  iconColor?: string
+  iconColor?: ColorValue
 }

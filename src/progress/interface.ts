@@ -1,4 +1,5 @@
 import type React from 'react'
+import type { ColorValue } from 'react-native'
 
 export interface ProgressProps {
   /**
@@ -17,14 +18,14 @@ export interface ProgressProps {
    * 进度条颜色
    * @default 主题色
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 轨道颜色
    *
    * @default '#e5e5e5'
    */
-  trackColor?: string
+  trackColor?: ColorValue
 
   /**
    * 进度文字内容
@@ -36,13 +37,13 @@ export interface ProgressProps {
    * 进度文字背景色
    * @default 同进度条颜色
    */
-  pivotColor?: string
+  pivotColor?: ColorValue
 
   /**
    * 进度文字颜色
    * @default white
    */
-  textColor?: string
+  textColor?: ColorValue
 
   /**
    * 是否置灰

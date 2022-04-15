@@ -1,4 +1,5 @@
 import type React from 'react'
+import type { ColorValue } from 'react-native'
 
 import type { PopupPropsCommon } from '../popup/interface'
 
@@ -9,7 +10,7 @@ export interface Action {
   name: string
 
   /** 选项文字颜色 */
-  color?: string
+  color?: ColorValue
 
   /** 是否为加载状态 */
   loading?: boolean

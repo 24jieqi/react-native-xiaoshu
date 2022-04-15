@@ -1,4 +1,4 @@
-import type { StyleProp, TextStyle, ViewStyle } from 'react-native'
+import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import type { CellProps, CellPrivateProps } from '../cell/interface'
 import type { DatePickerSingleMethodProps } from '../date-picker/interface'
@@ -17,7 +17,7 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
    * 占位字符串显示的文字颜色
    * @default text_input_placeholder_text_color
    */
-  placeholderTextColor?: string
+  placeholderTextColor?: ColorValue
 
   /**
    * 显示的文案
@@ -41,7 +41,7 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
   /**
    * 占位字符串显示的文字颜色。
    */
-  placeholderTextColor?: string
+  placeholderTextColor?: ColorValue
 
   /**
    * 候选项是否在加载中

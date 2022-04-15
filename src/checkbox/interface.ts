@@ -4,6 +4,7 @@ import type {
   StyleProp,
   TextStyle,
   ViewStyle,
+  ColorValue,
 } from 'react-native'
 
 interface CheckboxIconPrivateProps {
@@ -16,7 +17,7 @@ interface CheckboxIconPrivateProps {
    * 选中状态颜色
    * @default 主题色
    */
-  activeColor?: string
+  activeColor?: ColorValue
 
   /**
    * 图标大小，默认单位为 px

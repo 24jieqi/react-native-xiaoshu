@@ -1,4 +1,5 @@
 import type React from 'react'
+import type { ColorValue } from 'react-native'
 
 import type { BottomBarProps } from '../bottom-bar/interface'
 
@@ -7,7 +8,7 @@ export type TabValue = number | string
 type TabItem = {
   value: TabValue
   label: string
-  iconRender?: (color?: string, isActive?: boolean) => React.ReactElement
+  iconRender?: (color?: ColorValue, isActive?: boolean) => React.ReactElement
 }
 
 export interface TabBarProps extends BottomBarProps {
@@ -15,25 +16,25 @@ export interface TabBarProps extends BottomBarProps {
    * 激活的文案颜色
    * @default tab_bar_text_color
    */
-  textColor?: string
+  textColor?: ColorValue
 
   /**
    * 激活的图标颜色
    * @default tab_bar_icon_color
    */
-  iconColor?: string
+  iconColor?: ColorValue
 
   /**
    * 激活的文案颜色
    * @default tab_bar_active_text_color
    */
-  activeTextColor?: string
+  activeTextColor?: ColorValue
 
   /**
    * 激活的图标颜色
    * @default tab_bar_active_icon_color
    */
-  activeIconColor?: string
+  activeIconColor?: ColorValue
 
   /**
    * 当前选中的值
@@ -78,7 +79,7 @@ export interface TabBarProps extends BottomBarProps {
    * 指示器颜色
    * @default tab_bar_indicator_color
    */
-  indicatorColor?: string
+  indicatorColor?: ColorValue
 
   /**
    * 排列方式，left 标识自适应宽、有滚动条，center 标识居中、无滚动条

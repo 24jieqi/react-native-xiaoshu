@@ -1,4 +1,4 @@
-import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
+import type { TextStyle, ViewStyle, StyleProp, ColorValue } from 'react-native'
 
 export interface BadgeProps {
   /**
@@ -24,7 +24,7 @@ export interface BadgeProps {
   /**
    * 徽标背景颜色
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 不展示数字，只有一个小红点

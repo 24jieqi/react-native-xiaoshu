@@ -3,6 +3,7 @@ import type {
   TouchableWithoutFeedbackProps,
   TextStyle,
   StyleProp,
+  ColorValue,
 } from 'react-native'
 
 export type NoticeBarStatus = 'primary' | 'success' | 'warning' | 'error'
@@ -41,19 +42,19 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
    * 通知文本颜色
    * @default notice_bar_text_color
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 通知背景颜色
    * @default notice_bar_background_color
    */
-  backgroundColor?: string
+  backgroundColor?: ColorValue
 
   /**
    * 图标颜色
    * @default notice_bar_text_color
    */
-  iconColor?: string
+  iconColor?: ColorValue
 
   /**
    * 是否开启文本换行
@@ -76,12 +77,12 @@ export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
   /**
    * 渲染左侧图标
    */
-  renderLeftIcon?: (color: string, size: number) => React.ReactNode
+  renderLeftIcon?: (color: ColorValue, size: number) => React.ReactNode
 
   /**
    * 渲染右侧图标
    */
-  renderRightIcon?: (color: string, size: number) => React.ReactNode
+  renderRightIcon?: (color: ColorValue, size: number) => React.ReactNode
 
   /**
    * 点击关闭按钮

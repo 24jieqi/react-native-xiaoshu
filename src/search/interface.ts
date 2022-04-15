@@ -1,4 +1,4 @@
-import type { ViewProps } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native'
 
 import type { TextInputProps } from '../text-input/interface'
 
@@ -23,7 +23,7 @@ export interface SearchProps
    * 图标颜色
    * @default text_input_placeholder_text_color
    */
-  iconColor?: string
+  iconColor?: ColorValue
 
   /**
    * 点击搜索

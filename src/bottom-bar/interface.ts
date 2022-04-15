@@ -1,4 +1,4 @@
-import type { ViewProps } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native'
 
 export interface BottomBarProps extends ViewProps {
   /**
@@ -11,7 +11,7 @@ export interface BottomBarProps extends ViewProps {
    * 背景色
    * @default bottom_bar_background_color
    */
-  backgroundColor?: string
+  backgroundColor?: ColorValue
 
   /**
    * 元素高度

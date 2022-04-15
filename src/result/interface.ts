@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { TextStyle, StyleProp, ViewProps } from 'react-native'
+import type { TextStyle, StyleProp, ViewProps, ColorValue } from 'react-native'
 import type { SvgProps } from 'react-native-svg'
 
 export type ResultStatus = 'success' | 'error' | 'info' | 'warning'
@@ -23,7 +23,7 @@ export interface ResultProps extends ViewProps {
   /**
    * 自定义 icon
    */
-  renderIcon?: (color: string, size: number) => React.ReactNode
+  renderIcon?: (color: ColorValue, size: number) => React.ReactNode
 
   /**
    * 结果的状态，决定图标和颜色

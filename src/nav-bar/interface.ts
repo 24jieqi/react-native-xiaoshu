@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
+import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
 
 export interface NavBarProps {
   /**
@@ -46,7 +46,7 @@ export interface NavBarProps {
   /**
    * 自定义返回按钮颜色
    */
-  backArrowColor?: string
+  backArrowColor?: ColorValue
 
   /**
    * 自定义返回按钮尺寸

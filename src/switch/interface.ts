@@ -1,3 +1,5 @@
+import type { ColorValue } from 'react-native'
+
 export interface SwitchProps<ActiveValueT = any, InactiveValueT = any> {
   /**
    * 开关选中状态
@@ -30,12 +32,12 @@ export interface SwitchProps<ActiveValueT = any, InactiveValueT = any> {
   /**
    * 打开时的背景色
    */
-  activeColor?: string
+  activeColor?: ColorValue
 
   /**
    * 关闭时的背景色
    */
-  inactiveColor?: string
+  inactiveColor?: ColorValue
 
   /**
    * 打开时对应的值

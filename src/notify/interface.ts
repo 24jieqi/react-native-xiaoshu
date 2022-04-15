@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
+import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
 
 import type { PopupPropsCommon } from '../popup/interface'
 
@@ -40,12 +40,12 @@ export interface NotifyProps
   /**
    * 字体颜色
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 背景颜色
    */
-  backgroundColor?: string
+  backgroundColor?: ColorValue
 
   /**
    * 点击时的回调函数

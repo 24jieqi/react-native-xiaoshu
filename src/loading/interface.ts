@@ -1,4 +1,4 @@
-import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
+import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
 
 export interface LoadingProps {
   /**
@@ -14,7 +14,7 @@ export interface LoadingProps {
   /**
    * 颜色
    */
-  color?: string
+  color?: ColorValue
 
   /**
    * 类型，可选值为 spinner

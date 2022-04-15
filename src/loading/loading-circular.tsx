@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, memo } from 'react'
-import type { ViewStyle } from 'react-native'
+import type { ColorValue, ViewStyle } from 'react-native'
 import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 
@@ -20,7 +20,7 @@ export interface CircularProps {
   /**
    * 颜色
    */
-  color?: string
+  color?: ColorValue
 }
 
 const STROKE_WIDTH = 2
