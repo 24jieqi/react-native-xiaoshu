@@ -85,4 +85,10 @@ export interface ButtonProps
    * @default button_primary_color
    */
   textColor?: ColorValue
+
+  /**
+   * onPress debounce wait
+   * @default 0
+   */
+  onPressDebounceWait?: number
 }

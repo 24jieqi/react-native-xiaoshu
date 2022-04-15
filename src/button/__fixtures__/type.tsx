@@ -13,7 +13,7 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 
 const onPress = () => {
-  console.log('点击按钮')
+  console.log('点击按钮 => ', new Date().getTime())
 }
 
 const ButtonType: React.FC = () => {
@@ -22,7 +22,12 @@ const ButtonType: React.FC = () => {
       <Space>
         <Space>
           <Button type="primary" text="primary" onPress={onPress} />
-          <Button type="hazy" text="hazy" onPress={onPress} />
+          <Button
+            type="hazy"
+            text="hazy"
+            onPress={onPress}
+            onPressDebounceWait={300}
+          />
           <Button type="outline" text="outline" onPress={onPress} />
           <Button type="ghost" text="ghost" onPress={onPress} />
           <Button type="link" text="link" onPress={onPress} />

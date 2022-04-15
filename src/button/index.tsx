@@ -5,6 +5,7 @@ import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
+import { useDebounceFn } from '../hooks'
 import Loading from '../loading'
 import Theme from '../theme'
 
@@ -32,11 +33,16 @@ const Button: React.FC<ButtonProps> = ({
   renderLeftIcon,
   color,
   textColor,
-  ...otherProps
+  onPressDebounceWait = 0,
+
+  ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
+  const { run: runOnPress } = useDebounceFn(restProps.onPress, {
+    wait: onPressDebounceWait,
+  })
 
   color = getDefaultValue(
     color,
@@ -142,10 +148,11 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
+      {...restProps}
       disabled={disabled || loading}
       style={buttonStyles}
       activeOpacity={CV.button_active_opacity}
-      {...otherProps}>
+      onPress={restProps.onPress ? runOnPress : undefined}>
       {contextJSX}
     </TouchableOpacity>
   )
