@@ -104,8 +104,6 @@ const Selector: React.FC<SelectorProps> = ({
     )
   }
 
-  console.log('safeHeight safeHeight => ', safeHeight)
-
   return (
     <Popup
       {...restProps}
