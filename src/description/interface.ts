@@ -1,5 +1,11 @@
 import type { ReactNode } from 'react'
-import type { StyleProp, ViewStyle, TextStyle, ViewProps } from 'react-native'
+import type {
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  ViewProps,
+  FlexStyle,
+} from 'react-native'
 
 import type { DatePickerColumnMode } from '../date-picker-view/interface'
 
@@ -46,6 +52,21 @@ export interface DescriptionContextState {
    * @default 'm'
    */
   size?: 's' | 'm' | 'l'
+
+  /**
+   * 右侧文案显示几行
+   */
+  numberOfLines?: number
+
+  /**
+   * 主轴对齐方式
+   */
+  justify?: FlexStyle['justifyContent']
+
+  /**
+   * 交叉轴对齐方式
+   */
+  align?: FlexStyle['alignItems']
 }
 
 export interface DescriptionGroupProps

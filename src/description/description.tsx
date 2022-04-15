@@ -17,6 +17,9 @@ const Description: React.FC<DescriptionProps> = ({
   labelWidth,
   layout,
   size,
+  numberOfLines,
+  justify,
+  align,
   label,
   text,
   hidden = false,
@@ -54,6 +57,8 @@ const Description: React.FC<DescriptionProps> = ({
   const _labelWidth = getDefaultValue(labelWidth, descriptionContext.labelWidth)
   const _layout = getDefaultValue(layout, descriptionContext.layout)
   const _size = getDefaultValue(size, descriptionContext.size)
+  const _justify = getDefaultValue(justify, descriptionContext.justify)
+  const _align = getDefaultValue(align, descriptionContext.align)
 
   const colonStr = _colon ? '：' : ''
   const textSizeStyle = STYLES[`size_${_size}_text`]
@@ -71,22 +76,28 @@ const Description: React.FC<DescriptionProps> = ({
 
   const contentJSX = isDef(children)
     ? children
-    : renderTextLikeJSX(text, [
-        STYLES.content_text,
-        textSizeStyle,
-        bold
-          ? {
-              fontWeight: 'bold',
-            }
-          : null,
+    : renderTextLikeJSX(
+        text,
+        [
+          STYLES.content_text,
+          textSizeStyle,
+          bold
+            ? {
+                fontWeight: 'bold',
+              }
+            : null,
 
-        color
-          ? {
-              color,
-            }
-          : null,
-        _contentTextStyle,
-      ])
+          color
+            ? {
+                color,
+              }
+            : null,
+          _contentTextStyle,
+        ],
+        {
+          numberOfLines,
+        },
+      )
 
   const renderJSX = isDef(render) ? (
     render(contentJSX, addonBefore, addonAfter)
@@ -103,7 +114,12 @@ const Description: React.FC<DescriptionProps> = ({
   }
 
   return (
-    <View {...restProps} style={[{ flexDirection }, style]}>
+    <View
+      {...restProps}
+      style={[
+        { flexDirection, justifyContent: _justify, alignItems: _align },
+        style,
+      ]}>
       <View
         style={[
           isDef(_labelWidth) ? { width: _labelWidth } : null,

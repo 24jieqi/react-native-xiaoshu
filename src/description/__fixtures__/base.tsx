@@ -30,6 +30,30 @@ const DescriptionBase: React.FC = () => {
             text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
             color="#098"
           />
+          <Description
+            colon={false}
+            layout="vertical"
+            label="vertical 布局"
+            text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
+            color="#098"
+          />
+          <Description
+            numberOfLines={1}
+            label="内容显示一行"
+            text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
+          />
+          <Description
+            align="center"
+            label="对齐"
+            text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
+          />
+          <Description
+            align="center"
+            justify="center"
+            contentStyle={{ flexBasis: 200, flexGrow: 0 }}
+            label="对齐"
+            text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
+          />
         </Description.Group>
       </Card>
 

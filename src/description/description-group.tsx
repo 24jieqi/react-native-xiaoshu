@@ -13,6 +13,9 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
   labelWidth,
   layout = 'horizontal',
   size = 'm',
+  numberOfLines,
+  justify,
+  align,
 
   ...restProps
 }) => {
@@ -26,6 +29,9 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
       labelWidth,
       layout,
       size,
+      numberOfLines,
+      justify,
+      align,
     }),
     [
       colon,
@@ -36,6 +42,9 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
       labelWidth,
       layout,
       size,
+      numberOfLines,
+      justify,
+      align,
     ],
   )
 
