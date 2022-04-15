@@ -12,6 +12,11 @@ const BasicFieldText: React.FC = () => {
       <Field.Text title="标题" value="显示的文案" />
       <Field.Text title="商品类型" value="一般用于表单文案显示" />
       <Field.Text
+        title="商品类型"
+        value="一般用于表单文案显示一般用于表单文案显示"
+        valueTextNumberOfLines={1}
+      />
+      <Field.Text
         title="供应商"
         placeholder="请选择"
         value="供应商名称"

@@ -55,6 +55,17 @@ const BasicFieldSelector: React.FC = () => {
         onChange={v => {
           setS2(v as number[])
         }}
+      />
+      <Field.Selector
+        multiple
+        title="多选"
+        placeholder="请选择"
+        value={s2}
+        options={options}
+        onChange={v => {
+          setS2(v as number[])
+        }}
+        valueTextNumberOfLines={1}
         divider={false}
       />
     </Cell.Group>
