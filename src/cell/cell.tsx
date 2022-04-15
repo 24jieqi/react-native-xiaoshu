@@ -4,6 +4,7 @@ import { Text, View, TouchableHighlight } from 'react-native'
 
 import Divider from '../divider'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
+import { useDebounceFn } from '../hooks'
 import { getArrowOutline } from '../icon/helper/arrow'
 import Theme from '../theme'
 
@@ -37,6 +38,7 @@ const Cell: React.FC<CellProps> = ({
   valueTextNumberOfLines,
   titleTextNumberOfLines,
   textAlign = 'right',
+  onPressDebounceWait = 0,
 
   // 原生组件属性
   underlayColor,
@@ -46,6 +48,9 @@ const Cell: React.FC<CellProps> = ({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
+  const { run: runOnPress } = useDebounceFn(restProps.onPress, {
+    wait: onPressDebounceWait,
+  })
 
   // 一定要绑定 Press 事件才有这个效果
   underlayColor = getDefaultValue(underlayColor, CV.cell_active_color)
@@ -111,7 +116,8 @@ const Cell: React.FC<CellProps> = ({
     <TouchableHighlight
       {...restProps}
       underlayColor={underlayColor}
-      style={[STYLES.cell, style]}>
+      style={[STYLES.cell, style]}
+      onPress={restProps.onPress ? runOnPress : undefined}>
       <>
         <View
           style={[

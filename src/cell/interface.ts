@@ -183,6 +183,12 @@ export interface CellPrivateProps {
    * @default 'right'
    */
   textAlign?: 'right' | 'center' | 'left'
+
+  /**
+   * onPress debounce wait
+   * @default 0
+   */
+  onPressDebounceWait?: number
 }
 
 export interface CellProps extends TouchableHighlightProps, CellPrivateProps {}
