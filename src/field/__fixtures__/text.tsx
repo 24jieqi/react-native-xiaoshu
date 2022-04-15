@@ -17,6 +17,16 @@ const BasicFieldText: React.FC = () => {
         valueTextNumberOfLines={1}
       />
       <Field.Text
+        title="商品类型商品类型商品类型商品类型商品类型商品类型商品类型"
+        titleStyle={{
+          flexBasis: 180,
+        }}
+        value="一般用于一般用于一般用于一般用于一般用于一般用于"
+        titleTextNumberOfLines={1}
+        valueTextNumberOfLines={1}
+        isLink
+      />
+      <Field.Text
         title="供应商"
         placeholder="请选择"
         value="供应商名称"

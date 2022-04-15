@@ -174,6 +174,11 @@ export interface CellPrivateProps {
   valueTextNumberOfLines?: number
 
   /**
+   * title 区域 Text 的 numberOfLines
+   */
+  titleTextNumberOfLines?: number
+
+  /**
    * 文字对齐方向
    * @default 'right'
    */

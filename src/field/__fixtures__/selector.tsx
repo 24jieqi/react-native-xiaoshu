@@ -58,6 +58,18 @@ const BasicFieldSelector: React.FC = () => {
       />
       <Field.Selector
         multiple
+        title="多选多选多选多选多选多选"
+        titleTextNumberOfLines={1}
+        titleStyle={{ flexBasis: 120 }}
+        placeholder="请选择"
+        value={s2}
+        options={options}
+        onChange={v => {
+          setS2(v as number[])
+        }}
+      />
+      <Field.Selector
+        multiple
         title="多选"
         placeholder="请选择"
         value={s2}

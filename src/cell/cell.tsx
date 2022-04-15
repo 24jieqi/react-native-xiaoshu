@@ -35,6 +35,7 @@ const Cell: React.FC<CellProps> = ({
   required = false,
   vertical = false,
   valueTextNumberOfLines,
+  titleTextNumberOfLines,
   textAlign = 'right',
 
   // 原生组件属性
@@ -68,7 +69,13 @@ const Cell: React.FC<CellProps> = ({
       <Text style={STYLES.title_required_text}>*</Text>
     </View>
   ) : null
-  const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
+  const titleJSX = renderTextLikeJSX(
+    title,
+    [STYLES.title_text, titleTextStyle],
+    {
+      numberOfLines: titleTextNumberOfLines,
+    },
+  )
   const valueJSX = renderTextLikeJSX(
     value,
     [

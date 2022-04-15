@@ -20,6 +20,11 @@ const CellBase: React.FC = () => {
         isLink
       />
       <Cell
+        titleTextNumberOfLines={1}
+        title="右侧有箭头，一般表示可以点击右侧有箭头，一般表示可以点击右侧有箭头，一般表示可以点击右侧有箭头，一般表示可以点击"
+        isLink
+      />
+      <Cell
         title="点击事件"
         isLink
         onPress={() => {
