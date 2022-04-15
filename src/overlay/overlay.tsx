@@ -25,6 +25,7 @@ const Overlay: React.FC<OverlayProps> = ({
   duration,
   onPress,
   onRequestClose,
+  backgroundColor,
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -33,6 +34,10 @@ const Overlay: React.FC<OverlayProps> = ({
   const [localVisible, setLocalVisible] = useState(visible)
 
   duration = getDefaultValue(duration, TOKENS.animation_duration_base)
+  backgroundColor = getDefaultValue(
+    backgroundColor,
+    CV.overlay_background_color,
+  )
 
   // 监听状态变化，执行动画
   useEffect(() => {
@@ -96,7 +101,7 @@ const Overlay: React.FC<OverlayProps> = ({
         localVisible ? STYLES.overlay_active : null,
         {
           opacity: fadeAnim.current,
-          backgroundColor: CV.overlay_background_color,
+          backgroundColor: backgroundColor,
           zIndex: isValue(zIndex) ? zIndex : CV.overlay_z_index,
         },
       ]}>

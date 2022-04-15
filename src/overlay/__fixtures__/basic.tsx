@@ -14,9 +14,12 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicOverlay: React.FC = () => {
-  const [state, setState] = useState<Record<'normal' | 'inset', boolean>>({
+  const [state, setState] = useState<
+    Record<'normal' | 'inset' | 'backgroundColor', boolean>
+  >({
     normal: false,
     inset: false,
+    backgroundColor: false,
   })
 
   return (
@@ -43,6 +46,19 @@ const BasicOverlay: React.FC = () => {
               setState(s => ({
                 ...s,
                 inset: true,
+              }))
+            }}
+          />
+        </Card>
+
+        <Card title="自定义背景色" square>
+          <Button
+            text="自定义背景色"
+            type="primary"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                backgroundColor: true,
               }))
             }}
           />
@@ -91,6 +107,17 @@ const BasicOverlay: React.FC = () => {
           />
         </TouchableWithoutFeedback>
       </Overlay>
+
+      <Overlay
+        visible={state.backgroundColor}
+        backgroundColor="rgba(0,255,0,0.3)"
+        onPress={() => {
+          setState(s => ({
+            ...s,
+            backgroundColor: false,
+          }))
+        }}
+      />
     </>
   )
 }

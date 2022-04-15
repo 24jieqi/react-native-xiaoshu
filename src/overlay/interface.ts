@@ -1,4 +1,4 @@
-import type { ViewStyle, StyleProp } from 'react-native'
+import type { ViewStyle, StyleProp, ColorValue } from 'react-native'
 
 export interface OverlayProps {
   /**
@@ -34,4 +34,10 @@ export interface OverlayProps {
    * @support Android
    */
   onRequestClose?: () => boolean
+
+  /**
+   * 自定义遮罩层颜色
+   * @default overlay_background_color
+   */
+  backgroundColor?: ColorValue
 }

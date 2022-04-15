@@ -17,4 +17,10 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./overlay.tsx"></API>
+## API
+
+### Overlay
+
+- `backgroundColor` <Badge>0.2.17+</Badge>
+
+<API hideTitle src="./overlay.tsx"></API>
