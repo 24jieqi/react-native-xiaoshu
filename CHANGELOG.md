@@ -1,4 +1,8 @@
-## [0.2.17](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.16...v0.2.17) (2022-04-15)
+## [0.2.18](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.17...v0.2.18) (2022-04-15)
+
+### Bug Fixes
+
+- **Description:** 🐛 统一配置 numberOfLines ([6b7903d](https://github.com/hjfruit/react-native-xiaoshu/commit/6b7903ddeeef074d2353f493a4f13ac6a029f9aa))## [0.2.17](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.16...v0.2.17) (2022-04-15)
 
 ### Features
 
