@@ -6,8 +6,6 @@ import { genIcon } from './helper/gen'
 
 const IconCircleOutline = genIcon({
   render: (color, { disabled }) => {
-    console.log('  Color   => ')
-
     return (
       <Circle
         cx="12"
