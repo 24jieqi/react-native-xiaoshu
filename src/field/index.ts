@@ -1,6 +1,7 @@
 import FieldCheckbox from './field-checkbox'
 import FieldDate from './field-date'
 import FieldNumberInput from './field-number-input'
+import FieldPasswordInput from './field-password'
 import FieldSelector from './field-selector'
 import FieldSwitch from './field-switch'
 import FieldText from './field-text'
@@ -14,4 +15,5 @@ export default {
   TextInput: FieldTextInput,
   Date: FieldDate,
   Checkbox: FieldCheckbox,
+  Password: FieldPasswordInput,
 }

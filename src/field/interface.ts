@@ -3,6 +3,7 @@ import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
 import type { CellProps, CellPrivateProps } from '../cell/interface'
 import type { DatePickerSingleMethodProps } from '../date-picker/interface'
 import type { NumberInputProps } from '../number-input/interface'
+import type { PasswordInputProps } from '../password-input/interface'
 import type { SelectorProps } from '../selector/interface'
 import type { SwitchProps } from '../switch/interface'
 import type { TextInputProps } from '../text-input/interface'
@@ -172,4 +173,18 @@ export interface FieldCheckboxProps
    * @default true
    */
   editable?: boolean
+}
+
+export interface FieldPasswordInputProps
+  extends Omit<PasswordInputProps, 'style' | 'bordered' | 'size'>,
+    FieldTextCellPropsUsed {
+  /**
+   * 自定义输入框的样式
+   */
+  textInputStyle?: StyleProp<TextStyle>
+
+  /**
+   * 是否显示输入框border
+   */
+  textInputBordered?: boolean
 }

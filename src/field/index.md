@@ -35,6 +35,8 @@ group:
 
 <code src="./__fixtures__/checkbox.tsx"></code>
 
+<code src="./__fixtures__/password.tsx"></code>
+
 ## API
 
 ### Field.Text
@@ -64,3 +66,7 @@ group:
 ### Field.Checkbox
 
 <API hideTitle src="./field-checkbox.tsx"></API>
+
+### Field.Password
+
+<API hideTitle src="./field-password.tsx"></API>

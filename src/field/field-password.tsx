@@ -1,18 +1,19 @@
 import React, { memo } from 'react'
 
 import Cell from '../cell'
-import TextInput from '../text-input'
+import PasswordInput from '../password-input'
 import Theme from '../theme'
 
-import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
+import type {
+  FieldPasswordInputProps,
+  FieldTextCellPropsUsed,
+} from './interface'
 
 /**
- * Field 输入框
- * @description 表单中的输入框组件。
- * @description TODO 自定义输入项
- * @description TODO 解决多行输入高度没对齐的问题
+ * Field 密码输入
+ * @description 表单中的密码输入组件。
  */
-const FieldTextInput: React.FC<FieldTextInputProps> = ({
+const FieldPasswordInput: React.FC<FieldPasswordInputProps> = ({
   // TODO 优化属性传递
   style,
   innerStyle,
@@ -33,20 +34,12 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
 
   // TextInput 属性
   textAlign = 'right',
-  type,
   textInputStyle,
   textInputBordered,
   ...restProps
 }) => {
   if (vertical) {
     textAlign = 'left'
-    type = 'textarea'
-  }
-
-  if (type === 'textarea') {
-    textAlign = 'left'
-    textInputBordered = true
-    vertical = true
   }
 
   const TOKENS = Theme.useThemeTokens()
@@ -81,10 +74,9 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
           : null,
       ]}
       value={
-        <TextInput
+        <PasswordInput
           {...restProps}
           style={textInputStyle}
-          type={type}
           bordered={textInputBordered}
           textAlign={textAlign}
         />
@@ -93,4 +85,4 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   )
 }
 
-export default memo(FieldTextInput)
+export default memo(FieldPasswordInput)
