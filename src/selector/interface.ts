@@ -63,7 +63,7 @@ export interface SelectorProps
    */
   onChange?: (
     value: SelectorValue[] | SelectorValue,
-    options: SelectorOption | SelectorOption[],
+    options: SelectorOption[],
   ) => void
 
   /**

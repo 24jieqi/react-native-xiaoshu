@@ -20,10 +20,7 @@ const SelectorMethod: React.FC<SelectorMethodProps> = ({
 }) => {
   const [visible, setVisible] = useState(false)
   const onChangePersistFn = usePersistFn(
-    (
-      v: SelectorValue | SelectorValue[],
-      o: SelectorOption | SelectorOption[],
-    ) => {
+    (v: SelectorValue | SelectorValue[], o: SelectorOption[]) => {
       onChange?.(v, o)
       setVisible(false)
     },
