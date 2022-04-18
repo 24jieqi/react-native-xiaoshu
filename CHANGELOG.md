@@ -1,3 +1,14 @@
+## [0.2.20](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.19...v0.2.20) (2022-04-18)
+
+### Features
+
+- **Popup:** 🎸 导出 Popup.Component ([56968d9](https://github.com/hjfruit/react-native-xiaoshu/commit/56968d909716f54cff91cff6185e3d3b6991a038))
+- **Selector:** 🎸 onChange 第二个参数统一为数组 ([5c0b97c](https://github.com/hjfruit/react-native-xiaoshu/commit/5c0b97ce766a9ddb579ec62ce4739a7854710af4))
+
+### BREAKING CHANGES
+
+- **Selector:** 🧨 第二个参数统一为数组
+
 ## [0.2.19](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.18...v0.2.19) (2022-04-18)
 
 ### Features
