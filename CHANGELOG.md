@@ -1,3 +1,9 @@
+## [0.2.19](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.18...v0.2.19) (2022-04-18)
+
+### Features
+
+- **Field:** 🎸 密码输入 ([f56725d](https://github.com/hjfruit/react-native-xiaoshu/commit/f56725d650d86fb7e4aa45ce6678a7dd66121cee))
+
 ## [0.2.18](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.17...v0.2.18) (2022-04-15)
 
 ### Bug Fixes
