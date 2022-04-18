@@ -17,4 +17,16 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./popup.tsx"></API>
+## API
+
+### Popup
+
+`Popup.Component` 属性相同，自带 `Portal` 组件包裹。
+
+### Popup.Component
+
+<API hideTitle src="./popup.tsx"></API>
+
+### Popup.Header
+
+<API hideTitle src="./popup-header.tsx"></API>

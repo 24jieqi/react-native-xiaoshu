@@ -22,6 +22,7 @@ const PopupContainer: React.FC<PopupProps> = props => {
 export default attachPropertiesToComponent(
   memo<typeof PopupContainer>(PopupContainer),
   {
+    Component: Popup,
     Header: PopupHeader,
   },
 )
