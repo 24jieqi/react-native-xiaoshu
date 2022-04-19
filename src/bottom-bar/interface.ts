@@ -30,4 +30,10 @@ export interface BottomBarProps extends ViewProps {
    * @default true
    */
   keyboardShowNotRender?: boolean
+
+  /**
+   * 是否显示分割线
+   * @default true
+   */
+  divider?: boolean
 }

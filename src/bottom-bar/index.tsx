@@ -16,6 +16,7 @@ const BottomBar: React.FC<BottomBarProps> = ({
   height,
   hidden = false,
   keyboardShowNotRender = true,
+  divider = true,
 
   style,
   ...restProps
@@ -58,13 +59,14 @@ const BottomBar: React.FC<BottomBarProps> = ({
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
         borderTopColor: CV_DIVIDER.divider_color_light,
-        borderTopWidth: 1,
+        borderTopWidth: divider ? 1 : 0,
       },
       style,
     ],
     [
       bottom,
       backgroundColor,
+      divider,
       height,
       CV_DIVIDER.divider_color_light,
       safeAreaInsetBottom,
