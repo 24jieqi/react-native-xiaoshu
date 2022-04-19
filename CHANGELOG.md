@@ -1,3 +1,10 @@
+## [0.2.21](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.20...v0.2.21) (2022-04-19)
+
+### Features
+
+- **Description:** 🎸 children 对纯文字兼容 ([ccd6fc3](https://github.com/hjfruit/react-native-xiaoshu/commit/ccd6fc380ec5bce2ca8e63431d07d44ef4dbb11c))
+- **Field:** 🎸 field.date 支持自定义格式化值的文案 ([fc7c1b3](https://github.com/hjfruit/react-native-xiaoshu/commit/fc7c1b39bbc06c5012e7a4a5238394bb471b427e))
+
 ## [0.2.20](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.19...v0.2.20) (2022-04-18)
 
 ### Features
