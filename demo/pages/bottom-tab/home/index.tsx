@@ -12,17 +12,16 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
     <Layout.Page
       headerShown={false}
       headerBackgroundColor={sceneContainerStyle.backgroundColor as string}>
-      <Text>Home</Text>
-
       <View style={Styles.page}>
-        <Text style={Styles.title}>react-native-xiaoshu UI 组件库</Text>
+        <Text style={Styles.title}>小暑</Text>
+        <Text>🌈 轻量、可靠的 React Native 组件库</Text>
 
         <Text
           style={Styles.demo}
           onPress={() => {
             navigation.navigate('DemoHome')
           }}>
-          GO DEMO
+          查看所有组件 DEMO
         </Text>
 
         <Text
@@ -30,7 +29,7 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           onPress={() => {
             navigation.navigate('CustomHeaderRed')
           }}>
-          自定义 header 红色
+          自定义 header 红色 Header
         </Text>
 
         <Text
@@ -38,7 +37,7 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           onPress={() => {
             navigation.navigate('CustomHeaderPrimary')
           }}>
-          自定义 header 主题色
+          自定义 header 主题色 Header
         </Text>
       </View>
     </Layout.Page>

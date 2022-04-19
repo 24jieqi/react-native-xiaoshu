@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Card, Blank } from '@fruits-chain/react-native-xiaoshu'
 
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
@@ -247,11 +247,13 @@ const navDatas: {
 
 const Demo: React.FC<DemoProps> = ({ navigation }) => {
   return (
-    <Layout.Page title="DEMO 组件">
+    <Layout.Page title="组件 DEMO">
       <ScrollView>
-        <Cell.Group title="文案粗细">
-          <FontSize />
-        </Cell.Group>
+        <Blank top>
+          <Card square size="s" title="不同系统、字体文字粗细有差异">
+            <FontSize />
+          </Card>
+        </Blank>
 
         {navDatas.map(item => {
           return (
