@@ -22,6 +22,10 @@ const DescriptionBase: React.FC = () => {
             backgroundColor: '#f5f5f5',
           }}>
           <Description label="标题的题" text="一袋米要抗几楼" />
+          <Description label="标题的题">一袋米要抗几楼</Description>
+          <Description label="标题的题">
+            <Text style={{ color: '#987' }}>一袋米要抗几楼</Text>
+          </Description>
           <Description label="标题的题" text="一袋米要抗二楼" />
           <Description label="标题的题" text="一袋米要给多了" />
           <Description label="标题的题" text="一袋米由我洗嘞" />

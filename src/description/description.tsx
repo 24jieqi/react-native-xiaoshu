@@ -1,5 +1,5 @@
 import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
+import React, { memo, isValidElement } from 'react'
 import { View } from 'react-native'
 
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
@@ -79,10 +79,10 @@ const Description: React.FC<DescriptionProps> = ({
       ])
     : null
 
-  const contentJSX = !isNil(children)
+  const contentJSX = isValidElement(children)
     ? children
     : renderTextLikeJSX(
-        text,
+        !isNil(text) ? text : children,
         [
           STYLES.content_text,
           textSizeStyle,
