@@ -140,6 +140,15 @@ export interface FieldDateProps
    * @default false
    */
   clearable?: boolean
+
+  /**
+   * 自定义格式化文案
+   */
+  formatValueText?: (
+    v: Date,
+    mode: DatePickerSingleMethodProps['mode'],
+    str: string,
+  ) => string
 }
 
 export type FieldCheckboxValue = string | number

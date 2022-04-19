@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined'
 import omit from 'lodash/omit'
 import React, { useMemo, memo } from 'react'
 import { Keyboard } from 'react-native'
@@ -20,10 +21,11 @@ const FieldDate: React.FC<FieldDateProps> = ({
   isLink = true,
   editable = true,
   clearable = false,
+  formatValueText,
 
   ...restProps
 }) => {
-  const [value, onChange] = useControllableValue(restProps, {})
+  const [value, onChange] = useControllableValue<Date>(restProps)
   const valueText = useMemo(
     () => (value ? renderDate(value, mode) : undefined),
     [value, mode],
@@ -53,7 +55,11 @@ const FieldDate: React.FC<FieldDateProps> = ({
     <FieldText
       {...omit(restProps, ['value', 'defaultValue', 'onChange'])}
       onPress={onPress}
-      value={valueText}
+      value={
+        formatValueText && !isUndefined(valueText)
+          ? formatValueText(value, mode, valueText)
+          : valueText
+      }
       isLink={value && clearable ? false : isLink}
       valueExtra={
         value && clearable ? (
