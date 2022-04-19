@@ -1,3 +1,9 @@
+## [0.2.22](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.21...v0.2.22) (2022-04-19)
+
+### Bug Fixes
+
+- icon error ([478785f](https://github.com/hjfruit/react-native-xiaoshu/commit/478785f38c25410e886e15e482ef84a5a01d2a34))
+
 ## [0.2.21](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.20...v0.2.21) (2022-04-19)
 
 ### Features
