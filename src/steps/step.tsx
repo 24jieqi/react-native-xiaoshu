@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { Dimensions, View } from 'react-native'
 
-import { Icon } from '..'
 import { renderTextLikeJSX } from '../helpers'
+import Icon from '../icon'
 import Theme from '../theme'
 
 import type { StepsItemPropsType } from './interface'
