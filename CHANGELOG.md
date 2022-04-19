@@ -1,3 +1,9 @@
+## [0.2.24](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.23...v0.2.24) (2022-04-19)
+
+### Bug Fixes
+
+- **NumberInput:** 🐛 初始 value 同步 ([e56c84a](https://github.com/hjfruit/react-native-xiaoshu/commit/e56c84a5c3955e5e60593da1ecfb14f8be86b2fa))
+
 ## [0.2.23](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.22...v0.2.23) (2022-04-19)
 
 ### Features
