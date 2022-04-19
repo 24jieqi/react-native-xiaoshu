@@ -1,3 +1,9 @@
+## [0.2.23](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.22...v0.2.23) (2022-04-19)
+
+### Features
+
+- **Progress:** 🎸 页面进度过渡优化,完整显示进度条加载到最后 ([b261fd6](https://github.com/hjfruit/react-native-xiaoshu/commit/b261fd614111aab72f01b2e33827d582a98ef773))
+
 ## [0.2.22](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.21...v0.2.22) (2022-04-19)
 
 ### Bug Fixes
