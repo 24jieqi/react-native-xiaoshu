@@ -32,8 +32,8 @@ const Progress: React.FC<ProgressProps> = ({
 }) => {
   const AnimatedValue = useRef(new Animated.Value(0)).current
   const StartPercentage = useRef(percentage)
-  const onAnimationEndPersistFn = usePersistFn(() => {
-    onAnimationEnd?.()
+  const onAnimationEndPersistFn = usePersistFn((n: number) => {
+    onAnimationEnd?.(n)
   })
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -76,7 +76,7 @@ const Progress: React.FC<ProgressProps> = ({
 
     action.start(({ finished }) => {
       if (finished) {
-        onAnimationEndPersistFn()
+        onAnimationEndPersistFn(percentage)
       }
     })
 

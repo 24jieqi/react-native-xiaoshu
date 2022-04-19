@@ -78,7 +78,7 @@ export interface ProgressProps {
   /**
    * 动画结束的回调
    */
-  onAnimationEnd?: () => void
+  onAnimationEnd?: (percentage: number) => void
 }
 
 export interface ProgressPageProps {

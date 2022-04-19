@@ -41,7 +41,7 @@ const BasicProgress: React.FC = () => {
         ...s,
         loading: false,
       }))
-    }, 1000)
+    }, 100)
   }, [])
 
   return (

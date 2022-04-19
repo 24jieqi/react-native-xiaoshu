@@ -39,14 +39,17 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
     animated: false,
   })
 
-  const onAnimationEnd = useCallback(() => {
-    if (state.percentage === 100) {
-      setState(s => ({
-        ...s,
-        loading: false,
-      }))
+  const onAnimationEnd = useCallback((n: number) => {
+    if (n === 100) {
+      // 延迟更改状态更顺畅，进度条是完整走完的
+      setTimeout(() => {
+        setState(s => ({
+          ...s,
+          loading: false,
+        }))
+      }, 0)
     }
-  }, [state.percentage])
+  }, [])
 
   const onPressReloadPersistFn = usePersistFn(() => {
     onPressReload?.()
@@ -77,7 +80,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         return {
           ...s,
           percentage: loadingOut ? 90 : 100,
-          duration: loadingOut ? 1000 : 100,
+          duration: loadingOut ? 1500 : 100,
           animated: true,
         }
       })
@@ -132,8 +135,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
     )
   }
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  return <>{children}</>
+  return children as React.ReactElement
 }
 
 export default memo<typeof ProgressPage>(ProgressPage)
