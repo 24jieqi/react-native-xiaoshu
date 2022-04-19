@@ -60,7 +60,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       ),
     )
     /** 记录外部的数值 */
-    const LastValue = useRef(Number(parserPersistFn(localValue)))
+    const LastValue = useRef<number>(!isUndefined(value) ? value : defaultValue)
 
     // 同步数据
     useUpdateEffect(() => {

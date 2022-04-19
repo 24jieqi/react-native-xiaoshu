@@ -65,6 +65,10 @@ const BasicNumberInput: React.FC = () => {
     <>
       <Cell.Group title="基础用法">
         <Cell
+          title="非受控"
+          value={<NumberInput placeholder="请输入" onChange={consoleNum} />}
+        />
+        <Cell
           title="默认值"
           value={
             <NumberInput
