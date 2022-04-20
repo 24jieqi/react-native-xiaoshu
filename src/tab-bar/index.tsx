@@ -25,6 +25,7 @@ const TabBar: React.FC<TabBarProps> = ({
   tabAlign = 'center',
 
   height,
+  style,
   ...restProps
 }) => {
   const tabNum = options.length
@@ -200,7 +201,7 @@ const TabBar: React.FC<TabBarProps> = ({
     ) : null
 
   return (
-    <BottomBar {...restProps} height={height} style={STYLES.tab_bar}>
+    <BottomBar {...restProps} height={height} style={[STYLES.tab_bar, style]}>
       {isTabAdaption ? (
         <>
           {tabs}
