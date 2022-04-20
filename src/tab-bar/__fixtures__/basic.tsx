@@ -96,6 +96,16 @@ const BasicSwitch: React.FC = () => {
 
           <TabBar
             indicator
+            safeAreaInsetBottom={false}
+            options={bottomBar}
+            value={value1}
+            onChange={v => {
+              setValue1(v as number)
+            }}
+          />
+
+          <TabBar
+            indicator
             indicatorWidth={20}
             safeAreaInsetBottom={false}
             defaultValue={bottomBar2[1].value}
