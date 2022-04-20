@@ -71,7 +71,10 @@ const BasicTabs: React.FC = () => {
         </Card>
       </Blank>
 
-      <Tabs height={60} tabBarStyle={{ marginTop: 40 }}>
+      <Tabs
+        tabBarHeight={60}
+        tabBarBackgroundColor="#f9f9f9"
+        tabBarStyle={{ marginTop: 40 }}>
         <Tabs.TabPane key="1" tab="第一个">
           <Result status="success" title="啊哈" subtitle="嘿嘿嘿" />
         </Tabs.TabPane>

@@ -24,7 +24,13 @@ const parseTabList = (children: React.ReactNode) => {
     .filter(tab => tab)
 }
 
-const Tabs: React.FC<TabsProps> = ({ children, tabBarStyle, ...restProps }) => {
+const Tabs: React.FC<TabsProps> = ({
+  children,
+  tabBarStyle,
+  tabBarHeight,
+  tabBarBackgroundColor,
+  ...restProps
+}) => {
   const [_options, _tabs] = useMemo(() => {
     const tabs = parseTabList(children)
     const options: TabItem[] = tabs.map(t => ({
@@ -46,6 +52,8 @@ const Tabs: React.FC<TabsProps> = ({ children, tabBarStyle, ...restProps }) => {
       <TabBar
         {...restProps}
         style={tabBarStyle}
+        height={tabBarHeight}
+        backgroundColor={tabBarBackgroundColor}
         indicator
         divider={false}
         safeAreaInsetBottom={false}

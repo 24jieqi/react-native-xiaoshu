@@ -13,8 +13,25 @@ export interface TabsProps
     | 'keyboardShowNotRender'
     | 'hidden'
     | 'style'
+    | 'height'
+    | 'backgroundColor'
   > {
+  /**
+   * TabBar style
+   */
   tabBarStyle?: TabBarProps['style']
+
+  /**
+   * TabBar 高度
+   */
+  tabBarHeight?: TabBarProps['height']
+
+  /**
+   * TabBar 背景色
+   * @default bottom_bar_background_color
+   */
+  tabBarBackgroundColor?: TabBarProps['backgroundColor']
+
   /**
    * 当前激活 tab 面板的 key
    */
