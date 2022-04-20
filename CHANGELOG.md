@@ -1,3 +1,14 @@
+## [0.2.25](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.24...v0.2.25) (2022-04-20)
+
+### Bug Fixes
+
+- **TabBar:** 🐛 空数组 ([8fb210d](https://github.com/hjfruit/react-native-xiaoshu/commit/8fb210d5ac8147908b8b272d8742a7e79f2f6a1b))
+
+### Features
+
+- **BottomBar:** 🎸 支持隐藏分割线 ([965e933](https://github.com/hjfruit/react-native-xiaoshu/commit/965e9333620e84aadbd2e1b6c757d1cedd59e16c))
+- **Tabs:** 🎸 标签页 ([20bdacc](https://github.com/hjfruit/react-native-xiaoshu/commit/20bdacc2a7991512eaad5a28022dd8917bb8622c))
+
 ## [0.2.24](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.23...v0.2.24) (2022-04-19)
 
 ### Bug Fixes
