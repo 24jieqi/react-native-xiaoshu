@@ -1,3 +1,13 @@
+## [0.2.26](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.25...v0.2.26) (2022-04-20)
+
+### Bug Fixes
+
+- **TabBar:** 🐛 样式传递 ([bfd5507](https://github.com/hjfruit/react-native-xiaoshu/commit/bfd5507f55cf954f5420c3213ea20a5a45569971))
+
+### Features
+
+- **Tabs:** 🎸 调整属性适配更多场景 ([7be4e36](https://github.com/hjfruit/react-native-xiaoshu/commit/7be4e3637ee31fa8388bb1f254225d4a20c73bb3))
+
 ## [0.2.25](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.24...v0.2.25) (2022-04-20)
 
 ### Bug Fixes
