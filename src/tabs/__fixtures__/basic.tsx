@@ -37,7 +37,6 @@ const BasicTabs: React.FC = () => {
           </Tabs>
         </Card>
       </Blank>
-
       <Blank top>
         <Card title="受控模式" square bodyPadding={false}>
           <Tabs activeKey={value1} onChange={setValue1}>
@@ -51,7 +50,6 @@ const BasicTabs: React.FC = () => {
           </Tabs>
         </Card>
       </Blank>
-
       <Blank top>
         <Card title="部分 TabBar 自定义" square bodyPadding={false}>
           <Tabs
@@ -72,6 +70,16 @@ const BasicTabs: React.FC = () => {
           </Tabs>
         </Card>
       </Blank>
+
+      <Tabs height={60} tabBarStyle={{ marginTop: 40 }}>
+        <Tabs.TabPane key="1" tab="第一个">
+          <Result status="success" title="啊哈" subtitle="嘿嘿嘿" />
+        </Tabs.TabPane>
+
+        <Tabs.TabPane key="2" tab="第二个">
+          <Result status="warning" title="嗯哼？" subtitle="哈哈哈" />
+        </Tabs.TabPane>
+      </Tabs>
     </ScrollView>
   )
 }

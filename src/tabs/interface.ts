@@ -9,11 +9,12 @@ export interface TabsProps
     | 'onChange'
     | 'indicator'
     | 'divider'
-    | 'backgroundColor'
     | 'safeAreaInsetBottom'
     | 'keyboardShowNotRender'
     | 'hidden'
+    | 'style'
   > {
+  tabBarStyle?: TabBarProps['style']
   /**
    * 当前激活 tab 面板的 key
    */
