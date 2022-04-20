@@ -170,6 +170,9 @@ export { default as Switch } from './switch'
 export type { TabBarProps } from './tab-bar/interface'
 export { default as TabBar } from './tab-bar'
 
+export type { TabsProps, TabPaneProps } from './tabs/interface'
+export { default as Tabs } from './tabs'
+
 export type { TagProps } from './tag/interface'
 export { default as Tag } from './tag'
 

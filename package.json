@@ -52,8 +52,10 @@
   },
   "dependencies": {
     "@fruits-chain/design-tokens-bailu": "^0.0.5",
+    "@types/react-is": "^17.0.3",
     "color": "^3.2.1",
     "lodash": "^4.17.21",
+    "react-is": "^18.0.0",
     "react-native-popover-view": "^5.0.1",
     "rn-placeholder": "^3.0.3"
   },

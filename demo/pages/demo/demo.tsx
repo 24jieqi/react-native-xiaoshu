@@ -221,6 +221,10 @@ const navDatas: {
         name: 'DemoTabBar',
       },
       {
+        title: 'Tabs',
+        name: 'DemoTabs',
+      },
+      {
         title: 'Uploader',
         name: 'DemoUploader',
       },
