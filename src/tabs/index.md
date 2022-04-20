@@ -1,5 +1,5 @@
 ---
-title: Tabs标签页
+title: Tabs 标签页
 nav:
   title: 组件
   path: /component
