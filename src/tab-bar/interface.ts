@@ -5,7 +5,7 @@ import type { BottomBarProps } from '../bottom-bar/interface'
 
 export type TabValue = number | string
 
-type TabItem = {
+export type TabItem = {
   value: TabValue
   label: string
   iconRender?: (color?: ColorValue, isActive?: boolean) => React.ReactElement

@@ -32,7 +32,7 @@ const TabBar: React.FC<TabBarProps> = ({
   const isTabTextCompact = isNil(indicatorWidth)
   const isIndicatorWidthLayout = isTabTextCompact || indicatorWidth === 0
   const [value, onChange] = useControllableValue(restProps, {
-    defaultValue: options[0].value,
+    defaultValue: options[0]?.value,
   })
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
