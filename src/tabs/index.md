@@ -9,7 +9,7 @@ group:
   order: 3
 ---
 
-# Tabs 标签页
+# Tabs 标签页 <Badge>0.2.25+</Badge>
 
 > 选项卡切换组件。
 
