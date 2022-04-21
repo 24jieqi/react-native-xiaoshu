@@ -1,3 +1,19 @@
+## [0.2.27](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.26...v0.2.27) (2022-04-21)
+
+### Code Refactoring
+
+- **Tabs:** 💡 调整属性名 ([7352c68](https://github.com/hjfruit/react-native-xiaoshu/commit/7352c688a0387869a31e0e2192e12db29422a0d1))
+
+### Features
+
+- **ci:** 🎸 函数 API 中涉及 Popup 组件,Android 返回按钮默认触发点击遮罩回调 ([9fcff07](https://github.com/hjfruit/react-native-xiaoshu/commit/9fcff071791af9dd985c6ca9e89342a83cf6f876))
+- **Dropdown:** 🎸 新增搜索 ([e2b3001](https://github.com/hjfruit/react-native-xiaoshu/commit/e2b30015cc477d77cc532d850da75689ce2320a1))
+- **Search:** 🎸 新增 onSearch 防抖 ([5b131e3](https://github.com/hjfruit/react-native-xiaoshu/commit/5b131e359d8dd3171662939b13a98082b2a3f3b9))
+
+### BREAKING CHANGES
+
+- **Tabs:** 🧨 Tabs 部分作用域 TabBar 的属性名添加 tab 前缀
+
 ## [0.2.26](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.25...v0.2.26) (2022-04-20)
 
 ### Bug Fixes
