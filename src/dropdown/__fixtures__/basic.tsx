@@ -54,6 +54,7 @@ const BasicDropdown: React.FC = () => {
       <Cell.Group title="基础用法">
         <Dropdown>
           <Dropdown.Item
+            search
             options={itemOptions}
             value={values.v1}
             onChange={(v, d) => {
@@ -142,6 +143,7 @@ const BasicDropdown: React.FC = () => {
 
         <Dropdown>
           <Dropdown.Item
+            search
             options={itemOptions3}
             defaultValue={null}
             divider={false}
@@ -153,7 +155,7 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Item options={itemOptions3} defaultValue={null} />
         </Dropdown>
 
-        <View style={{ height: 300 }} />
+        <View style={{ height: 800 }} />
       </Cell.Group>
     </ScrollView>
   )

@@ -101,12 +101,6 @@ export interface DropdownItemProps<T>
   titleTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 是否在首次展开时才渲染菜单内容
-   * @default true
-   */
-  lazyRender?: boolean
-
-  /**
    * 选项数组
    */
   options: DropdownItemOption<T>[]
@@ -153,6 +147,11 @@ export interface DropdownItemProps<T>
    * 候选项加载中
    */
   loading?: boolean
+
+  /**
+   * 支持搜索
+   */
+  search?: boolean
 }
 
 export interface DropdownContext
@@ -164,7 +163,6 @@ export interface DropdownContext
         DropdownItemProps<any>,
         | 'titleStyle'
         | 'titleTextStyle'
-        | 'lazyRender'
         | 'duration'
         | 'zIndex'
         | 'closeOnPressOutside'
@@ -179,3 +177,43 @@ export interface DropdownContext
 export interface DropdownMenuProps
   extends Omit<Partial<DropdownContext>, 'MenuRef'>,
     ViewProps {}
+
+export interface DropdownSelectorMethodProps<T>
+  extends Omit<
+    DropdownItemProps<T>,
+    | 'iconStyle'
+    | 'disabled'
+    | 'titleStyle'
+    | 'titleTextStyle'
+    | 'value'
+    | 'onChange'
+    | 'loading'
+  > {
+  /**
+   * 触发目标高度
+   */
+  targetHeight: number
+
+  /**
+   * 触发目标 pageY
+   */
+  targetPageY: number
+
+  /**
+   * 类似确定的回调，当选择到最末端时触发，部分业务需要把选项其他值提取出来
+   */
+  onConfirm?: (v: T, d: DropdownItemOption<T>) => void
+
+  /**
+   * 取消
+   */
+  onCancel?: () => void
+
+  onClosed?: () => void
+
+  /**
+   * 菜单标题和选项的选中态颜色
+   * @default dropdown_active_color
+   */
+  activeColor?: ColorValue
+}

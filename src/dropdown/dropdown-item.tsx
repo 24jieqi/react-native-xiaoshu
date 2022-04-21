@@ -1,70 +1,31 @@
-import isNil from 'lodash/isNil'
-import React, { useCallback, useMemo, memo } from 'react'
-import type { ViewStyle, LayoutChangeEvent } from 'react-native'
-import {
-  TouchableWithoutFeedback,
-  View,
-  Text,
-  ScrollView,
-  useWindowDimensions,
-} from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React, { useMemo, memo } from 'react'
 
-import Cell from '../cell'
-import {
-  varCreator as varCreatorCell,
-  styleCreator as styleCreatorCell,
-} from '../cell/style'
 import { getDefaultValue } from '../helpers'
-import { useControllableValue } from '../hooks'
+import { useControllableValue, usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
-import IconSuccessOutline from '../icon/success'
-import type { PopupPosition } from '../popup/interface'
-import Popup from '../popup/popup'
-import Portal from '../portal'
-import Space from '../space'
-import Theme from '../theme'
 
 import { useDropdownConfig } from './context'
-import DropdownBadge from './dropdown-badge'
+import DropdownSelector from './dropdown-selector'
 import DropdownText from './dropdown-text'
 import type { DropdownItemProps, DropdownItemOption } from './interface'
-import { varCreator, styleCreator } from './style'
-
-const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' }
 
 const DropdownItem = <T,>({
   titleStyle,
   titleTextStyle,
-  lazyRender,
-  options = [],
+  options,
   duration,
   zIndex,
   closeOnPressOutside,
   divider,
   loading,
+  search,
 
   ...restProps
 }: DropdownItemProps<T>) => {
-  const insets = useSafeAreaInsets()
-  const { height: windowHeight } = useWindowDimensions()
   const config = useDropdownConfig()
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-  const STYLES_CELL = Theme.createStyle(CV_CELL, styleCreatorCell)
-  const [state, setState] = useState({
-    active: false,
-    ctxMaxHeight: 0,
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    ctxStyle: {} as ViewStyle,
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    shadeStyle: {} as ViewStyle,
-    position: 'bottom' as PopupPosition,
-  })
+  const [active, setActive] = useState(false)
   const [value, onChange] = useControllableValue(restProps)
-  const selectOption = useMemo<DropdownItemOption<T>>(() => {
+  const _selectOption = useMemo(() => {
     if (loading) {
       return {
         label: '加载中...',
@@ -73,12 +34,12 @@ const DropdownItem = <T,>({
     }
 
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    let x = {} as DropdownItemOption<T>
+    let selectOption = {} as DropdownItemOption<T>
 
     const findX = (list: DropdownItemOption<T>[]) => {
       list.forEach(item => {
         if (item.value === value) {
-          x = item
+          selectOption = item
         } else if (item.children?.length) {
           findX(item.children)
         }
@@ -87,11 +48,9 @@ const DropdownItem = <T,>({
 
     findX(options)
 
-    return x
+    return selectOption
   }, [loading, options, value])
 
-  // 修正数据
-  lazyRender = getDefaultValue(lazyRender, config.lazyRender)
   duration = getDefaultValue(duration, config.duration)
   zIndex = getDefaultValue(zIndex, config.zIndex)
   closeOnPressOutside = getDefaultValue(
@@ -99,179 +58,44 @@ const DropdownItem = <T,>({
     config.closeOnPressOutside,
   )
 
-  const onPressText = useCallback(() => {
+  const onPressText = usePersistFn(() => {
     // 计算 Menu 的 Top 和元素高度
     // eslint-disable-next-line max-params
     config.MenuRef.current.measure((x, y, width, height, pageX, pageY) => {
-      const topHeight = pageY - insets.top
-      const bottomHeight = windowHeight - pageY - height - insets.bottom
-
-      if (topHeight >= bottomHeight) {
-        // 内容在上半部分
-        setState({
-          active: true,
-          position: 'bottom',
-          ctxStyle: {
-            top: 0,
-            height: pageY,
-          },
-          shadeStyle: {
-            top: pageY,
-            bottom: 0,
-          },
+      setActive(true)
+      DropdownSelector({
+        targetHeight: height,
+        targetPageY: pageY,
+        defaultValue: value,
+        options,
+        duration,
+        zIndex,
+        closeOnPressOutside,
+        divider,
+        search,
+        activeColor: config.activeColor,
+      })
+        .then(d => {
+          onChange(d.value, d.data)
         })
-      } else {
-        // 内容在下半部分
-        setState({
-          active: true,
-          position: 'top',
-          ctxStyle: {
-            top: pageY + height,
-            bottom: 0,
-          },
-          shadeStyle: {
-            top: 0,
-            height: pageY + height,
-          },
+        .catch(() => {})
+        .finally(() => {
+          setActive(false)
         })
-      }
     })
-  }, [config.MenuRef, insets.bottom, insets.top, windowHeight])
-
-  const onPressShade = useCallback(() => {
-    setState({
-      active: false,
-    })
-  }, [])
-
-  /** 弹出层可以的最大高度 */
-  const onLayoutPlace = useCallback((e: LayoutChangeEvent) => {
-    setState({
-      ctxMaxHeight: e.nativeEvent.layout.height,
-    })
-  }, [])
-
-  const genOnPressCell = (o: DropdownItemOption<T>) => () => {
-    setState({
-      active: false,
-    })
-    onChange?.(o.value, o)
-  }
-
-  const shadeStyles: ViewStyle[] = [
-    {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      zIndex,
-      // backgroundColor: '#f30', // to test ui
-    },
-    state.shadeStyle,
-  ]
-  const boxStyles: ViewStyle[] = [
-    {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      zIndex,
-      overflow: 'hidden',
-      // backgroundColor: '#000', // to test ui
-    },
-    state.ctxStyle,
-  ]
-
-  // const text = options.filter(op => op.value === value)[0]?.label
-  const isContextTop = state.position === 'bottom'
-  const placeholderJSX = (
-    <TouchableWithoutFeedback onPress={onPressShade}>
-      <View style={{ height: insets.top }} />
-    </TouchableWithoutFeedback>
-  )
-
-  const renderOption = (cs: DropdownItemOption<T>[]) => {
-    return cs.map(item => {
-      const cellJSX = (
-        <Cell
-          key={`${item.value}`}
-          divider={divider}
-          title={
-            !isNil(item.badge) && item.badge !== false ? (
-              <Space direction="horizontal" align="center" gapVertical={0}>
-                <Text style={STYLES_CELL.title_text}>{item.label}</Text>
-
-                <DropdownBadge count={item.badge} />
-              </Space>
-            ) : (
-              item.label
-            )
-          }
-          valueExtra={
-            item.value === value ? (
-              <IconSuccessOutline size={16} color={config.activeColor} />
-            ) : null
-          }
-          onPress={genOnPressCell(item)}
-        />
-      )
-
-      if (item.children?.length) {
-        return (
-          <React.Fragment key={`${item.value}`}>
-            {cellJSX}
-            <View style={STYLES.item_cell_inner}>
-              {renderOption(item.children)}
-            </View>
-          </React.Fragment>
-        )
-      }
-
-      return cellJSX
-    })
-  }
+  })
 
   return (
-    <>
-      <DropdownText
-        {...restProps}
-        style={titleStyle}
-        textStyle={titleTextStyle}
-        title={selectOption.label}
-        badge={selectOption.badge}
-        active={state.active}
-        onPress={onPressText}
-        disabled={restProps.disabled || loading}
-      />
-
-      <Portal>
-        {state.active ? (
-          <TouchableWithoutFeedback
-            onPress={closeOnPressOutside ? onPressShade : undefined}>
-            <View style={shadeStyles} />
-          </TouchableWithoutFeedback>
-        ) : null}
-
-        <View
-          style={boxStyles}
-          pointerEvents="box-none"
-          onLayout={onLayoutPlace}>
-          <Popup
-            visible={state.active}
-            style={POPUP_STYLE}
-            lazyRender={lazyRender}
-            position={state.position}
-            duration={duration}
-            onPressOverlay={onPressShade}>
-            <View style={{ maxHeight: state.ctxMaxHeight }}>
-              {isContextTop ? placeholderJSX : null}
-
-              <ScrollView bounces={false}>{renderOption(options)}</ScrollView>
-
-              {!isContextTop ? placeholderJSX : null}
-            </View>
-          </Popup>
-        </View>
-      </Portal>
-    </>
+    <DropdownText
+      {...restProps}
+      style={titleStyle}
+      textStyle={titleTextStyle}
+      title={_selectOption.label}
+      badge={_selectOption.badge}
+      active={active}
+      onPress={onPressText}
+      disabled={restProps.disabled || loading || active}
+    />
   )
 }
 
