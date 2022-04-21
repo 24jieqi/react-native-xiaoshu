@@ -91,6 +91,11 @@ const PickerMethod: React.FC<PickerMethodProps> = ({
     doAction('overlay')
   }, [doAction])
 
+  const onRequestClose = useCallback(() => {
+    onPressPopupOverlay()
+    return true
+  }, [onPressPopupOverlay])
+
   return (
     <Picker
       {...restProps}
@@ -100,6 +105,7 @@ const PickerMethod: React.FC<PickerMethodProps> = ({
       onConfirm={onPressConfirm}
       onPressOverlay={onPressPopupOverlay}
       loading={loading}
+      onRequestClose={onRequestClose}
     />
   )
 }

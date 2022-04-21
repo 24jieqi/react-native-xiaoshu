@@ -18,9 +18,14 @@ function StopSelectorMethod<T>({
   }, [])
 
   const onPressClose = useCallback(() => {
-    onCancel()
+    onCancel?.()
     setVisible(false)
   }, [onCancel])
+
+  const onRequestClose = useCallback(() => {
+    onPressClose()
+    return true
+  }, [onPressClose])
 
   const onChange = useCallback(
     (v: T[], o: OptionData<T>[], isEnd?: boolean) => {
@@ -28,7 +33,7 @@ function StopSelectorMethod<T>({
         callInterceptor(beforeClose, {
           args: [v, o, isEnd],
           done: () => {
-            onConfirm(v, o, isEnd)
+            onConfirm?.(v, o, isEnd)
             setVisible(false)
           },
         })
@@ -43,6 +48,7 @@ function StopSelectorMethod<T>({
       visible={visible}
       onPressClose={onPressClose}
       onChange={onChange}
+      onRequestClose={onRequestClose}
     />
   )
 }

@@ -77,7 +77,7 @@ export interface StepSelectorLineProps {
 export interface StepSelectorMethodProps<T>
   extends Omit<
     StepSelectorProps<T>,
-    'value' | 'onChange' | 'onPressClose' | 'visible'
+    'value' | 'onChange' | 'onPressClose' | 'visible' | 'onRequestClose'
   > {
   /**
    * 当选择到最末端时触发，返回 false 可阻止关闭，支持返回 Promise

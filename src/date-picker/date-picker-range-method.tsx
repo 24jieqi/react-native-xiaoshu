@@ -89,6 +89,11 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
     doAction('confirm')
   })
 
+  const onRequestClose = usePersistFn(() => {
+    doAction('overlay')
+    return true
+  })
+
   const rangeProps = {
     mode,
     defaultValue: Values.current,
@@ -104,6 +109,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
   return (
     <Popup
       {...restProps}
+      onRequestClose={onRequestClose}
       visible={visible}
       onPressOverlay={onPressPopupOverlay}
       position="bottom"

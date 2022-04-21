@@ -54,9 +54,15 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
     })
   }, [])
 
+  const onRequestClose = () => {
+    genOnPressBtn('overlay')()
+    return true
+  }
+
   return (
     <Dialog
       {...restProps}
+      onRequestClose={onRequestClose}
       visible={state.visible}
       onPressConfirm={genOnPressBtn('confirm')}
       onPressCancel={genOnPressBtn('cancel')}

@@ -75,7 +75,7 @@ export interface ActionSheetProps extends PopupPropsCommon {
 export interface ActionSheetOptions
   extends Omit<
     ActionSheetProps,
-    'visible' | 'actions' | 'onCancel' | 'onSelect'
+    'visible' | 'actions' | 'onCancel' | 'onSelect' | 'onRequestClose'
   > {
   /**
    * 面板选项列表

@@ -94,6 +94,11 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
     doAction('overlay')
   }, [doAction])
 
+  const onRequestClose = useCallback(() => {
+    onPressPopupOverlay()
+    return true
+  }, [onPressPopupOverlay])
+
   const dataPickerViewProps = pick(
     restProps,
     DATE_PICKER_VIEW_PROPS_KEYS,
@@ -103,6 +108,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
   return (
     <Popup
       {...popupProps}
+      onRequestClose={onRequestClose}
       visible={visible}
       onPressOverlay={onPressPopupOverlay}
       position="bottom"

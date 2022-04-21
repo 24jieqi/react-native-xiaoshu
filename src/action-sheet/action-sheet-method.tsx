@@ -63,9 +63,15 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
     setVisible(true)
   }, [])
 
+  const onRequestClose = () => {
+    genOnPressBtn('overlay')()
+    return true
+  }
+
   return (
     <ActionSheet
       {...restProps}
+      onRequestClose={onRequestClose}
       visible={visible}
       actions={localActions}
       onPressOverlay={genOnPressBtn('overlay')}

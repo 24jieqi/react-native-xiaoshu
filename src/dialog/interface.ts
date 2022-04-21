@@ -115,7 +115,8 @@ export interface DialogMethodProps
   callback?: (action: DialogAction) => void
 }
 
-export interface DialogOptions extends Omit<DialogMethodProps, 'callback'> {}
+export interface DialogOptions
+  extends Omit<DialogMethodProps, 'callback' | 'onRequestClose'> {}
 
 export type DialogInputState = {
   value: string | number

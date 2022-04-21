@@ -82,7 +82,8 @@ export interface SelectorProps
 
 export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {}
 
-export interface SelectorOptions extends Omit<SelectorMethodProps, 'onChange'> {
+export interface SelectorOptions
+  extends Omit<SelectorMethodProps, 'onChange' | 'onRequestClose'> {
   // 是否可以删了，函数的方式直接用 .then 操作
   onChange?: (
     value: SelectorValue[] | SelectorValue,

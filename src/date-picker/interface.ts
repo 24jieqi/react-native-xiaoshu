@@ -10,7 +10,7 @@ export type DatePickerRangeValue = [Date, Date]
 
 export interface DatePickerSingleMethodProps
   extends Omit<DatePickerViewProps, 'value' | 'onChange' | 'loading'>,
-    Omit<PopupPropsCommon, 'onPressOverlay' | 'visible'> {
+    Omit<PopupPropsCommon, 'onPressOverlay' | 'visible' | 'onRequestClose'> {
   /**
    * 顶部栏标题
    */
@@ -113,7 +113,7 @@ export interface DatePickerRangeMethodProps
       DatePickerRangeViewProps,
       'loading' | 'value' | 'onChange' | 'onConfirm'
     >,
-    Omit<PopupPropsCommon, 'visible' | 'onPressOverlay'> {
+    Omit<PopupPropsCommon, 'visible' | 'onPressOverlay' | 'onRequestClose'> {
   /**
    * 顶部栏标题
    */

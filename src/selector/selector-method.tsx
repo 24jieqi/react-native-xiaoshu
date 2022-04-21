@@ -30,6 +30,11 @@ const SelectorMethod: React.FC<SelectorMethodProps> = ({
     setVisible(false)
   })
 
+  const onRequestClose = usePersistFn(() => {
+    onClosePersistFn()
+    return true
+  })
+
   // 节点加载好后显示
   useEffect(() => {
     setVisible(true)
@@ -41,6 +46,7 @@ const SelectorMethod: React.FC<SelectorMethodProps> = ({
       visible={visible}
       onChange={onChangePersistFn}
       onClose={onClosePersistFn}
+      onRequestClose={onRequestClose}
     />
   )
 }

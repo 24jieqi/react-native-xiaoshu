@@ -61,6 +61,7 @@ export interface PickerMethodProps
     | 'onCancel'
     | 'onConfirm'
     | 'onPressOverlay'
+    | 'onRequestClose'
   > {
   /**
    * 点击取消
