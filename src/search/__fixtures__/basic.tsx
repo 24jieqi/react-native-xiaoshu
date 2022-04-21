@@ -22,6 +22,17 @@ const BasicPasswordInput: React.FC = () => {
         />
       </Cell.Group>
 
+      <Cell.Group title="防抖">
+        <Search
+          placeholder="请输入关键词搜索"
+          autoSearch
+          onSearchDebounceWait={500}
+          onSearch={v => {
+            console.log(v)
+          }}
+        />
+      </Cell.Group>
+
       <Cell.Group title="受控组件">
         <Search
           placeholder="请输入关键词搜索"

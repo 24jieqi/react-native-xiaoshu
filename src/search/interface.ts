@@ -46,4 +46,10 @@ export interface SearchProps
    * @default false
    */
   autoSearch?: boolean
+
+  /**
+   * onSearch debounce wait
+   * @default 300
+   */
+  onSearchDebounceWait?: number
 }

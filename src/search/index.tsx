@@ -5,7 +5,7 @@ import { View } from 'react-native'
 
 import Button from '../button'
 import { getDefaultValue } from '../helpers'
-import { usePersistFn } from '../hooks'
+import { usePersistFn, useDebounceFn } from '../hooks'
 import ArrowLeftOutline from '../icon/arrow-left'
 import SearchOutline from '../icon/search'
 import TextInput from '../text-input'
@@ -28,6 +28,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       showBack = false,
       onPressBack,
       autoSearch = false,
+      onSearchDebounceWait = 300,
 
       value,
       defaultValue,
@@ -45,8 +46,10 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     const CV = Theme.createVar(TOKENS, varCreator)
     const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)
     const STYLES = Theme.createStyle(CV, styleCreator)
-    const onSearchPersistFn = usePersistFn(onSearch || noop)
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
+    const { run: runOnSearch } = useDebounceFn(onSearch || noop, {
+      wait: onSearchDebounceWait,
+    })
 
     /** 输入框内部的值，不维护状态，避免没必要的更新 */
     const SearchText = useRef(!isUndefined(value) ? value : defaultValue)
@@ -63,28 +66,27 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
         SearchText.current = v
 
         if (autoSearch) {
-          onSearchPersistFn(v)
+          runOnSearch(v)
         }
       },
-      [autoSearch, onSearchPersistFn],
+      [autoSearch, runOnSearch],
     )
 
-    // TODO 触发 onSearch 做一个节流
     const _onChangeText = useCallback(
       (v: string) => {
         SearchText.current = v
         onChangeTextPersistFn(v)
 
         if (autoSearch) {
-          onSearchPersistFn(v)
+          runOnSearch(v)
         }
       },
-      [autoSearch, onChangeTextPersistFn, onSearchPersistFn],
+      [autoSearch, onChangeTextPersistFn, runOnSearch],
     )
 
     const onPress = useCallback(() => {
-      onSearchPersistFn(SearchText.current)
-    }, [onSearchPersistFn])
+      runOnSearch(SearchText.current)
+    }, [runOnSearch])
 
     return (
       <View
