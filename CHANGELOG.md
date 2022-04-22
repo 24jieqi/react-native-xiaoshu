@@ -1,3 +1,5 @@
+## [0.2.28](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.27...v0.2.28) (2022-04-22)
+
 ## [0.2.27](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.26...v0.2.27) (2022-04-21)
 
 ### Code Refactoring
