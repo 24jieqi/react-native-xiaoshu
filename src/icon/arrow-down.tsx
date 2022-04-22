@@ -10,7 +10,7 @@ const IconArrowDownOutline = genIcon({
         points="4,8 12,16 20,8"
         fill="none"
         stroke={color}
-        strokeWidth={2}
+        strokeWidth={2.2}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
