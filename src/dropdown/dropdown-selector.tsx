@@ -205,7 +205,7 @@ const DropdownSelectorMethod = <T,>({
           }
           valueExtra={
             item.value === defaultValue ? (
-              <IconSuccessOutline size={24} color={activeColor} />
+              <IconSuccessOutline color={activeColor} />
             ) : null
           }
           onPress={genOnPressCell(item)}

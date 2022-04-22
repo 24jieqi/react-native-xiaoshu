@@ -176,7 +176,13 @@ export interface DropdownContext
 
 export interface DropdownMenuProps
   extends Omit<Partial<DropdownContext>, 'MenuRef'>,
-    ViewProps {}
+    ViewProps {
+  /**
+   * 是否显示分割线
+   * @default true
+   */
+  divider?: boolean
+}
 
 export interface DropdownSelectorMethodProps<T>
   extends Omit<

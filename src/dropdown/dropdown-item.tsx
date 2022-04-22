@@ -94,7 +94,7 @@ const DropdownItem = <T,>({
       badge={_selectOption.badge}
       active={active}
       onPress={onPressText}
-      disabled={restProps.disabled || loading || active}
+      disabled={restProps.disabled || loading}
     />
   )
 }

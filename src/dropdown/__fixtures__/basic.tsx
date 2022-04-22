@@ -50,7 +50,7 @@ const BasicDropdown: React.FC = () => {
   })
 
   return (
-    <ScrollView scrollsToTop={false}>
+    <ScrollView scrollsToTop={false} style={{ backgroundColor: '#f5f5f5' }}>
       <Cell.Group title="基础用法">
         <Dropdown>
           <Dropdown.Item
@@ -73,7 +73,7 @@ const BasicDropdown: React.FC = () => {
 
         <View style={{ height: 200 }} />
 
-        <Dropdown>
+        <Dropdown divider={false}>
           <Dropdown.Item
             disabled
             options={itemOptions}

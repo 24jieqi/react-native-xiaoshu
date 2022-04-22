@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, memo } from 'react'
 import { View } from 'react-native'
 
+import { varCreator as varCreatorDivider } from '../divider/style'
 import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
@@ -22,12 +23,16 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   // overlay = true,
   // closeOnPressOverlay = true,
   closeOnPressOutside = true,
+
+  divider = true,
+
   style,
   ...restProps
 }) => {
   const MenuRef = useRef<View>(null)
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_DIVIDER = Theme.createVar(TOKENS, varCreatorDivider)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
   activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
@@ -56,10 +61,18 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       zIndex,
     ],
   )
+  const dividerStyle = {
+    borderBottomColor: CV_DIVIDER.divider_color_light,
+    borderBottomWidth: divider ? 1 : 0,
+  }
 
   return (
     <DropdownConfig.Provider value={config}>
-      <View {...restProps} ref={MenuRef} style={[STYLES.menu, style]} />
+      <View
+        {...restProps}
+        ref={MenuRef}
+        style={[STYLES.menu, dividerStyle, style]}
+      />
     </DropdownConfig.Provider>
   )
 }

@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
-import { getArrowFill } from '../icon/helper/arrow'
+import { getArrowOutline } from '../icon/helper/arrow'
 import Theme from '../theme'
 
 import { useDropdownConfig } from './context'
@@ -66,7 +66,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ]
   const iconStyles = [config.iconStyle, iconStyle].filter(Boolean)
 
-  const ArrowFill = getArrowFill(
+  const ArrowFill = getArrowOutline(
     active ? (direction === 'up' ? 'down' : 'up') : direction,
   )
   const ctxJSX = (
@@ -87,7 +87,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
       <ArrowFill
         style={iconStyles.length ? iconStyles : undefined}
         size={CV.dropdown_text_icon_size}
-        color={active ? activeColor : textColor}
+        color={active ? activeColor : CV.dropdown_text_icon_color}
       />
     </>
   )
