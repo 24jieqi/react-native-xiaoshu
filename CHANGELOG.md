@@ -1,3 +1,10 @@
+## [0.2.29](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.28...v0.2.29) (2022-04-22)
+
+### Features
+
+- **Dropdown:** 🎸 图标尺寸 ([788cc7f](https://github.com/hjfruit/react-native-xiaoshu/commit/788cc7fdaf0663d81f568bf041bbe9a7c0b86357))
+- **Icon:** 🎸 箭头图标调整尺寸 ([527c4c5](https://github.com/hjfruit/react-native-xiaoshu/commit/527c4c5b86980f7725a42c51cdb14c2c1678bab9))
+
 ## [0.2.28](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.27...v0.2.28) (2022-04-22)
 
 ## [0.2.27](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.26...v0.2.27) (2022-04-21)
