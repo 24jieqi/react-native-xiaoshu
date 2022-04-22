@@ -11,7 +11,7 @@ export const varCreator = (TOKENS: TokensType) => {
     dropdown_text_color: TOKENS.gray_7,
     dropdown_text_disabled_color: TOKENS.gray_6,
     dropdown_text_margin_right: 4,
-    dropdown_text_icon_size: 20,
+    dropdown_text_icon_size: 16,
     dropdown_text_icon_color: TOKENS.gray_6,
     dropdown_badge_color: TOKENS.red_6,
     dropdown_badge_text_font_size: TOKENS.font_size_3,
@@ -31,7 +31,7 @@ export const styleCreator = (cv: ComponentVars) => {
     },
 
     item_cell_inner: {
-      paddingLeft: 12,
+      paddingLeft: 16,
       backgroundColor: cv.dropdown_background_color,
     },
 
