@@ -2,7 +2,7 @@ import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
 import p from './package.json'
 
-const repo = ''
+const repo = process.env.PUBLIC_PATH || ''
 
 export default defineConfig({
   chainWebpack(memo: WebpackChain) {

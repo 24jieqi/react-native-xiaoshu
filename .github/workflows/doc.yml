@@ -26,7 +26,7 @@ jobs:
           yarn
       - name: run build
         run: |
-          yarn doc:build
+          yarn doc:github-build
       - name: Commit files
         run: |
           cd $PUBLISH_DIR
