@@ -1,3 +1,10 @@
+## [0.2.30](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.29...v0.2.30) (2022-04-24)
+
+### Features
+
+- env ([ce0147a](https://github.com/hjfruit/react-native-xiaoshu/commit/ce0147a660f628eac5b639935f72f298ca1dfcee))
+- **Form:** 🎸 onFinish 参数是该表单所有,而不是显式注册的那部分 ([7182b94](https://github.com/hjfruit/react-native-xiaoshu/commit/7182b94a271b93dc96d09c6b070c86db03aecda7))
+
 ## [0.2.29](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.28...v0.2.29) (2022-04-22)
 
 ### Features
