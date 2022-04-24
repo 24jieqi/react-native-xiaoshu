@@ -3,6 +3,7 @@ import RCForm from 'rc-field-form'
 import type { ValidateErrorEntity } from 'rc-field-form/lib/interface'
 import React, { useImperativeHandle, forwardRef } from 'react'
 
+import { usePersistFn } from '../hooks'
 import Toast from '../toast'
 
 import type { FormProps } from './interface'
@@ -18,10 +19,17 @@ const defaultOnFinishFailed = (errorInfo: ValidateErrorEntity<unknown>) => {
 const InternalForm: React.ForwardRefRenderFunction<
   RCFormInstance,
   FormProps
-> = ({ onFinishFailed = defaultOnFinishFailed, form, ...restProps }, ref) => {
+> = (
+  { onFinishFailed = defaultOnFinishFailed, form, onFinish, ...restProps },
+  ref,
+) => {
   const [wrapForm] = useForm(form)
 
   useImperativeHandle(ref, () => wrapForm)
+
+  const onFinishPersistFn = usePersistFn(() => {
+    onFinish(wrapForm.getFieldsValue(true))
+  })
 
   return (
     <RCForm
@@ -29,6 +37,7 @@ const InternalForm: React.ForwardRefRenderFunction<
       component={false}
       form={wrapForm}
       onFinishFailed={onFinishFailed}
+      onFinish={onFinishPersistFn}
     />
   )
 }

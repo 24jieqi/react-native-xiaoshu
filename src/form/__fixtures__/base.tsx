@@ -23,6 +23,9 @@ const BasicFormBase: React.FC = () => {
         onFinish={values => {
           console.log(values)
           Toast(JSON.stringify(values))
+        }}
+        initialValues={{
+          AAA: 'CCC',
         }}>
         <Form.Item
           name="username"
@@ -50,11 +53,20 @@ const BasicFormBase: React.FC = () => {
           />
         </Form.Item>
         <Form.Item dependencies={['password']}>
-          {({ getFieldValue }) => {
+          {({ getFieldValue, setFieldsValue }) => {
             console.log(getFieldValue('password'))
             return (
               <Form.Item name="password333">
-                <Field.TextInput title="其他" placeholder="请输入其他" />
+                <Field.TextInput
+                  title="其他"
+                  placeholder="请输入其他"
+                  onChange={t => {
+                    console.log('set AAA')
+                    setFieldsValue({
+                      AAA: t,
+                    })
+                  }}
+                />
               </Form.Item>
             )
           }}
