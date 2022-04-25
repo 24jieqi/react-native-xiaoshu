@@ -11,4 +11,6 @@ group:
 
 ## 介绍
 
-react-native-xiaoshu 是**洪九果品前端团队**开发的移动端组件库，于 2021 年开始准备、创建，续维护至今。react-native-xiaoshu 对内承载了洪九果品核心业务，对外服务广大开发者。
+在 React Native 组件库里面 [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) 最近不怎么更新，且需要比较多的第三方组件，其他组件库各有特色、遗憾，同时对 [vant](https://github.com/youzan/vant) 的设计比较喜欢，于是就开始了不归之路。
+
+组件规范参考了 `vant`、`antd`、`antd-mobile`，同时保持着「这是 App 组件库」的想法，WEB 端的一些特性、想法比较克制，那么现阶段有点大杂烩的感觉，以后逐步修正，找到适合自己的方向。

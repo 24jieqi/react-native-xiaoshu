@@ -9,10 +9,10 @@ hero:
 features:
   - icon: https://gw.alipayobjects.com/zos/basement_prod/a1c647aa-a410-4024-8414-c9837709cb43/k7787itw_w126_h114.png
     title: 可扩展
-    desc: react-native-xiaoshu 大部分组件提供自定义样式的属性，函数使用的方式也提供对应组件使用方式，大部分样式变量可以自定义覆盖。
+    desc: 小暑大部分组件提供自定义样式的属性，函数使用的方式也提供对应组件使用方式，大部分样式变量可以自定义覆盖。
   - icon: https://gw.alipayobjects.com/zos/basement_prod/b54b48c7-087a-4984-b150-bcecb40920de/k7787z07_w114_h120.png
     title: 开箱即用
-    desc: 安装依赖库，引入 react-native-xiaoshu，根组件使用 `Provider` 包裹一层即可使用所有组件，支持按需加载，可满足日常 80% 的开发需求。
+    desc: 安装依赖库，引入小暑，根组件使用 `Provider` 包裹一层即可使用所有组件，支持按需加载，可满足日常 80% 的开发需求。
   - icon: https://gw.alipayobjects.com/zos/basement_prod/464cb990-6db8-4611-89af-7766e208b365/k77899wk_w108_h132.png
     title: 企业级
     desc: 大家多使用反馈问题，不断优化。
@@ -24,6 +24,7 @@ features:
     desc: TODO。
   - icon: https://gw.alipayobjects.com/zos/basement_prod/d078a5a9-1cb3-4352-9f05-505c2e98bc95/k7788v4b_w102_h126.png
     title: 规范交互
-    desc: react-native-xiaoshu 是基于洪九果品视觉规范实现的组件库。
-footer: Copyright © 2021-present<br />Powered by [洪九果品研发团队](https://github.com/hjfruit).
+    # desc: react-native-xiaoshu 是基于全果链视觉规范实现的组件库。
+    desc: 友好的交互。
+# footer: Copyright © 2021-present<br />Powered by [全果链研发团队](https://github.com/hjfruit).
 ---

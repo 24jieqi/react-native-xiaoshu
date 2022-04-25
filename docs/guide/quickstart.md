@@ -9,13 +9,13 @@ group:
   path: /guide
 ---
 
-> 通过本章节你可以了解到 `react-native-xiaoshu` 的安装方法和基本使用姿势。
+> 通过本章节你可以了解到`小暑`的安装方法和基本使用姿势。
 
 ## 安装
 
 ### 通过 npm 安装
 
-在现有项目中使用 `react-native-xiaoshu` 时，可以通过 npm 或 yarn 进行安装
+在现有项目中使用`小暑`时，可以通过 npm 或 yarn 进行安装
 
 ```bash
 ## npm
@@ -75,4 +75,4 @@ const App: React.FC = () => {
 
 ## 常见问题
 
-暂无
+待收集。
