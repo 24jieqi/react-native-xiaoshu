@@ -28,3 +28,17 @@ features:
     desc: 友好的交互。
 # footer: Copyright © 2021-present<br />Powered by [全果链研发团队](https://github.com/hjfruit).
 ---
+
+[xiaoshu-npm-url]: https://www.npmjs.com/package/@fruits-chain/react-native-xiaoshu
+
+<div align="center">
+
+[![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]
+[![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]
+[![](https://img.shields.io/badge/language-typescript-blue.svg)](https://www.typescriptlang.org/)
+[![install size](https://packagephobia.com/badge?p=@fruits-chain/react-native-xiaoshu)](https://packagephobia.com/result?p=@fruits-chain/react-native-xiaoshu)
+
+[![Platform - Android](https://img.shields.io/badge/platform-Android-3ddc84.svg?logo=android)](https://www.android.com)
+[![Platform - iOS](https://img.shields.io/badge/platform-iOS-000.svg?logo=apple)](https://developer.apple.com/ios)
+
+</div>
