@@ -8,7 +8,7 @@ export default defineConfig({
   chainWebpack(memo: WebpackChain) {
     memo.plugins.delete('copy')
   },
-  title: 'React Native Xiaoshu',
+  title: '小暑',
   mode: 'site',
   outputPath: 'docs-dist',
   hash: true,
