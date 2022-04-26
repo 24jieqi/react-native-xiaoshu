@@ -1,3 +1,12 @@
+## [0.2.31](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.30...v0.2.31) (2022-04-26)
+
+### Features
+
+- **DatePicker:** 🎸 多选切换开始结束默认选择适合的时间 ([7b289f2](https://github.com/hjfruit/react-native-xiaoshu/commit/7b289f277f8989400c68ef279ed39f10d05c6b6e))
+- **DatePickerView:** 🎸 非受控主动触发 onChange 同步时间到外部,优化代码 ([b1bfa27](https://github.com/hjfruit/react-native-xiaoshu/commit/b1bfa27f0ebde423af24d4a34ce07b8df2e922ee))
+- **Field:** 🎸 新增时间段选择 ([c4b4505](https://github.com/hjfruit/react-native-xiaoshu/commit/c4b4505e221be5e96cf2633f821f6f4e2d64af6d))
+- **Icon:** 🎸 新图标 ([0103190](https://github.com/hjfruit/react-native-xiaoshu/commit/0103190c2c39c2d5d72a0d2bf48080efc2990662))
+
 ## [0.2.30](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.29...v0.2.30) (2022-04-24)
 
 ### Features
