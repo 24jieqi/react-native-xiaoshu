@@ -10,8 +10,8 @@ import type { DatePickerColumnMode } from '@fruits-chain/react-native-xiaoshu'
 import { DatePickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
 
 const Y_M_LIMIT = {
-  min: new Date(2016, 6, 20, 18, 40, 10),
-  max: new Date(2026, 2, 10, 12, 20, 50),
+  min: new Date(2022, 1, 20, 18, 40, 10),
+  max: new Date(2036, 2, 10, 12, 20, 50),
 }
 
 // 控件多了容易卡顿
@@ -39,6 +39,11 @@ const modes: DatePickerColumnMode[] = [
   // 's',
 ]
 
+const onChangeLog = (v: Date) => {
+  console.log('onChangeLog')
+  console.log(v)
+}
+
 const BasicDatePickerView: React.FC = () => {
   const [value, setValue] = useState(new Date())
 
@@ -48,7 +53,7 @@ const BasicDatePickerView: React.FC = () => {
         return (
           <React.Fragment key={mode}>
             <Cell.Group title={`${mode}:非受控`}>
-              <DatePickerView mode={mode} />
+              <DatePickerView mode={mode} onChange={onChangeLog} />
             </Cell.Group>
             <Cell.Group title={`${mode}:最大最小值:非受控`}>
               <DatePickerView
