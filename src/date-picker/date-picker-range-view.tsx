@@ -3,13 +3,15 @@ import React, { useMemo, useRef, useState, useEffect, memo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import Button from '../button'
+import { varCreator as varCreatorButton } from '../button/style'
 import Col from '../col'
 import DatePickerView from '../date-picker-view'
+import { serializeMode, toDateObject } from '../date-picker-view/helper'
 import type {
   DatePickerColumnMode,
   DatePickerColumnType,
 } from '../date-picker-view/interface'
-import { serializeMode, toDateObject } from '../date-picker-view/useDatePicker'
+import useDateMinMax from '../date-picker-view/useDateMinMax'
 import { usePersistFn, useControllableValue } from '../hooks'
 import {
   varCreator as varCreatorPicker,
@@ -48,6 +50,18 @@ export const renderDate = (day: Date, mode: DatePickerColumnMode) => {
 
 const defaultInitialValue: DatePickerRangeValue = [null, null]
 
+const getRightDate = (v: Date, min: Date, max: Date) => {
+  if (v.getTime() < min.getTime()) {
+    return min
+  }
+
+  if (v.getTime() > max.getTime()) {
+    return max
+  }
+
+  return v
+}
+
 const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   initialValue,
   confirmButtonText = '确定',
@@ -68,6 +82,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     ? initialValue
     : defaultInitialValue
   const TOKENS = Theme.useThemeTokens()
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
   const STYLES_PICKER = Theme.createStyle(CV_PICKER, styleCreatorPicker)
   const btnStyle = useMemo(
@@ -83,7 +98,10 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
       defaultValue: [..._initialValue],
     },
   )
-  const nullDate = useMemo(() => new Date(), [])
+  const [minDateS, maxDateS] = useDateMinMax(mode, min, value[1] || max)
+  const [minDateE, maxDateE] = useDateMinMax(mode, value[0] || min, max)
+  const currentDate = useMemo(() => new Date(), [])
+
   const [dayActive, setDayActive] = useState<0 | 1>(0)
   const Values = useRef<DatePickerRangeValue>([...value])
   const OriginalValues = useRef(_initialValue)
@@ -107,11 +125,23 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   })
 
   const onPressDay1 = usePersistFn(() => {
+    // 切换的时候没有滚动时间做默认选择
+    if (!Values.current[0]) {
+      Values.current[0] = getRightDate(currentDate, minDateE, maxDateE)
+      onChange([...Values.current])
+    }
+
     setDayActive(0)
     setLimitDates([min, Values.current[1] || max])
   })
 
   const onPressDay2 = usePersistFn(() => {
+    // 切换的时候没有滚动时间做默认选择
+    if (!Values.current[1]) {
+      Values.current[1] = getRightDate(currentDate, minDateS, maxDateS)
+      onChange([...Values.current])
+    }
+
     setDayActive(1)
     setLimitDates([Values.current[0] || min, max])
   })
@@ -123,12 +153,18 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     onChange([...Values.current])
   })
 
+  // 把开时间提前锁定
+  useEffect(() => {
+    onPressDay1()
+  }, [onPressDay1])
+
   return (
     <>
       <View style={STYLES_PICKER.data_range}>
         <TouchableOpacity
           style={STYLES_PICKER.data_range_item}
-          onPress={onPressDay1}>
+          onPress={onPressDay1}
+          activeOpacity={CV_BUTTON.button_active_opacity}>
           <Text style={STYLES_PICKER.data_range_text}>开始时间</Text>
           <Text
             style={[
@@ -141,7 +177,8 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
         <TouchableOpacity
           style={STYLES_PICKER.data_range_item}
-          onPress={onPressDay2}>
+          onPress={onPressDay2}
+          activeOpacity={CV_BUTTON.button_active_opacity}>
           <Text style={STYLES_PICKER.data_range_text}>结束时间</Text>
           <Text
             style={[
@@ -155,7 +192,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
       <DatePickerView
         mode={mode}
-        value={value[dayActive] || nullDate}
+        value={value[dayActive] || currentDate}
         renderLabel={renderLabel}
         onChange={onChangePickView}
         min={limitDates[0]}

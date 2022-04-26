@@ -23,6 +23,11 @@ const defaultValueView: [Date, Date] = [
   new Date(2022, 1, 2, 18, 40, 10),
 ]
 
+const onChangeLog = (v: [Date, Date]) => {
+  console.log('onChangeLog 0 => ', [v][0])
+  console.log('onChangeLog 1 => ', [v][1])
+}
+
 const BasicDatePickerView: React.FC = () => {
   const [value, setValue] = useState(defaultValueView)
 
@@ -101,7 +106,7 @@ const BasicDatePickerView: React.FC = () => {
 
         <Card title="时间段视图">
           <Space>
-            <DatePicker.RangeView />
+            <DatePicker.RangeView onChange={onChangeLog} />
             <DatePicker.RangeView defaultValue={defaultValueView} />
             <DatePicker.RangeView value={value} />
             <DatePicker.RangeView value={value} onChange={setValue} />
