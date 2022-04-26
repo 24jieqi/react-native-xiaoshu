@@ -12,16 +12,17 @@ import FieldText from './field-text'
 import type { FieldDateProps } from './interface'
 
 const FieldDate: React.FC<FieldDateProps> = ({
-  confirmButtonText,
-  cancelButtonText,
   mode = 'Y-m',
   min,
   max,
   renderLabel,
+  confirmButtonText,
+  cancelButtonText,
+  formatValueText,
+  datePickerTitle,
   isLink = true,
   editable = true,
   clearable = false,
-  formatValueText,
 
   ...restProps
 }) => {
@@ -32,28 +33,28 @@ const FieldDate: React.FC<FieldDateProps> = ({
   )
 
   const onPress = usePersistFn(() => {
-    if (editable) {
-      Keyboard.dismiss()
+    Keyboard.dismiss()
 
-      DatePicker({
-        defaultValue: value || new Date(),
-        confirmButtonText,
-        cancelButtonText,
-        mode,
-        min,
-        max,
-        renderLabel,
-      }).then(({ action, value: _value }) => {
-        if (action === 'confirm') {
-          onChange(_value)
-        }
-      })
-    }
+    DatePicker({
+      defaultValue: value || new Date(),
+      confirmButtonText,
+      cancelButtonText,
+      mode,
+      min,
+      max,
+      renderLabel,
+      title: datePickerTitle,
+    }).then(({ action, value: _value }) => {
+      if (action === 'confirm') {
+        onChange(_value)
+      }
+    })
   })
 
   return (
     <FieldText
       {...omit(restProps, ['value', 'defaultValue', 'onChange'])}
+      disabled={!editable}
       onPress={onPress}
       value={
         formatValueText && !isUndefined(valueText)
@@ -67,7 +68,7 @@ const FieldDate: React.FC<FieldDateProps> = ({
             {restProps.valueExtra}
             <TextInputClear
               onPress={() => {
-                onChange(undefined)
+                onChange(null)
               }}
             />
           </>

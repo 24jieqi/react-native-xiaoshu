@@ -1,7 +1,11 @@
 import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import type { CellProps, CellPrivateProps } from '../cell/interface'
-import type { DatePickerSingleMethodProps } from '../date-picker/interface'
+import type {
+  DatePickerSingleMethodProps,
+  DatePickerRangeMethodProps,
+  DatePickerRangeValue,
+} from '../date-picker/interface'
 import type { NumberInputProps } from '../number-input/interface'
 import type { PasswordInputProps } from '../password-input/interface'
 import type { SelectorProps } from '../selector/interface'
@@ -108,21 +112,35 @@ export interface FieldSwitchProps<ActiveValueT = any, InactiveValueT = any>
     FieldSwitchCellPropsUsed {}
 
 export interface FieldDateProps
-  extends Omit<FieldTextProps, 'value' | 'onPress' | 'isLink'>,
+  extends Omit<FieldTextProps, 'value' | 'onPress' | 'isLink' | 'disabled'>,
     Pick<
       DatePickerSingleMethodProps,
-      | 'confirmButtonText'
-      | 'cancelButtonText'
       | 'mode'
       | 'min'
       | 'max'
       | 'renderLabel'
+      | 'confirmButtonText'
+      | 'cancelButtonText'
     > {
   defaultValue?: Date
 
   value?: Date
 
   onChange?: (v: Date) => void
+
+  /**
+   * 自定义格式化文案
+   */
+  formatValueText?: (
+    v: Date,
+    mode: DatePickerSingleMethodProps['mode'],
+    str: string,
+  ) => string
+
+  /**
+   * 时间选择器顶部栏标题
+   */
+  datePickerTitle?: string
 
   /**
    * @default true
@@ -140,15 +158,66 @@ export interface FieldDateProps
    * @default false
    */
   clearable?: boolean
+}
+
+export interface FieldDateRangeProps
+  extends Omit<CellProps, 'value' | 'isLink' | 'disabled'>,
+    Pick<
+      DatePickerRangeMethodProps,
+      | 'mode'
+      | 'min'
+      | 'max'
+      | 'renderLabel'
+      | 'confirmButtonText'
+      | 'resetButtonText'
+    > {
+  defaultValue?: DatePickerRangeValue
+
+  value?: DatePickerRangeValue
+
+  onChange?: (v: DatePickerRangeValue) => void
 
   /**
    * 自定义格式化文案
    */
   formatValueText?: (
-    v: Date,
+    v: DatePickerRangeValue,
     mode: DatePickerSingleMethodProps['mode'],
-    str: string,
-  ) => string
+    str: [string, string],
+  ) => [string, string]
+
+  /**
+   * 时间选择器顶部栏标题
+   */
+  datePickerTitle?: string
+
+  /**
+   * 没有值时提示文案
+   */
+  placeholder?: [string, string]
+
+  /**
+   * 占位字符串显示的文字颜色
+   * @default text_input_placeholder_text_color
+   */
+  placeholderTextColor?: ColorValue
+
+  /**
+   * @default true
+   */
+  isLink?: boolean
+
+  /**
+   * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
+   * @default true
+   */
+  editable?: boolean
+
+  /**
+   * 是否启用清除图标，且箭头会消失，点击清除图标后会清空 value
+   * @default false
+   */
+  clearable?: boolean
 }
 
 export type FieldCheckboxValue = string | number
