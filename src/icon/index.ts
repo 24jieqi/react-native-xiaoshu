@@ -30,6 +30,7 @@ import SearchOutline from './search'
 import SOPOutline from './sop'
 import SuccessOutline from './success'
 import SuccessCircleOutline from './success-circle'
+import SwapRightOutline from './swap-right'
 import TelephoneOutline from './telephone'
 import VolumeOutline from './volume'
 import WarningOutline from './warning'
@@ -68,6 +69,7 @@ export default {
   SOPOutline,
   SuccessOutline,
   SuccessCircleOutline,
+  SwapRightOutline,
   TelephoneOutline,
   VolumeOutline,
   WarningOutline,
