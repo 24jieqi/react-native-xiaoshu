@@ -6,11 +6,7 @@ import Button from '../button'
 import { varCreator as varCreatorButton } from '../button/style'
 import Col from '../col'
 import DatePickerView from '../date-picker-view'
-import { serializeMode, toDateObject } from '../date-picker-view/helper'
-import type {
-  DatePickerColumnMode,
-  DatePickerColumnType,
-} from '../date-picker-view/interface'
+import { formatDate } from '../date-picker-view/helper'
 import useDateMinMax from '../date-picker-view/useDateMinMax'
 import { usePersistFn, useControllableValue } from '../hooks'
 import {
@@ -24,29 +20,6 @@ import type {
   DatePickerRangeViewProps,
   DatePickerRangeValue,
 } from './interface'
-
-export const renderDate = (day: Date, mode: DatePickerColumnMode) => {
-  const dayDateObject = toDateObject(day)
-  const modes = serializeMode(mode.split('-') as DatePickerColumnType[])
-  const hasKey = (k: DatePickerColumnType) => modes.includes(k)
-  const padStart = (n: number) => `${n}`.padStart(2, '0')
-  const time1 = [
-    hasKey('Y') ? dayDateObject.Y : null,
-    hasKey('M') ? padStart(dayDateObject.M + 1) : null,
-    hasKey('D') ? padStart(dayDateObject.D) : null,
-  ]
-    .filter(Boolean)
-    .join('-')
-  const time2 = [
-    hasKey('h') ? padStart(dayDateObject.h) : null,
-    hasKey('m') ? padStart(dayDateObject.m) : null,
-    hasKey('s') ? padStart(dayDateObject.s) : null,
-  ]
-    .filter(Boolean)
-    .join(':')
-
-  return [time1, time2].filter(Boolean).join(' ')
-}
 
 const defaultInitialValue: DatePickerRangeValue = [null, null]
 
@@ -171,7 +144,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
               STYLES_PICKER.data_range_day,
               dayActive === 0 ? STYLES_PICKER.data_range_day_active : null,
             ]}>
-            {value[0] ? renderDate(value[0], mode) : placeholder}
+            {value[0] ? formatDate(mode, value[0]) : placeholder}
           </Text>
         </TouchableOpacity>
 
@@ -185,7 +158,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
               STYLES_PICKER.data_range_day,
               dayActive === 1 ? STYLES_PICKER.data_range_day_active : null,
             ]}>
-            {value[1] ? renderDate(value[1], mode) : placeholder}
+            {value[1] ? formatDate(mode, value[1]) : placeholder}
           </Text>
         </TouchableOpacity>
       </View>

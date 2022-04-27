@@ -7,7 +7,7 @@ import { Keyboard } from 'react-native'
 import Cell from '../cell'
 import { varCreator as varCreatorCell } from '../cell/style'
 import DatePicker from '../date-picker'
-import { renderDate } from '../date-picker/date-picker-range-view'
+import { formatDate } from '../date-picker-view/helper'
 import type { DatePickerRangeValue } from '../date-picker/interface'
 import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { useControllableValue, usePersistFn } from '../hooks'
@@ -57,7 +57,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   const valueTexts = useMemo<[string, string]>(
     () =>
       value?.[0] && value[1]
-        ? [renderDate(value[0], mode), renderDate(value[1], mode)]
+        ? [formatDate(mode, value[0]), formatDate(mode, value[1])]
         : undefined,
     [value, mode],
   )

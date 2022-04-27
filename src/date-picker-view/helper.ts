@@ -1,6 +1,10 @@
 import isDate from 'lodash/isDate'
 
-import type { DatePickerColumnType, RenderLabel } from './interface'
+import type {
+  DatePickerColumnType,
+  RenderLabel,
+  DatePickerColumnMode,
+} from './interface'
 
 /**
  * 可选项序列数组
@@ -211,4 +215,30 @@ export const getDateBoundary = (
   }
 
   return boundary
+}
+
+/**
+ * 格式化时间
+ */
+export const formatDate = (mode: DatePickerColumnMode, day: Date) => {
+  const dayDateObject = toDateObject(day)
+  const modes = serializeMode(mode.split('-') as DatePickerColumnType[])
+  const hasKey = (k: DatePickerColumnType) => modes.includes(k)
+  const padStart = (n: number) => `${n}`.padStart(2, '0')
+  const time1 = [
+    hasKey('Y') ? dayDateObject.Y : null,
+    hasKey('M') ? padStart(dayDateObject.M + 1) : null,
+    hasKey('D') ? padStart(dayDateObject.D) : null,
+  ]
+    .filter(Boolean)
+    .join('-')
+  const time2 = [
+    hasKey('h') ? padStart(dayDateObject.h) : null,
+    hasKey('m') ? padStart(dayDateObject.m) : null,
+    hasKey('s') ? padStart(dayDateObject.s) : null,
+  ]
+    .filter(Boolean)
+    .join(':')
+
+  return [time1, time2].filter(Boolean).join(' ')
 }

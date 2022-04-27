@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import type { StyleProp, TextStyle } from 'react-native'
 import { View } from 'react-native'
 
-import { renderDate } from '../date-picker/date-picker-range-view'
+import { formatDate } from '../date-picker-view/helper'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
@@ -22,8 +22,8 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
 
   ...restProps
 }) => {
-  const start = renderDate(text[0], mode)
-  const end = renderDate(text[1], mode)
+  const start = formatDate(mode, text[0])
+  const end = formatDate(mode, text[1])
 
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)

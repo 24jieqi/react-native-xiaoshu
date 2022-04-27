@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import { renderDate } from '../date-picker/date-picker-range-view'
+import { formatDate } from '../date-picker-view/helper'
 
 import Description from './description'
 import type { DescriptionDateProps } from './interface'
@@ -10,7 +10,7 @@ const DescriptionDate: React.FC<DescriptionDateProps> = ({
   mode = 'Y-m',
   ...restProps
 }) => {
-  const value = renderDate(text, mode)
+  const value = formatDate(mode, text)
 
   return <Description {...restProps} text={value} />
 }

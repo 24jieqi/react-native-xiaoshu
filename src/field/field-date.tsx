@@ -4,7 +4,7 @@ import React, { useMemo, memo } from 'react'
 import { Keyboard } from 'react-native'
 
 import DatePicker from '../date-picker'
-import { renderDate } from '../date-picker/date-picker-range-view'
+import { formatDate } from '../date-picker-view/helper'
 import { useControllableValue, usePersistFn } from '../hooks'
 import TextInputClear from '../text-input/text-input-clear'
 
@@ -28,7 +28,7 @@ const FieldDate: React.FC<FieldDateProps> = ({
 }) => {
   const [value, onChange] = useControllableValue<Date>(restProps)
   const valueText = useMemo(
-    () => (value ? renderDate(value, mode) : undefined),
+    () => (value ? formatDate(mode, value) : undefined),
     [value, mode],
   )
 
