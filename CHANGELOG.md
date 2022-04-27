@@ -1,3 +1,9 @@
+## [0.2.33](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.32...v0.2.33) (2022-04-27)
+
+### Features
+
+- **DatePickerView:** 🎸 整理时间格式化函数,向外导出 ([90fde24](https://github.com/hjfruit/react-native-xiaoshu/commit/90fde243c960c4a74816311d084b380c70ef5f28))
+
 ## [0.2.32](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.31...v0.2.32) (2022-04-27)
 
 ### Bug Fixes
