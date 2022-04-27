@@ -33,6 +33,8 @@ group:
 
 <code src="./__fixtures__/date.tsx"></code>
 
+<code src="./__fixtures__/date-range.tsx"></code>
+
 <code src="./__fixtures__/checkbox.tsx"></code>
 
 <code src="./__fixtures__/password.tsx"></code>
@@ -62,6 +64,10 @@ group:
 ### Field.Date
 
 <API hideTitle src="./field-date.tsx"></API>
+
+### Field.DateRange
+
+<API hideTitle src="./field-date-range.tsx"></API>
 
 ### Field.Checkbox
 

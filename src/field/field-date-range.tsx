@@ -147,7 +147,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
           <>
             {renderTextLikeJSX(showTexts[0], valueTextStyles)}
             {swapRightJSX}
-            {renderTextLikeJSX(showTexts[0], valueTextStyles)}
+            {renderTextLikeJSX(showTexts[1], valueTextStyles)}
           </>
         ) : (
           <>
