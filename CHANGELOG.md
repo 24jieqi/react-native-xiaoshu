@@ -1,3 +1,9 @@
+## [0.2.32](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.31...v0.2.32) (2022-04-27)
+
+### Bug Fixes
+
+- **Field:** 🐛 时间段显示数据错误 ([ec36c44](https://github.com/hjfruit/react-native-xiaoshu/commit/ec36c44dd390e2e151c7097b75176de41e623732))
+
 ## [0.2.31](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.30...v0.2.31) (2022-04-26)
 
 ### Features
