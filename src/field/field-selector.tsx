@@ -25,6 +25,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   innerStyle,
   editable = true,
   clearable = false,
+  selectorTitle = '请选择',
 
   isLink = true,
   ...restProps
@@ -36,7 +37,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
     Keyboard.dismiss()
     if (editable) {
       Selector({
-        title: '请选择',
+        title: selectorTitle,
         multiple,
         options,
         value,

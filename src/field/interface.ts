@@ -65,6 +65,12 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
    * @default false
    */
   clearable?: boolean
+
+  /**
+   * 选择器标题
+   * @default '请选择'
+   */
+  selectorTitle?: string
 }
 
 export interface FieldTextCellPropsUsed
