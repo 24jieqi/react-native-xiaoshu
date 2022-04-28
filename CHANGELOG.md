@@ -1,3 +1,9 @@
+## [0.2.34](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.33...v0.2.34) (2022-04-28)
+
+### Features
+
+- **Field:** 🎸 selector 更多配置 ([6de6f28](https://github.com/hjfruit/react-native-xiaoshu/commit/6de6f28b8a66b67f2c7fdabae19e7fcaedce4d05))
+
 ## [0.2.33](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.32...v0.2.33) (2022-04-27)
 
 ### Features
