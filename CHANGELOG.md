@@ -1,3 +1,14 @@
+## [0.2.35](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.34...v0.2.35) (2022-04-29)
+
+### Bug Fixes
+
+- 修改 tab-bar 的 textColor 和 iconColor api 文案错误 ([1d3de12](https://github.com/hjfruit/react-native-xiaoshu/commit/1d3de127f54a9c57623855faf5287ee4ece0c5e4))
+
+### Features
+
+- **Field:** 🎸 优化 Field.Checkbox 竖向排版 ([f2f8e76](https://github.com/hjfruit/react-native-xiaoshu/commit/f2f8e76ad6ee7565a9710d94658eb3a843d6de3e))
+- **Tabs:** 🎸 切换保留其他 TabPane,支持 lazyRender ([15b2430](https://github.com/hjfruit/react-native-xiaoshu/commit/15b243082244271948be00818dfaaa154b2ef11c)), closes [#17](https://github.com/hjfruit/react-native-xiaoshu/issues/17)
+
 ## [0.2.34](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.33...v0.2.34) (2022-04-28)
 
 ### Features
