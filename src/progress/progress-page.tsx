@@ -137,8 +137,6 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
     )
   }
 
-  console.log('---->  ?')
-
   return children as React.ReactElement
 }
 

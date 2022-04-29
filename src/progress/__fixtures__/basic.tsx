@@ -24,12 +24,12 @@ const BasicProgress: React.FC = () => {
     setState(s => ({
       ...s,
       loading: true,
-      fail: false,
     }))
 
     setTimeout(() => {
       setState(s => ({
         ...s,
+        fail: false,
         loading: false,
       }))
     }, 1000)
