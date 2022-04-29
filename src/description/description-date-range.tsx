@@ -4,6 +4,7 @@ import { View } from 'react-native'
 
 import { formatDate } from '../date-picker-view/helper'
 import { renderTextLikeJSX, getDefaultValue } from '../helpers'
+import Locale from '../locale'
 import Theme from '../theme'
 
 import { useDescription } from './context'
@@ -14,7 +15,7 @@ import { varCreator, styleCreator } from './style'
 const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   text,
   mode = 'Y-m',
-  split = '至',
+  split,
 
   bold = false,
   color,
@@ -25,6 +26,7 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   const start = formatDate(mode, text[0])
   const end = formatDate(mode, text[1])
 
+  const locale = Locale.useLocale().DescriptionDateRange
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -53,7 +55,10 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
       : null,
     _contentTextStyle,
   ]
-  const line1JSX = renderTextLikeJSX([start, split].join(' '), textStyles)
+  const line1JSX = renderTextLikeJSX(
+    [start, split || locale.split].join(' '),
+    textStyles,
+  )
   const line2JSX = renderTextLikeJSX(end, textStyles)
 
   return (

@@ -8,6 +8,7 @@ import { varCreator as varCreatorCheckbox } from '../checkbox/style'
 import Empty from '../empty'
 import { useSafeHeight } from '../hooks'
 import SuccessOutline from '../icon/success'
+import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
 import Theme from '../theme'
@@ -20,13 +21,14 @@ import { varCreator, styleCreator } from './style'
  * @description 类似 Web 端的 Select 组件，可以多选、单选。
  */
 const Selector: React.FC<SelectorProps> = ({
-  title = '请选择',
+  title,
   options,
   value,
   multiple = false,
   onChange,
   onChangeImmediate,
   safeAreaInsetTop,
+  confirmButtonText,
 
   // popup 组件相关属性
   visible,
@@ -35,6 +37,7 @@ const Selector: React.FC<SelectorProps> = ({
   ...restProps
 }) => {
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
+  const locale = Locale.useLocale().Selector
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
@@ -118,7 +121,7 @@ const Selector: React.FC<SelectorProps> = ({
       safeAreaInsetBottom
       round>
       <View style={{ maxHeight: safeHeight }}>
-        <PopupHeader title={title} onClose={onClose} />
+        <PopupHeader title={title || locale.title} onClose={onClose} />
 
         <ScrollView bounces={false}>
           {options.length === 0 ? <Empty /> : null}
@@ -158,7 +161,11 @@ const Selector: React.FC<SelectorProps> = ({
 
         {multiple ? (
           <View style={STYLES.btn}>
-            <Button type="primary" onPress={onPressOk} text="确定" />
+            <Button
+              type="primary"
+              onPress={onPressOk}
+              text={confirmButtonText || locale.confirmButtonText}
+            />
           </View>
         ) : null}
       </View>

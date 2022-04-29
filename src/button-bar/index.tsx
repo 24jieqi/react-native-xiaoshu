@@ -6,6 +6,7 @@ import ActionSheet from '../action-sheet'
 import { varCreator as varCreatorBlank } from '../blank/style'
 import BottomBar from '../bottom-bar'
 import Button from '../button'
+import Locale from '../locale'
 import Space from '../space'
 import Theme from '../theme'
 
@@ -16,12 +17,13 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   alone = false,
   buttons,
   count = 4,
-  moreText = '更多',
+  moreText,
   blankSize = 'm',
 
   children,
   ...restProps
 }) => {
+  const locale = Locale.useLocale().ButtonBar
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
@@ -37,7 +39,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
 
     ActionSheet({
       actions: restButtons.map(item => item.text),
-      cancelText: '取消',
+      cancelText: locale.labelActionSheetCancelText,
     })
       .then(({ index }) => {
         restButtons[index].onPress?.()
@@ -63,7 +65,11 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
           gapVertical={0}
           gapHorizontal={CV.button_bar_button_space}>
           {showMore ? (
-            <Button type="link" text={moreText} onPress={onPressMore} />
+            <Button
+              type="link"
+              text={moreText || locale.moreText}
+              onPress={onPressMore}
+            />
           ) : null}
           {bottomButtons.reverse().map((b, index) => {
             return (

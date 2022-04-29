@@ -26,6 +26,7 @@ module.exports = {
     'Grid',
     'Icon',
     'Loading',
+    'Locale',
     'NavBar',
     'NoticeBar',
     'Notify',

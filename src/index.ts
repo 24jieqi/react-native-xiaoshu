@@ -87,6 +87,8 @@ export { default as Icon } from './icon'
 export type { LoadingProps } from './loading/interface'
 export { default as Loading } from './loading'
 
+export { default as Locale } from './locale'
+
 export type { NavBarProps } from './nav-bar/interface'
 export { default as NavBar } from './nav-bar'
 

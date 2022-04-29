@@ -78,6 +78,12 @@ export interface SelectorProps
    * @default safeAreaInsets.top
    */
   safeAreaInsetTop?: number
+
+  /**
+   * 确定按钮文案
+   * @default '确定'
+   */
+  confirmButtonText?: string
 }
 
 export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {}

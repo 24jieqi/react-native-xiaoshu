@@ -5,6 +5,7 @@ import { View, Text } from 'react-native'
 import Button from '../button'
 import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
+import Locale from '../locale'
 import Result from '../result'
 import Space from '../space'
 import Theme from '../theme'
@@ -19,10 +20,11 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   backgroundColor,
   defaultPercentage = 10,
   fail,
-  failMessage = '加载失败，请稍后再试～',
+  failMessage,
   failIcon,
   onPressReload,
 }) => {
+  const locale = Locale.useLocale().ProgressPage
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -114,11 +116,11 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         status="warning"
         subtitle={
           <Space head gap="l" align="center">
-            <Text style={STYLES.text}>{failMessage}</Text>
+            <Text style={STYLES.text}>{failMessage || locale.failMessage}</Text>
             {onPressReload ? (
               <Button
                 style={STYLES.btn}
-                text="点击刷新"
+                text={locale.labelRefreshText}
                 onPress={onPressReloadPersistFn}
               />
             ) : null}
@@ -134,6 +136,8 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
       />
     )
   }
+
+  console.log('---->  ?')
 
   return children as React.ReactElement
 }

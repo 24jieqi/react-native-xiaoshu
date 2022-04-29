@@ -52,4 +52,10 @@ export interface SearchProps
    * @default 300
    */
   onSearchDebounceWait?: number
+
+  /**
+   * 搜索按钮文案
+   * @default '搜索'
+   */
+  searchText?: string
 }

@@ -4,6 +4,7 @@ import React, { memo } from 'react'
 import { Text, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import Locale from '../locale'
 import PickerView from '../picker-view'
 import type { PickerViewProps } from '../picker-view/interface'
 import Popup from '../popup'
@@ -25,8 +26,8 @@ const PICKER_VIEW_PROPS_KEYS = [
 const Picker: React.FC<PickerProps> = ({
   visible,
   title,
-  confirmButtonText = '确定',
-  cancelButtonText = '取消',
+  confirmButtonText,
+  cancelButtonText,
   toolbarPosition = 'top',
   showToolbar = true,
   onCancel,
@@ -34,6 +35,7 @@ const Picker: React.FC<PickerProps> = ({
 
   ...restProps
 }) => {
+  const locale = Locale.useLocale().Picker
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -48,7 +50,7 @@ const Picker: React.FC<PickerProps> = ({
           suppressHighlighting
           style={STYLES.cancel_text}
           onPress={restProps.loading ? undefined : onCancel}>
-          {cancelButtonText}
+          {cancelButtonText || locale.cancelButtonText}
         </Text>
       }
       rightExtra={
@@ -56,7 +58,7 @@ const Picker: React.FC<PickerProps> = ({
           suppressHighlighting
           style={STYLES.confirm_text}
           onPress={restProps.loading ? undefined : onConfirm}>
-          {confirmButtonText}
+          {confirmButtonText || locale.confirmButtonText}
         </Text>
       }
     />

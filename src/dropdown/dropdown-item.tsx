@@ -3,6 +3,7 @@ import React, { useMemo, memo } from 'react'
 import { getDefaultValue } from '../helpers'
 import { useControllableValue, usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
+import Locale from '../locale'
 
 import { useDropdownConfig } from './context'
 import DropdownSelector from './dropdown-selector'
@@ -22,13 +23,14 @@ const DropdownItem = <T,>({
 
   ...restProps
 }: DropdownItemProps<T>) => {
+  const locale = Locale.useLocale().DropdownItem
   const config = useDropdownConfig()
   const [active, setActive] = useState(false)
   const [value, onChange] = useControllableValue(restProps)
   const _selectOption = useMemo(() => {
     if (loading) {
       return {
-        label: '加载中...',
+        label: locale.labelLoadingText,
         value: null,
       }
     }
@@ -49,7 +51,7 @@ const DropdownItem = <T,>({
     findX(options)
 
     return selectOption
-  }, [loading, options, value])
+  }, [loading, locale.labelLoadingText, options, value])
 
   duration = getDefaultValue(duration, config.duration)
   zIndex = getDefaultValue(zIndex, config.zIndex)

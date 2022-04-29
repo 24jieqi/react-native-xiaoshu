@@ -2,6 +2,7 @@ import React, { isValidElement } from 'react'
 import { View, Text, Image } from 'react-native'
 
 import PlusOutline from '../icon/plus'
+import Locale from '../locale'
 import Theme from '../theme'
 
 import type { UploaderProps, UploaderValue } from './interface'
@@ -17,7 +18,7 @@ const Uploader = <T extends UploaderValue>({
   imageComponent = Image,
   deletable = true,
   showUpload = true,
-  uploadText = '图片',
+  uploadText,
   uploadIcon,
   onPressUpload,
   imageSize = 80,
@@ -26,6 +27,7 @@ const Uploader = <T extends UploaderValue>({
   onPressDelete,
   onPressError,
 }: UploaderProps<T>) => {
+  const locale = Locale.useLocale().Uploader
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -72,7 +74,9 @@ const Uploader = <T extends UploaderValue>({
               pointerEvents="none"
             />
           )}
-          <Text style={STYLES.upload_text}>{uploadText}</Text>
+          <Text style={STYLES.upload_text}>
+            {uploadText || locale.uploadText}
+          </Text>
         </UploaderImage>
       ) : null}
     </View>

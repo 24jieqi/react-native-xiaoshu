@@ -65,17 +65,17 @@ export const getMonthDays = (year: number, month: number) => {
 export const defaultRenderLabel: RenderLabel = (t, n) => {
   switch (t) {
     case 'Y':
-      return `${n}年`
+      return `${n}`
     case 'M':
-      return `${n}月`
+      return `${n}`
     case 'D':
-      return `${n}日`
+      return `${n}`
     case 'h':
-      return `${n}时`
+      return `${n}`
     case 'm':
-      return `${n}分`
+      return `${n}`
     case 's':
-      return `${n}秒`
+      return `${n}`
 
     default:
       return `${n}`

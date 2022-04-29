@@ -93,9 +93,9 @@ export interface DatePickerRangeViewProps
 
   /**
    * 站位文案
-   * @default '请选择'
+   * @default ['请选择', '请选择']
    */
-  placeholder?: string
+  placeholder?: [string, string]
 
   /**
    * 点击确定

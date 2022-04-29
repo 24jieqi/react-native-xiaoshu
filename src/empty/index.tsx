@@ -1,6 +1,7 @@
 import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 
+import Locale from '../locale'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
 import Theme from '../theme'
@@ -13,13 +14,14 @@ import { varCreator, styleCreator } from './style'
  * @description 用于填充空白数据。
  */
 const Empty: React.FC<EmptyProps> = ({
-  text = '暂无数据',
+  text,
   style,
   textStyle,
   iconStyle,
   icon,
   full = false,
 }) => {
+  const locale = Locale.useLocale().Empty
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -35,7 +37,7 @@ const Empty: React.FC<EmptyProps> = ({
       status="info"
       renderIcon={() => iconJSX}
       style={[STYLES.empty, full ? STYLES.emptyFull : null, style]}
-      subtitle={text}
+      subtitle={text || locale.text}
       subtitleTextStyle={[STYLES.text, textStyle]}
     />
   )

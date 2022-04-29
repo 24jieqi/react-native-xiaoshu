@@ -9,6 +9,7 @@ import DatePickerView from '../date-picker-view'
 import { formatDate } from '../date-picker-view/helper'
 import useDateMinMax from '../date-picker-view/useDateMinMax'
 import { usePersistFn, useControllableValue } from '../hooks'
+import Locale from '../locale'
 import {
   varCreator as varCreatorPicker,
   styleCreator as styleCreatorPicker,
@@ -37,10 +38,10 @@ const getRightDate = (v: Date, min: Date, max: Date) => {
 
 const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   initialValue,
-  confirmButtonText = '确定',
-  resetButtonText = '重置',
+  confirmButtonText,
+  resetButtonText,
   onConfirm,
-  placeholder = '请选择',
+  placeholder,
 
   // DateView
   mode = 'Y-D',
@@ -54,6 +55,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   const _initialValue = !isNil(initialValue)
     ? initialValue
     : defaultInitialValue
+  const locale = Locale.useLocale().DatePickerRangeView
   const TOKENS = Theme.useThemeTokens()
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
@@ -138,13 +140,17 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
           style={STYLES_PICKER.data_range_item}
           onPress={onPressDay1}
           activeOpacity={CV_BUTTON.button_active_opacity}>
-          <Text style={STYLES_PICKER.data_range_text}>开始时间</Text>
+          <Text style={STYLES_PICKER.data_range_text}>
+            {locale.labelStartTime}
+          </Text>
           <Text
             style={[
               STYLES_PICKER.data_range_day,
               dayActive === 0 ? STYLES_PICKER.data_range_day_active : null,
             ]}>
-            {value[0] ? formatDate(mode, value[0]) : placeholder}
+            {value[0]
+              ? formatDate(mode, value[0])
+              : placeholder?.[0] || locale.placeholder[0]}
           </Text>
         </TouchableOpacity>
 
@@ -152,13 +158,17 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
           style={STYLES_PICKER.data_range_item}
           onPress={onPressDay2}
           activeOpacity={CV_BUTTON.button_active_opacity}>
-          <Text style={STYLES_PICKER.data_range_text}>结束时间</Text>
+          <Text style={STYLES_PICKER.data_range_text}>
+            {locale.labelEndTime}
+          </Text>
           <Text
             style={[
               STYLES_PICKER.data_range_day,
               dayActive === 1 ? STYLES_PICKER.data_range_day_active : null,
             ]}>
-            {value[1] ? formatDate(mode, value[1]) : placeholder}
+            {value[1]
+              ? formatDate(mode, value[1])
+              : placeholder?.[1] || locale.placeholder[1]}
           </Text>
         </TouchableOpacity>
       </View>
@@ -177,14 +187,14 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
         <Col span={12}>
           <Button
             type="hazy"
-            text={resetButtonText}
+            text={resetButtonText || locale.resetButtonText}
             loading={loading}
             onPress={onPressReset}
           />
         </Col>
         <Col span={12}>
           <Button
-            text={confirmButtonText}
+            text={confirmButtonText || locale.confirmButtonText}
             loading={loading}
             onPress={onPressConfirm}
           />

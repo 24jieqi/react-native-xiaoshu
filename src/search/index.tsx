@@ -8,6 +8,7 @@ import { getDefaultValue } from '../helpers'
 import { usePersistFn, useDebounceFn } from '../hooks'
 import ArrowLeftOutline from '../icon/arrow-left'
 import SearchOutline from '../icon/search'
+import Locale from '../locale'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import { varCreator as varCreatorTextInput } from '../text-input/style'
@@ -29,6 +30,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       onPressBack,
       autoSearch = false,
       onSearchDebounceWait = 300,
+      searchText,
 
       value,
       defaultValue,
@@ -42,6 +44,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     },
     ref,
   ) => {
+    const locale = Locale.useLocale().Search
     const TOKENS = Theme.useThemeTokens()
     const CV = Theme.createVar(TOKENS, varCreator)
     const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)
@@ -116,7 +119,12 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           autoFocus={autoFocus}
         />
 
-        <Button text="搜索" type="primary" size="s" onPress={onPress} />
+        <Button
+          text={searchText || locale.searchText}
+          type="primary"
+          size="s"
+          onPress={onPress}
+        />
       </View>
     )
   },

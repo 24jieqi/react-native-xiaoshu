@@ -16,8 +16,7 @@ const SelectorFn: SelectorFnInstance = opt =>
         }}
         onClose={() => {
           opt.onClose?.()
-          // eslint-disable-next-line prefer-promise-reject-errors
-          reject()
+          reject(new Error())
         }}
         onClosed={() => {
           opt.onClosed?.()

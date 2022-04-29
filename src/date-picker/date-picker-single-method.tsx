@@ -8,6 +8,7 @@ import DatePickerView from '../date-picker-view'
 import type { DatePickerViewProps } from '../date-picker-view/interface'
 import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
+import Locale from '../locale'
 import {
   varCreator as varCreatorPicker,
   styleCreator as styleCreatorPicker,
@@ -27,8 +28,8 @@ const DATE_PICKER_VIEW_PROPS_KEYS = [
 
 const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
   title,
-  confirmButtonText = '确定',
-  cancelButtonText = '取消',
+  confirmButtonText,
+  cancelButtonText,
   onCancel,
   onConfirm,
   onPressOverlay,
@@ -36,6 +37,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
 
   ...restProps
 }) => {
+  const locale = Locale.useLocale().DatePickerSingleMethod
   const TOKENS = Theme.useThemeTokens()
   const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
   const STYLES_PICKER = Theme.createStyle(CV_PICKER, styleCreatorPicker)
@@ -121,7 +123,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
             suppressHighlighting
             style={STYLES_PICKER.cancel_text}
             onPress={loading ? undefined : onPressCancel}>
-            {cancelButtonText}
+            {cancelButtonText || locale.cancelButtonText}
           </Text>
         }
         rightExtra={
@@ -129,7 +131,7 @@ const DatePickerSingleMethod: React.FC<DatePickerSingleMethodProps> = ({
             suppressHighlighting
             style={STYLES_PICKER.confirm_text}
             onPress={loading ? undefined : onPressConfirm}>
-            {confirmButtonText}
+            {confirmButtonText || locale.confirmButtonText}
           </Text>
         }
       />

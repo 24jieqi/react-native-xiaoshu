@@ -5,6 +5,7 @@ import { View, Text, ScrollView, TouchableHighlight } from 'react-native'
 import Badge from '../badge'
 import { useControllableValue } from '../hooks'
 import Loading from '../loading'
+import Locale from '../locale'
 import Result from '../result'
 import ResultIconEmpty from '../result/icons/result-icon-empty'
 import Theme from '../theme'
@@ -23,6 +24,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     valuePropName: 'activeValue',
     defaultValuePropName: 'defaultActiveValue',
   })
+  const locale = Locale.useLocale().Sidebar
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -41,12 +43,12 @@ const Sidebar: React.FC<SidebarProps> = ({
       <ScrollView
         bounces={false}
         contentContainerStyle={isEmpty ? STYLES.scroll_view_empty : null}>
-        {loading ? <Loading vertical>加载中...</Loading> : null}
+        {loading ? <Loading vertical>{locale.labelLoading}</Loading> : null}
 
         {!loading && options.length === 0 ? (
           <Result
             status="warning"
-            subtitle="暂无数据"
+            subtitle={locale.labelNoData}
             renderIcon={() => {
               return <ResultIconEmpty width={60} height={60} />
             }}

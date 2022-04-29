@@ -7,6 +7,7 @@ import Cell from '../cell/cell'
 import { useControllableValue, usePersistFn, useSafeHeight } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import IconSuccessOutline from '../icon/success'
+import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
 import Theme from '../theme'
@@ -27,7 +28,7 @@ type LocalState<T> = {
 }
 
 function StepSelector<T = number>({
-  title = '请选择',
+  title,
   safeAreaInsetTop,
   round = true,
   onPressClose,
@@ -36,6 +37,7 @@ function StepSelector<T = number>({
   ...resetProps
 }: StepSelectorProps<T>) {
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
+  const locale = Locale.useLocale().StepSelector
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -149,7 +151,7 @@ function StepSelector<T = number>({
       round={round}
       safeAreaInsetBottom>
       <View style={{ height: safeHeight }}>
-        <PopupHeader title={title} onClose={onPressClose} />
+        <PopupHeader title={title || locale.title} onClose={onPressClose} />
 
         {state.selected.length > 1 &&
           state.selected.map((item, index) => {

@@ -7,6 +7,7 @@ import { getDefaultValue } from '../helpers'
 import CrossOutline from '../icon/cross'
 import CrossCircleOutline from '../icon/cross-circle'
 import LoadingCircular from '../loading/loading-circular'
+import Locale from '../locale'
 import Theme from '../theme'
 
 import type { UploaderImageProps } from './interface'
@@ -28,6 +29,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   isUpload,
   children,
 }) => {
+  const locale = Locale.useLocale().UploaderImage
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
@@ -67,14 +69,14 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
           {status === 'loading' ? (
             <View style={STYLES.mask}>
               <LoadingCircular color="#fff" size={20} />
-              <Text style={STYLES.mask_text}>上传中...</Text>
+              <Text style={STYLES.mask_text}>{locale.labelIng}</Text>
             </View>
           ) : null}
 
           {status === 'error' ? (
             <View style={STYLES.mask}>
               <CrossCircleOutline color="#fff" size={20} />
-              <Text style={STYLES.mask_text}>{`上传失败\n点击重试`}</Text>
+              <Text style={STYLES.mask_text}>{locale.labelFail}</Text>
             </View>
           ) : null}
         </>

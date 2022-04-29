@@ -5,6 +5,7 @@ import { Keyboard } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import { usePersistFn } from '../hooks'
+import Locale from '../locale'
 import Selector from '../selector'
 import type { SelectorValue } from '../selector/interface'
 import TextInputClear from '../text-input/text-input-clear'
@@ -25,11 +26,12 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   innerStyle,
   editable = true,
   clearable = false,
-  selectorTitle = '请选择',
+  selectorTitle,
 
   isLink = true,
   ...restProps
 }) => {
+  const locale = Locale.useLocale().FieldSelector
   const TOKENS = Theme.useThemeTokens()
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
 
@@ -37,7 +39,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
     Keyboard.dismiss()
     if (editable) {
       Selector({
-        title: selectorTitle,
+        title: selectorTitle || locale.selectorTitle,
         multiple,
         options,
         value,

@@ -15,6 +15,7 @@
     "ui-components",
     "typescript"
   ],
+  "homepage": "https://hjfruit.github.io/xiaoshu-doc",
   "repository": {
     "type": "git",
     "url": "https://github.com/hjfruit/react-native-xiaoshu"

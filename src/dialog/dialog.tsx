@@ -5,6 +5,7 @@ import { View, Text, Animated } from 'react-native'
 import Button from '../button'
 import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers'
 import { usePersistFn } from '../hooks'
+import Locale from '../locale'
 import Popup from '../popup/popup'
 import Theme from '../theme'
 
@@ -24,8 +25,8 @@ const Dialog: React.FC<DialogProps> = ({
   messageAlign = 'center',
   showConfirmButton = true,
   showCancelButton = false,
-  confirmButtonText = '确认',
-  cancelButtonText = '取消',
+  confirmButtonText,
+  cancelButtonText,
   confirmButtonColor,
   cancelButtonColor,
   confirmButtonLoading = false,
@@ -39,6 +40,7 @@ const Dialog: React.FC<DialogProps> = ({
 }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
+  const locale = Locale.useLocale().Dialog
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
@@ -95,14 +97,14 @@ const Dialog: React.FC<DialogProps> = ({
 
   const cancelButtonProps = {
     color: cancelButtonColor || CV.dialog_cancel_button_text_color,
-    text: cancelButtonText,
+    text: cancelButtonText || locale.cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
     color: confirmButtonColor || CV.dialog_confirm_button_text_color,
-    text: confirmButtonText,
+    text: confirmButtonText || locale.confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
   }

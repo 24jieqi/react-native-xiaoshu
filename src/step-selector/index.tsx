@@ -26,7 +26,7 @@ const StepSelector: StepSelectorInstance = <T,>(
         }}
         onCancel={() => {
           opts.onCancel?.()
-          reject(new Error('取消选择'))
+          reject(new Error())
         }}
       />,
     )
