@@ -6,7 +6,36 @@
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
-import { Tabs, Result, Card, Blank } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Tabs,
+  Result,
+  Card,
+  Blank,
+  Field,
+  Button,
+} from '@fruits-chain/react-native-xiaoshu'
+
+const T = () => {
+  const [text, setText] = useState('')
+
+  return (
+    <>
+      <Field.TextInput
+        title="测试"
+        placeholder="请输入"
+        value={text}
+        onChange={setText}
+      />
+      <Result status="warning" title="嗯哼？1" subtitle="哈哈哈" />
+      <Button
+        onPress={() => {
+          console.log(text)
+        }}>
+        打印
+      </Button>
+    </>
+  )
+}
 
 const BasicTabs: React.FC = () => {
   const [value1, setValue1] = useState('2')
@@ -17,14 +46,14 @@ const BasicTabs: React.FC = () => {
         <Card square bodyPadding={false}>
           <Tabs indicatorWidth={24}>
             <Tabs.TabPane key="1" tab="第一个">
-              <Result status="success" title="啊哈" subtitle="嘿嘿嘿" />
+              <T />
             </Tabs.TabPane>
 
             {null}
 
             <>
               <Tabs.TabPane key="3" tab="第二个1">
-                <Result status="warning" title="嗯哼？1" subtitle="哈哈哈" />
+                <T />
               </Tabs.TabPane>
               <Tabs.TabPane key="4" tab="第二个2">
                 <Result status="warning" title="嗯哼？2" subtitle="哈哈哈" />

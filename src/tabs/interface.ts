@@ -58,4 +58,23 @@ export interface TabPaneProps {
    * 选项卡头显示文字
    */
   tab: string
+
+  /**
+   * 是否在激活时才渲染节点
+   * @default true
+   */
+  lazyRender?: boolean
+}
+
+export interface TabViewProps {
+  /**
+   * 是否在激活时才渲染节点
+   * @default true
+   */
+  lazyRender?: boolean
+
+  /**
+   * 是否激活
+   */
+  active?: boolean
 }

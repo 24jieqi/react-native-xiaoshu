@@ -1,4 +1,4 @@
-import React, { useMemo, memo, isValidElement, cloneElement } from 'react'
+import React, { useMemo, memo, isValidElement } from 'react'
 
 import { childrenToArray } from '../helpers'
 import { useControllableValue } from '../hooks'
@@ -6,6 +6,7 @@ import TabBar from '../tab-bar'
 import type { TabItem } from '../tab-bar/interface'
 
 import type { TabsProps, TabPaneProps } from './interface'
+import TabView from './tab-view'
 
 const parseTabList = (children: React.ReactNode) => {
   return childrenToArray(children)
@@ -63,7 +64,16 @@ const Tabs: React.FC<TabsProps> = ({
         options={_options}
         onChange={onChange}
       />
-      {cloneElement(_tabs.filter(t => t.key === value)[0]?.node)}
+      {_tabs.map(t => {
+        return (
+          <TabView
+            key={t.key}
+            lazyRender={t.node.props.lazyRender}
+            active={t.key === value}>
+            {t.node}
+          </TabView>
+        )
+      })}
     </>
   )
 }
