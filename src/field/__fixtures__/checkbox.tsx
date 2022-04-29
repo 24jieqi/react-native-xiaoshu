@@ -6,20 +6,15 @@
 import React, { useState } from 'react'
 import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
-const options = [
-  {
-    value: 1,
-    label: '选项一',
-  },
-  {
-    value: 2,
-    label: '选项二',
-  },
-  {
-    value: 3,
-    label: '选项三',
-  },
-]
+const options = new Array(3).fill(0).map((_, index) => ({
+  value: index,
+  label: `选项_${index}`,
+}))
+
+const options2 = new Array(9).fill(0).map((_, index) => ({
+  value: index,
+  label: `选项_${index}`,
+}))
 
 const BasicFieldCheckbox: React.FC = () => {
   const [value, setValue] = useState(options[1].value)
@@ -67,6 +62,24 @@ const BasicFieldCheckbox: React.FC = () => {
           setValue2(v as number[])
           console.log(option)
         }}
+      />
+      <Field.Checkbox
+        title="多选:受控"
+        multiple
+        vertical
+        options={options}
+        value={value2}
+        onChange={(v, option) => {
+          setValue2(v as number[])
+          console.log(option)
+        }}
+      />
+
+      <Field.Checkbox
+        title="多选:非受控"
+        multiple
+        vertical
+        options={options2}
       />
     </Cell.Group>
   )

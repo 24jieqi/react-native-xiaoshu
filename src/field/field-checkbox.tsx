@@ -29,13 +29,14 @@ const FieldCheckbox: React.FC<FieldCheckboxProps> = ({
   return (
     <Cell
       {...omit(restProps, ['value', 'defaultValue', 'onChange'])}
-      center
+      center={!restProps.vertical}
       value={
         <Space
           direction="horizontal"
-          gapVertical={0}
+          gapVertical={restProps.vertical ? undefined : 0}
           gapHorizontal={CV.field_checkbox_gap}
-          justify="flex-end">
+          justify={restProps.vertical ? 'flex-start' : 'flex-end'}
+          wrap={restProps.vertical}>
           {options.map(item => {
             const selected = multiple
               ? (value as FieldCheckboxValue[]).indexOf(item.value) > -1

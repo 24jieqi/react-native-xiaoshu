@@ -234,7 +234,7 @@ export type FieldCheckboxOption = {
 }
 
 export interface FieldCheckboxProps
-  extends Omit<CellProps, 'value' | 'isLink' | 'center'> {
+  extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'> {
   /**
    * 是否多选
    * @default false
