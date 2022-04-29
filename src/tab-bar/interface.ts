@@ -13,13 +13,13 @@ export type TabItem = {
 
 export interface TabBarProps extends BottomBarProps {
   /**
-   * 激活的文案颜色
+   * 文案颜色
    * @default tab_bar_text_color
    */
   textColor?: ColorValue
 
   /**
-   * 激活的图标颜色
+   * 图标颜色
    * @default tab_bar_icon_color
    */
   iconColor?: ColorValue
