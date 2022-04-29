@@ -1,3 +1,9 @@
+## [0.2.36](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.35...v0.2.36) (2022-04-29)
+
+### Features
+
+- **Locale:** 🎸 国际化配置 ([f5e4cd0](https://github.com/hjfruit/react-native-xiaoshu/commit/f5e4cd065beb3b2d770cec4764dabba37fb8acd4))
+
 ## [0.2.35](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.34...v0.2.35) (2022-04-29)
 
 ### Bug Fixes
