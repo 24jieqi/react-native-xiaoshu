@@ -26,7 +26,7 @@ const DropdownItem = <T,>({
   const locale = Locale.useLocale().DropdownItem
   const config = useDropdownConfig()
   const [active, setActive] = useState(false)
-  const [value, onChange] = useControllableValue(restProps)
+  const [value, onChange] = useControllableValue<T>(restProps)
   const _selectOption = useMemo(() => {
     if (loading) {
       return {
