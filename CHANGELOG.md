@@ -1,3 +1,9 @@
+## [0.2.38](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.37...v0.2.38) (2022-05-06)
+
+### Bug Fixes
+
+- **DatePicker:** 🐛 时间段选择 beforeClose 类型错误 ([47a12af](https://github.com/hjfruit/react-native-xiaoshu/commit/47a12af72101d7fb8d39b2590304890efc66c7e8))
+
 ## [0.2.37](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.36...v0.2.37) (2022-05-05)
 
 ### Features
