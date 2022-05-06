@@ -27,6 +27,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   resetButtonText,
   formatValueText,
   datePickerTitle,
+  dataPickerBeforeClose,
   isLink = true,
   editable = true,
   clearable = false,
@@ -99,6 +100,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
       confirmButtonText,
       resetButtonText,
       title: datePickerTitle,
+      beforeClose: dataPickerBeforeClose,
     }).then(({ action, values: _values }) => {
       if (action === 'confirm') {
         onChange(_values)

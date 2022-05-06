@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react'
-import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const formatValueText = (
   _: [Date, Date],
@@ -23,6 +23,20 @@ const BasicFieldDateRange: React.FC = () => {
         title="标题:非受控"
         placeholder={['请选择', '请选择']}
         datePickerTitle="选择时间吗"
+        dataPickerBeforeClose={(action, dates) => {
+          if (action === 'confirm') {
+            if (!dates[0]) {
+              Toast('请选择开始时间')
+              return false
+            }
+            if (!dates[1]) {
+              Toast('请选择结束时间')
+              return false
+            }
+          }
+
+          return true
+        }}
       />
       <Field.DateRange
         title="自定义文案:非受控"

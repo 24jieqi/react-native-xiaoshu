@@ -198,6 +198,11 @@ export interface FieldDateRangeProps
   datePickerTitle?: string
 
   /**
+   * 时间选择器关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
+   */
+  dataPickerBeforeClose?: DatePickerRangeMethodProps['beforeClose']
+
+  /**
    * 没有值时提示文案
    */
   placeholder?: [string, string]
