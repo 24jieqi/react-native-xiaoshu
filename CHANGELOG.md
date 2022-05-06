@@ -1,3 +1,9 @@
+## [0.2.40](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.39...v0.2.40) (2022-05-06)
+
+### Bug Fixes
+
+- **Locale:** 🐛 中文 时间选择 结束时间 ([dcfbcf3](https://github.com/hjfruit/react-native-xiaoshu/commit/dcfbcf3484f49fb5e502cd75d4577d6e32c5df45))
+
 ## [0.2.39](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.38...v0.2.39) (2022-05-06)
 
 ### Features
