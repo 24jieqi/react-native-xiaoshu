@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 
 import { usePersistFn } from '../hooks'
+import Locale from '../locale'
 import type { PickerOption, PickerValue } from '../picker-view/interface'
 
 import {
@@ -8,7 +9,6 @@ import {
   serializeMode,
   getMonthDays,
   toDateObject,
-  defaultRenderLabel,
   getDateBoundary,
 } from './helper'
 import type {
@@ -42,9 +42,7 @@ const buildColumnData = (
   for (let index = start; index <= end; index++) {
     items.push({
       value: index,
-      label: renderLabel
-        ? renderLabel(mode, index)
-        : defaultRenderLabel(mode, index),
+      label: renderLabel(mode, index),
     })
   }
   return items
@@ -58,11 +56,35 @@ const useDatePicker = ({
   max,
   renderLabel,
 }: UseDatePickerOption) => {
+  const locale = Locale.useLocale().DatePickerView
   const modes = useMemo(
     () => serializeMode(mode.split('-') as DatePickerColumnType[]),
     [mode],
   )
   const [minDate, maxDate] = useDateMinMax(mode, min, max)
+  const renderLabelPersistFn: RenderLabel = usePersistFn((t, n) => {
+    if (renderLabel) {
+      return renderLabel(t, n)
+    }
+
+    switch (t) {
+      case 'Y':
+        return `${n}${locale.labelYear}`
+      case 'M':
+        return `${n}${locale.labelMonth}`
+      case 'D':
+        return `${n}${locale.labelDay}`
+      case 'h':
+        return `${n}${locale.labelHour}`
+      case 'm':
+        return `${n}${locale.labelMinute}`
+      case 's':
+        return `${n}${locale.labelSecond}`
+
+      default:
+        return `${n}`
+    }
+  })
   const [pickerValues, pickerColumns] = useMemo<[Values, Columns]>(() => {
     const _columns: Columns = []
     const _values: Values = []
@@ -83,7 +105,7 @@ const useDatePicker = ({
       const v = key === 'M' ? valueDateObject[key] + 1 : valueDateObject[key]
 
       _values.push(v)
-      _columns.push(buildColumnData(key, a, b, renderLabel))
+      _columns.push(buildColumnData(key, a, b, renderLabelPersistFn))
     })
 
     // 挑选值
@@ -96,7 +118,7 @@ const useDatePicker = ({
     })
 
     return [_pickerValues, _pickerColumns]
-  }, [max, maxDate, min, minDate, modes, renderLabel, value])
+  }, [max, maxDate, min, minDate, modes, renderLabelPersistFn, value])
 
   const onChangePicker = usePersistFn((v: PickerValue[]) => {
     // console.log('values  =>>>>   ', v)

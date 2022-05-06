@@ -16,6 +16,14 @@ const localeValues: Locale = {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
   },
+  DatePickerView: {
+    labelYear: '年',
+    labelMonth: '月',
+    labelDay: '日',
+    labelHour: '时',
+    labelMinute: '分',
+    labelSecond: '秒',
+  },
   DescriptionDateRange: {
     split: '至',
   },

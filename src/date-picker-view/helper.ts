@@ -1,10 +1,6 @@
 import isDate from 'lodash/isDate'
 
-import type {
-  DatePickerColumnType,
-  RenderLabel,
-  DatePickerColumnMode,
-} from './interface'
+import type { DatePickerColumnType, DatePickerColumnMode } from './interface'
 
 /**
  * 可选项序列数组
@@ -60,26 +56,6 @@ export const getMonthDays = (year: number, month: number) => {
   day.setMonth(month, 0)
 
   return day.getDate()
-}
-
-export const defaultRenderLabel: RenderLabel = (t, n) => {
-  switch (t) {
-    case 'Y':
-      return `${n}`
-    case 'M':
-      return `${n}`
-    case 'D':
-      return `${n}`
-    case 'h':
-      return `${n}`
-    case 'm':
-      return `${n}`
-    case 's':
-      return `${n}`
-
-    default:
-      return `${n}`
-  }
 }
 
 export const getDateBoundary = (

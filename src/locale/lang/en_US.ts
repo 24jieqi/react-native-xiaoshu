@@ -16,6 +16,14 @@ const localeValues: Locale = {
     confirmButtonText: 'Confirm',
     cancelButtonText: 'Cancel',
   },
+  DatePickerView: {
+    labelYear: 'year',
+    labelMonth: 'month',
+    labelDay: 'day',
+    labelHour: 'hour',
+    labelMinute: 'minute',
+    labelSecond: 'second',
+  },
   DescriptionDateRange: {
     split: 'To',
   },

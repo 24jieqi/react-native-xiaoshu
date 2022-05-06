@@ -14,6 +14,14 @@ export interface Locale {
     confirmButtonText: string
     cancelButtonText: string
   }
+  DatePickerView: {
+    labelYear: string
+    labelMonth: string
+    labelDay: string
+    labelHour: string
+    labelMinute: string
+    labelSecond: string
+  }
   DescriptionDateRange: {
     split: string
   }
