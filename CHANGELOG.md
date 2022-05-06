@@ -1,3 +1,9 @@
+## [0.2.39](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.38...v0.2.39) (2022-05-06)
+
+### Features
+
+- **Field:** 🎸 新增属性 ([19a1059](https://github.com/hjfruit/react-native-xiaoshu/commit/19a105914a4871032cf07d9b4d7964bfc4aac913))
+
 ## [0.2.38](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.37...v0.2.38) (2022-05-06)
 
 ### Bug Fixes
