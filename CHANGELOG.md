@@ -1,3 +1,9 @@
+## [0.2.41](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.40...v0.2.41) (2022-05-06)
+
+### Features
+
+- **DatePicker:** 🎸 日期选择添加年月日 ([ed67fd9](https://github.com/hjfruit/react-native-xiaoshu/commit/ed67fd9a458282bf99b779849ba959eaa47ab0e0))
+
 ## [0.2.40](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.39...v0.2.40) (2022-05-06)
 
 ### Bug Fixes
