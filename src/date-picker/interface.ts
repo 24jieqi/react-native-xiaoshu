@@ -139,7 +139,7 @@ export interface DatePickerRangeMethodProps
    */
   beforeClose?: (
     action: DatePickerAction,
-    value: Date,
+    value: DatePickerRangeValue,
   ) => boolean | Promise<boolean>
 }
 
