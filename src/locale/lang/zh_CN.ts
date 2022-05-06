@@ -10,7 +10,7 @@ const localeValues: Locale = {
     resetButtonText: '重置',
     placeholder: ['请选择', '请选择'],
     labelStartTime: '开始时间',
-    labelEndTime: '结束',
+    labelEndTime: '结束时间',
   },
   DatePickerSingleMethod: {
     confirmButtonText: '确定',
