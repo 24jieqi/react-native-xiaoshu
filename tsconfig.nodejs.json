@@ -1,15 +1,15 @@
 {
   "extends": "./tsconfig.base.json",
   "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js",
-    "demo",
-    "src"
+    // "node_modules",
+    // "babel.config.js",
+    // "metro.config.js",
+    // "jest.config.js",
+    // "demo",
+    // "src"
   ],
-  "include": ["./scripts"],
   "compilerOptions": {
+    "jsx": "react",
     "isolatedModules": false,
     "resolveJsonModule": true
   }

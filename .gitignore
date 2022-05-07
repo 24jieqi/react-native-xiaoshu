@@ -5,6 +5,8 @@ coverage
 .umi-production
 lib
 docs-dist/
+.jest
+coverage
 # OSX
 #
 .DS_Store
