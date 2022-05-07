@@ -21,7 +21,7 @@ features:
     desc: 组件皆在 JavaScript 层实现，无需关心 Android、iOS 各个版本依赖问题。
   - icon: https://gw.alipayobjects.com/zos/basement_prod/67b771c5-4bdd-4384-80a4-978b85f91282/k7788ov2_w126_h126.png
     title: 国际化
-    desc: TODO 国际化、自定义组件默认值。
+    desc: 提供完备的国际化支持，内置数种语言。
   - icon: https://gw.alipayobjects.com/zos/basement_prod/d078a5a9-1cb3-4352-9f05-505c2e98bc95/k7788v4b_w102_h126.png
     title: 规范交互
     # desc: react-native-xiaoshu 是基于全果链视觉规范实现的组件库。

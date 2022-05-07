@@ -24,7 +24,18 @@ export default defineConfig({
     },
   },
   navs: [
-    null,
+    {
+      title: '指南',
+      path: '/guide',
+    },
+    {
+      title: '组件',
+      path: '/component',
+    },
+    {
+      title: '案例',
+      path: '/case',
+    },
     {
       title: `GitHub v${p.version}`,
       path: 'https://github.com/hjfruit/react-native-xiaoshu',

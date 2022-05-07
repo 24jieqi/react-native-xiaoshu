@@ -3,7 +3,6 @@ title: 快速上手
 order: 1
 nav:
   title: 指南
-  order: 0
 group:
   title: 开发指南
   path: /guide

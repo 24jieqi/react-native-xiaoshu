@@ -3,7 +3,6 @@ title: 🔥推荐组件/库
 order: 3
 nav:
   title: 指南
-  order: 0
 group:
   title: 开发指南
   path: /guide
