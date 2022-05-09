@@ -117,7 +117,13 @@ const Cell: React.FC<CellProps> = ({
       {...restProps}
       underlayColor={underlayColor}
       style={[STYLES.cell, style]}
-      onPress={restProps.onPress ? runOnPress : undefined}>
+      onPress={
+        restProps.onPress
+          ? onPressDebounceWait
+            ? runOnPress
+            : restProps.onPress
+          : undefined
+      }>
       <>
         <View
           style={[
