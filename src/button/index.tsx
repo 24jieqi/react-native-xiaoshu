@@ -152,7 +152,13 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
       style={buttonStyles}
       activeOpacity={CV.button_active_opacity}
-      onPress={restProps.onPress ? runOnPress : undefined}>
+      onPress={
+        restProps.onPress
+          ? onPressDebounceWait
+            ? runOnPress
+            : restProps.onPress
+          : undefined
+      }>
       {contextJSX}
     </TouchableOpacity>
   )
