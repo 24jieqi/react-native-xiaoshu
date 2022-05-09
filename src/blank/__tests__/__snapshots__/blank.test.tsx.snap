@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blank render snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 0,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 0,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text>
+    Content
+  </Text>
+</View>
+`;
