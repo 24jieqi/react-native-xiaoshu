@@ -20,9 +20,3 @@ export const customRender = (
     wrapper: AllTheProviders,
     ...options,
   })
-
-describe('TestUtils', () => {
-  it('run => ', () => {
-    expect(true)
-  })
-})
