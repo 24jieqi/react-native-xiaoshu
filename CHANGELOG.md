@@ -1,3 +1,9 @@
+## [0.2.43](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.42...v0.2.43) (2022-05-10)
+
+### Features
+
+- **Icon:** 🎸 新增图标 StarSquareOutline ([a092519](https://github.com/hjfruit/react-native-xiaoshu/commit/a0925194684f6478fe3cafb14babaa4cadad23e8))
+
 ## [0.2.42](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.41...v0.2.42) (2022-05-10)
 
 ### Features
