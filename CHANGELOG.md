@@ -1,3 +1,11 @@
+## [0.2.42](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.41...v0.2.42) (2022-05-10)
+
+### Features
+
+- **Button:** 🎸 点击事件立即响应 ([a7c0d1f](https://github.com/hjfruit/react-native-xiaoshu/commit/a7c0d1f5293f56338810b9c0df723b177931562a))
+- **Cell:** 🎸 点击事件立即响应 ([66b081e](https://github.com/hjfruit/react-native-xiaoshu/commit/66b081ef3eeab874525a916542a6093e04294156))
+- **Dropdown:** 🎸 拆分弹出层 ([09b1771](https://github.com/hjfruit/react-native-xiaoshu/commit/09b177111720c1fa5851a425703a0d33b59add2d))
+
 ## [0.2.41](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.40...v0.2.41) (2022-05-06)
 
 ### Features
