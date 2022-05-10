@@ -1,3 +1,9 @@
+## [0.2.44](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.43...v0.2.44) (2022-05-10)
+
+### Features
+
+- **Dropdown:** 🎸 导出 useDropdownConfig ([fca46a5](https://github.com/hjfruit/react-native-xiaoshu/commit/fca46a5c25a801fa4549d44e530c4812058a11d2))
+
 ## [0.2.43](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.42...v0.2.43) (2022-05-10)
 
 ### Features
