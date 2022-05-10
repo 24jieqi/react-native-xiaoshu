@@ -28,6 +28,7 @@ import QuestionCircleOutline from './question-circle'
 import RemoveFill from './remove.fill'
 import SearchOutline from './search'
 import SOPOutline from './sop'
+import StarSquareOutline from './star-square'
 import SuccessOutline from './success'
 import SuccessCircleOutline from './success-circle'
 import SwapRightOutline from './swap-right'
@@ -67,6 +68,7 @@ export default {
   RemoveFill,
   SearchOutline,
   SOPOutline,
+  StarSquareOutline,
   SuccessOutline,
   SuccessCircleOutline,
   SwapRightOutline,
