@@ -70,6 +70,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
     <DropdownConfig.Provider value={config}>
       <View
         {...restProps}
+        collapsable={false}
         ref={MenuRef}
         style={[STYLES.menu, dividerStyle, style]}
       />

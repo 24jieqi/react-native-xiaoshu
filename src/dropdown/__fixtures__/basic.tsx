@@ -3,10 +3,15 @@
  * desc: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { Cell, Dropdown } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Cell,
+  Dropdown,
+  Button,
+  Portal,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const itemOptions = [
   { label: '全部商品', value: null, badge: true },
@@ -48,6 +53,18 @@ const BasicDropdown: React.FC = () => {
     v3: itemOptions[2].value,
     v4: itemOptions[4].value,
   })
+  const ViewRef = useRef<View>(null)
+  const [popupProps, setPopupProps] = useState({
+    targetHeight: 0,
+    targetPageY: 0,
+    visible: false,
+  })
+  const onPressShade = useCallback(() => {
+    setPopupProps(s => ({
+      ...s,
+      visible: false,
+    }))
+  }, [])
 
   return (
     <ScrollView scrollsToTop={false} style={{ backgroundColor: '#f5f5f5' }}>
@@ -154,6 +171,41 @@ const BasicDropdown: React.FC = () => {
           />
           <Dropdown.Item options={itemOptions3} defaultValue={null} />
         </Dropdown>
+
+        <View style={{ height: 500 }} />
+
+        <View ref={ViewRef} collapsable={false}>
+          <Button
+            text="打开一个"
+            onPress={() => {
+              ViewRef.current.measure((x, y, width, height, pageX, pageY) => {
+                setPopupProps(s => ({
+                  ...s,
+                  targetHeight: height,
+                  targetPageY: pageY,
+                  visible: true,
+                }))
+              })
+            }}
+          />
+        </View>
+
+        <Portal>
+          <Dropdown.Popup
+            {...popupProps}
+            onPressShade={onPressShade}
+            onPressOverlay={onPressShade}>
+            <Button
+              text="在里面"
+              onPress={() => {
+                setPopupProps(s => ({
+                  ...s,
+                  visible: false,
+                }))
+              }}
+            />
+          </Dropdown.Popup>
+        </Portal>
 
         <View style={{ height: 800 }} />
       </Cell.Group>

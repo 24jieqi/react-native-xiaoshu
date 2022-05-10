@@ -10,6 +10,8 @@ import type {
   ColorValue,
 } from 'react-native'
 
+import type { PopupPropsCommon } from '../popup/interface'
+
 export interface DropdownBadgeProps extends TextProps {
   /**
    * 徽标内容/展示的数字
@@ -184,6 +186,31 @@ export interface DropdownMenuProps
   divider?: boolean
 }
 
+export interface DropdownPopupProps
+  extends Pick<DropdownItemProps<any>, 'zIndex' | 'closeOnPressOutside'>,
+    PopupPropsCommon {
+  /**
+   * 触发目标高度
+   */
+  targetHeight: number
+
+  /**
+   * 触发目标 pageY
+   */
+  targetPageY: number
+
+  /**
+   * 点击非内容的遮罩阴影
+   */
+  onPressShade?: TouchableOpacityProps['onPress']
+
+  /**
+   * 是否开启顶部/底部安全区适配
+   * @default true
+   */
+  safeAreaInset?: boolean
+}
+
 export interface DropdownSelectorMethodProps<T>
   extends Omit<
     DropdownItemProps<T>,
@@ -215,7 +242,7 @@ export interface DropdownSelectorMethodProps<T>
    */
   onCancel?: () => void
 
-  onClosed?: () => void
+  onClosed?: PopupPropsCommon['onClosed']
 
   /**
    * 菜单标题和选项的选中态颜色
