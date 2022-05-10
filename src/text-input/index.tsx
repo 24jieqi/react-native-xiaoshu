@@ -86,7 +86,6 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       onEndEditing,
       onFocus,
       onBlur,
-      maxLength,
       returnKeyType,
       ...resetProps
     },
@@ -100,7 +99,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       returnKeyType = getDefaultValue(returnKeyType, 'done')
     }
 
-    if (showWordLimit && !isUndefined(maxLength)) {
+    if (showWordLimit && !isUndefined(resetProps.maxLength)) {
       showWordLimit = false
     }
 
@@ -161,10 +160,6 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
      */
     const onChangeTextTextInput = useCallback(
       (t: string) => {
-        if (typeof maxLength === 'number' && t.length > maxLength) {
-          t = t.slice(0, maxLength)
-        }
-
         if (formatTrigger === 'onChangeText') {
           t = formatterPersistFn(t)
         }
@@ -172,13 +167,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
         onChange(t)
         onChangeTextPersistFn(t)
       },
-      [
-        maxLength,
-        formatTrigger,
-        formatterPersistFn,
-        onChange,
-        onChangeTextPersistFn,
-      ],
+      [formatTrigger, formatterPersistFn, onChange, onChangeTextPersistFn],
     )
 
     /** 编辑结束的时候 */
@@ -356,7 +345,7 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
 
         {showWordLimit ? (
           <Text style={STYLES.word_limit_text}>
-            {value?.length || 0}/{maxLength}
+            {value?.length || 0}/{resetProps.maxLength}
           </Text>
         ) : null}
       </TouchableOpacity>
