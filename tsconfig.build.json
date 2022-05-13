@@ -7,7 +7,8 @@
     "jest.config.js",
     "demo",
     "src/__fixtures__",
-    "src/**/__fixtures__"
+    "src/**/__fixtures__",
+    "src/**/__tests__"
   ],
   "include": ["./src"]
 }
