@@ -30,3 +30,7 @@ group:
 ### Popup.Header
 
 <API hideTitle src="./popup-header.tsx"></API>
+
+### Popup.Page <Badge>0.2.47+</Badge>
+
+<API hideTitle src="./popup-page.tsx"></API>
