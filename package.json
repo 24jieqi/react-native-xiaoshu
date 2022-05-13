@@ -6,10 +6,6 @@
   "module": "lib/module/index.js",
   "react-native": "src/index.ts",
   "types": "lib/typescript/index.d.ts",
-  "files": [
-    "lib/",
-    "src/"
-  ],
   "keywords": [
     "react-native",
     "ui-components",
