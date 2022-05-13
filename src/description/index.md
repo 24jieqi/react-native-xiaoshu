@@ -31,6 +31,8 @@ group:
 
 <code src="./__fixtures__/other.tsx"></code>
 
+<code src="./__fixtures__/empty.tsx"></code>
+
 ## API
 
 ### Description

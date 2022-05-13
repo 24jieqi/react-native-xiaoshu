@@ -68,6 +68,18 @@ export interface DescriptionContextState {
    * 交叉轴对齐方式
    */
   align?: FlexStyle['alignItems']
+
+  /**
+   * 空数据占位符
+   * @default '--'
+   */
+  empty?: ReactNode
+
+  /**
+   * 显示空数据占位符
+   * @default false
+   */
+  showEmpty?: boolean
 }
 
 export interface DescriptionGroupProps
@@ -118,13 +130,26 @@ export interface DescriptionProps extends DescriptionContextState, ViewProps {
   renderLabel?: (colon: string) => ReactNode
 
   /**
-   * 自定义渲染函数
+   * 自定义渲染函数，适用于自定义排版
+   * @param content text/children 包裹后的 ReactNode
+   * @param addonBefore addonBefore 包裹后的 ReactNode
+   * @param addonAfter addonAfter 包裹后的 ReactNode
    */
   render?: (
-    context: ReactNode,
+    content: ReactNode,
     addonBefore: ReactNode,
     addonAfter: ReactNode,
   ) => ReactNode
+
+  /**
+   * 空数据占位符
+   */
+  empty?: ReactNode
+
+  /**
+   * 显示空数据占位符
+   */
+  showEmpty?: boolean
 }
 
 export interface DescriptionThousandProps

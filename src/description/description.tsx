@@ -30,8 +30,10 @@ const Description: React.FC<DescriptionProps> = ({
   addonAfter,
   renderLabel,
   render,
-  children,
+  empty,
+  showEmpty,
 
+  children,
   style,
   ...restProps
 }) => {
@@ -64,6 +66,8 @@ const Description: React.FC<DescriptionProps> = ({
     numberOfLines,
     descriptionContext.numberOfLines,
   )
+  const _empty = getDefaultValue(empty, descriptionContext.empty)
+  const _showEmpty = getDefaultValue(showEmpty, descriptionContext.showEmpty)
 
   const colonStr = _colon ? '：' : ''
   const textSizeStyle = STYLES[`size_${_size}_text`]
@@ -79,37 +83,43 @@ const Description: React.FC<DescriptionProps> = ({
       ])
     : null
 
+  const renderText = (node: React.ReactNode) =>
+    renderTextLikeJSX(
+      node,
+      [
+        STYLES.content_text,
+        textSizeStyle,
+        bold
+          ? {
+              fontWeight: 'bold',
+            }
+          : null,
+
+        color
+          ? {
+              color,
+            }
+          : null,
+        _contentTextStyle,
+      ],
+      {
+        numberOfLines: _numberOfLines,
+      },
+    )
   const contentJSX = isValidElement(children)
     ? children
-    : renderTextLikeJSX(
-        !isNil(text) ? text : children,
-        [
-          STYLES.content_text,
-          textSizeStyle,
-          bold
-            ? {
-                fontWeight: 'bold',
-              }
-            : null,
+    : renderText(!isNil(text) ? text : children)
 
-          color
-            ? {
-                color,
-              }
-            : null,
-          _contentTextStyle,
-        ],
-        {
-          numberOfLines: _numberOfLines,
-        },
-      )
+  // 判断是否渲染空数据占位符
+  const renderContentJSX =
+    isNil(contentJSX) && _showEmpty ? renderText(_empty) : contentJSX
 
   const renderJSX = !isNil(render) ? (
-    render(contentJSX, addonBefore, addonAfter)
+    render(renderContentJSX, addonBefore, addonAfter)
   ) : (
     <>
       {addonBefore}
-      {contentJSX}
+      {renderContentJSX}
       {addonAfter}
     </>
   )

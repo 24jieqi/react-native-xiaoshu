@@ -11,6 +11,7 @@ import { Space } from '@fruits-chain/react-native-xiaoshu'
 import DescriptionBase from './base'
 import DescriptionSize from './size'
 import DescriptionOther from './other'
+import DescriptionEmpty from './empty'
 
 const BasicDialog: React.FC = () => {
   return (
@@ -21,6 +22,8 @@ const BasicDialog: React.FC = () => {
         <DescriptionSize />
 
         <DescriptionOther />
+
+        <DescriptionEmpty />
       </Space>
     </ScrollView>
   )

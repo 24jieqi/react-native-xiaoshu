@@ -16,6 +16,8 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
   numberOfLines,
   justify,
   align,
+  empty = '--',
+  showEmpty = false,
 
   ...restProps
 }) => {
@@ -32,6 +34,8 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
       numberOfLines,
       justify,
       align,
+      empty,
+      showEmpty,
     }),
     [
       colon,
@@ -45,6 +49,8 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
       numberOfLines,
       justify,
       align,
+      empty,
+      showEmpty,
     ],
   )
 
