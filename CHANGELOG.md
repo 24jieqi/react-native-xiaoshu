@@ -1,3 +1,18 @@
+## [0.2.45](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.44...v0.2.45) (2022-05-13)
+
+### Bug Fixes
+
+- **Description:** 🐛 兼容空白 text ([1585cf9](https://github.com/hjfruit/react-native-xiaoshu/commit/1585cf9a7c9f37791cc914b64c917285f72563b2))
+
+### Features
+
+- **Description:** 🎸 新增空白数据占位符 ([04999ca](https://github.com/hjfruit/react-native-xiaoshu/commit/04999ca8ecc7696ae8260d1ad51309e52f1d6e0a))
+- **Form:** 🎸 导出 useWatch ([e9b90d6](https://github.com/hjfruit/react-native-xiaoshu/commit/e9b90d61611d77129224a4db2e63e63c72e8ab25))
+
+### BREAKING CHANGES
+
+- **Form:** 🧨 需要 rc-field-form@1.26.0 版本以上支持
+
 ## [0.2.44](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.43...v0.2.44) (2022-05-10)
 
 ### Features
