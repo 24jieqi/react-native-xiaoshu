@@ -1,3 +1,9 @@
+## [0.2.46](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.45...v0.2.46) (2022-05-13)
+
+### Features
+
+- **ci:** 🎸 lib/typescript exclude **tests** ([4c31df1](https://github.com/hjfruit/react-native-xiaoshu/commit/4c31df14f648e1cb83c78d69c23c524a8aa0b146))
+
 ## [0.2.45](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.44...v0.2.45) (2022-05-13)
 
 ### Bug Fixes
