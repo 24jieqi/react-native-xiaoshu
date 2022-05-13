@@ -1,5 +1,11 @@
 import type { FormInstance } from 'rc-field-form'
-import { List, FormProvider, FieldContext, ListContext } from 'rc-field-form'
+import {
+  List,
+  FormProvider,
+  FieldContext,
+  ListContext,
+  useWatch,
+} from 'rc-field-form'
 import type { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface'
 import type { ListProps } from 'rc-field-form/lib/List'
 
@@ -13,6 +19,7 @@ type InternalFormType = typeof InternalForm
 
 interface FormInterface extends InternalFormType {
   useForm: typeof useForm
+  useWatch: typeof useWatch
   Item: typeof Item
   List: typeof List
   Provider: typeof FormProvider
@@ -24,6 +31,7 @@ const FormItemContext = FieldContext
 Form.Item = Item
 Form.List = List
 Form.useForm = useForm
+Form.useWatch = useWatch
 Form.Provider = FormProvider
 
 export type {
