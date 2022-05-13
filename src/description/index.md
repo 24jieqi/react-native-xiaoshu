@@ -13,6 +13,12 @@ group:
 
 > 成组展示多个只读字段。
 
+`Description` 渲染优先级顺序
+
+- `children` 是 `ReactElement`
+- `text` 非 null、undefined 的字符串
+- `children`
+
 ## 何时使用
 
 常见于详情页的信息展示。
