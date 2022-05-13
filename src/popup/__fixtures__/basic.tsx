@@ -7,7 +7,14 @@ import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
 import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu'
-import { Popup, Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Popup,
+  Button,
+  Card,
+  Space,
+  ButtonBar,
+  Field,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const Styles = StyleSheet.create({
   hint: {
@@ -29,6 +36,7 @@ const BasicPopup: React.FC = () => {
     show: false,
     position: 'left',
   })
+  const [pageVisible, setPageVisible] = useState(false)
 
   return (
     <ScrollView>
@@ -110,6 +118,58 @@ const BasicPopup: React.FC = () => {
               }}
             />
           </Space>
+        </Card>
+
+        <Card title="弹出层当做一个页面" square>
+          <Button
+            text="显示弹出层"
+            onPress={() => {
+              setPageVisible(true)
+            }}
+          />
+
+          <Popup.PopupPage visible={pageVisible} round>
+            <Popup.Header
+              title="独立页面"
+              onClose={() => {
+                setPageVisible(false)
+              }}
+            />
+
+            <ScrollView>
+              <Space tail>
+                <View style={{ height: 200, backgroundColor: '#f09' }} />
+                <Field.TextInput
+                  title="文案棒"
+                  placeholder="请输入"
+                  divider={false}
+                />
+                <View style={{ height: 200, backgroundColor: '#876' }} />
+                <Field.TextInput
+                  title="文案秒"
+                  placeholder="请输入"
+                  divider={false}
+                />
+                <View style={{ height: 200, backgroundColor: '#123' }} />
+                <Field.TextInput
+                  title="文案雅"
+                  placeholder="请输入"
+                  divider={false}
+                />
+                <View style={{ height: 200, backgroundColor: '#678' }} />
+                <Field.TextInput
+                  title="文案水"
+                  placeholder="请输入"
+                  divider={false}
+                />
+                <View style={{ height: 200, backgroundColor: '#321' }} />
+              </Space>
+            </ScrollView>
+
+            <ButtonBar alone>
+              <Button text="确定" />
+            </ButtonBar>
+          </Popup.PopupPage>
         </Card>
       </Space>
 

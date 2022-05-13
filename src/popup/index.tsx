@@ -3,9 +3,10 @@ import React, { memo } from 'react'
 import { attachPropertiesToComponent } from '../helpers'
 import Portal from '../portal'
 
-import type { PopupProps } from './interface'
+import type { PopupProps, PopupPageProps } from './interface'
 import Popup from './popup'
 import PopupHeader from './popup-header'
+import PopupPage from './popup-page'
 
 /**
  * Popup 弹出层
@@ -19,10 +20,20 @@ const PopupContainer: React.FC<PopupProps> = props => {
   )
 }
 
+const PopupPageContainer: React.FC<PopupPageProps> = props => {
+  return (
+    <Portal>
+      <PopupPage {...props} />
+    </Portal>
+  )
+}
+
 export default attachPropertiesToComponent(
   memo<typeof PopupContainer>(PopupContainer),
   {
     Component: Popup,
     Header: PopupHeader,
+    PopupPage: PopupPageContainer,
+    PopupPageComponent: PopupPage,
   },
 )

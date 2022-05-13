@@ -39,6 +39,14 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           }}>
           自定义 header 主题色 Header
         </Text>
+
+        <Text
+          style={Styles.demo}
+          onPress={() => {
+            navigation.navigate('PopupTextInput')
+          }}>
+          弹出层中有输入框
+        </Text>
       </View>
     </Layout.Page>
   )

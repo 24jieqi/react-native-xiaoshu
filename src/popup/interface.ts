@@ -96,6 +96,15 @@ export interface PopupProps extends PopupPropsCommon {
   lazyRender?: boolean
 }
 
+export interface PopupPageProps
+  extends Omit<PopupProps, 'position' | 'safeAreaInsetBottom'> {
+  /**
+   * 顶部安全高度
+   * @default safeAreaInsets.top
+   */
+  safeAreaInsetTop?: number
+}
+
 export type State = {
   visible: boolean
   overlayVisible: boolean

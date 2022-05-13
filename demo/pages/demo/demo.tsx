@@ -8,7 +8,7 @@ import type * as Routes from '@/routes'
 
 import FontSize from './font-size'
 
-type DemoProps = {} & Routes.RootStackScreenProps<'DemoHome'>
+type DemoProps = Routes.RootStackScreenProps<'DemoHome'>
 
 const navDatas: {
   title: string

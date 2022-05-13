@@ -11,6 +11,7 @@ import React from 'react'
 import BackArrow from '@/components/back-arrow'
 import CustomHeaderPrimary from '@/pages/demo/custom-header-primary'
 import CustomHeaderRed from '@/pages/demo/custom-header-red'
+import PopupTextInput from '@/pages/demo/popup-text-input'
 
 import type { BottomTabParamList } from './bottom-tab'
 import TabsView from './bottom-tab'
@@ -23,6 +24,7 @@ export type RootStackParamList = {
   Index: undefined
   CustomHeaderRed: undefined
   CustomHeaderPrimary: undefined
+  PopupTextInput: undefined
 } & Record<DemoPaths, undefined>
 
 /** Stack 路由的 props */
@@ -72,6 +74,8 @@ const NestingNavigators: React.FC = () => {
           name="CustomHeaderPrimary"
           component={CustomHeaderPrimary}
         />
+
+        <Stack.Screen name="PopupTextInput" component={PopupTextInput} />
 
         {demoConfigs.map(({ Page, path }) => (
           <Stack.Screen key={path} name={path} component={Page} />

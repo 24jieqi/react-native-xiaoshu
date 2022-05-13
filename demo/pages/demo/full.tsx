@@ -4,7 +4,7 @@ import { View, Text, Image, ScrollView } from 'react-native'
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
 
-type DemoFullProps = {} & Routes.RootStackScreenProps<'DemoFull'>
+type DemoFullProps = Routes.RootStackScreenProps<'DemoFull'>
 
 const DemoFull: React.FC<DemoFullProps> = () => {
   return (
