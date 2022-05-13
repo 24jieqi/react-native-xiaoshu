@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 
 import { formatDate } from '../date-picker-view/helper'
@@ -10,12 +11,9 @@ const DescriptionDate: React.FC<DescriptionDateProps> = ({
   mode = 'Y-m',
   ...restProps
 }) => {
-  const value = formatDate(mode, text)
+  const value = !isNil(text) ? formatDate(mode, text) : text
 
   return <Description {...restProps} text={value} />
 }
 
-const DescriptionDateMemo: typeof DescriptionDate =
-  memo<typeof DescriptionDate>(DescriptionDate)
-
-export default DescriptionDateMemo
+export default memo<typeof DescriptionDate>(DescriptionDate)

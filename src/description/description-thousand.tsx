@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 
 import { formatThousandths } from '../helpers'
@@ -9,7 +10,7 @@ const DescriptionThousand: React.FC<DescriptionThousandProps> = ({
   text,
   ...restProps
 }) => {
-  const value = formatThousandths(`${text}`)
+  const value = !isNil(text) ? formatThousandths(`${text}`) : text
 
   return <Description {...restProps} text={value} />
 }

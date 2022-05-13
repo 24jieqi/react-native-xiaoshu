@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import type { StyleProp, TextStyle } from 'react-native'
 import { View } from 'react-native'
@@ -17,14 +18,10 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   mode = 'Y-m',
   split,
 
-  bold = false,
-  color,
-  contentTextStyle,
-
   ...restProps
 }) => {
-  const start = formatDate(mode, text[0])
-  const end = formatDate(mode, text[1])
+  const start = !isNil(text?.[0]) ? formatDate(mode, text[0]) : null
+  const end = !isNil(text?.[1]) ? formatDate(mode, text[1]) : null
 
   const locale = Locale.useLocale().DescriptionDateRange
   const TOKENS = Theme.useThemeTokens()
@@ -33,7 +30,7 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   const descriptionContext = useDescription()
 
   const _contentTextStyle = getDefaultValue(
-    contentTextStyle,
+    restProps.contentTextStyle,
     descriptionContext.contentTextStyle,
   )
   const _size = getDefaultValue(restProps.size, descriptionContext.size)
@@ -42,15 +39,15 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   const textStyles: StyleProp<TextStyle> = [
     STYLES.content_text,
     textSizeStyle,
-    bold
+    restProps.bold
       ? {
           fontWeight: 'bold',
         }
       : null,
 
-    color
+    restProps.color
       ? {
-          color,
+          color: restProps.color,
         }
       : null,
     _contentTextStyle,
@@ -60,6 +57,10 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
     textStyles,
   )
   const line2JSX = renderTextLikeJSX(end, textStyles)
+
+  if (isNil(start) && isNil(end)) {
+    return <Description {...restProps} />
+  }
 
   return (
     <Description {...restProps}>
