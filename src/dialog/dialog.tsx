@@ -19,6 +19,7 @@ import { varCreator, styleCreator } from './style'
  */
 const Dialog: React.FC<DialogProps> = ({
   children,
+  style,
   title,
   message,
   width,
@@ -118,6 +119,7 @@ const Dialog: React.FC<DialogProps> = ({
       <Animated.View
         style={[
           STYLES.dialog,
+          style,
           {
             width,
             transform: [

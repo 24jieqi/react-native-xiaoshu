@@ -31,9 +31,6 @@ type ComponentVars = ReturnType<typeof varCreator>
 export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     dialog: {
-      // position: 'absolute',
-      marginTop: '-40%', // margin 是对话框的尺寸，不是屏幕宽度有关系？
-      // width: width || cv.dialog_width,
       overflow: 'hidden',
       backgroundColor: cv.dialog_background_color,
       borderRadius: cv.dialog_border_radius,

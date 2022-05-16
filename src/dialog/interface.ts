@@ -1,5 +1,5 @@
 import type * as React from 'react'
-import type { ColorValue } from 'react-native'
+import type { ColorValue, StyleProp, ViewStyle } from 'react-native'
 
 import type { NumberInputProps } from '../number-input/interface'
 import type { PopupPropsCommon } from '../popup/interface'
@@ -12,6 +12,8 @@ type messageAlign = 'center' | 'left' | 'right'
 export type DialogAction = 'cancel' | 'confirm' | 'overlay'
 
 interface DialogCommon extends PopupPropsCommon {
+  style?: StyleProp<ViewStyle>
+
   /**
    * 标题
    */

@@ -2,6 +2,7 @@ import isNil from 'lodash/isNil'
 import React, { useEffect, useMemo, useRef, memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Keyboard } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { callInterceptor, getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
@@ -52,9 +53,11 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const isInputText = type === 'textarea' || type === 'text'
   const realValue = isInputText ? textInputValue : numberInputValue
 
+  const insets = useSafeAreaInsets()
   const TextInputRef = useRef<TextInputInstance>(null)
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
+
   const [state, setState] = useState<DialogInputState>({
     visible: false,
     value: defaultValue,
@@ -62,13 +65,21 @@ const DialogInput: React.FC<DialogInputProps> = ({
     confirm: false,
     overlay: false,
   })
+  const [keyboardShow, setKeyboardShow] = useState(false)
+
+  const dialogStyle = useMemo<ViewStyle>(
+    () => ({
+      position: 'absolute',
+      top: insets.top,
+    }),
+    [insets.top],
+  )
   const boxStyle = useMemo<ViewStyle>(
     () => ({
       marginHorizontal: CV.dialog_input_gap,
       marginTop: CV.dialog_input_gap,
       overflow: 'hidden',
-      // borderStartColor: '#f30',
-      // height: 100,
+      maxHeight: 200,
     }),
     [CV.dialog_input_gap],
   )
@@ -137,6 +148,18 @@ const DialogInput: React.FC<DialogInputProps> = ({
         TextInputRef.current.focus()
       }, duration)
     }
+
+    const keyboardDidShow = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardShow(true)
+    })
+    const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardShow(false)
+    })
+
+    return () => {
+      keyboardDidShow.remove()
+      keyboardDidHide.remove()
+    }
   }, [duration, autoFocus])
 
   useEffect(() => {
@@ -150,6 +173,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
   return (
     <Dialog
       {...restProps}
+      style={keyboardShow ? dialogStyle : undefined}
       showCancelButton={showCancelButton}
       closeOnPressOverlay={false}
       visible={state.visible}
