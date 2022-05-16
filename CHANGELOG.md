@@ -1,3 +1,19 @@
+## [0.2.47](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.46...v0.2.47) (2022-05-16)
+
+### Bug Fixes
+
+- **Description:** 🐛 text 是空字符串的时候需要实现成 empty ([2db95d9](https://github.com/hjfruit/react-native-xiaoshu/commit/2db95d97cf1e78401f1631a2a442ab06c9c4cb86))
+
+### Features
+
+- **Dialog:** 🎸 对话框居中,输入类型对话框聚焦后对话框整体上移 ([546a207](https://github.com/hjfruit/react-native-xiaoshu/commit/546a20722561b0b63369dd255ae6e449f26e876a))
+- **Popup:** 🎸 新增弹出层模拟一个独立页面组件 ([3e53766](https://github.com/hjfruit/react-native-xiaoshu/commit/3e53766d19c09b61f2f2e58f1ee8e2999d1e400c))
+- **Uploader:** 🎸 图片大小改为每行多少个,新增固定个数的上传 ([9ffea7e](https://github.com/hjfruit/react-native-xiaoshu/commit/9ffea7ea6d8222b1260a9c2ce214deb6f62689a1))
+
+### BREAKING CHANGES
+
+- **Uploader:** 🧨 去掉 imageSize、imageGap，新增 colCount、colGap
+
 ## [0.2.46](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.45...v0.2.46) (2022-05-13)
 
 ### Features
