@@ -20,6 +20,8 @@ const DescriptionEmpty: React.FC = () => {
       <Card title="empty" square>
         <Description.Group showEmpty>
           <Description label="Description" showEmpty={false} />
+          <Description label="Description" />
+          <Description label="Description" text="" />
           <Description label="Description" text="一袋米由我洗嘞" />
           <Description label="Description" text={null} />
           <Description.Thousand label="Description.Thousand" />
