@@ -28,6 +28,7 @@ const BasicUploader: React.FC = () => {
       status: 'error',
     },
   ])
+  const [list2, setList2] = useState<UploaderValue[]>([])
 
   return (
     <ScrollView>
@@ -35,19 +36,20 @@ const BasicUploader: React.FC = () => {
         <Card title="基础用法" square>
           <Uploader
             list={list1}
-            maxCount={5}
+            maxCount={10}
             onPressUpload={() => {
               Toast('TODO 实现选择文件')
 
               const key = new Date().getTime().toString()
 
-              setList1(s =>
-                s.concat({
+              setList1(s => [
+                ...s,
+                {
                   key,
                   filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
                   status: 'loading',
-                }),
-              )
+                },
+              ])
 
               setTimeout(() => {
                 setList1(s =>
@@ -102,7 +104,7 @@ const BasicUploader: React.FC = () => {
         </Card>
 
         <Card title="自定义图片间距" square>
-          <Uploader list={list1} imageGap={4} />
+          <Uploader list={list1} colGap={4} />
         </Card>
 
         <Card title="自定义文案" square>
@@ -118,7 +120,74 @@ const BasicUploader: React.FC = () => {
             list={list1}
             uploadIcon={<Icon.ArrowUpOutline color="#999" />}
             uploadText="选择"
-            imageSize={100}
+            colCount={6}
+          />
+        </Card>
+
+        <Card title="固定上传个数" square>
+          <Uploader.Regular
+            list={list2}
+            count={10}
+            onPressDelete={(_, index) => {
+              Dialog.confirm({
+                title: '提示',
+                message: '确定要删除？',
+              })
+                .then(action => {
+                  if (action === 'confirm') {
+                    setList2(s => {
+                      const ns = [...s]
+                      ns[index] = undefined
+
+                      return ns
+                    })
+                  }
+                })
+                .catch(() => {})
+            }}
+            onPressUpload={index => {
+              Toast('TODO 实现选择文件')
+
+              const key = new Date().getTime().toString()
+
+              setList2(s => {
+                const ns = [...s]
+
+                ns[index] = {
+                  key,
+                  filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
+                  status: 'loading',
+                }
+
+                return ns
+              })
+
+              setTimeout(() => {
+                setList2(s =>
+                  s.map(item => {
+                    if (item?.key === key) {
+                      item.status = 'done'
+                    }
+                    return item
+                  }),
+                )
+              }, 3000)
+            }}
+          />
+        </Card>
+
+        <Card title="固定上传个数" square>
+          <Uploader.Regular
+            list={list2}
+            colCount={3}
+            count={[
+              null,
+              { text: '正面某个照片' },
+              null,
+              { icon: <Icon.ArrowDownOutline /> },
+              null,
+              { icon: <Icon.CheckedFill />, text: '侧面某个部件' },
+            ]}
           />
         </Card>
       </Space>

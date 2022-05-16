@@ -1,4 +1,5 @@
 import type React from 'react'
+import type { ReactNode } from 'react'
 import type { ImageSourcePropType } from 'react-native'
 
 export type UploaderValue = {
@@ -71,16 +72,15 @@ export interface UploaderProps<T> {
   onPressUpload?: () => void
 
   /**
-   * 缩略图尺寸
-   * @default 80
+   * 一行多少个列/图片
+   * @default 4
    */
-  imageSize?: number
+  colCount?: number
 
   /**
-   * 图片之间的间距
-   * @default uploader_image_gap
+   * 列/图片之间的间距
    */
-  imageGap?: number
+  colGap?: number | 's' | 'm' | 'l'
 
   /**
    * 点击某一个图片
@@ -115,15 +115,18 @@ export interface UploaderImageProps
     Pick<UploaderProps<UploaderValue>, 'imageComponent' | 'deletable'> {
   /**
    * 缩略图尺寸
-   * @default 80
    */
   size?: number
 
   /**
-   * 图片之间的间距
-   * @default uploader_image_gap
+   * 右边距
    */
-  gap?: number
+  marginRight?: number
+
+  /**
+   * 下边距
+   */
+  marginBottom?: number
 
   /**
    * 点击图片
@@ -139,4 +142,31 @@ export interface UploaderImageProps
    * 是否是上传按钮
    */
   isUpload?: boolean
+}
+
+export interface RegularCount {
+  text?: string
+  icon?: ReactNode
+}
+
+export interface UploaderRegularProps<T>
+  extends Pick<
+    UploaderProps<T>,
+    | 'list'
+    | 'imageComponent'
+    | 'colCount'
+    | 'colGap'
+    | 'onPressImage'
+    | 'onPressDelete'
+    | 'onPressError'
+  > {
+  /**
+   * 共多少个上传，请保持数组引用不变
+   */
+  count: number | (RegularCount | null)[]
+
+  /**
+   * 点击某个按钮
+   */
+  onPressUpload?: (index: number) => void
 }

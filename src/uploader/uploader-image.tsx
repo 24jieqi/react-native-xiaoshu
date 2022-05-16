@@ -3,7 +3,6 @@ import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue } from '../helpers'
 import CrossOutline from '../icon/cross'
 import CrossCircleOutline from '../icon/cross-circle'
 import LoadingCircular from '../loading/loading-circular'
@@ -22,8 +21,9 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   status = 'done',
   imageComponent: ImageComponent = Image,
   deletable = true,
-  size = 80,
-  gap,
+  size,
+  marginRight,
+  marginBottom,
   onPress,
   onPressDelete,
   isUpload,
@@ -35,14 +35,16 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  // 修正数据
-  gap = getDefaultValue(gap, CV.uploader_image_gap)
-
   const customSizeStyle = useMemo(() => ({ width: size, height: size }), [size])
 
   const customStyle = useMemo(
-    () => ({ width: size, height: size, marginRight: gap, marginBottom: gap }),
-    [size, gap],
+    () => ({
+      width: size,
+      height: size,
+      marginRight: marginRight,
+      marginBottom: marginBottom,
+    }),
+    [size, marginRight, marginBottom],
   )
   const canPress =
     isUpload || (!!filepath && (status === 'done' || status === 'error'))

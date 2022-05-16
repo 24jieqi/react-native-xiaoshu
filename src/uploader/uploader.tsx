@@ -8,6 +8,7 @@ import Theme from '../theme'
 import type { UploaderProps, UploaderValue } from './interface'
 import { varCreator, styleCreator } from './style'
 import UploaderImage from './uploader-image'
+import useImageLayout from './useImageLayout'
 
 /**
  * Uploader 文件上传
@@ -21,8 +22,8 @@ const Uploader = <T extends UploaderValue>({
   uploadText,
   uploadIcon,
   onPressUpload,
-  imageSize = 80,
-  imageGap,
+  colCount = 4,
+  colGap = 'm',
   onPressImage,
   onPressDelete,
   onPressError,
@@ -31,6 +32,8 @@ const Uploader = <T extends UploaderValue>({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
+
+  const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout()
 
   const genOnPressDelete = (item: T, index: number) => () => {
     onPressDelete?.(item, index, list)
@@ -42,8 +45,14 @@ const Uploader = <T extends UploaderValue>({
     onPressCallback?.(item, index, list)
   }
 
+  const showUploadButton = showUpload && list.length < maxCount
+  const imageGap =
+    typeof colGap === 'number' ? colGap : CV[`uploader_image_gap_${colGap}`]
+  const imageSize = getSizeImage(colCount, imageGap)
+  const total = (showUploadButton ? 1 : 0) + list.length
+
   return (
-    <View style={STYLES.uploader}>
+    <View style={STYLES.uploader} onLayout={onLayoutWrapper}>
       {list.map((item, index) => {
         return (
           <UploaderImage
@@ -53,7 +62,16 @@ const Uploader = <T extends UploaderValue>({
             imageComponent={imageComponent}
             deletable={deletable}
             size={imageSize}
-            gap={imageGap}
+            marginRight={
+              getMarginImage(total, colCount, index).marginRight
+                ? imageGap
+                : undefined
+            }
+            marginBottom={
+              getMarginImage(total, colCount, index).marginBottom
+                ? imageGap
+                : undefined
+            }
             onPress={genOnPressImage(item, index)}
             onPressDelete={genOnPressDelete(item, index)}
           />
@@ -64,7 +82,11 @@ const Uploader = <T extends UploaderValue>({
         <UploaderImage
           isUpload
           size={imageSize}
-          gap={imageGap}
+          marginBottom={
+            getMarginImage(total, colCount, total - 1).marginBottom
+              ? imageGap
+              : undefined
+          }
           onPress={onPressUpload}>
           {isValidElement(uploadIcon) ? (
             uploadIcon
