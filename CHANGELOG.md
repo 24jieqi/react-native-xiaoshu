@@ -1,3 +1,9 @@
+## [0.2.49](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.48...v0.2.49) (2022-05-17)
+
+### Features
+
+- **Field:** 🎸 时间相关输入项可以自定义选择器配置 ([27477a6](https://github.com/hjfruit/react-native-xiaoshu/commit/27477a6e8489bcb9d5a4fd6f33f1b418142f2988))
+
 ## [0.2.48](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.47...v0.2.48) (2022-05-17)
 
 ### Features
