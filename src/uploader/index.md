@@ -23,6 +23,6 @@ group:
 
 <API hideTitle src="./uploader.tsx"></API>
 
-### Uploader.Regular
+### Uploader.Regular <Badge>0.2.47+</Badge>
 
 <API hideTitle src="./uploader-regular.tsx"></API>

@@ -33,4 +33,14 @@ group:
 
 ### Dialog.Component
 
+### Dialog.Keyboard <Badge>0.2.48+</Badge>
+
+### Dialog.KeyboardComponent <Badge>0.2.48+</Badge>
+
+`Dialog.Component`、`Dialog.Keyboard`、`Dialog.KeyboardComponent` 三个组件接口一致。
+
+`Dialog.KeyboardComponent` 内部没有嵌套 `Portal`。
+
+> `Dialog.Keyboard`、`Dialog.KeyboardComponent` 在 `Dialog` 添加键盘出现、消失事件监听，键盘出现时整个对话框距离顶部一个安全距离。
+
 <API hideTitle src="./dialog.tsx"></API>
