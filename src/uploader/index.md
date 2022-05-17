@@ -17,4 +17,12 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+### Uploader
+
+<API hideTitle src="./uploader.tsx"></API>
+
+### Uploader.Regular
+
+<API hideTitle src="./uploader-regular.tsx"></API>
