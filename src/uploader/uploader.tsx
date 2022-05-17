@@ -1,6 +1,8 @@
 import React, { isValidElement } from 'react'
+import type { LayoutChangeEvent } from 'react-native'
 import { View, Text, Image } from 'react-native'
 
+import { usePersistFn } from '../hooks'
 import PlusOutline from '../icon/plus'
 import Locale from '../locale'
 import Theme from '../theme'
@@ -27,6 +29,10 @@ const Uploader = <T extends UploaderValue>({
   onPressImage,
   onPressDelete,
   onPressError,
+
+  style,
+  onLayout,
+  ...restProps
 }: UploaderProps<T>) => {
   const locale = Locale.useLocale().Uploader
   const TOKENS = Theme.useThemeTokens()
@@ -34,6 +40,10 @@ const Uploader = <T extends UploaderValue>({
   const STYLES = Theme.createStyle(CV, styleCreator)
 
   const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout()
+  const onLayoutView = usePersistFn((e: LayoutChangeEvent) => {
+    onLayoutWrapper(e)
+    onLayout?.(e)
+  })
 
   const genOnPressDelete = (item: T, index: number) => () => {
     onPressDelete?.(item, index, list)
@@ -52,7 +62,10 @@ const Uploader = <T extends UploaderValue>({
   const total = (showUploadButton ? 1 : 0) + list.length
 
   return (
-    <View style={STYLES.uploader} onLayout={onLayoutWrapper}>
+    <View
+      {...restProps}
+      style={style ? [STYLES.uploader, style] : STYLES.uploader}
+      onLayout={onLayoutView}>
       {list.map((item, index) => {
         return (
           <UploaderImage

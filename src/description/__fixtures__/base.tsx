@@ -11,7 +11,19 @@ import {
   Card,
   Space,
   Button,
+  Uploader,
 } from '@fruits-chain/react-native-xiaoshu'
+
+const list = [
+  {
+    key: new Date().getTime().toString(),
+    filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
+  },
+  {
+    key: (new Date().getTime() + 1).toString(),
+    filepath: 'https://img.yzcdn.cn/vant/tree.jpg',
+  },
+]
 
 const DescriptionBase: React.FC = () => {
   return (
@@ -58,6 +70,14 @@ const DescriptionBase: React.FC = () => {
             label="对齐"
             text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
           />
+          <Description layout="vertical" label="图片">
+            <Uploader
+              list={list}
+              style={{ flex: 1 }}
+              showUpload={false}
+              deletable={false}
+            />
+          </Description>
         </Description.Group>
       </Card>
 

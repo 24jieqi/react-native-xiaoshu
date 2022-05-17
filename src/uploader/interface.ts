@@ -1,6 +1,6 @@
 import type React from 'react'
 import type { ReactNode } from 'react'
-import type { ImageSourcePropType } from 'react-native'
+import type { ImageSourcePropType, ViewProps } from 'react-native'
 
 export type UploaderValue = {
   /**
@@ -22,7 +22,7 @@ export type UploaderValue = {
   [index: string]: any
 }
 
-export interface UploaderProps<T> {
+export interface UploaderProps<T> extends ViewProps {
   /**
    * 图片数组
    */
@@ -150,16 +150,17 @@ export interface RegularCount {
 }
 
 export interface UploaderRegularProps<T>
-  extends Pick<
-    UploaderProps<T>,
-    | 'list'
-    | 'imageComponent'
-    | 'colCount'
-    | 'colGap'
-    | 'onPressImage'
-    | 'onPressDelete'
-    | 'onPressError'
-  > {
+  extends ViewProps,
+    Pick<
+      UploaderProps<T>,
+      | 'list'
+      | 'imageComponent'
+      | 'colCount'
+      | 'colGap'
+      | 'onPressImage'
+      | 'onPressDelete'
+      | 'onPressError'
+    > {
   /**
    * 共多少个上传，请保持数组引用不变
    */

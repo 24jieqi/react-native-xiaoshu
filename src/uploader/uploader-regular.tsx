@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
+import type { LayoutChangeEvent } from 'react-native'
 import { View, Text, Image } from 'react-native'
 
+import { usePersistFn } from '../hooks'
 import PlusOutline from '../icon/plus'
 import Locale from '../locale'
 import Theme from '../theme'
@@ -24,6 +26,10 @@ const UploaderRegular = <T extends UploaderValue>({
   onPressError,
   count,
   onPressUpload,
+
+  style,
+  onLayout,
+  ...restProps
 }: UploaderRegularProps<T>) => {
   const locale = Locale.useLocale().Uploader
   const TOKENS = Theme.useThemeTokens()
@@ -31,6 +37,11 @@ const UploaderRegular = <T extends UploaderValue>({
   const STYLES = Theme.createStyle(CV, styleCreator)
 
   const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout()
+
+  const onLayoutView = usePersistFn((e: LayoutChangeEvent) => {
+    onLayoutWrapper(e)
+    onLayout?.(e)
+  })
 
   const showList = useMemo(() => {
     return (
@@ -75,7 +86,10 @@ const UploaderRegular = <T extends UploaderValue>({
   const total = showList.length
 
   return (
-    <View style={STYLES.uploader} onLayout={onLayoutWrapper}>
+    <View
+      {...restProps}
+      style={style ? [STYLES.uploader, style] : STYLES.uploader}
+      onLayout={onLayoutView}>
       {showList.map((item, index) => {
         if (item.data) {
           return (
