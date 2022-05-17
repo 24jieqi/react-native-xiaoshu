@@ -20,6 +20,18 @@ const BasicFieldDateRange: React.FC = () => {
   return (
     <Cell.Group title="Field Date Range">
       <Field.DateRange
+        title="自定义时间选项:非受控"
+        placeholder={['请选择', '请选择']}
+        formatValueText={formatValueText}
+        clearable
+        datePickerCustomOption={s => ({
+          ...s,
+          defaultValue: [null, null],
+          confirmButtonText: 'OKK',
+          resetButtonText: 'Back',
+        })}
+      />
+      <Field.DateRange
         title="标题:非受控"
         placeholder={['请选择', '请选择']}
         datePickerTitle="选择时间吗"

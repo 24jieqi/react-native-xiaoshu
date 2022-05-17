@@ -149,6 +149,23 @@ export interface FieldDateProps
   datePickerTitle?: string
 
   /**
+   * 自定义时间选择器配置
+   */
+  datePickerCustomOption?: (
+    option: Pick<
+      DatePickerSingleMethodProps,
+      | 'defaultValue'
+      | 'confirmButtonText'
+      | 'cancelButtonText'
+      | 'mode'
+      | 'min'
+      | 'max'
+      | 'renderLabel'
+      | 'title'
+    >,
+  ) => Omit<DatePickerSingleMethodProps, 'onCancel' | 'onConfirm'>
+
+  /**
    * @default true
    */
   isLink?: boolean
@@ -201,6 +218,24 @@ export interface FieldDateRangeProps
    * 时间选择器关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
   dataPickerBeforeClose?: DatePickerRangeMethodProps['beforeClose']
+
+  /**
+   * 自定义时间选择器配置
+   */
+  datePickerCustomOption?: (
+    option: Pick<
+      DatePickerRangeMethodProps,
+      | 'defaultValue'
+      | 'confirmButtonText'
+      | 'resetButtonText'
+      | 'mode'
+      | 'min'
+      | 'max'
+      | 'renderLabel'
+      | 'title'
+      | 'beforeClose'
+    >,
+  ) => Omit<DatePickerRangeMethodProps, 'onCancel' | 'onConfirm'>
 
   /**
    * 没有值时提示文案

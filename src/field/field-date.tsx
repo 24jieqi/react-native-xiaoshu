@@ -20,6 +20,7 @@ const FieldDate: React.FC<FieldDateProps> = ({
   cancelButtonText,
   formatValueText,
   datePickerTitle,
+  datePickerCustomOption,
   isLink = true,
   editable = true,
   clearable = false,
@@ -35,7 +36,7 @@ const FieldDate: React.FC<FieldDateProps> = ({
   const onPress = usePersistFn(() => {
     Keyboard.dismiss()
 
-    DatePicker({
+    const option = {
       defaultValue: value || new Date(),
       confirmButtonText,
       cancelButtonText,
@@ -44,7 +45,11 @@ const FieldDate: React.FC<FieldDateProps> = ({
       max,
       renderLabel,
       title: datePickerTitle,
-    }).then(({ action, value: _value }) => {
+    }
+
+    DatePicker(
+      datePickerCustomOption ? datePickerCustomOption(option) : option,
+    ).then(({ action, value: _value }) => {
       if (action === 'confirm') {
         onChange(_value)
       }

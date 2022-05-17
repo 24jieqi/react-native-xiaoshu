@@ -16,6 +16,19 @@ const BasicFieldDate: React.FC = () => {
   return (
     <Cell.Group title="Field Date">
       <Field.Date
+        clearable
+        title="自定义时间选项:非受控"
+        placeholder="请选择"
+        datePickerTitle="选择时间吗"
+        datePickerCustomOption={s => ({
+          ...s,
+          title: '啥子',
+          defaultValue: new Date(2016, 6, 20, 18, 40, 10),
+          confirmButtonText: 'OKK',
+          duration: 600,
+        })}
+      />
+      <Field.Date
         title="标题:非受控"
         placeholder="请选择"
         datePickerTitle="选择时间吗"

@@ -28,6 +28,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   formatValueText,
   datePickerTitle,
   dataPickerBeforeClose,
+  datePickerCustomOption,
   isLink = true,
   editable = true,
   clearable = false,
@@ -91,17 +92,21 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   const onPress = usePersistFn(() => {
     Keyboard.dismiss()
 
-    DatePicker.range({
+    const option = {
       defaultValue: value,
+      confirmButtonText,
+      resetButtonText,
       mode,
       min,
       max,
       renderLabel,
-      confirmButtonText,
-      resetButtonText,
       title: datePickerTitle,
       beforeClose: dataPickerBeforeClose,
-    }).then(({ action, values: _values }) => {
+    }
+
+    DatePicker.range(
+      datePickerCustomOption ? datePickerCustomOption(option) : option,
+    ).then(({ action, values: _values }) => {
       if (action === 'confirm') {
         onChange(_values)
       }
