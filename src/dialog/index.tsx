@@ -4,6 +4,7 @@ import Portal from '../portal'
 
 import DialogView from './dialog'
 import DialogInputView from './dialog-input'
+import DialogKeyboardView from './dialog-keyboard'
 import DialogMethodView from './dialog-method'
 import type { DialogInstance } from './interface'
 
@@ -35,6 +36,16 @@ Dialog.Component = memo(props => {
     </Portal>
   )
 })
+
+Dialog.Keyboard = memo(props => {
+  return (
+    <Portal>
+      <DialogKeyboardView {...props} />
+    </Portal>
+  )
+})
+
+Dialog.KeyboardComponent = DialogKeyboardView
 
 Dialog.confirm = options => {
   return Dialog({
