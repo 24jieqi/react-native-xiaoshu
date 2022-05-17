@@ -1,3 +1,10 @@
+## [0.2.48](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.47...v0.2.48) (2022-05-17)
+
+### Features
+
+- **Dialog:** 🎸 拆分 Dialog.Keyboard ([2524246](https://github.com/hjfruit/react-native-xiaoshu/commit/25242462115751db68afdc2c7e887e333612ccab))
+- **Uploader:** 🎸 添加 View 相关属性 ([74c5dd3](https://github.com/hjfruit/react-native-xiaoshu/commit/74c5dd36513358a5109c7bad7d6ebca633face20))
+
 ## [0.2.47](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.46...v0.2.47) (2022-05-16)
 
 ### Bug Fixes
