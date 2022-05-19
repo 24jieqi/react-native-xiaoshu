@@ -6,9 +6,9 @@ export const varCreator = (TOKENS: TokensType) => {
   return {
     text_input_l_font_size: TOKENS.font_size_5,
     text_input_l_min_height: 40,
-    text_input_m_font_size: TOKENS.font_size_4,
+    text_input_m_font_size: TOKENS.font_size_5,
     text_input_m_min_height: 32,
-    text_input_s_font_size: TOKENS.font_size_4,
+    text_input_s_font_size: TOKENS.font_size_5,
     text_input_s_min_height: 24,
     text_input_selection_color: TOKENS.brand_6,
     text_input_placeholder_text_color: TOKENS.gray_5,
