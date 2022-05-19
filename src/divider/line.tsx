@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useMemo, memo } from 'react'
-import type { ViewStyle, LayoutChangeEvent } from 'react-native'
-import { View, useWindowDimensions } from 'react-native'
-import { Line, Svg } from 'react-native-svg'
+import React, { useMemo, memo } from 'react'
+import type { ViewStyle, StyleProp } from 'react-native'
+import { View } from 'react-native'
 
 import Theme from '../theme'
 
@@ -19,86 +18,52 @@ const DividerLine: React.FC<DividerLineProps> = ({
   direction = 'horizontal',
 }) => {
   const isVertical = direction === 'vertical'
-  const { width } = useWindowDimensions()
   const TOKENS = Theme.useThemeTokens()
   const VC = Theme.createVar(TOKENS, varCreator)
-  const [size, setSize] = useState(
-    isVertical ? VC.divider_vertical_min_height : width,
-  )
 
-  const viewStyle = useMemo(() => {
+  const Styles = useMemo(() => {
+    let wrap: StyleProp<ViewStyle> = { overflow: 'hidden' }
+    let line: StyleProp<ViewStyle> = {}
+    let lineMask: StyleProp<ViewStyle> = {}
     if (isVertical) {
-      return {
-        flex: 1,
-        width: 1,
+      wrap = { ...wrap, width: 1, height: '100%' }
+      line = {
+        ...line,
         height: '100%',
+        borderLeftWidth: 1,
+        borderColor: color,
+      }
+    } else {
+      wrap = { ...wrap, height: 1, maxWidth: '100%' }
+      line = {
+        ...line,
+        height: 0,
+        minHeight: 0,
+        borderBottomWidth: 1,
+        borderColor: color,
       }
     }
-
-    const s: ViewStyle = {
-      flex: 1,
-      maxWidth: 'auto',
+    if (dashed) {
+      line = { ...line, borderStyle: 'dashed' }
     }
 
     if (position === 'left') {
-      s.marginRight = VC.divider_margin_horizontal
+      line.marginRight = VC.divider_margin_horizontal
     }
 
     if (position === 'right') {
-      s.marginLeft = VC.divider_margin_horizontal
+      line.marginLeft = VC.divider_margin_horizontal
     }
-
-    if (!adaptive) {
-      s.maxWidth =
-        position === 'left'
-          ? VC.divider_content_left_width
-          : VC.divider_content_right_width
+    if (adaptive) {
+      wrap.flexGrow = 1
+      wrap.flexShrink = 1
     }
-
-    return s
-  }, [
-    isVertical,
-    position,
-    adaptive,
-    VC.divider_margin_horizontal,
-    VC.divider_content_left_width,
-    VC.divider_content_right_width,
-  ])
-
-  const onLayout = useCallback(
-    (e: LayoutChangeEvent) => {
-      setSize(e.nativeEvent.layout[isVertical ? 'height' : 'width'])
-    },
-    [isVertical],
-  )
-
+    return { wrap, line, lineMask }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isVertical])
   return (
-    <View onLayout={onLayout} style={viewStyle}>
-      {isVertical ? (
-        <Svg width={1} height={size} viewBox={`0 0 1 ${size}`}>
-          <Line
-            x1="0.5"
-            y1="0"
-            x2="0.5"
-            y2={size}
-            strokeWidth={1}
-            strokeDasharray={dashed ? '2 2' : undefined}
-            stroke={color}
-          />
-        </Svg>
-      ) : (
-        <Svg width={size} height={1} viewBox={`0 0 ${size} 1`}>
-          <Line
-            x1="0"
-            y1="0.5"
-            x2={size}
-            y2="0.5"
-            strokeWidth={1}
-            strokeDasharray={dashed ? '2 2' : undefined}
-            stroke={color}
-          />
-        </Svg>
-      )}
+    <View style={Styles.wrap}>
+      <View style={Styles.line} />
     </View>
   )
 }
