@@ -1,3 +1,15 @@
+## [0.2.50](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.49...v0.2.50) (2022-05-20)
+
+### Bug Fixes
+
+- **TextInput:** 🐛 输入框文案字体大小 ([63c0050](https://github.com/hjfruit/react-native-xiaoshu/commit/63c0050654995a4c35eedf7fbdd19f2a215be05b))
+
+### Features
+
+- **Form:** 🎸 获取 Item 内部控件的值变更为 event.nativeEvent.text ([1d06ea9](https://github.com/hjfruit/react-native-xiaoshu/commit/1d06ea9312db49c250f976890c972e744604b508))
+- **Form:** 🎸 新增 useFormInstance ([74a262a](https://github.com/hjfruit/react-native-xiaoshu/commit/74a262a2b97523231b0bc373d71d6ded24ac7f52))
+- **Form:** 🎸 新增 validateFieldsWithoutToast ([d04cf55](https://github.com/hjfruit/react-native-xiaoshu/commit/d04cf5503c41512634df6eb4392ae905b5058521))
+
 ## [0.2.49](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.48...v0.2.49) (2022-05-17)
 
 ### Features
