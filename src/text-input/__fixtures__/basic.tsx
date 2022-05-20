@@ -44,7 +44,26 @@ const BasicTextInput: React.FC = () => {
         <Cell
           title="text:受控"
           value={
-            <TextInput placeholder="受控" value={value2} onChange={setValue2} />
+            <TextInput
+              placeholder="受控"
+              value={value2}
+              onChangeText={e => {
+                console.log('onChangeText => ', e)
+              }}
+              onChange={e => {
+                setValue2(e)
+                console.log('onChange => ', e)
+              }}
+              onFocus={e => {
+                console.log('onFocus => ', e.nativeEvent.text)
+              }}
+              onBlur={e => {
+                console.log('onBlur => ', e.nativeEvent.text)
+              }}
+              onEndEditing={e => {
+                console.log('onEndEditing => ', e.nativeEvent.text)
+              }}
+            />
           }
         />
 

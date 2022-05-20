@@ -1,6 +1,6 @@
 /**
- * title: 基础使用
- * desc: 给 Form.Item 添加校验规则，form 表单实例关联表单并操作数据。
+ * title: useFormInstance
+ * desc: 获取当前上下文正在使用的 Form 实例，常见于封装子组件消费无需透传 Form 实例。
  */
 
 import React from 'react'
@@ -13,19 +13,30 @@ import {
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
-const BasicFormBase: React.FC = () => {
+const BasicFormUseFormInstanceSub = () => {
+  const form = Form.useFormInstance()
+
+  return (
+    <Button
+      text="重置所有"
+      type="ghost"
+      onPress={() => {
+        form.resetFields(['username', 'password', 'password333'])
+      }}
+    />
+  )
+}
+
+const BasicFormUseFormInstance: React.FC = () => {
   const [form] = Form.useForm()
 
   return (
-    <Card title="用户登录 useForm" square>
+    <Card title="useFormInstance" square>
       <Form
         form={form}
         onFinish={values => {
           console.log(values)
           Toast(JSON.stringify(values))
-        }}
-        initialValues={{
-          AAA: 'CCC',
         }}>
         <Form.Item
           name="username"
@@ -33,12 +44,6 @@ const BasicFormBase: React.FC = () => {
             {
               required: true,
               message: '请输入用户名',
-            },
-            {
-              validator: (_, v) => {
-                console.log(v)
-                return Promise.resolve()
-              },
             },
           ]}
           validateTrigger="onEndEditing">
@@ -80,50 +85,12 @@ const BasicFormBase: React.FC = () => {
         </Form.Item>
 
         <Space head>
-          <Button
-            text="管理员"
-            danger
-            onPress={() => {
-              form.setFieldsValue({
-                username: 'admin',
-              })
-            }}
-          />
-
           <Button text="提交" type="primary" onPress={form.submit} />
-
-          <Button
-            text="重置"
-            type="ghost"
-            onPress={() => {
-              form.resetFields(['username', 'password'])
-            }}
-          />
-          <Button
-            text="重置所有"
-            type="ghost"
-            onPress={() => {
-              form.resetFields(['username', 'password', 'password333'])
-            }}
-          />
-          <Button
-            text="校验 username"
-            type="ghost"
-            onPress={() => {
-              form
-                .validateFields(['username'])
-                .then(d => {
-                  console.log(d)
-                })
-                .catch(e => {
-                  console.log(e)
-                })
-            }}
-          />
+          <BasicFormUseFormInstanceSub />
         </Space>
       </Form>
     </Card>
   )
 }
 
-export default BasicFormBase
+export default BasicFormUseFormInstance

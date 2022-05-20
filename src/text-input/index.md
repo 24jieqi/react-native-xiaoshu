@@ -15,8 +15,27 @@ group:
 
 参考 Antd 桌面端 Input 组件交互、API 实现。
 
+## 事件触发顺序
+
+```
+|-- onFocus =>
+|--|-- onChange => onChange => onChangeText =>
+|--|-- onChange => onChange => onChangeText =>
+|--|--|-- onChange => onEndEditing => onBlur
+```
+
+## 各个事件中获取输入框的值
+
+- onFocus `(event) => event.nativeEvent.text`
+- onChange `(text) => text`
+- onChangeText `(text) => text`
+- onEndEditing `(event) => event.nativeEvent.text`
+- onBlur `(event) => event.nativeEvent.text`
+
 ## 代码演示
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+<API hideTitle></API>

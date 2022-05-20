@@ -6,6 +6,7 @@ import Ref from './ref'
 import Context from './context'
 import Deps from './deps'
 import List from './list'
+import UseFormInstance from './use-form-instance'
 
 const BasicForm: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const BasicForm: React.FC = () => {
       <Context />
       <Deps />
       <List />
+      <UseFormInstance />
     </Space>
   )
 }
