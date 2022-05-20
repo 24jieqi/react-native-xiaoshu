@@ -18,7 +18,7 @@ group:
 - 对不同章节的文本段落进行分割。
 - 对行内文字/链接进行分割。
 
-分割线采用 SVG 画的，React Native border 暂时不支持虚线。
+React Native 在 iOS 端的 borderStyle 暂时不支持虚线，使用 SVG 的方式绘制。
 
 ## 代码演示
 
