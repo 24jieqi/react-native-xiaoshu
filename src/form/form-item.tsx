@@ -1,8 +1,10 @@
 import type { FormInstance } from 'rc-field-form'
 import { Field } from 'rc-field-form'
 import type { FieldProps } from 'rc-field-form/lib/Field'
-import type { NamePath } from 'rc-field-form/lib/interface'
+import type { NamePath, EventArgs } from 'rc-field-form/lib/interface'
 import React from 'react'
+
+import { usePersistFn } from '../hooks'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>,
@@ -14,7 +16,7 @@ export interface FormItemProps<Values = any> extends RcFieldProps<Values> {
   children?: ChildrenType<Values>
 }
 
-function hasValidName(name?: NamePath): Boolean {
+const hasValidName = (name?: NamePath): Boolean => {
   return !(name === undefined || name === null)
 }
 
@@ -25,9 +27,24 @@ function FormItem<Values = any>(
 
   const hasName = hasValidName(restProps.name)
   const isRenderProps = typeof children === 'function'
+  const getValueFromEvent = usePersistFn((...args: EventArgs) => {
+    const event = args[0]
+    const valuePropName = props.valuePropName || 'text'
+    if (
+      event?.nativeEvent &&
+      typeof event.nativeEvent === 'object' &&
+      valuePropName in event.nativeEvent
+    ) {
+      return event.nativeEvent[valuePropName]
+    }
+
+    return event
+  })
 
   return (
-    <Field {...restProps}>
+    <Field
+      {...restProps}
+      getValueFromEvent={props.getValueFromEvent || getValueFromEvent}>
       {!hasName &&
       (restProps.shouldUpdate || restProps.dependencies) &&
       isRenderProps

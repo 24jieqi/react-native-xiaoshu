@@ -34,7 +34,14 @@ const BasicFormBase: React.FC = () => {
               required: true,
               message: '请输入用户名',
             },
-          ]}>
+            {
+              validator: (_, v) => {
+                console.log(v)
+                return Promise.resolve()
+              },
+            },
+          ]}
+          validateTrigger="onEndEditing">
           <Field.TextInput required title="用户名" placeholder="请输入用户名" />
         </Form.Item>
         <Form.Item
