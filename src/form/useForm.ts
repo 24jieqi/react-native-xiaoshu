@@ -1,9 +1,10 @@
-import type { FormInstance } from 'rc-field-form'
 import { useForm as useRcForm } from 'rc-field-form'
 import { useMemo } from 'react'
 import { Keyboard } from 'react-native'
 
 import Toast from '../toast'
+
+import type { FormInstance } from './interface'
 
 export default function <Values = any>(
   form?: FormInstance<Values>,

@@ -1,4 +1,13 @@
-import type { FormProps as RCFormProps } from 'rc-field-form'
+import type {
+  FormProps as RCFormProps,
+  FormInstance as RCFormInstance,
+} from 'rc-field-form'
+
+export interface FormInstance<Values = any> extends RCFormInstance<Values> {}
+
+export interface FormContextProps {
+  form?: FormInstance
+}
 
 /**
  * Form 组件可用 props

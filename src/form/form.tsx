@@ -1,11 +1,12 @@
 import type { FormInstance as RCFormInstance } from 'rc-field-form'
 import RCForm from 'rc-field-form'
 import type { ValidateErrorEntity } from 'rc-field-form/lib/interface'
-import React, { useImperativeHandle, forwardRef } from 'react'
+import React, { useImperativeHandle, forwardRef, useMemo } from 'react'
 
 import { usePersistFn } from '../hooks'
 import Toast from '../toast'
 
+import { FormContext } from './context'
 import type { FormProps } from './interface'
 import useForm from './useForm'
 
@@ -24,6 +25,12 @@ const InternalForm: React.ForwardRefRenderFunction<
   ref,
 ) => {
   const [wrapForm] = useForm(form)
+  const value = useMemo(
+    () => ({
+      form: wrapForm,
+    }),
+    [wrapForm],
+  )
 
   useImperativeHandle(ref, () => wrapForm)
 
@@ -32,13 +39,15 @@ const InternalForm: React.ForwardRefRenderFunction<
   })
 
   return (
-    <RCForm
-      {...restProps}
-      component={false}
-      form={wrapForm}
-      onFinishFailed={onFinishFailed}
-      onFinish={onFinishPersistFn}
-    />
+    <FormContext.Provider value={value}>
+      <RCForm
+        {...restProps}
+        component={false}
+        form={wrapForm}
+        onFinishFailed={onFinishFailed}
+        onFinish={onFinishPersistFn}
+      />
+    </FormContext.Provider>
   )
 }
 
