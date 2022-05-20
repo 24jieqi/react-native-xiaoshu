@@ -44,7 +44,7 @@ export interface DividerProps {
 }
 
 export interface DividerLineProps
-  extends Required<Pick<DividerProps, 'color' | 'dashed'>> {
+  extends Required<Pick<DividerProps, 'color'>> {
   /**
    * 所处位置
    */

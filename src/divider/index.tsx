@@ -7,6 +7,7 @@ import Theme from '../theme'
 
 import type { DividerProps } from './interface'
 import DividerLine from './line'
+import DividerLineDashed from './line-dashed'
 import { varCreator, styleCreator } from './style'
 
 /**
@@ -27,6 +28,7 @@ const Divider: React.FC<DividerProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
   const isVertical = direction === 'vertical'
+  const Line = dashed ? DividerLineDashed : DividerLine
 
   color = getDefaultValue(
     color,
@@ -41,32 +43,25 @@ const Divider: React.FC<DividerProps> = ({
         style,
       ]}>
       {isVertical ? (
-        <DividerLine
-          color={color}
-          dashed={dashed}
-          position="center"
-          direction={direction}
-        />
+        <Line color={color} position="center" direction={direction} />
       ) : !isNil(children) ? (
         <>
-          <DividerLine
+          <Line
             color={color}
-            dashed={dashed}
             position="left"
             adaptive={contentPosition !== 'left'}
           />
 
           <Text style={[STYLES.text, textStyle]}>{children}</Text>
 
-          <DividerLine
+          <Line
             color={color}
-            dashed={dashed}
             position="right"
             adaptive={contentPosition !== 'right'}
           />
         </>
       ) : (
-        <DividerLine color={color} dashed={dashed} position="center" />
+        <Line color={color} position="center" />
       )}
     </View>
   )
