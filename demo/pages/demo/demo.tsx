@@ -1,10 +1,17 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import { Cell, Card, Blank } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Cell,
+  Card,
+  Blank,
+  ButtonBar,
+} from '@fruits-chain/react-native-xiaoshu'
 
 import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
+
+import { sceneContainerStyle } from '../../routes/config'
 
 import FontSize from './font-size'
 
@@ -30,35 +37,35 @@ const navDatas: {
     title: '基础组件',
     datas: [
       {
-        title: 'Blank',
+        title: 'Blank 留白',
         name: 'DemoBlank',
       },
       {
-        title: 'Button',
+        title: 'Button 按钮',
         name: 'DemoButton',
       },
       {
-        title: 'Cell',
+        title: 'Cell 单元格',
         name: 'DemoCell',
       },
       {
-        title: 'Grid',
+        title: 'Grid 栅格',
         name: 'DemoGrid',
       },
       {
-        title: 'Icon',
+        title: 'Icon 图标',
         name: 'DemoIcon',
       },
       {
-        title: 'Popup',
+        title: 'Popup 弹出层',
         name: 'DemoPopup',
       },
       {
-        title: 'Space',
+        title: 'Space 间距',
         name: 'DemoSpace',
       },
       {
-        title: 'Toast',
+        title: 'Toast 轻提示',
         name: 'DemoToast',
       },
     ],
@@ -67,59 +74,59 @@ const navDatas: {
     title: '表单组件',
     datas: [
       {
-        title: 'Checkbox',
+        title: 'Checkbox 复选框',
         name: 'DemoCheckbox',
       },
       {
-        title: 'DatePicker',
+        title: 'DatePicker 时间选择器',
         name: 'DemoDatePicker',
       },
       {
-        title: 'DatePickerView',
+        title: 'DatePickerView 时间选择器视图',
         name: 'DemoDatePickerView',
       },
       {
-        title: 'Field',
+        title: 'Field 输入项',
         name: 'DemoField',
       },
       {
-        title: 'Form',
+        title: 'Form 表单',
         name: 'DemoForm',
       },
       {
-        title: 'NumberInput',
+        title: 'NumberInput 数字输入',
         name: 'DemoNumberInput',
       },
       {
-        title: 'PasswordInput',
+        title: 'PasswordInput 密码输入',
         name: 'DemoPasswordInput',
       },
       {
-        title: 'Picker',
+        title: 'Picker 选择器',
         name: 'DemoPicker',
       },
       {
-        title: 'PickerView',
+        title: 'PickerView 选择器视图',
         name: 'DemoPickerView',
       },
       {
-        title: 'Search',
+        title: 'Search 搜索',
         name: 'DemoSearch',
       },
       {
-        title: 'Selector',
+        title: 'Selector 选择组',
         name: 'DemoSelector',
       },
       {
-        title: 'StepSelector',
+        title: 'StepSelector 步骤选择器',
         name: 'DemoStepSelector',
       },
       {
-        title: 'Switch',
+        title: 'Switch 开关',
         name: 'DemoSwitch',
       },
       {
-        title: 'TextInput',
+        title: 'TextInput 输入框',
         name: 'DemoTextInput',
       },
     ],
@@ -128,43 +135,43 @@ const navDatas: {
     title: '反馈组件',
     datas: [
       {
-        title: 'ActionSheet',
+        title: 'ActionSheet 动作面板',
         name: 'DemoActionSheet',
       },
       {
-        title: 'Dialog',
+        title: 'Dialog 对话框',
         name: 'DemoDialog',
       },
       {
-        title: 'Dropdown',
+        title: 'Dropdown 下拉菜单',
         name: 'DemoDropdown',
       },
       {
-        title: 'ErrorBoundary',
+        title: 'ErrorBoundary 错误捕获',
         name: 'DemoErrorBoundary',
       },
       {
-        title: 'Loading',
+        title: 'Loading 加载',
         name: 'DemoLoading',
       },
       {
-        title: 'Notify',
+        title: 'Notify 消息提示',
         name: 'DemoNotify',
       },
       {
-        title: 'Overlay',
+        title: 'Overlay 遮罩层',
         name: 'DemoOverlay',
       },
       {
-        title: 'Popover',
+        title: 'Popover 气泡卡片',
         name: 'DemoPopover',
       },
       {
-        title: 'Progress',
+        title: 'Progress 进度条',
         name: 'DemoProgress',
       },
       {
-        title: 'Skeleton',
+        title: 'Skeleton 骨架屏',
         name: 'DemoSkeleton',
       },
     ],
@@ -173,59 +180,59 @@ const navDatas: {
     title: '展示组件',
     datas: [
       {
-        title: 'Badge',
+        title: 'Badge 徽标',
         name: 'DemoBadge',
       },
       {
-        title: 'ButtonBar',
+        title: 'ButtonBar 按钮组',
         name: 'DemoButtonBar',
       },
       {
-        title: 'Card',
+        title: 'Card 卡片',
         name: 'DemoCard',
       },
       {
-        title: 'Collapse',
+        title: 'Collapse 折叠板',
         name: 'DemoCollapse',
       },
       {
-        title: 'Description',
+        title: 'Description 描述列表',
         name: 'DemoDescription',
       },
       {
-        title: 'Divider',
+        title: 'Divider 分割线',
         name: 'DemoDivider',
       },
       {
-        title: 'Empty',
+        title: 'Empty 空元素',
         name: 'DemoEmpty',
       },
       {
-        title: 'Flex',
+        title: 'Flex 布局',
         name: 'DemoFlex',
       },
       {
-        title: 'Tag',
-        name: 'DemoTag',
-      },
-      {
-        title: 'NoticeBar',
+        title: 'NoticeBar 通知栏',
         name: 'DemoNoticeBar',
       },
       {
-        title: 'Result',
+        title: 'Result 结果',
         name: 'DemoResult',
       },
       {
-        title: 'TabBar',
+        title: 'TabBar 标签栏',
         name: 'DemoTabBar',
       },
       {
-        title: 'Tabs',
+        title: 'Tabs 标签页',
         name: 'DemoTabs',
       },
       {
-        title: 'Uploader',
+        title: 'Tag 标签',
+        name: 'DemoTag',
+      },
+      {
+        title: 'Uploader 文件上传',
         name: 'DemoUploader',
       },
     ],
@@ -234,15 +241,15 @@ const navDatas: {
     title: '导航组件',
     datas: [
       {
-        title: 'NavBar',
+        title: 'NavBar 导航栏',
         name: 'DemoNavBar',
       },
       {
-        title: 'Sidebar',
+        title: 'Sidebar 侧边导航',
         name: 'DemoSidebar',
       },
       {
-        title: 'Steps',
+        title: 'Steps 步骤条',
         name: 'DemoSteps',
       },
     ],
@@ -278,6 +285,11 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
             </Cell.Group>
           )
         })}
+
+        <ButtonBar
+          divider={false}
+          backgroundColor={sceneContainerStyle.backgroundColor}
+        />
       </ScrollView>
     </Layout.Page>
   )

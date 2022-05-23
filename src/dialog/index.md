@@ -1,5 +1,5 @@
 ---
-title: Dialog 弹出框
+title: Dialog 对话框
 nav:
   title: 组件
   path: /component
@@ -9,7 +9,7 @@ group:
   order: 2
 ---
 
-# Dialog 弹出框
+# Dialog 对话框
 
 > 弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作，支持函数调用和组件调用两种方式。
 

@@ -1,5 +1,5 @@
 ---
-title: Field 输入框
+title: Field 输入项
 nav:
   title: 组件
   path: /component
@@ -9,9 +9,9 @@ group:
   order: 1
 ---
 
-# Field 输入框
+# Field 输入项
 
-> 用户可以在文本框内输入或编辑文字。
+> 与表单进行交互，包含 onChange、value、defaultValue。
 
 ## 何时使用
 
