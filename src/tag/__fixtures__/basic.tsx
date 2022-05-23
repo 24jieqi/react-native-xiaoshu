@@ -14,9 +14,14 @@ const BasicTag: React.FC = () => {
         <Cell title="default 类型" value={<Tag>标签</Tag>} />
         <Cell title="primary 类型" value={<Tag type="primary">标签</Tag>} />
         <Cell title="hazy 类型" value={<Tag type="hazy">标签</Tag>} />
+        <Cell title="ghost 类型" value={<Tag type="ghost">标签</Tag>} />
         <Cell
-          title="ghost 类型"
-          value={<Tag type="ghost">标签</Tag>}
+          title="ghost 类型:细边框"
+          value={
+            <Tag type="ghost" hairline>
+              标签
+            </Tag>
+          }
           divider={false}
         />
       </Cell.Group>

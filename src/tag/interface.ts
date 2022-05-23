@@ -48,4 +48,8 @@ export interface TagProps extends ViewProps {
    * 设置图标
    */
   icon?: React.ReactNode
+  /**
+   * 细边框
+   */
+  hairline?: boolean
 }

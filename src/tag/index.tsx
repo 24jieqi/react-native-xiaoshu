@@ -26,6 +26,7 @@ const Tag: React.FC<TagProps> = ({
   icon,
   color,
   textColor,
+  hairline,
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -44,7 +45,7 @@ const Tag: React.FC<TagProps> = ({
       case 'ghost': {
         tempInnerStyle.backgroundColor = CV.tag_ghost_background_color
         tempInnerStyle.borderColor = mainColor
-        tempInnerStyle.borderWidth = StyleSheet.hairlineWidth
+        tempInnerStyle.borderWidth = hairline ? StyleSheet.hairlineWidth : 1
         tempTextStyle.color = mainColor
         break
       }
@@ -65,11 +66,12 @@ const Tag: React.FC<TagProps> = ({
       textTypeStyle: tempTextStyle,
     }
   }, [
-    type,
-    mainColor,
     CV.tag_text_color,
     CV.tag_ghost_background_color,
     CV.tag_hazy_lightness,
+    hairline,
+    type,
+    mainColor,
   ])
   const { innerSizeStyle, textSizeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = STYLES[`tag_inner_${size}`]
