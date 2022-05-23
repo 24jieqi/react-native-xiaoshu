@@ -1,3 +1,10 @@
+## [0.2.51](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.50...v0.2.51) (2022-05-23)
+
+### Features
+
+- **BottomBar:** 🎸 导出 BottomBar ([31571b7](https://github.com/hjfruit/react-native-xiaoshu/commit/31571b72873c52230487c55baa44c289de1ceb67))
+- **Tag:** 🎸 新增细边框 ([2e81f26](https://github.com/hjfruit/react-native-xiaoshu/commit/2e81f266d7742206e8a580fd5986771f45f7b4d8))
+
 ## [0.2.50](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.49...v0.2.50) (2022-05-20)
 
 ### Bug Fixes
