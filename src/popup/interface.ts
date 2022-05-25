@@ -10,7 +10,7 @@ type PopupPropsCommonCallback = () => void
 /** popup 通用的 props */
 export interface PopupPropsCommon {
   /**
-   * 是否展示遮罩层
+   * 是否显示
    * @default false
    */
   visible: boolean
