@@ -1,3 +1,9 @@
+## [0.2.52](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.51...v0.2.52) (2022-05-25)
+
+### Features
+
+- **Dialog:** 🎸 新增 close 关闭按钮\优化没有按钮的情况 ([5059ea0](https://github.com/hjfruit/react-native-xiaoshu/commit/5059ea0bcf6494418f1bc9c8699a376add49dc21))
+
 ## [0.2.51](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.50...v0.2.51) (2022-05-23)
 
 ### Features
