@@ -19,7 +19,13 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/input.tsx"></code>
+
+<code src="./__fixtures__/other.tsx"></code>
+
+<code src="./__fixtures__/keyboard.tsx"></code>
 
 ## API
 

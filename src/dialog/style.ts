@@ -9,6 +9,8 @@ export const varCreator = (TOKENS: TokensType) => {
     dialog_transition: TOKENS.animation_duration_base,
     dialog_border_radius: TOKENS.border_radius_xl,
     dialog_background_color: TOKENS.white,
+    dialog_close_color: TOKENS.gray_8,
+    dialog_close_size: 24,
     dialog_header_font_weight: 'bold' as TextStyle['fontWeight'],
     dialog_header_line_height: TOKENS.line_height_2,
     dialog_header_margin_top: 30,
@@ -34,6 +36,12 @@ export const styleCreator = (cv: ComponentVars) => {
       overflow: 'hidden',
       backgroundColor: cv.dialog_background_color,
       borderRadius: cv.dialog_border_radius,
+    },
+
+    close: {
+      position: 'absolute',
+      right: cv.dialog_border_radius,
+      top: cv.dialog_border_radius,
     },
 
     title_text: {

@@ -1,5 +1,10 @@
 import type * as React from 'react'
-import type { ColorValue, StyleProp, ViewStyle } from 'react-native'
+import type {
+  ColorValue,
+  StyleProp,
+  ViewStyle,
+  TouchableWithoutFeedbackProps,
+} from 'react-native'
 
 import type { NumberInputProps } from '../number-input/interface'
 import type { PopupPropsCommon } from '../popup/interface'
@@ -69,6 +74,17 @@ interface DialogCommon extends PopupPropsCommon {
    * 取消按钮颜色
    */
   cancelButtonColor?: ColorValue
+
+  /**
+   * 是否显示关闭按钮
+   * @default false
+   */
+  showClose?: boolean
+
+  /**
+   * 点击关闭按钮
+   */
+  onPressClose?: TouchableWithoutFeedbackProps['onPress']
 }
 
 export interface DialogProps extends DialogCommon {

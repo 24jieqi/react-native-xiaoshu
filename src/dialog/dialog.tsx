@@ -5,6 +5,7 @@ import { View, Text, Animated } from 'react-native'
 import Button from '../button'
 import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers'
 import { usePersistFn } from '../hooks'
+import Cross from '../icon/cross'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import Theme from '../theme'
@@ -32,6 +33,8 @@ const Dialog: React.FC<DialogProps> = ({
   cancelButtonColor,
   confirmButtonLoading = false,
   cancelButtonLoading = false,
+  showClose = false,
+  onPressClose,
   onPressCancel,
   onPressConfirm,
   duration,
@@ -132,6 +135,15 @@ const Dialog: React.FC<DialogProps> = ({
             ],
           },
         ]}>
+        {showClose ? (
+          <Cross
+            style={STYLES.close}
+            onPress={onPressClose}
+            color={CV.dialog_close_color}
+            size={CV.dialog_close_size}
+          />
+        ) : null}
+
         {titleJSX}
 
         {titleJSX ? (
@@ -142,37 +154,39 @@ const Dialog: React.FC<DialogProps> = ({
 
         {children}
 
-        <View style={STYLES.footer}>
-          {showCancelButton ? (
-            <Button
-              {...cancelButtonProps}
-              type="link"
-              size="xl"
-              square
-              style={STYLES.btn}
-            />
-          ) : null}
-          {showConfirmButton ? (
-            <Button
-              {...confirmButtonProps}
-              type="link"
-              size="xl"
-              square
-              style={[
-                STYLES.btn,
-                showCancelButton
-                  ? // eslint-disable-next-line react-native/no-inline-styles
-                    {
-                      // react-native-web 覆盖原 button 样式
-                      borderLeftWidth: 1,
-                      borderColor: CV.dialog_footer_divider_color,
-                    }
-                  : null,
-              ]}
-              textStyle={STYLES.btn_confirm}
-            />
-          ) : null}
-        </View>
+        {showCancelButton || showConfirmButton ? (
+          <View style={STYLES.footer}>
+            {showCancelButton ? (
+              <Button
+                {...cancelButtonProps}
+                type="link"
+                size="xl"
+                square
+                style={STYLES.btn}
+              />
+            ) : null}
+            {showConfirmButton ? (
+              <Button
+                {...confirmButtonProps}
+                type="link"
+                size="xl"
+                square
+                style={[
+                  STYLES.btn,
+                  showCancelButton
+                    ? // eslint-disable-next-line react-native/no-inline-styles
+                      {
+                        // react-native-web 覆盖原 button 样式
+                        borderLeftWidth: 1,
+                        borderColor: CV.dialog_footer_divider_color,
+                      }
+                    : null,
+                ]}
+                textStyle={STYLES.btn_confirm}
+              />
+            ) : null}
+          </View>
+        ) : null}
       </Animated.View>
     </Popup>
   )
