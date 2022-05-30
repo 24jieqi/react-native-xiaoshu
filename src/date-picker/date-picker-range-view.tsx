@@ -42,6 +42,9 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   resetButtonText,
   onConfirm,
   placeholder,
+  clearable,
+  onClear,
+  clearButtonText,
 
   // DateView
   mode = 'Y-D',
@@ -79,7 +82,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const [dayActive, setDayActive] = useState<0 | 1>(0)
   const Values = useRef<DatePickerRangeValue>([...value])
-  const OriginalValues = useRef(_initialValue)
+  const OriginalValues = useRef<DatePickerRangeValue>([..._initialValue])
   const [limitDates, setLimitDates] = useState<DatePickerRangeValue>([
     min,
     Values.current[1] || max,
@@ -96,7 +99,16 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   })
 
   const onPressConfirm = usePersistFn(() => {
-    onConfirm?.(Values.current)
+    if (
+      !isNil(Values.current[0]) &&
+      !isNil(Values.current[1]) &&
+      Values.current[0] <= Values.current[1]
+    ) {
+      onConfirm?.(Values.current)
+    }
+  })
+  const onPressClear = usePersistFn(() => {
+    onClear?.(Values.current)
   })
 
   const onPressDay1 = usePersistFn(() => {
@@ -113,7 +125,11 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   const onPressDay2 = usePersistFn(() => {
     // 切换的时候没有滚动时间做默认选择
     if (!Values.current[1]) {
-      Values.current[1] = getRightDate(currentDate, minDateS, maxDateS)
+      Values.current[1] = getRightDate(
+        Values.current[0] || new Date(),
+        minDateS,
+        maxDateS,
+      )
       onChange([...Values.current])
     }
 
@@ -123,9 +139,13 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const onPressReset = usePersistFn(() => {
     Values.current = [...OriginalValues.current]
-    onPressDay1()
 
     onChange([...Values.current])
+
+    // 最大最小时间使用了 useMemo，等数据重新计算好后再回到开始时间
+    setTimeout(() => {
+      onPressDay1()
+    }, 0)
   })
 
   // 把开时间提前锁定
@@ -184,7 +204,18 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
       />
 
       <Row gap={CV_PICKER.picker_action_gap} style={btnStyle}>
-        <Col span={12}>
+        {clearable ? (
+          <Col span={6}>
+            <Button
+              type="hazy"
+              text={clearButtonText || locale.clearButtonText}
+              loading={loading}
+              onPress={onPressClear}
+            />
+          </Col>
+        ) : null}
+
+        <Col span={clearable ? 6 : 12}>
           <Button
             type="hazy"
             text={resetButtonText || locale.resetButtonText}
@@ -192,6 +223,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
             onPress={onPressReset}
           />
         </Col>
+
         <Col span={12}>
           <Button
             text={confirmButtonText || locale.confirmButtonText}

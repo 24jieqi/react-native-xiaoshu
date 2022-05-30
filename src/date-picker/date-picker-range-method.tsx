@@ -9,7 +9,10 @@ import Popup from '../popup'
 import Theme from '../theme'
 
 import DatePickerRangeView from './date-picker-range-view'
-import type { DatePickerRangeMethodProps, DatePickerAction } from './interface'
+import type {
+  DatePickerRangeMethodProps,
+  DatePickerRangeAction,
+} from './interface'
 
 const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
   title,
@@ -27,6 +30,9 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
   max,
   min,
   renderLabel,
+  onClear,
+  clearable,
+  clearButtonText,
 
   ...restProps
 }) => {
@@ -48,7 +54,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
     Values.current = d
   })
 
-  const doAction = usePersistFn((action: DatePickerAction) => {
+  const doAction = usePersistFn((action: DatePickerRangeAction) => {
     setLoading(true)
 
     callInterceptor(beforeClose, {
@@ -63,6 +69,9 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
             break
           case 'overlay':
             onPressOverlay?.(Values.current)
+            break
+          case 'clear':
+            onClear?.(Values.current)
             break
           default:
             break
@@ -89,6 +98,10 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
     doAction('confirm')
   })
 
+  const onPressClear = usePersistFn(() => {
+    doAction('clear')
+  })
+
   const onRequestClose = usePersistFn(() => {
     doAction('overlay')
     return true
@@ -104,6 +117,9 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
     max,
     min,
     renderLabel,
+    clearable,
+    clearButtonText,
+    onClear: onPressClear,
   }
 
   return (

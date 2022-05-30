@@ -31,6 +31,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       formatter,
       parser,
       limitDecimals = -1,
+      validateTrigger = 'onEndEditing',
 
       value,
       defaultValue,
@@ -64,10 +65,13 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     // 同步数据
     useUpdateEffect(() => {
-      // 记录上次/当前外部的数字
-      LastValue.current = value
-      // 更新内部的值
-      setLocalValue(formatterPersistFn(parserNumberToString(value)))
+      // 输入 10.00001 删除最后一位，输入框期望保持 10.0000 字样
+      if (value !== LastValue.current) {
+        // 记录上次/当前外部的数字
+        LastValue.current = value
+        // 更新内部的值
+        setLocalValue(formatterPersistFn(parserNumberToString(value)))
+      }
     }, [value])
 
     /** 数据过滤，限制小数位，返回数字的字符串 */
@@ -77,7 +81,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     /** 计算数据 */
     const computeValueStringify = useCallback(
-      (t: string, isEnd: boolean) => {
+      (t: string, validate: boolean, isEnd: boolean) => {
         // 部分数据开始格式化
         // 允许输入正整数
         const isNumber = type === 'number'
@@ -87,8 +91,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         let newValueStringify = parserInputValue(t)
 
         if (newValueStringify !== '') {
-          // 结束的时候限制最大最小值
-          if (isEnd) {
+          if (validate) {
             const newValueNum = Number(newValueStringify)
             // 输入结束做最大、最小限制
             if (newValueNum > max) {
@@ -97,6 +100,10 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
             if (newValueNum < min) {
               newValueStringify = String(min)
             }
+          }
+
+          // 结束的时候限制最大最小值
+          if (isEnd) {
             if (t === '-') {
               newValueStringify = null
             }
@@ -109,9 +116,8 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
     )
 
     const triggerValueUpdate = useCallback(
-      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-      (t: string, isEnd: boolean) => {
-        let newValueStringify = computeValueStringify(t || '', isEnd)
+      (t: string, validate: boolean, isEnd: boolean) => {
+        let newValueStringify = computeValueStringify(t || '', validate, isEnd)
         let finallyValue = newValueStringify
 
         // 同步更新到组件状态
@@ -175,17 +181,21 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     const onChangeTextTextInput = useCallback(
       (t: string) => {
-        triggerValueUpdate(t, false)
+        triggerValueUpdate(t, validateTrigger === 'onChangeText', false)
       },
-      [triggerValueUpdate],
+      [triggerValueUpdate, validateTrigger],
     )
 
     const onEndEditingTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
-        e.nativeEvent.text = triggerValueUpdate(e.nativeEvent.text, true)
+        e.nativeEvent.text = triggerValueUpdate(
+          e.nativeEvent.text,
+          validateTrigger === 'onEndEditing',
+          true,
+        )
         onEndEditingPersistFn(e)
       },
-      [onEndEditingPersistFn, triggerValueUpdate],
+      [onEndEditingPersistFn, triggerValueUpdate, validateTrigger],
     )
 
     return (

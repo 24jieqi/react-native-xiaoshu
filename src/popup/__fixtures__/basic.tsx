@@ -128,7 +128,7 @@ const BasicPopup: React.FC = () => {
             }}
           />
 
-          <Popup.PopupPage visible={pageVisible} round>
+          <Popup.Page visible={pageVisible} round>
             <Popup.Header
               title="独立页面"
               onClose={() => {
@@ -169,7 +169,7 @@ const BasicPopup: React.FC = () => {
             <ButtonBar alone>
               <Button text="确定" />
             </ButtonBar>
-          </Popup.PopupPage>
+          </Popup.Page>
         </Card>
       </Space>
 

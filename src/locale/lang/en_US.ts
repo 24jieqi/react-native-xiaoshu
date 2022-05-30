@@ -8,6 +8,7 @@ const localeValues: Locale = {
   DatePickerRangeView: {
     confirmButtonText: 'Confirm',
     resetButtonText: 'Reset',
+    clearButtonText: 'Clear',
     placeholder: ['Please choose', 'Please choose'],
     labelStartTime: 'Start time',
     labelEndTime: 'End time',

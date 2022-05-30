@@ -28,4 +28,4 @@ group:
 
 <code src="./__fixtures__/square.tsx"></code>
 
-<API></API>
+<API src="./card.tsx"></API>

@@ -137,7 +137,16 @@ const Selector: React.FC<SelectorProps> = ({
                 onPress={genOnPressOption(item.value)}
                 activeOpacity={CV_BUTTON.button_active_opacity}>
                 <View style={STYLES.option_item}>
-                  <Text style={STYLES.option_item_text} numberOfLines={1}>
+                  <Text
+                    style={
+                      item.disabled
+                        ? [
+                            STYLES.option_item_text,
+                            STYLES.option_item_text_disabled,
+                          ]
+                        : STYLES.option_item_text
+                    }
+                    numberOfLines={1}>
                     {item.label}
                   </Text>
 

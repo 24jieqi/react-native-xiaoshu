@@ -30,4 +30,10 @@ export interface BlankProps extends ViewProps {
    * @default 'm'
    */
   size?: 's' | 'm' | 'l'
+
+  /**
+   * 边距类型
+   * @default 'margin'
+   */
+  type?: 'margin' | 'padding'
 }

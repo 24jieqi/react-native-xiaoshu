@@ -33,7 +33,7 @@ export default attachPropertiesToComponent(
   {
     Component: Popup,
     Header: PopupHeader,
-    PopupPage: PopupPageContainer,
-    PopupPageComponent: PopupPage,
+    Page: PopupPageContainer,
+    PageComponent: PopupPage,
   },
 )

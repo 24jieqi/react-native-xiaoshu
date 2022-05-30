@@ -8,6 +8,7 @@ const localeValues: Locale = {
   DatePickerRangeView: {
     confirmButtonText: '确定',
     resetButtonText: '重置',
+    clearButtonText: '清空',
     placeholder: ['请选择', '请选择'],
     labelStartTime: '开始时间',
     labelEndTime: '结束时间',

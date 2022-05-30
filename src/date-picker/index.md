@@ -15,7 +15,11 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/single.tsx"></code>
+
+<code src="./__fixtures__/range-view.tsx"></code>
+
+<code src="./__fixtures__/range.tsx"></code>
 
 ## API
 
@@ -26,3 +30,7 @@ group:
 ### DatePicker.range
 
 <API hideTitle src="./date-picker-range-method.tsx"></API>
+
+### DatePicker.RangeView
+
+<API hideTitle src="./date-picker-range-view.tsx"></API>
