@@ -79,7 +79,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const [dayActive, setDayActive] = useState<0 | 1>(0)
   const Values = useRef<DatePickerRangeValue>([...value])
-  const OriginalValues = useRef(_initialValue)
+  const OriginalValues = useRef<DatePickerRangeValue>([..._initialValue])
   const [limitDates, setLimitDates] = useState<DatePickerRangeValue>([
     min,
     Values.current[1] || max,
@@ -113,7 +113,11 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   const onPressDay2 = usePersistFn(() => {
     // 切换的时候没有滚动时间做默认选择
     if (!Values.current[1]) {
-      Values.current[1] = getRightDate(currentDate, minDateS, maxDateS)
+      Values.current[1] = getRightDate(
+        Values.current[0] || new Date(),
+        minDateS,
+        maxDateS,
+      )
       onChange([...Values.current])
     }
 
@@ -123,9 +127,13 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const onPressReset = usePersistFn(() => {
     Values.current = [...OriginalValues.current]
-    onPressDay1()
 
     onChange([...Values.current])
+
+    // 最大最小时间使用了 useMemo，等数据重新计算好后再回到开始时间
+    setTimeout(() => {
+      onPressDay1()
+    }, 0)
   })
 
   // 把开时间提前锁定
