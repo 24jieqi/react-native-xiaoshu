@@ -11,12 +11,14 @@ const getGapValue = (v: boolean | number, initialValue: number) => {
 }
 
 const Blank: React.FC<BlankProps> = ({
-  children,
-  size = 'm',
   left = true,
   right = true,
   top = false,
   bottom = false,
+  size = 'm',
+  type = 'margin',
+
+  children,
   style,
   ...restProps
 }) => {
@@ -35,10 +37,10 @@ const Blank: React.FC<BlankProps> = ({
       {...restProps}
       style={[
         {
-          marginLeft: left,
-          marginRight: right,
-          marginTop: top,
-          marginBottom: bottom,
+          [`${type}Left`]: left,
+          [`${type}Right`]: right,
+          [`${type}Top`]: top,
+          [`${type}Bottom`]: bottom,
         },
         style,
       ]}>
