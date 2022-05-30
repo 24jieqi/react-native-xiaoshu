@@ -1,3 +1,27 @@
+## [0.2.53](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.52...v0.2.53) (2022-05-30)
+
+### Bug Fixes
+
+- **DatePicker:** 🐛 时间段必须选,开始时间小于结束时间 ([ecb1d88](https://github.com/hjfruit/react-native-xiaoshu/commit/ecb1d8809149ed2ee544f5090ca10e3c3fbb0770))
+- **DatePicker:** 🐛 修复重置时间 ([21cc55c](https://github.com/hjfruit/react-native-xiaoshu/commit/21cc55c5e592acb9257640a31194556d51a7b29e))
+
+### Code Refactoring
+
+- **Popup:** 💡 重命名 Popup.PopupPage -> Popup.Page ([dcbcc14](https://github.com/hjfruit/react-native-xiaoshu/commit/dcbcc14792174d052556f2fb8f03b9220d41082e))
+
+### Features
+
+- **Blank:** 🎸 新增边距类型 ([c4ec425](https://github.com/hjfruit/react-native-xiaoshu/commit/c4ec425060e5a52833a0e9d4db9778749d19d967))
+- **Card:** 🎸 body 区域边距采用 Blank 实现,支持更多自定义配置 ([3c65a9d](https://github.com/hjfruit/react-native-xiaoshu/commit/3c65a9de1140b7240b6e19557f62e5cd03aa3176))
+- **DatePicker:** 🎸 新增清空操作 ([68f3304](https://github.com/hjfruit/react-native-xiaoshu/commit/68f3304b743fd9cbc062365dad5da837722ba2db))
+- **NumberInput:** 🎸 外部数值变动才同步内部字符串 ([1348f27](https://github.com/hjfruit/react-native-xiaoshu/commit/1348f276476f1e7b8b00df7da87e0b561c5e0a8c))
+- **NumberInput:** 🎸 优化文档\新增输入限制触发时机 ([acc7b53](https://github.com/hjfruit/react-native-xiaoshu/commit/acc7b53f6fa5f89d856c57387474d84f599ca48b))
+- **Selector:** 🎸 禁止选项新增文字颜色区分 ([48da693](https://github.com/hjfruit/react-native-xiaoshu/commit/48da6935e06eda01ce6a64003b5055c00a291720))
+
+### BREAKING CHANGES
+
+- **Popup:** 🧨 重命名 Popup.PopupPage -> Popup.Page
+
 ## [0.2.52](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.51...v0.2.52) (2022-05-25)
 
 ### Features
