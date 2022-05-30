@@ -98,7 +98,15 @@ export interface CardProps extends ViewProps {
    * body 是否有内边距
    * @default true
    */
-  bodyPadding?: boolean
+  bodyPadding?:
+    | boolean
+    | number
+    | {
+        left?: boolean | number
+        right?: boolean | number
+        top?: boolean | number
+        bottom?: boolean | number
+      }
 
   /**
    * 点击 header 区域，该区域包含 titleLeftExtra、title、extra
@@ -114,4 +122,11 @@ export interface CardProps extends ViewProps {
    * body 区域渲染完成
    */
   onLayoutBody?: ViewProps['onLayout']
+}
+
+export interface CardBodyProps extends ViewProps {
+  /**
+   * 内边距
+   */
+  padding?: CardProps['bodyPadding']
 }

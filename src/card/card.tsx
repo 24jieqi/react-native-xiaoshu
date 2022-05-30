@@ -1,3 +1,4 @@
+import isBoolean from 'lodash/isBoolean'
 import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
@@ -7,6 +8,7 @@ import { renderTextLikeJSX } from '../helpers'
 import Skeleton from '../skeleton'
 import Theme from '../theme'
 
+import CardBody from './card-body'
 import type { CardProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
@@ -61,7 +63,7 @@ const Card: React.FC<CardProps> = ({
 
   const showHeader = !isNil(titleJSX) || hasTitleLeftExtra || !isNil(extra)
   const headerJSX = (
-    <View>
+    <View collapsable={false}>
       <View
         style={[STYLES.header, isS ? STYLES.header_s : null, headerStyle]}
         onLayout={onLayoutHeader}>
@@ -92,11 +94,13 @@ const Card: React.FC<CardProps> = ({
           headerJSX
         )
       ) : null}
-      <View
-        style={[bodyPadding ? STYLES.body : null, bodyStyle]}
+      <CardBody
+        padding={
+          isBoolean(bodyPadding) && bodyPadding ? CV.card_padding : bodyPadding
+        }
         onLayout={onLayoutBody}>
         {loading ? <Skeleton loading /> : children}
-      </View>
+      </CardBody>
 
       {!isNil(footerJSX) ? (
         <>

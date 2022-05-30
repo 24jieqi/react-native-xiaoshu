@@ -5,7 +5,7 @@ import type { TokensType } from '../theme/interface'
 export const varCreator = (TOKENS: TokensType) => {
   return {
     card_background_color: TOKENS.white,
-    card_padding_horizontal: TOKENS.space_3,
+    card_padding: TOKENS.space_3,
     card_header_gap: TOKENS.space_2,
     card_m_header_height: 50,
     card_m_header_text_font_size: TOKENS.font_size_7,
@@ -43,7 +43,7 @@ export const styleCreator = (cv: ComponentVars) => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingHorizontal: cv.card_padding_horizontal,
+      paddingHorizontal: cv.card_padding,
       minHeight: cv.card_m_header_height,
     },
 
@@ -74,15 +74,10 @@ export const styleCreator = (cv: ComponentVars) => {
       marginLeft: cv.card_header_gap,
     },
 
-    body: {
-      paddingHorizontal: cv.card_padding_horizontal,
-      paddingVertical: cv.card_padding_horizontal,
-    },
-
     footer: {
       // borderTopColor: cv.card_footer_top_border_color,
       // borderTopWidth: 1,
-      paddingHorizontal: cv.card_padding_horizontal,
+      paddingHorizontal: cv.card_padding,
       paddingVertical: cv.card_footer_padding_vertical,
     },
 
