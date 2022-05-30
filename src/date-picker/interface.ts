@@ -6,6 +6,8 @@ import type { PopupPropsCommon } from '../popup/interface'
 
 export type DatePickerAction = 'cancel' | 'confirm' | 'overlay'
 
+export type DatePickerRangeAction = 'cancel' | 'confirm' | 'overlay' | 'clear'
+
 export type DatePickerRangeValue = [Date, Date]
 
 export interface DatePickerSingleMethodProps
@@ -106,6 +108,23 @@ export interface DatePickerRangeViewProps
    * 触发改变
    */
   onChange?: (values: DatePickerRangeValue) => void
+
+  /**
+   * 出现清空按钮
+   * @default false
+   */
+  clearable?: boolean
+
+  /**
+   * 点击清空按钮
+   */
+  onClear?: (values: DatePickerRangeValue) => void
+
+  /**
+   * 清空按钮文字
+   * @default '清空'
+   */
+  clearButtonText?: string
 }
 
 export interface DatePickerRangeMethodProps
@@ -138,7 +157,7 @@ export interface DatePickerRangeMethodProps
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
   beforeClose?: (
-    action: DatePickerAction,
+    action: DatePickerRangeAction,
     value: DatePickerRangeValue,
   ) => boolean | Promise<boolean>
 }
@@ -149,7 +168,7 @@ export interface DatePickerInstance {
     value: Date
   }>
   range: (p: DatePickerRangeMethodProps) => Promise<{
-    action: DatePickerAction
+    action: DatePickerRangeAction
     values: DatePickerRangeValue
   }>
   RangeView: React.FC<DatePickerRangeViewProps>

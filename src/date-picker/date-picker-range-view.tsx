@@ -42,6 +42,9 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   resetButtonText,
   onConfirm,
   placeholder,
+  clearable,
+  onClear,
+  clearButtonText,
 
   // DateView
   mode = 'Y-D',
@@ -97,6 +100,9 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   const onPressConfirm = usePersistFn(() => {
     onConfirm?.(Values.current)
+  })
+  const onPressClear = usePersistFn(() => {
+    onClear?.(Values.current)
   })
 
   const onPressDay1 = usePersistFn(() => {
@@ -192,7 +198,18 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
       />
 
       <Row gap={CV_PICKER.picker_action_gap} style={btnStyle}>
-        <Col span={12}>
+        {clearable ? (
+          <Col span={6}>
+            <Button
+              type="hazy"
+              text={clearButtonText || locale.clearButtonText}
+              loading={loading}
+              onPress={onPressClear}
+            />
+          </Col>
+        ) : null}
+
+        <Col span={clearable ? 6 : 12}>
           <Button
             type="hazy"
             text={resetButtonText || locale.resetButtonText}
@@ -200,6 +217,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
             onPress={onPressReset}
           />
         </Col>
+
         <Col span={12}>
           <Button
             text={confirmButtonText || locale.confirmButtonText}

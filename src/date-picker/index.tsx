@@ -70,6 +70,13 @@ DatePicker.range = opts => {
             values: v,
           })
         }}
+        onClear={v => {
+          opts.onClear?.(v)
+          resolve({
+            action: 'clear',
+            values: v,
+          })
+        }}
         onClosed={() => {
           opts.onClosed?.()
           Portal.remove(key)

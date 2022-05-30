@@ -6,6 +6,7 @@ export interface Locale {
   DatePickerRangeView: {
     confirmButtonText: string
     resetButtonText: string
+    clearButtonText: string
     placeholder: [string, string]
     labelStartTime: string
     labelEndTime: string
