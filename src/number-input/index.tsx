@@ -65,10 +65,13 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     // 同步数据
     useUpdateEffect(() => {
-      // 记录上次/当前外部的数字
-      LastValue.current = value
-      // 更新内部的值
-      setLocalValue(formatterPersistFn(parserNumberToString(value)))
+      // 输入 10.00001 删除最后一位，输入框期望保持 10.0000 字样
+      if (value !== LastValue.current) {
+        // 记录上次/当前外部的数字
+        LastValue.current = value
+        // 更新内部的值
+        setLocalValue(formatterPersistFn(parserNumberToString(value)))
+      }
     }, [value])
 
     /** 数据过滤，限制小数位，返回数字的字符串 */

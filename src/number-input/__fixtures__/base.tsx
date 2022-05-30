@@ -57,7 +57,14 @@ const BasicNumberInputBase: React.FC = () => {
       <Cell
         title="受控"
         value={
-          <NumberInput placeholder="请输入" value={value} onChange={setValue} />
+          <NumberInput
+            placeholder="请输入"
+            value={value}
+            onChange={n => {
+              console.log('受控 value => ', n)
+              setValue(n)
+            }}
+          />
         }
       />
 
