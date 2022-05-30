@@ -31,6 +31,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       formatter,
       parser,
       limitDecimals = -1,
+      validateTrigger = 'onEndEditing',
 
       value,
       defaultValue,
@@ -77,7 +78,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     /** 计算数据 */
     const computeValueStringify = useCallback(
-      (t: string, isEnd: boolean) => {
+      (t: string, validate: boolean, isEnd: boolean) => {
         // 部分数据开始格式化
         // 允许输入正整数
         const isNumber = type === 'number'
@@ -87,8 +88,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         let newValueStringify = parserInputValue(t)
 
         if (newValueStringify !== '') {
-          // 结束的时候限制最大最小值
-          if (isEnd) {
+          if (validate) {
             const newValueNum = Number(newValueStringify)
             // 输入结束做最大、最小限制
             if (newValueNum > max) {
@@ -97,6 +97,10 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
             if (newValueNum < min) {
               newValueStringify = String(min)
             }
+          }
+
+          // 结束的时候限制最大最小值
+          if (isEnd) {
             if (t === '-') {
               newValueStringify = null
             }
@@ -109,9 +113,8 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
     )
 
     const triggerValueUpdate = useCallback(
-      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-      (t: string, isEnd: boolean) => {
-        let newValueStringify = computeValueStringify(t || '', isEnd)
+      (t: string, validate: boolean, isEnd: boolean) => {
+        let newValueStringify = computeValueStringify(t || '', validate, isEnd)
         let finallyValue = newValueStringify
 
         // 同步更新到组件状态
@@ -175,17 +178,21 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     const onChangeTextTextInput = useCallback(
       (t: string) => {
-        triggerValueUpdate(t, false)
+        triggerValueUpdate(t, validateTrigger === 'onChangeText', false)
       },
-      [triggerValueUpdate],
+      [triggerValueUpdate, validateTrigger],
     )
 
     const onEndEditingTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
-        e.nativeEvent.text = triggerValueUpdate(e.nativeEvent.text, true)
+        e.nativeEvent.text = triggerValueUpdate(
+          e.nativeEvent.text,
+          validateTrigger === 'onEndEditing',
+          true,
+        )
         onEndEditingPersistFn(e)
       },
-      [onEndEditingPersistFn, triggerValueUpdate],
+      [onEndEditingPersistFn, triggerValueUpdate, validateTrigger],
     )
 
     return (

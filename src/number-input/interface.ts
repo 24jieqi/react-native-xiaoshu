@@ -57,4 +57,10 @@ export interface NumberInputProps
    * @default -1
    */
   limitDecimals?: number
+
+  /**
+   * 校验输入范围触发的时机，不推荐这样使用，可能造成无法正常输入，推荐使用 formatter
+   * @default 'onEndEditing'
+   */
+  validateTrigger?: 'onChangeText' | 'onEndEditing'
 }
