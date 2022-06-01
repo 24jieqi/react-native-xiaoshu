@@ -1,3 +1,9 @@
+## [0.2.54](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.53...v0.2.54) (2022-06-01)
+
+### Bug Fixes
+
+- **Form:** 🐛 修复与原表单实例类型冲突 ([41d7251](https://github.com/hjfruit/react-native-xiaoshu/commit/41d7251a98fdfd6464cd23a74aaf5b465b63942d))
+
 ## [0.2.53](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.52...v0.2.53) (2022-05-30)
 
 ### Bug Fixes
