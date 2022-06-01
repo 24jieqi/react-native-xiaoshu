@@ -4,7 +4,7 @@ import type {
 } from 'rc-field-form'
 
 export interface FormInstance<Values = any> extends RCFormInstance<Values> {
-  validateFieldsWithoutToast: RCFormInstance<Values>['validateFields']
+  validateFieldsWithoutToast?: RCFormInstance<Values>['validateFields']
 }
 
 export interface FormContextProps {
