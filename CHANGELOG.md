@@ -1,3 +1,9 @@
+## [0.2.55](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.54...v0.2.55) (2022-06-01)
+
+### Features
+
+- **Result:** 🎸 不限制子元素排版,可以占满一行 ([9f4a737](https://github.com/hjfruit/react-native-xiaoshu/commit/9f4a737b2046b3d06b8c380d114c9edef2d40286))
+
 ## [0.2.54](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.53...v0.2.54) (2022-06-01)
 
 ### Bug Fixes
