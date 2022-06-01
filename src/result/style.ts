@@ -25,6 +25,7 @@ export const styleCreator = (cv: ComponentVars) => {
       height: cv.result_icon_size,
       borderRadius: cv.result_icon_size / 2,
       justifyContent: 'center',
+      alignSelf: 'center',
     },
 
     titleText: {

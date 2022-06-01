@@ -2,6 +2,7 @@ import type { ErrorInfo } from 'react'
 import React, { PureComponent } from 'react'
 import type { ViewStyle } from 'react-native'
 
+import Blank from '../blank'
 import Button from '../button'
 import Result from '../result'
 import ResultIconError from '../result/icons/result-icon-error'
@@ -56,22 +57,23 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
       }
 
       return (
-        <Result
-          style={ERROR_PAGE_STYLE}
-          status="error"
-          renderIcon={() => <ResultIconError />}
-          subtitle={`${this.props.title || '加载失败，请稍后再试~'}\n${
-            this.state.error.name
-          }\n${this.state.error.message}`}
-          extra={
-            <Button
-              type="primary"
-              size="s"
-              text={this.props.reloadText || '重新加载'}
-              onPress={this.onPressReload}
-            />
-          }
-        />
+        <Blank type="padding" style={ERROR_PAGE_STYLE}>
+          <Result
+            status="error"
+            renderIcon={() => <ResultIconError />}
+            subtitle={`${this.props.title || '加载失败，请稍后再试~'}\n${
+              this.state.error.name
+            }\n${this.state.error.message}`}
+            extra={
+              <Button
+                type="primary"
+                size="s"
+                text={this.props.reloadText || '重新加载'}
+                onPress={this.onPressReload}
+              />
+            }
+          />
+        </Blank>
       )
     }
 

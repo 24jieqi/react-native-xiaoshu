@@ -78,7 +78,7 @@ const Result: React.FC<ResultProps> = ({
   ])
 
   return (
-    <Space {...restProps} justify="center" align="center">
+    <Space {...restProps}>
       {iconJSX}
       {titleJSX}
       {subtitleJSX}
