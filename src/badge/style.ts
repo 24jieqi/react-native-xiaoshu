@@ -25,10 +25,6 @@ type ComponentVars = ReturnType<typeof varCreator>
 
 export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
-    badge: {
-      position: 'relative',
-    },
-
     count: {
       minWidth: cv.badge_size,
       borderRadius: cv.badge_count_border_radius,

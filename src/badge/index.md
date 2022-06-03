@@ -23,4 +23,4 @@ group:
 
 <code src="./__fixtures__/status.tsx"></code>
 
-<API></API>
+<API src="./badge.tsx"></API>

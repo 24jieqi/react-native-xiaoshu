@@ -12,19 +12,20 @@ import { varCreator, styleCreator } from './style'
  * Badge 徽标
  * @description 在右上角展示徽标数字或小红点。
  */
-const Badge: React.FC<BadgeProps> = ({
+const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
   children,
   count,
   dot,
   max,
   color,
-  style,
   countStyle,
   countTextStyle,
   loading = false,
   showZero = false,
   offset,
   status,
+
+  ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -73,7 +74,7 @@ const Badge: React.FC<BadgeProps> = ({
     ) : null
 
   return (
-    <View style={[STYLES.badge, style]} collapsable={false}>
+    <View {...restProps} collapsable={false}>
       {badgeJSX}
       {children}
     </View>

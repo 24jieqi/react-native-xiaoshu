@@ -1,11 +1,12 @@
-import type { TextStyle, ViewStyle, StyleProp, ColorValue } from 'react-native'
+import type {
+  TextStyle,
+  ViewStyle,
+  StyleProp,
+  ColorValue,
+  ViewProps,
+} from 'react-native'
 
-export interface BadgeProps {
-  /**
-   * Badge 最外层的样式
-   */
-  style?: StyleProp<ViewStyle>
-
+export interface BadgeProps extends ViewProps {
   /**
    * 文案部分样式
    */
