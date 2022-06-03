@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge render snapshot 1`] = `
+<View
+  accessibilityLabel="badge"
+  collapsable={false}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderRadius": 9999,
+          "minWidth": 16,
+          "paddingHorizontal": 3,
+          "paddingVertical": 0,
+        },
+        Object {
+          "backgroundColor": "#F92F2F",
+        },
+        null,
+        Array [],
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "height": 16,
+            "lineHeight": 16,
+            "textAlign": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      6
+    </Text>
+  </View>
+</View>
+`;
