@@ -112,4 +112,4 @@ const Card: React.FC<CardProps> = ({
   )
 }
 
-export default memo<typeof Card>(Card)
+export default memo(Card)
