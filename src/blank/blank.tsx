@@ -10,7 +10,7 @@ const getGapValue = (v: boolean | number, initialValue: number) => {
   return typeof v === 'boolean' ? (v ? initialValue : 0) : v
 }
 
-const Blank: React.FC<BlankProps> = ({
+const Blank: React.FC<React.PropsWithChildren<BlankProps>> = ({
   left = true,
   right = true,
   top = false,
