@@ -130,11 +130,11 @@ export interface DialogMethodProps
   /**
    * 操作完成后的回调
    */
-  callback?: (action: DialogAction) => void
+  onResponse?: (action: DialogAction) => void
 }
 
 export interface DialogOptions
-  extends Omit<DialogMethodProps, 'callback' | 'onRequestClose'> {}
+  extends Omit<DialogMethodProps, 'onResponse' | 'onRequestClose'> {}
 
 export type DialogInputState = {
   value: string | number
@@ -193,24 +193,3 @@ export interface DialogInputProps
 }
 
 export interface DialogInputOptions extends DialogInputProps {}
-
-export interface DialogInstance {
-  (p: DialogOptions): Promise<DialogAction>
-  Component: React.FC<DialogProps>
-  Keyboard: React.FC<DialogProps>
-  KeyboardComponent: React.FC<DialogProps>
-  confirm: (p: DialogOptions) => Promise<DialogAction>
-  input: (p: DialogInputOptions) => void
-  // clear(all: boolean | number): void;
-  // setDefaultOptions(
-  //   type: DialogType | DialogProps,
-  //   options?: DialogProps,
-  // ): void;
-  // resetDefaultOptions(type: DialogType | DialogProps): void;
-}
-
-export type State = {
-  visible: boolean
-  overlayVisible: boolean
-  zIndex: number
-}

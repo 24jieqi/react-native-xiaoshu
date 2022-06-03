@@ -6,7 +6,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Dialog from './dialog'
 import type { DialogProps } from './interface'
 
-const DialogKeyboard: React.FC<DialogProps> = ({ style, ...restProps }) => {
+const DialogKeyboard: React.FC<React.PropsWithChildren<DialogProps>> = ({
+  style,
+  ...restProps
+}) => {
   const insets = useSafeAreaInsets()
   const [keyboardShow, setKeyboardShow] = useState(false)
   const dialogStyle = useMemo<ViewStyle>(
@@ -41,4 +44,4 @@ const DialogKeyboard: React.FC<DialogProps> = ({ style, ...restProps }) => {
   )
 }
 
-export default memo<typeof DialogKeyboard>(DialogKeyboard)
+export default memo(DialogKeyboard)

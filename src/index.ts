@@ -46,7 +46,7 @@ export type {
 } from './description/interface'
 export { default as Description } from './description'
 
-export type { DialogInstance, DialogProps } from './dialog/interface'
+export type { DialogProps } from './dialog/interface'
 export { default as Dialog } from './dialog'
 
 export type { DividerProps } from './divider/interface'

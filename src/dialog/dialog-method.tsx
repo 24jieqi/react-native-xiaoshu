@@ -16,7 +16,7 @@ import type {
  */
 const DialogMethod: React.FC<DialogMethodProps> = ({
   beforeClose,
-  callback,
+  onResponse,
   ...restProps
 }) => {
   const [state, setState] = useState<DialogMethodState>({
@@ -34,7 +34,7 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
     callInterceptor(beforeClose, {
       args: [action],
       done: () => {
-        callback(action)
+        onResponse(action)
         setState({
           [action]: false,
           visible: false,
