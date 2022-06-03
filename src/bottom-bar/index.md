@@ -13,4 +13,4 @@ group:
 
 > 用于固定在屏幕底部。
 
-<API hideTitle></API>
+<API hideTitle src="./bottom-bar.tsx"></API>

@@ -4,7 +4,7 @@ import type { ViewStyle } from 'react-native'
 import type { ReactTestInstance } from 'react-test-renderer'
 import { create } from 'react-test-renderer'
 
-import Button from '..'
+import Button from '../'
 import { customRender, fireEvent } from '../../__tests__/test-utils'
 
 describe('Button', () => {

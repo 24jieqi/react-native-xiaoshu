@@ -164,4 +164,4 @@ const Button: React.FC<ButtonProps> = ({
   )
 }
 
-export default memo<typeof Button>(Button)
+export default memo(Button)

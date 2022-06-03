@@ -6,10 +6,6 @@ import type {
   ColorValue,
 } from 'react-native'
 
-// export type ButtonSize = 'xl' | 'l' | 'm' | 's' | 'xs'
-
-// export type ButtonType = 'primary' | 'hazy' | 'outline' | 'ghost' | 'link'
-
 export interface ButtonProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'> {
   /**

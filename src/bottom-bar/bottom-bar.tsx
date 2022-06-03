@@ -10,7 +10,7 @@ import Theme from '../theme'
 import type { BottomBarProps } from './interface'
 import { varCreator } from './style'
 
-const BottomBar: React.FC<React.PropsWithChildren<BottomBarProps>> = ({
+const BottomBar: React.FC<BottomBarProps> = ({
   safeAreaInsetBottom = true,
   backgroundColor,
   height,
@@ -82,4 +82,4 @@ const BottomBar: React.FC<React.PropsWithChildren<BottomBarProps>> = ({
   return <View {...restProps} style={viewStyles} />
 }
 
-export default memo<typeof BottomBar>(BottomBar)
+export default memo(BottomBar)

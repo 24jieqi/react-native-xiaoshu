@@ -10,7 +10,7 @@ const getGapValue = (v: boolean | number, initialValue: number) => {
   return typeof v === 'boolean' ? (v ? initialValue : 0) : v
 }
 
-const Blank: React.FC<React.PropsWithChildren<BlankProps>> = ({
+const Blank: React.FC<BlankProps> = ({
   left = true,
   right = true,
   top = false,
@@ -49,4 +49,4 @@ const Blank: React.FC<React.PropsWithChildren<BlankProps>> = ({
   )
 }
 
-export default memo<typeof Blank>(Blank)
+export default memo(Blank)

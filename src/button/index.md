@@ -55,4 +55,4 @@ group:
 
 <code src="./__fixtures__/icon.tsx"></code>
 
-<API></API>
+<API src="./button.tsx"></API>
