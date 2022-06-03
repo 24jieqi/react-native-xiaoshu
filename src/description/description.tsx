@@ -149,4 +149,4 @@ const Description: React.FC<DescriptionProps> = ({
   )
 }
 
-export default memo<typeof Description>(Description)
+export default memo(Description)

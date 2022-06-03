@@ -15,4 +15,4 @@ const DescriptionThousand: React.FC<DescriptionThousandProps> = ({
   return <Description {...restProps} text={value} />
 }
 
-export default memo<typeof DescriptionThousand>(DescriptionThousand)
+export default memo(DescriptionThousand)

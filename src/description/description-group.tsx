@@ -61,4 +61,4 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
   )
 }
 
-export default memo<typeof DescriptionGroup>(DescriptionGroup)
+export default memo(DescriptionGroup)

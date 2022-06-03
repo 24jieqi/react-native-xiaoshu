@@ -72,4 +72,4 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
   )
 }
 
-export default memo<typeof DescriptionDateRange>(DescriptionDateRange)
+export default memo(DescriptionDateRange)

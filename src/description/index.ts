@@ -6,8 +6,11 @@ import DescriptionDateRange from './description-date-range'
 import DescriptionGroup from './description-group'
 import DescriptionThousand from './description-thousand'
 import { renderAlignCenter, renderDateRangeAlignFlexStart } from './render'
+import { varCreator, styleCreator } from './style'
 
 export default attachPropertiesToComponent(Description, {
+  varCreator,
+  styleCreator,
   Group: DescriptionGroup,
   Thousand: DescriptionThousand,
   Date: DescriptionDate,
