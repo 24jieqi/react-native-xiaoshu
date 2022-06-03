@@ -92,9 +92,13 @@ export interface ActionSheetOptions
   ) => boolean | Promise<boolean>
 
   /**
-   * 操作完成后的回调
+   * 触发了某个机制
    */
-  callback?: (action: ActionSheetAction, item?: Action, index?: number) => void
+  onResponse?: (
+    action: ActionSheetAction,
+    item?: Action,
+    index?: number,
+  ) => void
 }
 
 export interface ActionSheetMethodProps extends ActionSheetOptions {}

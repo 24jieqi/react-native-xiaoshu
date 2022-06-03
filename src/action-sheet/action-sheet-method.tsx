@@ -1,6 +1,7 @@
 import React, { useState, useEffect, memo } from 'react'
 
 import { callInterceptor } from '../helpers'
+import { usePersistFn } from '../hooks'
 
 import ActionSheet from './action-sheet'
 import type {
@@ -21,7 +22,7 @@ interface LocalAction extends Action {
 const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
   actions,
   beforeClose,
-  callback,
+  onResponse,
   ...restProps
 }) => {
   const [visible, setVisible] = useState(false)
@@ -48,12 +49,28 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
         )
       }
 
+      if (action === 'item') {
+        setLocalActions(las =>
+          las.map((ac, _index) => {
+            if (_index === index) {
+              return {
+                ...ac,
+                loading: true,
+                _loading: true,
+              }
+            }
+
+            return ac
+          }),
+        )
+      }
+
       callInterceptor(beforeClose, {
         args: [action, item, index],
         done: () => {
-          callback?.(action, item, index)
           canceled()
           setVisible(false)
+          onResponse?.(action, item, index)
         },
         canceled,
       })
@@ -63,10 +80,10 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
     setVisible(true)
   }, [])
 
-  const onRequestClose = () => {
+  const onRequestClose = usePersistFn(() => {
     genOnPressBtn('overlay')()
     return true
-  }
+  })
 
   return (
     <ActionSheet
