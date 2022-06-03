@@ -47,13 +47,6 @@ export type CellGroupProps = {
   bodyBottomDivider?: boolean
 
   /**
-   * body 区域左右有内边距
-   * @default false
-   * @deprecated 并不推荐使用
-   */
-  bodyPaddingHorizontal?: boolean
-
-  /**
    * 点击分组名称区域，包含 title、extra
    */
   onPressTitle?: TextProps['onPress']

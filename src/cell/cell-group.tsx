@@ -1,5 +1,5 @@
 import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
+import React, { memo, Fragment } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Divider from '../divider'
@@ -14,7 +14,7 @@ import { styleCreator } from './style.group'
  * CellGroup 单元格组
  * @description 一组单元格，可以设置一个标题。
  */
-const CellGroup: React.FC<CellGroupProps> = ({
+const CellGroup: React.FC<React.PropsWithChildren<CellGroupProps>> = ({
   children,
   title,
   extra,
@@ -23,7 +23,6 @@ const CellGroup: React.FC<CellGroupProps> = ({
   bodyStyle,
   bodyTopDivider = false,
   bodyBottomDivider = false,
-  bodyPaddingHorizontal = false,
   onPressTitle,
   onPressTitleText,
 }) => {
@@ -43,6 +42,8 @@ const CellGroup: React.FC<CellGroupProps> = ({
     </View>
   )
 
+  const BodyComponent = bodyStyle ? View : Fragment
+
   return (
     <>
       {titleJSX || !isNil(extra) ? (
@@ -55,17 +56,13 @@ const CellGroup: React.FC<CellGroupProps> = ({
         )
       ) : null}
 
-      <View
-        style={[
-          bodyPaddingHorizontal ? STYLES.body_padding_horizontal : null,
-          bodyStyle,
-        ]}>
+      <BodyComponent style={bodyStyle}>
         {bodyTopDivider ? <Divider /> : null}
         {children}
         {bodyBottomDivider ? <Divider /> : null}
-      </View>
+      </BodyComponent>
     </>
   )
 }
 
-export default memo<typeof CellGroup>(CellGroup)
+export default memo(CellGroup)

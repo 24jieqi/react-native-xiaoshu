@@ -35,7 +35,7 @@ const PickerViewMultiple: React.FC = () => {
 
   return (
     <>
-      <Cell.Group title="多列选择:受控" bodyPaddingHorizontal>
+      <Cell.Group title="多列选择:受控">
         <PickerView
           columns={columns2}
           value={value1}
@@ -48,7 +48,7 @@ const PickerViewMultiple: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="多列选择:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="多列选择:受控不更新">
         <PickerView
           columns={columns2}
           value={value1}
@@ -60,7 +60,7 @@ const PickerViewMultiple: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="多列选择:非受控默认值" bodyPaddingHorizontal>
+      <Cell.Group title="多列选择:非受控默认值">
         <PickerView
           columns={columns2}
           defaultValue={defaultValue}
@@ -72,7 +72,7 @@ const PickerViewMultiple: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="多列带默认值:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:非受控">
         <PickerView
           columns={columns3}
           onChange={(v, o) => {
@@ -83,7 +83,7 @@ const PickerViewMultiple: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="多列带默认值:非受控>>>" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:非受控>>>">
         <PickerView
           columns={columns3}
           defaultValue={defaultValue}
@@ -95,7 +95,7 @@ const PickerViewMultiple: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="多列带默认值:受控" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:受控">
         <PickerView
           columns={columns3}
           value={value2}
@@ -108,7 +108,7 @@ const PickerViewMultiple: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="多列带默认值:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="多列带默认值:受控不更新">
         <PickerView
           columns={columns3}
           value={value2}

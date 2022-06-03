@@ -18,9 +18,5 @@ export const styleCreator = (cv: ComponentVars) => {
       fontSize: cv.cell_group_title_font_size,
       lineHeight: cv.cell_group_title_line_height,
     },
-
-    body_padding_horizontal: {
-      paddingHorizontal: cv.cell_group_title_padding_horizontal,
-    },
   })
 }

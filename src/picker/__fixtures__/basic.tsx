@@ -64,7 +64,7 @@ const columns4 = buildChildren(8, 'sj', '省级', (sjValue, sjLabel) =>
 const BasicPicker: React.FC = () => {
   return (
     <ScrollView>
-      <Cell.Group title="函数使用" bodyPaddingHorizontal>
+      <Cell.Group title="函数使用">
         <Space>
           <Button
             text="单选:Promise"

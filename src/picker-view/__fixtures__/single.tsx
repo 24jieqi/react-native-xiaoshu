@@ -13,7 +13,7 @@ const PickerViewSingle: React.FC = () => {
 
   return (
     <>
-      <Cell.Group title="单列选择:受控" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:受控">
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -26,7 +26,7 @@ const PickerViewSingle: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="单列选择:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:受控不更新">
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -38,7 +38,7 @@ const PickerViewSingle: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="单列选择:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:非受控">
         <PickerView
           columns={columns1}
           onChange={(v, o) => {
@@ -49,7 +49,7 @@ const PickerViewSingle: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="单列选择:非受控默认值" bodyPaddingHorizontal>
+      <Cell.Group title="单列选择:非受控默认值">
         <PickerView
           columns={columns1}
           onChange={(v, o) => {

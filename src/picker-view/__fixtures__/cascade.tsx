@@ -42,7 +42,7 @@ const PickerViewCascade: React.FC = () => {
 
   return (
     <>
-      <Cell.Group title="级联选择:默认值:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:默认值:非受控">
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
@@ -54,7 +54,7 @@ const PickerViewCascade: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="级联选择:默认值2:非受控" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:默认值2:非受控">
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
@@ -66,7 +66,7 @@ const PickerViewCascade: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="级联选择:受控" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:受控">
         <PickerView
           columns={columns4}
           value={value}
@@ -79,7 +79,7 @@ const PickerViewCascade: React.FC = () => {
         />
       </Cell.Group>
 
-      <Cell.Group title="级联选择:受控不更新" bodyPaddingHorizontal>
+      <Cell.Group title="级联选择:受控不更新">
         <PickerView
           columns={columns4}
           value={value}
