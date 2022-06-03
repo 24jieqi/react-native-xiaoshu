@@ -89,4 +89,4 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   )
 }
 
-export default memo<typeof ButtonBar>(ButtonBar)
+export default memo(ButtonBar)

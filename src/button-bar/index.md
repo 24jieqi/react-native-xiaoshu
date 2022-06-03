@@ -28,4 +28,4 @@ group:
 
 ## API
 
-<API hideTitle></API>
+<API hideTitle src="./button-bar.tsx"></API>
