@@ -24,4 +24,4 @@ React Native 在 iOS 端的 borderStyle 暂时不支持虚线，使用 SVG 的�
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+<API src="./divider.tsx"></API>
