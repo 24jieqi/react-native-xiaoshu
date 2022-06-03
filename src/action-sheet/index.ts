@@ -1,11 +1,15 @@
 import { attachPropertiesToComponent } from '../helpers'
 
-import Component from './action-sheet'
-import { ActionSheet } from './action-sheet-instance'
+import {
+  ActionSheetInstance,
+  Component,
+  ActionSheetComponent,
+} from './action-sheet-instance'
 import { varCreator, styleCreator } from './style'
 
-export default attachPropertiesToComponent(ActionSheet, {
+export default attachPropertiesToComponent(ActionSheetInstance, {
   varCreator,
   styleCreator,
   Component,
+  ActionSheetComponent,
 })

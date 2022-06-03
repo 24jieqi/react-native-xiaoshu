@@ -2,10 +2,11 @@ import React from 'react'
 
 import Portal from '../portal'
 
+import ActionSheet from './action-sheet'
 import ActionSheetMethod from './action-sheet-method'
-import type { ActionSheetOptions, Action } from './interface'
+import type { ActionSheetOptions, Action, ActionSheetProps } from './interface'
 
-export const ActionSheet = (opts: ActionSheetOptions) => {
+export const ActionSheetInstance = (opts: ActionSheetOptions) => {
   return new Promise<{ item: Action; index: number }>((resolve, reject) => {
     const key = Portal.add(
       <ActionSheetMethod
@@ -32,3 +33,11 @@ export const ActionSheet = (opts: ActionSheetOptions) => {
     )
   })
 }
+
+export const Component: React.FC<ActionSheetProps> = props => (
+  <Portal>
+    <ActionSheet {...props} />
+  </Portal>
+)
+
+export const ActionSheetComponent = Component
