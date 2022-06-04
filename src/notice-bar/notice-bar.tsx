@@ -141,4 +141,4 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   return null
 }
 
-export default memo<typeof NoticeBar>(NoticeBar)
+export default memo(NoticeBar)
