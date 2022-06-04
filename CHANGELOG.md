@@ -1,3 +1,23 @@
+# [1.0.0-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.55...v1.0.0-beta.0) (2022-06-04)
+
+### Code Refactoring
+
+- **ActionSheet:** 💡 新增导出变量\样式函数,修复已知问题 ([88d0c98](https://github.com/hjfruit/react-native-xiaoshu/commit/88d0c985a53e0ed5e37c859190e54e45ff50ecbd))
+- **Cell:** 💡 新增导出变量\样式函数 ([e0e0bd1](https://github.com/hjfruit/react-native-xiaoshu/commit/e0e0bd11b6894249bab6042c843f6fc19ffbe54d))
+- **Dialog:** 💡 调整静态方法导出方式 ([4987552](https://github.com/hjfruit/react-native-xiaoshu/commit/498755252cd954c8b5c10447ddbe955af7eb16a9))
+- **Notify:** 💡 新增导出变量\样式函数 ([cdba2ef](https://github.com/hjfruit/react-native-xiaoshu/commit/cdba2ef11105bb31f9bf820cf3b2a74bfa03a322))
+- **Picker:** 💡 新增导出变量\样式函数 ([7ac7dc6](https://github.com/hjfruit/react-native-xiaoshu/commit/7ac7dc665f7a8b309c6f8e7eccc3159b0efc40b8))
+- **Popup:** 💡 新增导出变量\样式函数 ([33bf9ae](https://github.com/hjfruit/react-native-xiaoshu/commit/33bf9aedaf641262718c87f3e2dd5663d2cb6c78))
+
+### BREAKING CHANGES
+
+- **Popup:** 🧨 Popup.Component -> Popup.PopupComponent
+- **Picker:** 🧨 移除 PickerInstance 类型
+- **Notify:** 🧨 移除 NotifyInstance 类型
+- **Dialog:** 🧨 DialogInstance 类型移除
+- **Cell:** 🧨 Cell.Group bodyPaddingHorizontal 已移除
+- **ActionSheet:** 🧨 ActionSheet.Component 不再被 Portal 包裹
+
 ## [0.2.55](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.54...v0.2.55) (2022-06-01)
 
 ### Features
