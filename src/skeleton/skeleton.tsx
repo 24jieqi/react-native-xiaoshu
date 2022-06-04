@@ -35,7 +35,7 @@ const STYLES = StyleSheet.create({
   },
 })
 
-const Skeleton: React.FC<SkeletonProps> = ({
+const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({
   children,
   active = true,
   loading,
@@ -84,12 +84,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
     ctxJSX
   )
 
-  return loading ? (
-    nodeJSX
-  ) : (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>{children}</>
-  )
+  return loading ? nodeJSX : (children as React.ReactElement)
 }
 
-export default memo<typeof Skeleton>(Skeleton)
+export default memo(Skeleton)
