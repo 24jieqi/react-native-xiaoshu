@@ -49,7 +49,8 @@
     "release": "release-it",
     "release:major": "release-it major",
     "release:minor": "release-it minor",
-    "release:patch": "release-it patch"
+    "release:patch": "release-it patch",
+    "release:major:beta": "release-it major --preRelease=beta"
   },
   "dependencies": {
     "@fruits-chain/design-tokens-bailu": "^0.0.6",
