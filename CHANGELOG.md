@@ -1,3 +1,10 @@
+# [0.3.0-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v1.0.0-beta.0...v0.3.0-beta.0) (2022-06-04)
+
+### Reverts
+
+- Revert "chore: release 1.0.0-beta.0" ([0e682f7](https://github.com/hjfruit/react-native-xiaoshu/commit/0e682f7fe21dd0eee7821b5ea1ba81c9d6c55e85))
+- Revert "ci(ci): 🎡 release:major:beta" ([fe988fb](https://github.com/hjfruit/react-native-xiaoshu/commit/fe988fbc9fb2dfa019850fc669e9acb1bc163a9d))
+
 ## [0.2.55](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.54...v0.2.55) (2022-06-01)
 
 ### Features
