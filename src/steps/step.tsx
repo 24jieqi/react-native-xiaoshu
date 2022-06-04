@@ -8,9 +8,8 @@ import Icon from '../icon'
 import Theme from '../theme'
 
 import type { StepsItemPropsType } from './interface'
+import { maxSteps, StepsContext } from './steps'
 import { varCreator, styleCreator } from './style'
-
-import { maxSteps, StepsContext } from '.'
 
 /** Step */
 const Step: FC<StepsItemPropsType> = props => {
