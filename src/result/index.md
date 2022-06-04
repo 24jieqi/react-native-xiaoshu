@@ -19,4 +19,4 @@ react-native-svg-web 并没有提供 SvgXml 组件，web 端看不到 SVG 图形
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+<API src="./result.tsx"></API>
