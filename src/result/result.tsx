@@ -1,17 +1,13 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
-import { attachPropertiesToComponent, renderTextLikeJSX } from '../helpers'
+import { renderTextLikeJSX } from '../helpers'
 import CrossOutline from '../icon/cross'
 import SuccessOutline from '../icon/success'
 import WarningOutline from '../icon/warning'
 import Space from '../space'
 import Theme from '../theme'
 
-import IconBox from './icons/result-icon-box'
-import IconEmpty from './icons/result-icon-empty'
-import IconError from './icons/result-icon-error'
-import IconWarning from './icons/result-icon-warning'
 import type { ResultProps, ResultStatus } from './interface'
 import { varCreator, styleCreator } from './style'
 
@@ -87,11 +83,4 @@ const Result: React.FC<ResultProps> = ({
   )
 }
 
-const ResultMemo = memo(Result)
-
-export default attachPropertiesToComponent(ResultMemo, {
-  IconBox: IconBox,
-  IconEmpty: IconEmpty,
-  IconError: IconError,
-  IconWarning: IconWarning,
-})
+export default memo(Result)
