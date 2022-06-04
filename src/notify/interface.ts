@@ -1,5 +1,11 @@
 import type React from 'react'
-import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
+import type {
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+  ColorValue,
+  TouchableWithoutFeedbackProps,
+} from 'react-native'
 
 import type { PopupPropsCommon } from '../popup/interface'
 
@@ -50,7 +56,7 @@ export interface NotifyProps
   /**
    * 点击时的回调函数
    */
-  onPress?: () => void
+  onPress?: TouchableWithoutFeedbackProps['onPress']
 }
 
 export interface NotifyOptions extends Omit<NotifyProps, 'visible'> {
@@ -62,8 +68,3 @@ export interface NotifyOptions extends Omit<NotifyProps, 'visible'> {
 }
 
 export interface NotifyMethodProps extends NotifyOptions {}
-
-export interface NotifyInstance {
-  (p: NotifyMethodProps | string): NotifyMethods
-  Component: React.FC<NotifyProps>
-}

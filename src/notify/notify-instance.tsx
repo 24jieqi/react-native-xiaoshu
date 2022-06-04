@@ -1,12 +1,17 @@
-import React, { memo, createRef } from 'react'
+import React, { createRef } from 'react'
 
 import Portal from '../portal'
 
-import type { NotifyInstance, NotifyMethods, NotifyOptions } from './interface'
-import NotifyView from './notify'
+import type {
+  NotifyProps,
+  NotifyMethodProps,
+  NotifyMethods,
+  NotifyOptions,
+} from './interface'
+import Notify from './notify'
 import NotifyMethod from './notify-method'
 
-const Notify: NotifyInstance = options => {
+export const Instance = (options: NotifyMethodProps | string) => {
   const opts: NotifyOptions =
     typeof options === 'string' ? { message: options } : options
   const NotifyRef = createRef<NotifyMethods>()
@@ -31,12 +36,10 @@ const Notify: NotifyInstance = options => {
   }
 }
 
-Notify.Component = memo(props => {
-  return (
-    <Portal>
-      <NotifyView {...props} />
-    </Portal>
-  )
-})
+export const Component: React.FC<NotifyProps> = props => (
+  <Portal>
+    <Notify {...props} />
+  </Portal>
+)
 
-export default Notify
+export const NotifyComponent = Notify
