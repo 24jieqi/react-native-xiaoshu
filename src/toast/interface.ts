@@ -75,15 +75,3 @@ export interface ToastProps
 }
 
 export interface ToastOptions extends ToastProps {}
-
-export interface ToastInstance {
-  (p: ToastOptions | string): ToastMethods
-  loading: (p: ToastOptions | string) => ToastMethods
-  success: (p: ToastOptions | string) => ToastMethods
-  fail: (p: ToastOptions | string) => ToastMethods
-  setDefaultOptions: (
-    type: ToastType | ToastOptions,
-    options?: ToastOptions,
-  ) => void
-  resetDefaultOptions: (type: ToastType | ToastOptions) => void
-}

@@ -2,13 +2,8 @@ import React, { createRef } from 'react'
 
 import Portal from '../portal'
 
-import type {
-  ToastOptions,
-  ToastType,
-  ToastInstance,
-  ToastMethods,
-} from './interface'
-import ToastView from './toast'
+import type { ToastOptions, ToastType, ToastMethods } from './interface'
+import Toast from './toast'
 
 type OptionsMap = Record<ToastType, ToastOptions | undefined | null>
 
@@ -37,10 +32,7 @@ let currentOptions = {
   ...defaultOptions,
 }
 
-/**
- * 提示
- */
-const Toast: ToastInstance = options => {
+export const Instance = (options: ToastOptions | string) => {
   let opts: ToastOptions =
     typeof options === 'string' ? { message: options } : options
 
@@ -54,7 +46,7 @@ const Toast: ToastInstance = options => {
   }
   const ToastRef = createRef<ToastMethods>()
   const key = Portal.add(
-    <ToastView
+    <Toast
       {...opts}
       ref={ToastRef}
       onClosed={() => {
@@ -75,29 +67,20 @@ const Toast: ToastInstance = options => {
   }
 }
 
-/**
- * loading
- */
-Toast.loading = options =>
-  Toast({
+export const loading = (options: ToastOptions | string) =>
+  Instance({
     type: 'loading',
     ...parseOptions(options),
   })
 
-/**
- * success
- */
-Toast.success = options =>
-  Toast({
+export const success = (options: ToastOptions | string) =>
+  Instance({
     type: 'success',
     ...parseOptions(options),
   })
 
-/**
- * fail
- */
-Toast.fail = options =>
-  Toast({
+export const fail = (options: ToastOptions | string) =>
+  Instance({
     type: 'fail',
     ...parseOptions(options),
   })
@@ -105,7 +88,10 @@ Toast.fail = options =>
 /**
  * 修改默认配置，对所有 Toast 生效。传入 type 可以修改指定类型的默认配置
  */
-Toast.setDefaultOptions = (type, options) => {
+export const setDefaultOptions = (
+  type: ToastType | ToastOptions,
+  options?: ToastOptions,
+) => {
   if (typeof type === 'string') {
     defaultOptionsMap[type] = options
   } else {
@@ -116,7 +102,7 @@ Toast.setDefaultOptions = (type, options) => {
 /**
  * 重置默认配置，对所有 Toast 生效。传入 type 可以重置指定类型的默认配置
  */
-Toast.resetDefaultOptions = type => {
+export const resetDefaultOptions = (type: ToastType | ToastOptions) => {
   if (typeof type === 'string') {
     defaultOptionsMap[type] = null
   } else {
@@ -125,5 +111,3 @@ Toast.resetDefaultOptions = type => {
     defaultOptionsMap = {} as OptionsMap
   }
 }
-
-export default Toast
