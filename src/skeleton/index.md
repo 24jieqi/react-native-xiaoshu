@@ -27,7 +27,7 @@ group:
 
 ### Skeleton
 
-<API hideTitle></API>
+<API hideTitle src="./skeleton.tsx"></API>
 
 ### SkeletonAvatarProps
 
