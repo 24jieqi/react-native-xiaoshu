@@ -25,4 +25,4 @@ group:
 
 ## API
 
-<API hideTitle></API>
+<API hideTitle src="./notice-bar.tsx"></API>
