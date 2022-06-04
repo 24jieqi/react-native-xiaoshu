@@ -2,11 +2,11 @@ import React from 'react'
 
 import Portal from '../portal'
 
-import type { SelectorFnInstance } from './interface'
+import type { SelectorOptions, SelectorValue } from './interface'
 import SelectorMethod from './selector-method'
 
-const SelectorFn: SelectorFnInstance = opt =>
-  new Promise((resolve, reject) => {
+const SelectorInstance = (opt: SelectorOptions) =>
+  new Promise<SelectorValue[] | SelectorValue>((resolve, reject) => {
     const key = Portal.add(
       <SelectorMethod
         {...opt}
@@ -27,4 +27,4 @@ const SelectorFn: SelectorFnInstance = opt =>
     )
   })
 
-export default SelectorFn
+export default SelectorInstance

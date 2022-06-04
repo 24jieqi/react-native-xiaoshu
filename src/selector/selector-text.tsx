@@ -10,7 +10,7 @@ import Space from '../space'
 import Theme from '../theme'
 
 import type { SelectorTextProps } from './interface'
-import SelectorFn from './selector-fn'
+import SelectorInstance from './selector-instance'
 import { varCreator } from './style'
 import { styleCreator } from './style.text'
 
@@ -30,7 +30,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
   const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
 
   const onPress = usePersistFn(() => {
-    SelectorFn({
+    SelectorInstance({
       title,
       options: options,
       value,

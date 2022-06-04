@@ -1,22 +1,26 @@
-import React, { memo } from 'react'
+import React from 'react'
 
+import { attachPropertiesToComponent } from '../helpers'
 import Portal from '../portal'
 
-import type { SelectorInstance } from './interface'
-import SelectorBase from './selector'
-import SelectorFn from './selector-fn'
+import type { SelectorProps } from './interface'
+import Selector from './selector'
+import SelectorInstance from './selector-instance'
 import SelectorText from './selector-text'
+import { varCreator, styleCreator } from './style'
 
-const Selector: SelectorInstance = opt => SelectorFn(opt)
-
-Selector.Component = memo(props => {
+const Component: React.FC<SelectorProps> = props => {
   return (
     <Portal>
-      <SelectorBase {...props} />
+      <Selector {...props} />
     </Portal>
   )
+}
+
+export default attachPropertiesToComponent(SelectorInstance, {
+  varCreator,
+  styleCreator,
+  Component,
+  SelectorComponent: Selector,
+  Text: SelectorText,
 })
-
-Selector.Text = SelectorText
-
-export default Selector
