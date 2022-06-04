@@ -18,7 +18,7 @@ import type {
 } from './interface'
 import useDateMinMax from './useDateMinMax'
 
-interface UseDatePickerOption {
+export interface UseDatePickerOption {
   mode: DatePickerColumnMode
   value: Date
   onChange: (value: Date) => void
