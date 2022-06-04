@@ -1,9 +1,15 @@
 # [0.3.0-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v1.0.0-beta.0...v0.3.0-beta.0) (2022-06-04)
 
-### Reverts
+- 各组件导出变量、样式函数
+- 修复已知问题
 
-- Revert "chore: release 1.0.0-beta.0" ([0e682f7](https://github.com/hjfruit/react-native-xiaoshu/commit/0e682f7fe21dd0eee7821b5ea1ba81c9d6c55e85))
-- Revert "ci(ci): 🎡 release:major:beta" ([fe988fb](https://github.com/hjfruit/react-native-xiaoshu/commit/fe988fbc9fb2dfa019850fc669e9acb1bc163a9d))
+### BREAKING CHANGES
+
+- **Popup:** 🧨 Popup.Component -> Popup.PopupComponent
+- **Picker:** 🧨 移除 PickerInstance 类型
+- **Notify:** 🧨 移除 NotifyInstance 类型
+- **Dialog:** 🧨 移除 DialogInstance 类型
+- **Cell:** 🧨 Cell.Group bodyPaddingHorizontal 已移除
 
 ## [0.2.55](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.54...v0.2.55) (2022-06-01)
 
