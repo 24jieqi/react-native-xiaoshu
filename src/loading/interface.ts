@@ -1,11 +1,6 @@
-import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
+import type { TextStyle, StyleProp, ColorValue, ViewProps } from 'react-native'
 
-export interface LoadingProps {
-  /**
-   * 最外层的样式
-   */
-  style?: StyleProp<ViewStyle>
-
+export interface LoadingProps extends ViewProps {
   /**
    * 文案部分的样式
    */

@@ -23,6 +23,8 @@ const Loading: React.FC<LoadingProps> = ({
   textSize,
   vertical = false,
   type = 'circular',
+
+  ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -50,6 +52,7 @@ const Loading: React.FC<LoadingProps> = ({
 
   return (
     <View
+      {...restProps}
       style={StyleSheet.flatten([
         STYLES.loading,
         vertical ? STYLES.loading_vertical : null,
@@ -76,4 +79,4 @@ const STYLES = StyleSheet.create({
   },
 })
 
-export default memo<typeof Loading>(Loading)
+export default memo(Loading)
