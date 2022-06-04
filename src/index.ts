@@ -110,7 +110,7 @@ export { default as Overlay } from './overlay'
 export type { PasswordInputProps } from './password-input/interface'
 export { default as PasswordInput } from './password-input'
 
-export type { PickerInstance, PickerProps } from './picker/interface'
+export type { PickerProps } from './picker/interface'
 export { default as Picker } from './picker'
 
 export type {

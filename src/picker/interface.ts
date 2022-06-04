@@ -86,17 +86,4 @@ export interface PickerMethodProps
     values: PickerValue[],
     columns: Column[],
   ) => boolean | Promise<boolean>
-  // /**
-  //  * 操作完成后的回调
-  //  */
-  // callback?: (action: PickerAction) => void
-}
-
-export interface PickerInstance {
-  (p: PickerMethodProps): Promise<{
-    action: PickerAction
-    values: PickerValue[]
-    columns: Column[]
-  }>
-  Component: React.FC<PickerProps>
 }
