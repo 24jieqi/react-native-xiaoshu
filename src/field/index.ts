@@ -7,8 +7,10 @@ import FieldSelector from './field-selector'
 import FieldSwitch from './field-switch'
 import FieldText from './field-text'
 import FieldTextInput from './field-text-input'
+import { varCreator } from './style'
 
 export default {
+  varCreator,
   Checkbox: FieldCheckbox,
   Date: FieldDate,
   DateRange: FieldDateRange,
