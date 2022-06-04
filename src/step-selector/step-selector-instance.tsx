@@ -1,17 +1,12 @@
-import React, { memo } from 'react'
+import React from 'react'
 
 import Portal from '../portal'
 
-import type { StepSelectorInstance, StepSelectorMethodProps } from './interface'
-import StepSelectorView from './step-selector'
+import type { StepSelectorMethodProps, StepSelectorProps } from './interface'
+import StepSelector from './step-selector'
 import StopSelectorMethod from './step-selector-method'
 
-/**
- * 步骤选择
- */
-const StepSelector: StepSelectorInstance = <T,>(
-  opts: StepSelectorMethodProps<T>,
-) => {
+export const Instance = <T,>(opts: StepSelectorMethodProps<T>) => {
   return new Promise<T[]>((resolve, reject) => {
     const key = Portal.add(
       <StopSelectorMethod<T>
@@ -33,12 +28,12 @@ const StepSelector: StepSelectorInstance = <T,>(
   })
 }
 
-StepSelector.Component = memo(props => {
+export const Component = <T = number,>(props: StepSelectorProps<T>) => {
   return (
     <Portal>
-      <StepSelectorView {...props} />
+      <StepSelector<T> {...props} />
     </Portal>
   )
-})
+}
 
-export default StepSelector
+export const StepSelectorComponent = StepSelector
