@@ -17,4 +17,4 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+<API src="./switch.tsx"></API>

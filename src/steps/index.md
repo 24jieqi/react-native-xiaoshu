@@ -21,7 +21,7 @@ group:
 
 ### Steps
 
-<API hideTitle></API>
+<API hideTitle src="./steps.tsx"></API>
 
 ### Step
 
