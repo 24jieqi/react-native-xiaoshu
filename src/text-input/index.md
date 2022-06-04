@@ -38,4 +38,4 @@ group:
 
 ## API
 
-<API hideTitle></API>
+<API hideTitle src="./text-input.tsx"></API>
