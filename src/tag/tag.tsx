@@ -129,4 +129,4 @@ const Tag: React.FC<TagProps> = ({
   ) : null
 }
 
-export default memo<typeof Tag>(Tag)
+export default memo(Tag)
