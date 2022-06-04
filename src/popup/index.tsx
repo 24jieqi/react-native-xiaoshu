@@ -7,6 +7,7 @@ import type { PopupProps, PopupPageProps } from './interface'
 import Popup from './popup'
 import PopupHeader from './popup-header'
 import PopupPage from './popup-page'
+import { varCreator, styleCreator } from './style'
 
 /**
  * Popup 弹出层
@@ -31,7 +32,9 @@ const PopupPageContainer: React.FC<PopupPageProps> = props => {
 export default attachPropertiesToComponent(
   memo<typeof PopupContainer>(PopupContainer),
   {
-    Component: Popup,
+    varCreator,
+    styleCreator,
+    PopupComponent: Popup,
     Header: PopupHeader,
     Page: PopupPageContainer,
     PageComponent: PopupPage,
