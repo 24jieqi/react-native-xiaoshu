@@ -99,13 +99,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   })
 
   const onPressConfirm = usePersistFn(() => {
-    if (
-      !isNil(Values.current[0]) &&
-      !isNil(Values.current[1]) &&
-      Values.current[0] <= Values.current[1]
-    ) {
-      onConfirm?.(Values.current)
-    }
+    onConfirm?.(Values.current)
   })
   const onPressClear = usePersistFn(() => {
     onClear?.(Values.current)
