@@ -1,3 +1,9 @@
+## [0.2.56](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.55...v0.2.56) (2022-06-07)
+
+### Features
+
+- **DatePicker:** 🎸 回退`时间段必须选,开始时间小于结束时间` ([2d0709a](https://github.com/hjfruit/react-native-xiaoshu/commit/2d0709aabcf0a93cf19afe7c9edff41cdd84dcd6))
+
 ## [0.2.55](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.54...v0.2.55) (2022-06-01)
 
 ### Features
