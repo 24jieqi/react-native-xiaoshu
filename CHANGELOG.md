@@ -1,3 +1,15 @@
+## [0.2.57](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.56...v0.2.57) (2022-06-08)
+
+### Bug Fixes
+
+- **Card:** 🐛 bodyPadding 对象的时候,未声明的方向默认 true ([1963eb5](https://github.com/hjfruit/react-native-xiaoshu/commit/1963eb50ecc9684a6153bfdb213d66eb0304815c))
+- **Card:** 🐛 bodyStyle 丢失 ([4951000](https://github.com/hjfruit/react-native-xiaoshu/commit/495100017a009d8a9ba8f7bf7d8bbd47b7dd3053))
+
+### Features
+
+- **Popup:** 🎸 page 支持自定义 safeAreaInsetBottom ([b826b8b](https://github.com/hjfruit/react-native-xiaoshu/commit/b826b8b692420d76f4419c058892d43748a77c5b))
+- **Selector:** 🎸 新增搜索\衍生的组件支持搜索 ([a99a8da](https://github.com/hjfruit/react-native-xiaoshu/commit/a99a8dad985c592176ef6d4b16c26e2cc9d2d3ac))
+
 ## [0.2.56](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.55...v0.2.56) (2022-06-07)
 
 ### Features
