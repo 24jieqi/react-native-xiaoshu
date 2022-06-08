@@ -95,6 +95,7 @@ const Card: React.FC<CardProps> = ({
         )
       ) : null}
       <CardBody
+        style={bodyStyle}
         padding={
           isBoolean(bodyPadding) && bodyPadding ? CV.card_padding : bodyPadding
         }
