@@ -96,8 +96,7 @@ export interface PopupProps extends PopupPropsCommon {
   lazyRender?: boolean
 }
 
-export interface PopupPageProps
-  extends Omit<PopupProps, 'position' | 'safeAreaInsetBottom'> {
+export interface PopupPageProps extends Omit<PopupProps, 'position'> {
   /**
    * 顶部安全高度
    * @default safeAreaInsets.top
