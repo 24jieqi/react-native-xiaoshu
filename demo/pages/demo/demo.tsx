@@ -114,7 +114,7 @@ const navDatas: {
         name: 'DemoSearch',
       },
       {
-        title: 'Selector 选择组',
+        title: 'Selector 选择器',
         name: 'DemoSelector',
       },
       {

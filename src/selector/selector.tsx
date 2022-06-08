@@ -1,7 +1,15 @@
-import React, { useEffect, useState, memo } from 'react'
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+  memo,
+} from 'react'
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 
 import Button from '../button'
+import ButtonBar from '../button-bar'
 import { varCreator as varCreatorButton } from '../button/style'
 import CheckboxIcon from '../checkbox/checkbox-icon'
 import { varCreator as varCreatorCheckbox } from '../checkbox/style'
@@ -11,6 +19,8 @@ import SuccessOutline from '../icon/success'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
+import PopupPage from '../popup/popup-page'
+import Search from '../search'
 import Theme from '../theme'
 
 import type { SelectorProps, SelectorValue } from './interface'
@@ -29,6 +39,7 @@ const Selector: React.FC<SelectorProps> = ({
   onChangeImmediate,
   safeAreaInsetTop,
   confirmButtonText,
+  search,
 
   // popup 组件相关属性
   visible,
@@ -36,7 +47,7 @@ const Selector: React.FC<SelectorProps> = ({
   onClose,
   ...restProps
 }) => {
-  const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
+  const safeHeight = useSafeHeight({ top: safeAreaInsetTop, bottom: false })
   const locale = Locale.useLocale().Selector
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -52,6 +63,15 @@ const Selector: React.FC<SelectorProps> = ({
       ? [value as SelectorValue]
       : [],
   )
+  const [keyword, setKeyword] = useState('')
+  const renderOptions = useMemo(() => {
+    if (!keyword) {
+      return options
+    }
+
+    return options.filter(item => item.label.indexOf(keyword) > -1)
+  }, [keyword, options])
+  const ScrollViewRef = useRef<ScrollView>(null)
 
   // 同步已选的数据
   useEffect(() => {
@@ -65,6 +85,14 @@ const Selector: React.FC<SelectorProps> = ({
         : [],
     )
   }, [value, multiple])
+
+  const onSearch = useCallback((t: string) => {
+    setKeyword(t)
+    ScrollViewRef.current?.scrollTo({
+      x: 0,
+      y: 0,
+    })
+  }, [])
 
   /**
    * 生成每次点击的回调
@@ -110,6 +138,87 @@ const Selector: React.FC<SelectorProps> = ({
     )
   }
 
+  const headerJSX = (
+    <PopupHeader title={title || locale.title} onClose={onClose} />
+  )
+  const contentJSX = (
+    <>
+      <ScrollView
+        ref={ScrollViewRef}
+        bounces={false}
+        keyboardShouldPersistTaps="handled">
+        {renderOptions.length === 0 ? <Empty /> : null}
+
+        {renderOptions?.map(item => {
+          const isSelected =
+            selectedKeys.findIndex(key => key === item.value) >= 0
+
+          return (
+            <TouchableOpacity
+              key={item.value}
+              disabled={item.disabled}
+              onPress={genOnPressOption(item.value)}
+              activeOpacity={CV_BUTTON.button_active_opacity}>
+              <View style={STYLES.option_item}>
+                <Text
+                  style={
+                    item.disabled
+                      ? [
+                          STYLES.option_item_text,
+                          STYLES.option_item_text_disabled,
+                        ]
+                      : STYLES.option_item_text
+                  }
+                  numberOfLines={1}>
+                  {item.label}
+                </Text>
+
+                {multiple ? (
+                  <CheckboxIcon
+                    active={isSelected}
+                    disabled={item.disabled}
+                    onPress={genOnPressOption(item.value)}
+                  />
+                ) : isSelected ? (
+                  <SuccessOutline
+                    color={CV.selector_icon_selected_color}
+                    size={CV_CHECKBOX.checkbox_icon_size}
+                  />
+                ) : null}
+              </View>
+            </TouchableOpacity>
+          )
+        })}
+      </ScrollView>
+
+      {multiple ? (
+        <ButtonBar alone divider={false} height={60}>
+          <Button
+            type="primary"
+            onPress={onPressOk}
+            text={confirmButtonText || locale.confirmButtonText}
+          />
+        </ButtonBar>
+      ) : null}
+    </>
+  )
+
+  if (search) {
+    return (
+      <PopupPage
+        {...restProps}
+        visible={visible}
+        onClose={onClose}
+        closeOnPressOverlay={closeOnPressOverlay}
+        onPressOverlay={onClose}
+        round>
+        {headerJSX}
+        <Search autoSearch onSearch={onSearch} />
+        {contentJSX}
+      </PopupPage>
+    )
+  }
+
   return (
     <Popup
       {...restProps}
@@ -118,65 +227,10 @@ const Selector: React.FC<SelectorProps> = ({
       closeOnPressOverlay={closeOnPressOverlay}
       onPressOverlay={onClose}
       position="bottom"
-      safeAreaInsetBottom
       round>
       <View style={{ maxHeight: safeHeight }}>
-        <PopupHeader title={title || locale.title} onClose={onClose} />
-
-        <ScrollView bounces={false}>
-          {options.length === 0 ? <Empty /> : null}
-
-          {options?.map(item => {
-            const isSelected =
-              selectedKeys.findIndex(key => key === item.value) >= 0
-
-            return (
-              <TouchableOpacity
-                key={item.value}
-                disabled={item.disabled}
-                onPress={genOnPressOption(item.value)}
-                activeOpacity={CV_BUTTON.button_active_opacity}>
-                <View style={STYLES.option_item}>
-                  <Text
-                    style={
-                      item.disabled
-                        ? [
-                            STYLES.option_item_text,
-                            STYLES.option_item_text_disabled,
-                          ]
-                        : STYLES.option_item_text
-                    }
-                    numberOfLines={1}>
-                    {item.label}
-                  </Text>
-
-                  {multiple ? (
-                    <CheckboxIcon
-                      active={isSelected}
-                      disabled={item.disabled}
-                      onPress={genOnPressOption(item.value)}
-                    />
-                  ) : isSelected ? (
-                    <SuccessOutline
-                      color={CV.selector_icon_selected_color}
-                      size={CV_CHECKBOX.checkbox_icon_size}
-                    />
-                  ) : null}
-                </View>
-              </TouchableOpacity>
-            )
-          })}
-        </ScrollView>
-
-        {multiple ? (
-          <View style={STYLES.btn}>
-            <Button
-              type="primary"
-              onPress={onPressOk}
-              text={confirmButtonText || locale.confirmButtonText}
-            />
-          </View>
-        ) : null}
+        {headerJSX}
+        {contentJSX}
       </View>
     </Popup>
   )

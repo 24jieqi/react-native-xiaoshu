@@ -35,7 +35,10 @@ export interface CellPropsUsed extends Omit<CellPrivateProps, 'value'> {
 }
 
 interface SelectorPropsUsed
-  extends Pick<SelectorProps, 'value' | 'multiple' | 'options' | 'onChange'> {}
+  extends Pick<
+    SelectorProps,
+    'value' | 'multiple' | 'options' | 'onChange' | 'search'
+  > {}
 
 export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
   /**
