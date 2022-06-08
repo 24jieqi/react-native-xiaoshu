@@ -3,6 +3,7 @@ import isNumber from 'lodash/isNumber'
 import React from 'react'
 
 import Blank from '../blank'
+import { getDefaultValue } from '../helpers'
 
 import type { CardBodyProps } from './interface'
 
@@ -18,7 +19,12 @@ const CardBody: React.FC<CardBodyProps> = ({
           top: padding,
           bottom: padding,
         }
-      : padding
+      : {
+          left: getDefaultValue(padding.left, true),
+          right: getDefaultValue(padding.right, true),
+          top: getDefaultValue(padding.top, true),
+          bottom: getDefaultValue(padding.bottom, true),
+        }
 
   return <Blank {...restProps} {...config} type="margin" />
 }

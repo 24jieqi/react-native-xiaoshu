@@ -27,6 +27,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   editable = true,
   clearable = false,
   selectorTitle,
+  search,
 
   isLink = true,
   ...restProps
@@ -43,6 +44,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
         multiple,
         options,
         value,
+        search,
         onChange,
       }).catch(() => {})
     }

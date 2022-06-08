@@ -79,6 +79,17 @@ const CardBase: React.FC = () => {
           <Text>Card content</Text>
           <Text>Card content</Text>
         </Card>
+
+        <Card
+          title="title"
+          bodyPadding={{ top: true, bottom: 32 }}
+          bodyStyle={{
+            paddingVertical: 40,
+          }}>
+          <Text>Card content</Text>
+          <Text>Card content</Text>
+          <Text>Card content</Text>
+        </Card>
       </Space>
     </Blank>
   )

@@ -84,6 +84,11 @@ export interface SelectorProps
    * @default '确定'
    */
   confirmButtonText?: string
+
+  /**
+   * 支持搜索
+   */
+  search?: boolean
 }
 
 export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {}

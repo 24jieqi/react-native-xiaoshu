@@ -37,11 +37,5 @@ export const styleCreator = (cv: ComponentVars) => {
     option_item_text_disabled: {
       color: cv.selector_option_text_disabled_color,
     },
-
-    btn: {
-      height: 60,
-      justifyContent: 'center',
-      paddingHorizontal: cv.selector_body_padding_horizontal,
-    },
   })
 }
