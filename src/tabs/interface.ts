@@ -46,6 +46,12 @@ export interface TabsProps
    * 切换面板的回调
    */
   onChange?: (activeKey: string) => void
+
+  /**
+   * 是否显示分割线
+   * @default false
+   */
+  divider?: boolean
 }
 
 export interface TabPaneProps {

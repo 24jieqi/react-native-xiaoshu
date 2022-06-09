@@ -11,6 +11,12 @@
 - **Dialog:** 🧨 移除 DialogInstance 类型
 - **Cell:** 🧨 Cell.Group bodyPaddingHorizontal 已移除
 
+## [0.2.58](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.57...v0.2.58) (2022-06-09)
+
+### Features
+
+- **Tabs:** 🎸 新增分割线 ([defbbb2](https://github.com/hjfruit/react-native-xiaoshu/commit/defbbb22dfcb514c5a191c5cf41fffe1c1b8aa6b))
+
 ## [0.2.57](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.56...v0.2.57) (2022-06-08)
 
 ### Bug Fixes

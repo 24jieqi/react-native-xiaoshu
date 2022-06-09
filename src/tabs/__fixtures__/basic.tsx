@@ -67,6 +67,30 @@ const BasicTabs: React.FC = () => {
         </Card>
       </Blank>
       <Blank top>
+        <Card square bodyPadding={false}>
+          <Tabs indicatorWidth={24} divider>
+            <Tabs.TabPane key="1" tab="第一个">
+              <T />
+            </Tabs.TabPane>
+
+            {null}
+
+            <>
+              <Tabs.TabPane key="3" tab="第二个1">
+                <T />
+              </Tabs.TabPane>
+              <Tabs.TabPane key="4" tab="第二个2">
+                <Result status="warning" title="嗯哼？2" subtitle="哈哈哈" />
+              </Tabs.TabPane>
+            </>
+
+            <Tabs.TabPane key="2" tab="第二个">
+              <Result status="warning" title="嗯哼？" subtitle="哈哈哈" />
+            </Tabs.TabPane>
+          </Tabs>
+        </Card>
+      </Blank>
+      <Blank top>
         <Card title="受控模式" square bodyPadding={false}>
           <Tabs activeKey={value1} onChange={setValue1}>
             <Tabs.TabPane key="1" tab="第一个">

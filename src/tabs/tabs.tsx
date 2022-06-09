@@ -1,5 +1,6 @@
 import React, { useMemo, memo, isValidElement } from 'react'
 
+import Divider from '../divider'
 import { childrenToArray } from '../helpers'
 import { useControllableValue } from '../hooks'
 import TabBar from '../tab-bar'
@@ -30,6 +31,7 @@ const Tabs: React.FC<TabsProps> = ({
   tabBarStyle,
   tabBarHeight,
   tabBarBackgroundColor,
+  divider,
   ...restProps
 }) => {
   const [_options, _tabs] = useMemo(() => {
@@ -64,6 +66,9 @@ const Tabs: React.FC<TabsProps> = ({
         options={_options}
         onChange={onChange}
       />
+
+      {divider ? <Divider /> : null}
+
       {_tabs.map(t => {
         return (
           <TabView
