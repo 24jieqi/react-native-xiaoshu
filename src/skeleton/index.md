@@ -36,3 +36,11 @@ group:
 ### SkeletonParagraphProps
 
 <API hideTitle src="./skeleton-paragraph.tsx"></API>
+
+## 主题定制
+
+| 名称                          | 默认值                   | 描述 |
+| :---------------------------- | ------------------------ | ---- |
+| skeleton_color                | `TOKENS.gray_3`          | -    |
+| skeleton_color_active         | `TOKENS.gray_1`          | -    |
+| skeleton_avatar_border_radius | `TOKENS.border_radius_s` | -    |

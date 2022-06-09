@@ -24,4 +24,20 @@ React Native 在 iOS 端的 borderStyle 暂时不支持虚线，使用 SVG 的�
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./divider.tsx"></API>
+## API
+
+<API hideTitle src="./divider.tsx"></API>
+
+## 主题定制
+
+| 名称                        | 默认值                 | 描述 |
+| :-------------------------- | ---------------------- | ---- |
+| divider_vertical_min_height | 12                     | -    |
+| divider_color_dark          | `TOKENS.gray_4`        | -    |
+| divider_color_light         | `TOKENS.gray_2`        | -    |
+| divider_margin_horizontal   | `TOKENS.space_4`       | -    |
+| divider_text_color          | `TOKENS.gray_8`        | -    |
+| divider_font_size           | `TOKENS.font_size_4`   | -    |
+| divider_line_height         | `TOKENS.line_height_2` | -    |
+| divider_content_left_width  | '10%'                  | -    |
+| divider_content_right_width | '10%'                  | -    |

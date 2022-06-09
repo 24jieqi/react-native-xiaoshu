@@ -17,4 +17,20 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./switch.tsx"></API>
+## API
+
+<API hideTitle src="./switch.tsx"></API>
+
+## 主题定制
+
+| 名称                         | 默认值                           | 描述 |
+| :--------------------------- | -------------------------------- | ---- |
+| switch_size                  | 30                               | -    |
+| switch_width_ratio           | 2                                | -    |
+| switch_height_ratio          | 1                                | -    |
+| switch_node_size_ratio       | 1                                | -    |
+| switch_node_background_color | `TOKENS.white`                   | -    |
+| switch_background_color      | `TOKENS.gray_3`                  | -    |
+| switch_on_background_color   | `TOKENS.brand_6`                 | -    |
+| switch_transition_duration   | `TOKENS.animation_duration_base` | -    |
+| switch_disabled_opacity      | `TOKENS.opacity_60`              | -    |

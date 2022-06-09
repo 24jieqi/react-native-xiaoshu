@@ -21,4 +21,14 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./blank.tsx"></API>
+## API
+
+<API hideTitle src="./blank.tsx"></API>
+
+## 主题定制
+
+| 名称         | 默认值           | 描述 |
+| :----------- | ---------------- | ---- |
+| blank_size_s | `TOKENS.space_2` | -    |
+| blank_size_m | `TOKENS.space_3` | -    |
+| blank_size_l | `TOKENS.space_4` | -    |

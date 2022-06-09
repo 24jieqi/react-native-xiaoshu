@@ -76,3 +76,9 @@ group:
 ### Field.Password
 
 <API hideTitle src="./field-password.tsx"></API>
+
+## 主题定制
+
+| 名称               | 默认值           | 描述 |
+| :----------------- | ---------------- | ---- |
+| field_checkbox_gap | `TOKENS.space_6` | -    |

@@ -50,3 +50,28 @@ group:
 > `Dialog.Keyboard`、`Dialog.KeyboardComponent` 在 `Dialog` 添加键盘出现、消失事件监听，键盘出现时整个对话框距离顶部一个安全距离。
 
 <API hideTitle src="./dialog.tsx"></API>
+
+## 主题定制
+
+| 名称                              | 默认值                           | 描述 |
+| :-------------------------------- | -------------------------------- | ---- |
+| dialog_width                      | 300                              | -    |
+| dialog_transition                 | `TOKENS.animation_duration_base` | -    |
+| dialog_border_radius              | `TOKENS.border_radius_xl`        | -    |
+| dialog_background_color           | `TOKENS.white`                   | -    |
+| dialog_close_color                | `TOKENS.gray_8`                  | -    |
+| dialog_close_size                 | 24                               | -    |
+| dialog_header_font_weight         | 'bold'                           | -    |
+| dialog_header_line_height         | `TOKENS.line_height_2`           | -    |
+| dialog_header_margin_top          | 30                               | -    |
+| dialog_header_font_size           | `TOKENS.font_size_7`             | -    |
+| dialog_message_margin_top         | 12                               | -    |
+| dialog_message_padding_horizontal | `TOKENS.space_6`                 | -    |
+| dialog_message_font_size          | `TOKENS.font_size_5`             | -    |
+| dialog_message_line_height        | `TOKENS.line_height_1`           | -    |
+| dialog_message_text_color         | `TOKENS.gray_7`                  | -    |
+| dialog_footer_margin_top          | 32                               | -    |
+| dialog_footer_divider_color       | `TOKENS.gray_4`                  | -    |
+| dialog_confirm_button_text_color  | `TOKENS.brand_6`                 | -    |
+| dialog_cancel_button_text_color   | `TOKENS.gray_7`                  | -    |
+| dialog_input_gap                  | `TOKENS.space_4`                 | -    |

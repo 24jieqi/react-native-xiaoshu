@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 可以传入一个 buttons 按钮数组，也可以嵌套子元素。
+ * desc: left、right、top、bottom 四个方向，可以独立设置具体的边距，也可以通过 size 修改默认大小。
  */
 
 import React from 'react'
@@ -16,7 +16,7 @@ const BasicButtonBar: React.FC = () => {
           <Button type="primary">456</Button>
         </Space>
 
-        <Blank top left={false} right={false}>
+        <Blank top left={false} right={32}>
           <Button type="primary">789</Button>
         </Blank>
       </Blank>

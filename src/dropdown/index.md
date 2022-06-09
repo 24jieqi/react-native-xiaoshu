@@ -44,3 +44,20 @@ group:
 ### Dropdown.Popup <Badge>0.2.42+</Badge>
 
 <API hideTitle src="./dropdown-popup.tsx">
+
+## 主题定制
+
+| 名称                          | 默认值               | 描述 |
+| :---------------------------- | -------------------- | ---- |
+| dropdown_active_color         | `TOKENS.brand_6`     | -    |
+| dropdown_background_color     | `TOKENS.white`       | -    |
+| dropdown_menu_height          | 40                   | -    |
+| dropdown_text_font_size       | `TOKENS.font_size_4` | -    |
+| dropdown_text_color           | `TOKENS.gray_7`      | -    |
+| dropdown_text_disabled_color  | `TOKENS.gray_6`      | -    |
+| dropdown_text_margin_right    | 4                    | -    |
+| dropdown_text_icon_size       | 12                   | -    |
+| dropdown_text_icon_color      | `TOKENS.gray_6`      | -    |
+| dropdown_badge_color          | `TOKENS.red_6`       | -    |
+| dropdown_badge_text_font_size | `TOKENS.font_size_3` | -    |
+| dropdown_badge_dot_size       | 8                    | -    |

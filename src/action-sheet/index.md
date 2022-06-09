@@ -23,4 +23,18 @@ group:
 
 <code src="./__fixtures__/component.tsx"></code>
 
-<API src="./action-sheet.tsx"></API>
+## API
+
+<API hideTitle src="./action-sheet.tsx"></API>
+
+## 主题定制
+
+| 名称                                 | 默认值                 | 描述 |
+| :----------------------------------- | ---------------------- | ---- |
+| action_sheet_description_color       | `TOKENS.gray_7`        | -    |
+| action_sheet_description_font_size   | `TOKENS.font_size_3`   | -    |
+| action_sheet_description_line_height | `TOKENS.line_height_1` | -    |
+| action_sheet_text_color              | `TOKENS.gray_8`        | -    |
+| action_sheet_text_font_size          | `TOKENS.font_size_5`   | -    |
+| action_sheet_cancel_padding_top      | `TOKENS.space_2`       | -    |
+| action_sheet_cancel_padding_color    | '#ECEEF1'              | -    |

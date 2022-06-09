@@ -34,3 +34,13 @@ group:
 ### Popup.Page <Badge>0.2.47+</Badge>
 
 <API hideTitle src="./popup-page.tsx"></API>
+
+## 主题定制
+
+| 名称                         | 默认值                    | 描述 |
+| :--------------------------- | ------------------------- | ---- |
+| popup_background_color       | `TOKENS.white`            | -    |
+| popup_round_border_radius    | `TOKENS.border_radius_xl` | -    |
+| popup_close_icon_size        | 24                        | -    |
+| popup_close_icon_color       | `TOKENS.gray_7`           | -    |
+| popup_close_icon_margin_left | `TOKENS.space_2`          | -    |

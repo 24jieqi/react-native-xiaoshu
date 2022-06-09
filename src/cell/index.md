@@ -36,3 +36,30 @@ group:
 ### Cell.Group
 
 <API hideTitle src="./cell-group.tsx"></API>
+
+## 主题定制
+
+| 名称                                | 默认值                 | 描述 |
+| :---------------------------------- | ---------------------- | ---- |
+| cell_group_title_padding_horizontal | `TOKENS.space_3`       | -    |
+| cell_group_title_padding_top        | `TOKENS.space_2`       | -    |
+| cell_group_title_padding_bottom     | `TOKENS.space_2`       | -    |
+| cell_group_title_color              | `TOKENS.gray_8`        | -    |
+| cell_group_title_font_size          | `TOKENS.font_size_5`   | -    |
+| cell_group_title_line_height        | 28                     | -    |
+| cell_icon_size                      | `TOKENS.font_size_5`   | -    |
+| cell_icon_color                     | `TOKENS.gray_6`        | -    |
+| cell_active_color                   | `TOKENS.gray_1`        | -    |
+| cell_font_size                      | `TOKENS.font_size_5`   | -    |
+| cell_background_color               | `TOKENS.white`         | -    |
+| cell_padding_vertical               | `TOKENS.space_3`       | -    |
+| cell_padding_horizontal             | `TOKENS.space_3`       | -    |
+| cell_mini_height                    | 50                     | -    |
+| cell_title_text_color               | `TOKENS.gray_8`        | -    |
+| cell_title_height                   | 32                     | -    |
+| cell_title_line_height              | `TOKENS.line_height_1` | -    |
+| cell_title_line_margin_right        | `TOKENS.space_2`       | -    |
+| cell_value_text_color               | `TOKENS.gray_7`        | -    |
+| cell_required_color                 | `TOKENS.red_6`         | -    |
+| cell_required_width                 | `TOKENS.space_3`       | -    |
+| cell_icon_link_margin_left          | `TOKENS.space_2`       | -    |

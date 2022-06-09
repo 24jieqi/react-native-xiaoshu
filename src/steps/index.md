@@ -30,3 +30,16 @@ group:
 ## TODO
 
 - 大屏幕的情况可以显示更多
+
+## 主题定制
+
+| 名称                           | 默认值               | 描述 |
+| :----------------------------- | -------------------- | ---- |
+| steps_background_color         | `TOKENS.brand_6`     | -    |
+| steps_padding_vertical         | `TOKENS.space_4`     | -    |
+| steps_padding_horizontal       | `TOKENS.space_6`     | -    |
+| steps_icon_dot_size            | 10                   | -    |
+| steps_icon_dot_active_size     | 16                   | -    |
+| steps_icon_success_active_size | 16                   | -    |
+| steps_title_size               | `TOKENS.font_size_4` | -    |
+| steps_title_color              | `TOKENS.white`       | -    |

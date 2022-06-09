@@ -36,3 +36,18 @@ group:
 ### Popover.Text
 
 <API hideTitle src="./popover-text.tsx"></API>
+
+## 主题定制
+
+| 名称                            | 默认值                   | 描述 |
+| :------------------------------ | ------------------------ | ---- |
+| popover_border_radius           | `TOKENS.border_radius_s` | -    |
+| popover_color                   | `TOKENS.white`           | -    |
+| popover_color_dark              | 'rgba(0,0,0,0.7)'        | -    |
+| popover_item_padding_horizontal | `TOKENS.space_3`         | -    |
+| popover_item_padding_vertical   | `TOKENS.space_3`         | -    |
+| popover_item_divider            | `TOKENS.gray_2`          | -    |
+| popover_item_divider_dark       | 'rgba(255,255,255,0.15)' | -    |
+| popover_text_color              | `TOKENS.gray_8`          | -    |
+| popover_text_color_dark         | `TOKENS.white`           | -    |
+| popover_text_font_size          | `TOKENS.font_size_3`     | -    |

@@ -26,3 +26,12 @@ group:
 ### Selector.Component
 
 <API hideTitle src="./step-selector.tsx"></API>
+
+## 主题定制
+
+| 名称                                      | 默认值               | 描述 |
+| :---------------------------------------- | -------------------- | ---- |
+| step_selector_active_color                | `TOKENS.brand_6`     | -    |
+| step_selector_option_index_width          | `TOKENS.space_6`     | -    |
+| step_selector_option_index_text_color     | `TOKENS.gray_6`      | -    |
+| step_selector_option_index_text_font_size | `TOKENS.font_size_5` | -    |

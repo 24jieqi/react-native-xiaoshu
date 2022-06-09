@@ -24,3 +24,10 @@ group:
 - `backgroundColor` <Badge>0.2.17+</Badge>
 
 <API hideTitle src="./overlay.tsx"></API>
+
+## 主题定制
+
+| 名称                     | 默认值               | 描述 |
+| :----------------------- | -------------------- | ---- |
+| overlay_z_index          | 10                   | -    |
+| overlay_background_color | 'rgba(0, 0, 0, 0.7)' | -    |

@@ -29,3 +29,10 @@ group:
 ## API
 
 <API hideTitle src="./button-bar.tsx"></API>
+
+## 主题定制
+
+| 名称                          | 默认值           | 描述 |
+| :---------------------------- | ---------------- | ---- |
+| button_bar_padding_horizontal | `TOKENS.space_3` | -    |
+| button_bar_button_space       | 8                | -    |

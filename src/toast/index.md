@@ -52,3 +52,28 @@ const doCheck = () => {
 ### Toast
 
 <API hideTitle src="./toast.tsx"></API>
+
+## 主题定制
+
+| 名称                           | 默认值                          | 描述 |
+| :----------------------------- | ------------------------------- | ---- |
+| toast_max_width                | '70%'                           | -    |
+| toast_background_color         | rgba(0,0,0,`TOKENS.opacity_70`) | -    |
+| toast_border_radius            | `TOKENS.border_radius_xl`       | -    |
+| toast_text_border_radius       | `TOKENS.border_radius_m`        | -    |
+| toast_icon_color               | `TOKENS.white`                  | -    |
+| toast_icon_padding             | `TOKENS.space_1`                | -    |
+| toast_icon_size                | 36                              | -    |
+| toast_inner_padding_vertical   | `TOKENS.space_4`                | -    |
+| toast_inner_padding_horizontal | `TOKENS.space_4`                | -    |
+| toast_inner_width              | 120                             | -    |
+| toast_inner_min_height         | 120                             | -    |
+| toast_font_size                | `TOKENS.font_size_3`            | -    |
+| toast_text_color               | `TOKENS.white`                  | -    |
+| toast_line_height              | 20                              | -    |
+| toast_text_min_width           | 96                              | -    |
+| toast_text_padding_vertical    | `TOKENS.space_2`                | -    |
+| toast_text_padding_horizontal  | `TOKENS.space_3`                | -    |
+| toast_text_margin_top          | `TOKENS.space_2`                | -    |
+| toast_position_top_distance    | '20%'                           | -    |
+| toast_position_bottom_distance | '20%'                           | -    |

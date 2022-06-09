@@ -22,4 +22,17 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./empty.tsx"></API>
+## API
+
+<API hideTitle src="./empty.tsx"></API>
+
+## 主题定制
+
+| 名称                     | 默认值                 | 描述 |
+| :----------------------- | ---------------------- | ---- |
+| empty_image_width        | 130                    | -    |
+| empty_image_height       | 115                    | -    |
+| empty_icon_margin_bottom | `TOKENS.space_2`       | -    |
+| empty_text_color         | `TOKENS.gray_6`        | -    |
+| empty_text_font_size     | `TOKENS.font_size_3`   | -    |
+| empty_text_line_height   | `TOKENS.line_height_1` | -    |

@@ -39,3 +39,34 @@ group:
 ## API
 
 <API hideTitle src="./text-input.tsx"></API>
+
+## 主题定制
+
+| 名称                                         | 默认值                   | 描述 |
+| :------------------------------------------- | ------------------------ | ---- |
+| text_input_l_font_size                       | `TOKENS.font_size_5`     | -    |
+| text_input_l_min_height                      | 40                       | -    |
+| text_input_m_font_size                       | `TOKENS.font_size_5`     | -    |
+| text_input_m_min_height                      | 32                       | -    |
+| text_input_s_font_size                       | `TOKENS.font_size_5`     | -    |
+| text_input_s_min_height                      | 24                       | -    |
+| text_input_selection_color                   | `TOKENS.brand_6`         | -    |
+| text_input_placeholder_text_color            | `TOKENS.gray_5`          | -    |
+| text_input_color                             | `TOKENS.gray_8`          | -    |
+| text_input_disabled_color                    | `TOKENS.gray_6`          | -    |
+| text_input_disabled_background_color         | '#EFEFF1'                | -    |
+| text_input_border_radio                      | `TOKENS.border_radius_s` | -    |
+| text_input_padding_horizontal                | `TOKENS.space_2`         | -    |
+| text_input_clearable_size                    | 16                       | -    |
+| text_input_clearable_background_color        | `TOKENS.gray_5`          | -    |
+| text_input_clearable_color                   | `TOKENS.white`           | -    |
+| text_input_fix_text_color                    | `TOKENS.gray_8`          | -    |
+| text_input_addon_text_color                  | `TOKENS.gray_8`          | -    |
+| text_input_light_accessory_background_color  | '#f7f7f7'                | -    |
+| text_input_dark_accessory_background_color   | '#575757'                | -    |
+| text_input_dark_accessory_padding_horizontal | `TOKENS.space_3`         | -    |
+| text_input_accessory_font_size               | `TOKENS.font_size_5`     | -    |
+| text_input_accessory_height                  | 44                       | -    |
+| text_input_accessory_text_color              | `TOKENS.brand_6`         | -    |
+| text_input_word_limit_text_font_size         | `TOKENS.font_size_3`     | -    |
+| text_input_word_limit_text_color             | `TOKENS.gray_7`          | -    |

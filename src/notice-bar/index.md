@@ -26,3 +26,22 @@ group:
 ## API
 
 <API hideTitle src="./notice-bar.tsx"></API>
+
+## 主题定制
+
+| 名称                                  | 默认值                   | 描述 |
+| :------------------------------------ | ------------------------ | ---- |
+| notice_bar_m_padding_vertical         | `TOKENS.space_2`         | -    |
+| notice_bar_m_padding_horizontal       | `TOKENS.space_3`         | -    |
+| notice_bar_s_padding_vertical         | `TOKENS.space_1`         | -    |
+| notice_bar_s_padding_horizontal       | `TOKENS.space_2`         | -    |
+| notice_bar_text_line_height           | `TOKENS.line_height_1`   | -    |
+| notice_bar_border_radius              | `TOKENS.border_radius_s` | -    |
+| notice_bar_text_font_size             | `TOKENS.font_size_3`     | -    |
+| notice_bar_icon_size                  | `TOKENS.font_size_3`     | -    |
+| notice_bar_icon_margin_horizontal     | `TOKENS.space_1`         | -    |
+| notice_bar_primary_text_color         | `TOKENS.brand_6`         | -    |
+| notice_bar_success_text_color         | `TOKENS.green_6`         | -    |
+| notice_bar_warning_text_color         | `TOKENS.yellow_6`        | -    |
+| notice_bar_error_text_color           | `TOKENS.red_6`           | -    |
+| notice_bar_background_color_lightness | 95                       | -    |

@@ -17,4 +17,16 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./picker-view.tsx"></API>
+## API
+
+<API hideTitle src="./picker-view.tsx"></API>
+
+## 主题定制
+
+| 名称                                     | 默认值                  | 描述 |
+| :--------------------------------------- | ----------------------- | ---- |
+| picker_view_background_color             | `TOKENS.white`          | -    |
+| picker_view_column_mask_background_color | 'rgba(255,255,255,0.8)' | -    |
+| picker_view_column_text_color            | `TOKENS.gray_8`         | -    |
+| picker_view_column_text_disabled_color   | `TOKENS.gray_6`         | -    |
+| picker_view_column_text_font_size        | `TOKENS.font_size_5`    | -    |

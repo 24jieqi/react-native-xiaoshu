@@ -54,3 +54,16 @@ group:
 ### Description.DateRange
 
 <API hideTitle src="./description-date-range.tsx"></API>
+
+## 主题定制
+
+| 名称                      | 默认值                 | 描述 |
+| :------------------------ | ---------------------- | ---- |
+| description_l_font_size   | `TOKENS.font_size_5`   | -    |
+| description_l_line_height | `TOKENS.line_height_4` | -    |
+| description_m_font_size   | `TOKENS.font_size_4`   | -    |
+| description_m_line_height | `TOKENS.line_height_2` | -    |
+| description_s_font_size   | `TOKENS.font_size_4`   | -    |
+| description_s_line_height | `TOKENS.line_height_1` | -    |
+| description_label_color   | `TOKENS.gray_7`        | -    |
+| description_text_color    | `TOKENS.gray_8`        | -    |

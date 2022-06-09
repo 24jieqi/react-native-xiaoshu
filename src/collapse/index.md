@@ -23,4 +23,15 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+<API hideTitle></API>
+
+## 主题定制
+
+| 名称                         | 默认值                           | 描述 |
+| :--------------------------- | -------------------------------- | ---- |
+| collapse_transition_duration | `TOKENS.animation_duration_base` | -    |
+| collapse_background_color    | `TOKENS.white`                   | -    |
+| collapse_icon_color          | `TOKENS.gray_6`                  | -    |
+| collapse_icon_size           | `TOKENS.font_size_5`             | -    |

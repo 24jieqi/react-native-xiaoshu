@@ -24,4 +24,10 @@ group:
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API></API>
+## API
+
+<API hideTitle></API>
+
+## 主题定制
+
+参考 `Blank` 组件。

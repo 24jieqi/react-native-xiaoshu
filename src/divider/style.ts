@@ -4,7 +4,6 @@ import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
-    // Divider
     divider_vertical_min_height: 12,
     divider_color_dark: TOKENS.gray_4,
     divider_color_light: TOKENS.gray_2,

@@ -19,4 +19,20 @@ react-native-svg-web 并没有提供 SvgXml 组件，web 端看不到 SVG 图形
 
 <code src="./__fixtures__/basic.tsx"></code>
 
-<API src="./result.tsx"></API>
+## API
+
+<API hideTitle src="./result.tsx"></API>
+
+## 主题定制
+
+| 名称                      | 默认值               | 描述 |
+| :------------------------ | -------------------- | ---- |
+| result_success_color      | `TOKENS.green_6`     | -    |
+| result_error_color        | `TOKENS.red_6`       | -    |
+| result_info_color         | `TOKENS.brand_6`     | -    |
+| result_warning_color      | `TOKENS.yellow_6`    | -    |
+| result_icon_size          | 72                   | -    |
+| result_title_font_size    | `TOKENS.font_size_7` | -    |
+| result_title_color        | `TOKENS.gray_8`      | -    |
+| result_subtitle_font_size | `TOKENS.font_size_3` | -    |
+| result_subtitle_color     | `TOKENS.gray_7`      | -    |
