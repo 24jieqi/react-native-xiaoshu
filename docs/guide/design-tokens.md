@@ -1,5 +1,5 @@
 ---
-title: Design Tokens
+title: 🎨 Design Tokens
 order: 5
 nav:
   title: 指南
