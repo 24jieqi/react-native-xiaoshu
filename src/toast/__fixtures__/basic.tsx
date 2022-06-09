@@ -6,7 +6,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { View, ScrollView } from 'react-native'
 
-import { Cell, Toast, Icon } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 
 const BasicToast: React.FC = () => {
   const [loading, setLoading] = useState(false)
@@ -152,7 +153,7 @@ const BasicToast: React.FC = () => {
             Toast({
               type: 'icon',
               message: '自定义图标',
-              icon: <Icon.ArrowLeftFill size={40} color="#f30" />,
+              icon: <ArrowLeftOutline size={40} color="#f30" />,
             })
           }}
         />

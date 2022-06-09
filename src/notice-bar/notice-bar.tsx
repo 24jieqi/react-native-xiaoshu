@@ -1,3 +1,7 @@
+import {
+  ArrowRightOutline,
+  CrossOutline,
+} from '@fruits-chain/icons-react-native'
 import Color from 'color'
 import isNil from 'lodash/isNil'
 import noop from 'lodash/noop'
@@ -12,8 +16,6 @@ import {
   omitTouchablePropsField,
 } from '../helpers'
 import { usePersistFn } from '../hooks'
-import ArrowRightOutline from '../icon/arrow-right'
-import CrossOutline from '../icon/cross'
 import Theme from '../theme'
 
 import type { NoticeBarProps, NoticeBarMode } from './interface'

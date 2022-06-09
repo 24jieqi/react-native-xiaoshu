@@ -1,7 +1,7 @@
+import { CrossOutline } from '@fruits-chain/icons-react-native'
 import React, { memo } from 'react'
 
 import { usePersistFn } from '../hooks'
-import CrossOutline from '../icon/cross'
 import NavBar from '../nav-bar'
 import Theme from '../theme'
 

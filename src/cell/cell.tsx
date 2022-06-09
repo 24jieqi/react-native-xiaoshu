@@ -3,9 +3,8 @@ import type { ViewStyle } from 'react-native'
 import { Text, View, TouchableHighlight } from 'react-native'
 
 import Divider from '../divider'
-import { renderTextLikeJSX, getDefaultValue } from '../helpers'
+import { renderTextLikeJSX, getDefaultValue, getArrowOutline } from '../helpers'
 import { useDebounceFn } from '../hooks'
-import { getArrowOutline } from '../icon/helper/arrow'
 import Theme from '../theme'
 
 import type { CellProps } from './interface'

@@ -1,10 +1,10 @@
+import { CrossOutline } from '@fruits-chain/icons-react-native'
 import Color from 'color'
 import isNil from 'lodash/isNil'
 import React, { memo, useMemo } from 'react'
 import type { TextStyle, ViewStyle } from 'react-native'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 
-import CrossOutline from '../icon/cross'
 import Theme from '../theme'
 
 import type { TagProps } from './interface'

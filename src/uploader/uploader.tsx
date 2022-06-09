@@ -1,9 +1,9 @@
+import { PlusOutline } from '@fruits-chain/icons-react-native'
 import React, { isValidElement } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { View, Text, Image } from 'react-native'
 
 import { usePersistFn } from '../hooks'
-import PlusOutline from '../icon/plus'
 import Locale from '../locale'
 import Theme from '../theme'
 

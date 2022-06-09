@@ -1,10 +1,12 @@
+import {
+  CrossOutline,
+  CrossCircleOutline,
+} from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
 import React, { useMemo, memo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import CrossOutline from '../icon/cross'
-import CrossCircleOutline from '../icon/cross-circle'
 import LoadingCircular from '../loading/loading-circular'
 import Locale from '../locale'
 import Theme from '../theme'

@@ -6,7 +6,8 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { Empty, Card, Space, Icon } from '@fruits-chain/react-native-xiaoshu'
+import { Empty, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { ArrowDownOutline } from '@fruits-chain/icons-react-native'
 
 const BasicTag: React.FC = () => {
   return (
@@ -21,7 +22,7 @@ const BasicTag: React.FC = () => {
         </Card>
 
         <Card title="自定义图标" square>
-          <Empty text="一二三" icon={<Icon.ArrowDownOutline />} />
+          <Empty text="一二三" icon={<ArrowDownOutline />} />
         </Card>
 
         <View style={{ height: 500, backgroundColor: '#f5f5f5' }}>

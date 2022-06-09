@@ -1,8 +1,7 @@
+import { CircleOutline, SuccessFill } from '@fruits-chain/icons-react-native'
 import React, { memo } from 'react'
 
 import { getDefaultValue } from '../helpers'
-import CheckedFill from '../icon/checked.fill'
-import CircleOutline from '../icon/circle'
 import Theme from '../theme'
 
 import type { CheckboxIconProps } from './interface'
@@ -24,7 +23,7 @@ const CheckboxIcon: React.FC<CheckboxIconProps> = ({
 
   if (active) {
     return (
-      <CheckedFill
+      <SuccessFill
         {...restProps}
         size={size}
         color={disabled ? CV.checkbox_checked_icon_disabled_color : activeColor}

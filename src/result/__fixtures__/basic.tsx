@@ -6,13 +6,8 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import {
-  Result,
-  Icon,
-  Button,
-  Card,
-  Space,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Result, Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 
 const BasicResult: React.FC = () => {
   return (
@@ -55,7 +50,7 @@ const BasicResult: React.FC = () => {
             status="info"
             title="恭喜答对了"
             renderIcon={(color, size) => {
-              return <Icon.ArrowLeftFill color={color} size={size} />
+              return <ArrowLeftOutline color={color} size={size} />
             }}
           />
         </Card>
@@ -65,7 +60,7 @@ const BasicResult: React.FC = () => {
             status="warning"
             subtitle="恭喜答对了"
             renderIcon={(color, size) => {
-              return <Icon.ArrowLeftFill color={color} size={size} />
+              return <ArrowLeftOutline color={color} size={size} />
             }}
           />
         </Card>
@@ -75,7 +70,7 @@ const BasicResult: React.FC = () => {
             status="warning"
             subtitle="恭喜答对了"
             renderIcon={(color, size) => {
-              return <Icon.ArrowLeftFill color={color} size={size} />
+              return <ArrowLeftOutline color={color} size={size} />
             }}
             extra={<Button type="primary" size="s" text="回到过去" />}
           />

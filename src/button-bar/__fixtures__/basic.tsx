@@ -8,10 +8,10 @@ import { ScrollView, View } from 'react-native'
 import {
   ButtonBar,
   Button,
-  Icon,
   Space,
   Field,
 } from '@fruits-chain/react-native-xiaoshu'
+import { PlusOutline } from '@fruits-chain/icons-react-native'
 
 const BasicButtonBar: React.FC = () => {
   return (
@@ -156,7 +156,7 @@ const BasicButtonBar: React.FC = () => {
           text="新增数据"
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <PlusOutline color={color} size={size} />
           )}
         />
       </ButtonBar>

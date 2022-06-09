@@ -3,6 +3,7 @@
  * desc: 类似 Antd 桌面端操作
  */
 
+import { DeleteFill, PlusOutline } from '@fruits-chain/icons-react-native'
 import React, { useCallback } from 'react'
 import { ScrollView, Text } from 'react-native'
 
@@ -14,7 +15,6 @@ import {
   Cell,
   Space,
   Divider,
-  Icon,
   Dialog,
   Theme,
 } from '@fruits-chain/react-native-xiaoshu'
@@ -119,7 +119,7 @@ const CaseForm1: React.FC = () => {
                                   buildNamePath('commodityName'),
                                 )}
                                 extra={
-                                  <Icon.DeleteFill
+                                  <DeleteFill
                                     onPress={() => {
                                       Dialog.confirm({
                                         title: '提示',
@@ -254,10 +254,7 @@ const CaseForm1: React.FC = () => {
                       color="#fff"
                       textColor={TOKENS.brand_6}
                       renderLeftIcon={color => (
-                        <Icon.PlusOutline
-                          color={color}
-                          size={TOKENS.font_size_3}
-                        />
+                        <PlusOutline color={color} size={TOKENS.font_size_3} />
                       )}>
                       选择商品
                     </Button>

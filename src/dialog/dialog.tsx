@@ -1,3 +1,4 @@
+import { CrossOutline } from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
 import React, { useRef, useCallback, memo, isValidElement } from 'react'
 import { View, Text, Animated } from 'react-native'
@@ -5,7 +6,6 @@ import { View, Text, Animated } from 'react-native'
 import Button from '../button'
 import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers'
 import { usePersistFn } from '../hooks'
-import Cross from '../icon/cross'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import Theme from '../theme'
@@ -136,7 +136,7 @@ const Dialog: React.FC<React.PropsWithChildren<DialogProps>> = ({
           },
         ]}>
         {showClose ? (
-          <Cross
+          <CrossOutline
             style={STYLES.close}
             onPress={onPressClose}
             color={CV.dialog_close_color}

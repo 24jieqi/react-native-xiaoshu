@@ -5,12 +5,15 @@
 
 import React from 'react'
 import { ScrollView } from 'react-native'
+import { NoticeBar, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+
 import {
-  NoticeBar,
-  Icon,
-  Card,
-  Space,
-} from '@fruits-chain/react-native-xiaoshu'
+  VolumeOutline,
+  CoordOutline,
+  SuccessCircleOutline,
+  CrossCircleOutline,
+  WarningCircleOutline,
+} from '@fruits-chain/icons-react-native'
 
 let timer = 0
 
@@ -83,7 +86,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森"
               mode="link"
@@ -96,7 +99,7 @@ const BasicNoticeBar: React.FC = () => {
           <Space>
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               status="error"
@@ -105,7 +108,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
@@ -116,7 +119,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="link"
@@ -125,7 +128,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
@@ -134,7 +137,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="link"
@@ -146,7 +149,7 @@ const BasicNoticeBar: React.FC = () => {
         <Card title="大小" square>
           <Space>
             <NoticeBar
-              renderLeftIcon={color => <Icon.NewFill color={color} size={18} />}
+              renderLeftIcon={color => <CoordOutline color={color} size={18} />}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
               status="error"
@@ -154,7 +157,7 @@ const BasicNoticeBar: React.FC = () => {
               square={false}
             />
             <NoticeBar
-              renderLeftIcon={color => <Icon.NewFill color={color} size={18} />}
+              renderLeftIcon={color => <CoordOutline color={color} size={18} />}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
               status="error"
@@ -169,14 +172,14 @@ const BasicNoticeBar: React.FC = () => {
           <Space>
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
             />
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
@@ -184,7 +187,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.VolumeOutline color={color} size={size} />
+                <VolumeOutline color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="link"
@@ -196,7 +199,7 @@ const BasicNoticeBar: React.FC = () => {
           <Space>
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.SuccessCircleOutline color={color} size={size} />
+                <SuccessCircleOutline color={color} size={size} />
               )}
               color="#000"
               backgroundColor="#EBFFF2"
@@ -207,7 +210,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.CrossCircleOutline color={color} size={size} />
+                <CrossCircleOutline color={color} size={size} />
               )}
               color="#000"
               backgroundColor="#FFEBEC"
@@ -218,7 +221,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.WarningCircleOutline color={color} size={size} />
+                <WarningCircleOutline color={color} size={size} />
               )}
               color="#000"
               backgroundColor="#FFEFD9"
@@ -229,7 +232,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <Icon.WarningCircleOutline color={color} size={size} />
+                <WarningCircleOutline color={color} size={size} />
               )}
               color="#000"
               backgroundColor="#E6F0FF"

@@ -1,3 +1,7 @@
+import {
+  ArrowLeftOutline,
+  SearchOutline,
+} from '@fruits-chain/icons-react-native'
 import isUndefined from 'lodash/isUndefined'
 import noop from 'lodash/noop'
 import React, { useRef, useCallback, memo, forwardRef } from 'react'
@@ -6,8 +10,6 @@ import { View } from 'react-native'
 import Button from '../button'
 import { getDefaultValue } from '../helpers'
 import { usePersistFn, useDebounceFn } from '../hooks'
-import ArrowLeftOutline from '../icon/arrow-left'
-import SearchOutline from '../icon/search'
 import Locale from '../locale'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'

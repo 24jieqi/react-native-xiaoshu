@@ -27,6 +27,7 @@
     "android:demo": "cd android && ./gradlew assembleRelease",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "start:clean": "react-native start --reset-cache",
     "test": "jest --forceExit",
     "test:s": "jest ./src/button/__tests__ -u --forceExit",
     "test:coverage": "jest --coverage",
@@ -56,6 +57,7 @@
   },
   "dependencies": {
     "@fruits-chain/design-tokens-bailu": "^0.0.6",
+    "@fruits-chain/icons-react-native": "^0.0.2",
     "color": "^3.2.1",
     "lodash": "^4.17.21",
     "react-is": "^18.1.0",

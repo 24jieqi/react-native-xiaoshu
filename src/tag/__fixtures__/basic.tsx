@@ -5,7 +5,8 @@
 
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Tag, Cell, Icon, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Tag, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
+import { PlayCircleFill } from '@fruits-chain/icons-react-native'
 
 const BasicTag: React.FC = () => {
   return (
@@ -82,7 +83,7 @@ const BasicTag: React.FC = () => {
               onClose={() => {
                 console.log('点击了关闭')
               }}
-              closeIcon={<Icon.CheckedFill />}>
+              closeIcon={<PlayCircleFill />}>
               标签
             </Tag>
           }

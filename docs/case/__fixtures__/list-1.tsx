@@ -3,6 +3,7 @@
  * desc: 使用 Card 组件实现各种业务需求
  */
 
+import { PlusOutline } from '@fruits-chain/icons-react-native'
 import React, { useMemo } from 'react'
 import { ScrollView, Text } from 'react-native'
 
@@ -13,7 +14,6 @@ import {
   Description,
   ButtonBar,
   Button,
-  Icon,
   Theme,
 } from '@fruits-chain/react-native-xiaoshu'
 
@@ -111,7 +111,7 @@ const CaseList1: React.FC = () => {
       <ButtonBar alone blankSize="s">
         <Button
           renderLeftIcon={(color, size) => (
-            <Icon.PlusOutline color={color} size={size} />
+            <PlusOutline color={color} size={size} />
           )}
           text="新增某个数据"
         />

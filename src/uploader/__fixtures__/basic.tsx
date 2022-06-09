@@ -10,11 +10,15 @@ import type { UploaderValue } from '@fruits-chain/react-native-xiaoshu'
 import {
   Card,
   Uploader,
-  Icon,
   Toast,
   Dialog,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
+import {
+  ArrowUpOutline,
+  ArrowDownOutline,
+  CrossFill,
+} from '@fruits-chain/icons-react-native'
 
 const BasicUploader: React.FC = () => {
   const [list1, setList1] = useState<UploaderValue[]>([
@@ -118,7 +122,7 @@ const BasicUploader: React.FC = () => {
         <Card title="上传图标" square>
           <Uploader
             list={list1}
-            uploadIcon={<Icon.ArrowUpOutline color="#999" />}
+            uploadIcon={<ArrowUpOutline color="#999" />}
             uploadText="选择"
             colCount={6}
           />
@@ -184,9 +188,9 @@ const BasicUploader: React.FC = () => {
               null,
               { text: '正面某个照片' },
               null,
-              { icon: <Icon.ArrowDownOutline /> },
+              { icon: <ArrowDownOutline /> },
               null,
-              { icon: <Icon.CheckedFill />, text: '侧面某个部件' },
+              { icon: <CrossFill />, text: '侧面某个部件' },
             ]}
           />
         </Card>

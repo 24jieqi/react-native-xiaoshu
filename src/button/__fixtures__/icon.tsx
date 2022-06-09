@@ -5,7 +5,8 @@
 
 import React, { memo } from 'react'
 
-import { Button, Card, Space, Icon } from '@fruits-chain/react-native-xiaoshu'
+import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 
 const ButtonIcon: React.FC = () => {
   return (
@@ -14,14 +15,14 @@ const ButtonIcon: React.FC = () => {
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
         />
         <Button
           type="primary"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
           danger
@@ -29,28 +30,28 @@ const ButtonIcon: React.FC = () => {
         <Button
           type="hazy"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
         />
         <Button
           type="outline"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
         />
         <Button
           type="ghost"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
         />
         <Button
           type="link"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
         />
@@ -58,7 +59,7 @@ const ButtonIcon: React.FC = () => {
           color="#690"
           type="hazy"
           renderLeftIcon={(color, size) => (
-            <Icon.ArrowLeftOutline color={color} size={size} />
+            <ArrowLeftOutline color={color} size={size} />
           )}
           text="ArrowLeftOutline"
         />

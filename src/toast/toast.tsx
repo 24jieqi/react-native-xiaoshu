@@ -1,3 +1,7 @@
+import {
+  CrossCircleOutline,
+  SuccessCircleOutline,
+} from '@fruits-chain/icons-react-native'
 import React, {
   useEffect,
   useState,
@@ -8,8 +12,6 @@ import React, {
 import type { ViewStyle, StyleProp } from 'react-native'
 import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
-import CrossCircleOutline from '../icon/cross-circle'
-import SuccessCircleOutline from '../icon/success-circle'
 import Circular from '../loading/loading-circular'
 import Spinner from '../loading/loading-spinner'
 import Popup from '../popup/popup'

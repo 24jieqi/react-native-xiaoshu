@@ -18,6 +18,7 @@ export * from './interceptor'
 export * from './typeof'
 export * from './format/number'
 export * from './attach-properties-to-component'
+export * from './arrow'
 export { default as childrenToArray } from './children/to-array'
 
 /** 获取默认值 */

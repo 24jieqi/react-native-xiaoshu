@@ -1,10 +1,13 @@
+import {
+  CrossOutline,
+  SuccessOutline,
+  // TODO 替换成 WarningOutline
+  WarningCircleOutline,
+} from '@fruits-chain/icons-react-native'
 import React, { memo } from 'react'
 import { View } from 'react-native'
 
 import { renderTextLikeJSX } from '../helpers'
-import CrossOutline from '../icon/cross'
-import SuccessOutline from '../icon/success'
-import WarningOutline from '../icon/warning'
 import Space from '../space'
 import Theme from '../theme'
 
@@ -23,7 +26,7 @@ const renderStatusIcon = (status: ResultStatus, size: number) => {
 
     case 'warning':
     case 'info':
-      return <WarningOutline {...props} />
+      return <WarningCircleOutline {...props} />
 
     case 'error':
       return <CrossOutline {...props} />

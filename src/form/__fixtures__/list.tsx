@@ -11,9 +11,9 @@ import {
   Button,
   Toast,
   Dialog,
-  Icon,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
+import { DeleteFill } from '@fruits-chain/icons-react-native'
 
 const BasicFormList: React.FC = () => {
   const [form] = Form.useForm()
@@ -52,7 +52,7 @@ const BasicFormList: React.FC = () => {
                       key={field.key}
                       title={`地址 ${fieldIndex + 1}`}
                       extra={
-                        <Icon.DeleteFill
+                        <DeleteFill
                           onPress={() => {
                             Dialog.confirm({
                               title: '提示',

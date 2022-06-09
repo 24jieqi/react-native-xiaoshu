@@ -1,3 +1,4 @@
+import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import groupBy from 'lodash/groupBy'
 import omit from 'lodash/omit'
 import React, { useMemo, useEffect, memo, useRef, useCallback } from 'react'
@@ -6,7 +7,6 @@ import { View, Text, ScrollView } from 'react-native'
 import Cell from '../cell/cell'
 import { useControllableValue, usePersistFn, useSafeHeight } from '../hooks'
 import useState from '../hooks/useStateUpdate'
-import IconSuccessOutline from '../icon/success'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
@@ -213,9 +213,7 @@ function StepSelector<T = number>({
                   titleTextStyle={isActive ? STYLES.option_text_active : null}
                   valueExtra={
                     isActive ? (
-                      <IconSuccessOutline
-                        color={CV.step_selector_active_color}
-                      />
+                      <SuccessOutline color={CV.step_selector_active_color} />
                     ) : null
                   }
                   divider={false}

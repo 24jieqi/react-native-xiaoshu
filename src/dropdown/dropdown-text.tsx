@@ -4,8 +4,7 @@ import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue } from '../helpers'
-import { getArrowOutline } from '../icon/helper/arrow'
+import { getDefaultValue, getArrowOutline } from '../helpers'
 import Theme from '../theme'
 
 import { useDropdownConfig } from './context'

@@ -1,3 +1,4 @@
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
 import React, { memo } from 'react'
 import { View, TouchableOpacity } from 'react-native'
@@ -5,7 +6,6 @@ import { View, TouchableOpacity } from 'react-native'
 import { varCreator as varCreatorButton } from '../button/style'
 import Divider from '../divider'
 import { getDefaultValue, renderTextLikeJSX } from '../helpers'
-import ArrowLeftOutline from '../icon/arrow-left'
 import Theme from '../theme'
 
 import type { NavBarProps } from './interface'

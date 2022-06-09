@@ -1,3 +1,4 @@
+import { SwapRightOutline } from '@fruits-chain/icons-react-native'
 import isUndefined from 'lodash/isUndefined'
 import omit from 'lodash/omit'
 import React, { useMemo, memo } from 'react'
@@ -11,7 +12,6 @@ import { formatDate } from '../date-picker-view/helper'
 import type { DatePickerRangeValue } from '../date-picker/interface'
 import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { useControllableValue, usePersistFn } from '../hooks'
-import IconSwapRightOutline from '../icon/swap-right'
 import { varCreator as varCreatorTextInput } from '../text-input/style'
 import TextInputClear from '../text-input/text-input-clear'
 import Theme from '../theme'
@@ -114,7 +114,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   })
 
   const swapRightJSX = (
-    <IconSwapRightOutline
+    <SwapRightOutline
       size={16}
       color={CV_CELL.cell_icon_color}
       // eslint-disable-next-line react-native/no-inline-styles

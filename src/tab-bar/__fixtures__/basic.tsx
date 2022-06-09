@@ -7,7 +7,12 @@ import React, { useState } from 'react'
 import type { ViewStyle } from 'react-native'
 import { ScrollView } from 'react-native'
 
-import { TabBar, Icon, Button, Space } from '@fruits-chain/react-native-xiaoshu'
+import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  EyeOutline,
+  SearchOutline,
+  VolumeOutline,
+} from '@fruits-chain/icons-react-native'
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -23,7 +28,7 @@ const bottomBar = [
     value: 1,
     label: '首页',
     iconRender: (color: string) => (
-      <Icon.EyeOutline
+      <EyeOutline
         color={color}
         pointerEvents="none"
         size={20}
@@ -35,7 +40,7 @@ const bottomBar = [
     value: 2,
     label: '其他其他',
     iconRender: (color: string) => (
-      <Icon.SearchOutline
+      <SearchOutline
         color={color}
         pointerEvents="none"
         size={20}
@@ -47,7 +52,7 @@ const bottomBar = [
     value: 3,
     label: '更多更多更多',
     iconRender: (color: string) => (
-      <Icon.VolumeOutline
+      <VolumeOutline
         color={color}
         pointerEvents="none"
         size={20}

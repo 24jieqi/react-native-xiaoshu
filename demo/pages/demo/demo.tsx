@@ -52,10 +52,10 @@ const navDatas: {
         title: 'Grid 栅格',
         name: 'DemoGrid',
       },
-      {
-        title: 'Icon 图标',
-        name: 'DemoIcon',
-      },
+      // {
+      //   title: 'Icon 图标',
+      //   name: 'DemoIcon',
+      // },
       {
         title: 'Popup 弹出层',
         name: 'DemoPopup',

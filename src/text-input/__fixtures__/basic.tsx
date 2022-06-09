@@ -6,12 +6,8 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
-import {
-  Cell,
-  TextInput,
-  Button,
-  Icon,
-} from '@fruits-chain/react-native-xiaoshu'
+import { Cell, TextInput, Button } from '@fruits-chain/react-native-xiaoshu'
+import { SuccessOutline } from '@fruits-chain/icons-react-native'
 
 const BasicTextInput: React.FC = () => {
   const [value2, setValue2] = useState('')
@@ -122,7 +118,7 @@ const BasicTextInput: React.FC = () => {
           value={
             <TextInput
               placeholder="请填写验证码"
-              prefix={<Icon.SuccessOutline size={16} color="#680" />}
+              prefix={<SuccessOutline size={16} color="#680" />}
               suffix={
                 <Button
                   type="primary"

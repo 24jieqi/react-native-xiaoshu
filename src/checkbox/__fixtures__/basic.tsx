@@ -5,7 +5,11 @@
 
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
-import { Checkbox, Icon, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Checkbox, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  ArrowUpOutline,
+  ArrowDownOutline,
+} from '@fruits-chain/icons-react-native'
 
 const BasicCheckbox: React.FC = () => {
   const [value, setValue] = useState(true)
@@ -77,9 +81,9 @@ const BasicCheckbox: React.FC = () => {
               activeColor="#f30"
               renderIcon={({ activeColor, size, active }) =>
                 active ? (
-                  <Icon.ArrowUpFill color={activeColor} size={size} />
+                  <ArrowUpOutline color={activeColor} size={size} />
                 ) : (
-                  <Icon.ArrowDownFill color={activeColor} size={size} />
+                  <ArrowDownOutline color={activeColor} size={size} />
                 )
               }
             />
@@ -89,13 +93,13 @@ const BasicCheckbox: React.FC = () => {
               label="点击切换的事件绑定给图标"
               renderIcon={({ activeColor, size, active, onPress }) =>
                 active ? (
-                  <Icon.ArrowUpFill
+                  <ArrowUpOutline
                     color={activeColor}
                     size={size}
                     onPress={onPress}
                   />
                 ) : (
-                  <Icon.ArrowDownFill
+                  <ArrowDownOutline
                     color={activeColor}
                     size={size}
                     onPress={onPress}
@@ -109,14 +113,14 @@ const BasicCheckbox: React.FC = () => {
               label="点击切换的事件绑定给图标"
               renderIcon={({ activeColor, size, active, onPress, disabled }) =>
                 active ? (
-                  <Icon.ArrowUpFill
+                  <ArrowUpOutline
                     color={activeColor}
                     size={size}
                     onPress={onPress}
                     disabled={disabled}
                   />
                 ) : (
-                  <Icon.ArrowDownFill
+                  <ArrowDownOutline
                     color={activeColor}
                     size={size}
                     onPress={onPress}

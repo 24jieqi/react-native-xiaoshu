@@ -1,3 +1,4 @@
+import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
 import omit from 'lodash/omit'
 import React, { useCallback, useMemo, useRef, useEffect, memo } from 'react'
@@ -11,7 +12,6 @@ import {
 import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
-import IconSuccessOutline from '../icon/success'
 import Portal from '../portal'
 import Search from '../search'
 import Space from '../space'
@@ -134,7 +134,7 @@ const DropdownSelectorMethod = <T,>({
           }
           valueExtra={
             item.value === defaultValue ? (
-              <IconSuccessOutline color={activeColor} />
+              <SuccessOutline color={activeColor} />
             ) : null
           }
           onPress={genOnPressCell(item)}

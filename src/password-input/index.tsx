@@ -1,9 +1,8 @@
+import { EyeOutline, EyeCloseOutline } from '@fruits-chain/icons-react-native'
 import React, { useMemo, memo, forwardRef } from 'react'
 
 import { getDefaultValue } from '../helpers'
 import { useControllableValue, usePersistFn } from '../hooks'
-import EyeOutline from '../icon/eye'
-import EyeCloseOutline from '../icon/eye-close'
 import TextInput from '../text-input'
 import type { TextInputInstance } from '../text-input/interface'
 import Theme from '../theme'

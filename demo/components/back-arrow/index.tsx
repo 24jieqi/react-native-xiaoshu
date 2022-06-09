@@ -1,8 +1,7 @@
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 import type { HeaderBackButtonProps } from '@react-navigation/elements'
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-
-import { Icon } from '@fruits-chain/react-native-xiaoshu'
 
 interface BackArrowProps extends HeaderBackButtonProps {}
 
@@ -14,7 +13,7 @@ interface BackArrowProps extends HeaderBackButtonProps {}
 const BackArrow: React.FC<BackArrowProps> = ({ tintColor, ...restProps }) => {
   return (
     <View style={Styles.back}>
-      <Icon.ArrowLeftOutline {...restProps} color={tintColor} />
+      <ArrowLeftOutline {...restProps} color={tintColor} />
     </View>
   )
 }

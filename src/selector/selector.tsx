@@ -1,3 +1,4 @@
+import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import React, {
   useEffect,
   useState,
@@ -15,7 +16,6 @@ import CheckboxIcon from '../checkbox/checkbox-icon'
 import { varCreator as varCreatorCheckbox } from '../checkbox/style'
 import Empty from '../empty'
 import { useSafeHeight } from '../hooks'
-import SuccessOutline from '../icon/success'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'

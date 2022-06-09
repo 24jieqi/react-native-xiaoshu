@@ -1,10 +1,10 @@
+import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
 import React, { useContext, useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { Dimensions, View } from 'react-native'
 
 import { renderTextLikeJSX } from '../helpers'
-import Icon from '../icon'
 import Theme from '../theme'
 
 import type { StepsItemPropsType } from './interface'
@@ -29,7 +29,7 @@ const Step: FC<StepsItemPropsType> = props => {
     case 'finish':
       resIcon = (
         <View style={STYLES.dotActive}>
-          <Icon.SuccessOutline
+          <SuccessOutline
             color={CV.steps_background_color}
             size={CV.steps_icon_success_active_size}
           />

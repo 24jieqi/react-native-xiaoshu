@@ -27,7 +27,7 @@ import DemoField from '../../src/field/__fixtures__/basic'
 import DemoFlex from '../../src/flex/__fixtures__/basic'
 import DemoForm from '../../src/form/__fixtures__/basic'
 import DemoGrid from '../../src/grid/__fixtures__/basic'
-import DemoIcon from '../../src/icon/__fixtures__/basic'
+// import DemoIcon from '../../src/icon/__fixtures__/basic'
 import DemoLoading from '../../src/loading/__fixtures__/basic'
 import DemoNavBar from '../../src/nav-bar/__fixtures__/basic'
 import DemoNoticeBar from '../../src/notice-bar/__fixtures__/basic'
@@ -89,7 +89,7 @@ export type DemoPaths =
   | 'DemoProgress'
   | 'DemoCollapse'
   | 'DemoFlex'
-  | 'DemoIcon'
+  // | 'DemoIcon'
   | 'DemoResult'
   | 'DemoErrorBoundary'
   | 'DemoNoticeBar'
@@ -366,14 +366,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
       </DemoWrapper>
     ),
   },
-  {
-    path: 'DemoIcon',
-    Page: () => (
-      <DemoWrapper>
-        <DemoIcon />
-      </DemoWrapper>
-    ),
-  },
+  // {
+  //   path: 'DemoIcon',
+  //   Page: () => (
+  //     <DemoWrapper>
+  //       <DemoIcon />
+  //     </DemoWrapper>
+  //   ),
+  // },
   {
     path: 'DemoResult',
     Page: () => (
