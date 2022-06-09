@@ -1,5 +1,5 @@
 import isNil from 'lodash/isNil'
-import React, { memo, Fragment } from 'react'
+import React, { memo } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
 
 import Divider from '../divider'
@@ -42,7 +42,13 @@ const CellGroup: React.FC<React.PropsWithChildren<CellGroupProps>> = ({
     </View>
   )
 
-  const BodyComponent = bodyStyle ? View : Fragment
+  const bodyJSX = (
+    <>
+      {bodyTopDivider ? <Divider /> : null}
+      {children}
+      {bodyBottomDivider ? <Divider /> : null}
+    </>
+  )
 
   return (
     <>
@@ -56,11 +62,7 @@ const CellGroup: React.FC<React.PropsWithChildren<CellGroupProps>> = ({
         )
       ) : null}
 
-      <BodyComponent style={bodyStyle}>
-        {bodyTopDivider ? <Divider /> : null}
-        {children}
-        {bodyBottomDivider ? <Divider /> : null}
-      </BodyComponent>
+      {bodyStyle ? <View style={bodyStyle}>{bodyJSX}</View> : bodyJSX}
     </>
   )
 }
