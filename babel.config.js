@@ -8,7 +8,6 @@ module.exports = {
         root: ['./demo'],
         alias: {
           '@': './demo',
-          'react-native-xiaoshu': './src',
           '@fruits-chain/react-native-xiaoshu': './src',
         },
       },
