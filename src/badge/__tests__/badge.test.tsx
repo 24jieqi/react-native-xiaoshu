@@ -1,6 +1,6 @@
 import React from 'react'
 import type { ViewStyle } from 'react-native'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import { create } from 'react-test-renderer'
 import type { ReactTestInstance } from 'react-test-renderer'
 
@@ -17,15 +17,19 @@ describe('Badge', () => {
   it('count', () => {
     const { queryByText } = customRender(
       <>
-        <Badge count={6} />
+        <Badge count={6} offset={[10, 10]} />
         <Badge count="哈哈" />
         <Badge count={0} />
+        <Badge count={12}>
+          <Text>Text</Text>
+        </Badge>
       </>,
     )
 
     expect(queryByText('6')).not.toBeNull()
     expect(queryByText('哈哈')).not.toBeNull()
     expect(queryByText('0')).toBeNull()
+    expect(queryByText('Text')).not.toBeNull()
   })
 
   it('color', () => {
@@ -37,8 +41,6 @@ describe('Badge', () => {
         <Badge count={0} />
       </>,
     )
-
-    console.log(getByA11yLabel('badge-f30').children)
 
     const badgeF30Style = StyleSheet.flatten<ViewStyle>(
       (getByA11yLabel('badge-f30').children[0] as ReactTestInstance).props
@@ -52,5 +54,29 @@ describe('Badge', () => {
     const { queryByText } = customRender(<Badge count={0} showZero />)
 
     expect(queryByText('0')).not.toBeNull()
+  })
+
+  it('dot', () => {
+    const { queryByText } = customRender(
+      <Badge count={13} dot>
+        <Text>Text2</Text>
+      </Badge>,
+    )
+
+    expect(queryByText('13')).toBeNull()
+  })
+
+  it('max', () => {
+    const { queryByText } = customRender(
+      <>
+        <Badge count={11} max={20} />
+        <Badge count={20} max={20} />
+        <Badge count={30} max={20} />
+      </>,
+    )
+
+    expect(queryByText('11')).not.toBeNull()
+    expect(queryByText('20')).not.toBeNull()
+    expect(queryByText('30')).toBeNull()
   })
 })
