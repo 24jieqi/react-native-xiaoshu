@@ -1,7 +1,6 @@
 import type { RenderOptions } from '@testing-library/react-native'
 import { render } from '@testing-library/react-native'
 import React from 'react'
-// import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock'
 export * from '@testing-library/react-native'
 
 import Provider from '../provider'
@@ -20,3 +19,12 @@ export const customRender = (
     wrapper: AllTheProviders,
     ...options,
   })
+
+export const mockPlatform = (OS: string, version: number) => {
+  jest.resetModules()
+  jest.doMock('react-native/Libraries/Utilities/Platform', () => ({
+    OS,
+    select: objs => objs[OS],
+    Version: version || undefined,
+  }))
+}
