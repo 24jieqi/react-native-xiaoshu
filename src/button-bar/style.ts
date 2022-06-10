@@ -4,8 +4,8 @@ import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
-    button_bar_padding_horizontal: TOKENS.space_3,
-    button_bar_button_space: 8,
+    button_bar_button_space: TOKENS.space_2,
+    button_bar_button_min_width: 84,
   }
 }
 
@@ -17,7 +17,6 @@ export const styleCreator = (cv: ComponentVars) => {
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
-      // paddingHorizontal: cv.button_bar_padding_horizontal,
     },
 
     button_bar_alone: {
@@ -27,7 +26,7 @@ export const styleCreator = (cv: ComponentVars) => {
     },
 
     btn: {
-      minWidth: 84,
+      minWidth: cv.button_bar_button_min_width,
     },
   })
 }

@@ -32,7 +32,7 @@ group:
 
 ## 主题定制
 
-| 名称                          | 默认值           | 描述 |
-| :---------------------------- | ---------------- | ---- |
-| button_bar_padding_horizontal | `TOKENS.space_3` | -    |
-| button_bar_button_space       | 8                | -    |
+| 名称                        | 默认值           | 描述 |
+| :-------------------------- | ---------------- | ---- |
+| button_bar_button_space     | `TOKENS.space_2` | -    |
+| button_bar_button_min_width | 84               | -    |
