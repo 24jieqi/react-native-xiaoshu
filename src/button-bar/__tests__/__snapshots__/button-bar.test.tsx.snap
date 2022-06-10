@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonBar render snapshot 1`] = `
+<View
+  accessibilityLabel="ButtonBar"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderTopColor": "#EFF3F9",
+        "borderTopWidth": 1,
+        "height": 50,
+        "paddingBottom": 0,
+      },
+      Array [
+        Object {
+          "paddingHorizontal": 12,
+        },
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        },
+        null,
+      ],
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "flex-end",
+          "paddingLeft": 0,
+          "paddingRight": 0,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginBottom": 0,
+            "marginRight": 8,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#0065FE",
+            "borderColor": "#0065FE",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 40,
+            "justifyContent": "center",
+            "minWidth": 84,
+            "opacity": 1,
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 15,
+              "marginLeft": 0,
+              "textAlign": "center",
+            }
+          }
+        >
+          操作
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "marginBottom": 0,
+            "marginRight": 8,
+          },
+          Object {
+            "marginRight": 0,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#0065FE",
+            "borderColor": "#0065FE",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 40,
+            "justifyContent": "center",
+            "minWidth": 84,
+            "opacity": 1,
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 15,
+              "marginLeft": 0,
+              "textAlign": "center",
+            }
+          }
+        >
+          文案
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
