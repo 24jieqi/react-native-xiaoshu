@@ -1,6 +1,7 @@
 import TOKENS from '@fruits-chain/design-tokens-bailu'
 import React from 'react'
 import type { ViewStyle } from 'react-native'
+import { StyleSheet } from 'react-native'
 import type { ReactTestInstance } from 'react-test-renderer'
 import { create } from 'react-test-renderer'
 
@@ -16,12 +17,115 @@ describe('Button', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  it('hairline', () => {
+    const { getByA11yLabel } = customRender(
+      <>
+        <Button
+          accessibilityLabel="button-primary"
+          text="primary"
+          type="outline"
+          hairline
+        />
+        <Button
+          accessibilityLabel="button-primary2"
+          text="primary"
+          type="outline"
+        />
+      </>,
+    )
+
+    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimaryStyle: ViewStyle = buttonPrimary.props.style
+    expect(buttonPrimaryStyle.borderWidth).toEqual(StyleSheet.hairlineWidth)
+
+    const buttonPrimary2 = getByA11yLabel('button-primary2')
+    const buttonPrimaryStyle2: ViewStyle = buttonPrimary2.props.style
+    expect(buttonPrimaryStyle2.borderWidth).toEqual(1)
+  })
+
+  it('onPress', () => {
+    const buttonOnPress = jest.fn()
+    const { getByA11yLabel } = customRender(
+      <Button
+        accessibilityLabel="button-primary"
+        text="primary"
+        onPress={buttonOnPress}
+      />,
+    )
+
+    const buttonPrimary = getByA11yLabel('button-primary')
+    fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
+    expect(buttonOnPress).toHaveBeenCalled()
+  })
+
+  it('onPress:disabled', () => {
+    const buttonOnPress = jest.fn()
+    const { getByA11yLabel } = customRender(
+      <Button
+        accessibilityLabel="button-primary"
+        text="primary"
+        onPress={buttonOnPress}
+        disabled
+      />,
+    )
+
+    const buttonPrimary = getByA11yLabel('button-primary')
+    fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
+    expect(buttonOnPress).not.toHaveBeenCalled()
+  })
+
+  it('onPress:loading', () => {
+    const buttonOnPress = jest.fn()
+    const { getByA11yLabel, getByText } = customRender(
+      <>
+        <Button
+          accessibilityLabel="button-primary"
+          text="primary"
+          onPress={buttonOnPress}
+          loading
+        />
+        <Button
+          accessibilityLabel="button-primary2"
+          text="primary"
+          loading
+          loadingText="哎哟哟"
+        />
+      </>,
+    )
+
+    const buttonPrimary = getByA11yLabel('button-primary')
+    fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
+    expect(buttonOnPress).not.toHaveBeenCalled()
+
+    expect(getByText('哎哟哟')).not.toBeNull()
+  })
+
+  it('square&round', () => {
+    const { getByA11yLabel } = customRender(
+      <>
+        <Button accessibilityLabel="button-primary" text="primary" square />
+        <Button accessibilityLabel="button-primary2" text="primary" round />
+      </>,
+    )
+
+    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimaryStyle: ViewStyle = buttonPrimary.props.style
+    expect(buttonPrimaryStyle.borderRadius).toEqual(0)
+
+    const buttonPrimary2 = getByA11yLabel('button-primary2')
+    const buttonPrimaryStyle2: ViewStyle = buttonPrimary2.props.style
+    expect(buttonPrimaryStyle2.borderRadius).toEqual(9999)
+  })
+
   it('color', () => {
     const { getByA11yLabel } = customRender(
       <>
         <Button accessibilityLabel="button-primary" text="primary" />
         <Button accessibilityLabel="button-#000" text="primary" color="#000" />
         <Button accessibilityLabel="button-ghost" type="ghost" text="primary" />
+        <Button type="link">primary</Button>
+        <Button type="hazy" text="primary" />
+        <Button type="outline" text="primary" />
       </>,
     )
 
@@ -48,58 +152,5 @@ describe('Button', () => {
     expect(buttonGhostStyle.backgroundColor).toEqual('transparent')
     expect(buttonGhostStyle.borderColor).toEqual(TOKENS.brand_6)
     expect(buttonGhostText.props.style.color).toEqual(TOKENS.brand_6)
-  })
-
-  it('onPress', () => {
-    const buttonOnPress = jest.fn()
-    const { getByA11yLabel } = customRender(
-      <Button
-        accessibilityLabel="button-primary"
-        text="primary"
-        onPress={buttonOnPress}
-      />,
-    )
-
-    const buttonPrimary = getByA11yLabel('button-primary')
-
-    fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
-
-    expect(buttonOnPress).toHaveBeenCalled()
-  })
-
-  it('onPress:disabled', () => {
-    const buttonOnPress = jest.fn()
-    const { getByA11yLabel } = customRender(
-      <Button
-        accessibilityLabel="button-primary"
-        text="primary"
-        onPress={buttonOnPress}
-        disabled
-      />,
-    )
-
-    const buttonPrimary = getByA11yLabel('button-primary')
-
-    fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
-
-    expect(buttonOnPress).not.toHaveBeenCalled()
-  })
-
-  it('onPress:loading', () => {
-    const buttonOnPress = jest.fn()
-    const { getByA11yLabel } = customRender(
-      <Button
-        accessibilityLabel="button-primary"
-        text="primary"
-        onPress={buttonOnPress}
-        loading
-      />,
-    )
-
-    const buttonPrimary = getByA11yLabel('button-primary')
-
-    fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
-
-    expect(buttonOnPress).not.toHaveBeenCalled()
   })
 })
