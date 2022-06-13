@@ -1,8 +1,7 @@
 import {
   CrossOutline,
   SuccessOutline,
-  // TODO 替换成 WarningOutline
-  WarningCircleOutline,
+  WarningOutline,
 } from '@fruits-chain/icons-react-native'
 import React, { memo } from 'react'
 import { View } from 'react-native'
@@ -26,7 +25,7 @@ const renderStatusIcon = (status: ResultStatus, size: number) => {
 
     case 'warning':
     case 'info':
-      return <WarningCircleOutline {...props} />
+      return <WarningOutline {...props} />
 
     case 'error':
       return <CrossOutline {...props} />

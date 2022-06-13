@@ -1312,10 +1312,10 @@
     "@fruits-chain/eslint-config-preset" "^0.1.8"
     eslint-plugin-react-native "^4.0.0"
 
-"@fruits-chain/icons-react-native@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.npmmirror.com/@fruits-chain/icons-react-native/-/icons-react-native-0.0.2.tgz#506c5af5c5b8e24fe334de5caee9fa5362c203ff"
-  integrity sha512-cqFgwognkWJBN5YIPNpLXbwI+z+dDYrhTKaBxJaHDx9hQGu9yrW23/Zeey4laNUg7gZxq+3ZxwcO11oQu1FQKQ==
+"@fruits-chain/icons-react-native@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.npmmirror.com/@fruits-chain/icons-react-native/-/icons-react-native-0.0.3.tgz#9c511675dc335be6c7e7214907dd26d796d9d441"
+  integrity sha512-0LgUNRY2nmvPy3V5WI1KYMe573bouamJoNF8ca52tg/p/KIqha2/NDic0S4Mqmqnk02Za8qeuPINlSIp3TwnTg==
   dependencies:
     "@babel/runtime" "*"
     lodash "*"

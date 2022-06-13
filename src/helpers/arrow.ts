@@ -3,6 +3,10 @@ import {
   ArrowLeftOutline,
   ArrowRightOutline,
   ArrowUpOutline,
+  ArrowDownFill,
+  ArrowUpFill,
+  ArrowLeftFill,
+  ArrowRightFill,
 } from '@fruits-chain/icons-react-native'
 
 type DirectionValue = 'left' | 'up' | 'right' | 'down'
@@ -23,18 +27,18 @@ export const getArrowOutline = (x: DirectionValue) => {
   }
 }
 
-// export const getArrowFill = (x: DirectionValue) => {
-//   switch (x) {
-//     case 'down':
-//       return ArrowDownFill
+export const getArrowFill = (x: DirectionValue) => {
+  switch (x) {
+    case 'down':
+      return ArrowDownFill
 
-//     case 'up':
-//       return ArrowUpFill
+    case 'up':
+      return ArrowUpFill
 
-//     case 'left':
-//       return ArrowLeftFill
+    case 'left':
+      return ArrowLeftFill
 
-//     default:
-//       return ArrowRightFill
-//   }
-// }
+    default:
+      return ArrowRightFill
+  }
+}

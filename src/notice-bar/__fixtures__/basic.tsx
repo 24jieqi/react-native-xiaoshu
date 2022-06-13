@@ -13,6 +13,7 @@ import {
   SuccessCircleOutline,
   CrossCircleOutline,
   WarningCircleOutline,
+  NewColours,
 } from '@fruits-chain/icons-react-native'
 
 let timer = 0
@@ -99,7 +100,7 @@ const BasicNoticeBar: React.FC = () => {
           <Space>
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <VolumeOutline color={color} size={size} />
+                <NewColours color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               status="error"
@@ -108,7 +109,7 @@ const BasicNoticeBar: React.FC = () => {
 
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <VolumeOutline color={color} size={size} />
+                <NewColours color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
@@ -172,7 +173,7 @@ const BasicNoticeBar: React.FC = () => {
           <Space>
             <NoticeBar
               renderLeftIcon={(color, size) => (
-                <VolumeOutline color={color} size={size} />
+                <NewColours color={color} size={size} />
               )}
               message="一袋米要抗几楼，一袋米要抗二楼"
             />

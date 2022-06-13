@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@fruits-chain/design-tokens-bailu": "^0.0.6",
-    "@fruits-chain/icons-react-native": "^0.0.2",
+    "@fruits-chain/icons-react-native": "^0.0.3",
     "color": "^3.2.1",
     "lodash": "^4.17.21",
     "react-is": "^18.1.0",
