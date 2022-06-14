@@ -15,15 +15,19 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/header.tsx"></code>
+
+<code src="./__fixtures__/popup.tsx"></code>
+
+<code src="./__fixtures__/page.tsx"></code>
 
 ## API
 
 ### Popup
 
-`Popup.Component` 属性相同，自带 `Portal` 组件包裹。
-
 ### Popup.Component
+
+`Popup` 与 `Popup.Component` 属性相同，`Popup` 被 `Portal` 组件包裹，在根节点渲染。
 
 <API hideTitle src="./popup.tsx"></API>
 
@@ -32,6 +36,8 @@ group:
 <API hideTitle src="./popup-header.tsx"></API>
 
 ### Popup.Page <Badge>0.2.47+</Badge>
+
+### Popup.PageComponent
 
 <API hideTitle src="./popup-page.tsx"></API>
 
