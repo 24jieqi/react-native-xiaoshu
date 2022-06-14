@@ -1,3 +1,9 @@
+## [0.2.59](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.58...v0.2.59) (2022-06-14)
+
+### Features
+
+- **Selector:** 🎸 选项新增自定义渲染 ([705d226](https://github.com/hjfruit/react-native-xiaoshu/commit/705d22662927de989b186b78ed860281a42df24c))
+
 ## [0.2.58](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.57...v0.2.58) (2022-06-09)
 
 ### Features
