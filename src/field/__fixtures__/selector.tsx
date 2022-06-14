@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react'
+import { Text } from 'react-native'
 import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
 const options = new Array(6).fill(0).map((_, index) => ({
@@ -22,6 +23,18 @@ const BasicFieldSelector: React.FC = () => {
         placeholder="请选择"
         value={s1}
         options={options}
+        onChange={v => {
+          setS1(v as number)
+        }}
+      />
+      <Field.Selector
+        title="单选:自定义渲染"
+        placeholder="请选择"
+        value={s1}
+        options={options.map(item => ({
+          ...item,
+          render: () => <Text style={{ color: '#098' }}>{item.label}</Text>,
+        }))}
         onChange={v => {
           setS1(v as number)
         }}

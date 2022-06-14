@@ -17,9 +17,13 @@ export type SelectorOption = {
 
   /**
    * 是否禁用
-   * @default false
    */
   disabled?: boolean
+
+  /**
+   * 自定义渲染
+   */
+  render?: (label: string, disabled?: boolean) => React.ReactNode
 }
 
 export interface SelectorProps
