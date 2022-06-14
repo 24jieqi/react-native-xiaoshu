@@ -7,8 +7,7 @@ import { renderTextLikeJSX } from '../helpers'
 import Theme from '../theme'
 
 import type { CellGroupProps } from './interface'
-import { varCreator } from './style'
-import { styleCreator } from './style.group'
+import { varCreator, styleCreator } from './style'
 
 /**
  * CellGroup 单元格组
@@ -31,12 +30,16 @@ const CellGroup: React.FC<React.PropsWithChildren<CellGroupProps>> = ({
   const STYLES = Theme.createStyle(CV, styleCreator)
 
   /** 标题 可能是自定义 JSX */
-  const titleJSX = renderTextLikeJSX(title, [STYLES.text, titleTextStyle], {
-    onPress: onPressTitleText,
-  })
+  const titleJSX = renderTextLikeJSX(
+    title,
+    [STYLES.group_title_text, titleTextStyle],
+    {
+      onPress: onPressTitleText,
+    },
+  )
 
   const groupNameJSX = (
-    <View style={[STYLES.title, style]}>
+    <View style={[STYLES.group_title, style]}>
       {titleJSX}
       {extra}
     </View>

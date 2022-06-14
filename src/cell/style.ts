@@ -35,6 +35,21 @@ export const styleCreator = (cv: ComponentVars) => {
   const innerHeight = cv.cell_title_height
 
   return StyleSheet.create({
+    group_title: {
+      paddingHorizontal: cv.cell_group_title_padding_horizontal,
+      paddingTop: cv.cell_group_title_padding_top,
+      paddingBottom: cv.cell_group_title_padding_bottom,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+
+    group_title_text: {
+      color: cv.cell_group_title_color,
+      fontSize: cv.cell_group_title_font_size,
+      lineHeight: cv.cell_group_title_line_height,
+    },
+
     cell: {
       backgroundColor: cv.cell_background_color,
     },
