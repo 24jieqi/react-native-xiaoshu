@@ -28,13 +28,13 @@ const BasicFlex: React.FC = () => {
             <Text>direction="row":主轴为水平方向，起点在左端</Text>
 
             <Flex>
-              <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+              <Flex.Item style={{ paddingRight: 4 }}>
                 <Button size="xs">按钮1</Button>
               </Flex.Item>
               <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
                 <Button size="xs">按钮2</Button>
               </Flex.Item>
-              <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+              <Flex.Item style={{ paddingLeft: 4 }}>
                 <Button size="xs">按钮3</Button>
               </Flex.Item>
             </Flex>
@@ -86,6 +86,17 @@ const BasicFlex: React.FC = () => {
               <Circle />
             </Flex>
           </Space>
+        </Card>
+
+        <Card title="组合使用" square>
+          <Flex justify="between">
+            <Circle />
+
+            <Flex align="center">
+              <Circle />
+              <Circle size={40} />
+            </Flex>
+          </Flex>
         </Card>
       </Space>
     </ScrollView>
