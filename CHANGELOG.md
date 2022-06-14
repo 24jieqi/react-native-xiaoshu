@@ -1,3 +1,78 @@
+# [0.3.0-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-14)
+
+### Bug Fixes
+
+- **Cell:** 🐛 group 关于 style 的 警告 ([10832ea](https://github.com/hjfruit/react-native-xiaoshu/commit/10832ea9d0bd6455e7c70d16e0ff3ce23503d2fa))
+- **NavBar:** 🐛 左右扩展类型 ([ab65e64](https://github.com/hjfruit/react-native-xiaoshu/commit/ab65e64b11072e2b182e170501dcebb4155dd476))
+
+### Features
+
+- **ci:** 🎸 升级 icon 版本,替换对应的图标 ([fef44c2](https://github.com/hjfruit/react-native-xiaoshu/commit/fef44c2429678e59a66096c58617844621a6f038))
+- **Icon:** 🎸 移除 Icon 相关代码,请使用 @fruits-chain/icons-react-native ([32fc12a](https://github.com/hjfruit/react-native-xiaoshu/commit/32fc12a552de8b7839b849a30d9311dadb049bca))
+
+### BREAKING CHANGES
+
+- **Icon:** 🧨 Icon 相关组件请使用 @fruits-chain/icons-react-native 代替,部分图标可能不提供
+
+# [0.3.0-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-04)
+
+### Bug Fixes
+
+- **DatePickerView:** 🐛 构建时报错 ([4265803](https://github.com/hjfruit/react-native-xiaoshu/commit/4265803cde5bd4eb0d2adac1eca5621212da62ee))
+
+### Code Refactoring
+
+- **ActionSheet:** 💡 新增导出变量\样式函数,修复已知问题 ([88d0c98](https://github.com/hjfruit/react-native-xiaoshu/commit/88d0c985a53e0ed5e37c859190e54e45ff50ecbd))
+- **Cell:** 💡 新增导出变量\样式函数 ([e0e0bd1](https://github.com/hjfruit/react-native-xiaoshu/commit/e0e0bd11b6894249bab6042c843f6fc19ffbe54d))
+- **Dialog:** 💡 调整静态方法导出方式 ([4987552](https://github.com/hjfruit/react-native-xiaoshu/commit/498755252cd954c8b5c10447ddbe955af7eb16a9))
+- **Notify:** 💡 新增导出变量\样式函数 ([cdba2ef](https://github.com/hjfruit/react-native-xiaoshu/commit/cdba2ef11105bb31f9bf820cf3b2a74bfa03a322))
+- **Picker:** 💡 新增导出变量\样式函数 ([7ac7dc6](https://github.com/hjfruit/react-native-xiaoshu/commit/7ac7dc665f7a8b309c6f8e7eccc3159b0efc40b8))
+- **Popup:** 💡 新增导出变量\样式函数 ([33bf9ae](https://github.com/hjfruit/react-native-xiaoshu/commit/33bf9aedaf641262718c87f3e2dd5663d2cb6c78))
+
+### Reverts
+
+- Revert "chore: release 1.0.0-beta.0" ([0e682f7](https://github.com/hjfruit/react-native-xiaoshu/commit/0e682f7fe21dd0eee7821b5ea1ba81c9d6c55e85))
+- Revert "ci(ci): 🎡 release:major:beta" ([fe988fb](https://github.com/hjfruit/react-native-xiaoshu/commit/fe988fbc9fb2dfa019850fc669e9acb1bc163a9d))
+
+### BREAKING CHANGES
+
+- **Popup:** 🧨 Popup.Component -> Popup.PopupComponent
+- **Picker:** 🧨 移除 PickerInstance 类型
+- **Notify:** 🧨 移除 NotifyInstance 类型
+- **Dialog:** 🧨 DialogInstance 类型移除
+- **Cell:** 🧨 Cell.Group bodyPaddingHorizontal 已移除
+- **ActionSheet:** 🧨 ActionSheet.Component 不再被 Portal 包裹
+
+## [0.2.59](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-14)
+
+### Features
+
+- **Selector:** 🎸 选项新增自定义渲染 ([705d226](https://github.com/hjfruit/react-native-xiaoshu/commit/705d22662927de989b186b78ed860281a42df24c))
+
+## [0.2.58](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-09)
+
+### Features
+
+- **Tabs:** 🎸 新增分割线 ([defbbb2](https://github.com/hjfruit/react-native-xiaoshu/commit/defbbb22dfcb514c5a191c5cf41fffe1c1b8aa6b))
+
+## [0.2.57](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-08)
+
+### Bug Fixes
+
+- **Card:** 🐛 bodyPadding 对象的时候,未声明的方向默认 true ([1963eb5](https://github.com/hjfruit/react-native-xiaoshu/commit/1963eb50ecc9684a6153bfdb213d66eb0304815c))
+- **Card:** 🐛 bodyStyle 丢失 ([4951000](https://github.com/hjfruit/react-native-xiaoshu/commit/495100017a009d8a9ba8f7bf7d8bbd47b7dd3053))
+
+### Features
+
+- **Popup:** 🎸 page 支持自定义 safeAreaInsetBottom ([b826b8b](https://github.com/hjfruit/react-native-xiaoshu/commit/b826b8b692420d76f4419c058892d43748a77c5b))
+- **Selector:** 🎸 新增搜索\衍生的组件支持搜索 ([a99a8da](https://github.com/hjfruit/react-native-xiaoshu/commit/a99a8dad985c592176ef6d4b16c26e2cc9d2d3ac))
+
+## [0.2.56](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-07)
+
+### Features
+
+- **DatePicker:** 🎸 回退`时间段必须选,开始时间小于结束时间` ([2d0709a](https://github.com/hjfruit/react-native-xiaoshu/commit/2d0709aabcf0a93cf19afe7c9edff41cdd84dcd6))
+
 # [0.3.0-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v1.0.0-beta.0...v0.3.0-beta.0) (2022-06-04)
 
 - 各组件导出变量、样式函数
