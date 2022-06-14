@@ -22,7 +22,11 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/size.tsx"></code>
+
+<code src="./__fixtures__/direction.tsx"></code>
+
+<code src="./__fixtures__/other.tsx"></code>
 
 ## API
 
@@ -30,4 +34,4 @@ group:
 
 ## 主题定制
 
-参考 `Blank` 组件。
+内置边距大小来源 `Blank` 的 `blank_size_{s,m,l}`。

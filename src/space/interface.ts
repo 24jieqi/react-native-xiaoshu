@@ -25,13 +25,13 @@ export interface SpaceProps extends ViewProps {
 
   /**
    * 垂直方向的间距大小
-   * @default space_gap_vertical
+   * @default blank_size_{s,m,l}
    */
   gapVertical?: number
 
   /**
    * 水平方向的间距大小
-   * @default space_gap_horizontal
+   * @default blank_size_{s,m,l}
    */
   gapHorizontal?: number
 
