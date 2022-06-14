@@ -4,6 +4,7 @@
  */
 
 import React from 'react'
+import { Text } from 'react-native'
 
 import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
 import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
@@ -21,6 +22,36 @@ const BasicSelectorBase: React.FC = () => {
             v.push({
               label: `文案_${index}`,
               value: index,
+            })
+          }
+
+          Selector({
+            title: '测试选项',
+            options: v,
+            value: 1,
+          })
+            .then(k => {
+              console.log(k)
+            })
+            .catch(() => {})
+        }}
+      />
+      <Cell
+        title="单选:自定义渲染"
+        isLink
+        onPress={() => {
+          const v: SelectorOption[] = []
+
+          for (let index = 0; index < 3; index++) {
+            v.push({
+              label: `文案_${index}`,
+              value: index,
+              render: label => (
+                <>
+                  <Text style={{ color: '#f30' }}>{label}</Text>
+                  <Text style={{ color: '#999' }}>（优选）</Text>
+                </>
+              ),
             })
           }
 
