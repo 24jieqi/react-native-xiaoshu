@@ -15,7 +15,7 @@ export interface NavBarProps {
   /**
    * 左侧自定义内容
    */
-  leftExtra?: React.ReactNode
+  leftExtra?: JSX.Element
 
   /**
    * 右侧布局的样式
@@ -25,7 +25,7 @@ export interface NavBarProps {
   /**
    * 右侧自定义内容
    */
-  rightExtra?: React.ReactNode
+  rightExtra?: JSX.Element
 
   /**
    * 标题文案样式
