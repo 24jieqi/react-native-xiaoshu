@@ -6,8 +6,7 @@ import Theme from '../theme'
 
 import { findUsableOptionIndex } from './helper/column'
 import type { PickerViewColumnProps, PickerValue } from './interface'
-import { varCreator } from './style'
-import { styleCreator } from './style.column'
+import { varCreator, styleCreator } from './style'
 
 /**
  * 选择器 列
@@ -150,7 +149,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
 
   return (
     <View style={STYLES.column}>
-      <View {...panResponder.panHandlers} style={STYLES.touch} />
+      <View {...panResponder.panHandlers} style={STYLES.column_touch} />
 
       <Animated.View
         style={{
@@ -165,12 +164,12 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
             <Text
               key={item.value}
               style={[
-                STYLES.text,
+                STYLES.column_text,
                 {
                   height: itemHeight,
                   lineHeight: itemHeight,
                 },
-                item.disabled ? STYLES.text_disabled : null,
+                item.disabled ? STYLES.column_text_disabled : null,
               ]}
               numberOfLines={1}>
               {item.label}

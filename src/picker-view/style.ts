@@ -19,7 +19,6 @@ export const styleCreator = (cv: ComponentVars) => {
     picker: {
       backgroundColor: cv.picker_view_background_color,
       // backgroundColor: '#f30',
-      // borderRadius: cv.border_radius_md,
       overflow: 'hidden',
     },
 
@@ -40,6 +39,30 @@ export const styleCreator = (cv: ComponentVars) => {
       right: 0,
       zIndex: 3,
       backgroundColor: cv.picker_view_column_mask_background_color,
+    },
+
+    column: {
+      flex: 1,
+      position: 'relative',
+    },
+
+    column_touch: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      zIndex: 4,
+    },
+
+    column_text: {
+      textAlign: 'center',
+      fontSize: cv.picker_view_column_text_font_size,
+      color: cv.picker_view_column_text_color,
+    },
+
+    column_text_disabled: {
+      color: cv.picker_view_column_text_disabled_color,
     },
   })
 }
