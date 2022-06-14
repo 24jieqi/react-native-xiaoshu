@@ -25,6 +25,10 @@ group:
 
 ### Selector.Component
 
+### Selector.StepSelectorComponent
+
+`Selector.Component` 与 `Selector.StepSelectorComponent` 属性相同，`Selector.Component` 被 `Portal` 组件包裹，在根节点渲染。
+
 <API hideTitle src="./step-selector.tsx"></API>
 
 ## 主题定制

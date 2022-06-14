@@ -46,7 +46,7 @@ const BasicStepSelector: React.FC = () => {
                 console.log('o => ', o)
                 console.log('isEnd => ', isEnd)
               },
-            })
+            }).catch(() => {})
           }}
         />
         <Cell
@@ -62,7 +62,7 @@ const BasicStepSelector: React.FC = () => {
                 console.log('o => ', o)
                 console.log('isEnd => ', isEnd)
               },
-            })
+            }).catch(() => {})
           }}
         />
       </Cell.Group>
