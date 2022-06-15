@@ -121,6 +121,9 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
       () => `TextInputBase_${getNextInputAccessoryViewID()}`,
       [],
     )
+    /** 当前值 */
+    const Value = useRef(value)
+    Value.current = value
     /** 显示禁用样子 bordered 才显示 */
     const showDisabledInput =
       bordered && !isNil(resetProps.editable) && !resetProps.editable
@@ -177,7 +180,10 @@ const TextInputBase = forwardRef<TextInputInstance, TextInputProps>(
           e.nativeEvent.text = formatterPersistFn(e.nativeEvent.text)
         }
 
-        onChange(e.nativeEvent.text)
+        if (Value.current !== e.nativeEvent.text) {
+          onChange(e.nativeEvent.text)
+        }
+
         onEndEditingPersistFn(e)
       },
       [onEndEditingPersistFn, formatterPersistFn, formatTrigger, onChange],

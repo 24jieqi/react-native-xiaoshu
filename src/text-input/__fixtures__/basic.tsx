@@ -72,7 +72,17 @@ const BasicTextInput: React.FC = () => {
           value={<TextInput placeholder="受控:不更新" value={value2} />}
         />
 
-        <Cell title="text" value={<TextInput placeholder="内容左对齐" />} />
+        <Cell
+          title="text"
+          value={
+            <TextInput
+              placeholder="内容左对齐"
+              onChange={t => {
+                console.log('内容左对齐 => ', t)
+              }}
+            />
+          }
+        />
 
         <Cell
           title="text"
