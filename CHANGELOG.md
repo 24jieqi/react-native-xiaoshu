@@ -1,3 +1,9 @@
+## [0.2.60](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.59...v0.2.60) (2022-06-15)
+
+### Features
+
+- **TextInput:** 🎸 onEndEditing 的时候判断是否值变化了,没有变化不触发 onChange ([6a76526](https://github.com/hjfruit/react-native-xiaoshu/commit/6a765266c851ac6f3daf6ed3cc24e5ac786c244c))
+
 ## [0.2.59](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.58...v0.2.59) (2022-06-14)
 
 ### Features
