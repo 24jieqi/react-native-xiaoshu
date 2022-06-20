@@ -1,10 +1,12 @@
+import isUndefined from 'lodash/isUndefined'
+import noop from 'lodash/noop'
+
 import { isPromise } from './typeof'
 
 export type Interceptor = (
   ...args: any[]
-) => Promise<boolean> | boolean | undefined
-
-const noop = () => {}
+) => // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
+Promise<boolean> | boolean | undefined | Promise<void> | void
 
 export function callInterceptor(
   interceptor: Interceptor | undefined,
@@ -24,14 +26,14 @@ export function callInterceptor(
     if (isPromise(returnVal)) {
       returnVal
         .then(value => {
-          if (value) {
+          if (isUndefined(value) || value) {
             done()
           } else if (canceled) {
             canceled()
           }
         })
         .catch(noop)
-    } else if (returnVal) {
+    } else if (isUndefined(returnVal) || returnVal) {
       done()
     } else if (canceled) {
       canceled()
