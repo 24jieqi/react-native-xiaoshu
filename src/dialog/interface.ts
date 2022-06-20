@@ -153,12 +153,18 @@ export interface DialogInputProps
   /**
    * 点击取消
    */
-  onPressCancel?: (text: string) => boolean | Promise<boolean>
+  onPressCancel?: (
+    text: string,
+    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
+  ) => boolean | Promise<boolean> | void | Promise<void>
 
   /**
    * 点击确定
    */
-  onPressConfirm?: (text: string) => boolean | Promise<boolean>
+  onPressConfirm?: (
+    text: string,
+    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
+  ) => boolean | Promise<boolean> | void | Promise<void>
 
   /**
    * 默认值

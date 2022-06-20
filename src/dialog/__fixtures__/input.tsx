@@ -19,7 +19,6 @@ const BasicDialogInput: React.FC = () => {
             placeholder: '请输入内容',
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -35,7 +34,6 @@ const BasicDialogInput: React.FC = () => {
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -50,9 +48,9 @@ const BasicDialogInput: React.FC = () => {
             onPressConfirm: t => {
               if (t.trim()) {
                 console.log(t)
-                return new Promise(resolve => {
+                return new Promise<void>(resolve => {
                   setTimeout(() => {
-                    resolve(true)
+                    resolve()
                   }, 2000)
                 })
               } else {
@@ -73,7 +71,6 @@ const BasicDialogInput: React.FC = () => {
             placeholder: '请输入内容',
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -90,7 +87,6 @@ const BasicDialogInput: React.FC = () => {
 
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -109,7 +105,6 @@ const BasicDialogInput: React.FC = () => {
 
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -124,7 +119,6 @@ const BasicDialogInput: React.FC = () => {
             placeholder: '请输入内容',
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -139,7 +133,6 @@ const BasicDialogInput: React.FC = () => {
             placeholder: '请输入内容',
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
           })
         }}
@@ -155,7 +148,6 @@ const BasicDialogInput: React.FC = () => {
             placeholder: '请输入内容',
             onPressConfirm: t => {
               console.log(t)
-              return true
             },
             numberInput: {
               min: 0,

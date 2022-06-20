@@ -13,7 +13,7 @@ export const varCreator = (TOKENS: TokensType) => {
     dialog_close_size: 24,
     dialog_header_font_weight: 'bold' as TextStyle['fontWeight'],
     dialog_header_line_height: TOKENS.line_height_2,
-    dialog_header_margin_top: 30,
+    dialog_header_margin_top: TOKENS.space_6,
     dialog_header_font_size: TOKENS.font_size_7,
     dialog_message_margin_top: 12,
     dialog_message_padding_horizontal: TOKENS.space_6,
@@ -42,6 +42,7 @@ export const styleCreator = (cv: ComponentVars) => {
       position: 'absolute',
       right: cv.dialog_border_radius,
       top: cv.dialog_border_radius,
+      zIndex: 2,
     },
 
     title_text: {
@@ -55,7 +56,7 @@ export const styleCreator = (cv: ComponentVars) => {
     },
 
     content_isolated: {
-      marginTop: cv.dialog_footer_margin_top - cv.dialog_message_margin_top,
+      marginTop: cv.dialog_header_margin_top - cv.dialog_message_margin_top,
       alignItems: 'center',
       justifyContent: 'center',
       // backgroundColor: '#f30', // to test ui

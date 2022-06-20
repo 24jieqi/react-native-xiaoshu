@@ -79,7 +79,7 @@ const BasicDialogKeyboard: React.FC = () => {
           </Space>
         </Blank>
 
-        <Blank bottom={36} left={24} right={24}>
+        <Blank bottom={24} left={24} right={24}>
           <Button text="确定" type="primary" onPress={closeDialog1} />
         </Blank>
       </Dialog.Keyboard>
