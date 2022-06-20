@@ -1,3 +1,13 @@
+## [0.2.61](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.60...v0.2.61) (2022-06-20)
+
+### Bug Fixes
+
+- **Dialog:** 🐛 关闭按钮层级&边距调整 ([fd020e7](https://github.com/hjfruit/react-native-xiaoshu/commit/fd020e768d9cd541681277a288038e4ae5b38ffb))
+
+### Features
+
+- **Dialog:** 🎸 输入框确定\取消回调支持无返回值 ([21679a3](https://github.com/hjfruit/react-native-xiaoshu/commit/21679a39d597c6f3bdb81e43cf20be20f0640690))
+
 ## [0.2.60](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.2.59...v0.2.60) (2022-06-15)
 
 ### Features
