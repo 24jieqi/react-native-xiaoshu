@@ -1,5 +1,5 @@
 /**
- * title: 键盘
+ * title: 自定义输入框
  * desc: 对话框内有输入框的情况。
  */
 
@@ -13,6 +13,7 @@ import {
   Blank,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
+import { Keyboard } from 'react-native'
 
 const BasicDialogKeyboard: React.FC = () => {
   const [state, setState] = useState({
@@ -22,6 +23,7 @@ const BasicDialogKeyboard: React.FC = () => {
   })
 
   const closeDialog1 = useCallback(() => {
+    Keyboard.dismiss()
     setState(s => ({
       ...s,
       cDialog1: {
@@ -33,7 +35,7 @@ const BasicDialogKeyboard: React.FC = () => {
 
   return (
     <>
-      <Cell.Group title="键盘">
+      <Cell.Group title="自定义输入框">
         <Cell
           title="简单输入框"
           isLink
@@ -68,6 +70,7 @@ const BasicDialogKeyboard: React.FC = () => {
               addonAfter="人"
               min={0}
               placeholder="请填写"
+              keyboardType="number-pad"
             />
             <NumberInput
               bordered
@@ -75,6 +78,7 @@ const BasicDialogKeyboard: React.FC = () => {
               addonAfter="人"
               min={0}
               placeholder="请填写"
+              keyboardType="number-pad"
             />
           </Space>
         </Blank>

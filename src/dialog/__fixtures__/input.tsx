@@ -117,6 +117,10 @@ const BasicDialogInput: React.FC = () => {
             title: '输入框？',
             type: 'digit',
             placeholder: '请输入内容',
+            numberInput: {
+              keyboardType: 'number-pad',
+              maxLength: 16,
+            },
             onPressConfirm: t => {
               console.log(t)
             },
@@ -131,6 +135,10 @@ const BasicDialogInput: React.FC = () => {
             title: '输入框？',
             type: 'number',
             placeholder: '请输入内容',
+            numberInput: {
+              keyboardType: 'decimal-pad',
+              maxLength: 12,
+            },
             onPressConfirm: t => {
               console.log(t)
             },
@@ -154,6 +162,7 @@ const BasicDialogInput: React.FC = () => {
               limitDecimals: 4,
               addonBefore: '采购费用',
               addonAfter: '元',
+              keyboardType: 'decimal-pad',
             },
           })
         }}
