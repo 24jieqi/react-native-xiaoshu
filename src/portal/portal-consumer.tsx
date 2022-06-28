@@ -12,11 +12,11 @@ export type PortalConsumerProps = {
 export default class PortalConsumer extends Component<PortalConsumerProps> {
   key: any
 
-  async componentDidMount() {
+  componentDidMount() {
     this.checkManager()
 
-    // Delay updating to prevent React from going to infinite loop
-    await Promise.resolve()
+    // // Delay updating to prevent React from going to infinite loop
+    // await Promise.resolve()
 
     this.key = this.props.manager.mount(this.props.children)
   }
