@@ -76,21 +76,21 @@ export const portal = new PortalGuard()
 export default class PortalHost extends Component<PortalHostProps> {
   static displayName = 'Portal.Host'
 
-  _nextKey = 0
-  _queue: Operation[] = []
-  _manager?: PortalManager
+  nextKey = 0
+  queue: Operation[] = []
+  manager: PortalManager | undefined | null
 
-  _addTypeES: EmitterSubscription
-  _removeTypeES: EmitterSubscription
+  addTypeEmitter: EmitterSubscription
+  removeTypeEmitter: EmitterSubscription
 
   componentDidMount() {
-    const manager = this._manager
-    const queue = this._queue
+    const manager = this.manager
+    const queue = this.queue
 
-    this._addTypeES = TopViewEventEmitter.addListener(addType, this._mount)
-    this._removeTypeES = TopViewEventEmitter.addListener(
+    this.addTypeEmitter = TopViewEventEmitter.addListener(addType, this.mount)
+    this.removeTypeEmitter = TopViewEventEmitter.addListener(
       removeType,
-      this._unmount,
+      this.unmount,
     )
 
     while (queue.length && manager) {
@@ -112,49 +112,58 @@ export default class PortalHost extends Component<PortalHostProps> {
       }
     }
   }
+
   componentWillUnmount() {
-    this._addTypeES.remove()
-    this._removeTypeES.remove()
-    // TopViewEventEmitter.removeListener(addType, this._mount)
-    // TopViewEventEmitter.removeListener(removeType, this._unmount)
-  }
-  _setManager = (manager?: any) => {
-    this._manager = manager
+    if (this.addTypeEmitter.remove) {
+      this.addTypeEmitter.remove()
+    } else {
+      TopViewEventEmitter.removeListener?.(addType, this.mount)
+    }
+
+    if (this.removeTypeEmitter.remove) {
+      this.removeTypeEmitter.remove()
+    } else {
+      TopViewEventEmitter.removeListener?.(removeType, this.unmount)
+    }
   }
 
-  _mount = (children: React.ReactNode, _key?: number) => {
-    const key = _key || this._nextKey++
-    if (this._manager) {
-      this._manager.mount(key, children)
+  setManager = (manager?: PortalManager | undefined | null) => {
+    this.manager = manager
+  }
+
+  mount = (children: React.ReactNode, _key?: number) => {
+    const key = _key || this.nextKey++
+    if (this.manager) {
+      this.manager.mount(key, children)
     } else {
-      this._queue.push({ type: 'mount', key, children })
+      this.queue.push({ type: 'mount', key, children })
     }
 
     return key
   }
 
-  _update = (key: number, children: React.ReactNode) => {
-    if (this._manager) {
-      this._manager.update(key, children)
+  update = (key: number, children: React.ReactNode) => {
+    if (this.manager) {
+      this.manager.update(key, children)
     } else {
       const op: Operation = { type: 'mount', key, children }
-      const index = this._queue.findIndex(
+      const index = this.queue.findIndex(
         o => o.type === 'mount' || (o.type === 'update' && o.key === key),
       )
 
       if (index > -1) {
-        this._queue[index] = op
+        this.queue[index] = op
       } else {
-        this._queue.push(op)
+        this.queue.push(op)
       }
     }
   }
 
-  _unmount = (key: number) => {
-    if (this._manager) {
-      this._manager.unmount(key)
+  unmount = (key: number) => {
+    if (this.manager) {
+      this.manager.unmount(key)
     } else {
-      this._queue.push({ type: 'unmount', key })
+      this.queue.push({ type: 'unmount', key })
     }
   }
 
@@ -162,15 +171,15 @@ export default class PortalHost extends Component<PortalHostProps> {
     return (
       <PortalContext.Provider
         value={{
-          mount: this._mount,
-          update: this._update,
-          unmount: this._unmount,
+          mount: this.mount,
+          update: this.update,
+          unmount: this.unmount,
         }}>
         {/* Need collapsable=false here to clip the elevations, otherwise they appear above Portal components */}
         <View style={styles.container} collapsable={false}>
           {this.props.children}
         </View>
-        <PortalManager ref={this._setManager} />
+        <PortalManager ref={this.setManager} />
       </PortalContext.Provider>
     )
   }

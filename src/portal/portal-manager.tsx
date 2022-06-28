@@ -1,31 +1,28 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import React, { PureComponent } from 'react'
 import { View, StyleSheet } from 'react-native'
+
 export type State = {
   portals: Array<{
     key: number
     children: React.ReactNode
   }>
 }
-export type PortalManagerState = {
-  portals: any[]
-}
+
 /**
  * Portal host is the component which actually renders all Portals.
  */
-export default class PortalManager extends PureComponent<
-  {},
-  PortalManagerState
-> {
+export default class PortalManager extends PureComponent<{}, State> {
   state: State = {
     portals: [],
   }
+
   mount = (key: number, children: React.ReactNode) => {
     this.setState(state => ({
       portals: [...state.portals, { key, children }],
     }))
   }
+
   update = (key: number, children: React.ReactNode) =>
     this.setState(state => ({
       portals: state.portals.map(item => {
@@ -35,19 +32,21 @@ export default class PortalManager extends PureComponent<
         return item
       }),
     }))
+
   unmount = (key: number) =>
     this.setState(state => ({
       portals: state.portals.filter(item => item.key !== key),
     }))
+
   render() {
-    return this.state.portals.map(({ key, children }, i) => (
+    return this.state.portals.map(({ key, children }) => (
       <View
         key={key}
         collapsable={
           false /* Need collapsable=false here to clip the elevations, otherwise they appear above sibling components */
         }
         pointerEvents="box-none"
-        style={[StyleSheet.absoluteFill, { zIndex: 1000 + i }]}>
+        style={StyleSheet.absoluteFill}>
         {children}
       </View>
     ))
