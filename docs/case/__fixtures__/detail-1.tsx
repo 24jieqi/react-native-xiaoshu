@@ -15,6 +15,8 @@ import {
   Tag,
   Divider,
   Theme,
+  Dialog,
+  Toast,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const CaseDetail1: React.FC = () => {
@@ -176,10 +178,52 @@ const CaseDetail1: React.FC = () => {
         buttons={[
           {
             text: '提交审核',
+            onPress: () => {
+              Dialog.confirm({
+                title: '提示',
+                message: '确定要提交给某人审核？',
+              })
+                .then(action => {
+                  if (action === 'confirm') {
+                    const { close } = Toast.loading({
+                      message: '提交中...',
+                    })
+
+                    setTimeout(() => {
+                      Toast.success('已提交')
+                      close()
+                    }, 600)
+                  }
+                })
+                .catch(() => {})
+            },
           },
           {
             text: '取消',
             type: 'hazy',
+            onPress: () => {
+              Dialog.input({
+                title: '取消提交',
+                placeholder: '请填写取消原因（30字内）',
+                type: 'textarea',
+                textInput: {
+                  maxLength: 30,
+                },
+                onPressConfirm: t => {
+                  if (!t.trim()) {
+                    Toast('请填写取消原因')
+                    return false
+                  }
+
+                  return new Promise<void>(resolve => {
+                    setTimeout(() => {
+                      Toast.success('已取消')
+                      resolve()
+                    }, 600)
+                  })
+                },
+              })
+            },
           },
         ]}
       />

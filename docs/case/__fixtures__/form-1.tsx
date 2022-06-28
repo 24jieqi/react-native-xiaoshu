@@ -120,6 +120,7 @@ const CaseForm1: React.FC = () => {
                                 )}
                                 extra={
                                   <DeleteFill
+                                    color={TOKENS.red_6}
                                     onPress={() => {
                                       Dialog.confirm({
                                         title: '提示',
