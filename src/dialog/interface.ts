@@ -187,11 +187,17 @@ export interface DialogInputProps
    */
   autoFocus?: boolean
 
+  /**
+   * 自定义 TextInput 属性
+   */
   textInput?: Omit<
     TextInputProps,
     'defaultValue' | 'placeholder' | 'type' | 'autoFocus'
   >
 
+  /**
+   * 自定义 NumberInput 属性
+   */
   numberInput?: Omit<
     NumberInputProps,
     'defaultValue' | 'placeholder' | 'type' | 'autoFocus'
