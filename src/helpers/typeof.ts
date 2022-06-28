@@ -1,22 +1,8 @@
 import isFunction from 'lodash/isFunction'
 
-const isType =
-  (
-    t:
-      | 'Array'
-      | 'Object'
-      | 'Function'
-      | 'Date'
-      | 'String'
-      | 'Number'
-      | 'Null'
-      | 'Undefined',
-  ) =>
-  (v: any) =>
-    Object.prototype.toString.call(v) === `[object ${t}]`
-
-/** 是对象 */
-export const isObject = <T>(v: T): v is T => isType('Object')(v)
+// [object Promise] Promise 在 JSC 中是 object，在浏览器端是 Promise
+export const isObject = (val: unknown): val is Record<any, any> =>
+  val !== null && typeof val === 'object'
 
 /** 是一个 Promise */
 export const isPromise = <T = any>(val: any): val is Promise<T> => {

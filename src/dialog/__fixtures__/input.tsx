@@ -154,15 +154,24 @@ const BasicDialogInput: React.FC = () => {
             title: '输入框？',
             type: 'number',
             placeholder: '请输入内容',
-            onPressConfirm: t => {
-              console.log(t)
-            },
             numberInput: {
               min: 0,
               limitDecimals: 4,
               addonBefore: '采购费用',
               addonAfter: '元',
               keyboardType: 'decimal-pad',
+            },
+            onPressConfirm: t => {
+              if (!t.trim()) {
+                Toast('请填写取消原因')
+                return false
+              }
+
+              return new Promise<boolean>(resolve => {
+                setTimeout(() => {
+                  resolve(false)
+                }, 600)
+              })
             },
           })
         }}
