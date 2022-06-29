@@ -189,3 +189,6 @@ export { default as Toast } from './toast'
 
 export type { UploaderProps, UploaderValue } from './uploader/interface'
 export { default as Uploader } from './uploader'
+
+export type { WaterMarkProps } from './water-mark/interface'
+export { default as WaterMark } from './water-mark'

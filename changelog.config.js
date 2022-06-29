@@ -56,5 +56,6 @@ module.exports = {
     'Theme',
     'Toast',
     'Uploader',
+    'WaterMark',
   ],
 }
