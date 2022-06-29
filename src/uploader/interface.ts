@@ -1,5 +1,4 @@
 import type React from 'react'
-import type { ReactNode } from 'react'
 import type { ImageSourcePropType, ViewProps } from 'react-native'
 
 export type UploaderValue = {
@@ -146,7 +145,7 @@ export interface UploaderImageProps
 
 export interface RegularCount {
   text?: string
-  icon?: ReactNode
+  icon?: React.ReactNode
 }
 
 export interface UploaderRegularProps<T>
