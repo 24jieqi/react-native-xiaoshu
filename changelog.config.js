@@ -55,6 +55,7 @@ module.exports = {
     'TextInput',
     'Theme',
     'Toast',
+    'Tree',
     'Uploader',
     'WaterMark',
   ],

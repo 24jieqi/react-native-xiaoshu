@@ -129,6 +129,10 @@ const navDatas: {
         title: 'TextInput 输入框',
         name: 'DemoTextInput',
       },
+      {
+        title: 'Tree 树形控件',
+        name: 'DemoTree',
+      },
     ],
   },
   {

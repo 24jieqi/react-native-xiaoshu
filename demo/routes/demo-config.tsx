@@ -54,6 +54,7 @@ import DemoTabs from '../../src/tabs/__fixtures__/basic'
 import DemoTag from '../../src/tag/__fixtures__/basic'
 import DemoTextInput from '../../src/text-input/__fixtures__/basic'
 import DemoToast from '../../src/toast/__fixtures__/basic'
+import DemoTree from '../../src/tree/__fixtures__/basic'
 import DemoUploader from '../../src/uploader/__fixtures__/basic'
 
 import DemoWrapper from './demo-wrapper'
@@ -112,6 +113,7 @@ export type DemoPaths =
   | 'DemoStepSelector'
   | 'DemoPopover'
   | 'DemoTabs'
+  | 'DemoTree'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -551,6 +553,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoTabs />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoTree',
+    Page: () => (
+      <DemoWrapper>
+        <DemoTree />
       </DemoWrapper>
     ),
   },

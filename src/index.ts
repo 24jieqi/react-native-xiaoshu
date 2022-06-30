@@ -187,6 +187,9 @@ export { default as Theme } from './theme'
 export type { ToastOptions } from './toast/interface'
 export { default as Toast } from './toast'
 
+export type { TreeItemProps, TreeOption } from './tree/interface'
+export { default as Tree } from './tree'
+
 export type { UploaderProps, UploaderValue } from './uploader/interface'
 export { default as Uploader } from './uploader'
 
