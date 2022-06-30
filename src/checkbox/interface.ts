@@ -15,7 +15,7 @@ interface CheckboxIconPrivateProps {
 
   /**
    * 选中状态颜色
-   * @default 主题色
+   * @default TOKENS.gray_6
    */
   activeColor?: ColorValue
 
