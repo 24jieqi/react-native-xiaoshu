@@ -391,7 +391,6 @@ const Tree: React.FC<TreeProps> = ({
               : value === item.value
             const _renderSwitcherIcon =
               item.renderSwitcherIcon || renderSwitcherIcon
-            const _color = isActive ? _activeColor : CV.tree_item_text_color
             const _onPressSwitcherIcon = () => {
               setExpandedValues(evs => {
                 const _evs = evs.filter(v => v !== item.value)
@@ -405,17 +404,15 @@ const Tree: React.FC<TreeProps> = ({
             const _switcherIcon = item.children?.length ? (
               _renderSwitcherIcon ? (
                 _renderSwitcherIcon({
-                  color: _color,
+                  color: CV.tree_item_text_color,
                   size: 16,
                   onPress: _onPressSwitcherIcon,
-                  disabled: item.disabled,
                 })
               ) : (
                 <ArrowRightOutline
                   onPress={_onPressSwitcherIcon}
-                  color={_color}
+                  color={CV.tree_item_text_color}
                   size={16}
-                  disabled={item.disabled}
                 />
               )
             ) : null

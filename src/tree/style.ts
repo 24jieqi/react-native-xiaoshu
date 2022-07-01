@@ -8,6 +8,7 @@ export const varCreator = (TOKENS: TokensType) => {
     tree_active_color: TOKENS.brand_6,
     tree_active_color_lightness: 95,
     tree_item_height: 50,
+    tree_item_padding_horizontal: TOKENS.space_3,
     tree_item_text_margin_horizontal: TOKENS.space_1,
     tree_item_text_font_size: TOKENS.font_size_4,
     tree_item_text_color: TOKENS.gray_8,
@@ -24,7 +25,7 @@ export const styleCreator = (cv: ComponentVars) => {
       flexDirection: 'row',
       alignItems: 'center',
       height: cv.tree_item_height,
-      paddingHorizontal: 12,
+      paddingHorizontal: cv.tree_item_padding_horizontal,
     },
 
     tree_item_text: {

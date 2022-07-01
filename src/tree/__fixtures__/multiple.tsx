@@ -4,7 +4,6 @@
  */
 
 import React from 'react'
-import { View } from 'react-native'
 import { CoordOutline } from '@fruits-chain/icons-react-native'
 
 import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
@@ -39,19 +38,14 @@ const onChange = (...rest: any[]) => {
 
 const TreeMultiple: React.FC = () => {
   return (
-    <Card title="多选" bodyPadding={false}>
-      <View
-        style={{
-          height: 400,
-        }}>
-        <Tree
-          options={options}
-          defaultValue={defaultValue}
-          multiple
-          onChange={onChange}
-          search
-        />
-      </View>
+    <Card title="多选" bodyPadding={false} bodyStyle={{ height: 400 }}>
+      <Tree
+        options={options}
+        defaultValue={defaultValue}
+        multiple
+        onChange={onChange}
+        search
+      />
     </Card>
   )
 }

@@ -1,8 +1,8 @@
 import { SuccessOutline } from '@fruits-chain/icons-react-native'
-import Color from 'color'
-import React, { useMemo } from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
+import React from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
 
+import { varCreator as varCreatorButton } from '../button/style'
 import CheckboxIcon from '../checkbox/checkbox-icon'
 import Theme from '../theme'
 
@@ -24,24 +24,16 @@ const TreeItem: React.FC<TreeItemProps> = ({
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
+  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  const hazyColor = useMemo(
-    () => Color(activeColor).lightness(CV.tree_active_color_lightness).hex(),
-    [CV.tree_active_color_lightness, activeColor],
-  )
-
   return (
-    <TouchableWithoutFeedback {...restProps}>
-      <View
-        style={[
-          STYLES.tree_item,
-          !multiple && active
-            ? {
-                backgroundColor: hazyColor,
-              }
-            : null,
-        ]}>
+    <TouchableOpacity
+      {...restProps}
+      activeOpacity={
+        restProps.activeOpacity || CV_BUTTON.button_active_opacity
+      }>
+      <View style={STYLES.tree_item}>
         {indent ? (
           <View
             // eslint-disable-next-line react-native/no-inline-styles
@@ -82,12 +74,16 @@ const TreeItem: React.FC<TreeItemProps> = ({
         )}
 
         {multiple ? (
-          <CheckboxIcon active={active} activeColor={activeColor} />
+          <CheckboxIcon
+            active={active}
+            activeColor={activeColor}
+            disabled={restProps.disabled}
+          />
         ) : active ? (
           <SuccessOutline color={activeColor} />
         ) : null}
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   )
 }
 

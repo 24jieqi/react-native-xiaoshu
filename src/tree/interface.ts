@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { ColorValue, TouchableWithoutFeedbackProps } from 'react-native'
+import type { ColorValue, TouchableOpacityProps } from 'react-native'
 
 import type { TreeMultipleMode } from './var'
 
@@ -39,7 +39,7 @@ export interface TreeOption {
     color: ColorValue
     size: number
     onPress: () => void
-    disabled?: boolean
+    // disabled?: boolean
   }) => React.ReactNode
 
   /**
@@ -63,7 +63,7 @@ export interface TreeSearchListData extends TreeOption {
   }[]
 }
 
-export interface TreeItemProps extends TouchableWithoutFeedbackProps {
+export interface TreeItemProps extends TouchableOpacityProps {
   /**
    * 缩进
    */
@@ -150,12 +150,7 @@ export interface TreeProps {
   /**
    * 自定义渲染树节点的展开/折叠图标
    */
-  renderSwitcherIcon?: (p: {
-    color: ColorValue
-    size: number
-    onPress: () => void
-    disabled?: boolean
-  }) => React.ReactNode
+  renderSwitcherIcon?: TreeOption['renderSwitcherIcon']
 
   /**
    * 缩进
