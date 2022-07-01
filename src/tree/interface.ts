@@ -56,6 +56,13 @@ export interface TreeOption {
   children?: TreeOption[]
 }
 
+export interface TreeSearchListData extends TreeOption {
+  labels: {
+    text: string
+    highlight: boolean
+  }[]
+}
+
 export interface TreeItemProps extends TouchableWithoutFeedbackProps {
   /**
    * 缩进
@@ -166,4 +173,25 @@ export interface TreeProps {
    * 默认展开指定的树节点
    */
   defaultExpandedValues?: TreeValue[]
+
+  /**
+   * 支持搜索
+   */
+  search?: boolean
+
+  /**
+   * 自定义搜索方案
+   */
+  onSearch?: (
+    keyword: string,
+    /**
+     * 当前的选项
+     */
+    options: TreeOption[],
+  ) => TreeSearchListData[]
+
+  /**
+   * 搜索提示文案
+   */
+  placeholder?: string
 }

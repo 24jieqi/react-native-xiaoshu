@@ -68,6 +68,8 @@ const TreeBase: React.FC = () => {
           defaultValue={11}
           defaultExpandedValues={defaultExpandedValues}
           onChange={onChange}
+          search
+          placeholder="请输入关键词"
         />
       </View>
     </Card>

@@ -12,6 +12,7 @@ export const varCreator = (TOKENS: TokensType) => {
     tree_item_text_font_size: TOKENS.font_size_4,
     tree_item_text_color: TOKENS.gray_8,
     tree_item_disabled_text_color: TOKENS.gray_5,
+    tree_item_highlight_text_color: TOKENS.brand_6,
   }
 }
 
@@ -35,6 +36,10 @@ export const styleCreator = (cv: ComponentVars) => {
 
     tree_item_disabled_text: {
       color: cv.tree_item_disabled_text_color,
+    },
+
+    tree_item_highlight_text: {
+      color: cv.tree_item_highlight_text_color,
     },
   })
 }

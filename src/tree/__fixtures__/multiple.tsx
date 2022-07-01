@@ -49,6 +49,7 @@ const TreeMultiple: React.FC = () => {
           defaultValue={defaultValue}
           multiple
           onChange={onChange}
+          search
         />
       </View>
     </Card>
