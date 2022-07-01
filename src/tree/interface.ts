@@ -160,7 +160,7 @@ export interface TreeProps {
 
   /**
    * 选中状态颜色
-   * @default TOKENS.gray_6
+   * @default tree_active_color
    */
   activeColor?: ColorValue
 

@@ -23,7 +23,10 @@ type ListData = {
   tier: number
 } & TreeOption
 
-const findNodeByValue = (tree: TreeOption[], value: TreeValue): TreeOption => {
+export const findNodeByValue = (
+  tree: TreeOption[],
+  value: TreeValue,
+): TreeOption => {
   for (const item of tree) {
     if (item.value === value) {
       return item
@@ -37,7 +40,7 @@ const findNodeByValue = (tree: TreeOption[], value: TreeValue): TreeOption => {
   }
 }
 
-const findAllChildrenValue = (tree: TreeOption[]) => {
+export const findAllChildrenValue = (tree: TreeOption[]) => {
   const values: TreeValue[] = []
 
   tree.forEach(item => {
@@ -51,7 +54,7 @@ const findAllChildrenValue = (tree: TreeOption[]) => {
   return values
 }
 
-const findParentNodeByValue = (
+export const findParentNodeByValue = (
   tree: TreeOption[],
   value: TreeValue,
 ): TreeOption | null => {
@@ -71,7 +74,10 @@ const findParentNodeByValue = (
   return null
 }
 
-const findAllParentNodeByValue = (tree: TreeOption[], value: TreeValue) => {
+export const findAllParentNodeByValue = (
+  tree: TreeOption[],
+  value: TreeValue,
+) => {
   const nodes: TreeOption[] = []
   const doFind = (v: TreeValue) => {
     const p = findParentNodeByValue(tree, v)
@@ -86,7 +92,7 @@ const findAllParentNodeByValue = (tree: TreeOption[], value: TreeValue) => {
   return nodes
 }
 
-const flattenDeepWidthChildren = (tree: TreeOption[]) => {
+export const flattenDeepWidthChildren = (tree: TreeOption[]) => {
   const nodes: TreeOption[] = []
 
   tree.forEach(item => {
@@ -127,6 +133,9 @@ const Tree: React.FC<TreeProps> = ({
   const STYLES = Theme.createStyle(CV, styleCreator)
   const [value, onChange] = useControllableValue<TreeValue | TreeValue[]>(
     restProps,
+    {
+      defaultValue: multiple ? [] : undefined,
+    },
   )
   const getOnSearch = usePersistFn(() => {
     return onSearch
@@ -225,6 +234,12 @@ const Tree: React.FC<TreeProps> = ({
 
   const _indent = getDefaultValue(indent, CV.tree_indent)
   const _activeColor = getDefaultValue(activeColor, CV.tree_active_color)
+  const flatListStyle = useMemo<ViewStyle>(
+    () => ({
+      minHeight: CV.tree_min_height,
+    }),
+    [CV.tree_min_height],
+  )
 
   const onSearchKeyword = usePersistFn(t => {
     setKeyword(t)
@@ -316,6 +331,7 @@ const Tree: React.FC<TreeProps> = ({
             ref={SearchFlatListRef}
             keyboardShouldPersistTaps="handled"
             bouncesZoom={false}
+            contentContainerStyle={flatListStyle}
             data={searchListData}
             keyExtractor={item => `${item.value}`}
             renderItem={({ item }) => {
@@ -383,6 +399,8 @@ const Tree: React.FC<TreeProps> = ({
         <FlatList
           key="list"
           bouncesZoom={false}
+          contentContainerStyle={flatListStyle}
+          ListEmptyComponent={<Empty />}
           data={listData}
           keyExtractor={item => `${item.value}`}
           renderItem={({ item }) => {

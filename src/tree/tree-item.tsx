@@ -62,7 +62,7 @@ const TreeItem: React.FC<TreeItemProps> = ({
                     fontWeight: 'bold',
                   }
                 : null,
-              active || labelHighlight
+              labelHighlight
                 ? {
                     color: activeColor,
                   }

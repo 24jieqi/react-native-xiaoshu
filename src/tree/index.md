@@ -38,6 +38,7 @@ group:
 | tree_indent                      | `TOKENS.space_6`     | -    |
 | tree_active_color                | `TOKENS.brand_6`     | -    |
 | tree_active_color_lightness      | 95                   | -    |
+| tree_min_height                  | 200                  | -    |
 | tree_item_height                 | 50                   | -    |
 | tree_item_padding_horizontal     | `TOKENS.space_3`     | -    |
 | tree_item_text_margin_horizontal | `TOKENS.space_1`     | -    |
