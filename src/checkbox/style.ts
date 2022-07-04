@@ -6,9 +6,9 @@ export const varCreator = (TOKENS: TokensType) => {
   return {
     checkbox_icon_size: 20,
     checkbox_icon_color: TOKENS.gray_6,
-    checkbox_icon_disabled_color: TOKENS.gray_7,
+    checkbox_icon_disabled_color: TOKENS.gray_5,
     checkbox_checked_icon_color: TOKENS.brand_6,
-    checkbox_checked_icon_disabled_color: TOKENS.gray_7,
+    checkbox_checked_icon_disabled_color: TOKENS.gray_5,
     checkbox_label_color: TOKENS.gray_8,
     checkbox_label_margin: TOKENS.space_2,
     checkbox_disabled_label_color: TOKENS.gray_6,
@@ -23,11 +23,13 @@ export const styleCreator = (cv: ComponentVars) => {
       flexDirection: 'row',
       alignItems: 'center',
     },
+
     label: {
       color: cv.checkbox_label_color,
       lineHeight: cv.checkbox_icon_size,
       minHeight: cv.checkbox_icon_size,
     },
+
     label_disabled: {
       color: cv.checkbox_disabled_label_color,
     },
