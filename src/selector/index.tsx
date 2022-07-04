@@ -7,7 +7,7 @@ import type { SelectorProps } from './interface'
 import Selector from './selector'
 import SelectorInstance from './selector-instance'
 import SelectorText from './selector-text'
-import { varCreator, styleCreator } from './style'
+import { varCreator } from './style'
 
 const Component: React.FC<SelectorProps> = props => {
   return (
@@ -19,7 +19,6 @@ const Component: React.FC<SelectorProps> = props => {
 
 export default attachPropertiesToComponent(SelectorInstance, {
   varCreator,
-  styleCreator,
   Component,
   SelectorComponent: Selector,
   Text: SelectorText,

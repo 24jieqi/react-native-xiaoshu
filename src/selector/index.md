@@ -35,12 +35,5 @@ group:
 
 ## 主题定制
 
-| 名称                                | 默认值               | 描述 |
-| :---------------------------------- | -------------------- | ---- |
-| selector_min_height                 | 300                  | -    |
-| selector_option_text_line_height    | 50                   | -    |
-| selector_option_text_font_size      | `TOKENS.font_size_4` | -    |
-| selector_option_text_color          | `TOKENS.gray_8`      | -    |
-| selector_option_text_disabled_color | `TOKENS.gray_6`      | -    |
-| selector_icon_selected_color        | `TOKENS.brand_6`     | -    |
-| selector_body_padding_horizontal    | `TOKENS.space_3`     | -    |
+| 名称 | 默认值 | 描述 |
+| :--- | ------ | ---- |

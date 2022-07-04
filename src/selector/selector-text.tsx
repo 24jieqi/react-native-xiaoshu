@@ -11,8 +11,7 @@ import Theme from '../theme'
 
 import type { SelectorTextProps } from './interface'
 import SelectorInstance from './selector-instance'
-import { varCreator } from './style'
-import { styleCreator } from './style.text'
+import { varCreator, styleCreator } from './style'
 
 const SelectorText: React.FC<SelectorTextProps> = ({
   title,

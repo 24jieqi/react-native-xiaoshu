@@ -10,7 +10,7 @@ import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
 import PopupPage from '../popup/popup-page'
 import Tree from '../tree'
-import type { TreeProps, TreeValue, TreeOption } from '../tree/interface'
+import type { TreeProps, TreeValue } from '../tree/interface'
 
 import type { SelectorProps, SelectorValue } from './interface'
 
@@ -25,9 +25,11 @@ const treePropsField = [
   'indent',
   'activeColor',
   'defaultExpandedValues',
+  'defaultExpandAll',
   'search',
   'onSearch',
   'placeholder',
+  'minHeight',
 ]
 
 /**
@@ -65,15 +67,13 @@ const Selector: React.FC<SelectorProps> = ({
     },
   )
 
-  const onChangeMultiplePersistFn = usePersistFn(
-    (v: TreeValue[], o: TreeOption[]) => {
-      if (onChangeImmediate) {
-        onChangeMultiple(onChangeImmediate(v))
-      } else {
-        onChangeMultiple(v)
-      }
-    },
-  )
+  const onChangeMultiplePersistFn = usePersistFn((v: TreeValue[]) => {
+    if (onChangeImmediate) {
+      onChangeMultiple(onChangeImmediate(v))
+    } else {
+      onChangeMultiple(v)
+    }
+  })
 
   /**
    * 点击确定按钮
