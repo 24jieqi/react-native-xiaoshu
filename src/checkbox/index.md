@@ -39,9 +39,9 @@ group:
 | :----------------------------------- | ---------------- | ---- |
 | checkbox_icon_size                   | 20               | -    |
 | checkbox_icon_color                  | `TOKENS.gray_6`  | -    |
-| checkbox_icon_disabled_color         | `TOKENS.gray_7`  | -    |
+| checkbox_icon_disabled_color         | `TOKENS.gray_5`  | -    |
 | checkbox_checked_icon_color          | `TOKENS.brand_6` | -    |
-| checkbox_checked_icon_disabled_color | `TOKENS.gray_7`  | -    |
+| checkbox_checked_icon_disabled_color | `TOKENS.gray_5`  | -    |
 | checkbox_label_color                 | `TOKENS.gray_8`  | -    |
 | checkbox_label_margin                | `TOKENS.space_2` | -    |
 | checkbox_disabled_label_color        | `TOKENS.gray_6`  | -    |
