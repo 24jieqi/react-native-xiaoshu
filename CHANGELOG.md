@@ -1,3 +1,91 @@
+# [0.3.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.1...v0.3.0) (2022-07-04)
+
+### Bug Fixes
+
+- **Dialog:** 🐛 判断 promise 逻辑优化 ([3c6fdb6](https://github.com/hjfruit/react-native-xiaoshu/commit/3c6fdb6e68d327e851b4bae32e1f82a436021123))
+- **Dropdown:** 🐛 高亮颜色传递给 Tree ([5940961](https://github.com/hjfruit/react-native-xiaoshu/commit/5940961c9082681ce7f85e90b65357862020a42b))
+- **Portal:** 🐛 与原来保持一致,避免一些异步弹出层不出现 ([d894053](https://github.com/hjfruit/react-native-xiaoshu/commit/d894053fe309dcdee237936a4c2c6489660e8118))
+
+### Code Refactoring
+
+- **Dropdown:** 💡 内部采用树形控件实现 ([3d618e2](https://github.com/hjfruit/react-native-xiaoshu/commit/3d618e20b88567b763d1eec4b1aa22b9f3fd42d5))
+
+### Features
+
+- **Checkbox:** 🎸 禁用状态的图标颜色更浅 ([c45de04](https://github.com/hjfruit/react-native-xiaoshu/commit/c45de048de6234583aa4a26debdbe1defcfd30c1))
+- **Portal:** 🎸 和 react-native-paper 代码同步 ([37f56c2](https://github.com/hjfruit/react-native-xiaoshu/commit/37f56c289414ff5bec76bd9b8f4ddb3408bd94fd))
+- **Selector:** 🎸 清理内部内有使用的组件变量 ([fbe69dc](https://github.com/hjfruit/react-native-xiaoshu/commit/fbe69dc1b283a7e435d951e34f4b765e343ae7eb))
+- **Tree:** 🎸 空数据展示 ([ab06839](https://github.com/hjfruit/react-native-xiaoshu/commit/ab068392b0e56e3f366403ac12cbefb002cf94fb))
+- **Tree:** 🎸 新增树 ([31b5103](https://github.com/hjfruit/react-native-xiaoshu/commit/31b51039c81ff97d44feb3dfde34e54305860c00))
+- **Tree:** 🎸 新增搜索功能 ([50e9494](https://github.com/hjfruit/react-native-xiaoshu/commit/50e94949a1d68405cc602767795aef646980b3a8))
+- **Tree:** 🎸 自定义最小高度\所有节点都展开 ([68c7032](https://github.com/hjfruit/react-native-xiaoshu/commit/68c70326b3fc17b38eb6e6e9b9565a617074872a))
+- **WaterMark:** 🎸 新增组件 ([dc14ce6](https://github.com/hjfruit/react-native-xiaoshu/commit/dc14ce64758d0ca9ad8fe337da2b82b447d62550))
+
+### BREAKING CHANGES
+
+- **Dropdown:** 🧨 Dropdown.Item 无法支持 divider
+
+# [0.3.0-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.1...v0.3.0) (2022-06-14)
+
+### Bug Fixes
+
+- **Cell:** 🐛 group 关于 style 的 警告 ([10832ea](https://github.com/hjfruit/react-native-xiaoshu/commit/10832ea9d0bd6455e7c70d16e0ff3ce23503d2fa))
+- **NavBar:** 🐛 左右扩展类型 ([ab65e64](https://github.com/hjfruit/react-native-xiaoshu/commit/ab65e64b11072e2b182e170501dcebb4155dd476))
+
+### Features
+
+- **ci:** 🎸 升级 icon 版本,替换对应的图标 ([fef44c2](https://github.com/hjfruit/react-native-xiaoshu/commit/fef44c2429678e59a66096c58617844621a6f038))
+- **Icon:** 🎸 移除 Icon 相关代码,请使用 @fruits-chain/icons-react-native ([32fc12a](https://github.com/hjfruit/react-native-xiaoshu/commit/32fc12a552de8b7839b849a30d9311dadb049bca))
+
+### BREAKING CHANGES
+
+- **Icon:** 🧨 Icon 相关组件请使用 @fruits-chain/icons-react-native 代替,部分图标可能不提供
+
+# [0.3.0-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.1...v0.3.0) (2022-06-04)
+
+### Bug Fixes
+
+- **DatePickerView:** 🐛 构建时报错 ([4265803](https://github.com/hjfruit/react-native-xiaoshu/commit/4265803cde5bd4eb0d2adac1eca5621212da62ee))
+
+### Code Refactoring
+
+- **ActionSheet:** 💡 新增导出变量\样式函数,修复已知问题 ([88d0c98](https://github.com/hjfruit/react-native-xiaoshu/commit/88d0c985a53e0ed5e37c859190e54e45ff50ecbd))
+- **Cell:** 💡 新增导出变量\样式函数 ([e0e0bd1](https://github.com/hjfruit/react-native-xiaoshu/commit/e0e0bd11b6894249bab6042c843f6fc19ffbe54d))
+- **Dialog:** 💡 调整静态方法导出方式 ([4987552](https://github.com/hjfruit/react-native-xiaoshu/commit/498755252cd954c8b5c10447ddbe955af7eb16a9))
+- **Notify:** 💡 新增导出变量\样式函数 ([cdba2ef](https://github.com/hjfruit/react-native-xiaoshu/commit/cdba2ef11105bb31f9bf820cf3b2a74bfa03a322))
+- **Picker:** 💡 新增导出变量\样式函数 ([7ac7dc6](https://github.com/hjfruit/react-native-xiaoshu/commit/7ac7dc665f7a8b309c6f8e7eccc3159b0efc40b8))
+- **Popup:** 💡 新增导出变量\样式函数 ([33bf9ae](https://github.com/hjfruit/react-native-xiaoshu/commit/33bf9aedaf641262718c87f3e2dd5663d2cb6c78))
+
+### Reverts
+
+- Revert "chore: release 1.0.0-beta.0" ([0e682f7](https://github.com/hjfruit/react-native-xiaoshu/commit/0e682f7fe21dd0eee7821b5ea1ba81c9d6c55e85))
+- Revert "ci(ci): 🎡 release:major:beta" ([fe988fb](https://github.com/hjfruit/react-native-xiaoshu/commit/fe988fbc9fb2dfa019850fc669e9acb1bc163a9d))
+
+### BREAKING CHANGES
+
+- **Popup:** 🧨 Popup.Component -> Popup.PopupComponent
+- **Picker:** 🧨 移除 PickerInstance 类型
+- **Notify:** 🧨 移除 NotifyInstance 类型
+- **Dialog:** 🧨 DialogInstance 类型移除
+- **Cell:** 🧨 Cell.Group bodyPaddingHorizontal 已移除
+- **ActionSheet:** 🧨 ActionSheet.Component 不再被 Portal 包裹
+
+## [0.2.61](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.1...v0.3.0) (2022-06-20)
+
+### Bug Fixes
+
+- **Dialog:** 🐛 关闭按钮层级&边距调整 ([fd020e7](https://github.com/hjfruit/react-native-xiaoshu/commit/fd020e768d9cd541681277a288038e4ae5b38ffb))
+
+### Features
+
+- **Dialog:** 🎸 输入框确定\取消回调支持无返回值 ([21679a3](https://github.com/hjfruit/react-native-xiaoshu/commit/21679a39d597c6f3bdb81e43cf20be20f0640690))
+
+## [0.2.60](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.1...v0.3.0) (2022-06-15)
+
+### Features
+
+- **TextInput:** 🎸 onEndEditing 的时候判断是否值变化了,没有变化不触发 onChange ([6a76526](https://github.com/hjfruit/react-native-xiaoshu/commit/6a765266c851ac6f3daf6ed3cc24e5ac786c244c))
+
 # [0.3.0-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2022-06-14)
 
 ### Bug Fixes
