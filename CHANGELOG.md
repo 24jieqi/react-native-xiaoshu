@@ -1,3 +1,9 @@
+## [0.3.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0...v0.3.1) (2022-07-04)
+
+### Bug Fixes
+
+- **Selector:** 🐛 onChangeImmediate 类型冲突 ([889f9b2](https://github.com/hjfruit/react-native-xiaoshu/commit/889f9b2d408554779e473b8df6c342b2ae516a1f))
+
 # [0.3.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0-beta.1...v0.3.0) (2022-07-04)
 
 ### Bug Fixes
