@@ -122,9 +122,11 @@ const Tree: React.FC<TreeProps> = ({
   indent,
   activeColor,
   defaultExpandedValues,
+  defaultExpandAll = false,
   search,
   onSearch,
   placeholder,
+  minHeight = true,
 
   ...restProps
 }) => {
@@ -141,6 +143,10 @@ const Tree: React.FC<TreeProps> = ({
     return onSearch
   })
   const [expandedValues, setExpandedValues] = useState(() => {
+    if (defaultExpandAll) {
+      return findAllChildrenValue(options)
+    }
+
     const _values: TreeValue[] = []
     /** 查看父节点是否要追加进去 */
     const doPushParent = (subValue: TreeValue) => {
@@ -234,12 +240,21 @@ const Tree: React.FC<TreeProps> = ({
 
   const _indent = getDefaultValue(indent, CV.tree_indent)
   const _activeColor = getDefaultValue(activeColor, CV.tree_active_color)
-  const flatListStyle = useMemo<ViewStyle>(
-    () => ({
+  const flatListStyle = useMemo<ViewStyle>(() => {
+    if (minHeight === false) {
+      return {}
+    }
+
+    if (typeof minHeight === 'number') {
+      return {
+        minHeight,
+      }
+    }
+
+    return {
       minHeight: CV.tree_min_height,
-    }),
-    [CV.tree_min_height],
-  )
+    }
+  }, [CV.tree_min_height, minHeight])
 
   const onSearchKeyword = usePersistFn(t => {
     setKeyword(t)
@@ -393,7 +408,7 @@ const Tree: React.FC<TreeProps> = ({
             }}
           />
         ) : (
-          <Empty />
+          <Empty style={flatListStyle} />
         )
       ) : (
         <FlatList

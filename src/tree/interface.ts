@@ -170,6 +170,12 @@ export interface TreeProps {
   defaultExpandedValues?: TreeValue[]
 
   /**
+   * 默认展开所有树节点
+   * @default false
+   */
+  defaultExpandAll?: boolean
+
+  /**
    * 支持搜索
    */
   search?: boolean
@@ -189,4 +195,10 @@ export interface TreeProps {
    * 搜索提示文案
    */
   placeholder?: string
+
+  /**
+   * 最小高度
+   * @default true
+   */
+  minHeight?: boolean | number
 }
