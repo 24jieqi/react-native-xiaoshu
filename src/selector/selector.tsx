@@ -69,7 +69,7 @@ const Selector: React.FC<SelectorProps> = ({
 
   const onChangeMultiplePersistFn = usePersistFn((v: TreeValue[]) => {
     if (onChangeImmediate) {
-      onChangeMultiple(onChangeImmediate(v))
+      onChangeMultiple(onChangeImmediate(v) as SelectorValue[])
     } else {
       onChangeMultiple(v)
     }

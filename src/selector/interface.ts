@@ -36,7 +36,9 @@ export interface SelectorProps
   /**
    * 当值变化的时候立即响应
    */
-  onChangeImmediate?: <T = SelectorValue[] | SelectorValue>(v: T) => T
+  onChangeImmediate?: (
+    v: SelectorValue[] | SelectorValue,
+  ) => SelectorValue[] | SelectorValue
 
   /**
    * 顶部安全高度
