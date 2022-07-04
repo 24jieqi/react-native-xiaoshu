@@ -38,7 +38,7 @@ const DropdownSelectorMethod = <T,>({
   const CV_TREE = Theme.createVar(TOKENS, Tree.varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
+  const _activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
 
   const [visible, setVisible] = useState(false)
   const treeOptions = useMemo(() => {
@@ -150,6 +150,7 @@ const DropdownSelectorMethod = <T,>({
       <View style={STYLES.item_tree}>
         <Tree
           defaultExpandAll
+          activeColor={_activeColor}
           minHeight={false}
           search={search}
           defaultValue={defaultValue as unknown as string}
