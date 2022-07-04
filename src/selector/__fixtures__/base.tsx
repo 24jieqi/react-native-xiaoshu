@@ -46,7 +46,7 @@ const BasicSelectorBase: React.FC = () => {
             v.push({
               label: `文案_${index}`,
               value: index,
-              render: label => (
+              render: ({ label }) => (
                 <>
                   <Text style={{ color: '#f30' }}>{label}</Text>
                   <Text style={{ color: '#999' }}>（优选）</Text>

@@ -1,33 +1,20 @@
 import type React from 'react'
 
 import type { PopupPropsCommon } from '../popup/interface'
+import type { TreeProps, TreeValue, TreeOption } from '../tree/interface'
 
-export type SelectorValue = number | string
+export type SelectorValue = TreeValue
 
-export type SelectorOption = {
-  /**
-   * 显示的文案
-   */
-  label: string
-
-  /**
-   * 唯一标识
-   */
-  value: SelectorValue
-
-  /**
-   * 是否禁用
-   */
-  disabled?: boolean
-
-  /**
-   * 自定义渲染
-   */
-  render?: (label: string, disabled?: boolean) => React.ReactNode
-}
+export type SelectorOption = TreeOption
 
 export interface SelectorProps
-  extends Omit<PopupPropsCommon, 'closeOnPressOverlay' | 'onPressOverlay'> {
+  extends Omit<PopupPropsCommon, 'closeOnPressOverlay' | 'onPressOverlay'>,
+    Omit<TreeProps, 'value' | 'defaultValue' | 'options'> {
+  value?: SelectorValue | SelectorValue[]
+
+  defaultValue?: SelectorValue | SelectorValue[]
+
+  options: SelectorOption[]
   /**
    * 点击遮罩层关闭
    * @default true
@@ -47,35 +34,9 @@ export interface SelectorProps
   showClose?: boolean
 
   /**
-   * 是否多选
-   * @default false
-   */
-  multiple?: boolean
-
-  /**
-   * 当前选中的值
-   */
-  value?: SelectorValue[] | SelectorValue
-
-  /**
-   * 当前的选项
-   */
-  options: SelectorOption[]
-
-  /**
-   * 选择后的回调
-   */
-  onChange?: (
-    value: SelectorValue[] | SelectorValue,
-    options: SelectorOption[],
-  ) => void
-
-  /**
    * 当值变化的时候立即响应
    */
-  onChangeImmediate?: (
-    v: SelectorValue[] | SelectorValue,
-  ) => SelectorValue[] | SelectorValue
+  onChangeImmediate?: <T = SelectorValue[] | SelectorValue>(v: T) => T
 
   /**
    * 顶部安全高度
@@ -88,11 +49,6 @@ export interface SelectorProps
    * @default '确定'
    */
   confirmButtonText?: string
-
-  /**
-   * 支持搜索
-   */
-  search?: boolean
 }
 
 export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {}

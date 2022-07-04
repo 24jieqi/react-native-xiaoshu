@@ -1,30 +1,34 @@
-import { SuccessOutline } from '@fruits-chain/icons-react-native'
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-  memo,
-} from 'react'
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
+import omit from 'lodash/omit'
+import pick from 'lodash/pick'
+import React, { memo } from 'react'
 
 import Button from '../button'
 import ButtonBar from '../button-bar'
-import { varCreator as varCreatorButton } from '../button/style'
-import CheckboxIcon from '../checkbox/checkbox-icon'
-import { varCreator as varCreatorCheckbox } from '../checkbox/style'
-import Empty from '../empty'
-import { useSafeHeight } from '../hooks'
+import { useSafeHeight, useControllableValue, usePersistFn } from '../hooks'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
 import PopupPage from '../popup/popup-page'
-import Search from '../search'
-import Theme from '../theme'
+import Tree from '../tree'
+import type { TreeProps, TreeValue, TreeOption } from '../tree/interface'
 
 import type { SelectorProps, SelectorValue } from './interface'
-import { varCreator, styleCreator } from './style'
+
+const treePropsField = [
+  'multiple',
+  'multipleMode',
+  'value',
+  'defaultValue',
+  'onChange',
+  'options',
+  'renderSwitcherIcon',
+  'indent',
+  'activeColor',
+  'defaultExpandedValues',
+  'search',
+  'onSearch',
+  'placeholder',
+]
 
 /**
  * Selector 弹出层式 Select
@@ -32,14 +36,9 @@ import { varCreator, styleCreator } from './style'
  */
 const Selector: React.FC<SelectorProps> = ({
   title,
-  options,
-  value,
-  multiple = false,
-  onChange,
   onChangeImmediate,
   safeAreaInsetTop,
   confirmButtonText,
-  search,
 
   // popup 组件相关属性
   visible,
@@ -47,155 +46,56 @@ const Selector: React.FC<SelectorProps> = ({
   onClose,
   ...restProps
 }) => {
+  const treeProps = pick(restProps, treePropsField) as TreeProps
+  const popupProps = omit(restProps, treePropsField)
+  const isMultiple = treeProps.multiple
+
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop, bottom: false })
   const locale = Locale.useLocale().Selector
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const CV_CHECKBOX = Theme.createVar(TOKENS, varCreatorCheckbox)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-  const [selectedKeys, setSelectedKeys] = useState<SelectorValue[]>(
-    multiple
-      ? value
-        ? ([] as SelectorValue[]).concat(value as SelectorValue[])
-        : []
-      : value
-      ? [value as SelectorValue]
-      : [],
-  )
-  const [keyword, setKeyword] = useState('')
-  const renderOptions = useMemo(() => {
-    if (!keyword) {
-      return options
-    }
-
-    return options.filter(item => item.label.indexOf(keyword) > -1)
-  }, [keyword, options])
-  const ScrollViewRef = useRef<ScrollView>(null)
-
-  // 同步已选的数据
-  useEffect(() => {
-    setSelectedKeys(
-      multiple
-        ? value
-          ? ([] as SelectorValue[]).concat(value as SelectorValue[])
-          : []
-        : value
-        ? [value as SelectorValue]
+  const [valueMultiple, onChangeMultiple] = useControllableValue<
+    SelectorValue[]
+  >(
+    {},
+    {
+      defaultValue: Array.isArray(treeProps.value)
+        ? treeProps.value
+        : Array.isArray(treeProps.defaultValue)
+        ? treeProps.defaultValue
         : [],
-    )
-  }, [value, multiple])
+    },
+  )
 
-  const onSearch = useCallback((t: string) => {
-    setKeyword(t)
-    ScrollViewRef.current?.scrollTo({
-      x: 0,
-      y: 0,
-    })
-  }, [])
-
-  /**
-   * 生成每次点击的回调
-   */
-  const genOnPressOption = (key: SelectorValue) => () => {
-    if (multiple) {
-      // 多选维护内部变量
-      setSelectedKeys(v => {
-        const other = v.filter(val => val !== key)
-
-        if (other.length === v.length) {
-          const newValues = v.concat(key)
-
-          return onChangeImmediate
-            ? (onChangeImmediate(newValues) as SelectorValue[])
-            : newValues
-        }
-
-        return onChangeImmediate
-          ? (onChangeImmediate(other) as SelectorValue[])
-          : other
-      })
-    } else {
-      const newValue = onChangeImmediate
-        ? (onChangeImmediate(key) as SelectorValue)
-        : key
-
-      // 单选直接出发回调
-      onChange?.(
-        newValue,
-        options.filter(opt => opt.value === newValue),
-      )
-    }
-  }
+  const onChangeMultiplePersistFn = usePersistFn(
+    (v: TreeValue[], o: TreeOption[]) => {
+      if (onChangeImmediate) {
+        onChangeMultiple(onChangeImmediate(v))
+      } else {
+        onChangeMultiple(v)
+      }
+    },
+  )
 
   /**
    * 点击确定按钮
    */
-  const onPressOk = () => {
-    onChange?.(
-      selectedKeys,
-      options.filter(opt => selectedKeys.indexOf(opt.value) > -1),
+  const onPressOk = usePersistFn(() => {
+    treeProps.onChange?.(
+      valueMultiple,
+      valueMultiple.map(i => Tree.findNodeByValue(treeProps.options, i)),
     )
-  }
+  })
 
-  const headerJSX = (
-    <PopupHeader title={title || locale.title} onClose={onClose} />
-  )
   const contentJSX = (
     <>
-      <ScrollView
-        ref={ScrollViewRef}
-        bounces={false}
-        keyboardShouldPersistTaps="handled">
-        {renderOptions.length === 0 ? <Empty /> : null}
+      <PopupHeader title={title || locale.title} onClose={onClose} />
 
-        {renderOptions?.map(item => {
-          const isSelected =
-            selectedKeys.findIndex(key => key === item.value) >= 0
+      <Tree
+        {...treeProps}
+        value={isMultiple ? valueMultiple : treeProps.value}
+        onChange={isMultiple ? onChangeMultiplePersistFn : treeProps.onChange}
+      />
 
-          return (
-            <TouchableOpacity
-              key={item.value}
-              disabled={item.disabled}
-              onPress={genOnPressOption(item.value)}
-              activeOpacity={CV_BUTTON.button_active_opacity}>
-              <View style={STYLES.option_item}>
-                {item.render ? (
-                  item.render(item.label, item.disabled)
-                ) : (
-                  <Text
-                    style={
-                      item.disabled
-                        ? [
-                            STYLES.option_item_text,
-                            STYLES.option_item_text_disabled,
-                          ]
-                        : STYLES.option_item_text
-                    }
-                    numberOfLines={1}>
-                    {item.label}
-                  </Text>
-                )}
-
-                {multiple ? (
-                  <CheckboxIcon
-                    active={isSelected}
-                    disabled={item.disabled}
-                    onPress={genOnPressOption(item.value)}
-                  />
-                ) : isSelected ? (
-                  <SuccessOutline
-                    color={CV.selector_icon_selected_color}
-                    size={CV_CHECKBOX.checkbox_icon_size}
-                  />
-                ) : null}
-              </View>
-            </TouchableOpacity>
-          )
-        })}
-      </ScrollView>
-
-      {multiple ? (
+      {treeProps.multiple ? (
         <ButtonBar alone divider={false} height={60}>
           <Button
             type="primary"
@@ -207,17 +107,15 @@ const Selector: React.FC<SelectorProps> = ({
     </>
   )
 
-  if (search) {
+  if (treeProps.search) {
     return (
       <PopupPage
-        {...restProps}
+        {...popupProps}
         visible={visible}
         onClose={onClose}
         closeOnPressOverlay={closeOnPressOverlay}
         onPressOverlay={onClose}
         round>
-        {headerJSX}
-        <Search autoSearch onSearch={onSearch} />
         {contentJSX}
       </PopupPage>
     )
@@ -225,17 +123,15 @@ const Selector: React.FC<SelectorProps> = ({
 
   return (
     <Popup
-      {...restProps}
+      {...popupProps}
+      style={{ maxHeight: safeHeight }}
       visible={visible}
       onClose={onClose}
       closeOnPressOverlay={closeOnPressOverlay}
       onPressOverlay={onClose}
       position="bottom"
       round>
-      <View style={{ maxHeight: safeHeight }}>
-        {headerJSX}
-        {contentJSX}
-      </View>
+      {contentJSX}
     </Popup>
   )
 }
