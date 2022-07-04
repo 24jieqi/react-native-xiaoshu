@@ -7,7 +7,7 @@ import React from 'react'
 import { ScrollView, Text } from 'react-native'
 import { Blank } from '@fruits-chain/react-native-xiaoshu'
 
-const ctxStyle = { backgroundColor: '#f30' }
+const ctxStyle = { backgroundColor: '#fff' }
 const blankStyle = { backgroundColor: '#098' }
 
 const BasicButtonBar: React.FC = () => {
