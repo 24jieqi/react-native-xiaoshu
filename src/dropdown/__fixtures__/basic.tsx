@@ -163,7 +163,6 @@ const BasicDropdown: React.FC = () => {
             search
             options={itemOptions3}
             defaultValue={null}
-            divider={false}
             onChange={(v, d) => {
               console.log(v)
               console.log(d)

@@ -30,9 +30,12 @@ export const styleCreator = (cv: ComponentVars) => {
       backgroundColor: cv.dropdown_background_color,
     },
 
-    item_cell_inner: {
-      paddingLeft: 16,
+    item_tree: {
       backgroundColor: cv.dropdown_background_color,
+    },
+
+    item_tree_item: {
+      flex: 1,
     },
 
     badge_dot: {

@@ -1,21 +1,15 @@
-import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
-import omit from 'lodash/omit'
-import React, { useCallback, useMemo, useRef, useEffect, memo } from 'react'
-import { View, Text, ScrollView, Keyboard } from 'react-native'
+import React, { useCallback, useMemo, useEffect, memo } from 'react'
+import { View, Text, Keyboard } from 'react-native'
 
-import Cell from '../cell'
-import {
-  varCreator as varCreatorCell,
-  styleCreator as styleCreatorCell,
-} from '../cell/style'
 import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 import Portal from '../portal'
-import Search from '../search'
 import Space from '../space'
 import Theme from '../theme'
+import Tree from '../tree'
+import type { TreeOption, TreeValue } from '../tree/interface'
 
 import DropdownBadge from './dropdown-badge'
 import DropdownPopup from './dropdown-popup'
@@ -35,58 +29,76 @@ const DropdownSelectorMethod = <T,>({
   duration,
   zIndex,
   closeOnPressOutside,
-  divider,
   search,
   onClosed,
   activeColor,
 }: DropdownSelectorMethodProps<T>) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
+  const CV_TREE = Theme.createVar(TOKENS, Tree.varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
-  const STYLES_CELL = Theme.createStyle(CV_CELL, styleCreatorCell)
 
   activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
 
-  const [state, setState] = useState({
-    active: false,
-    keyword: '',
-  })
-  const ScrollViewRef = useRef<ScrollView>(null)
-  const searchOptions = useMemo(() => {
-    if (!state.keyword) {
-      return []
-    }
+  const [visible, setVisible] = useState(false)
+  const treeOptions = useMemo(() => {
+    const convertOption = (ops: DropdownItemOption<T>[]) => {
+      const nodes: TreeOption[] = []
 
-    const opts: DropdownItemOption<T>[] = []
-    const findX = (list: DropdownItemOption<T>[]) => {
-      list.forEach(item => {
-        if (item.label.indexOf(state.keyword) > -1) {
-          opts.push(omit(item, ['children']))
+      ops.forEach(item => {
+        const _opt: TreeOption = {
+          label: item.label,
+          value: item.value as unknown as number | string,
+          children: item.children?.length ? convertOption(item.children) : [],
+          render: isNil(item.badge)
+            ? undefined
+            : p => {
+                return (
+                  <Space
+                    direction="horizontal"
+                    gapVertical={0}
+                    align="center"
+                    style={STYLES.item_tree_item}>
+                    <Text
+                      style={[
+                        {
+                          fontSize: CV_TREE.tree_item_text_font_size,
+                          color: CV_TREE.tree_item_text_color,
+                        },
+                        p.labelHighlight
+                          ? {
+                              color: p.activeColor,
+                            }
+                          : null,
+                      ]}
+                      numberOfLines={1}>
+                      {p.label}
+                    </Text>
+                    <DropdownBadge count={item.badge} />
+                  </Space>
+                )
+              },
         }
-
-        if (item.children?.length) {
-          findX(item.children)
-        }
+        nodes.push(_opt)
       })
+
+      return nodes
     }
 
-    findX(options)
-
-    return opts
-  }, [state.keyword, options])
+    return convertOption(options)
+  }, [
+    CV_TREE.tree_item_text_color,
+    CV_TREE.tree_item_text_font_size,
+    STYLES.item_tree_item,
+    options,
+  ])
 
   useEffect(() => {
-    setState({
-      active: true,
-    })
+    setVisible(true)
   }, [])
 
   const onPressShade = useCallback(() => {
-    setState({
-      active: false,
-      keyword: '',
-    })
+    setVisible(false)
     Keyboard.dismiss()
     onCancel?.()
   }, [onCancel])
@@ -96,65 +108,32 @@ const DropdownSelectorMethod = <T,>({
     return true
   })
 
-  const genOnPressCell = (o: DropdownItemOption<T>) => () => {
-    setState({
-      active: false,
-      keyword: '',
-    })
+  const onChangePersistFn = usePersistFn((v: TreeValue) => {
+    console.log(v)
+    setVisible(false)
     Keyboard.dismiss()
-    onConfirm?.(o.value, o)
-  }
 
-  const onSearch = useCallback((t: string) => {
-    setState({
-      keyword: t,
-    })
-    ScrollViewRef.current?.scrollTo({
-      x: 0,
-      y: 0,
-    })
-  }, [])
-
-  const renderOption = (cs: DropdownItemOption<T>[]) => {
-    return cs.map(item => {
-      const cellJSX = (
-        <Cell
-          key={`${item.value}`}
-          divider={divider}
-          title={
-            !isNil(item.badge) && item.badge !== false ? (
-              <Space direction="horizontal" align="center" gapVertical={0}>
-                <Text style={STYLES_CELL.title_text}>{item.label}</Text>
-
-                <DropdownBadge count={item.badge} />
-              </Space>
-            ) : (
-              item.label
-            )
+    const findNodeByValue = (
+      tree: DropdownItemOption<T>[],
+      value: T,
+    ): DropdownItemOption<T> => {
+      for (const item of tree) {
+        if (item.value === value) {
+          return item
+        }
+        if (item.children) {
+          const _v = findNodeByValue(item.children, value)
+          if (_v) {
+            return _v
           }
-          valueExtra={
-            item.value === defaultValue ? (
-              <SuccessOutline color={activeColor} />
-            ) : null
-          }
-          onPress={genOnPressCell(item)}
-        />
-      )
-
-      if (item.children?.length) {
-        return (
-          <React.Fragment key={`${item.value}`}>
-            {cellJSX}
-            <View style={STYLES.item_cell_inner}>
-              {renderOption(item.children)}
-            </View>
-          </React.Fragment>
-        )
+        }
       }
+    }
 
-      return cellJSX
-    })
-  }
+    const _v = v as unknown as T
+    console.log('????')
+    onConfirm?.(_v as unknown as T, findNodeByValue(options, _v))
+  })
 
   return (
     <DropdownPopup
@@ -164,22 +143,20 @@ const DropdownSelectorMethod = <T,>({
       duration={duration}
       zIndex={zIndex}
       onPressShade={onPressShade}
-      visible={state.active}
+      visible={visible}
       onRequestClose={onRequestClose}
       onClosed={onClosed}
       onPressOverlay={onPressShade}>
-      {search ? <Search autoSearch onSearch={onSearch} /> : null}
-
-      <ScrollView
-        bounces={false}
-        ref={ScrollViewRef}
-        keyboardShouldPersistTaps="handled">
-        {state.keyword
-          ? searchOptions.length
-            ? renderOption(searchOptions)
-            : null
-          : renderOption(options)}
-      </ScrollView>
+      <View style={STYLES.item_tree}>
+        <Tree
+          defaultExpandAll
+          minHeight={false}
+          search={search}
+          defaultValue={defaultValue as unknown as string}
+          options={treeOptions}
+          onChange={onChangePersistFn}
+        />
+      </View>
     </DropdownPopup>
   )
 }

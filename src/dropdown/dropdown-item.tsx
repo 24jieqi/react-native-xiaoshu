@@ -17,7 +17,6 @@ const DropdownItem = <T,>({
   duration,
   zIndex,
   closeOnPressOutside,
-  divider,
   loading,
   search,
 
@@ -73,7 +72,6 @@ const DropdownItem = <T,>({
         duration,
         zIndex,
         closeOnPressOutside,
-        divider,
         search,
         activeColor: config.activeColor,
       })

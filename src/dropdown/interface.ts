@@ -141,11 +141,6 @@ export interface DropdownItemProps<T>
   closeOnPressOutside?: boolean
 
   /**
-   * 每个选项是否显示分割线
-   */
-  divider?: boolean
-
-  /**
    * 候选项加载中
    */
   loading?: boolean
