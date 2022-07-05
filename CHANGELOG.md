@@ -1,3 +1,9 @@
+## [0.3.2-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.1...v0.3.2-beta.0) (2022-07-05)
+
+### Features
+
+- **Progress:** 🎸 page 增加额外的 loading ([c8b11b7](https://github.com/hjfruit/react-native-xiaoshu/commit/c8b11b777397ca86fa23abe720f8824543480918))
+
 ## [0.3.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.0...v0.3.1) (2022-07-04)
 
 ### Bug Fixes
