@@ -120,4 +120,9 @@ export interface ProgressPageProps {
    * 加载失败点击重新加载
    */
   onPressReload?: () => void
+
+  /**
+   * 额外的 loading
+   */
+  extraLoading?: React.ReactNode
 }

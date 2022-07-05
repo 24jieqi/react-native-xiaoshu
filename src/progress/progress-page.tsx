@@ -23,6 +23,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   failMessage,
   failIcon,
   onPressReload,
+  extraLoading,
 }) => {
   const locale = Locale.useLocale().ProgressPage
   const TOKENS = Theme.useThemeTokens()
@@ -105,6 +106,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           onAnimationEnd={onAnimationEnd}
           square
         />
+        {extraLoading}
       </View>
     )
   }
