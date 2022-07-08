@@ -1,3 +1,9 @@
+## [0.3.2-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.0...v0.3.2-beta.1) (2022-07-08)
+
+### Features
+
+- **NumberInput:** 🎸 输入 . 转换成 0. 当 min >= 0 过滤 - ([2578e63](https://github.com/hjfruit/react-native-xiaoshu/commit/2578e63afeda60a43cbbbf88baeea72d521a6335))
+
 ## [0.3.2-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.1...v0.3.2-beta.0) (2022-07-05)
 
 ### Features
