@@ -1,3 +1,9 @@
+## [0.3.2-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.1...v0.3.2-beta.2) (2022-07-08)
+
+### Bug Fixes
+
+- **ci:** 🐛 依赖版本号 ([f315b50](https://github.com/hjfruit/react-native-xiaoshu/commit/f315b5033ce25ea825f030442c2951910a6250f3))
+
 ## [0.3.2-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.0...v0.3.2-beta.1) (2022-07-08)
 
 ### Features
