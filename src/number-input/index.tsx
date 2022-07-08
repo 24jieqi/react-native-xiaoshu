@@ -117,6 +117,16 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     const triggerValueUpdate = useCallback(
       (t: string, validate: boolean, isEnd: boolean) => {
+        // 输入 . 默认转换成 0.
+        if (t === '.') {
+          t = '0.'
+        }
+
+        // 当 min >= 0 就不能输入  -
+        if (min >= 0) {
+          t = t.replace(/-/g, '')
+        }
+
         let newValueStringify = computeValueStringify(t || '', validate, isEnd)
         let finallyValue = newValueStringify
 
@@ -174,6 +184,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       [
         computeValueStringify,
         formatterPersistFn,
+        min,
         onChangePersistFn,
         parserPersistFn,
       ],

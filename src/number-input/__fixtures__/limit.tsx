@@ -120,6 +120,12 @@ const BasicNumberInputLimit: React.FC = () => {
             onChange={consoleNum}
           />
         }
+      />
+      <Cell
+        title="最小值是0"
+        value={
+          <NumberInput placeholder="请输入" min={0} onChange={consoleNum} />
+        }
         divider={false}
       />
     </Cell.Group>
