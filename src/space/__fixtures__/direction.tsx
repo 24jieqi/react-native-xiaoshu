@@ -27,12 +27,8 @@ const BasicSpaceDirection: React.FC = () => {
         </Card>
 
         <Card title="方向:horizontal:子组件过多">
-          <Text>
-            Space
-            每个子元素自带下边距，如果业务中不需要下边距只要左右的，可以通过
-            gapVertical 消除。
-          </Text>
-          <Space direction="horizontal" gapVertical={0}>
+          <Text>横向排版、不换行，gapVertical 为 0</Text>
+          <Space direction="horizontal">
             <Button text="Button" />
             <Button text="Button" />
             <Button text="Button" />

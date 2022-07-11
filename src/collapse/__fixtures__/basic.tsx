@@ -87,7 +87,7 @@ const BasicCollapse: React.FC = () => {
           renderTitleExtra={useCallback(
             (v: boolean, arrowJSX: React.ReactNode) => {
               return (
-                <Space direction="horizontal" align="center" gapVertical={0}>
+                <Space direction="horizontal" align="center">
                   <Text>{v ? '点击收齐' : '点击展开'}</Text>
                   {arrowJSX}
                 </Space>
@@ -219,11 +219,7 @@ const BasicCollapse: React.FC = () => {
             renderTitleExtra={useCallback(
               (v: boolean, arrowJSX: React.ReactNode) => {
                 return (
-                  <Space
-                    direction="horizontal"
-                    align="center"
-                    justify="center"
-                    gapVertical={0}>
+                  <Space direction="horizontal" align="center" justify="center">
                     <Text>{v ? '点击收齐' : '点击展开'}</Text>
                     {arrowJSX}
                   </Space>

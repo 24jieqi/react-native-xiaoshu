@@ -56,7 +56,6 @@ const DropdownSelectorMethod = <T,>({
                 return (
                   <Space
                     direction="horizontal"
-                    gapVertical={0}
                     align="center"
                     style={STYLES.item_tree_item}>
                     <Text

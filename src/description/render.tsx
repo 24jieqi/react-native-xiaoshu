@@ -10,7 +10,7 @@ export const renderAlignCenter = (
   addonAfter: ReactNode,
 ) => {
   return (
-    <Space direction="horizontal" align="center" gapVertical={0}>
+    <Space direction="horizontal" align="center">
       {addonBefore}
       {context}
       {addonAfter}
@@ -24,7 +24,7 @@ export const renderDateRangeAlignFlexStart = (
   addonAfter: ReactNode,
 ) => {
   return (
-    <Space direction="horizontal" align="flex-start" gapVertical={0}>
+    <Space direction="horizontal" align="flex-start">
       {addonBefore}
       {context}
       {addonAfter}

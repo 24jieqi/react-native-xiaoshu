@@ -92,7 +92,6 @@ const BasicNumberInputExtra: React.FC = () => {
         head
         tail
         direction="horizontal"
-        gapVertical={0}
         align="center"
         style={{ backgroundColor: '#fff' }}>
         <Text>采购量</Text>

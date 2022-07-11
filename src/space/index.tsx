@@ -56,7 +56,7 @@ const Space: React.FC<SpaceProps> = ({
         }),
   }
   const itemStyle: ViewStyle = {
-    marginBottom: _gapVertical,
+    marginBottom: isVertical || wrap ? _gapVertical : 0,
     marginRight: isVertical ? 0 : _gapHorizontal,
   }
 

@@ -45,7 +45,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
       activeOpacity={CV_BUTTON.button_active_opacity}
       onPress={onPress}
       style={STYLES.text}>
-      <Space direction="horizontal" align="center" gapVertical={0} head={head}>
+      <Space direction="horizontal" align="center" head={head}>
         {divider ? <Divider direction="vertical" /> : null}
         <Text suppressHighlighting style={STYLES.text_text}>
           {text}

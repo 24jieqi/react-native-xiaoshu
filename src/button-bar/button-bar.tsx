@@ -62,7 +62,6 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
           justify="flex-end"
           align="center"
           direction="horizontal"
-          gapVertical={0}
           gapHorizontal={CV.button_bar_button_space}>
           {showMore ? (
             <Button
