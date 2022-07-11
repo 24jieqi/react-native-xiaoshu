@@ -1,3 +1,13 @@
+## [0.3.2-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.2...v0.3.2-beta.3) (2022-07-11)
+
+### Features
+
+- **Tree:** 🎸 延长展开/折叠图标可点击区域 ([8222e61](https://github.com/hjfruit/react-native-xiaoshu/commit/8222e614c394c510642c9c282a6e10294c00e0f5))
+
+### BREAKING CHANGES
+
+- **Tree:** 🧨 renderSwitcherIcon 不再有 onPress 参数
+
 ## [0.3.2-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.1...v0.3.2-beta.2) (2022-07-08)
 
 ### Bug Fixes
