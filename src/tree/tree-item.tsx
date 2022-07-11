@@ -1,9 +1,15 @@
 import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import CheckboxIcon from '../checkbox/checkbox-icon'
+import Flex from '../flex'
 import Theme from '../theme'
 
 import type { TreeItemProps } from './interface'
@@ -20,6 +26,8 @@ const TreeItem: React.FC<TreeItemProps> = ({
   label,
   renderLabel,
   labelHighlight,
+  hasChildren,
+  onPressSwitcherIcon,
   ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
@@ -27,22 +35,36 @@ const TreeItem: React.FC<TreeItemProps> = ({
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
+  const leftJSX = (
+    <Flex direction="row" align="center">
+      {indent ? (
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            width: tier * indent,
+            height: CV.tree_item_height,
+          }}
+        />
+      ) : null}
+      {switcherIcon}
+    </Flex>
+  )
+
   return (
     <TouchableOpacity
       {...restProps}
       activeOpacity={
-        restProps.activeOpacity || CV_BUTTON.button_active_opacity
+        restProps.activeOpacity ?? CV_BUTTON.button_active_opacity
       }>
       <View style={STYLES.tree_item}>
-        {indent ? (
-          <View
-            // eslint-disable-next-line react-native/no-inline-styles
-            style={{
-              width: tier * indent,
-            }}
-          />
-        ) : null}
-        {switcherIcon}
+        {hasChildren ? (
+          <TouchableWithoutFeedback onPress={onPressSwitcherIcon}>
+            {leftJSX}
+          </TouchableWithoutFeedback>
+        ) : (
+          leftJSX
+        )}
+
         {renderLabel ? (
           renderLabel({
             label,

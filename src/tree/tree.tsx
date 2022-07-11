@@ -439,14 +439,9 @@ const Tree: React.FC<TreeProps> = ({
                 _renderSwitcherIcon({
                   color: CV.tree_item_text_color,
                   size: 16,
-                  onPress: _onPressSwitcherIcon,
                 })
               ) : (
-                <ArrowRightOutline
-                  onPress={_onPressSwitcherIcon}
-                  color={CV.tree_item_text_color}
-                  size={16}
-                />
+                <ArrowRightOutline color={CV.tree_item_text_color} size={16} />
               )
             ) : null
             const _switcherIconJSX =
@@ -479,6 +474,8 @@ const Tree: React.FC<TreeProps> = ({
                 active={isActive}
                 renderLabel={item.render}
                 labelHighlight={_labelHighlight}
+                hasChildren={item.children?.length > 0}
+                onPressSwitcherIcon={_onPressSwitcherIcon}
               />
             )
           }}

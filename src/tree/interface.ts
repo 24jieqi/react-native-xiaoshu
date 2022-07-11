@@ -38,7 +38,6 @@ export interface TreeOption {
   renderSwitcherIcon?: (p: {
     color: ColorValue
     size: number
-    onPress: () => void
     // disabled?: boolean
   }) => React.ReactNode
 
@@ -113,6 +112,16 @@ export interface TreeItemProps extends TouchableOpacityProps {
    * 文字高亮
    */
   labelHighlight?: boolean
+
+  /**
+   * 是否还有子节点
+   */
+  hasChildren?: boolean
+
+  /**
+   * 点击展开/折叠图标区域
+   */
+  onPressSwitcherIcon?: TouchableOpacityProps['onPress']
 }
 
 export interface TreeProps {
