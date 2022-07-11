@@ -1,3 +1,9 @@
+## [0.3.2-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.3...v0.3.2-beta.4) (2022-07-11)
+
+### Features
+
+- **Space:** 🎸 横向排版、不换行，gapVertical 为 0 ([9e122b3](https://github.com/hjfruit/react-native-xiaoshu/commit/9e122b390fb61636d0069bf173f9b8d9ab5c940b))
+
 ## [0.3.2-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.2...v0.3.2-beta.3) (2022-07-11)
 
 ### Features
