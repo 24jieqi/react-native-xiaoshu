@@ -1,3 +1,9 @@
+## [0.3.2-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.5...v0.3.2-beta.6) (2022-07-12)
+
+### Bug Fixes
+
+- **Field:** 🐛 单元格 Cell 属性传递过程中丢了部分 ([69fca8c](https://github.com/hjfruit/react-native-xiaoshu/commit/69fca8c34f8df1b1ea091deceb6299292cb339e4))
+
 ## [0.3.2-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.4...v0.3.2-beta.5) (2022-07-12)
 
 ### Features
