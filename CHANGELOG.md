@@ -1,3 +1,9 @@
+## [0.3.2-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.4...v0.3.2-beta.5) (2022-07-12)
+
+### Features
+
+- **Tree:** 🎸 搜索结果列表显示父节点 label ([24e2f2d](https://github.com/hjfruit/react-native-xiaoshu/commit/24e2f2df4ed94b1f02652eed7d6302b9d357edb1))
+
 ## [0.3.2-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.3...v0.3.2-beta.4) (2022-07-11)
 
 ### Features
