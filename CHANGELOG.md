@@ -1,3 +1,9 @@
+## [0.3.2-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.6...v0.3.2-beta.7) (2022-07-12)
+
+### Features
+
+- **Dropdown:** 🎸 支持 Tree onSearch ([398e3fd](https://github.com/hjfruit/react-native-xiaoshu/commit/398e3fda1852e45bf7c842a294aa01b4c43a298d))
+
 ## [0.3.2-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.5...v0.3.2-beta.6) (2022-07-12)
 
 ### Bug Fixes
