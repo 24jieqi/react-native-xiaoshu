@@ -225,6 +225,16 @@ const Tree: React.FC<TreeProps> = ({
 
           _labels.pop()
 
+          // 找到父级数据
+          const parentNodes = findAllParentNodeByValue(options, item.value)
+
+          if (parentNodes?.length) {
+            _labels.push({
+              highlight: false,
+              text: ` / ${parentNodes.map(pn => pn.label).join(' / ')}`,
+            })
+          }
+
           nodes.push({
             ...item,
             labels: _labels,
