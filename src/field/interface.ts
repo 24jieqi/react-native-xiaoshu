@@ -79,7 +79,10 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
 export interface FieldTextCellPropsUsed
   extends Omit<
     CellPropsUsed,
-    'textAlign' | 'valueTextStyle' | 'valueTextNumberOfLines'
+    | 'textAlign'
+    | 'valueTextStyle'
+    | 'valueTextNumberOfLines'
+    | 'onPressDebounceWait'
   > {}
 
 export interface FieldTextInputProps

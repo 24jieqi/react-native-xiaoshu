@@ -72,7 +72,15 @@ const BasicFieldTextInput: React.FC = () => {
         placeholder="请输入"
         value={text1}
         onChange={setText1}
+      />
+      <Field.NumberInput
+        vertical
+        title="上下2"
+        placeholder="请输入"
+        value={text1}
+        onChange={setText1}
         divider={false}
+        textInputBordered
       />
     </Cell.Group>
   )

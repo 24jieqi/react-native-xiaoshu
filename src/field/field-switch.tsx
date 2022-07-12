@@ -3,53 +3,23 @@ import React, { memo } from 'react'
 import Cell from '../cell'
 import Switch from '../switch'
 
-import type { FieldSwitchProps, FieldSwitchCellPropsUsed } from './interface'
+import { pickCellProps } from './helper'
+import type { FieldSwitchProps } from './interface'
 
-function FieldSwitch<ActiveValueT = boolean, InactiveValueT = boolean>({
-  // TODO 优化属性传递
-  innerStyle,
-  title,
-  titleStyle,
-  titleTextStyle,
-  titleExtra,
-  valueStyle,
-  valueExtra,
-  contentStyle,
-  divider = true,
-  isLink = false,
-  onPressLink,
-  center = false,
-  arrowDirection = 'right',
-  required = false,
-  vertical = false,
-
-  ...restProps
-}: FieldSwitchProps<ActiveValueT, InactiveValueT>) {
-  const cellProps: FieldSwitchCellPropsUsed = {
-    innerStyle,
-    title,
-    titleStyle,
-    titleTextStyle,
-    titleExtra,
-    valueStyle: [
-      { flexDirection: 'row', justifyContent: 'flex-end' },
-      valueStyle,
-    ],
-    valueExtra,
-    contentStyle,
-    divider,
-    isLink,
-    onPressLink,
-    center,
-    arrowDirection,
-    required,
-    vertical,
-  }
+function FieldSwitch<ActiveValueT = boolean, InactiveValueT = boolean>(
+  props: FieldSwitchProps<ActiveValueT, InactiveValueT>,
+) {
+  const { cellProps, otherProps } = pickCellProps(props)
 
   return (
     <Cell
       {...cellProps}
-      value={<Switch<ActiveValueT, InactiveValueT> {...restProps} />}
+      valueStyle={[
+        // eslint-disable-next-line react-native/no-inline-styles
+        { flexDirection: 'row', justifyContent: 'flex-end' },
+        cellProps.valueStyle,
+      ]}
+      value={<Switch<ActiveValueT, InactiveValueT> {...otherProps} />}
     />
   )
 }

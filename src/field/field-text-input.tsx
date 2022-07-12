@@ -4,7 +4,8 @@ import Cell from '../cell'
 import TextInput from '../text-input'
 import Theme from '../theme'
 
-import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
+import { pickCellProps } from './helper'
+import type { FieldTextInputProps } from './interface'
 
 /**
  * Field 输入框
@@ -13,24 +14,6 @@ import type { FieldTextInputProps, FieldTextCellPropsUsed } from './interface'
  * @description TODO 解决多行输入高度没对齐的问题
  */
 const FieldTextInput: React.FC<FieldTextInputProps> = ({
-  // TODO 优化属性传递
-  style,
-  innerStyle,
-  title,
-  titleStyle,
-  titleTextStyle,
-  titleExtra,
-  valueStyle,
-  valueExtra,
-  contentStyle,
-  divider = true,
-  isLink = false,
-  onPressLink,
-  center = false,
-  arrowDirection = 'right',
-  required = false,
-  vertical = false,
-
   // TextInput 属性
   textAlign = 'right',
   type,
@@ -38,7 +21,9 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   textInputBordered,
   ...restProps
 }) => {
-  if (vertical) {
+  const { cellProps, otherProps } = pickCellProps(restProps)
+
+  if (cellProps.vertical) {
     textAlign = 'left'
     type = 'textarea'
   }
@@ -46,35 +31,17 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   if (type === 'textarea') {
     textAlign = 'left'
     textInputBordered = true
-    vertical = true
+    cellProps.vertical = true
   }
 
   const TOKENS = Theme.useThemeTokens()
-
-  const cellProps: FieldTextCellPropsUsed = {
-    style,
-    innerStyle,
-    title,
-    titleStyle,
-    titleTextStyle,
-    titleExtra,
-    valueExtra,
-    contentStyle,
-    divider,
-    isLink,
-    onPressLink,
-    center,
-    arrowDirection,
-    required,
-    vertical,
-  }
 
   return (
     <Cell
       {...cellProps}
       valueStyle={[
-        valueStyle,
-        vertical
+        cellProps.valueStyle,
+        cellProps.vertical
           ? {
               marginTop: TOKENS.space_2,
             }
@@ -82,7 +49,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
       ]}
       value={
         <TextInput
-          {...restProps}
+          {...otherProps}
           style={textInputStyle}
           type={type}
           bordered={textInputBordered}
