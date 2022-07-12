@@ -18,7 +18,9 @@ const DropdownItem = <T,>({
   zIndex,
   closeOnPressOutside,
   loading,
+
   search,
+  onSearch,
 
   ...restProps
 }: DropdownItemProps<T>) => {
@@ -72,8 +74,9 @@ const DropdownItem = <T,>({
         duration,
         zIndex,
         closeOnPressOutside,
-        search,
         activeColor: config.activeColor,
+        search,
+        onSearch,
       })
         .then(d => {
           onChange(d.value, d.data)

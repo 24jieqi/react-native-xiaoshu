@@ -29,9 +29,11 @@ const DropdownSelectorMethod = <T,>({
   duration,
   zIndex,
   closeOnPressOutside,
-  search,
   onClosed,
   activeColor,
+
+  search,
+  onSearch,
 }: DropdownSelectorMethodProps<T>) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -153,6 +155,7 @@ const DropdownSelectorMethod = <T,>({
           defaultValue={defaultValue as unknown as string}
           options={treeOptions}
           onChange={onChangePersistFn}
+          onSearch={onSearch}
         />
       </View>
     </DropdownPopup>

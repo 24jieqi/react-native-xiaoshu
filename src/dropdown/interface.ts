@@ -11,6 +11,7 @@ import type {
 } from 'react-native'
 
 import type { PopupPropsCommon } from '../popup/interface'
+import type { TreeProps } from '../tree/interface'
 
 export interface DropdownBadgeProps extends TextProps {
   /**
@@ -91,7 +92,8 @@ export interface DropdownTextProps extends TouchableOpacityProps {
 }
 
 export interface DropdownItemProps<T>
-  extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled'>> {
+  extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled'>>,
+    Pick<TreeProps, 'search' | 'onSearch'> {
   /**
    * 标题样式
    */
@@ -144,11 +146,6 @@ export interface DropdownItemProps<T>
    * 候选项加载中
    */
   loading?: boolean
-
-  /**
-   * 支持搜索
-   */
-  search?: boolean
 }
 
 export interface DropdownContext
