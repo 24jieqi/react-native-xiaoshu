@@ -1,3 +1,9 @@
+## [0.3.2-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.7...v0.3.2-beta.8) (2022-07-12)
+
+### Features
+
+- **Tree:** 🎸 搜索不区分大小写 ([d3faedf](https://github.com/hjfruit/react-native-xiaoshu/commit/d3faedf404c8d9a1ded37d46f5dc1f0976c7a8f9))
+
 ## [0.3.2-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.6...v0.3.2-beta.7) (2022-07-12)
 
 ### Features
