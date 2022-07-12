@@ -108,7 +108,6 @@ const DropdownSelectorMethod = <T,>({
   })
 
   const onChangePersistFn = usePersistFn((v: TreeValue) => {
-    console.log(v)
     setVisible(false)
     Keyboard.dismiss()
 
@@ -130,7 +129,6 @@ const DropdownSelectorMethod = <T,>({
     }
 
     const _v = v as unknown as T
-    console.log('????')
     onConfirm?.(_v as unknown as T, findNodeByValue(options, _v))
   })
 
