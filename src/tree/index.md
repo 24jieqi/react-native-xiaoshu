@@ -29,7 +29,14 @@ group:
 
 ## API
 
-<API hideTitle src="./tree.tsx"></API>
+<API hideTitle src="./tree.tsx" exports='["default"]'></API>
+
+## 注意事项
+
+### 多选的模式
+
+- `TreeMultipleMode.NORMAL` 选择父节点，父节点及其下面所有子节点都会被选中，父节点下所有子节点选中，父节点也会选中
+- `TreeMultipleMode.INDEPENDENT` 父子节点没有关联操作，各自独立
 
 ## 主题定制
 
