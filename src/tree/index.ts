@@ -7,6 +7,7 @@ import Tree, {
   findParentNodeByValue,
   findAllParentNodeByValue,
   flattenDeepWidthChildren,
+  buildHighlightLabelConfig,
 } from './tree'
 import { TreeMultipleMode } from './var'
 
@@ -19,4 +20,5 @@ export default attachPropertiesToComponent(Tree, {
   findParentNodeByValue,
   findAllParentNodeByValue,
   flattenDeepWidthChildren,
+  buildHighlightLabelConfig,
 })

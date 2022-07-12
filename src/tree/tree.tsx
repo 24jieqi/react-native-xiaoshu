@@ -106,6 +106,50 @@ export const flattenDeepWidthChildren = (tree: TreeOption[]) => {
   return nodes
 }
 
+export const buildHighlightLabelConfig = (
+  label: string,
+  keyword: string,
+): TreeSearchListData['labels'] => {
+  if (!keyword) {
+    return []
+  }
+
+  const _reg = new RegExp(keyword, 'gi')
+  const results = [...label.matchAll(_reg)]
+
+  if (results.length) {
+    const nodes: TreeSearchListData['labels'] = []
+    let pointer = 0
+
+    results.forEach(res => {
+      if (res.index !== pointer) {
+        nodes.push({
+          highlight: false,
+          text: label.slice(pointer, res.index),
+        })
+      }
+
+      pointer = res.index + res[0].length
+
+      nodes.push({
+        highlight: true,
+        text: label.slice(res.index, pointer),
+      })
+    })
+
+    if (pointer < label.length - 1) {
+      nodes.push({
+        highlight: false,
+        text: label.slice(pointer, label.length),
+      })
+    }
+
+    return nodes
+  }
+
+  return []
+}
+
 const switcherIconWrapperStyle: ViewStyle = {
   transform: [
     {
@@ -200,31 +244,13 @@ const Tree: React.FC<TreeProps> = ({
   const searchListData = useMemo(() => {
     const _onSearch = getOnSearch()
     const _options = flattenDeepWidthChildren(options)
-    const _reg = new RegExp(keyword, 'g')
-    const _highlight = {
-      text: keyword,
-      highlight: true,
-    }
     const _defaultFilter = () => {
       const nodes: TreeSearchListData[] = []
 
       _options.forEach(item => {
-        const results = [...item.label.matchAll(_reg)]
+        const _labels = buildHighlightLabelConfig(item.label, keyword)
 
-        if (results.length) {
-          const _labels: TreeSearchListData['labels'] = []
-          item.label
-            .split(keyword)
-            .map(t => ({
-              text: t,
-              highlight: false,
-            }))
-            .forEach(d => {
-              _labels.push(d, _highlight)
-            })
-
-          _labels.pop()
-
+        if (_labels.length) {
           // 找到父级数据
           const parentNodes = findAllParentNodeByValue(options, item.value)
 
