@@ -12,5 +12,7 @@ module.exports = {
         paths: ['lodash'],
       },
     ],
+
+    'no-console': ['error', { allow: ['warn', 'error'] }],
   },
 }
