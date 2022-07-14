@@ -91,11 +91,7 @@ const Tag: React.FC<TagProps> = ({
       color: textColor,
     },
   ])
-  // 关闭的图标
-  const renderChildren = () => {
-    const childJSX = <Text style={textStyle}>{children}</Text>
-    return childJSX
-  }
+
   // 关闭的图标
   const renderCloseIcon = () => {
     if (closable) {
@@ -111,22 +107,27 @@ const Tag: React.FC<TagProps> = ({
     }
     return null
   }
-  return visible ? (
-    <View style={[STYLES.tag, style]}>
-      <View
-        style={[
-          /** 类型样式 */
-          STYLES.tag_inner,
-          innerTypeStyle,
-          innerSizeStyle,
-          innerStyle,
-        ]}>
-        {icon}
-        {renderChildren()}
-        {renderCloseIcon()}
+
+  if (visible) {
+    return (
+      <View style={[STYLES.tag, style]}>
+        <View
+          style={[
+            /** 类型样式 */
+            STYLES.tag_inner,
+            innerTypeStyle,
+            innerSizeStyle,
+            innerStyle,
+          ]}>
+          {icon}
+          <Text style={textStyle}>{children}</Text>
+          {renderCloseIcon()}
+        </View>
       </View>
-    </View>
-  ) : null
+    )
+  }
+
+  return null
 }
 
 export default memo(Tag)

@@ -7,10 +7,18 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 import { Tag, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 import { PlayCircleFill } from '@fruits-chain/icons-react-native'
+import { View, Text } from 'react-native'
 
 const BasicTag: React.FC = () => {
   return (
     <ScrollView>
+      <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
+        <Tag type="ghost" color="#098" size="s">
+          入库
+        </Tag>
+        <Text>2022-07-05 11:16:24</Text>
+      </View>
+
       <Cell.Group title="基础用法">
         <Cell title="default 类型" value={<Tag>标签</Tag>} />
         <Cell title="primary 类型" value={<Tag type="primary">标签</Tag>} />

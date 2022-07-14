@@ -14,7 +14,7 @@ export const varCreator = (TOKENS: TokensType) => {
     tag_m_padding_horizontal: 4,
     tag_s_close_icon: TOKENS.font_size_2,
     tag_s_height: 16,
-    tag_s_font_size: TOKENS.font_size_2,
+    tag_s_font_size: TOKENS.font_size_1,
     tag_s_padding_horizontal: 2,
     tag_padding_horizontal: TOKENS.space_1,
     tag_text_color: TOKENS.white,
