@@ -1,3 +1,9 @@
+## [0.3.2-beta.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.9...v0.3.2-beta.10) (2022-07-14)
+
+### Bug Fixes
+
+- **Tag:** 🐛 s 大小, ghost 类型, 文案对齐 ([b06e0e3](https://github.com/hjfruit/react-native-xiaoshu/commit/b06e0e3cd7dd71e234f6159a4ecfa8edc101257f))
+
 ## [0.3.2-beta.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.8...v0.3.2-beta.9) (2022-07-14)
 
 ### Features
