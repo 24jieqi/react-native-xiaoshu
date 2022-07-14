@@ -8,7 +8,7 @@ group:
   path: /guide
 ---
 
-## 介绍
+# 介绍
 
 在 React Native 组件库里面 [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) 最近不怎么更新，且依赖了比较多的第三方组件，同时对 [vant](https://github.com/youzan/vant) 的设计比较喜欢，于是就开始了一条不归之路。
 

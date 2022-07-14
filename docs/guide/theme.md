@@ -8,11 +8,11 @@ group:
   path: /guide
 ---
 
-> `小暑`提供了一套默认主题，如果你想完全替换主题色或者其他样式，可以按照本文档进行主题定制。
+> `小暑` 提供了一套默认主题，如果你想完全替换主题色或者其他样式，可以按照本文档进行主题定制。
 
 ## 主题方案
 
-`小暑`暂时用 context 方式把变量共享给各个组件，有考虑使用 [react-native-extended-stylesheet](https://github.com/vitalets/react-native-extended-stylesheet) 管理样式变量。
+`小暑` 暂时用 context 方式把变量共享给各个组件，有考虑使用 [react-native-extended-stylesheet](https://github.com/vitalets/react-native-extended-stylesheet) 管理样式变量。
 
 ### context
 
@@ -44,7 +44,7 @@ group:
 
 每个组件文件夹内有 `style.ts`，`varCreator` 函数返回了可以自定义的变量。
 
-基础变量请参考 [design-tokens-bailu](https://github.com/hjfruit/fe-config/blob/main/packages/design-tokens-bailu/lib/index.d.ts)。
+基础变量请参考 [design-tokens-bailu](./design-tokens)。
 
 ## 定制方法
 

@@ -8,9 +8,9 @@ group:
   path: /guide
 ---
 
-## 推荐组件/库
+# 推荐组件/库
 
-> 已经有现成的工具就不用再去实现了，简单二次封装就可以用于业务开发。
+> 我们推荐使用以下社区已有的优秀实现，与 `小暑` 形成互补。
 
 | 类型       | 推荐组件                                                                                                                                                                                                                                                        |
 | :--------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -24,3 +24,4 @@ group:
 | 图像       | [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image)                                                                                                                                                                                 |
 | 启动页     | [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash)                                                                                                                                                                                   |
 | 骨架屏     | [rn-placeholder](https://github.com/mfrachet/rn-placeholder)                                                                                                                                                                                                    |
+| 长列表     | [@shopify/flash-list](https://github.com/Shopify/flash-list) \| [recyclerlistview](https://github.com/Flipkart/recyclerlistview)                                                                                                                                |
