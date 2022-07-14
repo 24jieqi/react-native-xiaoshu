@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 import type { TokensType } from '../theme/interface'
 
@@ -31,6 +31,20 @@ export const styleCreator = (cv: ComponentVars) => {
       paddingVertical: 0,
       paddingHorizontal: 0,
       elevation: 0,
+      ...Platform.select({
+        android: {
+          elevation: 4,
+        },
+        ios: {
+          shadowColor: '#000',
+          shadowOpacity: 0.2,
+          shadowRadius: 4,
+          shadowOffset: {
+            width: 0,
+            height: 0,
+          },
+        },
+      }),
     },
 
     content_dark: {

@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 
 import {
   Popover,
@@ -21,7 +21,7 @@ const onSelect = (v: string, index: number) => {
 const BasicPopover: React.FC = () => {
   return (
     <ScrollView>
-      <Space gap={300} tail>
+      <Space gap={300} tail style={{ backgroundColor: '#fff' }}>
         <Popover<string>
           triggerStyle={{ backgroundColor: '#f30' }}
           popoverStyle={{ backgroundColor: '#000' }}
@@ -81,24 +81,28 @@ const BasicPopover: React.FC = () => {
           <Text>内置 UI:单选项:深色</Text>
         </Popover>
 
-        <Popover
-          dark
-          statusBarTranslucent
-          content={[
-            <Popover.Text key="1" text="哈哈哈 dark" divider />,
-            <Popover.Text key="2" text="哈哈哈 dark disabled" disabled />,
-            <Popover.Text key="3" text="哈哈哈 dark" />,
-          ]}
-          onSelect={onSelect}>
-          <Text>内置 UI:多选项:深色</Text>
-        </Popover>
+        <View style={{ flexDirection: 'row' }}>
+          <Popover
+            dark
+            statusBarTranslucent
+            content={[
+              <Popover.Text key="1" text="哈哈哈 dark" divider />,
+              <Popover.Text key="2" text="哈哈哈 dark disabled" disabled />,
+              <Popover.Text key="3" text="哈哈哈 dark" />,
+            ]}
+            onSelect={onSelect}>
+            <Text>内置 UI:多选项:深色</Text>
+          </Popover>
+        </View>
 
-        <Popover
-          statusBarTranslucent
-          content={<Popover.Text text="哈哈哈 not dark" />}
-          onSelect={onSelect}>
-          <Text>内置 UI:单选项:亮色</Text>
-        </Popover>
+        <View style={{ flexDirection: 'row' }}>
+          <Popover
+            statusBarTranslucent
+            content={<Popover.Text text="哈哈哈 not dark" />}
+            onSelect={onSelect}>
+            <Text>内置 UI:单选项:亮色</Text>
+          </Popover>
+        </View>
 
         <Popover
           statusBarTranslucent

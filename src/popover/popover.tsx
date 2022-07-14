@@ -1,3 +1,4 @@
+import noop from 'lodash/noop'
 import React, {
   useState,
   useRef,
@@ -18,14 +19,14 @@ import Theme from '../theme'
 import type { PopoverProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const defaultOnSelect = () => {}
+const arrowSize = { width: 0, height: 0 }
 
 const Popover = <T,>({
   children,
   content,
   dark = false,
   triggerStyle,
-  onSelect = defaultOnSelect,
+  onSelect = noop,
   disabled,
   renderContentComponent,
   duration,
@@ -99,6 +100,7 @@ const Popover = <T,>({
           dark ? STYLES.content_dark : null,
           popoverStyle,
         ]}
+        arrowSize={arrowSize}
         onRequestClose={closePopover}
         animationConfig={animationConfig}>
         {renderContent()}
