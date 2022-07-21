@@ -77,7 +77,9 @@ const TreeItem: React.FC<TreeItemProps> = ({
           <Text
             style={[
               STYLES.tree_item_text,
-              restProps.disabled ? STYLES.tree_item_disabled_text : null,
+              restProps.disabled && !hasChildren
+                ? STYLES.tree_item_disabled_text
+                : null,
               bold
                 ? // eslint-disable-next-line react-native/no-inline-styles
                   {
