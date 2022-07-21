@@ -19,6 +19,8 @@ group:
 
 <code src="./__fixtures__/popup.tsx"></code>
 
+<code src="./__fixtures__/keyboard-shim.tsx"></code>
+
 <code src="./__fixtures__/page.tsx"></code>
 
 ## API
@@ -40,6 +42,10 @@ group:
 ### Popup.PageComponent
 
 <API hideTitle src="./popup-page.tsx"></API>
+
+### Popup.KeyboardShim
+
+> `Animated.View` 的属性都可以。
 
 ## 主题定制
 

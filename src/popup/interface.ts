@@ -1,5 +1,5 @@
 // import type React from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
+import type { ViewStyle, StyleProp, ViewProps } from 'react-native'
 
 import type { NavBarProps } from '../nav-bar/interface'
 
@@ -131,3 +131,5 @@ export interface PopupHeaderProps
    */
   showClose?: boolean
 }
+
+export interface PopupKeyboardShimProps extends ViewProps {}

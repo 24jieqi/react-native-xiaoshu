@@ -9,6 +9,7 @@ import { ScrollView } from 'react-native'
 import PopupHeader from './header'
 import PopupPopup from './popup'
 import PopupPage from './page'
+import PopupKeyboardShim from './keyboard-shim'
 
 const BasicPopup: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ const BasicPopup: React.FC = () => {
       <PopupHeader />
 
       <PopupPopup />
+
+      <PopupKeyboardShim />
 
       <PopupPage />
     </ScrollView>

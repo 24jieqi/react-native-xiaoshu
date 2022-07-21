@@ -1,0 +1,67 @@
+import React, { memo, useEffect, useRef } from 'react'
+import { Animated, Keyboard, Platform, useWindowDimensions } from 'react-native'
+import type { KeyboardEvent, View } from 'react-native'
+
+import type { PopupKeyboardShimProps } from './interface'
+
+const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
+  const KeyboardHeight = useRef(new Animated.Value(0))
+  const ViewHeight = useRef<View>(null)
+  const { height } = useWindowDimensions()
+
+  useEffect(() => {
+    if (Platform.OS === 'ios') {
+      const keyboardDidShow = (e: KeyboardEvent) => {
+        // eslint-disable-next-line max-params
+        ViewHeight.current.measure((_x, _y, _width, _height, _pageX, pageY) => {
+          Animated.timing(KeyboardHeight.current, {
+            toValue: e.endCoordinates.height - (height - pageY),
+            duration: 300,
+            useNativeDriver: false,
+          }).start()
+        })
+
+        Animated.timing(KeyboardHeight.current, {
+          toValue: e.endCoordinates.height,
+          duration: 300,
+          useNativeDriver: false,
+        }).start()
+      }
+      const keyboardDidHide = () => {
+        Animated.timing(KeyboardHeight.current, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: false,
+        }).start()
+      }
+      const _keyboardDidShow = Keyboard.addListener(
+        'keyboardWillShow',
+        keyboardDidShow,
+      )
+      const _keyboardDidHide = Keyboard.addListener(
+        'keyboardWillHide',
+        keyboardDidHide,
+      )
+
+      return () => {
+        if (Keyboard.removeListener) {
+          Keyboard.removeListener('keyboardWillShow', keyboardDidShow)
+          Keyboard.removeListener('keyboardWillHide', keyboardDidHide)
+        } else {
+          _keyboardDidShow.remove?.()
+        }
+        _keyboardDidHide.remove?.()
+      }
+    }
+  }, [height])
+
+  return (
+    <Animated.View
+      {...props}
+      ref={ViewHeight}
+      style={[{ height: KeyboardHeight.current }, props.style]}
+    />
+  )
+}
+
+export default memo(PopupKeyboardShim)

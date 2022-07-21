@@ -6,6 +6,7 @@ import Portal from '../portal'
 import type { PopupProps, PopupPageProps } from './interface'
 import Popup from './popup'
 import PopupHeader from './popup-header'
+import PopupKeyboardShim from './popup-keyboard-shim'
 import PopupPage from './popup-page'
 import { varCreator, styleCreator } from './style'
 
@@ -38,5 +39,6 @@ export default attachPropertiesToComponent(
     Header: PopupHeader,
     Page: PopupPageContainer,
     PageComponent: PopupPage,
+    KeyboardShim: PopupKeyboardShim,
   },
 )
