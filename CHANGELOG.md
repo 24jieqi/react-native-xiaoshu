@@ -1,3 +1,10 @@
+## [0.3.3-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2...v0.3.3-beta.0) (2022-07-21)
+
+### Features
+
+- **Popup:** 🎸 新增软键盘垫片 ([8708b16](https://github.com/hjfruit/react-native-xiaoshu/commit/8708b1664b75f21fab70f612ffe06829a8aac8fb))
+- **Tree:** 🎸 有子节点的情况,disabled 颜色变化 ([3c1128d](https://github.com/hjfruit/react-native-xiaoshu/commit/3c1128d30816ce39c3615f1924939b17aeaf0352))
+
 ## [0.3.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.10...v0.3.2) (2022-07-18)
 
 ## [0.3.2-beta.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2-beta.9...v0.3.2-beta.10) (2022-07-14)
