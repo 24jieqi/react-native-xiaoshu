@@ -31,6 +31,9 @@ export const styleCreator = (cv: ComponentVars) => {
       paddingVertical: 0,
       paddingHorizontal: 0,
       elevation: 0,
+    },
+
+    content_shadow: {
       ...Platform.select({
         android: {
           elevation: 4,

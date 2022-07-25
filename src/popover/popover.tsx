@@ -97,7 +97,8 @@ const Popover = <T,>({
         backgroundStyle={[STYLES.background, backgroundStyle]}
         popoverStyle={[
           STYLES.content,
-          dark ? STYLES.content_dark : null,
+          // Android 黑色背景的阴影也是黑色，不友好
+          dark ? STYLES.content_dark : STYLES.content_shadow,
           popoverStyle,
         ]}
         arrowSize={arrowSize}
