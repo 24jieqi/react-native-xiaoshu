@@ -1,3 +1,9 @@
+## [0.3.3-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.0...v0.3.3-beta.1) (2022-07-25)
+
+### Bug Fixes
+
+- **Popover:** 🐛 深色模式不需要阴影 ([0754365](https://github.com/hjfruit/react-native-xiaoshu/commit/075436538d888f49b7dd0f23fb7b3ded07746386))
+
 ## [0.3.3-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.2...v0.3.3-beta.0) (2022-07-21)
 
 ### Features
