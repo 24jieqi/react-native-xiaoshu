@@ -37,7 +37,7 @@ const CardBase: React.FC = () => {
 
         <Card
           title="Default card"
-          titleLeftExtra={<Tag>标签</Tag>}
+          titleLeftExtra={<Tag>标签1</Tag>}
           extra={<Button type="link" text="More" />}>
           <Text>Card content</Text>
           <Text>Card content</Text>
@@ -47,7 +47,7 @@ const CardBase: React.FC = () => {
         <Card
           size="s"
           title="s card s card s card s card s card"
-          titleLeftExtra={<Tag>标签</Tag>}
+          titleLeftExtra={<Tag>标签2</Tag>}
           extra={<Button type="link" text="More" />}>
           <Text>Card content</Text>
           <Text>Card content</Text>

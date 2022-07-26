@@ -63,6 +63,7 @@ export const styleCreator = (cv: ComponentVars) => {
       color: cv.card_header_text_color,
       fontWeight: 'bold',
       marginRight: cv.card_header_gap,
+      flex: 1,
     },
 
     title_text_s: {
