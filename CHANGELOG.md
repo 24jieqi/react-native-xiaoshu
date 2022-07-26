@@ -1,3 +1,14 @@
+## [0.3.3-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.2...v0.3.3-beta.3) (2022-07-26)
+
+### Bug Fixes
+
+- **Card:** 🐛 title 文字超出省略号 ([7c84293](https://github.com/hjfruit/react-native-xiaoshu/commit/7c84293f6b17d1dab6d05f358eae2d093edf2176))
+
+### Features
+
+- **Card:** 🎸 当 header 有点击事件的时候采用 View 包裹一下 ([cf307d3](https://github.com/hjfruit/react-native-xiaoshu/commit/cf307d311b3231f68f771d47c098c37a89889b1f))
+- **ci:** 🎸 兼容 @types/react 18 ([518c980](https://github.com/hjfruit/react-native-xiaoshu/commit/518c980ee9332935fb864291f2a9152ec35d1d88))
+
 ## [0.3.3-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.1...v0.3.3-beta.2) (2022-07-26)
 
 ### Bug Fixes
