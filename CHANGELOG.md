@@ -1,3 +1,9 @@
+## [0.3.3-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.1...v0.3.3-beta.2) (2022-07-26)
+
+### Bug Fixes
+
+- **Selector:** 🐛 组件方式使用,多选受控模式同步数据 ([6f30c03](https://github.com/hjfruit/react-native-xiaoshu/commit/6f30c0375b4ff426bbbb577ccb39ba50142e00bf))
+
 ## [0.3.3-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.0...v0.3.3-beta.1) (2022-07-25)
 
 ### Bug Fixes
