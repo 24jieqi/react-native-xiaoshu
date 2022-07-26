@@ -23,4 +23,4 @@ const Provider: React.FC<ProviderProps> = ({ children, theme, locale }) => {
   )
 }
 
-export default memo<typeof Provider>(Provider)
+export default memo(Provider)

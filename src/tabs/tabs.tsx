@@ -83,4 +83,4 @@ const Tabs: React.FC<TabsProps> = ({
   )
 }
 
-export default memo<typeof Tabs>(Tabs)
+export default memo(Tabs)

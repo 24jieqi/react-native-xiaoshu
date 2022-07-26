@@ -89,4 +89,4 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   )
 }
 
-export default memo<typeof UploaderImage>(UploaderImage)
+export default memo(UploaderImage)

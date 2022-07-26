@@ -30,4 +30,4 @@ const FlexItem: React.FC<FlexItemProps> = props => {
   return inner
 }
 
-export default memo<typeof FlexItem>(FlexItem)
+export default memo(FlexItem)

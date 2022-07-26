@@ -1,4 +1,4 @@
-import type React from 'react'
+import type { PropsWithChildren, MutableRefObject } from 'react'
 import type {
   View,
   ViewProps,
@@ -165,7 +165,7 @@ export interface DropdownContext
   /**
    * 菜单的 Ref，内部使用不向外暴露
    */
-  MenuRef: React.MutableRefObject<View>
+  MenuRef: MutableRefObject<View>
 }
 
 export interface DropdownMenuProps
@@ -180,7 +180,8 @@ export interface DropdownMenuProps
 
 export interface DropdownPopupProps
   extends Pick<DropdownItemProps<any>, 'zIndex' | 'closeOnPressOutside'>,
-    PopupPropsCommon {
+    PopupPropsCommon,
+    PropsWithChildren<{}> {
   /**
    * 触发目标高度
    */

@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from 'react'
+
 export interface Locale {
   ButtonBar: {
     moreText: string
@@ -70,6 +72,6 @@ export interface Locale {
   }
 }
 
-export interface LocaleProviderProps {
+export interface LocaleProviderProps extends PropsWithChildren<{}> {
   locale?: Locale
 }

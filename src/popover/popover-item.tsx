@@ -44,6 +44,6 @@ const PopoverItem = <T,>({
   )
 }
 
-export default memo<typeof PopoverItem>(PopoverItem) as <T>(
+export default memo(PopoverItem) as <T>(
   p: React.PropsWithChildren<PopoverItemProps<T>>,
 ) => React.ReactElement

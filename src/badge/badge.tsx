@@ -12,7 +12,7 @@ import { varCreator, styleCreator } from './style'
  * Badge 徽标
  * @description 在右上角展示徽标数字或小红点。
  */
-const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
+const Badge: React.FC<BadgeProps> = ({
   children,
   count,
   dot,
@@ -81,4 +81,4 @@ const Badge: React.FC<React.PropsWithChildren<BadgeProps>> = ({
   )
 }
 
-export default memo<typeof Badge>(Badge)
+export default memo(Badge)

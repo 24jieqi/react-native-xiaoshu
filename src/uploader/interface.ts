@@ -1,4 +1,4 @@
-import type React from 'react'
+import type { PropsWithChildren, ComponentType, ReactNode } from 'react'
 import type { ImageSourcePropType, ViewProps } from 'react-native'
 
 export type UploaderValue = {
@@ -37,7 +37,7 @@ export interface UploaderProps<T> extends ViewProps {
    * 图片展示组件
    * @default Image
    */
-  imageComponent?: React.ComponentType<{
+  imageComponent?: ComponentType<{
     source: ImageSourcePropType
     [index: string]: any
   }>
@@ -63,7 +63,7 @@ export interface UploaderProps<T> extends ViewProps {
   /**
    * 上传图标
    */
-  uploadIcon?: React.ReactNode
+  uploadIcon?: ReactNode
 
   /**
    * 点击选择按钮
@@ -111,7 +111,8 @@ export interface UploaderProps<T> extends ViewProps {
 
 export interface UploaderImageProps
   extends Partial<Pick<UploaderValue, 'filepath' | 'status'>>,
-    Pick<UploaderProps<UploaderValue>, 'imageComponent' | 'deletable'> {
+    Pick<UploaderProps<UploaderValue>, 'imageComponent' | 'deletable'>,
+    PropsWithChildren<{}> {
   /**
    * 缩略图尺寸
    */
@@ -145,7 +146,7 @@ export interface UploaderImageProps
 
 export interface RegularCount {
   text?: string
-  icon?: React.ReactNode
+  icon?: ReactNode
 }
 
 export interface UploaderRegularProps<T>

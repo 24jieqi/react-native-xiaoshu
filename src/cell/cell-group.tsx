@@ -13,7 +13,7 @@ import { varCreator, styleCreator } from './style'
  * CellGroup 单元格组
  * @description 一组单元格，可以设置一个标题。
  */
-const CellGroup: React.FC<React.PropsWithChildren<CellGroupProps>> = ({
+const CellGroup: React.FC<CellGroupProps> = ({
   children,
   title,
   extra,

@@ -13,6 +13,16 @@ const BasicResult: React.FC = () => {
   return (
     <ScrollView>
       <Space tail head>
+        <Card title="图表集合">
+          <Result.IconBox />
+          <Result.IconEmpty />
+          <Result.IconError />
+          <Result.IconWarning />
+          <Result.IconWarning
+            style={{ backgroundColor: '#f30', alignSelf: 'center' }}
+          />
+        </Card>
+
         <Card title="Success" square>
           <Result
             status="success"

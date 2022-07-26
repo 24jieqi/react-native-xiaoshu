@@ -34,4 +34,4 @@ const Col: React.FC<ColProps> = ({ style, span, offset = 0, ...restProps }) => {
   return <View {...restProps} style={colStyles} />
 }
 
-export default memo<typeof Col>(Col)
+export default memo(Col)

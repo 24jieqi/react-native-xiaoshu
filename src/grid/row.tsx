@@ -41,4 +41,4 @@ const Row: React.FC<RowProps> = ({
   )
 }
 
-export default memo<typeof Row>(Row)
+export default memo(Row)

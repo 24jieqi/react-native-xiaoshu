@@ -1,21 +1,24 @@
+import type { PropsWithChildren } from 'react'
+
 import type { TabBarProps } from '../tab-bar/interface'
 
 export interface TabsProps
   extends Omit<
-    TabBarProps,
-    | 'value'
-    | 'defaultValue'
-    | 'options'
-    | 'onChange'
-    | 'indicator'
-    | 'divider'
-    | 'safeAreaInsetBottom'
-    | 'keyboardShowNotRender'
-    | 'hidden'
-    | 'style'
-    | 'height'
-    | 'backgroundColor'
-  > {
+      TabBarProps,
+      | 'value'
+      | 'defaultValue'
+      | 'options'
+      | 'onChange'
+      | 'indicator'
+      | 'divider'
+      | 'safeAreaInsetBottom'
+      | 'keyboardShowNotRender'
+      | 'hidden'
+      | 'style'
+      | 'height'
+      | 'backgroundColor'
+    >,
+    PropsWithChildren<{}> {
   /**
    * TabBar style
    */
@@ -54,7 +57,7 @@ export interface TabsProps
   divider?: boolean
 }
 
-export interface TabPaneProps {
+export interface TabPaneProps extends PropsWithChildren<{}> {
   /**
    * 对应 activeKey
    */
@@ -72,7 +75,7 @@ export interface TabPaneProps {
   lazyRender?: boolean
 }
 
-export interface TabViewProps {
+export interface TabViewProps extends PropsWithChildren<{}> {
   /**
    * 是否在激活时才渲染节点
    * @default true

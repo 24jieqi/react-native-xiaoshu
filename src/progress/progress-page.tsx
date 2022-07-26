@@ -142,4 +142,4 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   return children as React.ReactElement
 }
 
-export default memo<typeof ProgressPage>(ProgressPage)
+export default memo(ProgressPage)

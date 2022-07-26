@@ -1,4 +1,4 @@
-import type * as React from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type {
   ColorValue,
   StyleProp,
@@ -22,7 +22,7 @@ interface DialogCommon extends PopupPropsCommon {
   /**
    * 标题
    */
-  title?: React.ReactNode
+  title?: ReactNode
 
   /**
    * 弹窗宽度
@@ -33,7 +33,7 @@ interface DialogCommon extends PopupPropsCommon {
   /**
    * 文本内容，支持通过\n换行
    */
-  message?: React.ReactNode
+  message?: ReactNode
 
   /**
    * 内容对齐方式，可选值为`'center' | 'left' | 'right'`
@@ -87,7 +87,7 @@ interface DialogCommon extends PopupPropsCommon {
   onPressClose?: TouchableWithoutFeedbackProps['onPress']
 }
 
-export interface DialogProps extends DialogCommon {
+export interface DialogProps extends DialogCommon, PropsWithChildren<{}> {
   /**
    * 取消按钮加载中
    * @default false

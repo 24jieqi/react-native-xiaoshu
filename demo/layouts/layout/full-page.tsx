@@ -6,7 +6,7 @@ import Page from './page'
 /**
  * 全屏页面
  */
-const FullPage: React.FC<FullPageProps> = ({
+const FullPage: React.FC<React.PropsWithChildren<FullPageProps>> = ({
   filled = false,
   ...restProps
 }) => {

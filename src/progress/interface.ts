@@ -1,4 +1,4 @@
-import type React from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type { ColorValue } from 'react-native'
 
 export interface ProgressProps {
@@ -81,7 +81,7 @@ export interface ProgressProps {
   onAnimationEnd?: (percentage: number) => void
 }
 
-export interface ProgressPageProps {
+export interface ProgressPageProps extends PropsWithChildren<{}> {
   /**
    * 页面是否在加载中
    * @default false
@@ -114,7 +114,7 @@ export interface ProgressPageProps {
   /**
    * 自定义加载出错的图标
    */
-  failIcon?: React.ReactNode
+  failIcon?: ReactNode
 
   /**
    * 加载失败点击重新加载
@@ -124,5 +124,5 @@ export interface ProgressPageProps {
   /**
    * 额外的 loading
    */
-  extraLoading?: React.ReactNode
+  extraLoading?: ReactNode
 }

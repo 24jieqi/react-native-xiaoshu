@@ -16,7 +16,7 @@ import { varCreator, styleCreator } from './style'
 /**
  * Collapse 折叠面板
  */
-const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
+const Collapse: React.FC<CollapseProps> = ({
   children,
   title,
   titleStyle,

@@ -14,7 +14,7 @@ import { varCreator, styleCreator } from './style'
  * Divider 分割线
  * @description 用于将内容分隔为多个区域。
  */
-const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
+const Divider: React.FC<DividerProps> = ({
   children,
   style,
   textStyle,

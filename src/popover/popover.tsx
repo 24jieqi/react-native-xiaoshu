@@ -110,6 +110,6 @@ const Popover = <T,>({
   )
 }
 
-export default memo<typeof Popover>(Popover) as <T>(
+export default memo(Popover) as <T>(
   p: React.PropsWithChildren<PopoverProps<T>>,
 ) => React.ReactElement

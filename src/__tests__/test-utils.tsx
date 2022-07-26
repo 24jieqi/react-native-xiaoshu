@@ -7,7 +7,9 @@ import Provider from '../provider'
 
 // jest.mock('react-native-safe-area-context', () => mockSafeAreaContext)
 
-const AllTheProviders: React.FC = ({ children }) => {
+const AllTheProviders: React.FC<React.PropsWithChildren<{}>> = ({
+  children,
+}) => {
   return <Provider>{children}</Provider>
 }
 

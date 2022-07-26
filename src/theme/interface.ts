@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from 'react'
+
 import type TOKENS from './tokens-mix'
 
 /** tokens */
@@ -7,7 +9,7 @@ export type TokensType = typeof TOKENS
 export type StyleVar = Partial<TokensType>
 
 /** 默认初始化状态 */
-export interface ThemeProviderProps {
+export interface ThemeProviderProps extends PropsWithChildren<{}> {
   theme?: StyleVar & {
     [key in string]: any
   }

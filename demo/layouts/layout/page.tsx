@@ -27,7 +27,7 @@ export const noHeaderShadowStyle = Platform.select({
 /**
  * 页面盒子
  */
-const Page: React.FC<PageProps> = memo(
+const Page: React.FC<React.PropsWithChildren<PageProps>> = memo(
   ({
     children,
     statusBarProps,

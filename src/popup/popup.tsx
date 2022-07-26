@@ -204,4 +204,4 @@ const Popup: React.FC<PopupProps> = ({
   )
 }
 
-export default memo<typeof Popup>(Popup)
+export default memo(Popup)

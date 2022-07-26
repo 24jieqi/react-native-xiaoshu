@@ -1,4 +1,4 @@
-import type React from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type { StyleProp, ViewStyle, TextProps } from 'react-native'
 import type { PopoverProps as RNPVProps } from 'react-native-popover-view/src/Types'
 export interface PopoverItemProps<T> {
@@ -26,13 +26,14 @@ export interface PopoverItemProps<T> {
 
 export interface PopoverProps<T>
   extends Omit<
-    RNPVProps,
-    'from' | 'isVisible' | 'animationConfig' | 'onRequestClose'
-  > {
+      RNPVProps,
+      'from' | 'isVisible' | 'animationConfig' | 'onRequestClose'
+    >,
+    PropsWithChildren<{}> {
   /**
    * 卡片内容
    */
-  content: React.ReactNode
+  content: ReactNode
 
   /**
    * 触发方式
@@ -65,9 +66,9 @@ export interface PopoverProps<T>
    * 自定义渲染弹出层
    */
   renderContentComponent?: (
-    nodes: React.ReactNode,
+    nodes: ReactNode,
     closePopover: () => void,
-  ) => React.ReactNode
+  ) => ReactNode
 
   /**
    * 弹出的动画过渡时间

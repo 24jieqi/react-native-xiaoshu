@@ -1,5 +1,4 @@
 import isNil from 'lodash/isNil'
-import type { PropsWithChildren } from 'react'
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
@@ -27,7 +26,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   children,
 
   ...restProps
-}: PropsWithChildren<CheckboxProps<ActiveValueT, InactiveValueT>>) {
+}: CheckboxProps<ActiveValueT, InactiveValueT>) {
   if (disabled) {
     labelDisabled = disabled
   }
@@ -93,5 +92,5 @@ export default memo(Checkbox) as <
   ActiveValueT = boolean,
   InactiveValueT = boolean,
 >(
-  p: PropsWithChildren<CheckboxProps<ActiveValueT, InactiveValueT>>,
+  p: CheckboxProps<ActiveValueT, InactiveValueT>,
 ) => JSX.Element

@@ -24,4 +24,4 @@ const PopupPage: React.FC<PopupPageProps> = ({
   )
 }
 
-export default memo<typeof PopupPage>(PopupPage)
+export default memo(PopupPage)

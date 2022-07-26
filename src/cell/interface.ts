@@ -1,4 +1,4 @@
-import type React from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type {
   ViewStyle,
   TextStyle,
@@ -8,16 +8,16 @@ import type {
   TouchableOpacityProps,
 } from 'react-native'
 
-export type CellGroupProps = {
+export interface CellGroupProps extends PropsWithChildren<{}> {
   /**
    * 分组名称
    */
-  title?: React.ReactNode
+  title?: ReactNode
 
   /**
    * 头部右侧自定义内容
    */
-  extra?: React.ReactNode
+  extra?: ReactNode
 
   /**
    * 自定义样式
@@ -66,7 +66,7 @@ export interface CellPrivateProps {
   /**
    * 左侧标题
    */
-  title?: React.ReactNode
+  title?: ReactNode
 
   /**
    * 左侧标题样式，作用元素内部有必填标志、titleExtra、title
@@ -81,12 +81,12 @@ export interface CellPrivateProps {
   /**
    * 标题的左侧自定义内容
    */
-  titleExtra?: React.ReactNode
+  titleExtra?: ReactNode
 
   /**
    * 右侧内容
    */
-  value?: React.ReactNode
+  value?: ReactNode
 
   /**
    * 右侧内容样式，作用元素内部有 value
@@ -101,7 +101,7 @@ export interface CellPrivateProps {
   /**
    * 右侧内容的右侧自定义内容
    */
-  valueExtra?: React.ReactNode
+  valueExtra?: ReactNode
 
   /**
    * 垂直模式模式下右侧内容包裹的样式，作用元素内部有 valueStyle、valueExtra、linkJSX

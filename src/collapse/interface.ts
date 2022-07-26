@@ -1,11 +1,11 @@
-import type React from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type { StyleProp, ViewStyle, TextStyle, ColorValue } from 'react-native'
 
-export interface CollapseProps {
+export interface CollapseProps extends PropsWithChildren<{}> {
   /**
    * 标题
    */
-  title?: React.ReactNode
+  title?: ReactNode
 
   /**
    * 标题样式
@@ -42,20 +42,17 @@ export interface CollapseProps {
   /**
    * 自定义渲染标题
    */
-  renderTitle?: (collapse: boolean) => React.ReactNode
+  renderTitle?: (collapse: boolean) => ReactNode
 
   /**
    * 自定义渲染标题右侧
    */
-  renderTitleExtra?: (
-    collapse: boolean,
-    arrowJSX: React.ReactNode,
-  ) => React.ReactNode
+  renderTitleExtra?: (collapse: boolean, arrowJSX: ReactNode) => ReactNode
 
   /**
    * 自定义渲染内容，替换 children
    */
-  renderBody?: () => React.ReactNode
+  renderBody?: () => ReactNode
 
   /**
    * 是否展开

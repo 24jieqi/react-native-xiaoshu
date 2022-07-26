@@ -117,4 +117,4 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
   )
 }
 
-export default memo<typeof DropdownPopup>(DropdownPopup)
+export default memo(DropdownPopup)

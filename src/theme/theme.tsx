@@ -23,4 +23,4 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
   )
 }
 
-export default memo<typeof ThemeProvider>(ThemeProvider)
+export default memo(ThemeProvider)

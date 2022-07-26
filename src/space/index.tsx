@@ -89,4 +89,4 @@ const Space: React.FC<SpaceProps> = ({
   )
 }
 
-export default memo<typeof Space>(Space)
+export default memo(Space)

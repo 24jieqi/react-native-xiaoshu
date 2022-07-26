@@ -37,4 +37,4 @@ const PopoverText: React.FC<PopoverTextProps> = ({
   )
 }
 
-export default memo<typeof PopoverText>(PopoverText)
+export default memo(PopoverText)

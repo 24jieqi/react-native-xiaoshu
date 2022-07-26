@@ -2,6 +2,7 @@ import React, { useRef, useMemo, memo } from 'react'
 import type { ColorValue, ViewStyle } from 'react-native'
 import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
+import type { CircleProps } from 'react-native-svg/lib/typescript/elements/Circle'
 
 import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
@@ -9,7 +10,8 @@ import Theme from '../theme'
 import { varCreator } from './style'
 import useLoop from './useLoop'
 
-const AnimatedCircle = Animated.createAnimatedComponent(Circle)
+const AnimatedCircle =
+  Animated.createAnimatedComponent<React.ComponentType<CircleProps>>(Circle)
 
 export interface CircularProps {
   /**

@@ -30,15 +30,12 @@ const PopupPageContainer: React.FC<PopupPageProps> = props => {
   )
 }
 
-export default attachPropertiesToComponent(
-  memo<typeof PopupContainer>(PopupContainer),
-  {
-    varCreator,
-    styleCreator,
-    PopupComponent: Popup,
-    Header: PopupHeader,
-    Page: PopupPageContainer,
-    PageComponent: PopupPage,
-    KeyboardShim: PopupKeyboardShim,
-  },
-)
+export default attachPropertiesToComponent(memo(PopupContainer), {
+  varCreator,
+  styleCreator,
+  PopupComponent: Popup,
+  Header: PopupHeader,
+  Page: PopupPageContainer,
+  PageComponent: PopupPage,
+  KeyboardShim: PopupKeyboardShim,
+})

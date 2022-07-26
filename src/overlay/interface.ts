@@ -1,6 +1,7 @@
+import type { PropsWithChildren } from 'react'
 import type { ViewStyle, StyleProp, ColorValue } from 'react-native'
 
-export interface OverlayProps {
+export interface OverlayProps extends PropsWithChildren<{}> {
   /**
    * 最外层样式
    */

@@ -24,4 +24,4 @@ const LocaleProvider: React.FC<LocaleProviderProps> = ({
   )
 }
 
-export default memo<typeof LocaleProvider>(LocaleProvider)
+export default memo(LocaleProvider)

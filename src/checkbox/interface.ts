@@ -1,4 +1,4 @@
-import type React from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import type {
   TouchableOpacityProps,
   StyleProp,
@@ -37,7 +37,8 @@ interface RenderIconProps extends CheckboxIconPrivateProps {
 }
 
 export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
-  extends Omit<CheckboxIconPrivateProps, 'active' | 'size' | 'pure'> {
+  extends Omit<CheckboxIconPrivateProps, 'active' | 'size' | 'pure'>,
+    PropsWithChildren<{}> {
   style?: StyleProp<ViewStyle>
 
   /**
@@ -80,7 +81,7 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   /**
    * 文案
    */
-  label?: React.ReactNode
+  label?: ReactNode
 
   /**
    * 是否禁用复选框文本点击
@@ -106,5 +107,5 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   /**
    * 自定义图标
    */
-  renderIcon?: (p: RenderIconProps) => React.ReactNode
+  renderIcon?: (p: RenderIconProps) => ReactNode
 }

@@ -134,4 +134,4 @@ const STYLES = StyleSheet.create({
   },
 })
 
-export default memo<typeof Overlay>(Overlay)
+export default memo(Overlay)

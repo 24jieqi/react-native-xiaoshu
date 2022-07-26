@@ -1,4 +1,5 @@
 // import type React from 'react'
+import type { PropsWithChildren } from 'react'
 import type { ViewStyle, StyleProp, ViewProps } from 'react-native'
 
 import type { NavBarProps } from '../nav-bar/interface'
@@ -65,7 +66,7 @@ export interface PopupPropsCommon {
   onRequestClose?: () => boolean
 }
 
-export interface PopupProps extends PopupPropsCommon {
+export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {
   /**
    * 最外层样式
    */

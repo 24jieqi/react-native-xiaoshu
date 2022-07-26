@@ -1,6 +1,6 @@
-import type React from 'react'
+import type { PropsWithChildren, ReactNode, ErrorInfo } from 'react'
 
-export interface ErrorBoundaryProps {
+export interface ErrorBoundaryProps extends PropsWithChildren<{}> {
   /**
    * 错误提示
    * @default '加载失败，请稍后再试~'
@@ -16,7 +16,7 @@ export interface ErrorBoundaryProps {
   /**
    * 出错的时候回到
    */
-  onError?: (e: Error, info: React.ErrorInfo) => void
+  onError?: (e: Error, info: ErrorInfo) => void
 
   /**
    * 自定义渲染出错时的页面
@@ -25,5 +25,5 @@ export interface ErrorBoundaryProps {
     name: string
     message: string
     onReset: () => void
-  }) => React.ReactNode
+  }) => ReactNode
 }

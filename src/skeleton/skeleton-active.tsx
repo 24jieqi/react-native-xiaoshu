@@ -6,7 +6,9 @@ import Theme from '../theme'
 
 import { varCreator } from './style'
 
-const SkeletonActive: React.FC = ({ children }) => {
+const SkeletonActive: React.FC<React.PropsWithChildren<{}>> = ({
+  children,
+}) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
 
@@ -20,4 +22,4 @@ const SkeletonActive: React.FC = ({ children }) => {
   return <Fade style={style}>{children}</Fade>
 }
 
-export default memo<typeof SkeletonActive>(SkeletonActive)
+export default memo(SkeletonActive)
