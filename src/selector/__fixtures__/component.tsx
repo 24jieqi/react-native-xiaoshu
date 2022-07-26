@@ -24,12 +24,23 @@ const BasicSelectorComponent: React.FC = () => {
         <Cell
           title="组件调用"
           isLink
-          divider={false}
           onPress={() => {
             console.log('组件调用 -> show')
             setState(s => ({
               ...s,
               show: true,
+            }))
+          }}
+        />
+        <Cell
+          title="组件调用:重置"
+          isLink
+          divider={false}
+          onPress={() => {
+            console.log('组件调用 -> rest')
+            setState(s => ({
+              ...s,
+              value: null,
             }))
           }}
         />

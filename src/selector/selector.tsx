@@ -1,10 +1,10 @@
 import omit from 'lodash/omit'
 import pick from 'lodash/pick'
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 
 import Button from '../button'
 import ButtonBar from '../button-bar'
-import { useSafeHeight, useControllableValue, usePersistFn } from '../hooks'
+import { useSafeHeight, usePersistFn, useUpdateEffect } from '../hooks'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
@@ -54,24 +54,35 @@ const Selector: React.FC<SelectorProps> = ({
 
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop, bottom: false })
   const locale = Locale.useLocale().Selector
-  const [valueMultiple, onChangeMultiple] = useControllableValue<
-    SelectorValue[]
-  >(
-    {},
-    {
-      defaultValue: Array.isArray(treeProps.value)
-        ? treeProps.value
-        : Array.isArray(treeProps.defaultValue)
-        ? treeProps.defaultValue
-        : [],
-    },
+  // const [valueMultiple, onChangeMultiple] = useControllableValue<
+  //   SelectorValue[]
+  // >(omit(restProps, 'onChange'), {
+  //   defaultValue: Array.isArray(treeProps.value)
+  //     ? treeProps.value
+  //     : Array.isArray(treeProps.defaultValue)
+  //     ? treeProps.defaultValue
+  //     : [],
+  // })
+  const [valueMultiple, setValueMultiple] = useState<SelectorValue[]>(
+    Array.isArray(treeProps.value)
+      ? treeProps.value
+      : Array.isArray(treeProps.defaultValue)
+      ? treeProps.defaultValue
+      : [],
   )
+
+  // 同步外面的数据
+  useUpdateEffect(() => {
+    if (treeProps.multiple) {
+      setValueMultiple(treeProps.value as SelectorValue[])
+    }
+  }, [treeProps.multiple, treeProps.value])
 
   const onChangeMultiplePersistFn = usePersistFn((v: TreeValue[]) => {
     if (onChangeImmediate) {
-      onChangeMultiple(onChangeImmediate(v) as SelectorValue[])
+      setValueMultiple(onChangeImmediate(v) as SelectorValue[])
     } else {
-      onChangeMultiple(v)
+      setValueMultiple(v)
     }
   })
 
