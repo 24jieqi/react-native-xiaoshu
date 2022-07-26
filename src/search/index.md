@@ -12,6 +12,16 @@ group:
 
 > 用于搜索场景的输入框组件。
 
+## 元素结构
+
+```bash
+|-- View  ## style
+|--|-- ArrowLeftOutline
+|--|-- TextInput
+|--|--|-- prefix:SearchOutline
+|--|-- Button
+```
+
 ## 代码演示
 
 <code src="./__fixtures__/basic.tsx"></code>

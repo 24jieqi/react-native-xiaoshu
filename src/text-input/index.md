@@ -17,7 +17,7 @@ group:
 
 ## 事件触发顺序
 
-```
+```bash
 |-- onFocus =>
 |--|-- onChange => onChange => onChangeText =>
 |--|-- onChange => onChange => onChangeText =>
@@ -31,6 +31,28 @@ group:
 - onChangeText `(text) => text`
 - onEndEditing `(event) => event.nativeEvent.text`
 - onBlur `(event) => event.nativeEvent.text`
+
+## 元素结构
+
+```bash
+## 状态一 相对纯的输入框
+|-- TouchableOpacity  ## 属性 inputWidth 会控制该元素的宽
+|--|-- RNTextInput  ## style
+|--|-- TextInputClear  ## 属性 clearable、clearTrigger 控制是否显示
+|--|-- Text  ## 属性 showWordLimit 控制是否显示
+
+## 状态二 bordered、prefix、suffix
+|-- View  ## fixGroupStyle，属性 bordered 控制是否显示边框，属性 inputWidth 会控制该元素的宽
+|--|-- Text  ## prefixTextStyle，或自定义 prefix
+|--|-- 状态一
+|--|-- Text  ## suffixTextStyle，或自定义 suffix
+
+## 状态三 addonAfter、addonBefore、
+|-- View  ## addonGroupStyle
+|--|-- Text  ## addonBeforeTextStyle，或自定义 addonBefore
+|--|-- 状态一或状态二
+|--|-- Text  ## addonAfterTextStyle，或自定义 addonAfter
+```
 
 ## 代码演示
 

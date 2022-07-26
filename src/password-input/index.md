@@ -13,6 +13,10 @@ group:
 
 > 在 TextInput 的基础是完善密码可见切换。
 
+## 元素结构
+
+参考 `TextInput`。
+
 ## 代码演示
 
 <code src="./__fixtures__/basic.tsx"></code>

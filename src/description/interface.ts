@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactElement, ReactNode } from 'react'
 import type {
   StyleProp,
   ViewStyle,
@@ -117,12 +117,12 @@ export interface DescriptionProps extends DescriptionContextState, ViewProps {
   /**
    * 内容前置标签
    */
-  addonBefore?: ReactNode
+  addonBefore?: ReactElement
 
   /**
    * 内容后置标签
    */
-  addonAfter?: ReactNode
+  addonAfter?: ReactElement
 
   /**
    * 自定义渲染描述

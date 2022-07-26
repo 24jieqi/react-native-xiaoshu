@@ -19,6 +19,25 @@ group:
 
 该系列组件采用单元格+其他组件组合而成，以单元格属性为主，其他组件属性为辅。
 
+## 元素结构
+
+```bash
+## Field.Text
+|-- Cell  ## 几乎就是一个单元格，右侧内容显示 value 或 placeholder
+
+## Field.Selector | Field.Date
+|-- Field.Text  ## 几乎就是一个 Field.Text
+
+## Field.TextInput | Field.NumberInput | Field.Switch | Field.Password
+|-- Cell
+|--|-- value:TextInput|NumberInput|Switch|PasswordInput ## value 自定义元素
+
+## Field.Checkbox
+|-- Cell
+|--|-- value:Space ## value 自定义元素
+|--|--|-- Checkbox ## 遍历选项数组
+```
+
 ## 代码演示
 
 <code src="./__fixtures__/text.tsx"></code>

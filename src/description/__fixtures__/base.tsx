@@ -1,6 +1,6 @@
 /**
  * title: 基本使用
- * desc: 左右布局。
+ * desc: 左右、上下布局，自定义 label、text 样式，自定义内容区域渲染、排版。
  */
 
 import React from 'react'
@@ -34,15 +34,15 @@ const DescriptionBase: React.FC = () => {
             backgroundColor: '#f5f5f5',
           }}>
           <Description label="标题的题" text="一袋米要抗几楼" />
-          <Description label="标题的题">一袋米要抗几楼</Description>
-          <Description label="标题的题">
+          <Description label="children 是 字符串">一袋米要抗几楼</Description>
+          <Description label="children 是 ReactElement">
             <Text style={{ color: '#987' }}>一袋米要抗几楼</Text>
           </Description>
           <Description label="标题的题" text="一袋米要抗二楼" />
           <Description label="标题的题" text="一袋米要给多了" />
           <Description label="标题的题" text="一袋米由我洗嘞" />
           <Description
-            label="标题的题"
+            label="自定义 text 颜色"
             text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
             color="#098"
           />
@@ -60,7 +60,7 @@ const DescriptionBase: React.FC = () => {
           />
           <Description
             align="center"
-            label="对齐"
+            label="label、text 上下对齐"
             text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
           />
           <Description
@@ -70,7 +70,7 @@ const DescriptionBase: React.FC = () => {
             label="对齐"
             text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
           />
-          <Description layout="vertical" label="图片">
+          <Description layout="vertical" label="配合 Uploader 组件使用">
             <Uploader
               list={list}
               style={{ flex: 1 }}
@@ -87,6 +87,10 @@ const DescriptionBase: React.FC = () => {
           colon={false}
           labelTextStyle={{ color: '#333' }}
           contentTextStyle={{ color: '#f30' }}>
+          <Description
+            label="Description.Group"
+            text="统一配置 label、text 文案颜色"
+          />
           <Description label="colon" text="一袋米要抗几楼" colon />
           <Description label="hidden" text="一袋米要抗几楼" hidden />
           <Description
@@ -100,7 +104,7 @@ const DescriptionBase: React.FC = () => {
             contentTextStyle={{ color: '#098' }}
           />
           <Description label="bold" text="一袋米要给多了" bold />
-          <Description label="color" text="颜色被自定义样式覆盖" color="#000" />
+          <Description label="color" text="color 优先级相对较低" color="#000" />
           <Description
             label="addonBefore"
             addonBefore={<Text>$</Text>}
@@ -112,19 +116,19 @@ const DescriptionBase: React.FC = () => {
             text="10000"
           />
           <Description
-            label="render"
+            label="renderAlignCenter"
             addonBefore={<Text>$</Text>}
             text="10000"
             render={Description.renderAlignCenter}
           />
           <Description
-            label="render"
+            label="renderAlignCenter"
             addonAfter={<Text>元/kg</Text>}
             text="10000"
             render={Description.renderAlignCenter}
           />
           <Description
-            label="render"
+            label="renderAlignCenter"
             addonAfter={<Button type="outline" size="xs" text="修改" />}
             text="10000"
             render={Description.renderAlignCenter}

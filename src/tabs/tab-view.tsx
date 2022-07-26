@@ -7,7 +7,7 @@ import type { TabViewProps } from './interface'
 const activeStyle: ViewStyle = { flex: 1 }
 const inactiveStyle: ViewStyle = { flex: 1, display: 'none' }
 
-const TabView: React.FC<TabViewProps> = ({
+const TabView: React.FC<React.PropsWithChildren<TabViewProps>> = ({
   children,
   active,
   lazyRender = true,
@@ -25,4 +25,4 @@ const TabView: React.FC<TabViewProps> = ({
   )
 }
 
-export default memo<typeof TabView>(TabView)
+export default memo(TabView)

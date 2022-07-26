@@ -17,6 +17,40 @@ group:
 
 最基础的列表展示，可承载文字、输入框。
 
+## 元素结构
+
+```bash
+## 最基础的元素结构
+|-- TouchableHighlight  ## style
+|--|-- View  ## innerStyle, marginHorizontal 左右边距
+|--|--|-- 内容部分 上下、左右布局
+|--|-- Divider  ## 属性 divider 控制是否显示，dividerLeftGap、dividerRightGap
+
+
+## innerStyle 内部结构，左右布局
+|-- View  ## innerStyle，左右布局 Flex 横向排版
+|--|-- View  ## titleStyle，title 片区
+|--|--|-- requiredJSX  ## 属性 required 控制是否显示
+|--|--|-- titleExtra  ## 属性 titleExtra
+|--|--|-- Text  ## titleTextStyle、titleTextNumberOfLines，或自定义 title
+|--|-- View  ## valueStyle、center
+|--|--|-- Text  ## valueTextStyle、textAlign、valueTextNumberOfLines，或自定义 value
+|--|-- valueExtra  ## 属性 valueExtra
+|--|-- linkJSX  ## 属性 isLink 控制是否显示
+
+## innerStyle 内部结构，上下布局
+|-- View  ## innerStyle，下上布局 Flex 竖向排版
+|--|-- View  ## titleStyle，title 片区
+|--|--|-- requiredJSX  ## 属性 required 控制是否显示
+|--|--|-- titleExtra  ## 属性 titleExtra
+|--|--|-- Text  ## titleTextStyle、titleTextNumberOfLines，或自定义 title
+|--|-- View  ## contentStyle，相对于左右布局，上下布局在 value 片区套了一层 View
+|--|--|-- View  ## valueStyle、center
+|--|--|--|-- Text  ## valueTextStyle、textAlign、valueTextNumberOfLines，或自定义 value
+|--|--|-- valueExtra  ## 属性 valueExtra
+|--|--|-- linkJSX  ## 属性 isLink 控制是否显示
+```
+
 ## 代码演示
 
 <code src="./__fixtures__/base.tsx"></code>

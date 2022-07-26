@@ -20,6 +20,23 @@ group:
 - 列表使用 `size="s"`，并且通过 titleLeftExtra 展示分类信息，配合 footer 呈现更多内容
 - 详情页采用默认尺寸 `size="m"`，配合 Space、Collapse 组件完成需求
 
+## 元素结构
+
+```bash
+|-- View  ## style
+|--|-- View  ## headerStyle
+|--|--|-- View  ## titleStyle
+|--|--|--|-- titleLeftExtra  ## 属性 titleLeftExtra
+|--|--|--|-- Text  ## titleTextStyle，或自定义 title
+|--|--|-- extra  ## 属性 extra
+|--|-- Divider  ## 属性 headerDivider 控制是否显示
+|--|-- CardBody  ## bodyStyle
+|--|--|-- Skeleton | children
+|--|-- Divider  ## 属性 footerDivider 控制是否显示
+|--|-- View  ## footerStyle
+|--|--|-- Text  ## footerTextStyle，或自定义 footer
+```
+
 ## 代码演示
 
 <code src="./__fixtures__/base.tsx"></code>

@@ -13,6 +13,14 @@ group:
 
 > 弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示。
 
+## 元素结构
+
+```bash
+|-- Overlay
+|-- Animated.View  ## style、round、position、safeAreaInsetBottom、zIndex，默认情况不控制高度，可通过 style 自定义高度
+|--|-- children
+```
+
 ## 代码演示
 
 <code src="./__fixtures__/header.tsx"></code>
