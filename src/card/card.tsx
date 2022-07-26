@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({
 
   const showHeader = !isNil(titleJSX) || hasTitleLeftExtra || !isNil(extra)
   const headerJSX = (
-    <View collapsable={false}>
+    <>
       <View
         style={[STYLES.header, isS ? STYLES.header_s : null, headerStyle]}
         onLayout={onLayoutHeader}>
@@ -74,7 +74,7 @@ const Card: React.FC<CardProps> = ({
         {extra}
       </View>
       {headerDivider ? <Divider /> : null}
-    </View>
+    </>
   )
 
   return (
@@ -88,7 +88,7 @@ const Card: React.FC<CardProps> = ({
       {showHeader ? (
         onPressHeader ? (
           <TouchableWithoutFeedback onPress={onPressHeader}>
-            {headerJSX}
+            <View collapsable={false}>{headerJSX}</View>
           </TouchableWithoutFeedback>
         ) : (
           headerJSX
