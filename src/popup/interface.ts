@@ -95,6 +95,12 @@ export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {
    * @default true
    */
   lazyRender?: boolean
+
+  /**
+   * 关闭时销毁 Popup 里的子元素
+   * @default false
+   */
+  destroyOnClosed?: boolean
 }
 
 export interface PopupPageProps extends Omit<PopupProps, 'position'> {

@@ -13,6 +13,7 @@ import {
   Popup,
   Card,
   Button,
+  TextInput,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const positions: PopupPosition[] = ['center', 'left', 'right', 'top', 'bottom']
@@ -21,9 +22,11 @@ const BasicPopupPopup: React.FC = () => {
   const [state, setState] = useState<{
     show: boolean
     position: PopupPosition
+    show2: boolean
   }>({
     show: false,
     position: 'left',
+    show2: false,
   })
   return (
     <Blank top>
@@ -45,6 +48,17 @@ const BasicPopupPopup: React.FC = () => {
               />
             )
           })}
+
+          <Button
+            type="primary"
+            text="destroyOnClosed"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                show2: true,
+              }))
+            }}
+          />
         </Space>
       </Card>
 
@@ -78,6 +92,25 @@ const BasicPopupPopup: React.FC = () => {
         <Card>
           <Text>内容</Text>
         </Card>
+      </Popup>
+
+      <Popup
+        destroyOnClosed
+        visible={state.show2}
+        round
+        position="bottom"
+        onPressOverlay={() => {
+          setState(s => ({
+            ...s,
+            show2: false,
+          }))
+        }}>
+        <Popup.Header title="每次打开都是新的子元素" />
+        <TextInput
+          placeholder="请输入及价格"
+          addonAfter="元/kg"
+          addonBefore="采购价"
+        />
       </Popup>
     </Blank>
   )

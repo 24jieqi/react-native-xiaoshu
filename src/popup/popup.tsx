@@ -33,6 +33,7 @@ const Popup: React.FC<PopupProps> = ({
   round = false,
   safeAreaInsetBottom = false,
   lazyRender = true,
+  destroyOnClosed = false,
   onPressOverlay: onPressOverlayFn,
   onOpen: onOpenFn,
   onOpened: onOpenedFn,
@@ -115,7 +116,7 @@ const Popup: React.FC<PopupProps> = ({
         if (finished) {
           fadeInstance.current = null
           if (!visible) {
-            setState({ visible })
+            setState({ visible, lazyRender: destroyOnClosed })
             onClosedPersistFn()
           } else {
             onOpenedPersistFn()
@@ -132,14 +133,15 @@ const Popup: React.FC<PopupProps> = ({
       }
     }
   }, [
-    visible,
+    destroyOnClosed,
     duration,
     fadeAnim,
     position,
-    onOpenPersistFn,
-    onOpenedPersistFn,
-    onClosePersistFn,
     onClosedPersistFn,
+    onClosePersistFn,
+    onOpenedPersistFn,
+    onOpenPersistFn,
+    visible,
   ])
 
   // 初始化好组件
