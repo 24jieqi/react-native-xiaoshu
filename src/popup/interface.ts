@@ -97,7 +97,7 @@ export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {
   lazyRender?: boolean
 
   /**
-   * 关闭时销毁 Popup 里的子元素
+   * 关闭时销毁 Popup，回退到 lazyRender 的状态
    * @default false
    */
   destroyOnClosed?: boolean
