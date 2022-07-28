@@ -121,6 +121,18 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
 
+// 读取 package.json 中的信息
+def getPackage() {
+    def inputFile = new File("../package.json")
+    def slurper = new groovy.json.JsonSlurper()
+    def packageJson = slurper.parseText(inputFile.text)
+    return packageJson
+}
+
+def packageJSON = getPackage()
+def appName = packageJSON["name"]
+def appVersion = packageJSON["version"]
+
 /**
  * Architectures to build native code for in debug.
  */
@@ -169,6 +181,13 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    if (variant.buildType.name == 'release') {
+                        outputFileName = "${appName}-v${appVersion}.apk" 
+                    }
+                }
+            }
         }
     }
 

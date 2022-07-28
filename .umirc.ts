@@ -44,6 +44,10 @@ export default defineConfig({
       title: '更新日志',
       path: 'https://github.com/hjfruit/react-native-xiaoshu/releases',
     },
+    {
+      title: '下载 Android 预览 APK',
+      path: `https://www.onlyling.com/apks/${p.name}-v${p.version}.apk`,
+    },
   ],
   resolve: {
     includes: ['docs', 'src'],
