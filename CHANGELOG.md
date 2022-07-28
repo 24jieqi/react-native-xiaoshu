@@ -1,3 +1,9 @@
+## [0.3.3-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.3...v0.3.3-beta.4) (2022-07-28)
+
+### Features
+
+- **Popup:** 🎸 新增 destroyOnClosed ([5abf937](https://github.com/hjfruit/react-native-xiaoshu/commit/5abf9375c0ff6af277afc367731c25327d06aef1))
+
 ## [0.3.3-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.2...v0.3.3-beta.3) (2022-07-26)
 
 ### Bug Fixes
