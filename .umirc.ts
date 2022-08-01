@@ -9,7 +9,13 @@ const fileManagerPlugin = new FileManagerPlugin({
       archive: [
         {
           source: './docs-dist',
-          destination: `./docs-dist/zips/${pkgJSON.name}-v${pkgJSON.version}.zip`,
+          destination: `./zips/${pkgJSON.name}-v${pkgJSON.version}.zip`,
+        },
+      ],
+      move: [
+        {
+          source: `./zips/${pkgJSON.name}-v${pkgJSON.version}.zip`,
+          destination: `./docs-dist/${pkgJSON.name}-v${pkgJSON.version}.zip`,
         },
       ],
     },
