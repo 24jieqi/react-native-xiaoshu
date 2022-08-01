@@ -3,6 +3,25 @@ import { defineConfig } from 'dumi'
 import p from './package.json'
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 const pkgJSON = require('./package.json')
+const CopyPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = new CopyPlugin({
+  patterns: [
+    {
+      from: './package.json',
+      to: './app-zip-info.json',
+      transform: () => {
+        return JSON.stringify(
+          {
+            url: `https://hjfruit.github.io/xiaoshu-doc/${pkgJSON.name}-v${pkgJSON.version}.zip`,
+            appName: pkgJSON.name,
+          },
+          null,
+          2,
+        )
+      },
+    },
+  ],
+})
 const fileManagerPlugin = new FileManagerPlugin({
   events: {
     onEnd: {
@@ -27,6 +46,7 @@ export default defineConfig({
   chainWebpack(memo: WebpackChain) {
     memo.plugins.delete('copy')
     memo.plugin('file-manager-plugin').use(fileManagerPlugin)
+    memo.plugin('copy-webpack-plugin').use(CopyWebpackPlugin)
   },
   title: '小暑',
   mode: 'site',
