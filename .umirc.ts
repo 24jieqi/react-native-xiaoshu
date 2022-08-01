@@ -1,17 +1,34 @@
 import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
 import p from './package.json'
-
+const FileManagerPlugin = require('filemanager-webpack-plugin')
+const pkgJSON = require('./package.json')
+const fileManagerPlugin = new FileManagerPlugin({
+  events: {
+    onEnd: {
+      archive: [
+        {
+          source: './docs-dist',
+          destination: `./docs-dist/zips/${pkgJSON.name}-v${pkgJSON.version}.zip`,
+        },
+      ],
+    },
+  },
+})
 const repo = process.env.PUBLIC_PATH || ''
 
 export default defineConfig({
   chainWebpack(memo: WebpackChain) {
     memo.plugins.delete('copy')
+    memo.plugin('file-manager-plugin').use(fileManagerPlugin)
   },
   title: '小暑',
   mode: 'site',
   outputPath: 'docs-dist',
   hash: true,
+  history: {
+    type: 'hash',
+  },
   favicon: 'https://avatars.githubusercontent.com/u/74942048',
   logo: 'https://avatars.githubusercontent.com/u/74942048',
   base: `/${repo}`,
