@@ -61,9 +61,6 @@ export default defineConfig({
   mode: 'site',
   outputPath: 'docs-dist',
   hash: true,
-  history: {
-    type: 'hash',
-  },
   favicon: 'https://avatars.githubusercontent.com/u/74942048',
   logo: 'https://avatars.githubusercontent.com/u/74942048',
   base: `/${repo}`,
