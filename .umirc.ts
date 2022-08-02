@@ -4,6 +4,7 @@ import p from './package.json'
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 const pkgJSON = require('./package.json')
 const CopyPlugin = require('copy-webpack-plugin')
+// 生成版本json文件
 const CopyWebpackPlugin = new CopyPlugin({
   patterns: [
     {
@@ -22,6 +23,7 @@ const CopyWebpackPlugin = new CopyPlugin({
     },
   ],
 })
+// 把生成的静态资源打包成zip
 const fileManagerPlugin = new FileManagerPlugin({
   events: {
     onEnd: {
@@ -45,8 +47,10 @@ const repo = process.env.PUBLIC_PATH || ''
 export default defineConfig({
   chainWebpack(memo: WebpackChain) {
     memo.plugins.delete('copy')
-    memo.plugin('file-manager-plugin').use(fileManagerPlugin)
-    memo.plugin('copy-webpack-plugin').use(CopyWebpackPlugin)
+    if (process.env.NODE_ENV !== 'development') {
+      memo.plugin('file-manager-plugin').use(fileManagerPlugin)
+      memo.plugin('copy-webpack-plugin').use(CopyWebpackPlugin)
+    }
   },
   title: '小暑',
   mode: 'site',
@@ -58,7 +62,8 @@ export default defineConfig({
   favicon: 'https://avatars.githubusercontent.com/u/74942048',
   logo: 'https://avatars.githubusercontent.com/u/74942048',
   base: `/${repo}`,
-  publicPath: `/${repo}`,
+  publicPath: `./${repo}`,
+  runtimePublicPath: true,
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
   apiParser: {
     propFilter: {
