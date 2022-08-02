@@ -64,7 +64,7 @@ export default defineConfig({
   favicon: 'https://avatars.githubusercontent.com/u/74942048',
   logo: 'https://avatars.githubusercontent.com/u/74942048',
   base: `/${repo}`,
-  publicPath: `./${repo}`,
+  publicPath: `/${repo}`,
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
   apiParser: {
     propFilter: {
