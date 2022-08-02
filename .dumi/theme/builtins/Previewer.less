@@ -1,5 +1,11 @@
 @import '~dumi-theme-default/es/style/variables.less';
 
+@media screen and (max-width: 600px) {
+  body .@{prefix}-previewer {
+      display: block;
+  }
+}
+
 .@{prefix}-previewer {
   background-color: #fff;
   border: 1px solid @c-border;
@@ -65,7 +71,7 @@
   &-demo {
     // padding: 40px 24px;
     margin: 10px;
-    width: 375px;
+    max-width: 375px;
     height: 630px;
     border: 1px solid #f5f5f5;
     flex-shrink: 0;
