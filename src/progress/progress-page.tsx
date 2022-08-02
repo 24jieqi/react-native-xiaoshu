@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, memo } from 'react'
 import type { ViewStyle } from 'react-native'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 import Button from '../button'
 import { getDefaultValue } from '../helpers'
@@ -24,6 +24,8 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   failIcon,
   onPressReload,
   extraLoading,
+  overlayZIndex = 1000,
+  syncRenderChildren = false,
 }) => {
   const locale = Locale.useLocale().ProgressPage
   const TOKENS = Theme.useThemeTokens()
@@ -95,24 +97,22 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
     backgroundColor: backgroundColor,
   }
 
-  if (state.loading) {
-    return (
-      <View style={placeholderStyle}>
-        <Progress
-          percentage={state.percentage}
-          showPivot={false}
-          animated={state.animated}
-          animationDuration={state.duration}
-          onAnimationEnd={onAnimationEnd}
-          square
-        />
-        {extraLoading}
-      </View>
-    )
-  }
+  const placeholderJSX = state.loading ? (
+    <View style={placeholderStyle}>
+      <Progress
+        percentage={state.percentage}
+        showPivot={false}
+        animated={state.animated}
+        animationDuration={state.duration}
+        onAnimationEnd={onAnimationEnd}
+        square
+      />
+      {extraLoading}
+    </View>
+  ) : null
 
-  if (fail) {
-    return (
+  const errorJSX =
+    !state.loading && fail ? (
       <Result
         style={STYLES.fail_page}
         status="warning"
@@ -136,10 +136,34 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           return <Result.IconWarning />
         }}
       />
+    ) : null
+
+  if (syncRenderChildren) {
+    return (
+      <>
+        {children}
+
+        {state.loading || fail ? (
+          <View
+            style={{
+              ...StyleSheet.absoluteFillObject,
+              zIndex: overlayZIndex,
+            }}>
+            {placeholderJSX}
+            {errorJSX}
+          </View>
+        ) : null}
+      </>
     )
   }
 
-  return children as React.ReactElement
+  return (
+    <>
+      {!state.loading && !fail ? children : null}
+      {placeholderJSX}
+      {errorJSX}
+    </>
+  )
 }
 
 export default memo(ProgressPage)

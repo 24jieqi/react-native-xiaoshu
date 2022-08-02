@@ -3,7 +3,7 @@
  * desc: 把各种场景、API 都运用了
  */
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, memo, useRef } from 'react'
 import { ScrollView } from 'react-native'
 
 import {
@@ -12,6 +12,22 @@ import {
   Card,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
+
+const TestRender = () => {
+  const index = useRef(0)
+  useEffect(() => {
+    index.current += 1
+    console.log('TestRender => ', index.current)
+
+    return () => {
+      console.log('dddd')
+    }
+  }, [])
+
+  return <Button text="测试按钮" />
+}
+
+const TestRenderMemo = memo(TestRender)
 
 const BasicProgress: React.FC = () => {
   const [state, setState] = useState({
@@ -48,9 +64,18 @@ const BasicProgress: React.FC = () => {
     <Progress.Page
       loading={state.loading}
       fail={state.fail}
-      onPressReload={onPressReload}>
+      onPressReload={onPressReload}
+      syncRenderChildren>
       <ScrollView>
         <Space tail head>
+          <TestRenderMemo />
+          <TestRenderMemo />
+          <TestRenderMemo />
+          <TestRenderMemo />
+          <TestRenderMemo />
+          <TestRenderMemo />
+          <TestRenderMemo />
+          <TestRenderMemo />
           <Card title="基础用法" square>
             <Space gap={20} tail head>
               <Progress percentage={state.percentage} animated />

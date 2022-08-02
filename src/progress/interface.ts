@@ -125,4 +125,16 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
    * 额外的 loading
    */
   extraLoading?: ReactNode
+
+  /**
+   * 遮罩层的 zIndex
+   * @default 1000
+   */
+  overlayZIndex?: number
+
+  /**
+   * 同步渲染 children
+   * @default false
+   */
+  syncRenderChildren?: boolean
 }
