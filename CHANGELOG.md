@@ -1,3 +1,12 @@
+## [0.3.3-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.4...v0.3.3-beta.5) (2022-08-03)
+
+### Features
+
+- docs hash test ([41127a1](https://github.com/hjfruit/react-native-xiaoshu/commit/41127a167b245b6145b4cf197b9f5874979eefbb))
+- docs hash test ([408cb63](https://github.com/hjfruit/react-native-xiaoshu/commit/408cb6320a591d046d850ff40243a2c9bc091504))
+- json ([b7fadb2](https://github.com/hjfruit/react-native-xiaoshu/commit/b7fadb2d91b3cba74100a4f1c8f668885319ea75))
+- **Progress:** 🎸 页面加载进度同步渲染子组件 ([9718039](https://github.com/hjfruit/react-native-xiaoshu/commit/9718039fc79e38f83616ddbc5c570ba27da6612d))
+
 ## [0.3.3-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.3...v0.3.3-beta.4) (2022-07-28)
 
 ### Features
