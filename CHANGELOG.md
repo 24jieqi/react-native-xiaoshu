@@ -1,3 +1,9 @@
+## [0.3.3-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.5...v0.3.3-beta.6) (2022-08-05)
+
+### Features
+
+- **Dropdown:** 🎸 独立弹出层新增是否渲染 shade ([2937068](https://github.com/hjfruit/react-native-xiaoshu/commit/293706849f4b9471f7471a3cdf45b9a47f9b8afa))
+
 ## [0.3.3-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.4...v0.3.3-beta.5) (2022-08-03)
 
 ### Features
