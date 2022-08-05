@@ -26,7 +26,7 @@ export interface EmptyProps {
    * 空数据提示文案
    * @default '暂无数据'
    */
-  text?: string
+  text?: React.ReactNode
 
   /**
    * 全屏填充

@@ -4,9 +4,9 @@
  */
 
 import React from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 
-import { Empty, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Empty, Card, Space, Flex } from '@fruits-chain/react-native-xiaoshu'
 import { ArrowDownOutline } from '@fruits-chain/icons-react-native'
 
 const BasicTag: React.FC = () => {
@@ -19,6 +19,24 @@ const BasicTag: React.FC = () => {
 
         <Card title="自定义文案" square>
           <Empty text="真的没有啦~" />
+        </Card>
+
+        <Card title="自定义文案2" square>
+          <Empty
+            text={
+              <Flex direction="row" align="center">
+                <Text>还没有，请</Text>
+                <Text
+                  style={{ color: '#098', marginLeft: 2 }}
+                  suppressHighlighting={false}
+                  onPress={() => {
+                    console.log('434')
+                  }}>
+                  添加元素
+                </Text>
+              </Flex>
+            }
+          />
         </Card>
 
         <Card title="自定义图标" square>
