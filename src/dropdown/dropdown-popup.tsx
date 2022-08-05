@@ -21,6 +21,7 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
   targetPageY,
   onPressShade,
   safeAreaInset = true,
+  showShade = true,
 
   children,
   ...restProps
@@ -91,7 +92,7 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
 
   return (
     <>
-      {restProps.visible ? (
+      {restProps.visible && showShade ? (
         <TouchableWithoutFeedback
           onPress={closeOnPressOutside ? onPressShade : undefined}>
           <View style={_shadeStyles} />

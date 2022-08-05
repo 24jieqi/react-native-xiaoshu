@@ -183,7 +183,7 @@ export interface DropdownPopupProps
     PopupPropsCommon,
     PropsWithChildren<{}> {
   /**
-   * 触发目标高度
+   * 触发目标高度，计算弹出层应该出现的位置（上面、下面）
    */
   targetHeight: number
 
@@ -202,6 +202,12 @@ export interface DropdownPopupProps
    * @default true
    */
   safeAreaInset?: boolean
+
+  /**
+   * 是否渲染 shade 元素，某些场景不需要遮罩非选项区域
+   * @default true
+   */
+  showShade?: boolean
 }
 
 export interface DropdownSelectorMethodProps<T>
