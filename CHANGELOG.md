@@ -1,3 +1,9 @@
+## [0.3.3-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.6...v0.3.3-beta.7) (2022-08-05)
+
+### Features
+
+- **Empty:** 🎸 text 类型更新为 ReactNode ([0968b67](https://github.com/hjfruit/react-native-xiaoshu/commit/0968b67d7b52eaaa021612f74c1b3f1a8de8967e))
+
 ## [0.3.3-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.5...v0.3.3-beta.6) (2022-08-05)
 
 ### Features
