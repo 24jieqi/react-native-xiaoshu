@@ -134,4 +134,10 @@ export interface CheckboxGroupProps<ActiveValueT = any> extends SpaceProps {
    * @default true
    */
   editable?: boolean
+
+  /**
+   * 是否可滚动，主要用于横向排版
+   * @default false
+   */
+  scrollable?: boolean
 }

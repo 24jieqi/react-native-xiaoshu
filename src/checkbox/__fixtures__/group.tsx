@@ -29,6 +29,7 @@ const CheckboxGroup: React.FC = () => {
           options={options}
           value={value1}
           direction="horizontal"
+          scrollable
         />
         <Divider />
         <Checkbox.Group
@@ -49,6 +50,7 @@ const CheckboxGroup: React.FC = () => {
           options={options}
           value={value2}
           direction="horizontal"
+          scrollable
         />
         <Divider />
         <Checkbox.Group

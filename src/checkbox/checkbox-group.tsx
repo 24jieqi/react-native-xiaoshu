@@ -1,5 +1,6 @@
 import omit from 'lodash/omit'
 import React, { memo } from 'react'
+import { ScrollView } from 'react-native'
 
 import { useControllableValue } from '../hooks'
 import Space from '../space'
@@ -11,13 +12,14 @@ function CheckboxGroup<T = any>({
   options,
   multiple,
   editable = true,
+  scrollable = false,
   ...restProps
 }: CheckboxGroupProps<T>) {
   const [value, onChange] = useControllableValue<T | T[]>(restProps, {
     defaultValue: multiple ? [] : undefined,
   })
 
-  return (
+  const contentJSX = (
     <Space {...omit(restProps, ['value', 'defaultValue', 'onChange'])}>
       {options.map(item => {
         const selected = multiple
@@ -67,6 +69,19 @@ function CheckboxGroup<T = any>({
       })}
     </Space>
   )
+
+  if (scrollable && restProps.direction === 'horizontal' && !restProps.wrap) {
+    return (
+      <ScrollView
+        horizontal
+        bouncesZoom={false}
+        showsHorizontalScrollIndicator={false}>
+        {contentJSX}
+      </ScrollView>
+    )
+  }
+
+  return contentJSX
 }
 
 export default memo(CheckboxGroup) as <ActiveValueT = any>(

@@ -6,7 +6,7 @@
 import React, { useState } from 'react'
 import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
-const options = new Array(3).fill(0).map((_, index) => ({
+const options = new Array(2).fill(0).map((_, index) => ({
   value: index,
   label: `选项_${index}`,
 }))

@@ -23,7 +23,7 @@ const FieldCheckbox: React.FC<FieldCheckboxProps> = restProps => {
           direction="horizontal"
           gapHorizontal={CV.field_checkbox_gap}
           justify={restProps.vertical ? 'flex-start' : 'flex-end'}
-          wrap={restProps.vertical}
+          align="center"
         />
       }
     />
