@@ -71,5 +71,15 @@ export const styleCreator = (cv: ComponentVars) => {
     text: {
       textAlign: 'center',
     },
+
+    option: {
+      minWidth: 62,
+    },
+
+    option_badge_text: {
+      fontSize: 14,
+      color: cv.button_danger_color,
+      marginLeft: 4,
+    },
   })
 }

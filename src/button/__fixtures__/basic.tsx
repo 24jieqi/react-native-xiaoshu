@@ -9,6 +9,8 @@ import ButtonDisabled from './disabled'
 import ButtonLoading from './loading'
 import ButtonSize from './size'
 import ButtonIcon from './icon'
+import ButtonOption from './option'
+import ButtonOptionGroup from './option-group'
 
 const BasicButton: React.FC = () => {
   return (
@@ -32,6 +34,10 @@ const BasicButton: React.FC = () => {
             <Button color="#0c6" type="outline" text="文字颜色" />
           </Space>
         </Card>
+
+        <ButtonOption />
+
+        <ButtonOptionGroup />
       </Space>
     </ScrollView>
   )

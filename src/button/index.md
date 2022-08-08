@@ -55,9 +55,23 @@ group:
 
 <code src="./__fixtures__/icon.tsx"></code>
 
+<code src="./__fixtures__/option.tsx"></code>
+
+<code src="./__fixtures__/option-group.tsx"></code>
+
 ## API
 
+### Button
+
 <API hideTitle src="./button.tsx"></API>
+
+### Button.Option
+
+<API hideTitle src="./button-option.tsx"></API>
+
+### Button.OptionGroup
+
+<API hideTitle src="./button-option-group.tsx"></API>
 
 ## 主题定制
 
