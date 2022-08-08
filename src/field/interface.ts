@@ -1,6 +1,7 @@
 import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import type { CellProps, CellPrivateProps } from '../cell/interface'
+import type { CheckboxGroupProps } from '../checkbox/interface'
 import type {
   DatePickerSingleMethodProps,
   DatePickerRangeMethodProps,
@@ -280,30 +281,16 @@ export type FieldCheckboxOption = {
 }
 
 export interface FieldCheckboxProps
-  extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'> {
-  /**
-   * 是否多选
-   * @default false
-   */
-  multiple?: boolean
-
-  value?: FieldCheckboxValue | FieldCheckboxValue[]
-
-  defaultValue?: FieldCheckboxValue
-
-  options: FieldCheckboxOption[]
-
-  onChange?: (
-    value: FieldCheckboxValue[] | FieldCheckboxValue,
-    options: FieldCheckboxOption | FieldCheckboxOption[],
-  ) => void
-
-  /**
-   * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
-   * @default true
-   */
-  editable?: boolean
-}
+  extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>,
+    Pick<
+      CheckboxGroupProps<FieldCheckboxValue>,
+      | 'value'
+      | 'defaultValue'
+      | 'options'
+      | 'onChange'
+      | 'multiple'
+      | 'editable'
+    > {}
 
 export interface FieldPasswordInputProps
   extends Omit<PasswordInputProps, 'style' | 'bordered' | 'size'>,
