@@ -1,5 +1,6 @@
 import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
 
+import type { ButtonOptionGroupProps } from '../button/interface'
 import type { CellProps, CellPrivateProps } from '../cell/interface'
 import type { CheckboxGroupProps } from '../checkbox/interface'
 import type {
@@ -273,23 +274,17 @@ export interface FieldDateRangeProps
   clearable?: boolean
 }
 
-export type FieldCheckboxValue = string | number
-
-export type FieldCheckboxOption = {
-  value: FieldCheckboxValue
-  label: string
-}
-
 export interface FieldCheckboxProps
   extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>,
     Pick<
-      CheckboxGroupProps<FieldCheckboxValue>,
+      CheckboxGroupProps<any>,
       | 'value'
       | 'defaultValue'
       | 'options'
       | 'onChange'
       | 'multiple'
       | 'editable'
+      | 'scrollable'
     > {}
 
 export interface FieldPasswordInputProps
@@ -305,3 +300,15 @@ export interface FieldPasswordInputProps
    */
   textInputBordered?: boolean
 }
+
+export interface FieldButtonOptionProps
+  extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>,
+    Pick<
+      ButtonOptionGroupProps<any>,
+      | 'value'
+      | 'defaultValue'
+      | 'options'
+      | 'onChange'
+      | 'multiple'
+      | 'editable'
+    > {}

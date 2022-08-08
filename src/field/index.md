@@ -58,6 +58,8 @@ group:
 
 <code src="./__fixtures__/password.tsx"></code>
 
+<code src="./__fixtures__/button-option.tsx"></code>
+
 ## API
 
 ### Field.Text
@@ -95,6 +97,10 @@ group:
 ### Field.Password
 
 <API hideTitle src="./field-password.tsx"></API>
+
+### Field.ButtonOption
+
+<API hideTitle src="./field-button-option.tsx"></API>
 
 ## 主题定制
 

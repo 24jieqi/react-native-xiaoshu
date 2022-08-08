@@ -1,3 +1,4 @@
+import FieldButtonOption from './field-button-option'
 import FieldCheckbox from './field-checkbox'
 import FieldDate from './field-date'
 import FieldDateRange from './field-date-range'
@@ -20,4 +21,5 @@ export default {
   Switch: FieldSwitch,
   Text: FieldText,
   TextInput: FieldTextInput,
+  ButtonOption: FieldButtonOption,
 }
