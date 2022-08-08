@@ -7,6 +7,8 @@ import type {
   ColorValue,
 } from 'react-native'
 
+import type { SpaceProps } from '../space/interface'
+
 interface CheckboxIconPrivateProps {
   /**
    * 是否选中、高亮
@@ -108,4 +110,28 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
    * 自定义图标
    */
   renderIcon?: (p: RenderIconProps) => ReactNode
+}
+
+export interface CheckboxGroupProps<ActiveValueT = any> extends SpaceProps {
+  options: { value: ActiveValueT; label: string; disabled?: boolean }[]
+
+  /**
+   * 是否多选
+   * @default false
+   */
+  multiple?: boolean
+
+  value?: ActiveValueT | ActiveValueT[]
+
+  defaultValue?: ActiveValueT | ActiveValueT[]
+
+  onChange?: (
+    value: ActiveValueT[] | ActiveValueT,
+    options: { value: ActiveValueT; label: string; disabled?: boolean }[],
+  ) => void
+  /**
+   * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
+   * @default true
+   */
+  editable?: boolean
 }

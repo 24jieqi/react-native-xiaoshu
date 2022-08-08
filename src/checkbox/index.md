@@ -21,7 +21,11 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/icon.tsx"></code>
+
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/group.tsx"></code>
 
 ## API
 
@@ -32,6 +36,10 @@ group:
 ### Checkbox.Icon
 
 <API hideTitle src="./checkbox-icon.tsx"></API>
+
+### Checkbox.Group
+
+<API hideTitle src="./checkbox-group.tsx"></API>
 
 ## 主题定制
 
