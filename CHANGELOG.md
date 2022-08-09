@@ -1,3 +1,9 @@
+## [0.3.3-beta.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.8...v0.3.3-beta.9) (2022-08-09)
+
+### Features
+
+- **Dropdown:** 🎸 支持 placeholder ([6642ec5](https://github.com/hjfruit/react-native-xiaoshu/commit/6642ec5d8a0bf7d9d0b6a637e6c5c0927d531c79))
+
 ## [0.3.3-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.7...v0.3.3-beta.8) (2022-08-09)
 
 ### Bug Fixes
