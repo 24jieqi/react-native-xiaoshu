@@ -1,3 +1,25 @@
+## [0.3.3-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.7...v0.3.3-beta.8) (2022-08-09)
+
+### Bug Fixes
+
+- **docs:** 🐛 预览宽 ([48105a6](https://github.com/hjfruit/react-native-xiaoshu/commit/48105a6d33027443c8662e4209fae25c3e495e5f))
+
+### chore
+
+- **Field:** 🤖 重构 Field.Checkbox ([19bb714](https://github.com/hjfruit/react-native-xiaoshu/commit/19bb7141d4debdd356ac6c080a62fb55ea275ac1))
+
+### Features
+
+- **Button:** 🎸 新增选项按钮\选项按钮组 ([cca81c8](https://github.com/hjfruit/react-native-xiaoshu/commit/cca81c8db608d6a9554c348e6f3337e38031d3db))
+- **Button:** 🎸 优化 Button.Option 禁用状态\组件变量 ([9c29b11](https://github.com/hjfruit/react-native-xiaoshu/commit/9c29b112d4a8833311e2a9a7d2a4dc462263b663))
+- **Checkbox:** 🎸 新增 CheckBox.Group,方便的从数组生成 Checkbox 组 ([adc4eee](https://github.com/hjfruit/react-native-xiaoshu/commit/adc4eee58dc37141d888053bbba6427dc3a42d68))
+- **Checkbox:** 🎸 新增是否可以滚动,横向 ([39a0b1b](https://github.com/hjfruit/react-native-xiaoshu/commit/39a0b1bfbf7ec1843352c449be869679639997f3))
+- **Field:** 🎸 新增选项按钮 ([19df61c](https://github.com/hjfruit/react-native-xiaoshu/commit/19df61c5e9ee5161511903317b2dec7e3f5498e7))
+
+### BREAKING CHANGES
+
+- **Field:** 🧨 onChange 第二个参数固定为数组
+
 ## [0.3.3-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.6...v0.3.3-beta.7) (2022-08-05)
 
 ### Features
