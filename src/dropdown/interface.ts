@@ -146,6 +146,11 @@ export interface DropdownItemProps<T>
    * 候选项加载中
    */
   loading?: boolean
+
+  /**
+   * 没有值时提示文案
+   */
+  placeholder?: string
 }
 
 export interface DropdownContext

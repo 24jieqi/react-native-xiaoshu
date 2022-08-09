@@ -70,6 +70,12 @@ const BasicDropdown: React.FC = () => {
     <ScrollView scrollsToTop={false} style={{ backgroundColor: '#f5f5f5' }}>
       <Cell.Group title="基础用法">
         <Dropdown>
+          <Dropdown.Item options={[]} placeholder="请选择" />
+        </Dropdown>
+        <View style={{ height: 200 }} />
+
+        <Dropdown
+          style={{ justifyContent: 'space-between', paddingHorizontal: 12 }}>
           <Dropdown.Item
             search
             options={itemOptions}
@@ -81,10 +87,16 @@ const BasicDropdown: React.FC = () => {
                 v1: v as number,
               }))
             }}
+            titleStyle={{
+              flex: 0,
+            }}
           />
           <Dropdown.Item
             options={itemOptions}
             defaultValue={itemOptions[2].value}
+            titleStyle={{
+              flex: 0,
+            }}
           />
         </Dropdown>
 

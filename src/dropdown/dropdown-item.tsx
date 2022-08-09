@@ -1,3 +1,4 @@
+import isNil from 'lodash/isNil'
 import React, { useMemo, memo } from 'react'
 
 import { getDefaultValue } from '../helpers'
@@ -18,6 +19,7 @@ const DropdownItem = <T,>({
   zIndex,
   closeOnPressOutside,
   loading,
+  placeholder,
 
   search,
   onSearch,
@@ -93,7 +95,7 @@ const DropdownItem = <T,>({
       {...restProps}
       style={titleStyle}
       textStyle={titleTextStyle}
-      title={_selectOption.label}
+      title={!isNil(_selectOption.label) ? _selectOption.label : placeholder}
       badge={_selectOption.badge}
       active={active}
       onPress={onPressText}
