@@ -2,7 +2,7 @@ import Color from 'color'
 import isNil from 'lodash/isNil'
 import React, { isValidElement, memo, useMemo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, StyleSheet } from 'react-native'
 
 import { renderTextLikeJSX } from '../helpers'
 import Theme from '../theme'
@@ -51,6 +51,7 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
       borderWidth: hairline ? StyleSheet.hairlineWidth : 1,
     },
     STYLES[`button_${size}_padding_horizontal`],
+    restProps.disabled ? STYLES.button_disabled : null,
     style,
   ]
 
@@ -63,8 +64,9 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
         },
         textStyle,
       ])
-  const badgeJSX = !isNil(badge) ? (
-    <Text style={STYLES.option_badge_text}>{badge}</Text>
+  const badgeTextJSX = renderTextLikeJSX(badge, [STYLES.option_badge_text])
+  const badgeJSX = !isNil(badgeTextJSX) ? (
+    <View style={STYLES.option_badge}>{badgeTextJSX}</View>
   ) : null
 
   return (

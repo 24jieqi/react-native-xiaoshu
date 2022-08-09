@@ -108,7 +108,7 @@ export interface ButtonOptionProps
   /**
    * 显示的数量
    */
-  badge?: number
+  badge?: React.ReactNode
 }
 
 export interface ButtonOptionGroupProps<TValue = any>
@@ -123,7 +123,7 @@ export interface ButtonOptionGroupProps<TValue = any>
     value: TValue
     label: string
     disabled?: boolean
-    badge?: number
+    badge?: React.ReactNode
   }[]
 
   /**

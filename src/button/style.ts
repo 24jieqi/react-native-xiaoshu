@@ -32,6 +32,10 @@ export const varCreator = (TOKENS: TokensType) => {
     button_ghost_background_color: 'transparent',
     button_hazy_lightness: 95,
     button_icon_gap: TOKENS.space_1,
+    button_option_min_width: 62,
+    button_option_badge_margin_left: TOKENS.space_1,
+    button_option_badge_text_font_size: TOKENS.font_size_3,
+    button_option_badge_text_color: TOKENS.red_6,
   }
 }
 
@@ -73,13 +77,16 @@ export const styleCreator = (cv: ComponentVars) => {
     },
 
     option: {
-      minWidth: 62,
+      minWidth: cv.button_option_min_width,
+    },
+
+    option_badge: {
+      marginLeft: cv.button_option_badge_margin_left,
     },
 
     option_badge_text: {
-      fontSize: 14,
-      color: cv.button_danger_color,
-      marginLeft: 4,
+      fontSize: cv.button_option_badge_text_font_size,
+      color: cv.button_option_badge_text_color,
     },
   })
 }
