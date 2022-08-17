@@ -1,3 +1,10 @@
+## [0.3.3-beta.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.9...v0.3.3-beta.10) (2022-08-17)
+
+### Features
+
+- **Selector:** 🎸 添加 beforeChange 回调 ([0c6c319](https://github.com/hjfruit/react-native-xiaoshu/commit/0c6c31949c508cd5cb04a82fb3aa5dbb44e00c24))
+- **Tree:** 🎸 折叠展开节点添加背景 ([99f6649](https://github.com/hjfruit/react-native-xiaoshu/commit/99f6649ce555d9e58f7fe7554251bfbe21dcfe6e))
+
 ## [0.3.3-beta.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.8...v0.3.3-beta.9) (2022-08-09)
 
 ### Features
