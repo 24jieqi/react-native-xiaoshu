@@ -1,5 +1,6 @@
 import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import React from 'react'
+import type { ViewStyle } from 'react-native'
 import {
   View,
   Text,
@@ -14,6 +15,14 @@ import Theme from '../theme'
 
 import type { TreeItemProps } from './interface'
 import { varCreator, styleCreator } from './style'
+
+const tStyle: ViewStyle = {
+  backgroundColor: 'rgba(0,0,0,0.04)',
+  paddingHorizontal: 4,
+  paddingVertical: 4,
+  borderRadius: 4,
+  alignSelf: 'center',
+}
 
 const TreeItem: React.FC<TreeItemProps> = ({
   tier,
@@ -46,7 +55,12 @@ const TreeItem: React.FC<TreeItemProps> = ({
           }}
         />
       ) : null}
-      {switcherIcon}
+      <Flex
+        align="center"
+        justify="center"
+        style={hasChildren ? tStyle : undefined}>
+        {switcherIcon}
+      </Flex>
     </Flex>
   )
 
@@ -58,7 +72,9 @@ const TreeItem: React.FC<TreeItemProps> = ({
       }>
       <View style={STYLES.tree_item}>
         {hasChildren ? (
-          <TouchableWithoutFeedback onPress={onPressSwitcherIcon}>
+          <TouchableWithoutFeedback
+            onPress={onPressSwitcherIcon}
+            hitSlop={{ left: 8, right: 8 }}>
             {leftJSX}
           </TouchableWithoutFeedback>
         ) : (
