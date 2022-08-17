@@ -6,7 +6,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
+import { SelectorOption, Toast } from '@fruits-chain/react-native-xiaoshu'
 import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicSelectorBase: React.FC = () => {
@@ -142,6 +142,40 @@ const BasicSelectorBase: React.FC = () => {
             onChange: (v, o) => {
               console.log(v)
               console.log(o)
+            },
+          }).catch(() => {})
+        }}
+      />
+      <Cell
+        title="beforeChange"
+        isLink
+        onPress={() => {
+          const v: SelectorOption[] = []
+
+          for (let index = 0; index < 3; index++) {
+            v.push({
+              label: `文案_${index}`,
+              value: index,
+            })
+          }
+
+          Selector({
+            title: '测试选项',
+            options: v,
+            beforeChange: (v, o) => {
+              console.log(v)
+              console.log(o)
+              return new Promise<boolean>(resolve => {
+                const { close } = Toast.loading({
+                  message: '等',
+                  forbidPress: true,
+                })
+
+                setTimeout(() => {
+                  close()
+                  resolve(true)
+                }, 500)
+              })
             },
           }).catch(() => {})
         }}

@@ -1,5 +1,6 @@
 import React, { useEffect, memo } from 'react'
 
+import { callInterceptor } from '../helpers'
 import { usePersistFn } from '../hooks'
 import useState from '../hooks/useStateUpdate'
 
@@ -16,13 +17,19 @@ import Selector from './selector'
 const SelectorMethod: React.FC<SelectorMethodProps> = ({
   onChange,
   onClose,
+  beforeChange,
   ...restProps
 }) => {
   const [visible, setVisible] = useState(false)
   const onChangePersistFn = usePersistFn(
     (v: SelectorValue | SelectorValue[], o: SelectorOption[]) => {
-      onChange?.(v, o)
-      setVisible(false)
+      callInterceptor(beforeChange, {
+        args: [v, o],
+        done: () => {
+          onChange?.(v, o)
+          setVisible(false)
+        },
+      })
     },
   )
   const onClosePersistFn = usePersistFn(() => {

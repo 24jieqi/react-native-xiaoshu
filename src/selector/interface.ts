@@ -53,7 +53,12 @@ export interface SelectorProps
   confirmButtonText?: string
 }
 
-export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {}
+export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {
+  beforeChange?: (
+    value: SelectorValue | SelectorValue[],
+    options: SelectorOption[],
+  ) => boolean | Promise<boolean>
+}
 
 export interface SelectorOptions
   extends Omit<SelectorMethodProps, 'onChange' | 'onRequestClose'> {
