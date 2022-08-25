@@ -15,7 +15,7 @@ export type PortalProps = {
 /**
  * Portal allows to render a component at a different place in the parent tree.
  * You can use it to render content which should appear above other elements, similar to `Modal`.
- * It requires a [`Portal.Host`](portal-host.html) component to be rendered somewhere in the parent tree.
+ * It requires a `Portal.Host` component to be rendered somewhere in the parent tree.
  *
  * ## Usage
  * ```js
