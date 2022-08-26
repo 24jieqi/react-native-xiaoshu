@@ -51,5 +51,8 @@ group:
 | tree_item_text_margin_horizontal | `TOKENS.space_1`     | -    |
 | tree_item_text_font_size         | `TOKENS.font_size_4` | -    |
 | tree_item_text_color             | `TOKENS.gray_8`      | -    |
+| tree_item_switcher_color         | `TOKENS.brand_6`     | -    |
+| tree_item_switcher_size          | 16                   | -    |
+| tree_item_switcher_lightness     | 95                   | -    |
 | tree_item_disabled_text_color    | `TOKENS.gray_5`      | -    |
 | tree_item_highlight_text_color   | `TOKENS.brand_6`     | -    |

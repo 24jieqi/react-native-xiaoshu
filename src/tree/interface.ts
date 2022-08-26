@@ -52,6 +52,12 @@ export interface TreeOption {
    */
   switcherIconRotatable?: boolean
 
+  /**
+   * 展开/折叠图标是否高亮
+   * @default true
+   */
+  switcherHighlight?: boolean
+
   children?: TreeOption[]
 }
 
@@ -77,6 +83,12 @@ export interface TreeItemProps extends TouchableOpacityProps {
    * 自定义渲染树节点的展开/折叠图标
    */
   switcherIcon?: React.ReactNode
+
+  /**
+   * 展开/折叠图标是否高亮
+   * @default true
+   */
+  switcherHighlight?: boolean
 
   /**
    * 是否选中、高亮

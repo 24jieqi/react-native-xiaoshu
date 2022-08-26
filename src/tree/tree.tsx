@@ -473,11 +473,14 @@ const Tree: React.FC<TreeProps> = ({
             const _switcherIcon = item.children?.length ? (
               _renderSwitcherIcon ? (
                 _renderSwitcherIcon({
-                  color: CV.tree_item_text_color,
-                  size: 16,
+                  color: CV.tree_item_switcher_color,
+                  size: CV.tree_item_switcher_size,
                 })
               ) : (
-                <ArrowRightOutline color={CV.tree_item_text_color} size={16} />
+                <ArrowRightOutline
+                  color={CV.tree_item_switcher_color}
+                  size={CV.tree_item_switcher_size}
+                />
               )
             ) : null
             const _switcherIconJSX =
@@ -500,6 +503,7 @@ const Tree: React.FC<TreeProps> = ({
               <TreeItem
                 onPress={genOnPressItem(item)}
                 switcherIcon={_switcherIconJSX}
+                switcherHighlight={item.switcherHighlight}
                 multiple={multiple}
                 activeColor={_activeColor}
                 indent={_indent}

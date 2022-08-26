@@ -16,7 +16,8 @@ import { Card, Tree } from '@fruits-chain/react-native-xiaoshu'
 const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
   value: index0,
   switcherIconRotatable: false,
-  renderSwitcherIcon: p => <CoordOutline {...p} />,
+  renderSwitcherIcon: p => <CoordOutline size={p.size} color="#333" />,
+  switcherHighlight: false,
   bold: true,
   label: `第一A层a选项_${index0}`,
   children: new Array(3).fill(0).map((_, index1) => ({
