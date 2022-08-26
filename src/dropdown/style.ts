@@ -32,6 +32,7 @@ export const styleCreator = (cv: ComponentVars) => {
 
     item_tree: {
       backgroundColor: cv.dropdown_background_color,
+      height: '100%',
     },
 
     item_tree_item: {
