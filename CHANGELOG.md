@@ -1,3 +1,13 @@
+## [0.3.3-beta.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.10...v0.3.3-beta.11) (2022-08-26)
+
+### Bug Fixes
+
+- **Dropdown:** 🐛 下拉菜单的高度溢出 ([73f387a](https://github.com/hjfruit/react-native-xiaoshu/commit/73f387aa38b4c4295e27cde0ed228d80bb191ff7))
+
+### Features
+
+- **Tree:** 🎸 折叠\展开图标高亮 ([f1d5a8b](https://github.com/hjfruit/react-native-xiaoshu/commit/f1d5a8bf92e9e493d120b9686e38b29e41735155))
+
 ## [0.3.3-beta.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.9...v0.3.3-beta.10) (2022-08-17)
 
 ### Features
