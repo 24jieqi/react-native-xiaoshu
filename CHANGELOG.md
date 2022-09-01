@@ -1,3 +1,9 @@
+## [0.3.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.11...v0.3.3) (2022-09-01)
+
+### Features
+
+- **Field:** 🎸 优化 Field.Selector optionsLoading 的交互 ([f00fc1c](https://github.com/hjfruit/react-native-xiaoshu/commit/f00fc1cd56aa824ea51ea7219ccf4d106776ea0b))
+
 ## [0.3.3-beta.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.10...v0.3.3-beta.11) (2022-08-26)
 
 ### Bug Fixes
