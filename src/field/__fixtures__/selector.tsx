@@ -28,6 +28,13 @@ const BasicFieldSelector: React.FC = () => {
         }}
       />
       <Field.Selector
+        title="单选:optionsLoading"
+        placeholder="请选择"
+        value={s1}
+        options={options}
+        optionsLoading
+      />
+      <Field.Selector
         title="单选:自定义渲染"
         placeholder="请选择"
         value={s1}

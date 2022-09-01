@@ -1,10 +1,11 @@
 import isArray from 'lodash/isArray'
 import isUndefined from 'lodash/isUndefined'
 import React, { memo } from 'react'
-import { Keyboard } from 'react-native'
+import { Keyboard, View } from 'react-native'
 
-import { varCreator as varCreatorButton } from '../button/style'
+import { varCreator as varCreatorCell } from '../cell/style'
 import { usePersistFn } from '../hooks'
+import LoadingSpinner from '../loading/loading-spinner'
 import Locale from '../locale'
 import Selector from '../selector'
 import type { SelectorValue } from '../selector/interface'
@@ -23,7 +24,6 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   multiple,
   onChange,
   optionsLoading = false,
-  innerStyle,
   editable = true,
   clearable = false,
   selectorTitle,
@@ -34,7 +34,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
 }) => {
   const locale = Locale.useLocale().FieldSelector
   const TOKENS = Theme.useThemeTokens()
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
 
   const onPressCell = usePersistFn(() => {
     Keyboard.dismiss()
@@ -68,28 +68,33 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   return (
     <FieldText
       {...restProps}
-      innerStyle={
-        optionsLoading
-          ? [
-              innerStyle,
-              {
-                opacity: CV_BUTTON.button_active_opacity,
-              },
-            ]
-          : innerStyle
-      }
       onPress={optionsLoading ? undefined : onPressCell}
       value={value2text}
-      isLink={hasValue && clearable ? false : isLink}
+      isLink={optionsLoading || (hasValue && clearable) ? false : isLink}
       valueExtra={
-        hasValue && clearable ? (
+        optionsLoading || (hasValue && clearable) ? (
           <>
             {restProps.valueExtra}
-            <TextInputClear
-              onPress={() => {
-                onChange(multiple ? [] : undefined, multiple ? [] : undefined)
-              }}
-            />
+            {optionsLoading ? (
+              <View
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{
+                  marginLeft: CV_CELL.cell_icon_link_margin_left,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <LoadingSpinner
+                  size={CV_CELL.cell_icon_size}
+                  color={CV_CELL.cell_icon_color}
+                />
+              </View>
+            ) : (
+              <TextInputClear
+                onPress={() => {
+                  onChange(multiple ? [] : undefined, multiple ? [] : undefined)
+                }}
+              />
+            )}
           </>
         ) : (
           restProps.valueExtra
