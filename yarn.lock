@@ -5779,9 +5779,9 @@ es-to-primitive@^1.2.1:
     is-symbol "^1.0.2"
 
 es5-imcompatible-versions@^0.1.62:
-  version "0.1.76"
-  resolved "https://registry.npmmirror.com/es5-imcompatible-versions/-/es5-imcompatible-versions-0.1.76.tgz#ec0ddff6313c545d5f6a70dca8ba610d21c426c3"
-  integrity sha512-cXOt9+9sFiMpdJMq6Oo7GW+7jNSGpqKQFbaEMpElE1JTZJ2IdTprSlcIfeTfTYON9eOgWfnJJ+dgB9zfOf05Rw==
+  version "0.1.77"
+  resolved "https://registry.npmmirror.com/es5-imcompatible-versions/-/es5-imcompatible-versions-0.1.77.tgz#7c7cc6e35ff4daf3a2bbeb629426e929f0d59f17"
+  integrity sha512-PYCZ6CvLzvVOPK4Lgja32PhWUoEJkQ1mWep0xuGtvVzmRAHq2xWHUuQ+jUXsIIAHo6c3Kh+n0z4rKCgBd4CrXA==
 
 es6-promise@^4.0.3:
   version "4.2.8"
@@ -12351,10 +12351,10 @@ react-native-svg-web@^1.0.9:
   resolved "https://registry.npmmirror.com/react-native-svg-web/-/react-native-svg-web-1.0.9.tgz#a50b1ac6e33eb9efdba38d58e6e13c193ef041c2"
   integrity sha512-fggz1MPx55xP92ZlFWhvxfsd8/Mj3z63E1eo1pldtBRuNbR4LffvtY9hwj96bgHZU3gRwJL00LV3GAWRFthlnA==
 
-react-native-svg@13.1.0:
-  version "13.1.0"
-  resolved "https://registry.npmmirror.com/react-native-svg/-/react-native-svg-13.1.0.tgz#2bad1dbee4c093af4abf45b356571715ae5f1c17"
-  integrity sha512-drYa+0piaQ27xFEp1MxRBSu6eHbR37qQITKTHNOmPv1NhPUyZ5tH4ICWe7aTLlB2u6KEhpSHl63HJi3jpZFtvw==
+react-native-svg@12.4.4:
+  version "12.4.4"
+  resolved "https://registry.npmmirror.com/react-native-svg/-/react-native-svg-12.4.4.tgz#2ba684eaea9a7402fbbe0ed9737e77284631d00e"
+  integrity sha512-LpcNlEVCURexqPAvQ9ne8KrPVfYz0wIDygwud8VMRmXLezysXzyQN/DTsjm1BO9lIfYp55WQsr3u3yW/vk6iiA==
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
