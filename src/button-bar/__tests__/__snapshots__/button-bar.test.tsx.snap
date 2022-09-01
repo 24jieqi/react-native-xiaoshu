@@ -4,19 +4,19 @@ exports[`ButtonBar render snapshot 1`] = `
 <View
   accessibilityLabel="ButtonBar"
   style={
-    Array [
-      Object {
+    [
+      {
         "backgroundColor": "#FFFFFF",
         "borderTopColor": "#EFF3F9",
         "borderTopWidth": 1,
         "height": 50,
         "paddingBottom": 0,
       },
-      Array [
-        Object {
+      [
+        {
           "paddingHorizontal": 12,
         },
-        Object {
+        {
           "alignItems": "center",
           "flexDirection": "row",
           "justifyContent": "flex-end",
@@ -28,8 +28,8 @@ exports[`ButtonBar render snapshot 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "alignItems": "center",
           "flexDirection": "row",
           "flexWrap": "nowrap",
@@ -43,8 +43,8 @@ exports[`ButtonBar render snapshot 1`] = `
   >
     <View
       style={
-        Array [
-          Object {
+        [
+          {
             "marginBottom": 0,
             "marginRight": 8,
           },
@@ -54,7 +54,7 @@ exports[`ButtonBar render snapshot 1`] = `
     >
       <View
         accessibilityState={
-          Object {
+          {
             "disabled": false,
           }
         }
@@ -70,7 +70,7 @@ exports[`ButtonBar render snapshot 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Object {
+          {
             "alignItems": "center",
             "backgroundColor": "#0065FE",
             "borderColor": "#0065FE",
@@ -89,7 +89,7 @@ exports[`ButtonBar render snapshot 1`] = `
         <Text
           numberOfLines={1}
           style={
-            Object {
+            {
               "color": "#FFFFFF",
               "fontSize": 15,
               "marginLeft": 0,
@@ -103,12 +103,12 @@ exports[`ButtonBar render snapshot 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {
+        [
+          {
             "marginBottom": 0,
             "marginRight": 8,
           },
-          Object {
+          {
             "marginRight": 0,
           },
         ]
@@ -116,7 +116,7 @@ exports[`ButtonBar render snapshot 1`] = `
     >
       <View
         accessibilityState={
-          Object {
+          {
             "disabled": false,
           }
         }
@@ -132,7 +132,7 @@ exports[`ButtonBar render snapshot 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Object {
+          {
             "alignItems": "center",
             "backgroundColor": "#0065FE",
             "borderColor": "#0065FE",
@@ -151,7 +151,7 @@ exports[`ButtonBar render snapshot 1`] = `
         <Text
           numberOfLines={1}
           style={
-            Object {
+            {
               "color": "#FFFFFF",
               "fontSize": 15,
               "marginLeft": 0,

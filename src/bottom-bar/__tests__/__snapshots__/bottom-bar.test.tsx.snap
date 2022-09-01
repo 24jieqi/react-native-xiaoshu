@@ -3,8 +3,8 @@
 exports[`Blank render snapshot 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "backgroundColor": "#FFFFFF",
         "borderTopColor": "#EFF3F9",
         "borderTopWidth": 1,

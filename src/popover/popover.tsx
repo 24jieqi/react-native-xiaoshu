@@ -16,7 +16,7 @@ import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
-import type { PopoverProps } from './interface'
+import type { PopoverProps, PopoverItemProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const arrowSize = { width: 0, height: 0 }
@@ -67,7 +67,7 @@ const Popover = <T,>({
         return child
       }
 
-      return cloneElement(child, {
+      return cloneElement(child as React.ReactElement<PopoverItemProps<T>>, {
         onSelect: (v: T) => _onSelect(v, index),
         dark: dark,
       })

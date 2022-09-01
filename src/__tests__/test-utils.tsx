@@ -1,4 +1,3 @@
-import type { RenderOptions } from '@testing-library/react-native'
 import { render } from '@testing-library/react-native'
 import React from 'react'
 export * from '@testing-library/react-native'
@@ -15,7 +14,10 @@ const AllTheProviders: React.FC<React.PropsWithChildren<{}>> = ({
 
 export const customRender = (
   component: React.ReactElement<any>,
-  options?: RenderOptions,
+  options?: {
+    wrapper?: React.ComponentType<any>
+    createNodeMock?: (element: React.ReactElement) => any
+  },
 ) =>
   render(component, {
     wrapper: AllTheProviders,

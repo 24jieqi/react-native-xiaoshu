@@ -280,7 +280,7 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
                     isLink
                     title={subitem.title}
                     onPress={() => {
-                      navigation.navigate(subitem.name)
+                      navigation.navigate(subitem.name as any)
                     }}
                     divider={index + 1 !== item.datas.length}
                   />

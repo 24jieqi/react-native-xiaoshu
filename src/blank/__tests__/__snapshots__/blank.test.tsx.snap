@@ -3,8 +3,8 @@
 exports[`Blank render snapshot 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "marginBottom": 0,
         "marginLeft": 12,
         "marginRight": 12,

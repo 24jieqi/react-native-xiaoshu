@@ -34,7 +34,7 @@ describe('Badge', () => {
 
   it('color', () => {
     const color = '#f30'
-    const { getByA11yLabel } = customRender(
+    const { getByLabelText } = customRender(
       <>
         <Badge accessibilityLabel="badge-f30" count={6} color={color} />
         <Badge count="哈哈" />
@@ -43,7 +43,7 @@ describe('Badge', () => {
     )
 
     const badgeF30Style = StyleSheet.flatten<ViewStyle>(
-      (getByA11yLabel('badge-f30').children[0] as ReactTestInstance).props
+      (getByLabelText('badge-f30').children[0] as ReactTestInstance).props
         .style,
     )
 

@@ -18,7 +18,7 @@ describe('Button', () => {
   })
 
   it('hairline', () => {
-    const { getByA11yLabel } = customRender(
+    const { getByLabelText } = customRender(
       <>
         <Button
           accessibilityLabel="button-primary"
@@ -34,18 +34,18 @@ describe('Button', () => {
       </>,
     )
 
-    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimary = getByLabelText('button-primary')
     const buttonPrimaryStyle: ViewStyle = buttonPrimary.props.style
     expect(buttonPrimaryStyle.borderWidth).toEqual(StyleSheet.hairlineWidth)
 
-    const buttonPrimary2 = getByA11yLabel('button-primary2')
+    const buttonPrimary2 = getByLabelText('button-primary2')
     const buttonPrimaryStyle2: ViewStyle = buttonPrimary2.props.style
     expect(buttonPrimaryStyle2.borderWidth).toEqual(1)
   })
 
   it('onPress', () => {
     const buttonOnPress = jest.fn()
-    const { getByA11yLabel } = customRender(
+    const { getByLabelText } = customRender(
       <Button
         accessibilityLabel="button-primary"
         text="primary"
@@ -53,14 +53,14 @@ describe('Button', () => {
       />,
     )
 
-    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimary = getByLabelText('button-primary')
     fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
     expect(buttonOnPress).toHaveBeenCalled()
   })
 
   it('onPress:disabled', () => {
     const buttonOnPress = jest.fn()
-    const { getByA11yLabel } = customRender(
+    const { getByLabelText } = customRender(
       <Button
         accessibilityLabel="button-primary"
         text="primary"
@@ -69,14 +69,14 @@ describe('Button', () => {
       />,
     )
 
-    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimary = getByLabelText('button-primary')
     fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
     expect(buttonOnPress).not.toHaveBeenCalled()
   })
 
   it('onPress:loading', () => {
     const buttonOnPress = jest.fn()
-    const { getByA11yLabel, getByText } = customRender(
+    const { getByLabelText, getByText } = customRender(
       <>
         <Button
           accessibilityLabel="button-primary"
@@ -93,7 +93,7 @@ describe('Button', () => {
       </>,
     )
 
-    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimary = getByLabelText('button-primary')
     fireEvent(buttonPrimary.children[0] as ReactTestInstance, 'press')
     expect(buttonOnPress).not.toHaveBeenCalled()
 
@@ -101,24 +101,24 @@ describe('Button', () => {
   })
 
   it('square&round', () => {
-    const { getByA11yLabel } = customRender(
+    const { getByLabelText } = customRender(
       <>
         <Button accessibilityLabel="button-primary" text="primary" square />
         <Button accessibilityLabel="button-primary2" text="primary" round />
       </>,
     )
 
-    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimary = getByLabelText('button-primary')
     const buttonPrimaryStyle: ViewStyle = buttonPrimary.props.style
     expect(buttonPrimaryStyle.borderRadius).toEqual(0)
 
-    const buttonPrimary2 = getByA11yLabel('button-primary2')
+    const buttonPrimary2 = getByLabelText('button-primary2')
     const buttonPrimaryStyle2: ViewStyle = buttonPrimary2.props.style
     expect(buttonPrimaryStyle2.borderRadius).toEqual(9999)
   })
 
   it('color', () => {
-    const { getByA11yLabel } = customRender(
+    const { getByLabelText } = customRender(
       <>
         <Button accessibilityLabel="button-primary" text="primary" />
         <Button accessibilityLabel="button-#000" text="primary" color="#000" />
@@ -129,7 +129,7 @@ describe('Button', () => {
       </>,
     )
 
-    const buttonPrimary = getByA11yLabel('button-primary')
+    const buttonPrimary = getByLabelText('button-primary')
     const buttonPrimaryStyle: ViewStyle = buttonPrimary.props.style
     const buttonPrimaryText = buttonPrimary.children[0] as ReactTestInstance
 
@@ -137,7 +137,7 @@ describe('Button', () => {
     expect(buttonPrimaryStyle.borderColor).toEqual(TOKENS.brand_6)
     expect(buttonPrimaryText.props.style.color).toEqual(TOKENS.white)
 
-    const button000 = getByA11yLabel('button-#000')
+    const button000 = getByLabelText('button-#000')
     const button000Style: ViewStyle = button000.props.style
     const button000Text = buttonPrimary.children[0] as ReactTestInstance
 
@@ -145,7 +145,7 @@ describe('Button', () => {
     expect(button000Style.borderColor).toEqual('#000')
     expect(button000Text.props.style.color).toEqual(TOKENS.white)
 
-    const buttonGhost = getByA11yLabel('button-ghost')
+    const buttonGhost = getByLabelText('button-ghost')
     const buttonGhostStyle: ViewStyle = buttonGhost.props.style
     const buttonGhostText = buttonGhost.children[0] as ReactTestInstance
 

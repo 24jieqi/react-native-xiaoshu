@@ -4,7 +4,7 @@ exports[`Button render snapshot 1`] = `
 <View
   accessibilityLabel="button"
   accessibilityState={
-    Object {
+    {
       "disabled": false,
     }
   }
@@ -20,7 +20,7 @@ exports[`Button render snapshot 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "alignItems": "center",
       "backgroundColor": "#0065FE",
       "borderColor": "#0065FE",
@@ -38,7 +38,7 @@ exports[`Button render snapshot 1`] = `
   <Text
     numberOfLines={1}
     style={
-      Object {
+      {
         "color": "#FFFFFF",
         "fontSize": 16,
         "marginLeft": 0,
