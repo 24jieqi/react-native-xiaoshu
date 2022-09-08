@@ -59,6 +59,12 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
     return true
   }
 
+  const onPressClose = () => {
+    setState({
+      visible: false,
+    })
+  }
+
   return (
     <Dialog
       {...restProps}
@@ -69,6 +75,7 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
       onPressOverlay={genOnPressBtn('overlay')}
       cancelButtonLoading={state.cancel}
       confirmButtonLoading={state.confirm}
+      onPressClose={onPressClose}
     />
   )
 }

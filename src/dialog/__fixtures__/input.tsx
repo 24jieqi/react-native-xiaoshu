@@ -24,6 +24,20 @@ const BasicDialogInput: React.FC = () => {
         }}
       />
       <Cell
+        title="普通文字:close"
+        isLink
+        onPress={() => {
+          Dialog.input({
+            title: '输入框？',
+            placeholder: '请输入内容',
+            onPressConfirm: t => {
+              console.log(t)
+            },
+            showClose: true,
+          })
+        }}
+      />
+      <Cell
         title="普通文字:提示文案"
         isLink
         onPress={() => {

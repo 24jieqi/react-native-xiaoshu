@@ -37,6 +37,20 @@ const BasicDialogBase: React.FC = () => {
         }}
       />
       <Cell
+        title="提示弹窗: close"
+        isLink
+        onPress={() => {
+          Dialog({
+            title: '这里是标题',
+            showClose: true,
+            message:
+              '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
+          }).then(action => {
+            console.log('提示弹窗：', action)
+          })
+        }}
+      />
+      <Cell
         title="提示弹窗:无内容"
         isLink
         onPress={() => {

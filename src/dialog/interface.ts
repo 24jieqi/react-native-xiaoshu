@@ -121,7 +121,7 @@ export type DialogMethodState = {
 
 /** 对话框函数使用时的组件需要的属性 */
 export interface DialogMethodProps
-  extends Omit<DialogCommon, 'visible' | 'onPressOverlay'> {
+  extends Omit<DialogCommon, 'visible' | 'onPressOverlay' | 'onPressClose'> {
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
@@ -141,7 +141,10 @@ export type DialogInputState = {
 } & DialogMethodState
 
 export interface DialogInputProps
-  extends Omit<DialogCommon, 'visible' | 'onPressOverlay' | 'messageAlign'> {
+  extends Omit<
+    DialogCommon,
+    'visible' | 'onPressOverlay' | 'messageAlign' | 'onPressClose'
+  > {
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */

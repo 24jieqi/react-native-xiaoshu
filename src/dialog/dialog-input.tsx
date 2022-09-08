@@ -1,5 +1,5 @@
 import isNil from 'lodash/isNil'
-import React, { useEffect, useMemo, useRef, memo } from 'react'
+import React, { useEffect, useMemo, useRef, memo, useCallback } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Keyboard } from 'react-native'
 
@@ -148,6 +148,12 @@ const DialogInput: React.FC<DialogInputProps> = ({
     }
   }, [realValue])
 
+  const onPressClose = useCallback(() => {
+    setState({
+      visible: false,
+    })
+  }, [])
+
   return (
     <DialogKeyboard
       {...restProps}
@@ -157,7 +163,8 @@ const DialogInput: React.FC<DialogInputProps> = ({
       onPressConfirm={genOnPressBtn('confirm')}
       onPressCancel={genOnPressBtn('cancel')}
       cancelButtonLoading={state.cancel}
-      confirmButtonLoading={state.confirm}>
+      confirmButtonLoading={state.confirm}
+      onPressClose={onPressClose}>
       <View style={boxStyle}>
         {type === 'textarea' || type === 'text' ? (
           <TextInput
