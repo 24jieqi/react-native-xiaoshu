@@ -1,3 +1,13 @@
+## [0.3.4-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3...v0.3.4-beta.0) (2022-09-08)
+
+### Bug Fixes
+
+- **Dialog:** 🐛 函数使用方式时点击关闭图标无响应 ([cdf1e41](https://github.com/hjfruit/react-native-xiaoshu/commit/cdf1e4184dc3f6a08366c06aa2db8e75a5ca9f99))
+
+### Features
+
+- **Tree:** 🎸 单选,选择相同值不触发 onChange ([95adcda](https://github.com/hjfruit/react-native-xiaoshu/commit/95adcdafd823f884a51fa94d462b5757f1a6ba49))
+
 ## [0.3.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3-beta.11...v0.3.3) (2022-09-01)
 
 ### Features
