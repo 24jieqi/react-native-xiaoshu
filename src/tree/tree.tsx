@@ -361,7 +361,10 @@ const Tree: React.FC<TreeProps> = ({
       }
     } else {
       const _node = findNodeByValue(options, item.value)
-      onChange(item.value, [_node])
+
+      if (item.value !== value) {
+        onChange(item.value, [_node])
+      }
     }
   }
 
