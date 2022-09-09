@@ -25,6 +25,8 @@ const Popover = <T,>({
   children,
   content,
   dark = false,
+  shadow = false,
+  arrow = true,
   triggerStyle,
   onSelect = noop,
   disabled,
@@ -98,10 +100,11 @@ const Popover = <T,>({
         popoverStyle={[
           STYLES.content,
           // Android 黑色背景的阴影也是黑色，不友好
-          dark ? STYLES.content_dark : STYLES.content_shadow,
+          dark ? STYLES.content_dark : null,
+          shadow ? STYLES.content_shadow : null,
           popoverStyle,
         ]}
-        arrowSize={arrowSize}
+        arrowSize={!arrow ? arrowSize : undefined}
         onRequestClose={closePopover}
         animationConfig={animationConfig}>
         {renderContent()}

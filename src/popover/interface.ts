@@ -48,6 +48,18 @@ export interface PopoverProps<T>
   dark?: boolean
 
   /**
+   * 显示阴影
+   * @default false
+   */
+  shadow?: boolean
+
+  /**
+   * 显示箭头
+   * @default true
+   */
+  arrow?: boolean
+
+  /**
    * 点击区域样式
    */
   triggerStyle?: StyleProp<ViewStyle>
