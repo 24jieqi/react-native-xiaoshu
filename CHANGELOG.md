@@ -1,3 +1,9 @@
+## [0.3.4-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4-beta.0...v0.3.4-beta.1) (2022-09-09)
+
+### Features
+
+- **Popover:** 🎸 箭头和阴影分开控制 ([b8ba923](https://github.com/hjfruit/react-native-xiaoshu/commit/b8ba923b549f605a0d5710181d5a22678b50c573))
+
 ## [0.3.4-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.3...v0.3.4-beta.0) (2022-09-08)
 
 ### Bug Fixes
