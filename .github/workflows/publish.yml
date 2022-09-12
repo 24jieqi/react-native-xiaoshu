@@ -1,6 +1,9 @@
 name: Next release
 
-on: push
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   publish-to-npm:
