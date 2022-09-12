@@ -1,6 +1,6 @@
 /* eslint-disable */
 'use strict'
-const exec = require('child_process').exec
+const execSync = require('child_process').execSync
 const fs = require('fs')
 const packageJsonData = JSON.parse(fs.readFileSync('./package.json', 'utf8'))
 const tag = /-[a-zA-Z]*/g
@@ -11,10 +11,11 @@ function getPublishCommand() {
   if (versionTag) {
     commandText += ` --tag ${versionTag}`
   }
+  console.log(commandText)
   return commandText
 }
 try {
-  exec(getPublishCommand())
+  execSync(getPublishCommand(), { stdio: 'inherit' })
 } catch (error) {
   console.log(error)
 }
