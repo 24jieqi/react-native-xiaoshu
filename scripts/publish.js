@@ -11,7 +11,6 @@ function getPublishCommand() {
   if (versionTag) {
     commandText += ` --tag ${versionTag}`
   }
-  commandText += ' || true'
   return commandText
 }
 try {
