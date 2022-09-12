@@ -53,7 +53,8 @@
     "release:patch": "release-it patch",
     "release:major:beta": "release-it major --preRelease=beta",
     "release:minor:beta": "release-it minor --preRelease=beta",
-    "release:patch:beta": "release-it patch --preRelease=beta"
+    "release:patch:beta": "release-it patch --preRelease=beta",
+    "runPublish": "node ./scripts/publish.js"
   },
   "dependencies": {
     "@fruits-chain/design-tokens-bailu": "^0.0.7",
