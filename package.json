@@ -11,6 +11,7 @@
     "ui-components",
     "typescript"
   ],
+  "license": "ISC",
   "homepage": "https://hjfruit.github.io/xiaoshu-doc",
   "repository": {
     "type": "git",

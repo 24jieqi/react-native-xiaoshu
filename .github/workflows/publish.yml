@@ -1,10 +1,7 @@
 name: Next release
 
-on:
-  push:
-    tags:
-      - '*'
-      
+on: push
+
 jobs:
   publish-to-npm:
     runs-on: ubuntu-latest
