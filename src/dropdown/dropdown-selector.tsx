@@ -34,6 +34,7 @@ const DropdownSelectorMethod = <T,>({
 
   search,
   onSearch,
+  cancellable,
 }: DropdownSelectorMethodProps<T>) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -156,6 +157,7 @@ const DropdownSelectorMethod = <T,>({
           options={treeOptions}
           onChange={onChangePersistFn}
           onSearch={onSearch}
+          cancellable={cancellable}
         />
       </View>
     </DropdownPopup>

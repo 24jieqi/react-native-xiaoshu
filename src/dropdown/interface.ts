@@ -93,7 +93,7 @@ export interface DropdownTextProps extends TouchableOpacityProps {
 
 export interface DropdownItemProps<T>
   extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled'>>,
-    Pick<TreeProps, 'search' | 'onSearch'> {
+    Pick<TreeProps, 'search' | 'onSearch' | 'cancellable'> {
   /**
    * 标题样式
    */

@@ -46,6 +46,12 @@ const itemOptions3 = [
   })),
 ]
 
+const itemOptions4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13, 14].map(v => ({
+  label: `商品分类${v}`,
+  value: v,
+  badge: v,
+}))
+
 const BasicDropdown: React.FC = () => {
   const [values, setValues] = useState({
     v1: itemOptions[0].value,
@@ -181,6 +187,20 @@ const BasicDropdown: React.FC = () => {
             }}
           />
           <Dropdown.Item options={itemOptions3} defaultValue={null} />
+        </Dropdown>
+
+        <View style={{ height: 500 }} />
+
+        <Dropdown>
+          <Dropdown.Item
+            placeholder="商品类目"
+            options={itemOptions4}
+            onChange={(v, d) => {
+              console.log(v)
+              console.log(d)
+            }}
+            cancellable
+          />
         </Dropdown>
 
         <View style={{ height: 500 }} />

@@ -171,6 +171,7 @@ const Tree: React.FC<TreeProps> = ({
   onSearch,
   placeholder,
   minHeight = true,
+  cancellable = false,
 
   ...restProps
 }) => {
@@ -364,6 +365,10 @@ const Tree: React.FC<TreeProps> = ({
 
       if (item.value !== value) {
         onChange(item.value, [_node])
+      } else {
+        if (cancellable) {
+          onChange(null, [])
+        }
       }
     }
   }

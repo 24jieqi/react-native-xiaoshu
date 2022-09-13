@@ -30,6 +30,7 @@ const treePropsField = [
   'onSearch',
   'placeholder',
   'minHeight',
+  'cancellable',
 ]
 
 /**

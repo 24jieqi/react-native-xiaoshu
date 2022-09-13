@@ -222,4 +222,10 @@ export interface TreeProps {
    * @default true
    */
   minHeight?: boolean | number
+
+  /**
+   * 单选的情况下再次点击选中可以取消
+   * @default false
+   */
+  cancellable?: boolean
 }

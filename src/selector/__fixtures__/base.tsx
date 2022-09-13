@@ -37,6 +37,31 @@ const BasicSelectorBase: React.FC = () => {
         }}
       />
       <Cell
+        title="单选:可取消"
+        isLink
+        onPress={() => {
+          const v: SelectorOption[] = []
+
+          for (let index = 0; index < 3; index++) {
+            v.push({
+              label: `文案_${index}`,
+              value: index,
+            })
+          }
+
+          Selector({
+            title: '测试选项',
+            options: v,
+            value: 1,
+            cancellable: true,
+          })
+            .then(k => {
+              console.log(k)
+            })
+            .catch(() => {})
+        }}
+      />
+      <Cell
         title="单选:自定义渲染"
         isLink
         onPress={() => {

@@ -23,6 +23,7 @@ const DropdownItem = <T,>({
 
   search,
   onSearch,
+  cancellable,
 
   ...restProps
 }: DropdownItemProps<T>) => {
@@ -79,6 +80,7 @@ const DropdownItem = <T,>({
         activeColor: config.activeColor,
         search,
         onSearch,
+        cancellable,
       })
         .then(d => {
           onChange(d.value, d.data)
