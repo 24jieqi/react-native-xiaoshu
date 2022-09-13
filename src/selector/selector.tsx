@@ -108,7 +108,11 @@ const Selector: React.FC<SelectorProps> = ({
       />
 
       {treeProps.multiple ? (
-        <ButtonBar alone divider={false} height={60}>
+        <ButtonBar
+          alone
+          divider={false}
+          height={60}
+          safeAreaInsetBottom={false}>
           <Button
             type="primary"
             onPress={onPressOk}
@@ -127,7 +131,8 @@ const Selector: React.FC<SelectorProps> = ({
         onClose={onClose}
         closeOnPressOverlay={closeOnPressOverlay}
         onPressOverlay={onClose}
-        round>
+        round
+        safeAreaInsetBottom>
         {contentJSX}
       </PopupPage>
     )
@@ -142,7 +147,8 @@ const Selector: React.FC<SelectorProps> = ({
       closeOnPressOverlay={closeOnPressOverlay}
       onPressOverlay={onClose}
       position="bottom"
-      round>
+      round
+      safeAreaInsetBottom>
       {contentJSX}
     </Popup>
   )
