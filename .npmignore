@@ -7,6 +7,7 @@ demo/
 docs/
 ios/
 node_modules/
+scripts/
 
 
 .umi
