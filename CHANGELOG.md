@@ -1,3 +1,10 @@
+## [0.3.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4-beta.3...v0.3.4) (2022-09-13)
+
+### Features
+
+- **Selector:** 🎸 新增选项底部安全距离 ([dc09a71](https://github.com/hjfruit/react-native-xiaoshu/commit/dc09a716490606ac0af594d8787eb035f8835fb5))
+- **Tree:** 🎸 新增 cancellable 属性 ([6f96f7a](https://github.com/hjfruit/react-native-xiaoshu/commit/6f96f7a005b002b187f9a38869cc5c8b4c80256b))
+
 ## [0.3.4-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4-beta.2...v0.3.4-beta.3) (2022-09-12)
 
 ## [0.3.4-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4-beta.1...v0.3.4-beta.2) (2022-09-12)
