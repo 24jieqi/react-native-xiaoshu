@@ -1,3 +1,9 @@
+## [0.3.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4...v0.3.5) (2022-09-15)
+
+### Bug Fixes
+
+- **Dropdown:** 🐛 下拉菜单最大高度 ([9aa9d70](https://github.com/hjfruit/react-native-xiaoshu/commit/9aa9d7001aef7c66e3a996a4cecda8c62a87b0c6))
+
 ## [0.3.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4-beta.3...v0.3.4) (2022-09-13)
 
 ### Features
