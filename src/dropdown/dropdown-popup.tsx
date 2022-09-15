@@ -9,8 +9,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import useState from '../hooks/useStateUpdate'
 import Popup from '../popup/popup'
+import Theme from '../theme'
 
 import type { DropdownPopupProps } from './interface'
+import { varCreator } from './style'
 
 const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' }
 
@@ -28,6 +30,8 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
 }) => {
   const insets = useSafeAreaInsets()
   const { height: windowHeight } = useWindowDimensions()
+  const TOKENS = Theme.useThemeTokens()
+  const CV = Theme.createVar(TOKENS, varCreator)
 
   const [wrapperStyle, setWrapperStyle] = useState<ViewStyle>({
     maxHeight: 0,
@@ -83,10 +87,11 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
     zIndex,
   ])
 
+  const placeholderHeight = _isBottom ? insets.top : insets.bottom
   const placeholderJSX = (
     <TouchableWithoutFeedback
       onPress={closeOnPressOutside ? onPressShade : undefined}>
-      <View style={{ height: _isBottom ? insets.top : insets.bottom }} />
+      <View style={{ height: placeholderHeight }} />
     </TouchableWithoutFeedback>
   )
 
@@ -109,7 +114,14 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
           position={_isBottom ? 'bottom' : 'top'}>
           <View style={wrapperStyle}>
             {_isBottom && safeAreaInset ? placeholderJSX : null}
-            {children}
+            <View
+              style={{
+                maxHeight:
+                  (wrapperStyle.maxHeight as number) - placeholderHeight,
+                backgroundColor: CV.dropdown_background_color,
+              }}>
+              {children}
+            </View>
             {!_isBottom && safeAreaInset ? placeholderJSX : null}
           </View>
         </Popup>

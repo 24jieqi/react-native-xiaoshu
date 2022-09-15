@@ -30,10 +30,11 @@ export const styleCreator = (cv: ComponentVars) => {
       backgroundColor: cv.dropdown_background_color,
     },
 
-    item_tree: {
-      backgroundColor: cv.dropdown_background_color,
-      height: '100%',
-    },
+    // item_tree: {
+    //   backgroundColor: cv.dropdown_background_color,
+    //   // maxHeight: '100%',
+    //   // backgroundColor: '#f30',
+    // },
 
     item_tree_item: {
       flex: 1,

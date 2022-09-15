@@ -1,6 +1,6 @@
 import isNil from 'lodash/isNil'
 import React, { useCallback, useMemo, useEffect, memo } from 'react'
-import { View, Text, Keyboard } from 'react-native'
+import { Text, Keyboard } from 'react-native'
 
 import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
@@ -147,19 +147,17 @@ const DropdownSelectorMethod = <T,>({
       onRequestClose={onRequestClose}
       onClosed={onClosed}
       onPressOverlay={onPressShade}>
-      <View style={STYLES.item_tree}>
-        <Tree
-          defaultExpandAll
-          activeColor={_activeColor}
-          minHeight={false}
-          search={search}
-          defaultValue={defaultValue as unknown as string}
-          options={treeOptions}
-          onChange={onChangePersistFn}
-          onSearch={onSearch}
-          cancellable={cancellable}
-        />
-      </View>
+      <Tree
+        defaultExpandAll
+        activeColor={_activeColor}
+        minHeight={false}
+        search={search}
+        defaultValue={defaultValue as unknown as string}
+        options={treeOptions}
+        onChange={onChangePersistFn}
+        onSearch={onSearch}
+        cancellable={cancellable}
+      />
     </DropdownPopup>
   )
 }
