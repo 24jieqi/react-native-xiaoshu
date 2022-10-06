@@ -49,8 +49,8 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
           Keyboard.removeListener('keyboardWillHide', keyboardDidHide)
         } else {
           _keyboardDidShow.remove?.()
+          _keyboardDidHide.remove?.()
         }
-        _keyboardDidHide.remove?.()
       }
     }
   }, [height])
