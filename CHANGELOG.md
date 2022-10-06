@@ -1,3 +1,10 @@
+## [0.3.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.5...v0.3.6) (2022-10-06)
+
+### Bug Fixes
+
+- **Popup:** 🐛 弹层关闭时不出现底部内边距 ([6994ca5](https://github.com/hjfruit/react-native-xiaoshu/commit/6994ca52e6ce43f02dd5045ad13f4a2acb5eca0a))
+- **Popup:** 🐛 键盘监听事件取消逻辑优化 ([4dc177f](https://github.com/hjfruit/react-native-xiaoshu/commit/4dc177ff9eb1a9bfe5da39aa5cac18b831dedc9b))
+
 ## [0.3.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.4...v0.3.5) (2022-09-15)
 
 ### Bug Fixes
