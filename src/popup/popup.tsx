@@ -169,7 +169,7 @@ const Popup: React.FC<PopupProps> = ({
     STYLES.popup,
     getBorderRadius(CV, position, round),
     {
-      paddingBottom: safeAreaInsetBottom ? insets.bottom : 0,
+      paddingBottom: state.visible && safeAreaInsetBottom ? insets.bottom : 0,
       zIndex: state.zIndex,
     },
     style,
