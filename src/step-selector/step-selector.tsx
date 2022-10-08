@@ -151,7 +151,7 @@ function StepSelector<T = number>({
       round={round}
       safeAreaInsetBottom>
       <View style={{ height: safeHeight }}>
-        <PopupHeader title={title || locale.title} onClose={onPressClose} />
+        <PopupHeader title={title ?? locale.title} onClose={onPressClose} />
 
         {state.selected.length > 1 &&
           state.selected.map((item, index) => {

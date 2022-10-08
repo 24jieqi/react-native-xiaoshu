@@ -50,7 +50,7 @@ const UploaderRegular = <T extends UploaderValue>({
         : count) as (RegularCount | null)[]
     ).map((item, index) => {
       const _i = item || {}
-      const text = _i.text || locale.uploadText
+      const text = _i.text ?? locale.uploadText
       const icon = _i.icon || (
         <PlusOutline
           color={CV.uploader_upload_text_color}

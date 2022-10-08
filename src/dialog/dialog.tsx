@@ -101,14 +101,14 @@ const Dialog: React.FC<DialogProps> = ({
 
   const cancelButtonProps = {
     color: cancelButtonColor || CV.dialog_cancel_button_text_color,
-    text: cancelButtonText || locale.cancelButtonText,
+    text: cancelButtonText ?? locale.cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
   }
 
   const confirmButtonProps = {
     color: confirmButtonColor || CV.dialog_confirm_button_text_color,
-    text: confirmButtonText || locale.confirmButtonText,
+    text: confirmButtonText ?? locale.confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
   }

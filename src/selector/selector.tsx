@@ -99,7 +99,7 @@ const Selector: React.FC<SelectorProps> = ({
 
   const contentJSX = (
     <>
-      <PopupHeader title={title || locale.title} onClose={onClose} />
+      <PopupHeader title={title ?? locale.title} onClose={onClose} />
 
       <Tree
         {...treeProps}
@@ -116,7 +116,7 @@ const Selector: React.FC<SelectorProps> = ({
           <Button
             type="primary"
             onPress={onPressOk}
-            text={confirmButtonText || locale.confirmButtonText}
+            text={confirmButtonText ?? locale.confirmButtonText}
           />
         </ButtonBar>
       ) : null}

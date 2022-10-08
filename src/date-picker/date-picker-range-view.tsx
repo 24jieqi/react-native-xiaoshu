@@ -164,7 +164,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
             ]}>
             {value[0]
               ? formatDate(mode, value[0])
-              : placeholder?.[0] || locale.placeholder[0]}
+              : placeholder?.[0] ?? locale.placeholder[0]}
           </Text>
         </TouchableOpacity>
 
@@ -182,7 +182,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
             ]}>
             {value[1]
               ? formatDate(mode, value[1])
-              : placeholder?.[1] || locale.placeholder[1]}
+              : placeholder?.[1] ?? locale.placeholder[1]}
           </Text>
         </TouchableOpacity>
       </View>
@@ -202,7 +202,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
           <Col span={6}>
             <Button
               type="hazy"
-              text={clearButtonText || locale.clearButtonText}
+              text={clearButtonText ?? locale.clearButtonText}
               loading={loading}
               onPress={onPressClear}
             />
@@ -212,7 +212,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
         <Col span={clearable ? 6 : 12}>
           <Button
             type="hazy"
-            text={resetButtonText || locale.resetButtonText}
+            text={resetButtonText ?? locale.resetButtonText}
             loading={loading}
             onPress={onPressReset}
           />
@@ -220,7 +220,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
         <Col span={12}>
           <Button
-            text={confirmButtonText || locale.confirmButtonText}
+            text={confirmButtonText ?? locale.confirmButtonText}
             loading={loading}
             onPress={onPressConfirm}
           />

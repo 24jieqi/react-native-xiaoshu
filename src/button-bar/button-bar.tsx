@@ -66,7 +66,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
           {showMore ? (
             <Button
               type="link"
-              text={moreText || locale.moreText}
+              text={moreText ?? locale.moreText}
               onPress={onPressMore}
             />
           ) : null}

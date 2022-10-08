@@ -122,7 +122,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
         />
 
         <Button
-          text={searchText || locale.searchText}
+          text={searchText ?? locale.searchText}
           type="primary"
           size="s"
           onPress={onPress}

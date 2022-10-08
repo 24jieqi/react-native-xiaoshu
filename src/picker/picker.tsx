@@ -50,7 +50,7 @@ const Picker: React.FC<PickerProps> = ({
           suppressHighlighting
           style={STYLES.cancel_text}
           onPress={restProps.loading ? undefined : onCancel}>
-          {cancelButtonText || locale.cancelButtonText}
+          {cancelButtonText ?? locale.cancelButtonText}
         </Text>
       }
       rightExtra={
@@ -58,7 +58,7 @@ const Picker: React.FC<PickerProps> = ({
           suppressHighlighting
           style={STYLES.confirm_text}
           onPress={restProps.loading ? undefined : onConfirm}>
-          {confirmButtonText || locale.confirmButtonText}
+          {confirmButtonText ?? locale.confirmButtonText}
         </Text>
       }
     />

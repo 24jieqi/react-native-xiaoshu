@@ -53,7 +53,7 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
     _contentTextStyle,
   ]
   const line1JSX = renderTextLikeJSX(
-    [start, split || locale.split].join(' '),
+    [start, split ?? locale.split].join(' '),
     textStyles,
   )
   const line2JSX = renderTextLikeJSX(end, textStyles)

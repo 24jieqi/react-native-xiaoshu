@@ -37,7 +37,7 @@ const Empty: React.FC<EmptyProps> = ({
       status="info"
       renderIcon={() => iconJSX}
       style={[STYLES.empty, full ? STYLES.emptyFull : null, style]}
-      subtitle={text || locale.text}
+      subtitle={text ?? locale.text}
       subtitleTextStyle={[STYLES.text, textStyle]}
     />
   )

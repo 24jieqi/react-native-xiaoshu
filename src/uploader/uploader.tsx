@@ -110,7 +110,7 @@ const Uploader = <T extends UploaderValue>({
             />
           )}
           <Text style={STYLES.upload_text}>
-            {uploadText || locale.uploadText}
+            {uploadText ?? locale.uploadText}
           </Text>
         </UploaderImage>
       ) : null}

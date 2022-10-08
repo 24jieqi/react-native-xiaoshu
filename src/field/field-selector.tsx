@@ -40,7 +40,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
     Keyboard.dismiss()
     if (editable) {
       Selector({
-        title: selectorTitle || locale.selectorTitle,
+        title: selectorTitle ?? locale.selectorTitle,
         multiple,
         options,
         value,
