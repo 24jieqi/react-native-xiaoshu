@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useEffect, memo } from 'react'
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  memo,
+  isValidElement,
+} from 'react'
 import type { ViewStyle } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 
@@ -23,6 +29,8 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   failMessage,
   failIcon,
   onPressReload,
+  refreshText,
+  failExtra,
   extraLoading,
   overlayZIndex = 1000,
   syncRenderChildren = false,
@@ -118,14 +126,23 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         status="warning"
         subtitle={
           <Space head gap="l" align="center">
-            <Text style={STYLES.text}>{failMessage || locale.failMessage}</Text>
+            {isValidElement(failMessage) ? (
+              failMessage
+            ) : (
+              <Text style={STYLES.text}>
+                {failMessage ?? locale.failMessage}
+              </Text>
+            )}
+
             {onPressReload ? (
               <Button
                 style={STYLES.btn}
-                text={locale.labelRefreshText}
+                text={refreshText ?? locale.labelRefreshText}
                 onPress={onPressReloadPersistFn}
               />
             ) : null}
+
+            {failExtra}
           </Space>
         }
         renderIcon={() => {

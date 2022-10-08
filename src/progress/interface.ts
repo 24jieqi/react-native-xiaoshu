@@ -109,7 +109,7 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
    * 加载失败提示
    * @default '加载失败，请稍后再试～'
    */
-  failMessage?: string
+  failMessage?: ReactNode
 
   /**
    * 自定义加载出错的图标
@@ -120,6 +120,16 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
    * 加载失败点击重新加载
    */
   onPressReload?: () => void
+
+  /**
+   * 刷新按钮文案
+   */
+  refreshText?: string
+
+  /**
+   * 加载失败额外扩展区域
+   */
+  failExtra?: ReactNode
 
   /**
    * 额外的 loading

@@ -27,6 +27,7 @@ export const styleCreator = (cv: ComponentVars) => {
     fail_page: {
       backgroundColor: cv.progress_page_background_color,
       flex: 1,
+      justifyContent: 'center',
     },
     text: {
       fontSize: cv.progress_page_text_font_size,
