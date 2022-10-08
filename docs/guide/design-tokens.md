@@ -14,6 +14,8 @@ group:
 
 <code inline src="./code/design-tokens-vars.tsx" />
 
+<Alert>以下代码仅用于组件变量转换为 markdown 表格语法，复制到组件文档下方。</Alert>
+
 ```js | pure
 var style2md = s => {
   const a = s
