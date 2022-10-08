@@ -1,3 +1,9 @@
+## [0.3.7-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.6...v0.3.7-beta.0) (2022-10-08)
+
+### Features
+
+- **Progress:** 🎸 新增更多自定义配置 ([c53bc71](https://github.com/hjfruit/react-native-xiaoshu/commit/c53bc710612cf2c0fe869f2a67001d71357aa773))
+
 ## [0.3.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.5...v0.3.6) (2022-10-06)
 
 ### Bug Fixes
