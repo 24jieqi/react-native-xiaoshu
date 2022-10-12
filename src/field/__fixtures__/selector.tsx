@@ -28,6 +28,33 @@ const BasicFieldSelector: React.FC = () => {
         }}
       />
       <Field.Selector
+        title="单选:renderResultText"
+        placeholder="请选择"
+        value={s1}
+        options={options}
+        onChange={v => {
+          setS1(v as number)
+        }}
+        renderResultText={(_, opts) => {
+          if (opts.length) {
+            return (
+              <>
+                <Text
+                  style={{ textAlign: 'right', fontSize: 14, color: '#666' }}>
+                  {opts[0].label}
+                </Text>
+                <Text
+                  style={{ textAlign: 'right', fontSize: 12, color: '#098' }}>
+                  其他描述
+                </Text>
+              </>
+            )
+          }
+
+          return undefined
+        }}
+      />
+      <Field.Selector
         title="单选:optionsLoading"
         placeholder="请选择"
         value={s1}

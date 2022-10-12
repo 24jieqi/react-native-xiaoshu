@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import type { ButtonOptionGroupProps } from '../button/interface'
@@ -29,7 +30,7 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**
    * 显示的文案
    */
-  value?: string | number
+  value?: string | number | ReactNode
 }
 
 export interface CellPropsUsed extends Omit<CellPrivateProps, 'value'> {
@@ -76,6 +77,14 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
    * @default '请选择'
    */
   selectorTitle?: string
+
+  /**
+   * 自定义渲染选择后的结果文案
+   */
+  renderResultText?: (
+    value: SelectorPropsUsed['value'],
+    options: SelectorPropsUsed['options'],
+  ) => ReactNode
 }
 
 export interface FieldTextCellPropsUsed

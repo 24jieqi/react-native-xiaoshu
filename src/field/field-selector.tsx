@@ -27,6 +27,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   editable = true,
   clearable = false,
   selectorTitle,
+  renderResultText,
   search,
 
   isLink = true,
@@ -52,17 +53,23 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
   const hasValue = multiple
     ? isArray(value as SelectorValue[]) && (value as SelectorValue[]).length > 0
     : !isUndefined(value as SelectorValue)
-  const value2text = hasValue
+  const _value = hasValue
     ? ((multiple ? value : [value]) as SelectorValue[])
-        .map(o => {
-          const index = options.findIndex(ops => ops.value === o)
-          if (index >= 0) {
-            return options[index].label
-          }
-          return null
-        })
-        .filter(Boolean)
-        .join('、')
+    : undefined
+  const _option =
+    _value
+      ?.map(o => {
+        const index = options.findIndex(ops => ops.value === o)
+        if (index >= 0) {
+          return options[index]
+        }
+        return null
+      })
+      .filter(Boolean) ?? []
+  const value2text = hasValue
+    ? renderResultText
+      ? renderResultText(_value, _option)
+      : _option.map(o => o.label).join('、')
     : undefined
 
   return (
