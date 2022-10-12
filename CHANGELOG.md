@@ -1,3 +1,9 @@
+## [0.3.7-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.0...v0.3.7-beta.1) (2022-10-12)
+
+### Features
+
+- **Field:** 🎸 输入项 Field.Selector 新增 renderResultText ([1e7877d](https://github.com/hjfruit/react-native-xiaoshu/commit/1e7877df7a5142a71330ac73c310cc5de366084c))
+
 ## [0.3.7-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.6...v0.3.7-beta.0) (2022-10-08)
 
 ### Features
