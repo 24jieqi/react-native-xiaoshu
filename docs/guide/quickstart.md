@@ -32,31 +32,6 @@ cd ios && pod install
 
 ## 引入组件
 
-### 自动按需引入组件 (推荐)
-
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。
-
-```bash
-# 安装插件
-yarn add babel-plugin-import --dev
-```
-
-在 babel.config.js 中添加配置
-
-```json
-{
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "@fruits-chain/react-native-xiaoshu",
-        "libraryDirectory": "lib/module" // JavaScript，如果是 TypeScript 可以直接使用 `src`
-      }
-    ]
-  ]
-}
-```
-
 ### 使用组件
 
 ```tsx | pure
