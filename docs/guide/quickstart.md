@@ -8,7 +8,7 @@ group:
   path: /guide
 ---
 
-> 通过本章节你可以了解到 `小暑` 的安装方法和基本使用姿势。
+> 通过本章节你可以了解到 `小暑` 的安装方法和基本使用方式。
 
 # 安装
 
@@ -24,6 +24,7 @@ npm i @fruits-chain/react-native-xiaoshu
 yarn add @fruits-chain/react-native-xiaoshu
 
 ## 额外依赖
+## react-native-svg@^12.4.1 结合项目的 React Native 选择一个合适的版本
 yarn add react-native-safe-area-context react-native-svg rc-field-form
 
 ## ios 依赖

@@ -1,5 +1,6 @@
 import type WebpackChain from 'webpack-chain'
 import { defineConfig } from 'dumi'
+import TOKENS from '@fruits-chain/design-tokens-bailu'
 import p from './package.json'
 const pkgJSON = require('./package.json')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -78,4 +79,9 @@ export default defineConfig({
   },
   locales: [['zh-CN', '中文']],
   styles: [],
+  theme: {
+    '@c-primary': TOKENS.brand_6,
+    '@c-text': TOKENS.gray_8,
+    '@c-secondary': TOKENS.gray_6,
+  },
 })
