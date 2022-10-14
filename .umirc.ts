@@ -62,8 +62,9 @@ export default defineConfig({
   mode: 'site',
   outputPath: 'docs-dist',
   hash: true,
-  favicon: 'https://avatars.githubusercontent.com/u/74942048',
-  logo: 'https://avatars.githubusercontent.com/u/74942048',
+  favicon:
+    'https://raw.githubusercontent.com/hjfruit/react-native-xiaoshu/main/logo-xiaoshu.svg',
+  logo: 'https://raw.githubusercontent.com/hjfruit/react-native-xiaoshu/main/logo-xiaoshu.svg',
   base: `/${repo}`,
   publicPath: `/${repo}`,
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
