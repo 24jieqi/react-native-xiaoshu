@@ -8,7 +8,6 @@ import { Text } from 'react-native'
 
 import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu'
 import {
-  Blank,
   Space,
   Popup,
   Card,
@@ -29,8 +28,8 @@ const BasicPopupPopup: React.FC = () => {
     show2: false,
   })
   return (
-    <Blank top>
-      <Card title="基础用法">
+    <>
+      <Card title="基础用法" square>
         <Space>
           {positions.map(p => {
             return (
@@ -112,7 +111,7 @@ const BasicPopupPopup: React.FC = () => {
           addonBefore="采购价"
         />
       </Popup>
-    </Blank>
+    </>
   )
 }
 

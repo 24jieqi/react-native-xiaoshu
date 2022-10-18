@@ -49,6 +49,8 @@ group:
 
 ### Popup.PageComponent
 
+`Popup.Page` 与 `Popup.PageComponent` 属性相同，`Popup.Page` 被 `Portal` 组件包裹，在根节点渲染。
+
 <API hideTitle src="./popup-page.tsx"></API>
 
 ### Popup.KeyboardShim

@@ -55,6 +55,8 @@ group:
 
 <code src="./__fixtures__/base.tsx"></code>
 
+<code src="./__fixtures__/divider.tsx"></code>
+
 <code src="./__fixtures__/layout.tsx"></code>
 
 <code src="./__fixtures__/extra.tsx"></code>

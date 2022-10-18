@@ -1,6 +1,6 @@
 /**
  * title: 扩展单元格
- * desc: 单元格支持一些自定义选项
+ * desc: 单元格支持各个部件的 style 覆盖。
  */
 
 import React from 'react'
@@ -12,16 +12,16 @@ const CellExtra: React.FC = () => {
   return (
     <>
       <Cell
-        title={<Text style={{ alignSelf: 'center' }}>自定义标题</Text>}
+        title={<Text style={{ alignSelf: 'center' }}>自定义 title JSX</Text>}
         value="显示文案"
       />
       <Cell
         title="标题"
-        valueStyle={{ justifyContent: 'center' }}
-        value={<Text>自定义文案</Text>}
+        valueStyle={{ justifyContent: 'center', alignItems: 'center' }}
+        value={<Text>自定义 value JSX</Text>}
       />
       <Cell
-        title="标题"
+        title="自定义样式"
         titleStyle={{
           backgroundColor: '#f5f5f5',
         }}
@@ -34,12 +34,12 @@ const CellExtra: React.FC = () => {
         valueTextStyle={{
           color: '#fff',
         }}
-        value="显示文案"
+        value="title、value 部件自定义样式"
       />
-      <Cell title="标题" value="显示文案" isLink arrowDirection="down" />
-      <Cell title="标题" value="显示文案" isLink arrowDirection="up" />
+      <Cell title="自定义箭头方向" value="down" isLink arrowDirection="down" />
+      <Cell title="自定义箭头方向" value="up" isLink arrowDirection="up" />
       <Cell
-        title="标题"
+        title="title 左侧扩展"
         value="显示文案"
         titleExtra={
           <Tag
@@ -53,7 +53,7 @@ const CellExtra: React.FC = () => {
         }
       />
       <Cell
-        title="标题"
+        title="value 与箭头之间的扩展"
         value="显示文案"
         valueExtra={
           <Tag
@@ -67,7 +67,7 @@ const CellExtra: React.FC = () => {
         }
       />
       <Cell
-        title="标题"
+        title="value 与箭头之间的扩展"
         value="显示文案"
         isLink
         valueExtra={

@@ -11,7 +11,7 @@ group:
 
 # Grid 栅格
 
-> 24 栅格系统。灵感来自 `Ant Design`
+> 24 栅格系统。灵感来自 `Ant Design`。
 
 ## 概述
 
