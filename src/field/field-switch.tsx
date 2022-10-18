@@ -16,7 +16,11 @@ function FieldSwitch<ActiveValueT = boolean, InactiveValueT = boolean>(
       {...cellProps}
       valueStyle={[
         // eslint-disable-next-line react-native/no-inline-styles
-        { flexDirection: 'row', justifyContent: 'flex-end' },
+        {
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+        },
         cellProps.valueStyle,
       ]}
       value={<Switch<ActiveValueT, InactiveValueT> {...otherProps} />}

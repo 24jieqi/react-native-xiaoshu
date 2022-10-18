@@ -16,6 +16,7 @@ const BasicFieldSwitch: React.FC = () => {
         onChange={v => {
           console.log(v)
         }}
+        size={16}
       />
 
       <Field.Switch
