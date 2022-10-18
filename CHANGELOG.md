@@ -1,3 +1,9 @@
+## [0.3.7-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.1...v0.3.7-beta.2) (2022-10-18)
+
+### Bug Fixes
+
+- **Field:** 🐛 修复 Field.Switch 开关居中 ([e7ea6bc](https://github.com/hjfruit/react-native-xiaoshu/commit/e7ea6bca3f9e0ff485dda8b9344962a60bace8aa))
+
 ## [0.3.7-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.0...v0.3.7-beta.1) (2022-10-12)
 
 ### Features
