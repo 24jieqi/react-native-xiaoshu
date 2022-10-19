@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 把各种场景、API 都运用了
+ * desc: 组件 `Toast` 参数支持字符串或配置对象，当 `duration` 为 `0` 的时候不会主动消失。
  */
 
 import React, { useState, useEffect, useRef } from 'react'
@@ -33,7 +33,7 @@ const BasicToast: React.FC = () => {
 
   return (
     <ScrollView>
-      <Cell.Group title="基础用法">
+      <Cell.Group title="奇怪的尝试">
         <Cell
           title="状态控制 loading"
           onPress={() => {
@@ -50,7 +50,7 @@ const BasicToast: React.FC = () => {
           }}
         />
         <Cell
-          title="文字提示:快速移除"
+          title="文字提示:快速移除:成功"
           isLink
           onPress={() => {
             const { close } = Toast.loading('提示内容')
@@ -59,9 +59,13 @@ const BasicToast: React.FC = () => {
               close()
             }, 0)
           }}
+          divider={false}
         />
+      </Cell.Group>
+
+      <Cell.Group title="基础用法">
         <Cell
-          title="文字提示"
+          title="文字提示:禁止背景点击"
           isLink
           onPress={() => {
             Toast({
@@ -71,7 +75,7 @@ const BasicToast: React.FC = () => {
           }}
         />
         <Cell
-          title="文字提示:换行"
+          title="文字提示:文案换行:禁止背景点击"
           isLink
           onPress={() => {
             Toast({
@@ -80,57 +84,7 @@ const BasicToast: React.FC = () => {
             })
           }}
         />
-        <Cell
-          title="加载提示"
-          isLink
-          onPress={() => {
-            Toast.loading({
-              message: '加载中...',
-              forbidPress: true,
-            })
-          }}
-        />
-        <Cell
-          title="加载提示倒计时"
-          isLink
-          onPress={() => {
-            let d = 3
-            const buildMsg = () => `倒计时 ${d} 秒...`
 
-            const ddd = Toast.loading({
-              message: buildMsg(),
-              forbidPress: true,
-              duration: 0,
-            })
-            const doLoop = () => {
-              if (d > 0) {
-                ddd.setMessage(buildMsg())
-
-                d -= 1
-
-                setTimeout(() => {
-                  doLoop()
-                }, 1000)
-              } else {
-                ddd.close()
-              }
-            }
-
-            doLoop()
-          }}
-        />
-        <Cell
-          title="加载提示2"
-          isLink
-          onPress={() => {
-            Toast({
-              type: 'loading',
-              loadingType: 'circular',
-              message: '加载中...',
-              forbidPress: true,
-            })
-          }}
-        />
         <Cell
           title="成功提示"
           isLink
@@ -159,9 +113,64 @@ const BasicToast: React.FC = () => {
         />
       </Cell.Group>
 
+      <Cell.Group title="loading">
+        <Cell
+          title="加载提示:禁止背景点击"
+          isLink
+          onPress={() => {
+            Toast.loading({
+              message: '加载中...',
+              forbidPress: true,
+            })
+          }}
+        />
+        <Cell
+          title="加载提示:禁止背景点击:另一个图标"
+          isLink
+          onPress={() => {
+            Toast({
+              type: 'loading',
+              loadingType: 'circular',
+              message: '加载中...',
+              forbidPress: true,
+            })
+          }}
+        />
+        <Cell
+          title="加载提示倒计时:禁止背景点击"
+          isLink
+          onPress={() => {
+            let d = 3
+            const buildMsg = () => `倒计时 ${d} 秒...`
+
+            const ddd = Toast.loading({
+              message: buildMsg(),
+              forbidPress: true,
+              duration: 0,
+            })
+            const doLoop = () => {
+              if (d > 0) {
+                ddd.setMessage(buildMsg())
+
+                d -= 1
+
+                setTimeout(() => {
+                  doLoop()
+                }, 1000)
+              } else {
+                ddd.close()
+              }
+            }
+
+            doLoop()
+          }}
+          divider={false}
+        />
+      </Cell.Group>
+
       <Cell.Group title="自定义位置">
         <Cell
-          title="顶部展示"
+          title="顶部展示:禁止背景点击"
           isLink
           onPress={() => {
             Toast({
@@ -172,7 +181,7 @@ const BasicToast: React.FC = () => {
           }}
         />
         <Cell
-          title="底部展示"
+          title="底部展示:禁止背景点击"
           isLink
           divider={false}
           onPress={() => {

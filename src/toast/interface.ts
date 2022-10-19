@@ -27,7 +27,7 @@ export interface ToastProps
   position?: 'top' | 'bottom' | 'middle'
 
   /**
-   * 文本内容，(支持模板字符串\n换行)?
+   * 文本内容(支持模板字符串\n换行)
    * @default ''
    */
   message?: string
