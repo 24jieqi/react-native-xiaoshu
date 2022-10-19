@@ -1,3 +1,9 @@
+## [0.3.7-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.2...v0.3.7-beta.3) (2022-10-18)
+
+### Bug Fixes
+
+- **Description:** 🐛 上下文默认值 ([b17c7e6](https://github.com/hjfruit/react-native-xiaoshu/commit/b17c7e6b3c9bfbf01347ce3df73bcd341179c319))
+
 ## [0.3.7-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.1...v0.3.7-beta.2) (2022-10-18)
 
 ### Bug Fixes
