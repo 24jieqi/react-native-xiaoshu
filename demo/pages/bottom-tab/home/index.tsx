@@ -1,6 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 
+import { Blank } from '@fruits-chain/react-native-xiaoshu'
+
+import { LocalLangSwitch } from '@/app.context'
 import Layout from '@/layouts/layout'
 import type { BottomTabScreenProps } from '@/routes'
 import { sceneContainerStyle } from '@/routes/config'
@@ -12,9 +15,10 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
     <Layout.Page
       headerShown={false}
       headerBackgroundColor={sceneContainerStyle.backgroundColor as string}>
-      <View style={Styles.page}>
+      <Blank top>
         <Text style={Styles.title}>小暑</Text>
         <Text>🌈 轻量、可靠的 React Native 组件库</Text>
+        <LocalLangSwitch />
 
         <Text
           style={Styles.demo}
@@ -47,17 +51,12 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           }}>
           弹出层中有输入框
         </Text>
-      </View>
+      </Blank>
     </Layout.Page>
   )
 }
 
 const Styles = StyleSheet.create({
-  page: {
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-  },
-
   title: {
     fontSize: 18,
     fontWeight: 'bold',
