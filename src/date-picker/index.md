@@ -34,3 +34,7 @@ group:
 ### DatePicker.RangeView
 
 <API hideTitle src="./date-picker-range-view.tsx"></API>
+
+## 主题定制
+
+参考 [Picker](./picker) 主题定制，`picker_date_**` 相关。
