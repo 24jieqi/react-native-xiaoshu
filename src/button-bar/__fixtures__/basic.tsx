@@ -65,6 +65,20 @@ const BasicButtonBar: React.FC = () => {
             safeAreaInsetBottom={false}
             buttons={[
               {
+                text: '没有可用的按钮，整个 ButtonBar 渲染成 null',
+                type: 'primary',
+                onPress: () => {
+                  console.log('??')
+                },
+                hidden: true,
+              },
+            ]}
+          />
+
+          <ButtonBar
+            safeAreaInsetBottom={false}
+            buttons={[
+              {
                 text: '主要按钮1',
                 type: 'primary',
                 onPress: () => {

@@ -49,6 +49,10 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
 
   const defaultGap = CV_BLANK[`blank_size_${blankSize}`]
 
+  if (isConfig && realButtons.length === 0) {
+    return null
+  }
+
   return (
     <BottomBar
       {...restProps}
