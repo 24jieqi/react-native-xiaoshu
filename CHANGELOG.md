@@ -1,3 +1,9 @@
+## [0.3.7-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.3...v0.3.7-beta.4) (2022-10-25)
+
+### Features
+
+- **ButtonBar:** 🎸 当没有可见的按钮组的时候不渲染 ([25822f2](https://github.com/hjfruit/react-native-xiaoshu/commit/25822f22e8c948492337679e214534c1044a61ec))
+
 ## [0.3.7-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.2...v0.3.7-beta.3) (2022-10-18)
 
 ### Bug Fixes
