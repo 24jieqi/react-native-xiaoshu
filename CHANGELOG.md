@@ -1,3 +1,9 @@
+## [0.3.7-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.4...v0.3.7-beta.5) (2022-10-26)
+
+### Features
+
+- **Description:** 🎸 children 是空字符串的时候显示 empty 占位字符串 ([e53a419](https://github.com/hjfruit/react-native-xiaoshu/commit/e53a4191ca0d4e4e24499b61a49d8d74111aa118))
+
 ## [0.3.7-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.3...v0.3.7-beta.4) (2022-10-25)
 
 ### Features
