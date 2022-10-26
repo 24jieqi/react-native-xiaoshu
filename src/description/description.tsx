@@ -112,7 +112,7 @@ const Description: React.FC<DescriptionProps> = ({
 
   // 判断是否渲染空数据占位符
   const renderContentJSX =
-    (isNil(contentJSX) || text === '') && _showEmpty
+    (isNil(contentJSX) || text === '' || children === '') && _showEmpty
       ? renderText(_empty)
       : contentJSX
 
