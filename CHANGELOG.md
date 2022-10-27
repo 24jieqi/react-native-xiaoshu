@@ -1,3 +1,9 @@
+## [0.3.7-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.5...v0.3.7-beta.6) (2022-10-27)
+
+### Bug Fixes
+
+- **ActionSheet:** 🐛 响应选项的 callback ([e8c03c8](https://github.com/hjfruit/react-native-xiaoshu/commit/e8c03c81f8e30940424cf2ab2d026acb2ae86df0))
+
 ## [0.3.7-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.4...v0.3.7-beta.5) (2022-10-26)
 
 ### Features
