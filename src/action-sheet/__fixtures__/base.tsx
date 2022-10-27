@@ -30,6 +30,20 @@ const ActionSheetBase: React.FC = () => {
           }}
         />
         <Cell
+          title="独立 callback"
+          isLink
+          onPress={() => {
+            ActionSheet({
+              actions: new Array(3).fill(0).map((_, index) => ({
+                name: `选项${index}`,
+                callback: () => {
+                  console.log(index)
+                },
+              })),
+            }).catch(() => {})
+          }}
+        />
+        <Cell
           title="出现滚动条"
           isLink
           onPress={() => {

@@ -74,6 +74,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
                 textStyle={STYLES.button_text}
                 onPress={() => {
                   if (!item.disabled && !item.loading) {
+                    item.callback?.()
                     onSelect?.(item, index)
                   }
                 }}
