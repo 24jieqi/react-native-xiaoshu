@@ -44,8 +44,12 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
       )
 
       return () => {
+        // TODO 旧版本如何做兼容
+        // @ts-ignore
         if (Keyboard.removeListener) {
+          // @ts-ignore
           Keyboard.removeListener('keyboardWillShow', keyboardDidShow)
+          // @ts-ignore
           Keyboard.removeListener('keyboardWillHide', keyboardDidHide)
         } else {
           _keyboardDidShow.remove?.()
