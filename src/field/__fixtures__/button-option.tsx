@@ -20,8 +20,19 @@ const BasicFieldButtonOption: React.FC = () => {
   return (
     <Cell.Group title="Field Button Option">
       <Field.ButtonOption title="标题:单选" options={options} />
+      <Field.ButtonOption
+        title="标题:单选:outline"
+        type="outline"
+        options={options}
+      />
       <Field.ButtonOption title="标题:单选" options={options2} vertical />
       <Field.ButtonOption title="标题:多选" options={options} multiple />
+      <Field.ButtonOption
+        title="标题:多选:outline"
+        type="outline"
+        options={options}
+        multiple
+      />
       <Field.ButtonOption
         title="标题:多选"
         options={options2}

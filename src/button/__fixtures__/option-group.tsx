@@ -11,6 +11,7 @@ import {
   Space,
   Divider,
 } from '@fruits-chain/react-native-xiaoshu'
+import { View } from 'react-native'
 
 const options = new Array(10).fill(0).map((_, index) => ({
   value: index + 1,
@@ -27,6 +28,30 @@ const ButtonOptionGroup: React.FC = () => {
       <Card title="选项按钮组" square>
         <Space>
           <Button.OptionGroup options={options} scrollable defaultValue={2} />
+
+          <Divider />
+
+          <Button.OptionGroup
+            options={options}
+            type="outline"
+            scrollable
+            defaultValue={2}
+          />
+
+          <Divider />
+
+          <View
+            style={{
+              padding: 4,
+              backgroundColor: '#f5f5f5',
+            }}>
+            <Button.OptionGroup
+              options={options}
+              type="white"
+              scrollable
+              defaultValue={2}
+            />
+          </View>
 
           <Divider />
 

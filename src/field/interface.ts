@@ -320,4 +320,5 @@ export interface FieldButtonOptionProps
       | 'onChange'
       | 'multiple'
       | 'editable'
+      | 'type'
     > {}

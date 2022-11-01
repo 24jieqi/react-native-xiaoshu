@@ -24,6 +24,38 @@ const ButtonOption: React.FC = () => {
         <Space>
           <Button.Option text="Option" onPress={onPress} />
           <Button.Option text="Option" onPress={onPress} active />
+          <Button.Option
+            text="Option:outline"
+            type="outline"
+            onPress={onPress}
+          />
+          <Button.Option
+            text="Option:outline"
+            type="outline"
+            onPress={onPress}
+            active
+          />
+          <Button.Option
+            text="Option:white:边框颜色是白色的outline"
+            type="white"
+            onPress={onPress}
+          />
+          <Button.Option
+            text="Option:white:边框颜色是白色的outline"
+            type="white"
+            onPress={onPress}
+            active
+          />
+        </Space>
+
+        <Divider />
+
+        <Space>
+          <Button.Option text="大小:xs" size="xs" onPress={onPress} />
+          <Button.Option text="大小:s:默认" size="s" onPress={onPress} active />
+          <Button.Option text="大小:m" size="m" onPress={onPress} />
+          <Button.Option text="大小:l" size="l" onPress={onPress} active />
+          <Button.Option text="大小:xl" size="xl" onPress={onPress} />
         </Space>
 
         <Divider />
@@ -31,6 +63,8 @@ const ButtonOption: React.FC = () => {
         <Space direction="horizontal">
           <Button.Option text="最小" onPress={onPress} />
           <Button.Option text="宽度" onPress={onPress} />
+          <Button.Option text="最小" type="outline" onPress={onPress} />
+          <Button.Option text="宽度" type="outline" onPress={onPress} />
         </Space>
 
         <Space direction="horizontal">
@@ -46,9 +80,49 @@ const ButtonOption: React.FC = () => {
         </Space>
 
         <Space direction="horizontal">
+          <Button.Option
+            text="最小"
+            type="outline"
+            onPress={onPress}
+            disabled
+          />
+          <Button.Option
+            text="宽度"
+            type="outline"
+            onPress={onPress}
+            disabled
+            active
+          />
+          <Button.Option
+            text="宽度"
+            type="outline"
+            onPress={onPress}
+            disabled
+            active
+            activeHighlight={false}
+          />
+        </Space>
+
+        <Space direction="horizontal">
           <Button.Option text="激活状态" onPress={onPress} active />
           <Button.Option
             text="激活不高亮"
+            onPress={onPress}
+            active
+            activeHighlight={false}
+          />
+        </Space>
+
+        <Space direction="horizontal">
+          <Button.Option
+            text="激活状态:outline"
+            type="outline"
+            onPress={onPress}
+            active
+          />
+          <Button.Option
+            text="激活不高亮:outline"
+            type="outline"
             onPress={onPress}
             active
             activeHighlight={false}
@@ -70,6 +144,35 @@ const ButtonOption: React.FC = () => {
           />
           <Button.Option
             text="06-07"
+            badge={<ArrowDownOutline size={14} color="#5D626B" />}
+            active
+          />
+        </Space>
+
+        <Space direction="horizontal">
+          <Button.Option
+            text="Option"
+            type="outline"
+            onPress={onPress}
+            badge={1}
+            active
+          />
+          <Button.Option
+            text="Option"
+            type="outline"
+            onPress={onPress}
+            badge={1}
+            active
+            activeHighlight={false}
+          />
+          <Button.Option
+            text="06-07"
+            type="outline"
+            badge={<ArrowDownOutline size={14} color="#5D626B" />}
+          />
+          <Button.Option
+            text="06-07"
+            type="outline"
             badge={<ArrowDownOutline size={14} color="#5D626B" />}
             active
           />

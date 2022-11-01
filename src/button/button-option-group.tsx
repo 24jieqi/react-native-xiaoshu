@@ -10,6 +10,7 @@ import type { ButtonOptionGroupProps } from './interface'
 
 function ButtonOptionGroup<T = any>({
   activeHighlight = true,
+  type = 'hazy',
   editable = true,
   scrollable = false,
 
@@ -34,6 +35,7 @@ function ButtonOptionGroup<T = any>({
         return (
           <ButtonOption
             key={`${item.value}`}
+            type={type}
             text={item.label}
             badge={item.badge}
             disabled={item.disabled}

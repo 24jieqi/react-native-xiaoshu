@@ -109,6 +109,12 @@ export interface ButtonOptionProps
    * 显示的数量
    */
   badge?: React.ReactNode
+
+  /**
+   * 类型
+   * @default 'hazy'
+   */
+  type?: 'hazy' | 'outline' | 'white'
 }
 
 export interface ButtonOptionGroupProps<TValue = any>
@@ -118,6 +124,12 @@ export interface ButtonOptionGroupProps<TValue = any>
    * @default true
    */
   activeHighlight?: boolean
+
+  /**
+   * 类型
+   * @default 'hazy'
+   */
+  type?: ButtonOptionProps['type']
 
   options: {
     value: TValue
@@ -143,6 +155,7 @@ export interface ButtonOptionGroupProps<TValue = any>
       label: string
       disabled?: boolean
       badge?: number
+      style?: ButtonOptionProps['style']
     }[],
   ) => void
   /**
