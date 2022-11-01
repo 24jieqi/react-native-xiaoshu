@@ -1,3 +1,9 @@
+## [0.3.7-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.6...v0.3.7-beta.7) (2022-11-01)
+
+### Features
+
+- **Button:** 🎸 选项按钮 Button.Option 新增类型 ([bc0c64a](https://github.com/hjfruit/react-native-xiaoshu/commit/bc0c64a5e395143b3ba6adf0a00bb19fb60dd890))
+
 ## [0.3.7-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.5...v0.3.7-beta.6) (2022-10-27)
 
 ### Bug Fixes
