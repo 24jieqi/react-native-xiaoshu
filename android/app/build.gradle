@@ -80,6 +80,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing
+    entryFile: "index.demo.js", // 新的入口文件，相对根目录的路径
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -128,6 +129,19 @@ def reactNativeArchitectures() {
     def value = project.getProperties().get("reactNativeArchitectures")
     return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
 }
+
+// 读取 package.json 中的信息
+def getPackage() {
+    def inputFile = new File("../package.json")
+    def slurper = new groovy.json.JsonSlurper()
+    def packageJson = slurper.parseText(inputFile.text)
+    return packageJson
+}
+
+def packageJSON = getPackage()
+def appVersion = packageJSON["version"]
+def appVersionCode = packageJSON["versionCode"]
+def appName = packageJSON["name"]
 
 android {
     ndkVersion rootProject.ext.ndkVersion
@@ -228,6 +242,14 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def outputFileSuffix = variant.flavorName == 'production' ? '' : ".${variant.flavorName}"
+                    if (variant.buildType.name == 'release') {
+                        outputFileName = "${appName}${outputFileSuffix}-v${appVersion}.apk" 
+                    }
+                }
+            }
         }
     }
 
