@@ -9,7 +9,6 @@ ios/
 node_modules/
 scripts/
 
-
 .umi
 .umi-production
 __tests__
@@ -23,6 +22,7 @@ src/**/*.md
 .eslintignore
 .eslintrc.js
 .gitattributes
+.node-version
 .umirc.ts
 .watchmanconfig
 CHANGELOG.md
@@ -34,6 +34,7 @@ commitlint.config.js
 index.demo.js
 jest-setup.js
 jest.config.js
+logo-xiaoshu.svg
 metro.config.js
 tsconfig.json
 tsconfig.*.json
