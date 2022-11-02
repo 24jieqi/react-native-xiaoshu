@@ -38,7 +38,7 @@ export interface UploaderProps<T> extends ViewProps {
    * @default Image
    */
   imageComponent?: ComponentType<{
-    source: ImageSourcePropType
+    source?: ImageSourcePropType
     [index: string]: any
   }>
 

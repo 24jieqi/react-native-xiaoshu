@@ -117,12 +117,16 @@ export default class PortalHost extends Component<PortalHostProps> {
     if (this.addTypeEmitter.remove) {
       this.addTypeEmitter.remove()
     } else {
+      // TODO 旧版本如何做兼容
+      // @ts-ignore
       TopViewEventEmitter.removeListener?.(addType, this.mount)
     }
 
     if (this.removeTypeEmitter.remove) {
       this.removeTypeEmitter.remove()
     } else {
+      // TODO 旧版本如何做兼容
+      // @ts-ignore
       TopViewEventEmitter.removeListener?.(removeType, this.unmount)
     }
   }
