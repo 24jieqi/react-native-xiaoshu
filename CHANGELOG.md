@@ -1,3 +1,9 @@
+## [0.3.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.7...v0.3.7) (2022-11-02)
+
+### Features
+
+- **NumberInput:** 🎸 默认键盘 ([26d186a](https://github.com/hjfruit/react-native-xiaoshu/commit/26d186ad6108125181870fe328041b55ba851ffa))
+
 ## [0.3.7-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.6...v0.3.7-beta.7) (2022-11-01)
 
 ### Features
