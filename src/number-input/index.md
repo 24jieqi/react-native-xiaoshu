@@ -13,6 +13,13 @@ group:
 
 > 在 TextInput 的基础是完善数字输入。
 
+不主动设置 `keyboardType` iOS、Android 默认不同的数字键盘。
+
+- iOS `numbers-and-punctuation`
+- Android `decimal-pad`
+
+[A visual guide to the React Native TextInput keyboardType prop values](https://lefkowitz.me/visual-guide-to-react-native-textinput-keyboardtype-options/)
+
 ## 元素结构
 
 参考 `TextInput`。

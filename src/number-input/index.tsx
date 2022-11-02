@@ -2,6 +2,7 @@ import isNil from 'lodash/isNil'
 import isUndefined from 'lodash/isUndefined'
 import noop from 'lodash/noop'
 import React, { useState, useCallback, useRef, memo, forwardRef } from 'react'
+import { Platform } from 'react-native'
 import type {
   NativeSyntheticEvent,
   TextInputEndEditingEventData,
@@ -41,10 +42,14 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
     },
     ref,
   ) => {
-    // iOS 数字键盘没有减号，负数无法输入，去掉限制，交给外部控制
-    // if (type === 'number') {
-    //   restProps.keyboardType = 'numeric'
-    // }
+    if (isNil(restProps.keyboardType)) {
+      if (Platform.OS === 'ios') {
+        restProps.keyboardType = 'numbers-and-punctuation'
+      }
+      if (Platform.OS === 'android') {
+        restProps.keyboardType = 'decimal-pad'
+      }
+    }
     if (type === 'digit') {
       // restProps.keyboardType = 'number-pad'
       limitDecimals = -1
