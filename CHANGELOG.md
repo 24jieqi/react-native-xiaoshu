@@ -1,3 +1,9 @@
+## [0.3.8-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7...v0.3.8-beta.0) (2022-11-04)
+
+### Features
+
+- **Button:** 🎸 新增 subtext 属性 ([0c1b112](https://github.com/hjfruit/react-native-xiaoshu/commit/0c1b11265204794c23e87af08535ad0639426a06))
+
 ## [0.3.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7-beta.7...v0.3.7) (2022-11-02)
 
 ### Features
