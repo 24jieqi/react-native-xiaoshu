@@ -1,3 +1,9 @@
+## [0.3.8-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.0...v0.3.8-beta.1) (2022-11-04)
+
+### Features
+
+- **Button:** 🎸 优化 Button.Option 禁用状态的样子 ([81a07a5](https://github.com/hjfruit/react-native-xiaoshu/commit/81a07a5d6672feee719ff0d43124ca8ed719b43f))
+
 ## [0.3.8-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.7...v0.3.8-beta.0) (2022-11-04)
 
 ### Features
