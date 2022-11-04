@@ -11,9 +11,14 @@ import type { SpaceProps } from '../space/interface'
 export interface ButtonProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'> {
   /**
-   * 按钮文字
+   * 按钮文案
    */
   text?: string
+
+  /**
+   * 按钮子文案
+   */
+  subtext?: string
 
   /**
    * 文字自定义样式

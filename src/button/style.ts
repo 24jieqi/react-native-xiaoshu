@@ -32,6 +32,9 @@ export const varCreator = (TOKENS: TokensType) => {
     button_ghost_background_color: 'transparent',
     button_hazy_lightness: 95,
     button_icon_gap: TOKENS.space_1,
+    button_subtext_line_height: 20,
+    button_subtext_font_size: 13,
+    button_subtext_opacity: 0.7,
     button_option_min_width: 62,
     button_option_badge_margin_left: TOKENS.space_1,
     button_option_badge_text_font_size: TOKENS.font_size_3,
@@ -50,6 +53,10 @@ export const styleCreator = (cv: ComponentVars) => {
       borderStyle: 'solid',
       paddingHorizontal: cv.button_padding_horizontal,
       borderRadius: cv.button_border_radius,
+    },
+
+    button_column: {
+      flexDirection: 'column',
     },
 
     button_disabled: {

@@ -4,7 +4,8 @@ import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { getDefaultValue } from '../helpers'
+import Flex from '../flex'
+import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { useDebounceFn } from '../hooks'
 import Loading from '../loading'
 import Theme from '../theme'
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   style,
   text,
+  subtext,
   textStyle,
   type = 'primary',
   danger = false,
@@ -96,6 +98,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const buttonStyles: StyleProp<ViewStyle> = [
     STYLES.button,
+    STYLES.button_column,
     {
       height: CV[`button_${size}_height`],
       backgroundColor: _backgroundColor,
@@ -139,10 +142,26 @@ const Button: React.FC<ButtonProps> = ({
     </Loading>
   ) : (
     <>
-      {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
-      <Text style={textStyleSummary} numberOfLines={1}>
-        {!isNil(text) ? text : children}
-      </Text>
+      <Flex direction="row" align="center" justify="center">
+        {renderLeftIcon ? renderLeftIcon(iconColor, iconSize) : null}
+        <Text style={textStyleSummary} numberOfLines={1}>
+          {!isNil(text) ? text : children}
+        </Text>
+      </Flex>
+      {renderTextLikeJSX(
+        subtext,
+        [
+          {
+            color: iconColor,
+            lineHeight: CV.button_subtext_line_height,
+            fontSize: CV.button_subtext_font_size,
+            opacity: CV.button_subtext_opacity,
+          },
+        ],
+        {
+          numberOfLines: 1,
+        },
+      )}
     </>
   )
 

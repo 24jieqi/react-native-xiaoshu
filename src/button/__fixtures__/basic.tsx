@@ -11,12 +11,14 @@ import ButtonSize from './size'
 import ButtonIcon from './icon'
 import ButtonOption from './option'
 import ButtonOptionGroup from './option-group'
+import ButtonSubtext from './subtext'
 
 const BasicButton: React.FC = () => {
   return (
     <ScrollView>
       <Space head tail>
         <ButtonType />
+        <ButtonSubtext />
         <ButtonDanger />
         <ButtonHairline />
         <ButtonDisabled />

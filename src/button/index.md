@@ -43,6 +43,8 @@ group:
 
 <code src="./__fixtures__/type.tsx"></code>
 
+<code src="./__fixtures__/subtext.tsx"></code>
+
 <code src="./__fixtures__/danger.tsx"></code>
 
 <code src="./__fixtures__/hairline.tsx"></code>
@@ -105,6 +107,9 @@ group:
 | button_ghost_background_color      | 'transparent'            | -    |
 | button_hazy_lightness              | 95                       | -    |
 | button_icon_gap                    | `TOKENS.space_1`         | -    |
+| button_subtext_line_height         | 20                       | -    |
+| button_subtext_font_size           | 13                       | -    |
+| button_subtext_opacity             | 0.7                      | -    |
 | button_option_min_width            | 62                       | -    |
 | button_option_badge_margin_left    | `TOKENS.space_1`         | -    |
 | button_option_badge_text_font_size | `TOKENS.font_size_3`     | -    |
