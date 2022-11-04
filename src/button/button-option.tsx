@@ -43,6 +43,13 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
       .hex()
   }, [CV.button_hazy_lightness, CV.button_primary_color, TOKENS.white, type])
   const inactiveBorderColor = useMemo(() => {
+    if (restProps.disabled) {
+      if (type === 'white') {
+        return TOKENS.white
+      }
+      return CV.button_option_disabled_border_color
+    }
+
     if (type === 'outline') {
       return TOKENS.gray_5
     }
@@ -52,7 +59,14 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
     }
 
     return inactiveBackgroundColor
-  }, [TOKENS.gray_5, TOKENS.white, inactiveBackgroundColor, type])
+  }, [
+    CV.button_option_disabled_border_color,
+    TOKENS.gray_5,
+    TOKENS.white,
+    inactiveBackgroundColor,
+    restProps.disabled,
+    type,
+  ])
   const activeBackgroundColor = useMemo(
     () => Color(CV.button_primary_color).fade(0.89).string(),
     [CV.button_primary_color],
@@ -76,8 +90,11 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
     ? children
     : renderTextLikeJSX(!isNil(children) ? children : text, [
         {
-          color:
-            active && activeHighlight ? CV.button_primary_color : TOKENS.gray_8,
+          color: restProps.disabled
+            ? CV.button_option_disabled_text_color
+            : active && activeHighlight
+            ? CV.button_primary_color
+            : TOKENS.gray_8,
           fontSize: CV[`button_${size}_font_size`],
         },
         textStyle,

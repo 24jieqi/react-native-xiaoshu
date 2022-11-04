@@ -39,6 +39,8 @@ export const varCreator = (TOKENS: TokensType) => {
     button_option_badge_margin_left: TOKENS.space_1,
     button_option_badge_text_font_size: TOKENS.font_size_3,
     button_option_badge_text_color: TOKENS.red_6,
+    button_option_disabled_border_color: TOKENS.gray_4,
+    button_option_disabled_text_color: TOKENS.gray_5,
   }
 }
 

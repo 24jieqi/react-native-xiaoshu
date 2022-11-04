@@ -17,6 +17,7 @@ const options = new Array(10).fill(0).map((_, index) => ({
   value: index + 1,
   label: `选项${index + 1}`,
   badge: index === 2 ? 10 : undefined,
+  disabled: index === 3,
 }))
 
 const ButtonOptionGroup: React.FC = () => {
