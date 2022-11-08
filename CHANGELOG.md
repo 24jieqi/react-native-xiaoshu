@@ -1,3 +1,9 @@
+## [0.3.8-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.1...v0.3.8-beta.2) (2022-11-08)
+
+### Features
+
+- **Button:** 🎸 新增取消选中 ([eec85a1](https://github.com/hjfruit/react-native-xiaoshu/commit/eec85a1569c7ba116e5e43405b90ee0ba643a717))
+
 ## [0.3.8-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.0...v0.3.8-beta.1) (2022-11-04)
 
 ### Features
