@@ -321,4 +321,5 @@ export interface FieldButtonOptionProps
       | 'multiple'
       | 'editable'
       | 'type'
+      | 'deselect'
     > {}

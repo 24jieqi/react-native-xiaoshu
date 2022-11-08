@@ -13,6 +13,7 @@ function ButtonOptionGroup<T = any>({
   type = 'hazy',
   editable = true,
   scrollable = false,
+  deselect = true,
 
   options,
   multiple,
@@ -64,7 +65,9 @@ function ButtonOptionGroup<T = any>({
                 onChange(newValue, newOptions)
               } else {
                 if (item.value === value) {
-                  onChange(null, [])
+                  if (deselect) {
+                    onChange(null, [])
+                  }
                 } else {
                   onChange(
                     item.value,

@@ -19,7 +19,11 @@ const options2 = new Array(8).fill(0).map((_, index) => ({
 const BasicFieldButtonOption: React.FC = () => {
   return (
     <Cell.Group title="Field Button Option">
-      <Field.ButtonOption title="标题:单选" options={options} />
+      <Field.ButtonOption
+        title="标题:单选"
+        options={options}
+        deselect={false}
+      />
       <Field.ButtonOption
         title="标题:单选:outline"
         type="outline"

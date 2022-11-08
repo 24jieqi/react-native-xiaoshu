@@ -28,7 +28,12 @@ const ButtonOptionGroup: React.FC = () => {
     <Space>
       <Card title="选项按钮组" square>
         <Space>
-          <Button.OptionGroup options={options} scrollable defaultValue={2} />
+          <Button.OptionGroup
+            options={options}
+            scrollable
+            defaultValue={2}
+            deselect={false}
+          />
 
           <Divider />
 
