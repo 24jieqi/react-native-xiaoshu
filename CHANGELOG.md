@@ -1,3 +1,9 @@
+## [0.3.8-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.2...v0.3.8-beta.3) (2022-11-09)
+
+### Features
+
+- **Dropdown:** 🎸 新增 contextStyle 属性 ([883489c](https://github.com/hjfruit/react-native-xiaoshu/commit/883489c7cfc74f8adf603f7c89b7dae680454991))
+
 ## [0.3.8-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.1...v0.3.8-beta.2) (2022-11-08)
 
 ### Features
