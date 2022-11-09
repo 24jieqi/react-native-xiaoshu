@@ -213,6 +213,11 @@ export interface DropdownPopupProps
    * @default true
    */
   showShade?: boolean
+
+  /**
+   * 内容包裹层的样式
+   */
+  contentStyle?: StyleProp<ViewStyle>
 }
 
 export interface DropdownSelectorMethodProps<T>

@@ -225,7 +225,11 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Popup
             {...popupProps}
             onPressShade={onPressShade}
-            onPressOverlay={onPressShade}>
+            onPressOverlay={onPressShade}
+            contentStyle={{
+              paddingVertical: 20,
+              borderTopLeftRadius: 4,
+            }}>
             <Button
               text="在里面"
               onPress={() => {

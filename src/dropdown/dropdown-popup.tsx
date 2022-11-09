@@ -24,6 +24,7 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
   onPressShade,
   safeAreaInset = true,
   showShade = true,
+  contentStyle,
 
   children,
   ...restProps
@@ -115,11 +116,14 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
           <View style={wrapperStyle}>
             {_isBottom && safeAreaInset ? placeholderJSX : null}
             <View
-              style={{
-                maxHeight:
-                  (wrapperStyle.maxHeight as number) - placeholderHeight,
-                backgroundColor: CV.dropdown_background_color,
-              }}>
+              style={[
+                {
+                  maxHeight:
+                    (wrapperStyle.maxHeight as number) - placeholderHeight,
+                  backgroundColor: CV.dropdown_background_color,
+                },
+                contentStyle,
+              ]}>
               {children}
             </View>
             {!_isBottom && safeAreaInset ? placeholderJSX : null}
