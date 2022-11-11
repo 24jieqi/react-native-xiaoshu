@@ -63,6 +63,9 @@ const localeValues: Locale = {
   StepSelector: {
     title: 'Please choose',
   },
+  TextInput: {
+    complete: 'Complete',
+  },
   Uploader: {
     uploadText: 'Image',
   },

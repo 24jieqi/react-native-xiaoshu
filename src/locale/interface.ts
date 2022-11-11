@@ -63,6 +63,9 @@ export interface Locale {
   StepSelector: {
     title: string
   }
+  TextInput: {
+    complete: string
+  }
   Uploader: {
     uploadText: string
   }

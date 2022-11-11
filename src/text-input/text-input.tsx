@@ -33,6 +33,7 @@ import {
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, renderTextLikeJSX } from '../helpers'
 import { usePersistFn, useControllableValue } from '../hooks'
+import Locale from '../locale'
 import Theme from '../theme'
 
 import type { TextInputProps, TextInputInstance } from './interface'
@@ -103,6 +104,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       showWordLimit = false
     }
 
+    const locale = Locale.useLocale().TextInput
     const TOKENS = Theme.useThemeTokens()
     const CV = Theme.createVar(TOKENS, varCreator)
     const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
@@ -372,7 +374,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
               <TouchableOpacity
                 onPress={onPressFinish}
                 activeOpacity={CV_BUTTON.button_active_opacity}>
-                <Text style={STYLES.accessory_text}>完成</Text>
+                <Text style={STYLES.accessory_text}>{locale.complete}</Text>
               </TouchableOpacity>
             </View>
           </InputAccessoryView>

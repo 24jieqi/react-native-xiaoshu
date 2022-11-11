@@ -63,6 +63,9 @@ const localeValues: Locale = {
   StepSelector: {
     title: '请选择',
   },
+  TextInput: {
+    complete: '完成',
+  },
   Uploader: {
     uploadText: '图片',
   },
