@@ -1,3 +1,10 @@
+## [0.3.8-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.3...v0.3.8-beta.4) (2022-11-11)
+
+### Bug Fixes
+
+- **TextInput:** 🐛 textarea 不可编辑的情况下不出现 InputAccessoryView ([c251cd4](https://github.com/hjfruit/react-native-xiaoshu/commit/c251cd451cd05529d978f8751c4bb4a5394d5f0f)), closes [#26](https://github.com/hjfruit/react-native-xiaoshu/issues/26)
+- **TextInput:** 🐛 textarea 软键盘右上角完成文案国际化 ([814e503](https://github.com/hjfruit/react-native-xiaoshu/commit/814e50320c0d9ebb358a00692fe227711f4f76c7))
+
 ## [0.3.8-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.2...v0.3.8-beta.3) (2022-11-09)
 
 ### Features
