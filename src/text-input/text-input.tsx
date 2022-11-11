@@ -300,7 +300,10 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
      * 显示辅助工具栏
      * @description 单行输入框回车键已具备收起键盘的作用
      */
-    const showInputAccessoryView = iOSPlatform && type !== 'text'
+    const showInputAccessoryView =
+      iOSPlatform &&
+      type !== 'text' &&
+      (isNil(resetProps.editable) || !!resetProps.editable)
     const keyboardAppearance =
       isUndefined(resetProps.keyboardAppearance) ||
       resetProps.keyboardAppearance === 'default'

@@ -217,7 +217,14 @@ const BasicTextInput: React.FC = () => {
         <Cell
           vertical
           title="textarea"
-          value={<TextInput type="textarea" placeholder="多行文本" bordered />}
+          value={
+            <TextInput
+              type="textarea"
+              editable={false}
+              placeholder="多行文本"
+              bordered
+            />
+          }
         />
 
         <Cell
