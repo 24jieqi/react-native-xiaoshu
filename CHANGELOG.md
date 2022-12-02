@@ -1,3 +1,15 @@
+## [0.3.9-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8...v0.3.9-beta.0) (2022-12-02)
+
+### Bug Fixes
+
+- **ButtonBar:** 🐛 自定义样式 ([b887ba4](https://github.com/hjfruit/react-native-xiaoshu/commit/b887ba46a246900382bc671dc82db734a87ba449))
+
+### Features
+
+- **ButtonBar:** 🎸 新增 ButtonBar.Confirm 组件 ([d73c121](https://github.com/hjfruit/react-native-xiaoshu/commit/d73c121ef91a5298153308825259955e38cd8150))
+- **Dropdown:** 🎸 添加 Dropdown.Multiple 组件 ([dac2fbb](https://github.com/hjfruit/react-native-xiaoshu/commit/dac2fbbc5094f9fc62c5705d3004bb45975f2dd1))
+- **Space:** 🎸 新增子元素最小宽 ([d568aab](https://github.com/hjfruit/react-native-xiaoshu/commit/d568aabcf6eebf994036b0a1b8bfcb35beaaab8b))
+
 ## [0.3.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.4...v0.3.8) (2022-11-24)
 
 ## [0.3.8-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8-beta.3...v0.3.8-beta.4) (2022-11-11)
