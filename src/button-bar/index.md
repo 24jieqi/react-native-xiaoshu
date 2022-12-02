@@ -32,7 +32,7 @@ group:
 
 <API hideTitle src="./button-bar.tsx"></API>
 
-### ButtonBar.Confirm
+### ButtonBar.Confirm <Badge>0.3.9+</Badge>
 
 <API hideTitle src="./button-bar-confirm.tsx"></API>
 
