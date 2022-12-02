@@ -35,6 +35,12 @@ const localeValues: Locale = {
   DropdownItem: {
     labelLoadingText: '加载中...',
   },
+  DropdownSelector: {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+    allButtonText: '全选',
+    notAllButtonText: '全不选',
+  },
   Empty: {
     text: '暂无数据',
   },

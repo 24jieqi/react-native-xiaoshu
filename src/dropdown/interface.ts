@@ -153,6 +153,25 @@ export interface DropdownItemProps<T>
   placeholder?: string
 }
 
+export interface DropdownMultipleProps<T>
+  extends Omit<DropdownItemProps<T>, 'value' | 'defaultValue' | 'onChange'>,
+    Pick<TreeProps, 'multipleMode'> {
+  /**
+   * 当前选中的选项值
+   */
+  value?: T[]
+
+  /**
+   * 默认值
+   */
+  defaultValue?: T[]
+
+  /**
+   * 点击选项导致 value 变化时触发
+   */
+  onChange?: (v: T[], d: DropdownItemOption<T>[]) => void
+}
+
 export interface DropdownContext
   extends Partial<
       Pick<DropdownTextProps, 'iconStyle' | 'activeColor' | 'direction'>
@@ -222,15 +241,18 @@ export interface DropdownPopupProps
 
 export interface DropdownSelectorMethodProps<T>
   extends Omit<
-    DropdownItemProps<T>,
-    | 'iconStyle'
-    | 'disabled'
-    | 'titleStyle'
-    | 'titleTextStyle'
-    | 'value'
-    | 'onChange'
-    | 'loading'
-  > {
+      DropdownItemProps<T>,
+      | 'iconStyle'
+      | 'disabled'
+      | 'titleStyle'
+      | 'titleTextStyle'
+      | 'value'
+      | 'defaultValue'
+      | 'onChange'
+      | 'loading'
+    >,
+    Pick<TreeProps, 'multiple' | 'multipleMode'> {
+  defaultValue?: T | T[]
   /**
    * 触发目标高度
    */
@@ -244,7 +266,7 @@ export interface DropdownSelectorMethodProps<T>
   /**
    * 类似确定的回调，当选择到最末端时触发，部分业务需要把选项其他值提取出来
    */
-  onConfirm?: (v: T, d: DropdownItemOption<T>) => void
+  onConfirm?: (v: T | T[], d: DropdownItemOption<T>[]) => void
 
   /**
    * 取消

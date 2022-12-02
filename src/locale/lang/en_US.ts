@@ -35,6 +35,12 @@ const localeValues: Locale = {
   DropdownItem: {
     labelLoadingText: 'loading...',
   },
+  DropdownSelector: {
+    confirmButtonText: 'Confirm',
+    cancelButtonText: 'Cancel',
+    allButtonText: 'All',
+    notAllButtonText: 'Not all',
+  },
   Empty: {
     text: 'No data',
   },

@@ -1,10 +1,12 @@
 import isNil from 'lodash/isNil'
-import React, { useCallback, useMemo, useEffect, memo } from 'react'
+import React, { useCallback, useMemo, useEffect, useState, memo } from 'react'
 import { Text, Keyboard } from 'react-native'
 
+import Button from '../button'
+import ButtonBar from '../button-bar'
 import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
-import useState from '../hooks/useStateUpdate'
+import Locale from '../locale'
 import Portal from '../portal'
 import Space from '../space'
 import Theme from '../theme'
@@ -35,11 +37,34 @@ const DropdownSelectorMethod = <T,>({
   search,
   onSearch,
   cancellable,
+  multiple,
+  multipleMode,
 }: DropdownSelectorMethodProps<T>) => {
+  const locale = Locale.useLocale().DropdownSelector
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_TREE = Theme.createVar(TOKENS, Tree.varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
+  const [multipleValue, setMultipleValue] = useState<T[]>(
+    multiple ? (defaultValue as T[]) || [] : [],
+  )
+  const allOptions = useMemo(() => {
+    const findNode = (op: DropdownItemOption<T>[]) => {
+      const ooo: DropdownItemOption<T>[] = []
+
+      op.forEach(o => {
+        ooo.push(o)
+
+        if (o.children?.length) {
+          ooo.push(...findNode(o.children))
+        }
+      })
+
+      return ooo
+    }
+
+    return findNode(options)
+  }, [options])
 
   const _activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
 
@@ -99,6 +124,23 @@ const DropdownSelectorMethod = <T,>({
     setVisible(true)
   }, [])
 
+  const findNodeByValue = (
+    tree: DropdownItemOption<T>[],
+    value: T,
+  ): DropdownItemOption<T> => {
+    for (const item of tree) {
+      if (item.value === value) {
+        return item
+      }
+      if (item.children) {
+        const _v = findNodeByValue(item.children, value)
+        if (_v) {
+          return _v
+        }
+      }
+    }
+  }
+
   const onPressShade = useCallback(() => {
     setVisible(false)
     Keyboard.dismiss()
@@ -110,29 +152,28 @@ const DropdownSelectorMethod = <T,>({
     return true
   })
 
-  const onChangePersistFn = usePersistFn((v: TreeValue) => {
+  const onChangePersistFn = usePersistFn((v: TreeValue | TreeValue[]) => {
+    if (multiple) {
+      setMultipleValue(v as T[])
+    } else {
+      setVisible(false)
+      Keyboard.dismiss()
+      const _v = v as unknown as T
+      const _o = findNodeByValue(options, _v)
+      onConfirm?.(_v as unknown as T, _o ? [_o] : [])
+    }
+  })
+
+  const onConfirmMultiple = usePersistFn(() => {
     setVisible(false)
     Keyboard.dismiss()
 
-    const findNodeByValue = (
-      tree: DropdownItemOption<T>[],
-      value: T,
-    ): DropdownItemOption<T> => {
-      for (const item of tree) {
-        if (item.value === value) {
-          return item
-        }
-        if (item.children) {
-          const _v = findNodeByValue(item.children, value)
-          if (_v) {
-            return _v
-          }
-        }
-      }
-    }
-
-    const _v = v as unknown as T
-    onConfirm?.(_v as unknown as T, findNodeByValue(options, _v))
+    onConfirm?.(
+      multipleValue,
+      multipleValue.map(item => {
+        return findNodeByValue(options, item)
+      }),
+    )
   })
 
   return (
@@ -152,12 +193,50 @@ const DropdownSelectorMethod = <T,>({
         activeColor={_activeColor}
         minHeight={false}
         search={search}
-        defaultValue={defaultValue as unknown as string}
         options={treeOptions}
         onChange={onChangePersistFn}
         onSearch={onSearch}
         cancellable={cancellable}
+        multiple={multiple}
+        multipleMode={multipleMode}
+        {...(multiple
+          ? {
+              value: multipleValue as string[],
+            }
+          : {
+              defaultValue: defaultValue as unknown as string,
+            })}
       />
+      {multiple ? (
+        <ButtonBar.Confirm
+          safeAreaInsetBottom={false}
+          cancel={[
+            <Button
+              key="2"
+              type="link"
+              text={
+                allOptions.length !== multipleValue.length
+                  ? locale.allButtonText
+                  : locale.notAllButtonText
+              }
+              onPress={() => {
+                if (allOptions.length !== multipleValue.length) {
+                  setMultipleValue(allOptions.map(i => i.value))
+                } else {
+                  setMultipleValue([])
+                }
+              }}
+            />,
+            <Button
+              key="1"
+              type="hazy"
+              text={locale.cancelButtonText}
+              onPress={onPressShade}
+            />,
+          ]}>
+          <Button text={locale.confirmButtonText} onPress={onConfirmMultiple} />
+        </ButtonBar.Confirm>
+      ) : null}
     </DropdownPopup>
   )
 }
@@ -167,7 +246,7 @@ const DropdownSelectorMethodMemo = memo(DropdownSelectorMethod) as <T>(
 ) => React.ReactElement
 
 export default <T,>(opt: Omit<DropdownSelectorMethodProps<T>, 'onClosed'>) => {
-  return new Promise<{ value: T; data: DropdownItemOption<T> }>(
+  return new Promise<{ value: T | T[]; data: DropdownItemOption<T>[] }>(
     (resolve, reject) => {
       const key = Portal.add(
         <DropdownSelectorMethodMemo<T>

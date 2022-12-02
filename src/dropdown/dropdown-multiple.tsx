@@ -9,9 +9,9 @@ import Locale from '../locale'
 import { useDropdownConfig } from './context'
 import DropdownSelector from './dropdown-selector'
 import DropdownText from './dropdown-text'
-import type { DropdownItemProps, DropdownItemOption } from './interface'
+import type { DropdownMultipleProps, DropdownItemOption } from './interface'
 
-const DropdownItem = <T,>({
+const DropdownMultiple = <T,>({
   titleStyle,
   titleTextStyle,
   options,
@@ -24,29 +24,27 @@ const DropdownItem = <T,>({
   search,
   onSearch,
   cancellable,
+  multipleMode,
 
   ...restProps
-}: DropdownItemProps<T>) => {
+}: DropdownMultipleProps<T>) => {
   const locale = Locale.useLocale().DropdownItem
   const config = useDropdownConfig()
   const [active, setActive] = useState(false)
-  const [value, onChange] = useControllableValue<T>(restProps)
-  const _selectOption = useMemo(() => {
+  const [value, onChange] = useControllableValue<T[]>(restProps)
+  const _selectOptionLabel = useMemo(() => {
     if (loading) {
-      return {
-        label: locale.labelLoadingText,
-        value: null,
-      }
+      return locale.labelLoadingText
     }
 
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    let selectOption = {} as DropdownItemOption<T>
+    const _label: string[] = []
 
     const findX = (list: DropdownItemOption<T>[]) => {
       list.forEach(item => {
-        if (item.value === value) {
-          selectOption = item
-        } else if (item.children?.length) {
+        if (value?.indexOf(item.value) > -1) {
+          _label.push(item.label)
+        }
+        if (item.children?.length) {
           findX(item.children)
         }
       })
@@ -54,7 +52,7 @@ const DropdownItem = <T,>({
 
     findX(options)
 
-    return selectOption
+    return _label.join('、')
   }, [loading, locale.labelLoadingText, options, value])
 
   duration = getDefaultValue(duration, config.duration)
@@ -72,7 +70,7 @@ const DropdownItem = <T,>({
       DropdownSelector({
         targetHeight: height,
         targetPageY: pageY,
-        defaultValue: value,
+        defaultValue: !isNil(value) ? value : [],
         options,
         duration,
         zIndex,
@@ -81,9 +79,11 @@ const DropdownItem = <T,>({
         search,
         onSearch,
         cancellable,
+        multiple: true,
+        multipleMode,
       })
         .then(d => {
-          onChange(d.value as T, d.data[0])
+          onChange(d.value as T[], d.data)
         })
         .catch(() => {})
         .finally(() => {
@@ -97,8 +97,11 @@ const DropdownItem = <T,>({
       {...restProps}
       style={titleStyle}
       textStyle={titleTextStyle}
-      title={!isNil(_selectOption.label) ? _selectOption.label : placeholder}
-      badge={_selectOption.badge}
+      title={
+        !isNil(_selectOptionLabel) && !!_selectOptionLabel
+          ? _selectOptionLabel
+          : placeholder
+      }
       active={active}
       onPress={onPressText}
       disabled={restProps.disabled || loading}
@@ -106,6 +109,6 @@ const DropdownItem = <T,>({
   )
 }
 
-export default memo(DropdownItem) as <T>(
-  p: DropdownItemProps<T>,
+export default memo(DropdownMultiple) as <T>(
+  p: DropdownMultipleProps<T>,
 ) => React.ReactElement

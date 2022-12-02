@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useRef, useCallback } from 'react'
-import { View, ScrollView } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 
 import {
   Cell,
@@ -75,11 +75,13 @@ const BasicDropdown: React.FC = () => {
   return (
     <ScrollView scrollsToTop={false} style={{ backgroundColor: '#f5f5f5' }}>
       <Cell.Group title="基础用法">
+        <Text>暂无数据</Text>
         <Dropdown>
           <Dropdown.Item options={[]} placeholder="请选择" />
         </Dropdown>
         <View style={{ height: 200 }} />
 
+        <Text>自定义布局 左右对齐</Text>
         <Dropdown
           style={{ justifyContent: 'space-between', paddingHorizontal: 12 }}>
           <Dropdown.Item
@@ -108,6 +110,7 @@ const BasicDropdown: React.FC = () => {
 
         <View style={{ height: 200 }} />
 
+        <Text>禁用下拉框</Text>
         <Dropdown divider={false}>
           <Dropdown.Item
             disabled
@@ -125,6 +128,7 @@ const BasicDropdown: React.FC = () => {
 
         <View style={{ height: 200 }} />
 
+        <Text>下拉选项加载中、自定义高亮颜色</Text>
         <Dropdown direction="up" activeColor="#f30">
           <Dropdown.Item
             loading
@@ -151,6 +155,7 @@ const BasicDropdown: React.FC = () => {
 
         <View style={{ height: 500 }} />
 
+        <Text>自定义高亮颜色、有角标与无角标</Text>
         <Dropdown direction="up" activeColor="#f30">
           <Dropdown.Item
             options={itemOptions}
@@ -176,6 +181,7 @@ const BasicDropdown: React.FC = () => {
 
         <View style={{ height: 500 }} />
 
+        <Text>树形结构选项、有无搜索</Text>
         <Dropdown>
           <Dropdown.Item
             search
@@ -191,6 +197,7 @@ const BasicDropdown: React.FC = () => {
 
         <View style={{ height: 500 }} />
 
+        <Text>选中后可以取消</Text>
         <Dropdown>
           <Dropdown.Item
             placeholder="商品类目"
@@ -201,6 +208,22 @@ const BasicDropdown: React.FC = () => {
             }}
             cancellable
           />
+        </Dropdown>
+
+        <View style={{ height: 500 }} />
+
+        <Text>多选</Text>
+        <Dropdown>
+          <Dropdown.Multiple
+            search
+            options={itemOptions3}
+            onChange={(v, d) => {
+              console.log(v)
+              console.log(d)
+            }}
+            placeholder="可以多选"
+          />
+          <Dropdown.Multiple options={itemOptions3} placeholder="可以多选2" />
         </Dropdown>
 
         <View style={{ height: 500 }} />

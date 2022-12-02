@@ -35,6 +35,12 @@ export interface Locale {
   DropdownItem: {
     labelLoadingText: string
   }
+  DropdownSelector: {
+    confirmButtonText: string
+    cancelButtonText: string
+    allButtonText: string
+    notAllButtonText: string
+  }
   Empty: {
     text: string
   }

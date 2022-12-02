@@ -37,6 +37,10 @@ group:
 
 <API hideTitle src="./dropdown-item.tsx">
 
+### Dropdown.Text <Badge>0.3.9+</Badge>
+
+<API hideTitle src="./dropdown-multiple.tsx">
+
 ### Dropdown.Text <Badge>0.2.42+</Badge>
 
 <API hideTitle src="./dropdown-text.tsx">
