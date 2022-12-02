@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useEffect, useState, memo } from 'react'
 import { Text, Keyboard } from 'react-native'
 
 import Button from '../button'
-import ButtonBar from '../button-bar'
+import ButtonBarConfirm from '../button-bar/button-bar-confirm'
 import { getDefaultValue } from '../helpers'
 import { usePersistFn } from '../hooks'
 import Locale from '../locale'
@@ -208,7 +208,7 @@ const DropdownSelectorMethod = <T,>({
             })}
       />
       {multiple ? (
-        <ButtonBar.Confirm
+        <ButtonBarConfirm
           safeAreaInsetBottom={false}
           cancel={[
             <Button
@@ -235,7 +235,7 @@ const DropdownSelectorMethod = <T,>({
             />,
           ]}>
           <Button text={locale.confirmButtonText} onPress={onConfirmMultiple} />
-        </ButtonBar.Confirm>
+        </ButtonBarConfirm>
       ) : null}
     </DropdownPopup>
   )
