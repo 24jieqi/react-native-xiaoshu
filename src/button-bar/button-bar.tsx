@@ -21,6 +21,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   blankSize = 'm',
 
   children,
+  style,
   ...restProps
 }) => {
   const locale = Locale.useLocale().ButtonBar
@@ -60,6 +61,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
         { paddingHorizontal: defaultGap },
         STYLES.button_bar,
         alone ? STYLES.button_bar_alone : null,
+        style,
       ]}>
       {isConfig ? (
         <Space
