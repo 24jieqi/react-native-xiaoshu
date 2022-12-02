@@ -26,6 +26,7 @@ const Space: React.FC<SpaceProps> = ({
   tail,
   justify,
   align,
+  minWidth,
 
   style,
   children,
@@ -58,6 +59,7 @@ const Space: React.FC<SpaceProps> = ({
   const itemStyle: ViewStyle = {
     marginBottom: isVertical || wrap ? _gapVertical : 0,
     marginRight: isVertical ? 0 : _gapHorizontal,
+    minWidth,
   }
 
   const childArray = Children.toArray(children)

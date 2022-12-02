@@ -56,4 +56,9 @@ export interface SpaceProps extends ViewProps {
    * 交叉轴对齐方式
    */
   align?: FlexStyle['alignItems']
+
+  /**
+   * 子元素最小宽
+   */
+  minWidth?: number
 }
