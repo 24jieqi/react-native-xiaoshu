@@ -35,3 +35,11 @@ export interface ButtonBarProps extends BottomBarProps {
    */
   blankSize?: BlankProps['size']
 }
+
+export interface ButtonBarConfirmProps
+  extends Omit<ButtonBarProps, 'alone' | 'buttons' | 'count' | 'moreText'> {
+  /**
+   * 更多小按钮
+   */
+  cancel?: React.ReactNode
+}

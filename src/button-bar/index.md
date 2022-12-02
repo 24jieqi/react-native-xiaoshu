@@ -28,7 +28,13 @@ group:
 
 ## API
 
+### ButtonBar
+
 <API hideTitle src="./button-bar.tsx"></API>
+
+### ButtonBar.Confirm
+
+<API hideTitle src="./button-bar-confirm.tsx"></API>
 
 ## 主题定制
 

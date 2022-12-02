@@ -30,7 +30,7 @@ const BasicButtonBar: React.FC = () => {
                   },
                 },
                 {
-                  text: '次要按钮2',
+                  text: '按钮2',
                   type: 'hazy',
                   onPress: () => {
                     console.log('??')
@@ -76,10 +76,11 @@ const BasicButtonBar: React.FC = () => {
           />
 
           <ButtonBar
+            blankSize="l"
             safeAreaInsetBottom={false}
             buttons={[
               {
-                text: '主要按钮1',
+                text: '左右间距 l',
                 type: 'primary',
                 onPress: () => {
                   console.log('??')
@@ -103,11 +104,38 @@ const BasicButtonBar: React.FC = () => {
           />
 
           <ButtonBar
-            blankSize="l"
             safeAreaInsetBottom={false}
             buttons={[
               {
-                text: '主要按钮1',
+                text: '左右间距 m',
+                type: 'primary',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+              {
+                text: '次要按钮2',
+                type: 'hazy',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+              {
+                text: '次要按钮3次要按钮3',
+                type: 'hazy',
+                onPress: () => {
+                  console.log('??')
+                },
+              },
+            ]}
+          />
+
+          <ButtonBar
+            blankSize="s"
+            safeAreaInsetBottom={false}
+            buttons={[
+              {
+                text: '左右间距 s',
                 type: 'primary',
                 onPress: () => {
                   console.log('??')
@@ -135,33 +163,30 @@ const BasicButtonBar: React.FC = () => {
             placeholder="按钮隐藏"
           />
 
-          <ButtonBar
-            blankSize="s"
+          <ButtonBar.Confirm
             safeAreaInsetBottom={false}
-            buttons={[
-              {
-                text: '主要按钮1',
-                type: 'primary',
-                onPress: () => {
-                  console.log('??')
-                },
-              },
-              {
-                text: '次要按钮2',
-                type: 'hazy',
-                onPress: () => {
-                  console.log('??')
-                },
-              },
-              {
-                text: '次要按钮3次要按钮3',
-                type: 'hazy',
-                onPress: () => {
-                  console.log('??')
-                },
-              },
-            ]}
-          />
+            cancel={<Button text="取消" type="hazy" />}>
+            <Button text="确定" type="primary" />
+          </ButtonBar.Confirm>
+
+          <ButtonBar.Confirm
+            safeAreaInsetBottom={false}
+            cancel={[<Button key="1" text="取消" type="hazy" />]}>
+            <Button text="确定" type="primary" />
+          </ButtonBar.Confirm>
+
+          <ButtonBar.Confirm
+            safeAreaInsetBottom={false}
+            cancel={[
+              <Button key="1" text="全不选" type="hazy" />,
+              <Button key="2" text="取消" type="hazy" />,
+            ]}>
+            <Button text="确定" type="primary" />
+          </ButtonBar.Confirm>
+
+          <ButtonBar.Confirm safeAreaInsetBottom={false}>
+            <Button text="确定" type="primary" />
+          </ButtonBar.Confirm>
         </Space>
       </ScrollView>
 
