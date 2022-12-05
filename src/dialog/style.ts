@@ -84,7 +84,7 @@ export const styleCreator = (cv: ComponentVars) => {
       marginVertical: 0,
     },
 
-    btn_confirm: {
+    btn_text_bold: {
       fontWeight: 'bold',
     },
   })

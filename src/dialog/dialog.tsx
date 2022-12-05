@@ -30,7 +30,9 @@ const Dialog: React.FC<DialogProps> = ({
   confirmButtonText,
   cancelButtonText,
   confirmButtonColor,
+  confirmButtonTextBold = true,
   cancelButtonColor,
+  cancelButtonTextBold = false,
   confirmButtonLoading = false,
   cancelButtonLoading = false,
   showClose = false,
@@ -163,6 +165,7 @@ const Dialog: React.FC<DialogProps> = ({
                 size="xl"
                 square
                 style={STYLES.btn}
+                textStyle={cancelButtonTextBold ? STYLES.btn_text_bold : null}
               />
             ) : null}
             {showConfirmButton ? (
@@ -182,7 +185,7 @@ const Dialog: React.FC<DialogProps> = ({
                       }
                     : null,
                 ]}
-                textStyle={STYLES.btn_confirm}
+                textStyle={confirmButtonTextBold ? STYLES.btn_text_bold : null}
               />
             ) : null}
           </View>

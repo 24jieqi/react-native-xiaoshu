@@ -109,6 +109,20 @@ const BasicDialogBase: React.FC = () => {
         }}
       />
       <Cell
+        title="确认弹窗:按钮文案加粗"
+        isLink
+        onPress={() => {
+          Dialog.confirm({
+            title: '提示',
+            message:
+              '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
+            cancelButtonTextBold: true,
+            // 默认值就是 true
+            // confirmButtonTextBold: true,
+          })
+        }}
+      />
+      <Cell
         title="确认弹窗:自定义颜色、文案"
         isLink
         divider={false}

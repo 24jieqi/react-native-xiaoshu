@@ -65,6 +65,12 @@ interface DialogCommon extends PopupPropsCommon {
   confirmButtonColor?: ColorValue
 
   /**
+   * 确认按钮文案 粗体
+   * @default true
+   */
+  confirmButtonTextBold?: boolean
+
+  /**
    * 取消按钮文案
    * @default 取消
    */
@@ -74,6 +80,12 @@ interface DialogCommon extends PopupPropsCommon {
    * 取消按钮颜色
    */
   cancelButtonColor?: ColorValue
+
+  /**
+   * 取消按钮文案 粗体
+   * @default false
+   */
+  cancelButtonTextBold?: boolean
 
   /**
    * 是否显示关闭按钮
