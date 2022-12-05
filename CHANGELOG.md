@@ -1,3 +1,10 @@
+## [0.3.9-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9-beta.0...v0.3.9-beta.1) (2022-12-05)
+
+### Features
+
+- **Dialog:** 🎸 按钮文案 粗体 ([721a031](https://github.com/hjfruit/react-native-xiaoshu/commit/721a031664154e6a8593d77d75af7fb4a6de9b71))
+- **Tree:** 🎸 新增 editable 属性 ([2556a7b](https://github.com/hjfruit/react-native-xiaoshu/commit/2556a7b5da0e292f3cc360216551ca84c6bb0b28)), closes [#27](https://github.com/hjfruit/react-native-xiaoshu/issues/27)
+
 ## [0.3.9-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.8...v0.3.9-beta.0) (2022-12-02)
 
 ### Bug Fixes
