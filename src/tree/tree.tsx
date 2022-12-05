@@ -172,6 +172,7 @@ const Tree: React.FC<TreeProps> = ({
   placeholder,
   minHeight = true,
   cancellable = false,
+  editable = true,
 
   ...restProps
 }) => {
@@ -405,7 +406,7 @@ const Tree: React.FC<TreeProps> = ({
                   activeColor={_activeColor}
                   indent={_indent}
                   bold={item.bold}
-                  disabled={item.disabled}
+                  disabled={!editable || !!item.disabled}
                   tier={0}
                   label={item.label}
                   active={isActive}
@@ -516,7 +517,7 @@ const Tree: React.FC<TreeProps> = ({
                 activeColor={_activeColor}
                 indent={_indent}
                 bold={item.bold}
-                disabled={item.disabled}
+                disabled={!editable || !!item.disabled}
                 tier={item.tier}
                 label={item.label}
                 active={isActive}

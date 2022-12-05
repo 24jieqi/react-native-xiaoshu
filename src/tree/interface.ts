@@ -228,4 +228,10 @@ export interface TreeProps {
    * @default false
    */
   cancellable?: boolean
+
+  /**
+   * 是否可以编辑 命名与 TextInput 保持一致
+   * @default true
+   */
+  editable?: boolean
 }

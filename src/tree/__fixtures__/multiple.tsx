@@ -3,11 +3,11 @@
  * desc: 最简单的用法。
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { CoordOutline } from '@fruits-chain/icons-react-native'
 
 import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
-import { Card, Tree } from '@fruits-chain/react-native-xiaoshu'
+import { Card, Switch, Tree } from '@fruits-chain/react-native-xiaoshu'
 
 const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
   value: index0,
@@ -37,9 +37,16 @@ const onChange = (...rest: any[]) => {
 }
 
 const TreeMultiple: React.FC = () => {
+  const [editable, setEditable] = useState(true)
+
   return (
-    <Card title="多选" bodyPadding={false} bodyStyle={{ height: 400 }}>
+    <Card
+      title="多选"
+      bodyPadding={false}
+      bodyStyle={{ height: 400 }}
+      extra={<Switch value={editable} onChange={setEditable} />}>
       <Tree
+        editable={editable}
         options={options}
         defaultValue={defaultValue}
         multiple
