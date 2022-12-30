@@ -77,7 +77,13 @@ const BasicDropdown: React.FC = () => {
       <Cell.Group title="基础用法">
         <Text>暂无数据</Text>
         <Dropdown>
-          <Dropdown.Item options={[]} placeholder="请选择" />
+          <Dropdown.Item
+            options={[]}
+            placeholder="请选择"
+            titleTextStyle={{
+              color: '#098',
+            }}
+          />
         </Dropdown>
         <View style={{ height: 200 }} />
 

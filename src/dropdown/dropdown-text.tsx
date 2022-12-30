@@ -1,7 +1,8 @@
 import isNil from 'lodash/isNil'
+import omit from 'lodash/omit'
 import React, { memo } from 'react'
 import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, getArrowOutline } from '../helpers'
@@ -43,11 +44,12 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   )
   direction = getDefaultValue(direction, config.direction)
 
+  const textStyleFlatten = StyleSheet.flatten(textStyle) || {}
   const textColor = disabled
     ? CV.dropdown_text_disabled_color
     : active
     ? activeColor
-    : CV.dropdown_text_color
+    : textStyleFlatten.color || CV.dropdown_text_color
 
   const itemStyles: StyleProp<ViewStyle> = [
     STYLES.text_item,
@@ -61,7 +63,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
     {
       color: textColor,
     },
-    textStyle,
+    omit(textStyleFlatten, ['color']),
   ]
   const iconStyles = [config.iconStyle, iconStyle].filter(Boolean)
 
