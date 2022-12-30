@@ -1,3 +1,9 @@
+## [0.3.9-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9-beta.1...v0.3.9-beta.2) (2022-12-30)
+
+### Bug Fixes
+
+- **Dropdown:** 🐛 自定义颜色与高亮颜色冲突 ([6d0d9ab](https://github.com/hjfruit/react-native-xiaoshu/commit/6d0d9abb7b73fff2880b95f1ce03c125bb00b15a))
+
 ## [0.3.9-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9-beta.0...v0.3.9-beta.1) (2022-12-05)
 
 ### Features
