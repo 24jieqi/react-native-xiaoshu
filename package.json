@@ -174,5 +174,10 @@
         "infile": "CHANGELOG.md"
       }
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
