@@ -70,6 +70,11 @@ export interface ActionSheetProps extends PopupPropsCommon {
    * 点击选项时触发，禁用或加载状态下不会触发
    */
   onSelect?: (action: Action, index: number) => void
+
+  /**
+   * Used to locate this view in end-to-end tests.
+   */
+  testID?: string | undefined
 }
 
 export interface ActionSheetOptions

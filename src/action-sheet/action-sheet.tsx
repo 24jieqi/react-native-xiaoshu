@@ -17,6 +17,7 @@ import { varCreator, styleCreator } from './style'
  * @description 底部弹起的模态面板，包含与当前情境相关的多个选项。
  */
 const ActionSheet: React.FC<ActionSheetProps> = ({
+  testID,
   actions,
   title,
   cancelText,
@@ -56,7 +57,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
 
   return (
     <Popup {...restProps} safeAreaInsetBottom position="bottom" round={round}>
-      <View style={{ maxHeight: safeHeight }}>
+      <View style={{ maxHeight: safeHeight }} testID={testID}>
         {isTitleDef ? <PopupHeader title={title} showClose={false} /> : null}
         {descriptionJSX}
 

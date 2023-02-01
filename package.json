@@ -37,7 +37,7 @@
     "start": "react-native start",
     "start:clean": "react-native start --reset-cache",
     "test": "jest --forceExit",
-    "test:s": "jest ./src/badge/__tests__ -u --forceExit  --coverage",
+    "test:s": "jest ./src/action-sheet/__tests__ -u --forceExit  --coverage",
     "test:coverage": "jest --coverage",
     "test:clear": "jest --clearCache",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
