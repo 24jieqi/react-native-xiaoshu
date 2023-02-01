@@ -1,3 +1,9 @@
+## [0.3.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.10...v0.3.11) (2023-02-01)
+
+### Features
+
+- **Button:** 🎸 选型按钮 Button.Option hazy 类型颜色更新 ([b5b56c5](https://github.com/hjfruit/react-native-xiaoshu/commit/b5b56c5ca1d5d2a335ddedb332a265d78b7826b5))
+
 ## [0.3.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9...v0.3.10) (2023-02-01)
 
 ### Bug Fixes
