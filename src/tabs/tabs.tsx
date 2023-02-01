@@ -32,6 +32,7 @@ const Tabs: React.FC<TabsProps> = ({
   tabBarHeight,
   tabBarBackgroundColor,
   divider,
+  dividerColor,
   ...restProps
 }) => {
   const [_options, _tabs] = useMemo(() => {
@@ -67,7 +68,7 @@ const Tabs: React.FC<TabsProps> = ({
         onChange={onChange}
       />
 
-      {divider ? <Divider /> : null}
+      {divider ? <Divider color={dividerColor} /> : null}
 
       {_tabs.map(t => {
         return (

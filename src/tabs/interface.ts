@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+import type { ColorValue } from 'react-native'
 
 import type { TabBarProps } from '../tab-bar/interface'
 
@@ -55,6 +56,11 @@ export interface TabsProps
    * @default false
    */
   divider?: boolean
+
+  /**
+   * 自定义分割线颜色
+   */
+  dividerColor?: ColorValue
 }
 
 export interface TabPaneProps extends PropsWithChildren<{}> {

@@ -112,7 +112,9 @@ const BasicTabs: React.FC = () => {
             textColor="#999"
             activeTextColor="#098"
             indicatorColor="#098"
-            indicatorHeight={4}>
+            indicatorHeight={4}
+            divider
+            dividerColor="#098">
             <Tabs.TabPane key="1" tab="第一个">
               <Result status="success" title="啊哈" subtitle="嘿嘿嘿" />
             </Tabs.TabPane>
