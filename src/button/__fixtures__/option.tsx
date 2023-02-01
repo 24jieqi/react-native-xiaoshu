@@ -140,11 +140,11 @@ const ButtonOption: React.FC = () => {
           />
           <Button.Option
             text="06-07"
-            badge={<ArrowDownOutline size={14} color="#5D626B" />}
+            badge={<ArrowDownOutline size={14} color="#8C9199" />}
           />
           <Button.Option
             text="06-07"
-            badge={<ArrowDownOutline size={14} color="#5D626B" />}
+            badge={<ArrowDownOutline size={14} color="#8C9199" />}
             active
           />
         </Space>
@@ -168,12 +168,12 @@ const ButtonOption: React.FC = () => {
           <Button.Option
             text="06-07"
             type="outline"
-            badge={<ArrowDownOutline size={14} color="#5D626B" />}
+            badge={<ArrowDownOutline size={14} color="#8C9199" />}
           />
           <Button.Option
             text="06-07"
             type="outline"
-            badge={<ArrowDownOutline size={14} color="#5D626B" />}
+            badge={<ArrowDownOutline size={14} color="#8C9199" />}
             active
           />
         </Space>
