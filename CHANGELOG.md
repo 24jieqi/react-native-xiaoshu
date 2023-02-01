@@ -1,3 +1,13 @@
+## [0.3.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9...v0.3.10) (2023-02-01)
+
+### Bug Fixes
+
+- **docs:** 🐛 组件名 ([138f096](https://github.com/hjfruit/react-native-xiaoshu/commit/138f09666ad07f30b419452ac888baf15665e49b))
+
+### Features
+
+- **Tabs:** 🎸 新增自定义分割线颜色 ([5b12566](https://github.com/hjfruit/react-native-xiaoshu/commit/5b125668a5c2db2a7a36375353cdd9a47fa31b0a)), closes [#28](https://github.com/hjfruit/react-native-xiaoshu/issues/28)
+
 ## [0.3.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9-beta.2...v0.3.9) (2023-01-09)
 
 ## [0.3.9-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.9-beta.1...v0.3.9-beta.2) (2022-12-30)
