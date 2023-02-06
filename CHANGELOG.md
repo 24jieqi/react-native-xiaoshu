@@ -1,3 +1,9 @@
+## [0.3.12-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.11...v0.3.12-beta.0) (2023-02-06)
+
+### Features
+
+- **Uploader:** 🎸 deletable 可以独立配置&优化泛型 ([b9d106b](https://github.com/hjfruit/react-native-xiaoshu/commit/b9d106b7577d12c1e3be882bf87c99b9cc8506e8))
+
 ## [0.3.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.10...v0.3.11) (2023-02-01)
 
 ### Features
