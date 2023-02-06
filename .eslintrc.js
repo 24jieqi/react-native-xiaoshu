@@ -15,4 +15,7 @@ module.exports = {
 
     'no-console': ['error', { allow: ['warn', 'error'] }],
   },
+  settings: {
+    'import/ignore': ['node_modules/react-native/'],
+  },
 }
