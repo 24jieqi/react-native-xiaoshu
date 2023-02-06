@@ -1,4 +1,5 @@
 import { PlusOutline } from '@fruits-chain/icons-react-native'
+import isNil from 'lodash/isNil'
 import React, { isValidElement } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { View, Text, Image } from 'react-native'
@@ -73,7 +74,7 @@ const Uploader = <T extends UploaderValue>({
             filepath={item.filepath}
             status={item.status}
             imageComponent={imageComponent}
-            deletable={deletable}
+            deletable={isNil(item.deletable) ? deletable : item.deletable}
             size={imageSize}
             marginRight={
               getMarginImage(total, colCount, index).marginRight

@@ -18,10 +18,16 @@ export type UploaderValue = {
    */
   status?: 'loading' | 'done' | 'error'
 
+  /**
+   * 是否展示删除按钮
+   * @default true
+   */
+  deletable?: boolean
+
   [index: string]: any
 }
 
-export interface UploaderProps<T> extends ViewProps {
+export interface UploaderProps<T extends UploaderValue> extends ViewProps {
   /**
    * 图片数组
    */
@@ -84,29 +90,17 @@ export interface UploaderProps<T> extends ViewProps {
   /**
    * 点击某一个图片
    */
-  onPressImage?: (
-    current: UploaderValue,
-    index: number,
-    list: UploaderValue[],
-  ) => void
+  onPressImage?: (current: T, index: number, list: T[]) => void
 
   /**
    * 点击删除文件
    */
-  onPressDelete?: (
-    current: UploaderValue,
-    index: number,
-    list: UploaderValue[],
-  ) => void
+  onPressDelete?: (current: T, index: number, list: T[]) => void
 
   /**
    * 点击上传出错的文件
    */
-  onPressError?: (
-    current: UploaderValue,
-    index: number,
-    list: UploaderValue[],
-  ) => void
+  onPressError?: (current: T, index: number, list: T[]) => void
 }
 
 export interface UploaderImageProps
@@ -149,7 +143,7 @@ export interface RegularCount {
   icon?: ReactNode
 }
 
-export interface UploaderRegularProps<T>
+export interface UploaderRegularProps<T extends UploaderValue>
   extends ViewProps,
     Pick<
       UploaderProps<T>,
@@ -160,6 +154,7 @@ export interface UploaderRegularProps<T>
       | 'onPressImage'
       | 'onPressDelete'
       | 'onPressError'
+      | 'deletable'
     > {
   /**
    * 共多少个上传，请保持数组引用不变

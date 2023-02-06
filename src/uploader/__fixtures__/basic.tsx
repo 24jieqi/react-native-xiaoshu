@@ -25,6 +25,7 @@ const BasicUploader: React.FC = () => {
     {
       key: new Date().getTime().toString(),
       filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
+      deletable: false,
     },
     {
       key: (new Date().getTime() + 1).toString(),
@@ -32,7 +33,18 @@ const BasicUploader: React.FC = () => {
       status: 'error',
     },
   ])
-  const [list2, setList2] = useState<UploaderValue[]>([])
+  const [list2, setList2] = useState<UploaderValue[]>(
+    new Array(10).fill(0).map((_, index) => {
+      if (index === 0) {
+        return {
+          key: new Date().getTime().toString(),
+          filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
+          deletable: false,
+        }
+      }
+      return null
+    }),
+  )
 
   return (
     <ScrollView>
@@ -131,7 +143,7 @@ const BasicUploader: React.FC = () => {
         <Card title="固定上传个数" square>
           <Uploader.Regular
             list={list2}
-            count={10}
+            count={list2.length}
             onPressDelete={(_, index) => {
               Dialog.confirm({
                 title: '提示',
