@@ -1,9 +1,9 @@
 import React from 'react'
 import type { ViewStyle } from 'react-native'
 import { Text, StyleSheet } from 'react-native'
+import RCTDeviceEventEmitter from 'react-native/Libraries/EventEmitter/RCTDeviceEventEmitter'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 // eslint-disable-next-line import/no-named-as-default-member,import/namespace,import/no-named-as-default
-import RCTDeviceEventEmitter from 'react-native/Libraries/EventEmitter/RCTDeviceEventEmitter'
 import { create } from 'react-test-renderer'
 
 import BottomBar from '..'

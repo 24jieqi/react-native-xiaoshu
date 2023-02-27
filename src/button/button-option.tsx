@@ -38,10 +38,8 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
       return TOKENS.white
     }
 
-    return Color(CV.button_primary_color)
-      .lightness(CV.button_hazy_lightness)
-      .hex()
-  }, [CV.button_hazy_lightness, CV.button_primary_color, TOKENS.white, type])
+    return TOKENS.gray_2
+  }, [TOKENS.gray_2, TOKENS.white, type])
   const inactiveBorderColor = useMemo(() => {
     if (restProps.disabled) {
       if (type === 'white') {

@@ -1,4 +1,5 @@
 import { PlusOutline } from '@fruits-chain/icons-react-native'
+import isNil from 'lodash/isNil'
 import React, { useMemo } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
 import { View, Text, Image } from 'react-native'
@@ -26,6 +27,7 @@ const UploaderRegular = <T extends UploaderValue>({
   onPressError,
   count,
   onPressUpload,
+  deletable = true,
 
   style,
   onLayout,
@@ -98,7 +100,9 @@ const UploaderRegular = <T extends UploaderValue>({
               filepath={item.data.filepath}
               status={item.data.status}
               imageComponent={imageComponent}
-              deletable
+              deletable={
+                isNil(item.data?.deletable) ? deletable : item.data.deletable
+              }
               size={imageSize}
               marginRight={
                 getMarginImage(total, colCount, index).marginRight

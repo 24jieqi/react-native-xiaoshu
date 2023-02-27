@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react'
-import { Text } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 
 import {
   Blank,
@@ -12,11 +12,11 @@ import {
   Button,
   TextInput,
   ButtonBar,
-  Space,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicPopupKeyboardShim: React.FC = () => {
   const [visible, setVisible] = useState(false)
+  const [data, setData] = useState<string[]>([])
 
   return (
     <Blank top>
@@ -35,17 +35,30 @@ const BasicPopupKeyboardShim: React.FC = () => {
           }}
         />
         <Blank>
-          <Space tail>
-            <Text>某些有趣的</Text>
-            <TextInput bordered placeholder="请输入备注" />
-            <Text>某些有趣的</Text>
-            <TextInput bordered placeholder="请输入备注" />
-            <Text>某些有趣的</Text>
-            <TextInput bordered placeholder="请输入备注" />
-            <Text>某些有趣的</Text>
-            <TextInput bordered placeholder="请输入备注" />
-          </Space>
+          <Text>某些有趣的</Text>
+          <TextInput
+            bordered
+            placeholder="请输入备注"
+            onChangeText={text => {
+              setData(new Array(20).fill(0).map((_, i) => `${text}-${i}`))
+            }}
+          />
         </Blank>
+
+        <ScrollView style={{ maxHeight: 400 }}>
+          {data.map(item => {
+            return (
+              <Text
+                key={item}
+                style={{
+                  paddingVertical: 8,
+                  paddingHorizontal: 12,
+                }}>
+                {item}
+              </Text>
+            )
+          })}
+        </ScrollView>
 
         {/* 放置操作按钮和内容之间，ButtonBar 在 Android 端监听软键盘出现会隐藏，为了保持一致的交互 */}
         <Popup.KeyboardShim />
