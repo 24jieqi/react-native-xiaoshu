@@ -13,6 +13,7 @@ const SkeletonParagraph: React.FC<SkeletonParagraphProps> = ({
   active = true,
   rows,
   widths,
+  testID,
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -27,7 +28,7 @@ const SkeletonParagraph: React.FC<SkeletonParagraphProps> = ({
     [rows],
   )
   const nodeJSX = (
-    <Space>
+    <Space testID={testID}>
       {paragraphs.map(n => {
         return (
           <PlaceholderLine key={n} width={widths?.[n]} style={style} noMargin />

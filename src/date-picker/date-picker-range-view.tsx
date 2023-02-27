@@ -53,6 +53,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   renderLabel,
   loading,
 
+  testID,
   ...restProps
 }) => {
   const _initialValue = !isNil(initialValue)
@@ -149,7 +150,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
 
   return (
     <>
-      <View style={STYLES_PICKER.data_range}>
+      <View style={STYLES_PICKER.data_range} testID={testID}>
         <TouchableOpacity
           style={STYLES_PICKER.data_range_item}
           onPress={onPressDay1}

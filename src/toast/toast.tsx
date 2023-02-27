@@ -33,7 +33,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
       loadingType = 'spinner',
       duration = 2000,
       icon,
-      ...reset
+      ...resetProps
     },
     ref,
   ) => {
@@ -116,7 +116,7 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
 
     return (
       <Popup
-        {...reset}
+        {...resetProps}
         visible={show}
         overlay={overlay}
         onPressOverlay={onPressOverlay}>

@@ -14,6 +14,7 @@ import { varCreator, styleCreator } from './style'
  * @description 用于填充空白数据。
  */
 const Empty: React.FC<EmptyProps> = ({
+  testID,
   text,
   style,
   textStyle,
@@ -34,6 +35,7 @@ const Empty: React.FC<EmptyProps> = ({
 
   return (
     <Result
+      testID={testID}
       status="info"
       renderIcon={() => iconJSX}
       style={[STYLES.empty, full ? STYLES.emptyFull : null, style]}

@@ -1,3 +1,5 @@
+import type { ViewProps } from 'react-native'
+
 export type PickerOptionType = 'cascade' | 'multiple' | 'single'
 
 export type PickerValue = string | number
@@ -30,10 +32,15 @@ export type PickerOptionCascade = PickerOption & {
 
 export type Column = PickerOption | PickerOptionMultiple | PickerOptionCascade
 
-export interface PickerViewProps {
+export interface PickerViewProps extends Pick<ViewProps, 'testID'> {
   value?: PickerValue[]
 
   defaultValue?: PickerValue[]
+
+  /**
+   * 选项改变时触发
+   */
+  onChange?: (values: PickerValue[], options: Column[]) => void
 
   /**
    * 对象数组，配置每一列显示的数据
@@ -57,11 +64,6 @@ export interface PickerViewProps {
    * @default 5
    */
   visibleItemCount?: number
-
-  /**
-   * 选项改变时触发
-   */
-  onChange?: (values: PickerValue[], options: Column[]) => void
 }
 
 export interface PickerViewColumnProps {

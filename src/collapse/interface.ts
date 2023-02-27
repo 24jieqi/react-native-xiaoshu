@@ -1,7 +1,15 @@
 import type { PropsWithChildren, ReactNode } from 'react'
-import type { StyleProp, ViewStyle, TextStyle, ColorValue } from 'react-native'
+import type {
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  ColorValue,
+  ViewProps,
+} from 'react-native'
 
-export interface CollapseProps extends PropsWithChildren<{}> {
+export interface CollapseProps
+  extends PropsWithChildren<{}>,
+    Pick<ViewProps, 'testID'> {
   /**
    * 标题
    */

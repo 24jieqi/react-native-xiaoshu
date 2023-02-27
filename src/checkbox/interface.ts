@@ -110,6 +110,11 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
    * 自定义图标
    */
   renderIcon?: (p: RenderIconProps) => ReactNode
+
+  /**
+   * Used to locate this view in end-to-end tests.
+   */
+  testID?: string | undefined
 }
 
 export interface CheckboxGroupProps<ActiveValueT = any> extends SpaceProps {

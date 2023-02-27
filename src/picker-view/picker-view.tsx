@@ -28,6 +28,7 @@ const PickerView: React.FC<PickerViewProps> = ({
   loading = false,
   columns,
 
+  testID,
   ...restProps
 }) => {
   /** 选项的高度 */
@@ -116,7 +117,7 @@ const PickerView: React.FC<PickerViewProps> = ({
   ]
 
   return (
-    <View style={STYLES.picker}>
+    <View testID={testID} style={STYLES.picker}>
       {loading ? <Loading style={STYLES.loading} /> : null}
 
       <View style={bodyStyle}>

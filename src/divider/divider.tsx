@@ -23,6 +23,8 @@ const Divider: React.FC<DividerProps> = ({
   dashed = false,
   color,
   contentPosition = 'center',
+
+  ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -37,6 +39,7 @@ const Divider: React.FC<DividerProps> = ({
 
   return (
     <View
+      {...restProps}
       style={[
         STYLES.divider,
         isVertical ? STYLES.divider_vertical : null,

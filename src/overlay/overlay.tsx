@@ -19,6 +19,7 @@ import { varCreator } from './style'
  * TODO 统计遮罩层数量，动态控制状态栏的颜色，避免黑色遮罩层配合黑色文字的状态栏。
  */
 const Overlay: React.FC<OverlayProps> = ({
+  testID,
   children,
   style,
   zIndex,
@@ -97,6 +98,7 @@ const Overlay: React.FC<OverlayProps> = ({
 
   return (
     <Animated.View
+      testID={testID}
       style={[
         STYLES.overlay,
         localVisible ? STYLES.overlay_active : null,

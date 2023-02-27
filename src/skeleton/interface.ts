@@ -1,3 +1,5 @@
+import type { ViewProps } from 'react-native'
+
 export type SkeletonAvatarProps = {
   /**
    * 是否展示动画效果
@@ -16,7 +18,7 @@ export type SkeletonAvatarProps = {
    * @default 'circle'
    */
   shape?: 'circle' | 'square'
-}
+} & Pick<ViewProps, 'testID'>
 
 export type SkeletonTitleProps = {
   /**
@@ -41,7 +43,7 @@ export type SkeletonParagraphProps = {
    * 每行的宽
    */
   widths: number[]
-}
+} & Pick<ViewProps, 'testID'>
 
 export interface SkeletonProps {
   /**

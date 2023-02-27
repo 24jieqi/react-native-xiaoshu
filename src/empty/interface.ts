@@ -1,7 +1,7 @@
 import type React from 'react'
-import type { StyleProp, ViewStyle, TextStyle } from 'react-native'
+import type { StyleProp, ViewStyle, TextStyle, ViewProps } from 'react-native'
 
-export interface EmptyProps {
+export interface EmptyProps extends Pick<ViewProps, 'testID'> {
   /**
    * 最外层 View 的样式
    */

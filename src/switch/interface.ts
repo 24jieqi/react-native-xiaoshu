@@ -1,6 +1,7 @@
-import type { ColorValue } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native'
 
-export interface SwitchProps<ActiveValueT = any, InactiveValueT = any> {
+export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
+  extends Pick<ViewProps, 'testID'> {
   /**
    * 开关选中状态
    * @default false

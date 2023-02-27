@@ -92,8 +92,9 @@ export interface DropdownTextProps extends TouchableOpacityProps {
 }
 
 export interface DropdownItemProps<T>
-  extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled'>>,
+  extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled' | 'testID'>>,
     Pick<TreeProps, 'search' | 'onSearch' | 'cancellable'> {
+  popupTestID?: DropdownTextProps['testID']
   /**
    * 标题样式
    */
@@ -251,7 +252,8 @@ export interface DropdownSelectorMethodProps<T>
       | 'onChange'
       | 'loading'
     >,
-    Pick<TreeProps, 'multiple' | 'multipleMode'> {
+    Pick<TreeProps, 'multiple' | 'multipleMode'>,
+    Pick<ViewProps, 'testID'> {
   defaultValue?: T | T[]
   /**
    * 触发目标高度

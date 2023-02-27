@@ -13,6 +13,7 @@ const DatePickerView: React.FC<DatePickerViewProps> = ({
   renderLabel,
   loading,
 
+  testID,
   ...restProps
 }) => {
   const isControlled = 'value' in restProps
@@ -61,6 +62,7 @@ const DatePickerView: React.FC<DatePickerViewProps> = ({
 
   return (
     <PickerView
+      testID={testID}
       loading={loading}
       columns={columns}
       value={values}

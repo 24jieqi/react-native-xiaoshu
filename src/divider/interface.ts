@@ -1,9 +1,14 @@
-import type { PropsWithChildren } from 'react'
-import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
+import type {
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+  ColorValue,
+  ViewProps,
+} from 'react-native'
 
 type DividerDirection = 'vertical' | 'horizontal'
 
-export interface DividerProps extends PropsWithChildren<{}> {
+export interface DividerProps extends ViewProps {
   /**
    * 外层容器自定义样式
    */

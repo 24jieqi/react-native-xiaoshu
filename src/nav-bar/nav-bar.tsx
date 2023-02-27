@@ -22,6 +22,7 @@ const BACK_ARROW_HIT_SLOP = {
  * NavBar 导航栏
  */
 const NavBar: React.FC<NavBarProps> = ({
+  testID,
   style,
   leftStyle,
   rightStyle,
@@ -47,7 +48,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
   return (
     <>
-      <View style={[STYLES.bar, style]}>
+      <View style={[STYLES.bar, style]} testID={testID}>
         {showBackArrow || !isNil(leftExtra) ? (
           <View style={[STYLES.left, leftStyle]}>
             {showBackArrow ? (
