@@ -1,3 +1,9 @@
+## [0.3.12-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.0...v0.3.12-beta.1) (2023-02-27)
+
+### Features
+
+- **ci:** 🎸 完善组件 testID 属性 ([b2fcea8](https://github.com/hjfruit/react-native-xiaoshu/commit/b2fcea8243384e811cbe0406596737a74d69f301))
+
 ## [0.3.12-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.11...v0.3.12-beta.0) (2023-02-06)
 
 ### Features
