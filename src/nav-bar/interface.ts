@@ -1,7 +1,13 @@
 import type React from 'react'
-import type { ViewStyle, TextStyle, StyleProp, ColorValue } from 'react-native'
+import type {
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+  ColorValue,
+  ViewProps,
+} from 'react-native'
 
-export interface NavBarProps {
+export interface NavBarProps extends Pick<ViewProps, 'testID'> {
   /**
    * 最外层的样式
    */

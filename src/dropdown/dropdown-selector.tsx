@@ -39,6 +39,8 @@ const DropdownSelectorMethod = <T,>({
   cancellable,
   multiple,
   multipleMode,
+
+  testID,
 }: DropdownSelectorMethodProps<T>) => {
   const locale = Locale.useLocale().DropdownSelector
   const TOKENS = Theme.useThemeTokens()
@@ -178,6 +180,7 @@ const DropdownSelectorMethod = <T,>({
 
   return (
     <DropdownPopup
+      testID={testID}
       targetHeight={targetHeight}
       targetPageY={targetPageY}
       closeOnPressOutside={closeOnPressOutside}

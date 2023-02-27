@@ -12,6 +12,7 @@ import DropdownText from './dropdown-text'
 import type { DropdownMultipleProps, DropdownItemOption } from './interface'
 
 const DropdownMultiple = <T,>({
+  popupTestID,
   titleStyle,
   titleTextStyle,
   options,
@@ -81,6 +82,7 @@ const DropdownMultiple = <T,>({
         cancellable,
         multiple: true,
         multipleMode,
+        testID: popupTestID,
       })
         .then(d => {
           onChange(d.value as T[], d.data)

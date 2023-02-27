@@ -1,7 +1,7 @@
 import type { PropsWithChildren, ReactNode } from 'react'
-import type { ColorValue } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native'
 
-export interface ProgressProps {
+export interface ProgressProps extends Pick<ViewProps, 'testID'> {
   /**
    * 进度百分比
    * @default 0

@@ -12,6 +12,7 @@ import DropdownText from './dropdown-text'
 import type { DropdownItemProps, DropdownItemOption } from './interface'
 
 const DropdownItem = <T,>({
+  popupTestID,
   titleStyle,
   titleTextStyle,
   options,
@@ -81,6 +82,7 @@ const DropdownItem = <T,>({
         search,
         onSearch,
         cancellable,
+        testID: popupTestID,
       })
         .then(d => {
           onChange(d.value as T, d.data[0])

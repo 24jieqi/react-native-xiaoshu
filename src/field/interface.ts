@@ -1,5 +1,11 @@
 import type { ReactNode } from 'react'
-import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native'
+import type {
+  ColorValue,
+  StyleProp,
+  TextStyle,
+  ViewProps,
+  ViewStyle,
+} from 'react-native'
 
 import type { ButtonOptionGroupProps } from '../button/interface'
 import type { CellProps, CellPrivateProps } from '../cell/interface'
@@ -33,7 +39,9 @@ export interface FieldTextProps extends Omit<CellProps, 'value'> {
   value?: string | number | ReactNode
 }
 
-export interface CellPropsUsed extends Omit<CellPrivateProps, 'value'> {
+export interface CellPropsUsed
+  extends Omit<CellPrivateProps, 'value'>,
+    Pick<ViewProps, 'testID'> {
   style?: StyleProp<ViewStyle>
 }
 

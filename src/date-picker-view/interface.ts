@@ -1,3 +1,5 @@
+import type { ViewProps } from 'react-native-svg/lib/typescript/fabric/utils'
+
 /** 时间选择视图数列类型 */
 export type DatePickerColumnType = 'Y' | 'M' | 'D' | 'h' | 'm' | 's'
 
@@ -32,7 +34,7 @@ export type DatePickerColumnMode =
  */
 export type RenderLabel = (t: DatePickerColumnType, n: number) => string
 
-export interface DatePickerViewProps {
+export interface DatePickerViewProps extends Pick<ViewProps, 'testID'> {
   /**
    * 选中项
    */

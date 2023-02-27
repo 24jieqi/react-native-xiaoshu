@@ -27,6 +27,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
   onPress,
   beforeChange,
 
+  testID,
   ...restProps
 }: SwitchProps<ActiveValueT, InactiveValueT>) {
   const translateX = useRef(new Animated.Value(0))
@@ -146,7 +147,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
   ]
 
   return (
-    <TouchableWithoutFeedback onPress={onPressTouchable}>
+    <TouchableWithoutFeedback onPress={onPressTouchable} testID={testID}>
       <Animated.View style={switchStyles}>
         <Animated.View style={nodeStyleSummary}>
           {loading ? (

@@ -24,6 +24,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
 
   style,
   children,
+  testID,
 
   ...restProps
 }: CheckboxProps<ActiveValueT, InactiveValueT>) {
@@ -80,7 +81,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   )
 
   return (
-    <View style={[STYLES.checkbox, style]}>
+    <View style={[STYLES.checkbox, style]} testID={testID}>
       {labelPosition === 'left' ? labelJSX : null}
       {iconJSX}
       {labelPosition === 'right' ? labelJSX : null}

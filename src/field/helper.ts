@@ -23,6 +23,7 @@ export const pickCellProps = <T extends FieldTextCellPropsUsed>(
     vertical,
     titleTextNumberOfLines,
     style,
+    testID,
     ...otherProps
   }: T,
   defaultProps?: Partial<T>,
@@ -47,6 +48,7 @@ export const pickCellProps = <T extends FieldTextCellPropsUsed>(
     vertical,
     titleTextNumberOfLines,
     style,
+    testID,
   }
 
   if (defaultProps && typeof defaultProps === 'object') {

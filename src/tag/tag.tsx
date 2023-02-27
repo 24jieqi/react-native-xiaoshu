@@ -27,6 +27,8 @@ const Tag: React.FC<TagProps> = ({
   color,
   textColor,
   hairline,
+
+  ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -110,7 +112,7 @@ const Tag: React.FC<TagProps> = ({
 
   if (visible) {
     return (
-      <View style={[STYLES.tag, style]}>
+      <View {...restProps} style={[STYLES.tag, style]}>
         <View
           style={[
             /** 类型样式 */

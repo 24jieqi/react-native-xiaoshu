@@ -64,6 +64,11 @@ export interface PopupPropsCommon {
    * @support Android
    */
   onRequestClose?: () => boolean
+
+  /**
+   * Used to locate this view in end-to-end tests.
+   */
+  testID?: string | undefined
 }
 
 export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {

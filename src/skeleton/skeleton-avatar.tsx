@@ -12,6 +12,7 @@ const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
   active = true,
   size = 40,
   shape = 'circle',
+  testID,
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -25,7 +26,7 @@ const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
     }),
     [CV.skeleton_avatar_border_radius, CV.skeleton_color, shape, size],
   )
-  const nodeJSX = <PlaceholderMedia style={style} />
+  const nodeJSX = <PlaceholderMedia testID={testID} style={style} />
 
   if (active) {
     return <SkeletonActive>{nodeJSX}</SkeletonActive>

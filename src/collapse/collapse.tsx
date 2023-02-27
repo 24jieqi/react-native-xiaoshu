@@ -35,6 +35,8 @@ const Collapse: React.FC<CollapseProps> = ({
   bodyDivider,
   lazyRender = true,
 
+  testID,
+
   ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
@@ -143,7 +145,8 @@ const Collapse: React.FC<CollapseProps> = ({
         titleStyle={titleStyle}
         titleTextStyle={titleTextStyle}
         bodyPadding={false}
-        onPressHeader={onPressTitle}>
+        onPressHeader={onPressTitle}
+        testID={testID}>
         {ctxJSX}
       </Card>
     )
@@ -158,6 +161,7 @@ const Collapse: React.FC<CollapseProps> = ({
         valueExtra={titleExtraJSX}
         onPress={onPressTitle}
         divider={headerDivider}
+        testID={testID}
       />
 
       {ctxJSX}

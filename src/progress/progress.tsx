@@ -16,6 +16,7 @@ type ViewLayout = { width: number; height: number }
  * Progress 进度条
  */
 const Progress: React.FC<ProgressProps> = ({
+  testID,
   percentage = 0,
   pivotText,
   color,
@@ -136,6 +137,7 @@ const Progress: React.FC<ProgressProps> = ({
 
   return (
     <View
+      testID={testID}
       onLayout={onLayoutProgress}
       style={{
         height: strokeWidth,

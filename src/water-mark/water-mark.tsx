@@ -43,7 +43,7 @@ const WaterMark: React.FC<WaterMarkProps> = ({
   children,
   style,
   onLayout,
-  ...props
+  ...restProps
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
@@ -113,7 +113,7 @@ const WaterMark: React.FC<WaterMarkProps> = ({
 
   return (
     <View
-      {...props}
+      {...restProps}
       onLayout={onLayoutWrapper}
       style={style ? [STYLES.water_mark, style] : STYLES.water_mark}>
       {!foreground ? renderMark() : null}
