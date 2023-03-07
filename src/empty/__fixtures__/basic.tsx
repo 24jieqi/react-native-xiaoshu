@@ -17,6 +17,10 @@ const BasicTag: React.FC = () => {
           <Empty />
         </Card>
 
+        <Card title="不显示 icon" square>
+          <Empty icon={null} />
+        </Card>
+
         <Card title="自定义文案" square>
           <Empty text="真的没有啦~" />
         </Card>

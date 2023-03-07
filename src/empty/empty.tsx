@@ -1,4 +1,4 @@
-import isNil from 'lodash/isNil'
+import isUndefined from 'lodash/isUndefined'
 import React, { memo } from 'react'
 
 import Locale from '../locale'
@@ -27,7 +27,7 @@ const Empty: React.FC<EmptyProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
-  const iconJSX = !isNil(icon) ? (
+  const iconJSX = !isUndefined(icon) ? (
     icon
   ) : (
     <ResultIconEmpty style={[STYLES.icon, iconStyle]} />

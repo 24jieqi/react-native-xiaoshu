@@ -20,6 +20,8 @@ group:
 
 ## 代码演示
 
+> 文档上看不到 SVG 图标。
+
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
