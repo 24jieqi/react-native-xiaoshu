@@ -1,3 +1,9 @@
+## [0.3.12-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.1...v0.3.12-beta.2) (2023-03-07)
+
+### Bug Fixes
+
+- **Empty:** 🐛 不显示图标 ([8c36134](https://github.com/hjfruit/react-native-xiaoshu/commit/8c36134b341e0d14271be7400418a7fbaeebd203))
+
 ## [0.3.12-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.0...v0.3.12-beta.1) (2023-02-27)
 
 ### Features
