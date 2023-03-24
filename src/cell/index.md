@@ -96,6 +96,9 @@ group:
 | cell_title_line_height              | `TOKENS.line_height_1` | -    |
 | cell_title_line_margin_right        | `TOKENS.space_2`       | -    |
 | cell_value_text_color               | `TOKENS.gray_7`        | -    |
+| cell_extra_text_color               | `TOKENS.gray_6`        | -    |
+| cell_extra_text_font_size           | `TOKENS.font_size_3`   | -    |
+| cell_extra_text_line_height         | 16                     | -    |
 | cell_required_color                 | `TOKENS.red_6`         | -    |
 | cell_required_width                 | `TOKENS.space_3`       | -    |
 | cell_icon_link_margin_left          | `TOKENS.space_2`       | -    |

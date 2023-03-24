@@ -94,7 +94,7 @@ export interface CellPrivateProps {
   valueStyle?: StyleProp<ViewStyle>
 
   /**
-   * 右侧内容样文案式
+   * 右侧内容文案样式
    */
   valueTextStyle?: StyleProp<TextStyle>
 
@@ -102,6 +102,16 @@ export interface CellPrivateProps {
    * 右侧内容的右侧自定义内容
    */
   valueExtra?: ReactNode
+
+  /**
+   * 单元格下方的描述信息
+   */
+  extra?: ReactNode
+
+  /**
+   * 描述信息文案样式
+   */
+  extraTextStyle?: StyleProp<TextStyle>
 
   /**
    * 垂直模式模式下右侧内容包裹的样式，作用元素内部有 valueStyle、valueExtra、linkJSX

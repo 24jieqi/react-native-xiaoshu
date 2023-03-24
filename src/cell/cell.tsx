@@ -24,6 +24,8 @@ const Cell: React.FC<CellProps> = ({
   valueStyle,
   valueTextStyle,
   valueExtra,
+  extra,
+  extraTextStyle,
   contentStyle,
   divider = true,
   dividerLeftGap,
@@ -93,6 +95,7 @@ const Cell: React.FC<CellProps> = ({
       numberOfLines: valueTextNumberOfLines,
     },
   )
+  const extraJSX = renderTextLikeJSX(extra, [STYLES.extra_text, extraTextStyle])
   const IconArrow = getArrowOutline(arrowDirection)
   const linkJSX = isLink ? (
     <IconArrow
@@ -128,6 +131,7 @@ const Cell: React.FC<CellProps> = ({
           style={[
             STYLES.cell_inner,
             vertical ? null : STYLES.cell_inner_row,
+            extra ? STYLES.cell_inner_has_extra : null,
             innerStyle,
           ]}>
           <View style={[STYLES.title, centerStyle, titleStyle]}>
@@ -142,6 +146,7 @@ const Cell: React.FC<CellProps> = ({
             ctxJSX
           )}
         </View>
+        {extraJSX}
         {divider ? (
           <Divider
             style={{

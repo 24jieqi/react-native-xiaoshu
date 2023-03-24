@@ -23,6 +23,9 @@ export const varCreator = (TOKENS: TokensType) => {
     cell_title_line_height: TOKENS.line_height_1,
     cell_title_line_margin_right: TOKENS.space_2,
     cell_value_text_color: TOKENS.gray_7,
+    cell_extra_text_color: TOKENS.gray_6,
+    cell_extra_text_font_size: TOKENS.font_size_3,
+    cell_extra_text_line_height: 16,
     cell_required_color: TOKENS.red_6,
     cell_required_width: TOKENS.space_3,
     cell_icon_link_margin_left: TOKENS.space_2,
@@ -62,6 +65,10 @@ export const styleCreator = (cv: ComponentVars) => {
 
     cell_inner_row: {
       flexDirection: 'row',
+    },
+
+    cell_inner_has_extra: {
+      paddingBottom: 0,
     },
 
     title: {
@@ -107,6 +114,14 @@ export const styleCreator = (cv: ComponentVars) => {
       lineHeight: cv.cell_title_line_height,
       paddingVertical: (innerHeight - cv.cell_title_line_height) / 2,
       // backgroundColor: '#f30', // to test ui
+    },
+
+    extra_text: {
+      color: cv.cell_extra_text_color,
+      fontSize: cv.cell_extra_text_font_size,
+      lineHeight: cv.cell_extra_text_line_height,
+      marginHorizontal: cv.cell_group_title_padding_horizontal,
+      paddingBottom: (cv.cell_mini_height - innerHeight) / 2,
     },
 
     icon_link: {
