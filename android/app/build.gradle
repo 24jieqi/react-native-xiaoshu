@@ -244,9 +244,8 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             applicationVariants.all { variant ->
                 variant.outputs.all {
-                    def outputFileSuffix = variant.flavorName == 'production' ? '' : ".${variant.flavorName}"
                     if (variant.buildType.name == 'release') {
-                        outputFileName = "${appName}${outputFileSuffix}-v${appVersion}.apk" 
+                        outputFileName = "${appName}-v${appVersion}.apk" 
                     }
                 }
             }
