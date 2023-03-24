@@ -1,3 +1,9 @@
+## [0.3.12-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.2...v0.3.12-beta.3) (2023-03-24)
+
+### Features
+
+- **Cell:** 🎸 新增 单元格下方的描述信息 ([43ced7d](https://github.com/hjfruit/react-native-xiaoshu/commit/43ced7d468dca26b4f7af9104f9f111ed4ec01bb))
+
 ## [0.3.12-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.1...v0.3.12-beta.2) (2023-03-07)
 
 ### Bug Fixes
