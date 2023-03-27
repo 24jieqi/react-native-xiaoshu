@@ -9,10 +9,12 @@ export type SelectorOption = TreeOption
 
 export interface SelectorProps
   extends Omit<PopupPropsCommon, 'closeOnPressOverlay' | 'onPressOverlay'>,
-    Omit<TreeProps, 'value' | 'defaultValue' | 'options'> {
+    Omit<TreeProps, 'value' | 'defaultValue' | 'options' | 'onChange'> {
   value?: SelectorValue | SelectorValue[]
 
   defaultValue?: SelectorValue | SelectorValue[]
+
+  onChange?: (v: TreeValue[] | TreeValue, options: TreeOption[]) => void
 
   options: SelectorOption[]
   /**

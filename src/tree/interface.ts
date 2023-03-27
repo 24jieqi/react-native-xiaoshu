@@ -161,7 +161,14 @@ export interface TreeProps {
   /**
    * 选中树节点时调用此函数
    */
-  onChange?: (v: TreeValue[] | TreeValue, option: TreeOption[]) => void
+  onChange?: (
+    v: TreeValue[] | TreeValue,
+    option: TreeOption[],
+    event: {
+      checked: boolean
+      option: TreeOption
+    },
+  ) => void
 
   /**
    * 当前的选项

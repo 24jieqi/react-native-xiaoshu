@@ -91,7 +91,9 @@ const Selector: React.FC<SelectorProps> = ({
    * 点击确定按钮
    */
   const onPressOk = usePersistFn(() => {
-    treeProps.onChange?.(
+    const _onChange = treeProps.onChange as SelectorProps['onChange']
+
+    _onChange?.(
       valueMultiple,
       valueMultiple.map(i => Tree.findNodeByValue(treeProps.options, i)),
     )

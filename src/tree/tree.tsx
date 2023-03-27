@@ -305,10 +305,15 @@ const Tree: React.FC<TreeProps> = ({
       const valueTarget = value as TreeValue[]
       const _value = valueTarget.filter(v => v !== item.value)
       const isInValue = _value.length !== valueTarget.length
+
       const onChangeMultiple = (values: TreeValue[]) => {
         onChange(
           values,
           values.map(v => findNodeByValue(options, v)),
+          {
+            checked: !isInValue,
+            option: item,
+          },
         )
       }
 
@@ -365,10 +370,16 @@ const Tree: React.FC<TreeProps> = ({
       const _node = findNodeByValue(options, item.value)
 
       if (item.value !== value) {
-        onChange(item.value, [_node])
+        onChange(item.value, [_node], {
+          checked: true,
+          option: item,
+        })
       } else {
         if (cancellable) {
-          onChange(null, [])
+          onChange(null, [], {
+            checked: false,
+            option: item,
+          })
         }
       }
     }
