@@ -21,6 +21,7 @@ const DropdownMultiple = <T,>({
   closeOnPressOutside,
   loading,
   placeholder,
+  beforeChecked,
 
   search,
   onSearch,
@@ -83,6 +84,7 @@ const DropdownMultiple = <T,>({
         multiple: true,
         multipleMode,
         testID: popupTestID,
+        beforeChecked,
       })
         .then(d => {
           onChange(d.value as T[], d.data)

@@ -1,10 +1,11 @@
 import isNil from 'lodash/isNil'
+import uniqBy from 'lodash/uniqBy'
 import React, { useCallback, useMemo, useEffect, useState, memo } from 'react'
 import { Text, Keyboard } from 'react-native'
 
 import Button from '../button'
 import ButtonBarConfirm from '../button-bar/button-bar-confirm'
-import { getDefaultValue } from '../helpers'
+import { getDefaultValue, isPromise } from '../helpers'
 import { usePersistFn } from '../hooks'
 import Locale from '../locale'
 import Portal from '../portal'
@@ -33,6 +34,7 @@ const DropdownSelectorMethod = <T,>({
   closeOnPressOutside,
   onClosed,
   activeColor,
+  beforeChecked,
 
   search,
   onSearch,
@@ -154,17 +156,54 @@ const DropdownSelectorMethod = <T,>({
     return true
   })
 
-  const onChangePersistFn = usePersistFn((v: TreeValue | TreeValue[]) => {
-    if (multiple) {
-      setMultipleValue(v as T[])
-    } else {
-      setVisible(false)
-      Keyboard.dismiss()
-      const _v = v as unknown as T
-      const _o = findNodeByValue(options, _v)
-      onConfirm?.(_v as unknown as T, _o ? [_o] : [])
-    }
-  })
+  const onChangePersistFn = usePersistFn(
+    (
+      v: TreeValue | TreeValue[],
+      _: TreeOption[],
+      event: {
+        checked: boolean
+        option: TreeOption
+      },
+    ) => {
+      if (multiple) {
+        if (beforeChecked) {
+          const returnVal = beforeChecked({
+            value: [],
+            checked: event.checked,
+            option: event.option,
+          })
+
+          if (isPromise(returnVal)) {
+            returnVal.then(nv => {
+              setMultipleValue(mv =>
+                uniqBy(
+                  // eslint-disable-next-line max-nested-callbacks
+                  [...mv.filter(mvi => mvi !== event.option.value), ...nv],
+                  // eslint-disable-next-line max-nested-callbacks
+                  x => x,
+                ),
+              )
+            })
+          } else {
+            setMultipleValue(mv =>
+              uniqBy(
+                [...mv.filter(mvi => mvi !== event.option.value), ...returnVal],
+                x => x,
+              ),
+            )
+          }
+        } else {
+          setMultipleValue(v as T[])
+        }
+      } else {
+        setVisible(false)
+        Keyboard.dismiss()
+        const _v = v as unknown as T
+        const _o = findNodeByValue(options, _v)
+        onConfirm?.(_v as unknown as T, _o ? [_o] : [])
+      }
+    },
+  )
 
   const onConfirmMultiple = usePersistFn(() => {
     setVisible(false)

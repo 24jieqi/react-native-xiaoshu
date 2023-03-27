@@ -11,6 +11,7 @@ import {
   Dropdown,
   Button,
   Portal,
+  Tree,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const itemOptions = [
@@ -229,7 +230,31 @@ const BasicDropdown: React.FC = () => {
             }}
             placeholder="可以多选"
           />
-          <Dropdown.Multiple options={itemOptions3} placeholder="可以多选2" />
+          <Dropdown.Multiple
+            options={itemOptions3}
+            placeholder="父节点选中子节点"
+            multipleMode={Tree.MultipleMode.INDEPENDENT}
+            beforeChecked={({ checked, option }) => {
+              if (checked) {
+                const cValues: string[] = []
+                const findAllValue = (c: any) => {
+                  cValues.push(c.value)
+
+                  if (c.children?.length) {
+                    c.children.forEach(cc => {
+                      findAllValue(cc)
+                    })
+                  }
+                }
+
+                findAllValue(option)
+
+                return cValues
+              }
+
+              return []
+            }}
+          />
         </Dropdown>
 
         <View style={{ height: 500 }} />

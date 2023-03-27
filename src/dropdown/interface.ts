@@ -11,7 +11,7 @@ import type {
 } from 'react-native'
 
 import type { PopupPropsCommon } from '../popup/interface'
-import type { TreeProps } from '../tree/interface'
+import type { TreeOption, TreeProps } from '../tree/interface'
 
 export interface DropdownBadgeProps extends TextProps {
   /**
@@ -171,6 +171,15 @@ export interface DropdownMultipleProps<T>
    * 点击选项导致 value 变化时触发
    */
   onChange?: (v: T[], d: DropdownItemOption<T>[]) => void
+
+  /**
+   * 多选的条件下，点击某个选项，返回自定义新的数据
+   */
+  beforeChecked?: (event: {
+    value: T[]
+    option: TreeOption
+    checked: boolean
+  }) => T[] | Promise<T[]>
 }
 
 export interface DropdownContext
@@ -252,6 +261,7 @@ export interface DropdownSelectorMethodProps<T>
       | 'onChange'
       | 'loading'
     >,
+    Pick<DropdownMultipleProps<T>, 'beforeChecked'>,
     Pick<TreeProps, 'multiple' | 'multipleMode'>,
     Pick<ViewProps, 'testID'> {
   defaultValue?: T | T[]
