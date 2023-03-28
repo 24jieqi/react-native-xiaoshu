@@ -1,3 +1,10 @@
+## [0.3.12-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.3...v0.3.12-beta.4) (2023-03-28)
+
+### Features
+
+- **Dropdown:** 🎸 新增 beforeChecked ([b89e158](https://github.com/hjfruit/react-native-xiaoshu/commit/b89e15860c7b358af33f5637827822a177ef4c5b))
+- **Tree:** 🎸 onChange 新增参数 ([e9953ba](https://github.com/hjfruit/react-native-xiaoshu/commit/e9953ba2ae774d2a1bf6f063981c7ab029cec430))
+
 ## [0.3.12-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.2...v0.3.12-beta.3) (2023-03-24)
 
 ### Features
