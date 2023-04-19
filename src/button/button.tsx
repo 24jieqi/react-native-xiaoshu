@@ -167,6 +167,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
+      accessibilityLabel="button"
       {...restProps}
       disabled={disabled || loading}
       style={buttonStyles}

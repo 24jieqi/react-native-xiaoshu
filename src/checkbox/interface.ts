@@ -1,9 +1,10 @@
-import type { PropsWithChildren, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type {
   TouchableOpacityProps,
   StyleProp,
   TextStyle,
   ViewStyle,
+  ViewProps,
   ColorValue,
 } from 'react-native'
 
@@ -39,10 +40,8 @@ interface RenderIconProps extends CheckboxIconPrivateProps {
 }
 
 export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
-  extends Omit<CheckboxIconPrivateProps, 'active' | 'size' | 'pure'>,
-    PropsWithChildren<{}> {
-  style?: StyleProp<ViewStyle>
-
+  extends Pick<CheckboxIconPrivateProps, 'activeColor'>,
+    ViewProps {
   /**
    * 文案样式
    */
@@ -110,11 +109,6 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
    * 自定义图标
    */
   renderIcon?: (p: RenderIconProps) => ReactNode
-
-  /**
-   * Used to locate this view in end-to-end tests.
-   */
-  testID?: string | undefined
 }
 
 export interface CheckboxGroupProps<ActiveValueT = any> extends SpaceProps {

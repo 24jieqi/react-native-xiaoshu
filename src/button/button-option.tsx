@@ -104,6 +104,7 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
 
   return (
     <TouchableOpacity
+      accessibilityLabel="button"
       {...restProps}
       activeOpacity={CV.button_active_opacity}
       style={buttonStyles}>

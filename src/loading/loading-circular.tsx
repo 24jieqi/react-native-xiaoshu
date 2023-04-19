@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, memo } from 'react'
-import type { ColorValue, ViewStyle } from 'react-native'
+import type { ColorValue, ViewStyle, ViewProps } from 'react-native'
 import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 import type { CircleProps } from 'react-native-svg/lib/typescript/elements/Circle'
@@ -13,7 +13,7 @@ import useLoop from './useLoop'
 const AnimatedCircle =
   Animated.createAnimatedComponent<React.ComponentType<CircleProps>>(Circle)
 
-export interface CircularProps {
+export interface CircularProps extends ViewProps {
   /**
    * 图像大小
    */
@@ -27,7 +27,7 @@ export interface CircularProps {
 
 const STROKE_WIDTH = 2
 
-const Circular: React.FC<CircularProps> = ({ size, color }) => {
+const Circular: React.FC<CircularProps> = ({ size, color, ...restProps }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const AnimatedCircle0Value = useRef(new Animated.Value(0)).current
@@ -93,7 +93,7 @@ const Circular: React.FC<CircularProps> = ({ size, color }) => {
   }
 
   return (
-    <Animated.View style={iconStyle}>
+    <Animated.View {...restProps} style={[iconStyle, restProps.style]}>
       <Svg
         width="100%"
         height="100%"

@@ -91,6 +91,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
                   alignItems: 'center',
                 }}>
                 <LoadingSpinner
+                  accessibilityLabel="loading"
                   size={CV_CELL.cell_icon_size}
                   color={CV_CELL.cell_icon_color}
                 />

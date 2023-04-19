@@ -129,6 +129,7 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
           {rightIconJSX}
           {mode ? (
             <ModeIcon
+              accessibilityLabel="icon"
               color={iconColor}
               size={CV.notice_bar_icon_size}
               onPress={onPressModeIcon}

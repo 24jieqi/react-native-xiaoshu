@@ -163,7 +163,6 @@ const Collapse: React.FC<CollapseProps> = ({
         divider={headerDivider}
         testID={testID}
       />
-
       {ctxJSX}
     </>
   )

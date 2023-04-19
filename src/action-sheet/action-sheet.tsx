@@ -60,10 +60,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
         {isTitleDef ? <PopupHeader title={title} showClose={false} /> : null}
         {descriptionJSX}
 
-        <ScrollView bounces={false}>
+        <ScrollView bounces={false} accessibilityLabel="action items">
           {actions.map((item, index) => {
             return (
               <Button
+                accessibilityLabel={item.name}
                 key={`${item.name}_${index}`}
                 text={item.name}
                 disabled={item.disabled}
@@ -87,6 +88,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
           <>
             <View style={STYLES.gap} />
             <Button
+              accessibilityLabel={cancelText}
               text={cancelText}
               type="link"
               size="xl"

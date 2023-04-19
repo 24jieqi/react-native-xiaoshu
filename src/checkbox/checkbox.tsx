@@ -1,4 +1,5 @@
 import isNil from 'lodash/isNil'
+import omit from 'lodash/omit'
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
@@ -24,7 +25,6 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
 
   style,
   children,
-  testID,
 
   ...restProps
 }: CheckboxProps<ActiveValueT, InactiveValueT>) {
@@ -77,11 +77,13 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   const iconJSX = renderIcon ? (
     renderIcon(iconProps)
   ) : (
-    <CheckboxIcon {...iconProps} />
+    <CheckboxIcon accessibilityLabel="checkbox icon" {...iconProps} />
   )
 
   return (
-    <View style={[STYLES.checkbox, style]} testID={testID}>
+    <View
+      {...omit(restProps, ['value', 'defaultValue', 'onChange'])}
+      style={[STYLES.checkbox, style]}>
       {labelPosition === 'left' ? labelJSX : null}
       {iconJSX}
       {labelPosition === 'right' ? labelJSX : null}
