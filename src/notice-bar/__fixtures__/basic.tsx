@@ -99,18 +99,14 @@ const BasicNoticeBar: React.FC = () => {
         <Card title="内置状态" square>
           <Space>
             <NoticeBar
-              renderLeftIcon={(color, size) => (
-                <NewColours color={color} size={size} />
-              )}
+              renderLeftIcon={(color, size) => <NewColours size={size} />}
               message="一袋米要抗几楼，一袋米要抗二楼"
               status="error"
               bordered
             />
 
             <NoticeBar
-              renderLeftIcon={(color, size) => (
-                <NewColours color={color} size={size} />
-              )}
+              renderLeftIcon={(color, size) => <NewColours size={size} />}
               message="一袋米要抗几楼，一袋米要抗二楼"
               mode="closeable"
               status="error"
@@ -172,9 +168,7 @@ const BasicNoticeBar: React.FC = () => {
         <Card title="带 icon" square>
           <Space>
             <NoticeBar
-              renderLeftIcon={(color, size) => (
-                <NewColours color={color} size={size} />
-              )}
+              renderLeftIcon={(color, size) => <NewColours size={size} />}
               message="一袋米要抗几楼，一袋米要抗二楼"
             />
 

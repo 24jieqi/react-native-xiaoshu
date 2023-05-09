@@ -1,13 +1,13 @@
 import React from 'react'
 import type { ViewStyle } from 'react-native'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, Platform } from 'react-native'
 import RCTDeviceEventEmitter from 'react-native/Libraries/EventEmitter/RCTDeviceEventEmitter'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 // eslint-disable-next-line import/no-named-as-default-member,import/namespace,import/no-named-as-default
 import { create } from 'react-test-renderer'
 
 import BottomBar from '..'
-import { customRender, act, mockPlatform } from '../../__tests__/test-utils'
+import { customRender, act } from '../../__tests__/test-utils'
 
 describe('Blank', () => {
   it('render snapshot', () => {
@@ -23,7 +23,9 @@ describe('Blank', () => {
   })
 
   it('android:keyboardDidXxx', () => {
-    mockPlatform('android', 23)
+    // mockPlatform('android', 23)
+
+    Platform.OS = 'android'
 
     customRender(
       <BottomBar height={60} testID="height">
@@ -52,13 +54,5 @@ describe('Blank', () => {
     )
 
     expect(style.height).toEqual(60)
-  })
-
-  it('hidden', () => {
-    customRender(
-      <BottomBar hidden testID="hidden">
-        <Text>Content</Text>
-      </BottomBar>,
-    )
   })
 })

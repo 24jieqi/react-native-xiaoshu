@@ -3,6 +3,7 @@
 exports[`Button render snapshot 1`] = `
 <View
   accessibilityLabel="button"
+  accessibilityRole="button"
   accessibilityState={
     {
       "disabled": false,
@@ -26,7 +27,7 @@ exports[`Button render snapshot 1`] = `
       "borderRadius": 4,
       "borderStyle": "solid",
       "borderWidth": 0,
-      "flexDirection": "row",
+      "flexDirection": "column",
       "height": 44,
       "justifyContent": "center",
       "opacity": 1,
@@ -34,18 +35,32 @@ exports[`Button render snapshot 1`] = `
     }
   }
 >
-  <Text
-    numberOfLines={1}
+  <View
     style={
-      {
-        "color": "#FFFFFF",
-        "fontSize": 16,
-        "marginLeft": 0,
-        "textAlign": "center",
-      }
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
+          "justifyContent": "center",
+        },
+        undefined,
+      ]
     }
   >
-    primary
-  </Text>
+    <Text
+      numberOfLines={1}
+      style={
+        {
+          "color": "#FFFFFF",
+          "fontSize": 16,
+          "marginLeft": 0,
+          "textAlign": "center",
+        }
+      }
+    >
+      primary
+    </Text>
+  </View>
 </View>
 `;

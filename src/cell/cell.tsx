@@ -71,7 +71,7 @@ const Cell: React.FC<CellProps> = ({
   const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : null
 
   const requiredJSX = required ? (
-    <View style={STYLES.title_required} accessibilityLabel="required marker">
+    <View style={STYLES.title_required} testID="CELL_REQUIRED">
       <Text style={STYLES.title_required_text}>*</Text>
     </View>
   ) : null
@@ -99,7 +99,7 @@ const Cell: React.FC<CellProps> = ({
   const IconArrow = getArrowOutline(arrowDirection)
   const linkJSX = isLink ? (
     <IconArrow
-      accessibilityLabel="link arrow marker"
+      testID="CELL_LINK_ARROW"
       size={CV.cell_icon_size}
       color={CV.cell_icon_color}
       onPress={onPressLink}

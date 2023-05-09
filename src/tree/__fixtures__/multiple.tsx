@@ -8,6 +8,7 @@ import { CoordOutline } from '@fruits-chain/icons-react-native'
 
 import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
 import { Card, Switch, Tree } from '@fruits-chain/react-native-xiaoshu'
+import { Text } from 'react-native'
 
 const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
   value: index0,
@@ -44,7 +45,12 @@ const TreeMultiple: React.FC = () => {
       title="多选"
       bodyPadding={false}
       bodyStyle={{ height: 400 }}
-      extra={<Switch value={editable} onChange={setEditable} />}>
+      extra={
+        <>
+          <Text>可编辑/点击</Text>
+          <Switch value={editable} onChange={setEditable} />
+        </>
+      }>
       <Tree
         editable={editable}
         options={options}

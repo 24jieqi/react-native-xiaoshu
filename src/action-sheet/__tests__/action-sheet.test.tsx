@@ -4,31 +4,28 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 // import type { ReactTestInstance } from 'react-test-renderer'
 
-// import { customRender } from '../../__tests__/test-utils'
+import { customRender } from '../../__tests__/test-utils'
 import ActionSheet from '../action-sheet'
 
-describe('Badge', () => {
+describe('ActionSheet', () => {
   it('render snapshot', () => {
     const tree = create(<ActionSheet visible actions={[]} />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
-  // it('count', () => {
-  //   const { queryByText } = customRender(
-  //     <>
-  //       <Badge count={6} offset={[10, 10]} />
-  //       <Badge count="哈哈" />
-  //       <Badge count={0} />
-  //       <Badge count={12}>
-  //         <Text>Text</Text>
-  //       </Badge>
-  //     </>,
-  //   )
+  it('element', () => {
+    const { queryByText } = customRender(
+      <ActionSheet
+        visible
+        actions={[
+          {
+            name: '一个',
+          },
+        ]}
+      />,
+    )
 
-  //   expect(queryByText('6')).not.toBeNull()
-  //   expect(queryByText('哈哈')).not.toBeNull()
-  //   expect(queryByText('0')).toBeNull()
-  //   expect(queryByText('Text')).not.toBeNull()
-  // })
+    expect(queryByText('一个')).not.toBeNull()
+  })
 })

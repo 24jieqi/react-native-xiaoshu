@@ -167,7 +167,20 @@ const BasicTextInput: React.FC = () => {
               addonAfter="addonAfterAAA"
               addonBefore="addonBefore中文"
               bordered
-              clearable
+            />
+          }
+        />
+
+        <Cell
+          title="textarea"
+          vertical
+          value={
+            <TextInput
+              type="textarea"
+              placeholder="限制输入"
+              bordered
+              maxLength={20}
+              showWordLimit
             />
           }
         />

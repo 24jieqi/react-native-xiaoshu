@@ -77,7 +77,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   const iconJSX = renderIcon ? (
     renderIcon(iconProps)
   ) : (
-    <CheckboxIcon accessibilityLabel="checkbox icon" {...iconProps} />
+    <CheckboxIcon testID="CHECKBOX_ICON" {...iconProps} />
   )
 
   return (

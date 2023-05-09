@@ -60,7 +60,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
         {isTitleDef ? <PopupHeader title={title} showClose={false} /> : null}
         {descriptionJSX}
 
-        <ScrollView bounces={false} accessibilityLabel="action items">
+        <ScrollView bounces={false}>
           {actions.map((item, index) => {
             return (
               <Button

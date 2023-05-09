@@ -18,7 +18,7 @@ describe('Button', () => {
   })
 
   it('hairline', () => {
-    const { getByLabelText } = customRender(
+    const { getByLabelText, getAllByRole } = customRender(
       <>
         <Button
           accessibilityLabel="button-primary"
@@ -41,6 +41,7 @@ describe('Button', () => {
     const buttonPrimary2 = getByLabelText('button-primary2')
     const buttonPrimaryStyle2: ViewStyle = buttonPrimary2.props.style
     expect(buttonPrimaryStyle2.borderWidth).toEqual(1)
+    expect(getAllByRole('button').length).toEqual(2)
   })
 
   it('onPress', () => {
@@ -129,9 +130,14 @@ describe('Button', () => {
       </>,
     )
 
+    const findFirstChild = (b: ReactTestInstance, i = 0) =>
+      b.children[i] as ReactTestInstance
+    const findText = (b: ReactTestInstance) =>
+      findFirstChild(findFirstChild(findFirstChild(findFirstChild(b))))
+
     const buttonPrimary = getByLabelText('button-primary')
     const buttonPrimaryStyle: ViewStyle = buttonPrimary.props.style
-    const buttonPrimaryText = buttonPrimary.children[0] as ReactTestInstance
+    const buttonPrimaryText = findText(buttonPrimary)
 
     expect(buttonPrimaryStyle.backgroundColor).toEqual(TOKENS.brand_6)
     expect(buttonPrimaryStyle.borderColor).toEqual(TOKENS.brand_6)
@@ -139,7 +145,7 @@ describe('Button', () => {
 
     const button000 = getByLabelText('button-#000')
     const button000Style: ViewStyle = button000.props.style
-    const button000Text = buttonPrimary.children[0] as ReactTestInstance
+    const button000Text = findText(button000)
 
     expect(button000Style.backgroundColor).toEqual('#000')
     expect(button000Style.borderColor).toEqual('#000')
@@ -147,7 +153,7 @@ describe('Button', () => {
 
     const buttonGhost = getByLabelText('button-ghost')
     const buttonGhostStyle: ViewStyle = buttonGhost.props.style
-    const buttonGhostText = buttonGhost.children[0] as ReactTestInstance
+    const buttonGhostText = findText(buttonGhost)
 
     expect(buttonGhostStyle.backgroundColor).toEqual('transparent')
     expect(buttonGhostStyle.borderColor).toEqual(TOKENS.brand_6)

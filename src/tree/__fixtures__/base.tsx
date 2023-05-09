@@ -67,7 +67,12 @@ const TreeBase: React.FC = () => {
       title="基本"
       bodyPadding={false}
       bodyStyle={{ height: 400 }}
-      extra={<Switch value={editable} onChange={setEditable} />}>
+      extra={
+        <>
+          <Text>可编辑/点击</Text>
+          <Switch value={editable} onChange={setEditable} />
+        </>
+      }>
       <Tree
         editable={editable}
         options={options}
