@@ -1,3 +1,9 @@
+## [0.3.12-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.5...v0.3.12-beta.6) (2023-05-09)
+
+### Bug Fixes
+
+- **TextInput:** 🐛 showWordLimit 判断条件 ([5e641c1](https://github.com/hjfruit/react-native-xiaoshu/commit/5e641c15edac01298f9d4f1fcd08154e01ce6183))
+
 ## [0.3.12-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.4...v0.3.12-beta.5) (2023-04-19)
 
 ## [0.3.12-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.3...v0.3.12-beta.4) (2023-03-28)
