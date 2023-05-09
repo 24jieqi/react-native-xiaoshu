@@ -100,7 +100,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       returnKeyType = getDefaultValue(returnKeyType, 'done')
     }
 
-    if (showWordLimit && !isUndefined(resetProps.maxLength)) {
+    if (showWordLimit && isUndefined(resetProps.maxLength)) {
       showWordLimit = false
     }
 
