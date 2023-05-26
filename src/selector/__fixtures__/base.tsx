@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 
 import { SelectorOption, Toast } from '@fruits-chain/react-native-xiaoshu'
 import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
@@ -20,7 +20,7 @@ const BasicSelectorBase: React.FC = () => {
 
           for (let index = 0; index < 3; index++) {
             v.push({
-              label: `文案_${index}`,
+              label: `文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_${index}`,
               value: index,
             })
           }
@@ -72,10 +72,12 @@ const BasicSelectorBase: React.FC = () => {
               label: `文案_${index}`,
               value: index,
               render: ({ label }) => (
-                <>
+                <View style={{ flex: 1 }}>
                   <Text style={{ color: '#f30' }}>{label}</Text>
                   <Text style={{ color: '#999' }}>（优选）</Text>
-                </>
+                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text style={{ color: '#999' }}>（优选）</Text>
+                </View>
               ),
             })
           }
@@ -215,6 +217,38 @@ const BasicSelectorBase: React.FC = () => {
             v.push({
               label: `文案_${index}`,
               value: index,
+            })
+          }
+
+          Selector({
+            multiple: true,
+            title: '测试选项',
+            options: v,
+            onChange: (v, o) => {
+              console.log(v)
+              console.log(o)
+            },
+          }).catch(() => {})
+        }}
+      />
+      <Cell
+        title="多选:自定义渲染"
+        isLink
+        onPress={() => {
+          const v: SelectorOption[] = []
+
+          for (let index = 0; index < 3; index++) {
+            v.push({
+              label: `文案_${index}`,
+              value: index,
+              render: ({ label }) => (
+                <View style={{ flex: 1 }}>
+                  <Text style={{ color: '#f30' }}>{label}</Text>
+                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text style={{ color: '#999' }}>（优选）</Text>
+                </View>
+              ),
             })
           }
 

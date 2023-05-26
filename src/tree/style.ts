@@ -29,7 +29,7 @@ export const styleCreator = (cv: ComponentVars) => {
     tree_item: {
       flexDirection: 'row',
       alignItems: 'center',
-      height: cv.tree_item_height,
+      minHeight: cv.tree_item_height,
       paddingHorizontal: cv.tree_item_padding_horizontal,
     },
 
