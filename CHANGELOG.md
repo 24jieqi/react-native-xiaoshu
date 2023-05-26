@@ -1,3 +1,9 @@
+## [0.3.13-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12...v0.3.13-beta.0) (2023-05-26)
+
+### Features
+
+- **Tree:** 🎸 选项高度改为最低高度 ([cb629ec](https://github.com/hjfruit/react-native-xiaoshu/commit/cb629ecaae2d2874748ee643132cbc23139a2220))
+
 ## [0.3.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.6...v0.3.12) (2023-05-11)
 
 ## [0.3.12-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12-beta.5...v0.3.12-beta.6) (2023-05-09)
