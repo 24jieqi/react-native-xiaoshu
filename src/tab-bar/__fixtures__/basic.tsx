@@ -5,9 +5,14 @@
 
 import React, { useState } from 'react'
 import type { ViewStyle } from 'react-native'
-import { ScrollView } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 
-import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  TabBar,
+  Button,
+  Space,
+  Divider,
+} from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
@@ -38,7 +43,7 @@ const bottomBar = [
   },
   {
     value: 2,
-    label: '其他其他',
+    label: '发现页',
     iconRender: (color: string) => (
       <SearchOutline
         color={color}
@@ -47,10 +52,11 @@ const bottomBar = [
         style={bottomBarIconStyle}
       />
     ),
+    badge: 2,
   },
   {
     value: 3,
-    label: '更多更多更多',
+    label: '更多设置',
     iconRender: (color: string) => (
       <VolumeOutline
         color={color}
@@ -62,14 +68,16 @@ const bottomBar = [
   },
 ]
 
-const bottomBar2 = bottomBar.map(({ value, label }) => ({
+const bottomBar2 = bottomBar.map(({ value, label, badge }) => ({
+  badge,
   value: 10 + value,
-  label,
+  label: `${label}_${label}`,
 }))
 
 const bottomBar3 = [
   ...bottomBar2,
-  ...bottomBar2.map(({ value, label }) => ({
+  ...bottomBar2.map(({ value, label, badge }) => ({
+    badge,
     value: value * 2,
     label: `${label}_2`,
   })),
@@ -82,6 +90,8 @@ const BasicSwitch: React.FC = () => {
     <>
       <ScrollView>
         <Space head>
+          <Text>默认样子、无底部安全边距、受控</Text>
+
           <TabBar
             safeAreaInsetBottom={false}
             options={bottomBar}
@@ -99,6 +109,10 @@ const BasicSwitch: React.FC = () => {
             }}
           />
 
+          <Divider type="dark">.</Divider>
+
+          <Text>指示器（与文案宽保持一致）、无底部安全边距、受控</Text>
+
           <TabBar
             indicator
             safeAreaInsetBottom={false}
@@ -109,6 +123,10 @@ const BasicSwitch: React.FC = () => {
             }}
           />
 
+          <Divider type="dark">.</Divider>
+
+          <Text>指示器（固定20px宽）、无底部安全边距</Text>
+
           <TabBar
             indicator
             indicatorWidth={20}
@@ -117,6 +135,10 @@ const BasicSwitch: React.FC = () => {
             options={bottomBar2}
           />
 
+          <Divider type="dark">.</Divider>
+
+          <Text>指示器（自适应选项占用空间）、无底部安全边距</Text>
+
           <TabBar
             indicator
             indicatorWidth={0}
@@ -125,14 +147,30 @@ const BasicSwitch: React.FC = () => {
             options={bottomBar2}
           />
 
+          <Divider type="dark">.</Divider>
+
+          <Text>指示器（与文案宽保持一致）、无底部安全边距</Text>
+
           <TabBar indicator safeAreaInsetBottom={false} options={bottomBar2} />
+
+          <Divider type="dark">.</Divider>
+
+          <Text>
+            指示器（与文案宽保持一致）、无底部安全边距、做对齐（数量少）
+          </Text>
 
           <TabBar
             tabAlign="left"
             indicator
             safeAreaInsetBottom={false}
-            options={bottomBar2}
+            options={bottomBar}
           />
+
+          <Divider type="dark">.</Divider>
+
+          <Text>
+            指示器（与文案宽保持一致）、无底部安全边距、做对齐（数量多出现滚动条）
+          </Text>
 
           <TabBar
             tabAlign="left"
@@ -140,6 +178,12 @@ const BasicSwitch: React.FC = () => {
             safeAreaInsetBottom={false}
             options={bottomBar3}
           />
+
+          <Divider type="dark">.</Divider>
+
+          <Text>
+            指示器（自适应选项占用空间）、无底部安全边距、做对齐（数量多出现滚动条）
+          </Text>
 
           <TabBar
             tabAlign="left"
@@ -148,6 +192,12 @@ const BasicSwitch: React.FC = () => {
             safeAreaInsetBottom={false}
             options={bottomBar3}
           />
+
+          <Divider type="dark">.</Divider>
+
+          <Text>
+            指示器（固定20px宽）、无底部安全边距、做对齐（数量多出现滚动条）
+          </Text>
 
           <TabBar
             tabAlign="left"
