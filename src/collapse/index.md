@@ -25,7 +25,7 @@ group:
 
 ## API
 
-<API hideTitle></API>
+<API hideTitle src="./collapse.tsx"></API>
 
 ## 主题定制
 
