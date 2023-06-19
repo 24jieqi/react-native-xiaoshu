@@ -1,3 +1,9 @@
+## [0.3.13-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.0...v0.3.13-beta.1) (2023-06-19)
+
+### Bug Fixes
+
+- **Tree:** 🐛 高亮文案末端丢失部分文案 ([8e533d3](https://github.com/hjfruit/react-native-xiaoshu/commit/8e533d32b4880191dd939e0c2b5e5541326be3c2))
+
 ## [0.3.13-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.12...v0.3.13-beta.0) (2023-05-26)
 
 ### Features
