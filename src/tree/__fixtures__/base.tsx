@@ -19,7 +19,7 @@ const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
   renderSwitcherIcon: p => <CoordOutline size={p.size} color="#333" />,
   switcherHighlight: false,
   bold: true,
-  label: `第一A层a选项_${index0}`,
+  label: `第一A_${index0}层a选项`,
   children: new Array(3).fill(0).map((_, index1) => ({
     value: index1 + (index0 + 1) * 10,
     label: `第二Ab层选项_${index0}_${index1}`,

@@ -137,7 +137,7 @@ export const buildHighlightLabelConfig = (
       })
     })
 
-    if (pointer < label.length - 1) {
+    if (pointer <= label.length - 1) {
       nodes.push({
         highlight: false,
         text: label.slice(pointer, label.length),
