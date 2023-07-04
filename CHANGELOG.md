@@ -1,3 +1,9 @@
+## [0.3.13-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.1...v0.3.13-beta.2) (2023-07-04)
+
+### Bug Fixes
+
+- **Cell:** 🐛 title 文字过长挤压 value,添加最小宽度 ([673b96a](https://github.com/hjfruit/react-native-xiaoshu/commit/673b96a6dcf075965d2134a44c0c9eac33d7164f))
+
 ## [0.3.13-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.0...v0.3.13-beta.1) (2023-06-19)
 
 ### Bug Fixes
