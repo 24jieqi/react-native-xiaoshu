@@ -19,13 +19,14 @@ const BasicFieldSelector: React.FC = () => {
   return (
     <Cell.Group title="Field Selector">
       <Field.Selector
-        title="单选"
+        title="单选单选单选单选单选单选单选单选单选单选"
         placeholder="请选择"
         value={s1}
         options={options}
         onChange={v => {
           setS1(v as number)
         }}
+        clearable
       />
       <Field.Selector
         title="单选:renderResultText"

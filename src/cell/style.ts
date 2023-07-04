@@ -106,6 +106,7 @@ export const styleCreator = (cv: ComponentVars) => {
 
     value: {
       flex: 1,
+      minWidth: 100,
     },
 
     value_text: {
