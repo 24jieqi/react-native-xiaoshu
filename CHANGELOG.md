@@ -1,3 +1,10 @@
+## [0.3.13-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.3...v0.3.13-beta.4) (2023-07-06)
+
+### Features
+
+- **TabBar:** 🎸 支持 badge ([511792d](https://github.com/hjfruit/react-native-xiaoshu/commit/511792dadd9d1e690199c6fc4bb98727410ed51b))
+- **Tabs:** 🎸 支持 badge ([7eea2c8](https://github.com/hjfruit/react-native-xiaoshu/commit/7eea2c8a982233c1f94a76189e491a9f8fb10dfc))
+
 ## [0.3.13-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.2...v0.3.13-beta.3) (2023-07-06)
 
 ### Bug Fixes
