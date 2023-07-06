@@ -1,3 +1,9 @@
+## [0.3.13-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.2...v0.3.13-beta.3) (2023-07-06)
+
+### Bug Fixes
+
+- **Cell:** 🐛 有 value 时才支持最小宽 ([403fc4b](https://github.com/hjfruit/react-native-xiaoshu/commit/403fc4bc6f6efaedbb9005a7384e213812ea9eb5))
+
 ## [0.3.13-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.1...v0.3.13-beta.2) (2023-07-04)
 
 ### Bug Fixes
