@@ -109,7 +109,15 @@ const Cell: React.FC<CellProps> = ({
 
   const ctxJSX = (
     <>
-      <View style={[STYLES.value, centerStyle, valueStyle]}>{valueJSX}</View>
+      <View
+        style={[
+          STYLES.value,
+          valueJSX ? STYLES.hasValue : undefined,
+          centerStyle,
+          valueStyle,
+        ]}>
+        {valueJSX}
+      </View>
       {valueExtra}
       {linkJSX}
     </>

@@ -22,6 +22,7 @@ export const varCreator = (TOKENS: TokensType) => {
     cell_title_height: 32,
     cell_title_line_height: TOKENS.line_height_1,
     cell_title_line_margin_right: TOKENS.space_2,
+    cell_value_min_width: 100,
     cell_value_text_color: TOKENS.gray_7,
     cell_extra_text_color: TOKENS.gray_6,
     cell_extra_text_font_size: TOKENS.font_size_3,
@@ -106,7 +107,10 @@ export const styleCreator = (cv: ComponentVars) => {
 
     value: {
       flex: 1,
-      minWidth: 100,
+    },
+
+    hasValue: {
+      minWidth: cv.cell_value_min_width,
     },
 
     value_text: {
