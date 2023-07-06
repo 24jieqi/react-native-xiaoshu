@@ -40,6 +40,7 @@ const Tabs: React.FC<TabsProps> = ({
     const options: TabItem[] = tabs.map(t => ({
       value: t.key,
       label: t.tab,
+      badge: t.badge,
     }))
 
     return [options, tabs]

@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import type { ColorValue } from 'react-native'
 
-import type { TabBarProps } from '../tab-bar/interface'
+import type { TabBarProps, TabItem } from '../tab-bar/interface'
 
 export interface TabsProps
   extends Omit<
@@ -63,7 +63,8 @@ export interface TabsProps
   dividerColor?: ColorValue
 }
 
-export interface TabPaneProps extends PropsWithChildren<{}> {
+export interface TabPaneProps
+  extends PropsWithChildren<Pick<TabItem, 'badge'>> {
   /**
    * 对应 activeKey
    */

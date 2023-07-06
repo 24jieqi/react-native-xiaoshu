@@ -45,7 +45,7 @@ const BasicTabs: React.FC = () => {
       <Blank top>
         <Card square bodyPadding={false}>
           <Tabs indicatorWidth={24}>
-            <Tabs.TabPane key="1" tab="第一个">
+            <Tabs.TabPane key="1" tab="第一个" badge="44">
               <T />
             </Tabs.TabPane>
 
