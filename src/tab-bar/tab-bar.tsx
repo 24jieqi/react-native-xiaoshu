@@ -180,6 +180,13 @@ const TabBar: React.FC<TabBarProps> = ({
           ]}
           onLayout={genOnLayoutText(index)}>
           {item.label}
+          {!isNil(item.badge) ? (
+            <Text style={STYLES.item_text_badge}>
+              {/* React Native Text not support padding or margin, https://reactnative.dev/docs/text.html#containers */}
+              {` `}
+              {item.badge}
+            </Text>
+          ) : null}
         </Text>
       </TouchableOpacity>
     )

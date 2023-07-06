@@ -8,6 +8,7 @@ export type TabValue = number | string
 export type TabItem = {
   value: TabValue
   label: string
+  badge?: number | string
   iconRender?: (color?: ColorValue, isActive?: boolean) => React.ReactElement
 }
 

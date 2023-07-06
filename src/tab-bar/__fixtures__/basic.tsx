@@ -52,7 +52,6 @@ const bottomBar = [
         style={bottomBarIconStyle}
       />
     ),
-    badge: 2,
   },
   {
     value: 3,
@@ -68,8 +67,8 @@ const bottomBar = [
   },
 ]
 
-const bottomBar2 = bottomBar.map(({ value, label, badge }) => ({
-  badge,
+const bottomBar2 = bottomBar.map(({ value, label }) => ({
+  badge: '4',
   value: 10 + value,
   label: `${label}_${label}`,
 }))

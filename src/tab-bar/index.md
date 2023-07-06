@@ -30,6 +30,8 @@ group:
 | tab_bar_text_alone_font_size    | `TOKENS.font_size_4` | -    |
 | tab_bar_text_margin_top         | `TOKENS.space_1`     | -    |
 | tab_bar_text_color              | `TOKENS.gray_6`      | -    |
+| tab_bar_badge_font_size         | `TOKENS.font_size_4` | -    |
+| tab_bar_badge_color             | `TOKENS.red_6`       | -    |
 | tab_bar_icon_color              | `TOKENS.gray_6`      | -    |
 | tab_bar_active_text_color       | `TOKENS.brand_6`     | -    |
 | tab_bar_active_icon_color       | `TOKENS.brand_6`     | -    |
