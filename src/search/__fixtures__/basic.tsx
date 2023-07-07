@@ -5,7 +5,8 @@
 
 import React, { useState } from 'react'
 
-import { Cell, Search } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Search, ActionSheet } from '@fruits-chain/react-native-xiaoshu'
+import { MenuOutline } from '@fruits-chain/icons-react-native'
 
 const BasicPasswordInput: React.FC = () => {
   const [value1, setValue] = useState('多福多寿')
@@ -63,6 +64,29 @@ const BasicPasswordInput: React.FC = () => {
           onSearch={v => {
             console.log('autoSearch -> ', v)
           }}
+        />
+      </Cell.Group>
+
+      <Cell.Group title="搜索按钮右侧自定义内容">
+        <Search
+          placeholder="请输入关键词搜索"
+          extra={
+            <MenuOutline
+              size={24}
+              color="#098"
+              style={{ marginLeft: 12 }}
+              onPress={() => {
+                ActionSheet({
+                  actions: ['1', '3', '5'],
+                  cancelText: '取消',
+                })
+                  .then(v => {
+                    console.log(v)
+                  })
+                  .catch(() => {})
+              }}
+            />
+          }
         />
       </Cell.Group>
     </>

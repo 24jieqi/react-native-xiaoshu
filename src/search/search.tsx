@@ -33,6 +33,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       autoSearch = false,
       onSearchDebounceWait = 300,
       searchText,
+      extra,
 
       value,
       defaultValue,
@@ -127,6 +128,8 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           size="s"
           onPress={onPress}
         />
+
+        {extra}
       </View>
     )
   },

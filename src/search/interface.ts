@@ -58,4 +58,9 @@ export interface SearchProps
    * @default '搜索'
    */
   searchText?: string
+
+  /**
+   * 搜索按钮右侧自定义内容
+   */
+  extra?: React.ReactNode
 }
