@@ -1,3 +1,9 @@
+## [0.3.13-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.4...v0.3.13-beta.5) (2023-07-07)
+
+### Features
+
+- **Search:** 🎸 新增搜索按钮右侧自定义内容 ([71a38b7](https://github.com/hjfruit/react-native-xiaoshu/commit/71a38b7a7d834585462dfff39110b9ade2403134)), closes [#31](https://github.com/hjfruit/react-native-xiaoshu/issues/31)
+
 ## [0.3.13-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.3...v0.3.13-beta.4) (2023-07-06)
 
 ### Features
