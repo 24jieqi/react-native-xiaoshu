@@ -22,7 +22,7 @@ export default function <Values = any>(
           rcForm.submit(...args)
         },
         validateFields: (...args) => {
-          return new Promise((resolve, reject) => {
+          return new Promise<Values>((resolve, reject) => {
             rcForm
               .validateFields(...args)
               .then(resolve)
