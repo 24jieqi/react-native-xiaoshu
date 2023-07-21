@@ -1,3 +1,4 @@
+import type React from 'react'
 import type { ViewProps } from 'react-native'
 
 import type { BadgeProps } from '../badge/interface'
@@ -42,4 +43,9 @@ export interface SidebarProps extends ViewProps {
    * 切换面板的回调
    */
   onChange?: (value: SidebarValue) => void
+
+  /**
+   * 空数据占位符
+   */
+  empty?: React.ReactNode
 }

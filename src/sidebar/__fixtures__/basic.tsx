@@ -100,6 +100,10 @@ const BasicSidebar: React.FC = () => {
         <View style={{ height: 300 }}>
           <Sidebar options={options2} defaultActiveValue={options2[1].value} />
         </View>
+
+        <View style={{ height: 300 }}>
+          <Sidebar options={[]} empty={null} />
+        </View>
       </Space>
     </ScrollView>
   )

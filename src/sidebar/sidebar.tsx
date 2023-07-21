@@ -1,4 +1,5 @@
 import isNil from 'lodash/isNil'
+import isUndefined from 'lodash/isUndefined'
 import React, { memo } from 'react'
 import { View, Text, ScrollView, TouchableHighlight } from 'react-native'
 
@@ -17,6 +18,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   width = 88,
   loading,
   options,
+  empty,
   style,
   ...restProps
 }) => {
@@ -46,13 +48,17 @@ const Sidebar: React.FC<SidebarProps> = ({
         {loading ? <Loading vertical>{locale.labelLoading}</Loading> : null}
 
         {!loading && options.length === 0 ? (
-          <Result
-            status="warning"
-            subtitle={locale.labelNoData}
-            renderIcon={() => {
-              return <ResultIconEmpty width={60} height={60} />
-            }}
-          />
+          isUndefined(empty) ? (
+            <Result
+              status="warning"
+              subtitle={locale.labelNoData}
+              renderIcon={() => {
+                return <ResultIconEmpty width={60} height={60} />
+              }}
+            />
+          ) : (
+            empty
+          )
         ) : null}
 
         {!loading && options.length > 0 ? (
