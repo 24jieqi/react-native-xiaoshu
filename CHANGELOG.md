@@ -1,3 +1,9 @@
+## [0.3.14-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13...v0.3.14-beta.0) (2023-07-21)
+
+### Features
+
+- **Sidebar:** 🎸 空数据自定义占位元素 ([044ad9c](https://github.com/hjfruit/react-native-xiaoshu/commit/044ad9cccd4ae871cd2300494704c7511ea8181c))
+
 ## [0.3.13](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.5...v0.3.13) (2023-07-12)
 
 ## [0.3.13-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13-beta.4...v0.3.13-beta.5) (2023-07-07)
