@@ -1,3 +1,9 @@
+## [0.3.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.14-beta.0...v0.3.14) (2023-07-31)
+
+### Bug Fixes
+
+- **Popover:** 🐛 trigger ([969ae20](https://github.com/hjfruit/react-native-xiaoshu/commit/969ae20d47aa7d979472e21806a5d99666af1290))
+
 ## [0.3.14-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.13...v0.3.14-beta.0) (2023-07-21)
 
 ### Features
