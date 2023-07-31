@@ -32,6 +32,7 @@ const Popover = <T,>({
   disabled,
   renderContentComponent,
   duration,
+  trigger = 'onPress',
 
   backgroundStyle,
   popoverStyle,
@@ -86,7 +87,9 @@ const Popover = <T,>({
     <>
       <TouchableOpacity
         ref={touchable}
-        onPress={openPopover}
+        onPress={trigger === 'onPress' ? openPopover : undefined}
+        onLongPress={trigger === 'onLongPress' ? openPopover : undefined}
+        onPressIn={trigger === 'onPressIn' ? openPopover : undefined}
         style={[STYLES.trigger, triggerStyle]}
         disabled={disabled}
         activeOpacity={CV_BUTTON.button_active_opacity}>

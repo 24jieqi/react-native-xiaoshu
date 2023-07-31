@@ -23,6 +23,7 @@ const BasicPopover: React.FC = () => {
     <ScrollView>
       <Space gap={300} tail style={{ backgroundColor: '#fff' }}>
         <Popover<string>
+          trigger="onLongPress"
           triggerStyle={{ backgroundColor: '#f30' }}
           popoverStyle={{ backgroundColor: '#000' }}
           statusBarTranslucent
@@ -39,7 +40,7 @@ const BasicPopover: React.FC = () => {
               <Text style={{ color: '#fff' }}>弹出3</Text>
             </Popover.Item>,
           ]}>
-          <Text>自构 UI:多选项:自定义样式</Text>
+          <Text>自构 UI:多选项:自定义样式:长按</Text>
         </Popover>
 
         <Popover<string>
