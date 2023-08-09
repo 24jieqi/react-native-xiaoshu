@@ -1,3 +1,9 @@
+## [0.3.15-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.14...v0.3.15-beta.0) (2023-08-09)
+
+### Features
+
+- **Collapse:** 🎸 卡片类型支持设置圆角 ([45ca754](https://github.com/hjfruit/react-native-xiaoshu/commit/45ca754315ed610de97084979149eff23df6738d))
+
 ## [0.3.14](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.14-beta.0...v0.3.14) (2023-07-31)
 
 ### Bug Fixes
