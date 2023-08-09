@@ -34,6 +34,7 @@ const Collapse: React.FC<CollapseProps> = ({
   headerDivider = true,
   bodyDivider,
   lazyRender = true,
+  square = true,
 
   testID,
 
@@ -138,7 +139,7 @@ const Collapse: React.FC<CollapseProps> = ({
   if (type === 'card') {
     return (
       <Card
-        square
+        square={square}
         title={titleJSX}
         extra={titleExtraJSX}
         headerDivider={headerDivider}

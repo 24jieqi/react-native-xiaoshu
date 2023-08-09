@@ -260,14 +260,21 @@ const BasicCollapse: React.FC = () => {
             <Text style={{ lineHeight: 20 }}>文案</Text>
           </Collapse>
 
-          <Collapse
-            title="title文案"
-            type="card"
-            bodyStyle={{ backgroundColor: '#f5f5f5' }}>
-            <Text style={{ lineHeight: 20 }}>文案</Text>
-            <View style={{ height: 20 }} />
-            <Text style={{ lineHeight: 20 }}>文案</Text>
-          </Collapse>
+          <View
+            style={{
+              paddingHorizontal: 24,
+              paddingVertical: 24,
+            }}>
+            <Collapse
+              title="title文案"
+              type="card"
+              bodyStyle={{ backgroundColor: '#f5f5f5' }}
+              square={false}>
+              <Text style={{ lineHeight: 20 }}>文案</Text>
+              <View style={{ height: 20 }} />
+              <Text style={{ lineHeight: 20 }}>文案</Text>
+            </Collapse>
+          </View>
         </Space>
       </Cell.Group>
     </ScrollView>

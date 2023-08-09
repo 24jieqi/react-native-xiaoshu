@@ -110,4 +110,10 @@ export interface CollapseProps
    * @default true
    */
   lazyRender?: boolean
+
+  /**
+   * 是否为方形，仅对 card 类型有效
+   * @default true
+   */
+  square?: boolean
 }

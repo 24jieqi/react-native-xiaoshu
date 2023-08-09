@@ -29,6 +29,7 @@ export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     card: {
       backgroundColor: cv.card_background_color,
+      overflow: 'hidden',
     },
 
     card_radius_m: {
