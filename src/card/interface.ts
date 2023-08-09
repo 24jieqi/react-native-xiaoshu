@@ -71,7 +71,7 @@ export interface CardProps extends ViewProps {
   size?: 'm' | 's'
 
   /**
-   * 是否为方形按钮
+   * 是否为方形
    * @default false
    */
   square?: boolean
