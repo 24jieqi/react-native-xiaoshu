@@ -1,7 +1,7 @@
 ---
 title: 🌈 React Native UI library
 hero:
-  title: 小暑
+  title: 小暑 xiǎo shǔ
   desc: 🌈 轻量、可靠的 React Native 组件库
   actions:
     - text: 快速上手 →

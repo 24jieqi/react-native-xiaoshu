@@ -1,7 +1,7 @@
 <div align="center">
 <img src="./logo-xiaoshu.svg" width="120" />
 </div>
-<h1 align="center">小暑</h1>
+<h1 align="center">小暑 xiǎo shǔ</h1>
 
 <div align="center">
 React Native UI library
