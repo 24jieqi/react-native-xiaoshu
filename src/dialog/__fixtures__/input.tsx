@@ -24,6 +24,20 @@ const BasicDialogInput: React.FC = () => {
         }}
       />
       <Cell
+        title="普通文字:自定义顶部安全"
+        isLink
+        onPress={() => {
+          Dialog.input({
+            safeAreaTop: 200,
+            title: '输入框？',
+            placeholder: '请输入内容',
+            onPressConfirm: t => {
+              console.log(t)
+            },
+          })
+        }}
+      />
+      <Cell
         title="普通文字:close"
         isLink
         onPress={() => {

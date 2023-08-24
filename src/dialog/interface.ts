@@ -148,15 +148,20 @@ export interface DialogMethodProps
 export interface DialogOptions
   extends Omit<DialogMethodProps, 'onResponse' | 'onRequestClose'> {}
 
+export interface DialogKeyboardProps extends PropsWithChildren<DialogProps> {
+  safeAreaTop?: number
+}
+
 export type DialogInputState = {
   value: string | number
 } & DialogMethodState
 
 export interface DialogInputProps
   extends Omit<
-    DialogCommon,
-    'visible' | 'onPressOverlay' | 'messageAlign' | 'onPressClose'
-  > {
+      DialogCommon,
+      'visible' | 'onPressOverlay' | 'messageAlign' | 'onPressClose'
+    >,
+    Pick<DialogKeyboardProps, 'safeAreaTop'> {
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */

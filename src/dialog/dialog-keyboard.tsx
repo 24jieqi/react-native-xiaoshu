@@ -4,10 +4,11 @@ import { Keyboard } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Dialog from './dialog'
-import type { DialogProps } from './interface'
+import type { DialogKeyboardProps } from './interface'
 
-const DialogKeyboard: React.FC<React.PropsWithChildren<DialogProps>> = ({
+const DialogKeyboard: React.FC<DialogKeyboardProps> = ({
   style,
+  safeAreaTop,
   ...restProps
 }) => {
   const insets = useSafeAreaInsets()
@@ -15,9 +16,9 @@ const DialogKeyboard: React.FC<React.PropsWithChildren<DialogProps>> = ({
   const dialogStyle = useMemo<ViewStyle>(
     () => ({
       position: 'absolute',
-      top: insets.top,
+      top: safeAreaTop ?? insets.top,
     }),
-    [insets.top],
+    [insets.top, safeAreaTop],
   )
 
   useEffect(() => {
