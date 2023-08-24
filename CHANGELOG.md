@@ -1,3 +1,15 @@
+## [0.3.15-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.0...v0.3.15-beta.1) (2023-08-24)
+
+### Bug Fixes
+
+- **ci:** 🐛 dumi@3.x use prettier@2.x ([501b066](https://github.com/hjfruit/react-native-xiaoshu/commit/501b066bb3fe86d57b1f6f8716e040969356bc0e))
+
+### Features
+
+- **ci:** 🎸 ios podfile.lock ([e789a4b](https://github.com/hjfruit/react-native-xiaoshu/commit/e789a4b2900b03f263fb8dd191a9647d8d8353e0))
+- **Dialog:** 🎸 键盘对话框支撑自定义 safeAreaTop ([29aa388](https://github.com/hjfruit/react-native-xiaoshu/commit/29aa3885be79d40c417abb0b09d4688bf2f2be2d))
+- **Dialog:** 🎸 默认阻断 Android 虚拟返回按键事件 ([c4c653a](https://github.com/hjfruit/react-native-xiaoshu/commit/c4c653a0819814efc514c7878746b02d1fbf2468))
+
 ## [0.3.15-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.14...v0.3.15-beta.0) (2023-08-09)
 
 ### Features
