@@ -13,6 +13,10 @@ import Theme from '../theme'
 import type { DialogProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
+const defaultOnRequestClose = () => {
+  return true
+}
+
 /**
  * Dialog 弹出框
  * @description 弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作。
@@ -42,6 +46,7 @@ const Dialog: React.FC<DialogProps> = ({
   duration,
   onOpen: onOpenFn,
   onClose: onCloseFn,
+  onRequestClose = defaultOnRequestClose,
   ...resetProps
 }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current
@@ -120,7 +125,8 @@ const Dialog: React.FC<DialogProps> = ({
       {...resetProps}
       duration={duration}
       onOpen={onOpenPersistFn}
-      onClose={onClosePersistFn}>
+      onClose={onClosePersistFn}
+      onRequestClose={onRequestClose}>
       <Animated.View
         style={[
           STYLES.dialog,
