@@ -1,3 +1,9 @@
+## [0.3.15-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.1...v0.3.15-beta.2) (2023-08-25)
+
+### Features
+
+- 暴露 overlayStyle ([65d3db3](https://github.com/hjfruit/react-native-xiaoshu/commit/65d3db3d6d9cf4573c215cc2169b13be73c63153))
+
 ## [0.3.15-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.0...v0.3.15-beta.1) (2023-08-24)
 
 ### Bug Fixes
