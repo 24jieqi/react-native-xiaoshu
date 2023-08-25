@@ -5,7 +5,7 @@ import type { TokensType } from '../theme/interface'
 export const varCreator = (TOKENS: TokensType) => {
   return {
     button_bar_button_space: TOKENS.space_2,
-    button_bar_button_min_width: 84,
+    button_bar_button_min_width: 92,
   }
 }
 
