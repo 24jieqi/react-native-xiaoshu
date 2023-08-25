@@ -21,7 +21,7 @@ export const styleCreator = (cv: ComponentVars) => {
       flexShrink: 1,
       flexGrow: 1,
     },
-
+    wrap_view: { minWidth: '100%' },
     button_bar_alone: {
       flexDirection: 'column',
       alignItems: 'stretch',

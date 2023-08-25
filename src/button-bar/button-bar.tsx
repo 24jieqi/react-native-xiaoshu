@@ -103,7 +103,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
       }}>
       {isConfig ? (
         <Space
-          style={{ minWidth: '100%' }}
+          style={STYLES.wrap_view}
           onLayout={e => {
             setInnerElementLayout(e.nativeEvent.layout)
           }}
