@@ -168,6 +168,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
       <View style={boxStyle}>
         {type === 'textarea' || type === 'text' ? (
           <TextInput
+            size="l"
             {...resetTextInputProps}
             ref={TextInputRef}
             type={type}
@@ -178,6 +179,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
           />
         ) : (
           <NumberInput
+            size="l"
             {...resetNumberInputProps}
             ref={TextInputRef}
             type={type}
