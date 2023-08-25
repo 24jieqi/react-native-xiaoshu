@@ -1,3 +1,15 @@
+## [0.3.15-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.2...v0.3.15-beta.3) (2023-08-25)
+
+### Bug Fixes
+
+- 设计提的弹框默认 input 大小变大一点 ([7eeb0b1](https://github.com/hjfruit/react-native-xiaoshu/commit/7eeb0b1655b2f0315077c37571c01ae416ffeca2))
+- 修改设计规范值 ([e6cf69e](https://github.com/hjfruit/react-native-xiaoshu/commit/e6cf69eca16d3383b2b62138fe42e7b9ec92f303))
+- inline style ([95d02ea](https://github.com/hjfruit/react-native-xiaoshu/commit/95d02eaafb586d7497557a173e2e5ed2c5e82a0e))
+
+### Features
+
+- 动态计算 button bar count ([0adf334](https://github.com/hjfruit/react-native-xiaoshu/commit/0adf33493e9b41cc95f8d2840ccd641404fb2175))
+
 ## [0.3.15-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.1...v0.3.15-beta.2) (2023-08-25)
 
 ### Features
