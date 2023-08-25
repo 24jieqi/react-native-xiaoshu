@@ -22,6 +22,7 @@ const Overlay: React.FC<OverlayProps> = ({
   testID,
   children,
   style,
+  overlayStyle,
   zIndex,
   visible = false,
   duration,
@@ -107,6 +108,7 @@ const Overlay: React.FC<OverlayProps> = ({
           backgroundColor: backgroundColor,
           zIndex: !isUndefined(zIndex) ? zIndex : CV.overlay_z_index,
         },
+        overlayStyle,
       ]}>
       <TouchableOpacity
         style={[STYLES.touchable, style]}

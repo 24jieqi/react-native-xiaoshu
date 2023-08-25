@@ -8,6 +8,10 @@ export interface OverlayProps
    * 最外层样式
    */
   style?: StyleProp<ViewStyle>
+  /**
+   * overlay样式
+   */
+  overlayStyle?: StyleProp<ViewStyle>
 
   /**
    * 是否展示遮罩层
