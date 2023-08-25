@@ -14,9 +14,12 @@ type ComponentVars = ReturnType<typeof varCreator>
 export const styleCreator = (cv: ComponentVars) => {
   return StyleSheet.create({
     button_bar: {
+      width: '100%',
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
+      flexShrink: 1,
+      flexGrow: 1,
     },
 
     button_bar_alone: {

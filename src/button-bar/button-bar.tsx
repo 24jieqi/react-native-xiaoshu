@@ -1,6 +1,8 @@
 import isArray from 'lodash/isArray'
+import isUndefined from 'lodash/isUndefined'
 import noop from 'lodash/noop'
-import React, { memo } from 'react'
+import React, { memo, useEffect, useState } from 'react'
+import type { LayoutRectangle } from 'react-native'
 
 import ActionSheet from '../action-sheet'
 import { varCreator as varCreatorBlank } from '../blank/style'
@@ -16,7 +18,8 @@ import { varCreator, styleCreator } from './style'
 const ButtonBar: React.FC<ButtonBarProps> = ({
   alone = false,
   buttons,
-  count = 4,
+
+  count,
   moreText,
   blankSize = 'm',
 
@@ -29,14 +32,42 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
   const STYLES = Theme.createStyle(CV, styleCreator)
-
   const realButtons = (buttons || []).filter(item => !item.hidden)
+  /** 计算当前有多少个button的逻辑 */
+  const [wrapElementLayout, setWrapElementLayout] =
+    useState<LayoutRectangle>(null)
+  const [innerElementLayout, setInnerElementLayout] =
+    useState<LayoutRectangle>(null)
+  const [showCount, setShowCount] = useState(buttons?.length)
+  const [isMagnify, setIsMagnify] = useState(false)
+  useEffect(() => {
+    setShowCount(buttons?.length)
+  }, [buttons?.length])
+  useEffect(() => {
+    let resCount = showCount
+    if (isMagnify) {
+      resCount = buttons?.length
+      setIsMagnify(false)
+    }
+    if (wrapElementLayout?.width < innerElementLayout?.width) {
+      setShowCount(resCount - 1)
+    } else {
+      if (isMagnify) {
+        setShowCount(resCount)
+      }
+    }
+  }, [wrapElementLayout?.width, innerElementLayout?.width])
+  /** 是否是配置式 */
   const isConfig = isArray(buttons)
-  const showMore = realButtons.length > count
-  const bottomButtons = showMore ? realButtons.slice(0, count - 1) : realButtons
+  // 外部传入了count就使用外部的：兼容代码
+  const btnCount = isUndefined(count) ? showCount : count
+  const showMore = realButtons.length > btnCount
+  const bottomButtons = showMore
+    ? realButtons.slice(0, btnCount - 1)
+    : realButtons
 
   const onPressMore = () => {
-    const restButtons = realButtons.slice(count - 1)
+    const restButtons = realButtons.slice(btnCount - 1)
 
     ActionSheet({
       actions: restButtons.map(item => item.text),
@@ -62,9 +93,20 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
         STYLES.button_bar,
         alone ? STYLES.button_bar_alone : null,
         style,
-      ]}>
+      ]}
+      onLayout={e => {
+        // 监听变化，是变大的时候重新设置showCount
+        if (wrapElementLayout?.width < e.nativeEvent.layout.width) {
+          setIsMagnify(true)
+        }
+        setWrapElementLayout(e.nativeEvent.layout)
+      }}>
       {isConfig ? (
         <Space
+          style={{ minWidth: '100%' }}
+          onLayout={e => {
+            setInnerElementLayout(e.nativeEvent.layout)
+          }}
           justify="flex-end"
           align="center"
           direction="horizontal"
