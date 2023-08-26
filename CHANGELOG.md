@@ -1,3 +1,9 @@
+## [0.3.15-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.4...v0.3.15-beta.5) (2023-08-26)
+
+### Bug Fixes
+
+- ios button bar bug ([8b8fb9b](https://github.com/hjfruit/react-native-xiaoshu/commit/8b8fb9ba6d066ad077c24b6bfcada68b2690d9cd))
+
 ## [0.3.15-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.3...v0.3.15-beta.4) (2023-08-26)
 
 ### Features
