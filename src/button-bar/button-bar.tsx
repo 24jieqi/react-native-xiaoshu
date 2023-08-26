@@ -1,7 +1,7 @@
 import isArray from 'lodash/isArray'
 import isUndefined from 'lodash/isUndefined'
 import noop from 'lodash/noop'
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useEffect, useMemo, useState } from 'react'
 import type { LayoutRectangle } from 'react-native'
 
 import ActionSheet from '../action-sheet'
@@ -78,7 +78,15 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
       })
       .catch(noop)
   }
-
+  const aloneButton = useMemo(() => {
+    if (alone && isConfig && buttons?.length === 1) {
+      const b = buttons?.[0]
+      return (
+        <Button {...b} size={b.size || 'm'} style={b.style || STYLES.btn} />
+      )
+    }
+    return null
+  }, [alone, buttons])
   const defaultGap = CV_BLANK[`blank_size_${blankSize}`]
 
   if (isConfig && realButtons.length === 0) {
@@ -102,33 +110,37 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
         setWrapElementLayout(e.nativeEvent.layout)
       }}>
       {isConfig ? (
-        <Space
-          style={STYLES.wrap_view}
-          onLayout={e => {
-            setInnerElementLayout(e.nativeEvent.layout)
-          }}
-          justify="flex-end"
-          align="center"
-          direction="horizontal"
-          gapHorizontal={CV.button_bar_button_space}>
-          {showMore ? (
-            <Button
-              type="link"
-              text={moreText ?? locale.moreText}
-              onPress={onPressMore}
-            />
-          ) : null}
-          {bottomButtons.reverse().map((b, index) => {
-            return (
+        aloneButton ? (
+          aloneButton
+        ) : (
+          <Space
+            style={STYLES.wrap_view}
+            onLayout={e => {
+              setInnerElementLayout(e.nativeEvent.layout)
+            }}
+            justify="flex-end"
+            align="center"
+            direction="horizontal"
+            gapHorizontal={CV.button_bar_button_space}>
+            {showMore ? (
               <Button
-                key={index}
-                {...b}
-                size={b.size || 'm'}
-                style={b.style || STYLES.btn}
+                type="link"
+                text={moreText ?? locale.moreText}
+                onPress={onPressMore}
               />
-            )
-          })}
-        </Space>
+            ) : null}
+            {bottomButtons.reverse().map((b, index) => {
+              return (
+                <Button
+                  key={index}
+                  {...b}
+                  size={b.size || 'm'}
+                  style={b.style || STYLES.btn}
+                />
+              )
+            })}
+          </Space>
+        )
       ) : (
         children
       )}
