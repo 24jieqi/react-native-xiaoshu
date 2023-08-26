@@ -1,3 +1,9 @@
+## [0.3.15-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.3...v0.3.15-beta.4) (2023-08-26)
+
+### Features
+
+- alone 支持单个 button 的时候不渲染到 Space 中 ([c263c61](https://github.com/hjfruit/react-native-xiaoshu/commit/c263c61a8453fcc552125c15d20814d9959064e7))
+
 ## [0.3.15-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.2...v0.3.15-beta.3) (2023-08-25)
 
 ### Bug Fixes
