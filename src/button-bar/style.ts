@@ -21,7 +21,14 @@ export const styleCreator = (cv: ComponentVars) => {
       flexShrink: 1,
       flexGrow: 1,
     },
-    wrap_view: { minWidth: '100%' },
+    wrap_view: {
+      minWidth: '100%',
+      width: 'auto',
+    },
+    scroll_view: {
+      width: '100%',
+      padding: 0,
+    },
     button_bar_alone: {
       flexDirection: 'column',
       alignItems: 'stretch',

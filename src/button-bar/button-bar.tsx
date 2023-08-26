@@ -2,7 +2,7 @@ import isArray from 'lodash/isArray'
 import isUndefined from 'lodash/isUndefined'
 import noop from 'lodash/noop'
 import React, { memo, useEffect, useMemo, useState } from 'react'
-import type { LayoutRectangle } from 'react-native'
+import { ScrollView, type LayoutRectangle, Platform } from 'react-native'
 
 import ActionSheet from '../action-sheet'
 import { varCreator as varCreatorBlank } from '../blank/style'
@@ -31,6 +31,7 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
+  const defaultGap = CV_BLANK[`blank_size_${blankSize}`]
   const STYLES = Theme.createStyle(CV, styleCreator)
   const realButtons = (buttons || []).filter(item => !item.hidden)
   /** 计算当前有多少个button的逻辑 */
@@ -43,20 +44,21 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   useEffect(() => {
     setShowCount(buttons?.length)
   }, [buttons?.length])
+
   useEffect(() => {
     let resCount = showCount
     if (isMagnify) {
       resCount = buttons?.length
       setIsMagnify(false)
     }
-    if (wrapElementLayout?.width < innerElementLayout?.width) {
+    if (wrapElementLayout?.width - defaultGap < innerElementLayout?.width) {
       setShowCount(resCount - 1)
     } else {
       if (isMagnify) {
         setShowCount(resCount)
       }
     }
-  }, [wrapElementLayout?.width, innerElementLayout?.width])
+  }, [wrapElementLayout?.width, defaultGap, innerElementLayout?.width])
   /** 是否是配置式 */
   const isConfig = isArray(buttons)
   // 外部传入了count就使用外部的：兼容代码
@@ -87,12 +89,25 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
     }
     return null
   }, [alone, buttons])
-  const defaultGap = CV_BLANK[`blank_size_${blankSize}`]
 
   if (isConfig && realButtons.length === 0) {
     return null
   }
-
+  const jsxWrap = content => {
+    if (Platform.OS === 'web') {
+      return content
+    } else {
+      return (
+        <ScrollView
+          style={STYLES.scroll_view}
+          horizontal={true}
+          overScrollMode="never"
+          bounces={false}>
+          {content}
+        </ScrollView>
+      )
+    }
+  }
   return (
     <BottomBar
       {...restProps}
@@ -109,41 +124,39 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
         }
         setWrapElementLayout(e.nativeEvent.layout)
       }}>
-      {isConfig ? (
-        aloneButton ? (
-          aloneButton
-        ) : (
-          <Space
-            style={STYLES.wrap_view}
-            onLayout={e => {
-              setInnerElementLayout(e.nativeEvent.layout)
-            }}
-            justify="flex-end"
-            align="center"
-            direction="horizontal"
-            gapHorizontal={CV.button_bar_button_space}>
-            {showMore ? (
-              <Button
-                type="link"
-                text={moreText ?? locale.moreText}
-                onPress={onPressMore}
-              />
-            ) : null}
-            {bottomButtons.reverse().map((b, index) => {
-              return (
-                <Button
-                  key={index}
-                  {...b}
-                  size={b.size || 'm'}
-                  style={b.style || STYLES.btn}
-                />
-              )
-            })}
-          </Space>
-        )
-      ) : (
-        children
-      )}
+      {isConfig
+        ? aloneButton
+          ? aloneButton
+          : jsxWrap(
+              <Space
+                style={STYLES.wrap_view}
+                onLayout={e => {
+                  setInnerElementLayout(e.nativeEvent.layout)
+                }}
+                justify="flex-end"
+                align="center"
+                direction="horizontal"
+                gapHorizontal={CV.button_bar_button_space}>
+                {showMore ? (
+                  <Button
+                    type="link"
+                    text={moreText ?? locale.moreText}
+                    onPress={onPressMore}
+                  />
+                ) : null}
+                {bottomButtons.reverse().map((b, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      {...b}
+                      size={b.size || 'm'}
+                      style={b.style || STYLES.btn}
+                    />
+                  )
+                })}
+              </Space>,
+            )
+        : children}
     </BottomBar>
   )
 }
