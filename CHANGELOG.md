@@ -1,3 +1,16 @@
+## [0.3.15-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.2...v0.3.15-beta.6) (2023-08-28)
+
+### Bug Fixes
+
+- 设计提的弹框默认 input 大小变大一点 ([7eeb0b1](https://github.com/hjfruit/react-native-xiaoshu/commit/7eeb0b1655b2f0315077c37571c01ae416ffeca2))
+- 修改设计规范值 ([e6cf69e](https://github.com/hjfruit/react-native-xiaoshu/commit/e6cf69eca16d3383b2b62138fe42e7b9ec92f303))
+- step color ([333bdd5](https://github.com/hjfruit/react-native-xiaoshu/commit/333bdd5d0f54926add94334a9980fb41ed9879cc))
+
+### Features
+
+- step style 调整 ([36a2323](https://github.com/hjfruit/react-native-xiaoshu/commit/36a23236ab6745d4b6ebaa208f0c69b697878bb9))
+- version ([a7c5e6e](https://github.com/hjfruit/react-native-xiaoshu/commit/a7c5e6e09d9d5ace68e99e872b5e95741628ee45))
+
 ## [0.3.15-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.1...v0.3.15-beta.2) (2023-08-25)
 
 ### Features
