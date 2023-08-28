@@ -56,13 +56,31 @@ const Step: FC<StepsItemPropsType> = props => {
 
   return (
     <View style={[STYLES.stepWrap, { width: stepWidth }]}>
-      <View
-        style={[
-          STYLES.line,
-          // eslint-disable-next-line react-native/no-inline-styles
-          { left: isFirst ? '50%' : 0, right: isLast ? '50%' : 0 },
-        ]}
-      />
+      {!isFirst && (
+        <View
+          style={[
+            STYLES.line,
+            current < index
+              ? { backgroundColor: CV.steps_line_normal_color }
+              : {},
+            // eslint-disable-next-line react-native/no-inline-styles
+            { left: 0, right: '50%' },
+          ]}
+        />
+      )}
+      {!isLast && (
+        <View
+          style={[
+            STYLES.line,
+            current <= index
+              ? { backgroundColor: CV.steps_line_normal_color }
+              : {},
+            // eslint-disable-next-line react-native/no-inline-styles
+            { left: '50%', right: 0 },
+          ]}
+        />
+      )}
+
       <View style={STYLES.stepIconWrap}>{resIcon}</View>
       {renderTextLikeJSX(title, titleStyle)}
     </View>

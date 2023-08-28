@@ -11,7 +11,8 @@ export const varCreator = (TOKENS: TokensType) => {
     steps_icon_dot_active_size: 16,
     steps_icon_success_active_size: 16,
     steps_title_size: TOKENS.font_size_4,
-    steps_title_color: TOKENS.white,
+    steps_line_normal_color: '#5A9CFF',
+    steps_title_color: 'rgba(255, 255, 255, 0.4)',
   }
 }
 
