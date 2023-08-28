@@ -12,7 +12,8 @@ export const varCreator = (TOKENS: TokensType) => {
     steps_icon_success_active_size: 16,
     steps_title_size: TOKENS.font_size_4,
     steps_line_normal_color: '#5A9CFF',
-    steps_title_color: 'rgba(255, 255, 255, 0.4)',
+    steps_title_color: TOKENS.white,
+    steps_title_dot_color: 'rgba(255, 255, 255, 0.4)',
   }
 }
 
@@ -60,7 +61,7 @@ export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
     dot: {
       width: cv.steps_icon_dot_size,
       height: cv.steps_icon_dot_size,
-      backgroundColor: cv.steps_title_color,
+      backgroundColor: cv.steps_title_dot_color,
       borderRadius: cv.steps_icon_dot_size,
       // TODO 新增变量
       // opacity: cv.button_active_opacity,
@@ -73,7 +74,7 @@ export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
     },
     titleText: {
       fontSize: cv.steps_title_size,
-      color: cv.steps_title_color,
+      color: cv.steps_title_dot_color,
       // TODO 新增变量
       // opacity: cv.button_active_opacity,
       marginHorizontal: TOKENS.space_1,
