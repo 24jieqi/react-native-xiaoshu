@@ -66,6 +66,8 @@ group:
 
 | 名称                                         | 默认值                   | 描述 |
 | :------------------------------------------- | ------------------------ | ---- |
+| text_input_xl_font_size                      | `TOKENS.font_size_5`     | -    |
+| text_input_xl_min_height                     | 44                       | -    |
 | text_input_l_font_size                       | `TOKENS.font_size_5`     | -    |
 | text_input_l_min_height                      | 40                       | -    |
 | text_input_m_font_size                       | `TOKENS.font_size_5`     | -    |

@@ -4,6 +4,8 @@ import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
+    text_input_xl_font_size: TOKENS.font_size_5,
+    text_input_xl_min_height: 44,
     text_input_l_font_size: TOKENS.font_size_5,
     text_input_l_min_height: 40,
     text_input_m_font_size: TOKENS.font_size_5,
