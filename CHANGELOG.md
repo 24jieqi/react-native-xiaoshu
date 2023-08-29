@@ -1,3 +1,10 @@
+## [0.3.15-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.6...v0.3.15-beta.7) (2023-08-29)
+
+### Features
+
+- **Dialog:** 🎸 对话框中的输入框默认使用 xl 尺寸 ([49132d1](https://github.com/hjfruit/react-native-xiaoshu/commit/49132d1f5d12aafc2cc111a664e965da82734d43))
+- **TextInput:** 🎸 新增 xl 尺寸 ([97428a5](https://github.com/hjfruit/react-native-xiaoshu/commit/97428a5daa8b8d996adcdd701123c41e058e2773))
+
 ## [0.3.15-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.2...v0.3.15-beta.6) (2023-08-28)
 
 ### Bug Fixes
