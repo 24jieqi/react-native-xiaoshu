@@ -1,3 +1,5 @@
+## [0.3.15](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.7...v0.3.15) (2023-08-30)
+
 ## [0.3.15-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.6...v0.3.15-beta.7) (2023-08-29)
 
 ### Features
