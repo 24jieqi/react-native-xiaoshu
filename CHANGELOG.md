@@ -1,3 +1,9 @@
+## [0.3.16-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15...v0.3.16-beta.0) (2023-08-30)
+
+### Features
+
+- **TextInput:** 🎸 输入内容文字颜色变更 ([71b6df5](https://github.com/hjfruit/react-native-xiaoshu/commit/71b6df54c288ba4e7b24657f4a389ed393657698))
+
 ## [0.3.15](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.7...v0.3.15) (2023-08-30)
 
 ## [0.3.15-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15-beta.6...v0.3.15-beta.7) (2023-08-29)
