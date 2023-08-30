@@ -29,7 +29,7 @@ export interface PopupPropsCommon {
   overlay?: boolean
 
   /**
-   * 是否在点击遮罩层后关闭
+   * 受控组件：用于阻止 overlay onPress 事件；函数调用：可以用来阻碍弹出层消失
    * @default true
    */
   closeOnPressOverlay?: boolean
