@@ -14,7 +14,7 @@ export const varCreator = (TOKENS: TokensType) => {
     text_input_s_min_height: 24,
     text_input_selection_color: TOKENS.brand_6,
     text_input_placeholder_text_color: TOKENS.gray_5,
-    text_input_color: TOKENS.gray_8,
+    text_input_color: TOKENS.gray_7,
     text_input_disabled_color: TOKENS.gray_6,
     text_input_disabled_background_color: '#EFEFF1',
     text_input_border_radio: TOKENS.border_radius_s,
