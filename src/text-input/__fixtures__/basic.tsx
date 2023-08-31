@@ -179,7 +179,7 @@ const BasicTextInput: React.FC = () => {
               type="textarea"
               placeholder="限制输入"
               bordered
-              maxLength={20}
+              maxLength={100}
               showWordLimit
             />
           }

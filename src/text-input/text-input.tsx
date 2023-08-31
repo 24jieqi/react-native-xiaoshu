@@ -292,6 +292,12 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
             minHeight: textInputMinHeight - inputUncertainHeight,
             alignContent: 'center',
           },
+
+      isTextarea && showWordLimit
+        ? {
+            paddingBottom: CV.text_input_word_limit_text_font_size,
+          }
+        : null,
       (addonAfterJSX || addonBeforeJSX) && bordered
         ? inputAddonModeStyle
         : null,
