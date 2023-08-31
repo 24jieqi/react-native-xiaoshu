@@ -1,3 +1,9 @@
+## [0.3.16-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.0...v0.3.16-beta.1) (2023-08-31)
+
+### Features
+
+- **TextInput:** 🎸 多行输入框且显示限制文案,文案单独占一行 ([61655b7](https://github.com/hjfruit/react-native-xiaoshu/commit/61655b7bf7dc5f6caed1e5e4e968673906c92508))
+
 ## [0.3.16-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.15...v0.3.16-beta.0) (2023-08-30)
 
 ### Features
