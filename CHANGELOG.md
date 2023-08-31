@@ -1,3 +1,9 @@
+## [0.3.16-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.1...v0.3.16-beta.2) (2023-08-31)
+
+### Features
+
+- **Button:** 🎸 选项按钮添加圆形 ([94eaebc](https://github.com/hjfruit/react-native-xiaoshu/commit/94eaebc447f9600c5f070648b5b74f50aa0058fc))
+
 ## [0.3.16-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.0...v0.3.16-beta.1) (2023-08-31)
 
 ### Features
