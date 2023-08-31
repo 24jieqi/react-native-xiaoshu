@@ -33,6 +33,7 @@ const ButtonOptionGroup: React.FC = () => {
             scrollable
             defaultValue={2}
             deselect={false}
+            round
           />
 
           <Divider />

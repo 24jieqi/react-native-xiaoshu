@@ -98,7 +98,7 @@ export interface ButtonProps
 
 export interface ButtonOptionProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'>,
-    Pick<ButtonProps, 'text' | 'textStyle' | 'size' | 'hairline'> {
+    Pick<ButtonProps, 'text' | 'textStyle' | 'size' | 'hairline' | 'round'> {
   /**
    * 是否选中、高亮
    */
@@ -135,6 +135,11 @@ export interface ButtonOptionGroupProps<TValue = any>
    * @default 'hazy'
    */
   type?: ButtonOptionProps['type']
+
+  /**
+   * 是否为圆形按钮
+   */
+  round?: boolean
 
   options: {
     value: TValue

@@ -20,6 +20,7 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
   textStyle,
   size = 's',
   hairline,
+  round = false,
 
   style,
   children,
@@ -80,6 +81,7 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
       borderWidth: hairline ? StyleSheet.hairlineWidth : 1,
     },
     STYLES[`button_${size}_padding_horizontal`],
+    round ? STYLES.button_round : null,
     restProps.disabled ? STYLES.button_disabled : null,
     style,
   ]

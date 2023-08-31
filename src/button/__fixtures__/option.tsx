@@ -104,6 +104,25 @@ const ButtonOption: React.FC = () => {
         </Space>
 
         <Space direction="horizontal">
+          <Button.Option text="最小" type="outline" onPress={onPress} round />
+          <Button.Option
+            text="宽度"
+            type="outline"
+            onPress={onPress}
+            round
+            active
+          />
+          <Button.Option
+            text="宽度"
+            type="outline"
+            onPress={onPress}
+            round
+            active
+            activeHighlight={false}
+          />
+        </Space>
+
+        <Space direction="horizontal">
           <Button.Option text="激活状态" onPress={onPress} active />
           <Button.Option
             text="激活不高亮"
