@@ -1,3 +1,9 @@
+## [0.3.16-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.2...v0.3.16-beta.3) (2023-09-05)
+
+### Features
+
+- **Button:** 🎸 disabled 状态颜色更浅 ([feba1c9](https://github.com/hjfruit/react-native-xiaoshu/commit/feba1c924bfbe9f2b23e8a44d9f546b06e75115f))
+
 ## [0.3.16-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.1...v0.3.16-beta.2) (2023-08-31)
 
 ### Features
