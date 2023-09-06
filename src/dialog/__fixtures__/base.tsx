@@ -75,12 +75,19 @@ const BasicDialogBase: React.FC = () => {
         }}
       />
       <Cell
-        title="确认弹窗:单行文字"
+        title="确认弹窗:单行文字:按钮逆转"
         isLink
         onPress={() => {
           Dialog.confirm({
             title: '提示',
             message: '一袋米要抗几楼，一袋米要抗二楼',
+            buttonReverse: true,
+          }).then(action => {
+            if (action === 'confirm') {
+              Dialog({
+                message: 'confirm',
+              })
+            }
           })
         }}
       />

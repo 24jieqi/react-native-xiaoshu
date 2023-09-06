@@ -41,6 +41,7 @@ const Dialog: React.FC<DialogProps> = ({
   cancelButtonLoading = false,
   showClose = false,
   onPressClose,
+  buttonReverse = false,
   onPressCancel,
   onPressConfirm,
   duration,
@@ -120,6 +121,24 @@ const Dialog: React.FC<DialogProps> = ({
     onPress: onPressConfirm,
   }
 
+  // TODO 优化逆转按钮变量变换
+  const _showCancelButton = buttonReverse ? showConfirmButton : showCancelButton
+  const _showConfirmButton = buttonReverse
+    ? showCancelButton
+    : showConfirmButton
+  const _cancelButtonTextBold = buttonReverse
+    ? confirmButtonTextBold
+    : cancelButtonTextBold
+  const _confirmButtonTextBold = buttonReverse
+    ? cancelButtonTextBold
+    : confirmButtonTextBold
+  const _cancelButtonProps = buttonReverse
+    ? confirmButtonProps
+    : cancelButtonProps
+  const _confirmButtonProps = buttonReverse
+    ? cancelButtonProps
+    : confirmButtonProps
+
   return (
     <Popup
       {...resetProps}
@@ -162,27 +181,27 @@ const Dialog: React.FC<DialogProps> = ({
 
         {children}
 
-        {showCancelButton || showConfirmButton ? (
+        {_showCancelButton || _showConfirmButton ? (
           <View style={STYLES.footer}>
-            {showCancelButton ? (
+            {_showCancelButton ? (
               <Button
-                {...cancelButtonProps}
+                {..._cancelButtonProps}
                 type="link"
                 size="xl"
                 square
                 style={STYLES.btn}
-                textStyle={cancelButtonTextBold ? STYLES.btn_text_bold : null}
+                textStyle={_cancelButtonTextBold ? STYLES.btn_text_bold : null}
               />
             ) : null}
-            {showConfirmButton ? (
+            {_showConfirmButton ? (
               <Button
-                {...confirmButtonProps}
+                {..._confirmButtonProps}
                 type="link"
                 size="xl"
                 square
                 style={[
                   STYLES.btn,
-                  showCancelButton
+                  _showCancelButton
                     ? // eslint-disable-next-line react-native/no-inline-styles
                       {
                         // react-native-web 覆盖原 button 样式
@@ -191,7 +210,7 @@ const Dialog: React.FC<DialogProps> = ({
                       }
                     : null,
                 ]}
-                textStyle={confirmButtonTextBold ? STYLES.btn_text_bold : null}
+                textStyle={_confirmButtonTextBold ? STYLES.btn_text_bold : null}
               />
             ) : null}
           </View>

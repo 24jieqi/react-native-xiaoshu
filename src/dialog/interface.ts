@@ -97,6 +97,12 @@ interface DialogCommon extends PopupPropsCommon {
    * 点击关闭按钮
    */
   onPressClose?: TouchableWithoutFeedbackProps['onPress']
+
+  /**
+   * 按钮翻转顺序
+   * @default false
+   */
+  buttonReverse?: boolean
 }
 
 export interface DialogProps extends DialogCommon, PropsWithChildren<{}> {
