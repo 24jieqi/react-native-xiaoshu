@@ -1,3 +1,10 @@
+## [0.3.16-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.4...v0.3.16-beta.5) (2023-09-06)
+
+### Features
+
+- **Checkbox:** 🎸 新增自定义样式 ([ebdc041](https://github.com/hjfruit/react-native-xiaoshu/commit/ebdc04190ba3bf716f969f848143f563556ee163))
+- **Field:** 🎸 新增自定义样式 ([63db253](https://github.com/hjfruit/react-native-xiaoshu/commit/63db2530d2a87fcdfa8a3c40663b5a51f73552b4))
+
 ## [0.3.16-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.3...v0.3.16-beta.4) (2023-09-06)
 
 ### Features
