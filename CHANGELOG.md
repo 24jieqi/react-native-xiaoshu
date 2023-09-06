@@ -1,3 +1,11 @@
+## [0.3.16-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.3...v0.3.16-beta.4) (2023-09-06)
+
+### Features
+
+- **Dialog:** 🎸 新增按钮逆转 ([0477fc0](https://github.com/hjfruit/react-native-xiaoshu/commit/0477fc0ec587fd5cecc0f59c96044c818282b296))
+- **docs:** 🎸 demo 优化 ([4f332dd](https://github.com/hjfruit/react-native-xiaoshu/commit/4f332dd9bf1edca0896dc7a7b26e051da282b888))
+- **TabBar:** 🎸 支持文字突出表现方式 ([974ffec](https://github.com/hjfruit/react-native-xiaoshu/commit/974ffecfcde9aff1b7324c01d4c0a1d0d5068c49))
+
 ## [0.3.16-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.2...v0.3.16-beta.3) (2023-09-05)
 
 ### Features
