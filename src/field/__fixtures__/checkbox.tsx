@@ -22,7 +22,16 @@ const BasicFieldCheckbox: React.FC = () => {
 
   return (
     <Cell.Group title="Field Checkbox">
-      <Field.Checkbox title="单选:非受控" options={options} />
+      <Field.Checkbox
+        title="单选:非受控"
+        options={options}
+        activeColor="#098"
+        checkboxIconLabelGap={16}
+        checkboxLabelTextStyle={{
+          color: '#666',
+        }}
+        iconSize={12}
+      />
       <Field.Checkbox
         title="单选:禁用"
         options={options}

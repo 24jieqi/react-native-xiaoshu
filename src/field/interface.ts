@@ -302,6 +302,10 @@ export interface FieldCheckboxProps
       | 'multiple'
       | 'editable'
       | 'scrollable'
+      | 'checkboxLabelTextStyle'
+      | 'checkboxIconLabelGap'
+      | 'activeColor'
+      | 'iconSize'
     > {}
 
 export interface FieldPasswordInputProps
