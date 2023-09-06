@@ -1,4 +1,5 @@
 import isNil from 'lodash/isNil'
+import isNumber from 'lodash/isNumber'
 import React, { useState, useRef, memo, useCallback, useEffect } from 'react'
 import type { LayoutChangeEvent, LayoutRectangle } from 'react-native'
 import { Text, TouchableOpacity, ScrollView, Animated } from 'react-native'
@@ -23,11 +24,13 @@ const TabBar: React.FC<TabBarProps> = ({
   indicatorHeight = 3,
   indicatorColor,
   tabAlign = 'center',
+  labelBulge = false,
 
   height,
   style,
   ...restProps
 }) => {
+  const _labelBulge = isNumber(labelBulge) ? labelBulge : labelBulge ? 1.2 : 0
   const tabNum = options.length
   const isTabAdaption = tabAlign === 'center'
   const isTabTextCompact = isNil(indicatorWidth)
@@ -177,6 +180,18 @@ const TabBar: React.FC<TabBarProps> = ({
               color: isActive ? activeTextColor : textColor,
               fontWeight: isActive && indicator ? '500' : 'normal',
             },
+            isActive && !!_labelBulge
+              ? {
+                  transform: [
+                    {
+                      scaleX: _labelBulge,
+                    },
+                    {
+                      scaleY: _labelBulge,
+                    },
+                  ],
+                }
+              : {},
           ]}
           onLayout={genOnLayoutText(index)}>
           {item.label}
@@ -222,7 +237,14 @@ const TabBar: React.FC<TabBarProps> = ({
           bounces={false}
           showsHorizontalScrollIndicator={false}
           style={STYLES.tab_bar_scroll}
-          contentContainerStyle={STYLES.tab_bar_scroll_content}>
+          contentContainerStyle={
+            _labelBulge
+              ? [
+                  STYLES.tab_bar_scroll_content,
+                  STYLES.tab_bar_scroll_content_label_bulge,
+                ]
+              : STYLES.tab_bar_scroll_content
+          }>
           {indicatorJSX}
           {tabs}
         </ScrollView>

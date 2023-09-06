@@ -168,6 +168,33 @@ const BasicSwitch: React.FC = () => {
           <Divider type="dark">.</Divider>
 
           <Text>
+            指示器，label
+            文字突出，有滚动条且居中，这种模式应该要单独搞一个组件，不适合混在一起
+          </Text>
+
+          <TabBar
+            labelBulge
+            activeTextColor="#333"
+            tabAlign="left"
+            indicator
+            indicatorWidth={20}
+            safeAreaInsetBottom={false}
+            options={[
+              ...bottomBar.map(({ iconRender, ...props }) => props),
+              ...bottomBar.map(({ iconRender, ...props }) => ({
+                ...props,
+                value: `${props.value}_1`,
+              })),
+              ...bottomBar.map(({ iconRender, ...props }) => ({
+                ...props,
+                value: `${props.value}_2`,
+              })),
+            ]}
+          />
+
+          <Divider type="dark">.</Divider>
+
+          <Text>
             指示器（与文案宽保持一致）、无底部安全边距、做对齐（数量多出现滚动条）
           </Text>
 

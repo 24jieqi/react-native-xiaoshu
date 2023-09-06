@@ -87,4 +87,9 @@ export interface TabBarProps extends BottomBarProps {
    * @default 'center'
    */
   tabAlign?: 'left' | 'center'
+
+  /**
+   * label 文字突出，scale 缩放倍数，默认 1.2
+   */
+  labelBulge?: boolean | number
 }

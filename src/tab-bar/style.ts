@@ -37,6 +37,11 @@ export const styleCreator = (cv: ComponentVars) => {
       alignItems: 'center',
     },
 
+    tab_bar_scroll_content_label_bulge: {
+      justifyContent: 'center',
+      minWidth: '100%',
+    },
+
     item: {
       paddingHorizontal: cv.tab_bar_item_padding_horizontal,
       alignItems: 'center',
