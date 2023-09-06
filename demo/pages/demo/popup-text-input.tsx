@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Keyboard } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import {
   Button,
@@ -17,6 +18,23 @@ type PopupTextInputProps = Routes.RootStackScreenProps<'PopupTextInput'>
 
 const PopupTextInput: React.FC<PopupTextInputProps> = () => {
   const [pageVisible, setPageVisible] = useState(false)
+  const insets = useSafeAreaInsets()
+  const [safeAreaInsetTop, setSafeAreaInsetTop] = useState(200)
+
+  useEffect(() => {
+    const keyboardDidShow = Keyboard.addListener('keyboardDidShow', () => {
+      setSafeAreaInsetTop(insets.top)
+    })
+    const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
+      setSafeAreaInsetTop(200)
+    })
+
+    return () => {
+      // 移除监听
+      keyboardDidShow.remove()
+      keyboardDidHide.remove()
+    }
+  }, [insets.top])
 
   return (
     <Layout.Page>
@@ -27,7 +45,10 @@ const PopupTextInput: React.FC<PopupTextInputProps> = () => {
         }}
       />
 
-      <Popup.Page visible={pageVisible} round>
+      <Popup.Page
+        visible={pageVisible}
+        round
+        safeAreaInsetTop={safeAreaInsetTop}>
         <Popup.Header
           title="独立页面"
           onClose={() => {
