@@ -158,6 +158,17 @@ const CheckboxBase: React.FC = () => {
           />
         </Space>
       </Card>
+
+      <Card title="自定义样式" square>
+        <Space>
+          <Checkbox gap={12} label="图标、文案间距12" />
+          <Checkbox
+            iconSize={16}
+            labelTextStyle={{ color: '#666', fontSize: 12 }}
+            label="文案颜色、大小自定义，图标大小自定义"
+          />
+        </Space>
+      </Card>
     </Space>
   )
 }

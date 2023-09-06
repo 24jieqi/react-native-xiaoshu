@@ -3,6 +3,7 @@ import omit from 'lodash/omit'
 import React, { memo } from 'react'
 import { View, Text } from 'react-native'
 
+import { getDefaultValue } from '../helpers'
 import { useControllableValue } from '../hooks'
 import Theme from '../theme'
 
@@ -22,6 +23,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   renderIcon,
   disabled,
   activeColor,
+  gap,
 
   style,
   children,
@@ -42,6 +44,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
 
+  const _gap = getDefaultValue(gap, CV.checkbox_label_margin)
   const active = value === activeValue
   const onChangeValue = () => {
     const newValue = active ? inactiveValue : activeValue
@@ -54,8 +57,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       style={[
         STYLES.label,
         {
-          [labelPosition === 'left' ? 'marginRight' : 'marginLeft']:
-            CV.checkbox_label_margin,
+          [labelPosition === 'left' ? 'marginRight' : 'marginLeft']: _gap,
         },
         disabled ? STYLES.label_disabled : null,
         labelTextStyle,

@@ -13,6 +13,10 @@ function CheckboxGroup<T = any>({
   multiple,
   editable = true,
   scrollable = false,
+  checkboxLabelTextStyle,
+  activeColor,
+  iconSize,
+  checkboxIconLabelGap,
   ...restProps
 }: CheckboxGroupProps<T>) {
   const [value, onChange] = useControllableValue<T | T[]>(restProps, {
@@ -21,31 +25,36 @@ function CheckboxGroup<T = any>({
 
   const contentJSX = (
     <Space {...omit(restProps, ['value', 'defaultValue', 'onChange'])}>
-      {options.map(item => {
+      {options.map(({ value: checkboxValue, ...checkboxProps }) => {
         const selected = multiple
-          ? (value as T[]).indexOf(item.value) > -1
-          : value === item.value
+          ? (value as T[]).indexOf(checkboxValue) > -1
+          : value === checkboxValue
 
         return (
           <Checkbox
-            key={`${item.value}`}
-            activeValue={item.value}
+            {...checkboxProps}
+            labelTextStyle={
+              checkboxProps.labelTextStyle ?? checkboxLabelTextStyle
+            }
+            gap={checkboxProps.gap ?? checkboxIconLabelGap}
+            activeColor={checkboxProps.activeColor ?? activeColor}
+            iconSize={checkboxProps.iconSize ?? iconSize}
+            key={`${checkboxValue}`}
+            activeValue={checkboxValue}
             inactiveValue={null}
-            value={selected ? item.value : null}
-            label={item.label}
-            disabled={item.disabled}
+            value={selected ? checkboxValue : null}
             onChange={_value => {
               if (!editable) {
                 return
               }
 
-              const isReset = _value !== item.value
+              const isReset = _value !== checkboxValue
 
               if (multiple) {
                 const oldValue = value as T[]
                 const newValue = isReset
-                  ? oldValue.filter(v => v !== item.value)
-                  : [item.value, ...oldValue]
+                  ? oldValue.filter(v => v !== checkboxValue)
+                  : [checkboxValue, ...oldValue]
                 const newOptions = newValue.map(v => {
                   const optionIndex = options.findIndex(o => o.value === v)
 

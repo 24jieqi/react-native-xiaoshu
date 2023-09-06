@@ -109,10 +109,28 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
    * 自定义图标
    */
   renderIcon?: (p: RenderIconProps) => ReactNode
+
+  /**
+   * 文字与图标之间的间距
+   * @default TOKENS.space_2
+   */
+  gap?: number
 }
 
-export interface CheckboxGroupProps<ActiveValueT = any> extends SpaceProps {
-  options: { value: ActiveValueT; label: string; disabled?: boolean }[]
+export interface CheckboxGroupProps<ActiveValueT = any>
+  extends SpaceProps,
+    Partial<Pick<CheckboxProps, 'activeColor' | 'iconSize'>> {
+  checkboxLabelTextStyle?: CheckboxProps['labelTextStyle']
+  checkboxIconLabelGap?: number
+  options: ({
+    value: ActiveValueT
+    label: string
+  } & Partial<
+    Pick<
+      CheckboxProps,
+      'gap' | 'labelTextStyle' | 'disabled' | 'iconSize' | 'activeColor'
+    >
+  >)[]
 
   /**
    * 是否多选

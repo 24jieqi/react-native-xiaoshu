@@ -64,6 +64,33 @@ const CheckboxGroup: React.FC = () => {
           }}
         />
       </Card>
+      <Card title="Checkbox 组:自定义样式">
+        <Checkbox.Group
+          direction="horizontal"
+          gap={12}
+          checkboxLabelTextStyle={{
+            color: '#666',
+            fontSize: 12,
+          }}
+          iconSize={16}
+          activeColor="#098"
+          options={options}
+        />
+        <Divider />
+        <Checkbox.Group
+          options={options.map(o => ({
+            ...o,
+            iconSize: 16,
+            labelTextStyle: {
+              color: '#f30',
+            },
+            activeColor: '#f30',
+            gap: 16,
+          }))}
+          direction="horizontal"
+          scrollable
+        />
+      </Card>
     </Space>
   )
 }
