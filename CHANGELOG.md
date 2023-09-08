@@ -1,3 +1,9 @@
+## [0.3.16-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.5...v0.3.16-beta.6) (2023-09-08)
+
+### Features
+
+- **FloatingPanel:** 🎸 新增组件 ([6d8609a](https://github.com/hjfruit/react-native-xiaoshu/commit/6d8609a53894a96e23e35102694f5a96b220c809))
+
 ## [0.3.16-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.4...v0.3.16-beta.5) (2023-09-06)
 
 ### Features
