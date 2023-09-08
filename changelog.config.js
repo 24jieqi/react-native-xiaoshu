@@ -22,6 +22,7 @@ module.exports = {
     'ErrorBoundary',
     'Field',
     'Flex',
+    'FloatingPanel',
     'Form',
     'Grid',
     'Icon',

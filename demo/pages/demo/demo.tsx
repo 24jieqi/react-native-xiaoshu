@@ -155,6 +155,10 @@ const navDatas: {
         name: 'DemoErrorBoundary',
       },
       {
+        title: 'FloatingPanel 浮动面板',
+        name: 'DemoFloatingPanel',
+      },
+      {
         title: 'Loading 加载',
         name: 'DemoLoading',
       },

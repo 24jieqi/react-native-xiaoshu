@@ -71,6 +71,9 @@ export { default as Field } from './field'
 export type { FlexProps, FlexItemProps } from './flex/interface'
 export { default as Flex } from './flex'
 
+export type { FloatingPanelProps } from './floating-panel/interface'
+export { default as FloatingPanel } from './floating-panel'
+
 export type {
   FormInstance,
   FormProps,

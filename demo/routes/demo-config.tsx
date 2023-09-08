@@ -9,14 +9,14 @@ import DemoFull from '@/pages/demo/full'
 import DemoActionSheet from '../../src/action-sheet/__fixtures__/basic'
 import DemoBadge from '../../src/badge/__fixtures__/basic'
 import DemoBlank from '../../src/blank/__fixtures__/basic'
-import DemoButtonBar from '../../src/button-bar/__fixtures__/basic'
 import DemoButton from '../../src/button/__fixtures__/basic'
+import DemoButtonBar from '../../src/button-bar/__fixtures__/basic'
 import DemoCard from '../../src/card/__fixtures__/basic'
 import DemoCell from '../../src/cell/__fixtures__/basic'
 import DemoCheckbox from '../../src/checkbox/__fixtures__/basic'
 import DemoCollapse from '../../src/collapse/__fixtures__/basic'
-import DemoDatePickerView from '../../src/date-picker-view/__fixtures__/basic'
 import DemoDatePicker from '../../src/date-picker/__fixtures__/basic'
+import DemoDatePickerView from '../../src/date-picker-view/__fixtures__/basic'
 import DemoDescription from '../../src/description/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoDivider from '../../src/divider/__fixtures__/basic'
@@ -25,9 +25,9 @@ import DemoEmpty from '../../src/empty/__fixtures__/basic'
 import DemoErrorBoundary from '../../src/error-boundary/__fixtures__/basic'
 import DemoField from '../../src/field/__fixtures__/basic'
 import DemoFlex from '../../src/flex/__fixtures__/basic'
+import DemoFloatingPanel from '../../src/floating-panel/__fixtures__/basic'
 import DemoForm from '../../src/form/__fixtures__/basic'
 import DemoGrid from '../../src/grid/__fixtures__/basic'
-// import DemoIcon from '../../src/icon/__fixtures__/basic'
 import DemoLoading from '../../src/loading/__fixtures__/basic'
 import DemoNavBar from '../../src/nav-bar/__fixtures__/basic'
 import DemoNoticeBar from '../../src/notice-bar/__fixtures__/basic'
@@ -35,8 +35,8 @@ import DemoNotify from '../../src/notify/__fixtures__/basic'
 import DemoNumberInput from '../../src/number-input/__fixtures__/basic'
 import DemoOverlay from '../../src/overlay/__fixtures__/basic'
 import DemoPasswordInput from '../../src/password-input/__fixtures__/basic'
-import DemoPickerView from '../../src/picker-view/__fixtures__/basic'
 import DemoPicker from '../../src/picker/__fixtures__/basic'
+import DemoPickerView from '../../src/picker-view/__fixtures__/basic'
 import DemoPopover from '../../src/popover/__fixtures__/basic'
 import DemoPopup from '../../src/popup/__fixtures__/basic'
 import DemoProgress from '../../src/progress/__fixtures__/basic'
@@ -114,6 +114,7 @@ export type DemoPaths =
   | 'DemoPopover'
   | 'DemoTabs'
   | 'DemoTree'
+  | 'DemoFloatingPanel'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -561,6 +562,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoTree />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoFloatingPanel',
+    Page: () => (
+      <DemoWrapper>
+        <DemoFloatingPanel />
       </DemoWrapper>
     ),
   },
