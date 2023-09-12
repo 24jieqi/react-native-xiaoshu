@@ -63,4 +63,12 @@ export interface SearchProps
    * 搜索按钮右侧自定义内容
    */
   extra?: React.ReactNode
+  /**
+   * 搜索icon左边自定义内容
+   */
+  prefix?: React.ReactNode
+  /**
+   * 搜索框内右边自定义内容
+   */
+  suffix?: React.ReactNode
 }

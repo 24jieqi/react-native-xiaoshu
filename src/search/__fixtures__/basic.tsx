@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 
 import { Cell, Search, ActionSheet } from '@fruits-chain/react-native-xiaoshu'
 import { MenuOutline } from '@fruits-chain/icons-react-native'
+import { Text, View } from 'react-native'
 
 const BasicPasswordInput: React.FC = () => {
   const [value1, setValue] = useState('多福多寿')
@@ -16,6 +17,20 @@ const BasicPasswordInput: React.FC = () => {
       <Cell.Group title="基础用法">
         <Search
           autoFocus
+          placeholder="请输入关键词搜索"
+          onSearch={v => {
+            console.log(v)
+          }}
+        />
+      </Cell.Group>
+      <Cell.Group title="自定义左边内容">
+        <Search
+          autoFocus
+          prefix={
+            <View>
+              <Text>自定义内容</Text>
+            </View>
+          }
           placeholder="请输入关键词搜索"
           onSearch={v => {
             console.log(v)

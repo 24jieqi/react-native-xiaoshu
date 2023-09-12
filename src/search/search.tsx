@@ -34,6 +34,8 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       onSearchDebounceWait = 300,
       searchText,
       extra,
+      prefix,
+      suffix,
 
       value,
       defaultValue,
@@ -116,7 +118,13 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           value={value}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
-          prefix={<SearchOutline color={iconColor} size={iconSize} />}
+          prefix={
+            <>
+              {prefix}
+              <SearchOutline color={iconColor} size={iconSize} />
+            </>
+          }
+          suffix={suffix}
           onChange={onChange}
           onChangeText={_onChangeText}
           autoFocus={autoFocus}
