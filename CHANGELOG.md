@@ -1,3 +1,9 @@
+## [0.3.16-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.6...v0.3.16-beta.7) (2023-09-12)
+
+### Features
+
+- 自定义内容左边 ([b2364d5](https://github.com/hjfruit/react-native-xiaoshu/commit/b2364d5d8fe55850ebfc0ff3a7ba0295eae196c4))
+
 ## [0.3.16-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.5...v0.3.16-beta.6) (2023-09-08)
 
 ### Features
