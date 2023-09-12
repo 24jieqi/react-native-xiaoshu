@@ -23,6 +23,16 @@ const BasicPasswordInput: React.FC = () => {
           }}
         />
       </Cell.Group>
+      <Cell.Group title="没有按钮">
+        <Search
+          autoSearch
+          showSearchButton={false}
+          placeholder="请输入关键词搜索"
+          onSearch={v => {
+            console.log(v)
+          }}
+        />
+      </Cell.Group>
       <Cell.Group title="自定义左边内容">
         <Search
           autoFocus

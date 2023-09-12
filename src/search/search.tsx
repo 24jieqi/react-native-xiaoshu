@@ -31,6 +31,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       showBack = false,
       onPressBack,
       autoSearch = false,
+      showSearchButton = true,
       onSearchDebounceWait = 300,
       searchText,
       extra,
@@ -129,13 +130,15 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
           onChangeText={_onChangeText}
           autoFocus={autoFocus}
         />
-
-        <Button
-          text={searchText ?? locale.searchText}
-          type="primary"
-          size="s"
-          onPress={onPress}
-        />
+        {showSearchButton ? (
+          <Button
+            text={searchText ?? locale.searchText}
+            type="primary"
+            style={STYLES.search_btn}
+            size="s"
+            onPress={onPress}
+          />
+        ) : null}
 
         {extra}
       </View>

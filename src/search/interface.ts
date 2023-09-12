@@ -71,4 +71,10 @@ export interface SearchProps
    * 搜索框内右边自定义内容
    */
   suffix?: React.ReactNode
+
+  /**
+   * 是否显示搜索按钮
+   * @default true
+   */
+  showSearchButton?: boolean
 }

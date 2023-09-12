@@ -37,9 +37,10 @@ export const styleCreator = (cv: ComponentVars) => {
       flex: 1,
       backgroundColor: cv.search_text_input_background_color,
       borderRadius: 4,
-      marginRight: cv.search_gap,
     },
-
+    search_btn: {
+      marginLeft: cv.search_gap,
+    },
     icon_back: {
       alignItems: 'center',
       justifyContent: 'center',
