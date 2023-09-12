@@ -1,3 +1,9 @@
+## [0.3.16-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.7...v0.3.16-beta.8) (2023-09-12)
+
+### Features
+
+- add no search btn props ([412f8fc](https://github.com/hjfruit/react-native-xiaoshu/commit/412f8fcf9b46ad800444030422f7af0cfd7c6961))
+
 ## [0.3.16-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.6...v0.3.16-beta.7) (2023-09-12)
 
 ### Features
