@@ -23,7 +23,7 @@ const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
   justifyContent: 'center',
   alignItems: 'center',
-  // 无论大小图表都保持同一个占用空间
+  // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
 }

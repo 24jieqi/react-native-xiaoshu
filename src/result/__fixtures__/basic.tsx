@@ -13,7 +13,7 @@ const BasicResult: React.FC = () => {
   return (
     <ScrollView>
       <Space tail head>
-        <Card title="图表集合">
+        <Card title="图标集合">
           <Result.IconBox />
           <Result.IconEmpty />
           <Result.IconError />
