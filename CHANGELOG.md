@@ -1,3 +1,9 @@
+## [0.3.16](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.8...v0.3.16) (2023-09-18)
+
+### Bug Fixes
+
+- **TabBar/Result:** typo ([2d0ec4d](https://github.com/hjfruit/react-native-xiaoshu/commit/2d0ec4db24218b27655aead2c3b461abdcca21de))
+
 ## [0.3.16-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.7...v0.3.16-beta.8) (2023-09-12)
 
 ### Features
