@@ -1,3 +1,11 @@
+## [0.3.17-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16...v0.3.17-beta.0) (2023-09-27)
+
+### Features
+
+- **Button:** 🎸 优化防抖 ([d556362](https://github.com/hjfruit/react-native-xiaoshu/commit/d5563622c532494859f407649f3cbf48ca210ff5))
+- **Cell:** 🎸 优化防抖 ([40ba13e](https://github.com/hjfruit/react-native-xiaoshu/commit/40ba13e5fcd08807e364d5424e438e86d12f07d7))
+- **Search:** 🎸 优化防抖 ([1db91a3](https://github.com/hjfruit/react-native-xiaoshu/commit/1db91a3b3ef45a12b32676628c40460af02a51ba))
+
 ## [0.3.16](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16-beta.8...v0.3.16) (2023-09-18)
 
 ### Bug Fixes
