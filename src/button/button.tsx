@@ -44,6 +44,8 @@ const Button: React.FC<ButtonProps> = ({
   const STYLES = Theme.createStyle(CV, styleCreator)
   const { run: runOnPress } = useDebounceFn(restProps.onPress, {
     wait: onPressDebounceWait,
+    leading: true,
+    trailing: false,
   })
 
   color = getDefaultValue(

@@ -21,7 +21,12 @@ const ButtonType: React.FC = () => {
     <Card title="按钮类型" square>
       <Space>
         <Space>
-          <Button type="primary" text="primary" onPress={onPress} />
+          <Button
+            type="primary"
+            text="primary"
+            onPress={onPress}
+            onPressDebounceWait={500}
+          />
           <Button
             type="hazy"
             text="hazy"
