@@ -51,6 +51,8 @@ const Cell: React.FC<CellProps> = ({
   const STYLES = Theme.createStyle(CV, styleCreator)
   const { run: runOnPress } = useDebounceFn(restProps.onPress, {
     wait: onPressDebounceWait,
+    leading: true,
+    trailing: false,
   })
 
   // 一定要绑定 Press 事件才有这个效果
