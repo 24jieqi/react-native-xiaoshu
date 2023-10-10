@@ -1,5 +1,6 @@
 import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import groupBy from 'lodash/groupBy'
+import isNil from 'lodash/isNil'
 import omit from 'lodash/omit'
 import React, { useMemo, useEffect, memo, useRef, useCallback } from 'react'
 import { View, Text, ScrollView } from 'react-native'
@@ -7,6 +8,7 @@ import { View, Text, ScrollView } from 'react-native'
 import Cell from '../cell/cell'
 import { useControllableValue, usePersistFn, useSafeHeight } from '../hooks'
 import useState from '../hooks/useStateUpdate'
+import Loading from '../loading'
 import Locale from '../locale'
 import Popup from '../popup/popup'
 import PopupHeader from '../popup/popup-header'
@@ -27,12 +29,15 @@ type LocalState<T> = {
   responseData: RequestResponseData<T>[]
 }
 
+const defaultLoading = <Loading vertical />
+
 function StepSelector<T = number>({
   title,
   safeAreaInsetTop,
   round = true,
   onPressClose,
   request,
+  loading = defaultLoading,
 
   ...resetProps
 }: StepSelectorProps<T>) {
@@ -99,12 +104,14 @@ function StepSelector<T = number>({
       ).then(datas => {
         const isEnd = !datas[datas.length - 1].options.length
         const __value = isEnd ? [...value] : _value
-        const selected = __value.map((v, index) => {
-          const opts = datas[index].options
-          // eslint-disable-next-line max-nested-callbacks
-          const vIndex = opts.findIndex(op => op.value === v)
-          return opts[vIndex]
-        })
+        const selected = __value
+          .map((v, index) => {
+            const opts = datas[index].options
+            // eslint-disable-next-line max-nested-callbacks
+            const vIndex = opts.findIndex(op => op.value === v)
+            return opts[vIndex]
+          })
+          .filter(v => !isNil(v))
 
         setState({
           loading: false,
@@ -153,38 +160,37 @@ function StepSelector<T = number>({
       <View style={{ height: safeHeight }}>
         <PopupHeader title={title ?? locale.title} onClose={onPressClose} />
 
-        {state.selected.length > 1 &&
-          state.selected.map((item, index) => {
-            return (
-              <Cell
-                key={`${item?.value}`}
-                innerStyle={STYLES.selected_cell}
-                title={item?.label || state.responseData[index].placeholder}
-                titleExtra={
-                  <StepSelectorLine
-                    index={index}
-                    total={state.selected.length}
-                    active={!!item?.label}
-                  />
-                }
-                titleTextStyle={[
-                  STYLES.selected_cell_title_text,
-                  index === state.index && item?.label
-                    ? STYLES.option_text_active
-                    : null,
-                ]}
-                isLink
-                disabled={state.loading}
-                divider={index === state.selected.length - 1}
-                onPress={() => {
-                  setState({
-                    index,
-                  })
-                  optionScrollToTop()
-                }}
-              />
-            )
-          })}
+        {state.selected.map((item, index) => {
+          return (
+            <Cell
+              key={`${item?.value}`}
+              innerStyle={STYLES.selected_cell}
+              title={item?.label || state.responseData[index].placeholder}
+              titleExtra={
+                <StepSelectorLine
+                  index={index}
+                  total={state.selected.length}
+                  active={!!item?.label}
+                />
+              }
+              titleTextStyle={[
+                STYLES.selected_cell_title_text,
+                index === state.index && item?.label
+                  ? STYLES.option_text_active
+                  : null,
+              ]}
+              isLink
+              disabled={state.loading}
+              divider={index === state.selected.length - 1}
+              onPress={() => {
+                setState({
+                  index,
+                })
+                optionScrollToTop()
+              }}
+            />
+          )
+        })}
 
         {options.length && placeholder ? (
           <Cell
@@ -193,6 +199,8 @@ function StepSelector<T = number>({
             divider={false}
           />
         ) : null}
+
+        {state.loading && value.length === 0 ? loading : null}
 
         <ScrollView bounces={false} ref={ScrollViewRef}>
           {groupOption.map(group => {

@@ -6,6 +6,7 @@
 import React, { useState } from 'react'
 
 import { StepSelector, Cell } from '@fruits-chain/react-native-xiaoshu'
+import { Text } from 'react-native'
 
 const request = (pId: string, index: number) =>
   new Promise<{
@@ -26,7 +27,7 @@ const request = (pId: string, index: number) =>
               })),
         placeholder: index === 0 ? '' : `请选择${index}`,
       })
-    }, 300)
+    }, 500)
   })
 
 const BasicStepSelector: React.FC = () => {
@@ -46,6 +47,21 @@ const BasicStepSelector: React.FC = () => {
                 console.log('o => ', o)
                 console.log('isEnd => ', isEnd)
               },
+            }).catch(() => {})
+          }}
+        />
+        <Cell
+          title="选择:自定义loading"
+          isLink
+          onPress={() => {
+            StepSelector({
+              request: request,
+              onConfirm: (v, o, isEnd) => {
+                console.log('v => ', v)
+                console.log('o => ', o)
+                console.log('isEnd => ', isEnd)
+              },
+              loading: <Text style={{ textAlign: 'center' }}>加载中...</Text>,
             }).catch(() => {})
           }}
         />

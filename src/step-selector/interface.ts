@@ -54,6 +54,11 @@ export interface StepSelectorProps<T> extends PopupPropsCommon {
    * 请求数据
    */
   request: (parentId: T, index: number) => Promise<RequestResponseData<T>>
+
+  /**
+   * 自定义 loading
+   */
+  loading?: React.ReactElement | null
 }
 
 export interface StepSelectorLineProps {
