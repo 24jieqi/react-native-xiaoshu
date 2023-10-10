@@ -1,3 +1,9 @@
+## [0.3.17-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.0...v0.3.17-beta.1) (2023-10-10)
+
+### Features
+
+- **StepSelector:** 🎸 新增 loading ([bb94179](https://github.com/hjfruit/react-native-xiaoshu/commit/bb941794518a8a59ff79fc561d0039bf8660a101))
+
 ## [0.3.17-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.16...v0.3.17-beta.0) (2023-09-27)
 
 ### Features
