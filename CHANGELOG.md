@@ -1,3 +1,9 @@
+## [0.3.17-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.1...v0.3.17-beta.2) (2023-10-11)
+
+### Features
+
+- **Dialog:** 🎸 更新设计 ([190ac9b](https://github.com/hjfruit/react-native-xiaoshu/commit/190ac9bcc4f9696a4d2be166ed16a6fda45dd272))
+
 ## [0.3.17-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.0...v0.3.17-beta.1) (2023-10-10)
 
 ### Features
