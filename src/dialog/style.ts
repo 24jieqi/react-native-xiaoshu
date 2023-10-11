@@ -10,20 +10,21 @@ export const varCreator = (TOKENS: TokensType) => {
     dialog_border_radius: TOKENS.border_radius_xl,
     dialog_background_color: TOKENS.white,
     dialog_close_color: TOKENS.gray_8,
-    dialog_close_size: 24,
+    dialog_close_size: 20,
     dialog_header_font_weight: 'bold' as TextStyle['fontWeight'],
-    dialog_header_line_height: TOKENS.line_height_2,
-    dialog_header_margin_top: TOKENS.space_6,
+    dialog_header_line_height: TOKENS.line_height_3,
+    dialog_header_padding_top: TOKENS.space_6,
+    dialog_header_padding_bottom: TOKENS.space_4,
     dialog_header_font_size: TOKENS.font_size_7,
-    dialog_message_margin_top: 12,
+    dialog_header_color: TOKENS.gray_8,
     dialog_message_padding_horizontal: TOKENS.space_6,
     dialog_message_font_size: TOKENS.font_size_5,
     dialog_message_line_height: TOKENS.line_height_1,
     dialog_message_text_color: TOKENS.gray_7,
-    dialog_footer_margin_top: 32,
+    dialog_footer_margin_top: TOKENS.space_4,
     dialog_footer_divider_color: TOKENS.gray_4,
     dialog_confirm_button_text_color: TOKENS.brand_6,
-    dialog_cancel_button_text_color: TOKENS.gray_7,
+    dialog_cancel_button_text_color: TOKENS.gray_8,
     dialog_input_gap: TOKENS.space_4,
   }
 }
@@ -47,16 +48,22 @@ export const styleCreator = (cv: ComponentVars) => {
 
     title_text: {
       textAlign: 'center',
-      marginTop: cv.dialog_header_margin_top,
       lineHeight: cv.dialog_header_line_height,
       fontWeight: cv.dialog_header_font_weight,
       fontSize: cv.dialog_header_font_size,
       paddingHorizontal: cv.dialog_message_padding_horizontal,
+      paddingTop: cv.dialog_header_padding_top,
+      paddingBottom: cv.dialog_header_padding_bottom,
+      color: cv.dialog_header_color,
       // backgroundColor: '#f30',
     },
 
+    title_isolated: {
+      paddingBottom: 0,
+    },
+
     content_isolated: {
-      marginTop: cv.dialog_header_margin_top - cv.dialog_message_margin_top,
+      paddingTop: cv.dialog_header_padding_top,
       alignItems: 'center',
       justifyContent: 'center',
       // backgroundColor: '#f30', // to test ui
@@ -64,7 +71,6 @@ export const styleCreator = (cv: ComponentVars) => {
 
     message_text: {
       paddingHorizontal: cv.dialog_message_padding_horizontal,
-      marginTop: cv.dialog_message_margin_top,
       fontSize: cv.dialog_message_font_size,
       lineHeight: cv.dialog_message_line_height,
       color: cv.dialog_message_text_color,

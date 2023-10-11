@@ -90,7 +90,10 @@ const Dialog: React.FC<DialogProps> = ({
     onCloseFn?.()
   })
 
-  const titleJSX = renderTextLikeJSX(title, STYLES.title_text)
+  const titleJSX = renderTextLikeJSX(title, [
+    STYLES.title_text,
+    isNil(message) ? STYLES.title_isolated : null,
+  ])
   const messageJSX = !isNil(message) ? (
     isValidElement(message) ? (
       message

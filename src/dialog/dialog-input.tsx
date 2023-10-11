@@ -68,6 +68,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
     () => ({
       marginHorizontal: CV.dialog_input_gap,
       marginTop: CV.dialog_input_gap,
+      paddingBottom: CV.dialog_input_gap / 2,
       overflow: 'hidden',
       maxHeight: 200,
     }),
