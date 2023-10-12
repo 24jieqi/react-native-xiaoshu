@@ -21,6 +21,7 @@ import DemoDescription from '../../src/description/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoDivider from '../../src/divider/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
+import ElevatorNav from '../../src/elevator-nav/__fixtures__/basic'
 import DemoEmpty from '../../src/empty/__fixtures__/basic'
 import DemoErrorBoundary from '../../src/error-boundary/__fixtures__/basic'
 import DemoField from '../../src/field/__fixtures__/basic'
@@ -115,6 +116,7 @@ export type DemoPaths =
   | 'DemoTabs'
   | 'DemoTree'
   | 'DemoFloatingPanel'
+  | 'ElevatorNav'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -570,6 +572,14 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     Page: () => (
       <DemoWrapper>
         <DemoFloatingPanel />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'ElevatorNav',
+    Page: () => (
+      <DemoWrapper>
+        <ElevatorNav />
       </DemoWrapper>
     ),
   },

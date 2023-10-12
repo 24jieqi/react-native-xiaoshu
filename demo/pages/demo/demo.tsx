@@ -260,6 +260,10 @@ const navDatas: {
         title: 'Steps 步骤条',
         name: 'DemoSteps',
       },
+      {
+        title: 'ElevatorNav 电梯导航',
+        name: 'ElevatorNav',
+      },
     ],
   },
 ]

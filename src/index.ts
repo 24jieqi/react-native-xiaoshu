@@ -198,3 +198,6 @@ export { default as Uploader } from './uploader'
 
 export type { WaterMarkProps } from './water-mark/interface'
 export { default as WaterMark } from './water-mark'
+
+export type { ElevatorNavProps } from './elevator-nav/interface'
+export { ElevatorNav } from './elevator-nav'
