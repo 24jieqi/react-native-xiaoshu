@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import type { ViewProps } from 'react-native'
 import { View } from 'react-native'
 
@@ -10,7 +10,8 @@ import type { ElevatorNavAnchorProps } from './interface'
 const ElevatorNavAnchor: React.FC<
   React.PropsWithChildren<ElevatorNavAnchorProps>
 > = ({ title, children, onLayout, ...restProps }) => {
-  const { cancelTarget } = useElevator()
+  const { cancelTarget, registerTarget } = useElevator()
+  const ViewRef = useRef<View>()
 
   useEffect(() => {
     return () => {
@@ -20,10 +21,15 @@ const ElevatorNavAnchor: React.FC<
 
   const onLayoutPersistFn = usePersistFn<ViewProps['onLayout']>(e => {
     onLayout?.(e)
+    registerTarget(title, ViewRef)
   })
 
   return (
-    <View collapsable={false} {...restProps} onLayout={onLayoutPersistFn}>
+    <View
+      collapsable={false}
+      {...restProps}
+      ref={ViewRef}
+      onLayout={onLayoutPersistFn}>
       {children}
     </View>
   )

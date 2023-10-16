@@ -104,8 +104,10 @@ export const ElevatorContextProvider = ({
   )
   const registerScroll = useCallback(
     (ref: ScrollViewRef) => {
-      ScrollRef.current = ref
-      initNav()
+      if (!ScrollRef.current || ScrollRef.current.current !== ref.current) {
+        ScrollRef.current = ref
+        initNav()
+      }
     },
     [initNav],
   )

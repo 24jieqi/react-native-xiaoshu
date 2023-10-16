@@ -1,6 +1,6 @@
-import { memo, useMemo, useRef } from 'react'
+import React, { memo, useMemo, useRef } from 'react'
 import type { ScrollViewProps } from 'react-native'
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
 import { usePersistFn, useDifferentState } from '../hooks'
 import TabBar from '../tab-bar'
@@ -60,23 +60,32 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
   })
 
   return (
-    <ScrollView {...restProps} ref={ScrollViewRef} onScroll={onScrollPersist}>
+    <ScrollView
+      scrollEventThrottle={16}
+      {...restProps}
+      ref={ScrollViewRef}
+      onScroll={onScrollPersist}>
       {showNav ? (
-        <TabBar
-          value={tabBarValue}
-          onChange={onChangeTabBar}
-          options={tabBarOptions}
-        />
+        // TODO 定位布局
+        <View>
+          <TabBar
+            value={tabBarValue}
+            onChange={onChangeTabBar}
+            options={tabBarOptions}
+          />
+        </View>
       ) : null}
       {children}
     </ScrollView>
   )
 }
 
-const ElevatorNav: React.FC = () => {
+const ElevatorNav: React.FC<
+  React.PropsWithChildren<ElevatorNavProps>
+> = props => {
   return (
     <ElevatorContextProvider>
-      <ElevatorNavInner />
+      <ElevatorNavInner {...props} />
     </ElevatorContextProvider>
   )
 }
