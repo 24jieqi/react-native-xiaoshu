@@ -60,11 +60,7 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
   })
 
   return (
-    <ScrollView
-      scrollEventThrottle={16}
-      {...restProps}
-      ref={ScrollViewRef}
-      onScroll={onScrollPersist}>
+    <View>
       {showNav ? (
         // TODO 定位布局
         <View>
@@ -75,8 +71,14 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
           />
         </View>
       ) : null}
-      {children}
-    </ScrollView>
+      <ScrollView
+        scrollEventThrottle={16}
+        {...restProps}
+        ref={ScrollViewRef}
+        onScroll={onScrollPersist}>
+        {children}
+      </ScrollView>
+    </View>
   )
 }
 
