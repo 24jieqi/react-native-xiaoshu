@@ -18,6 +18,7 @@ module.exports = {
     'Dialog',
     'Divider',
     'Dropdown',
+    'ElevatorNav',
     'Empty',
     'ErrorBoundary',
     'Field',

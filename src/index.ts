@@ -59,6 +59,9 @@ export type {
 } from './dropdown/interface'
 export { default as Dropdown } from './dropdown'
 
+export type { ElevatorNavProps } from './elevator-nav/interface'
+export { ElevatorNav } from './elevator-nav'
+
 export type { EmptyProps } from './empty/interface'
 export { default as Empty } from './empty'
 

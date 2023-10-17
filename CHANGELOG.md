@@ -1,3 +1,13 @@
+## [0.3.17-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.2...v0.3.17-beta.3) (2023-10-17)
+
+### Bug Fixes
+
+- **TabBar:** 🐛 选项动态变化可能报错 ([6039414](https://github.com/hjfruit/react-native-xiaoshu/commit/6039414df6c776a8f5c986f3e6fc5128368b1243))
+
+### Features
+
+- elevator nav ([8f11a39](https://github.com/hjfruit/react-native-xiaoshu/commit/8f11a39ad323e2e18b69c09a99fdf473c56d4e8b))
+
 ## [0.3.17-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.1...v0.3.17-beta.2) (2023-10-11)
 
 ### Features
