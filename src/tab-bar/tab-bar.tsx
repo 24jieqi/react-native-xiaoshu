@@ -7,7 +7,7 @@ import { Text, TouchableOpacity, ScrollView, Animated } from 'react-native'
 import BottomBar from '../bottom-bar'
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
-import { useControllableValue } from '../hooks'
+import { useControllableValue, useUpdateEffect } from '../hooks'
 import Theme from '../theme'
 
 import type { TabBarProps, TabValue } from './interface'
@@ -51,7 +51,7 @@ const TabBar: React.FC<TabBarProps> = ({
   const AnimatedIndicatorLeft = useRef(new Animated.Value(0))
   const AnimatedIndicatorWidth = useRef(new Animated.Value(0))
   const ScrollViewRef = useRef<ScrollView>(null)
-  const scrollViewWidth = useRef(0)
+  const ScrollViewWidthRef = useRef(0)
 
   if (indicator && isNil(height)) {
     height = 40
@@ -95,7 +95,7 @@ const TabBar: React.FC<TabBarProps> = ({
       ]).start()
 
       if (!isTabAdaption) {
-        const hh = scrollViewWidth.current / 2
+        const hh = ScrollViewWidthRef.current / 2
         ScrollViewRef.current.scrollTo({
           x: targetLayout.tab.x + targetLayout.tab.width / 2 - hh,
           animated: true,
@@ -121,6 +121,12 @@ const TabBar: React.FC<TabBarProps> = ({
     }
   }, [])
 
+  useUpdateEffect(() => {
+    setState({
+      layoutFinish: false,
+    })
+  }, [options])
+
   useEffect(() => {
     if (state.layoutFinish) {
       const n = options.findIndex(item => item.value === value)
@@ -130,7 +136,7 @@ const TabBar: React.FC<TabBarProps> = ({
   }, [value, options, state.layoutFinish, navigateTo])
 
   const onLayoutScrollView = useCallback((e: LayoutChangeEvent) => {
-    scrollViewWidth.current = e.nativeEvent.layout.width
+    ScrollViewWidthRef.current = e.nativeEvent.layout.width
   }, [])
 
   const genOnPress = (v: TabValue) => () => {
