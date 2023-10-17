@@ -1,8 +1,8 @@
 import { attachPropertiesToComponent } from '../helpers'
 
 import ElevatorNavComponent from './elevator-nav'
-import ElevatorNavItem from './elevator-nav-item'
+import ElevatorNavAnchor from './elevator-nav-anchor'
 
 export const ElevatorNav = attachPropertiesToComponent(ElevatorNavComponent, {
-  ElevatorNavItem,
+  Anchor: ElevatorNavAnchor,
 })

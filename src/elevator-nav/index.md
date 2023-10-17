@@ -9,14 +9,12 @@ group:
   order: 4
 ---
 
-# ElevatorNav 电梯导航
+# ElevatorNav 电梯导航 <Badge>0.3.17+</Badge>
 
 ## 代码演示
 
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
-
-### ElevatorNav
 
 <API hideTitle src="./elevator-nav.tsx"></API>

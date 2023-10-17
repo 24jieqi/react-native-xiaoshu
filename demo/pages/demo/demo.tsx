@@ -249,6 +249,10 @@ const navDatas: {
     title: '导航组件',
     datas: [
       {
+        title: 'ElevatorNav 电梯导航',
+        name: 'ElevatorNav',
+      },
+      {
         title: 'NavBar 导航栏',
         name: 'DemoNavBar',
       },
@@ -259,10 +263,6 @@ const navDatas: {
       {
         title: 'Steps 步骤条',
         name: 'DemoSteps',
-      },
-      {
-        title: 'ElevatorNav 电梯导航',
-        name: 'ElevatorNav',
       },
     ],
   },

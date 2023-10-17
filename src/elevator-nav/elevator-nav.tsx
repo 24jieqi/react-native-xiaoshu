@@ -1,95 +1,124 @@
-import { type FC, useRef, useEffect, useState, useMemo } from 'react'
-import type { NativeSyntheticEvent, NativeScrollEvent } from 'react-native'
-import { View, ScrollView, StyleSheet } from 'react-native'
+import React, { memo, useMemo, useRef } from 'react'
+import type { ScrollViewProps } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
-import ElevatorNavProvider, { useAnchorsContext } from './elevator-nav-provider'
-import ElevatorNavTabs from './elevator-nav-tabs'
+import { usePersistFn, useDifferentState, useUpdateEffect } from '../hooks'
+import TabBar from '../tab-bar'
+
+import { ElevatorContextProvider, useElevator } from './context'
 import type { ElevatorNavProps } from './interface'
+import STYLES from './style'
 
-const ElevatorNavComponent: FC<ElevatorNavProps> = ({
-  triggerOffset = 42,
+const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
+  triggerOffset = 100,
+  tabBarHeight = 40,
+
   children,
+  onScroll,
+  onMomentumScrollEnd,
+  ...restProps
 }) => {
-  const { registerScroll, targetRefs, scrollTo, getCurrentKey } =
-    useAnchorsContext()
-  const [navIndex, setNavIndex] = useState<string>()
-  const currentScrollRef = useRef<ScrollView>(null)
-  const [offsetY, setOffsetY] = useState(0)
-  useEffect(() => {
-    registerScroll(currentScrollRef.current)
-  }, [currentScrollRef, registerScroll])
+  const { registerScroll, elevator } = useElevator()
+  const ScrollViewRef = useRef<ScrollView>()
+  const ScrollTop = useRef(0)
+  const [showNav, setShowNav] = useDifferentState(false)
+  const [tabBarValue, setTabBarValue] = useDifferentState<string | undefined>(
+    undefined,
+  )
+  const tabBarOptions = useMemo(
+    () =>
+      elevator.map(item => ({
+        value: item.label,
+        label: item.label,
+      })),
+    [elevator],
+  )
+  const tabBarKey = useMemo(
+    () => JSON.stringify(tabBarOptions),
+    [tabBarOptions],
+  )
+  const ActionChangeTabBarValue = useRef(false)
+  const initTabBar = usePersistFn((y: number) => {
+    const _showNav = y >= triggerOffset - tabBarHeight
 
-  const onScroll: (
-    event: NativeSyntheticEvent<NativeScrollEvent>,
-  ) => void = event => {
-    setOffsetY(event.nativeEvent.contentOffset.y)
-    getCurrentKey(event.nativeEvent.contentOffset.y).then(key => {
-      if (key) {
-        setNavIndex(key)
-      }
+    // 滚动距离增加 tabBarHeight，UI 上已经滚动过去了
+    // TODO 从体验上看，top 过了内容高度的三之一就算滚到了
+    const overElevators = elevator.filter(item => item.top <= y + tabBarHeight)
+
+    const _tabBarValue = overElevators[overElevators.length - 1]?.label
+
+    setShowNav(_showNav)
+    if (_showNav && _tabBarValue && !ActionChangeTabBarValue.current) {
+      setTabBarValue(_tabBarValue)
+    }
+  })
+
+  useUpdateEffect(() => {
+    // 当布局变化时重新定位
+    initTabBar(ScrollTop.current)
+  }, [tabBarOptions])
+
+  registerScroll(ScrollViewRef)
+
+  const onScrollPersist = usePersistFn<ScrollViewProps['onScroll']>(e => {
+    onScroll?.(e)
+
+    ScrollTop.current = e.nativeEvent.contentOffset.y
+
+    initTabBar(ScrollTop.current)
+  })
+  const onChangeTabBar = usePersistFn((v: string) => {
+    setTabBarValue(v)
+
+    ActionChangeTabBarValue.current = true
+
+    ScrollViewRef.current.scrollTo({
+      y: elevator.filter(item => item.label === v)[0].top,
+      animated: true,
     })
-  }
-
-  const options = useMemo(() => {
-    let resOptions = []
-    // let index = 0
-    for (const key in targetRefs) {
-      if (Object.hasOwn(targetRefs, key)) {
-        resOptions.push({ value: key, label: key })
-      }
-    }
-
-    return resOptions
-  }, [targetRefs])
-  useEffect(() => {
-    if (options?.[0]?.value) {
-      setNavIndex(options?.[0]?.value)
-    }
-  }, [options])
+  })
+  const onMomentumScrollEndPersist = usePersistFn<
+    ScrollViewProps['onMomentumScrollEnd']
+  >(e => {
+    onMomentumScrollEnd?.(e)
+    ActionChangeTabBarValue.current = false
+  })
 
   return (
-    <View style={styles.wrap}>
-      {offsetY > triggerOffset ? (
-        <View style={styles.tabs}>
-          {navIndex ? (
-            <ElevatorNavTabs
-              options={options}
-              value={navIndex}
-              onChange={(v: string) => {
-                scrollTo(v)
-                setNavIndex(v)
-              }}
-            />
-          ) : null}
+    <View style={STYLES.wrapper} collapsable={false}>
+      {showNav && tabBarValue ? (
+        <View style={STYLES.nav}>
+          <TabBar
+            key={tabBarKey}
+            indicator
+            safeAreaInsetBottom={false}
+            value={tabBarValue}
+            onChange={onChangeTabBar}
+            options={tabBarOptions}
+          />
         </View>
       ) : null}
       <ScrollView
-        ref={currentScrollRef}
         scrollEventThrottle={16}
-        onScroll={onScroll}>
+        bounces={false}
+        {...restProps}
+        ref={ScrollViewRef}
+        onScroll={onScrollPersist}
+        onMomentumScrollEnd={onMomentumScrollEndPersist}>
         {children}
       </ScrollView>
     </View>
   )
 }
 
-const ElevatorNav: FC<ElevatorNavProps> = ({ children, ...otherProps }) => {
+const ElevatorNav: React.FC<
+  React.PropsWithChildren<ElevatorNavProps>
+> = props => {
   return (
-    <ElevatorNavProvider>
-      <ElevatorNavComponent {...otherProps}>{children}</ElevatorNavComponent>
-    </ElevatorNavProvider>
+    <ElevatorContextProvider>
+      <ElevatorNavInner {...props} />
+    </ElevatorContextProvider>
   )
 }
-export default ElevatorNav
-const styles = StyleSheet.create({
-  wrap: {
-    height: '100%',
-  },
-  tabs: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    zIndex: 99,
-  },
-})
+
+export default memo(ElevatorNav)
