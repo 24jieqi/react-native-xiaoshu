@@ -1,3 +1,9 @@
+## [0.3.17-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.3...v0.3.17-beta.4) (2023-10-20)
+
+### Bug Fixes
+
+- **ElevatorNav:** 🐛 按需加载插件引入文件 ([28377f4](https://github.com/hjfruit/react-native-xiaoshu/commit/28377f4861a779fc51e8322efdbad0ea162dcd4d))
+
 ## [0.3.17-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.2...v0.3.17-beta.3) (2023-10-17)
 
 ### Bug Fixes
