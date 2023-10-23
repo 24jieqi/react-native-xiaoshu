@@ -1,3 +1,10 @@
+## [0.3.17-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.4...v0.3.17-beta.5) (2023-10-23)
+
+### Bug Fixes
+
+- **ElevatorNav:** 🐛 debounce 逻辑优化 ([ebaded9](https://github.com/hjfruit/react-native-xiaoshu/commit/ebaded985d223259222e25b9b5ce500c90cda4bf))
+- **Search:** 🐛 debounce 逻辑优化 ([8a28388](https://github.com/hjfruit/react-native-xiaoshu/commit/8a283886d7d4cc7069ce74a6a0ce02b91afe73de))
+
 ## [0.3.17-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.3...v0.3.17-beta.4) (2023-10-20)
 
 ### Bug Fixes
