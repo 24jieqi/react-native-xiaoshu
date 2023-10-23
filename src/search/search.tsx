@@ -58,8 +58,8 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const { run: runOnSearch } = useDebounceFn(onSearch || noop, {
       wait: onSearchDebounceWait,
-      leading: true,
-      trailing: false,
+      leading: false,
+      trailing: true,
     })
 
     /** 输入框内部的值，不维护状态，避免没必要的更新 */
