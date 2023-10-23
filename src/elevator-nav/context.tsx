@@ -100,7 +100,7 @@ export const ElevatorContextProvider = ({
           setElevator([])
         })
     },
-    { wait: 200 },
+    { wait: 200, leading: false, trailing: true },
   )
   const registerScroll = useCallback(
     (ref: ScrollViewRef) => {
