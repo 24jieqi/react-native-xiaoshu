@@ -1,4 +1,5 @@
-import type { ViewProps, ScrollViewProps } from 'react-native'
+import type React from 'react'
+import type { ViewProps, ScrollViewProps, ScrollView } from 'react-native'
 
 export interface ElevatorNavProps extends ScrollViewProps {
   /**
@@ -12,6 +13,14 @@ export interface ElevatorNavProps extends ScrollViewProps {
    * @default 40
    */
   tabBarHeight?: number
+
+  /**
+   * 自定义滚动组件
+   */
+  scrollComponent?: React.FC<
+    // TODO 优化类型
+    ScrollViewProps & { ref: React.MutableRefObject<ScrollView> }
+  >
 }
 
 export interface ElevatorNavAnchorProps extends ViewProps {

@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useRef } from 'react'
 import type { ScrollViewProps } from 'react-native'
-import { ScrollView, View } from 'react-native'
+import { View, ScrollView } from 'react-native'
 
 import { usePersistFn, useDifferentState, useUpdateEffect } from '../hooks'
 import TabBar from '../tab-bar'
@@ -12,12 +12,14 @@ import STYLES from './style'
 const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
   triggerOffset = 100,
   tabBarHeight = 40,
+  scrollComponent = ScrollView,
 
   children,
   onScroll,
   onMomentumScrollEnd,
   ...restProps
 }) => {
+  const ScrollComponent = scrollComponent
   const { registerScroll, elevator } = useElevator()
   const ScrollViewRef = useRef<ScrollView>()
   const ScrollTop = useRef(0)
@@ -98,7 +100,7 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
           />
         </View>
       ) : null}
-      <ScrollView
+      <ScrollComponent
         scrollEventThrottle={16}
         bounces={false}
         {...restProps}
@@ -106,7 +108,7 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
         onScroll={onScrollPersist}
         onMomentumScrollEnd={onMomentumScrollEndPersist}>
         {children}
-      </ScrollView>
+      </ScrollComponent>
     </View>
   )
 }

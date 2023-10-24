@@ -3,15 +3,41 @@
  * desc: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import React, { forwardRef, useRef, useState, useImperativeHandle } from 'react'
+import { Text, View, ScrollView } from 'react-native'
+import {
+  KeyboardAwareScrollView,
+  KeyboardAwareScrollViewProps,
+} from 'react-native-keyboard-aware-scroll-view'
 
 import {
   Card,
   Space,
   ElevatorNav,
   Button,
+  TextInput,
 } from '@fruits-chain/react-native-xiaoshu'
+
+const CustomKeyboardAwareScrollView = forwardRef<
+  ScrollView,
+  KeyboardAwareScrollViewProps
+>((props, ref) => {
+  const ScrollViewRef = useRef<ScrollView>()
+
+  useImperativeHandle(ref, () => {
+    return ScrollViewRef.current
+  })
+
+  return (
+    <KeyboardAwareScrollView
+      {...props}
+      innerRef={ref => {
+        props.innerRef?.(ref)
+        ScrollViewRef.current = ref as any
+      }}
+    />
+  )
+})
 
 const BasicTag: React.FC = () => {
   const [more1, setMore1] = useState(false)
@@ -36,7 +62,9 @@ const BasicTag: React.FC = () => {
         />
       </Space>
 
-      <ElevatorNav triggerOffset={500}>
+      <ElevatorNav
+        triggerOffset={500}
+        scrollComponent={CustomKeyboardAwareScrollView as any}>
         <Space tail head>
           <View style={{ height: 500, backgroundColor: '#f09' }}>
             <Text>其他非锚点区域</Text>
@@ -73,6 +101,8 @@ const BasicTag: React.FC = () => {
               <View style={{ height: 420, backgroundColor: '#fa7' }} />
             </Card>
           </ElevatorNav.Anchor>
+
+          <TextInput placeholder="请输入什么" />
 
           <View style={{ height: 500, backgroundColor: '#ac6' }}>
             <Text>其他非锚点区域</Text>
