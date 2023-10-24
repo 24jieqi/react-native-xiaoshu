@@ -1,3 +1,9 @@
+## [0.3.17-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.5...v0.3.17-beta.6) (2023-10-24)
+
+### Features
+
+- **ElevatorNav:** 🎸 自定义滚动区域组件 ([91c2df9](https://github.com/hjfruit/react-native-xiaoshu/commit/91c2df9e0cd95e5e3abcbd2a9783b2667eeadcf2))
+
 ## [0.3.17-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.4...v0.3.17-beta.5) (2023-10-23)
 
 ### Bug Fixes
