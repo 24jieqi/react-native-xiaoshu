@@ -1,3 +1,9 @@
+## [0.3.17-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.6...v0.3.17-beta.7) (2023-10-25)
+
+### Bug Fixes
+
+- **Search:** 🐛 过渡受控\非受控状态 ([0b3b225](https://github.com/hjfruit/react-native-xiaoshu/commit/0b3b225ef4793aa9b3edaa66786a3c584a55ef36))
+
 ## [0.3.17-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.5...v0.3.17-beta.6) (2023-10-24)
 
 ### Features
