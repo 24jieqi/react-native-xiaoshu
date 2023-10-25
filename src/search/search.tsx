@@ -99,6 +99,13 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       runOnSearch(SearchText.current)
     }, [runOnSearch])
 
+    // TextInput value、defaultValue 对值进行了判断，影响 clearable
+    // 此处对两个属性的 undefined 情况进行过滤，useControllableValue 能正确识别是否受控
+    const textInputProps = {
+      ...(isUndefined(value) ? {} : { value }),
+      ...(isUndefined(defaultValue) ? {} : { defaultValue }),
+    }
+
     return (
       <View
         {...restProps}
@@ -114,11 +121,10 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
 
         <TextInput
           ref={ref}
+          {...textInputProps}
           clearable
           fixGroupStyle={STYLES.text_input_group}
           style={STYLES.text_input}
-          defaultValue={defaultValue}
-          value={value}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
           prefix={
