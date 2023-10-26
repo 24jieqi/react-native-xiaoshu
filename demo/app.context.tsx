@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from 'react'
-import { Text } from 'react-native'
 
-import { Provider, Switch, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Provider, Switch } from '@fruits-chain/react-native-xiaoshu'
 
 import en_US from '../src/locale/lang/en_US'
 import zh_CN from '../src/locale/lang/zh_CN'
@@ -47,16 +46,14 @@ export const LocalLangSwitch = () => {
   const { lang, setLang } = useAppContext()
 
   return (
-    <Space direction="horizontal" align="center">
-      <Text>en</Text>
-      <Switch
-        activeValue="zh"
-        inactiveValue="en"
-        inactiveColor="#ddd"
-        value={lang}
-        onChange={setLang}
-      />
-      <Text>zh</Text>
-    </Space>
+    <Switch
+      activeValue="zh"
+      inactiveValue="en"
+      inactiveColor="#000"
+      value={lang}
+      onChange={setLang}
+      inactiveChildren="English"
+      activeChildren="中文"
+    />
   )
 }
