@@ -1,3 +1,13 @@
+## [0.3.17-beta.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.8...v0.3.17-beta.9) (2023-10-26)
+
+### Bug Fixes
+
+- **TabBar:** 🐛 options 在组件内做一个缓存,避免无异议的刷新 ([0ad6c02](https://github.com/hjfruit/react-native-xiaoshu/commit/0ad6c02a0a355ac5199f1705cfd92715a1c18d26))
+
+### Features
+
+- **TabBar:** 🎸 优化值类型 ([f54cb7a](https://github.com/hjfruit/react-native-xiaoshu/commit/f54cb7a9002442e017587fd336248c13fa9a4d0c))
+
 ## [0.3.17-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.7...v0.3.17-beta.8) (2023-10-26)
 
 ### Features
