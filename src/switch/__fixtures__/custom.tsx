@@ -1,6 +1,6 @@
 /**
  * title: 自定义
- * desc: 支持自定义选中、未选中的值、颜色
+ * desc: 支持自定义选中、未选中的值、颜色。`activeValue`、`inactiveValue` 在 `0.3.17` 以后支持。
  */
 
 import React from 'react'
