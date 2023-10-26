@@ -27,6 +27,7 @@ export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
 
   /**
    * 开关尺寸
+   * @default `switch_size`
    */
   size?: number
 
@@ -51,6 +52,16 @@ export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
    * @default false
    */
   inactiveValue?: InactiveValueT
+
+  /**
+   * 打开时的内容
+   */
+  activeChildren?: React.ReactNode
+
+  /**
+   * 关闭时的内容
+   */
+  inactiveChildren?: React.ReactNode
 
   /**
    * 点击时触发

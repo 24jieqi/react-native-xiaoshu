@@ -1,127 +1,47 @@
-/**
- * title: 综合用法
- * desc: 把各种场景、API 都运用了
- */
+import React from 'react'
+import { Text, ScrollView, View } from 'react-native'
 
-import React, { useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { Space } from '@fruits-chain/react-native-xiaoshu'
 
-import { Switch, Cell, ButtonBar } from '@fruits-chain/react-native-xiaoshu'
+import BasicSwitchBase from './base'
+import BasicSwitchText from './text'
+import BasicSwitchDisabled from './disabled'
+import BasicSwitchSize from './size'
+import BasicSwitchCustom from './custom'
+
+const titleStyle = {
+  fontSize: 18,
+  color: '#333',
+  paddingTop: 16,
+}
 
 const BasicSwitch: React.FC = () => {
-  const [state, setState] = useState(true)
-  const [loading, setLoading] = useState(false)
-
   return (
-    <>
-      <ScrollView style={{ backgroundColor: '#fff' }}>
-        <Text>基础用法</Text>
+    <ScrollView style={{ backgroundColor: '#fff' }}>
+      <Space>
+        <Text style={titleStyle}>基础</Text>
 
-        <Switch
-          value={state}
-          onChange={p => {
-            console.log(p)
-            setState(p)
-          }}
-          onPress={() => {
-            console.log('基础用法')
-          }}
-        />
+        <BasicSwitchBase />
 
-        <View style={{ height: 20 }} />
+        <Text style={titleStyle}>文字和图标</Text>
 
-        <Switch
-          defaultValue={true}
-          onChange={p => {
-            console.log(p)
-          }}
-        />
+        <BasicSwitchText />
 
-        <View style={{ height: 20 }} />
+        <Text style={titleStyle}>不可用</Text>
 
-        <Text>禁用状态</Text>
+        <BasicSwitchDisabled />
 
-        <Switch disabled value={state} />
+        <Text style={titleStyle}>大小</Text>
 
-        <View style={{ height: 20 }} />
+        <BasicSwitchSize />
 
-        <Text>加载状态</Text>
+        <Text style={titleStyle}>自定义</Text>
 
-        <Switch loading value={state} />
+        <BasicSwitchCustom />
 
-        <View style={{ height: 20 }} />
-
-        <Text>自定义大小</Text>
-
-        <Switch
-          value={state}
-          onChange={setState}
-          size={50}
-          onPress={() => {
-            console.log('自定义大小')
-          }}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Text>自定义颜色</Text>
-
-        <Switch
-          value={state}
-          onChange={setState}
-          activeColor="#f30"
-          inactiveColor="#ddd"
-          onPress={() => {
-            console.log('自定义颜色')
-          }}
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Text>异步控制</Text>
-
-        <Switch
-          loading={loading}
-          value={state}
-          onChange={setState}
-          beforeChange={() =>
-            new Promise<boolean>(resolve => {
-              setLoading(true)
-              setTimeout(() => {
-                setLoading(false)
-                resolve(true)
-              }, 2000)
-            })
-          }
-        />
-
-        <View style={{ height: 20 }} />
-
-        <Text>受控</Text>
-
-        <Switch loading={loading} value={state} />
-
-        <View style={{ height: 20 }} />
-      </ScrollView>
-      <ButtonBar alone>
-        <Cell
-          title="单元格"
-          divider={false}
-          value={
-            <Switch
-              value={state}
-              onChange={p => {
-                console.log(p)
-                setState(p)
-              }}
-              onPress={() => {
-                console.log('基础用法')
-              }}
-            />
-          }
-        />
-      </ButtonBar>
-    </>
+        <View style={{ height: 50 }} />
+      </Space>
+    </ScrollView>
   )
 }
 
