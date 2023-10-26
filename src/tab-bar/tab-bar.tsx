@@ -7,7 +7,11 @@ import { Text, TouchableOpacity, ScrollView, Animated } from 'react-native'
 import BottomBar from '../bottom-bar'
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue } from '../helpers'
-import { useControllableValue, useUpdateEffect } from '../hooks'
+import {
+  useControllableValue,
+  useOriginalDeepCopy,
+  useUpdateEffect,
+} from '../hooks'
 import Theme from '../theme'
 
 import type { TabBarProps, TabValue } from './interface'
@@ -42,6 +46,8 @@ const TabBar = <T extends TabValue>({
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
   const STYLES = Theme.createStyle(CV, styleCreator)
+
+  const optionsDeepCopy = useOriginalDeepCopy(options)
   const [state, setState] = useState({
     layoutFinish: false,
   })
@@ -125,15 +131,15 @@ const TabBar = <T extends TabValue>({
     setState({
       layoutFinish: false,
     })
-  }, [options])
+  }, [optionsDeepCopy])
 
   useEffect(() => {
     if (state.layoutFinish) {
-      const n = options.findIndex(item => item.value === value)
+      const n = optionsDeepCopy.findIndex(item => item.value === value)
 
       navigateTo(n)
     }
-  }, [value, options, state.layoutFinish, navigateTo])
+  }, [value, optionsDeepCopy, state.layoutFinish, navigateTo])
 
   const onLayoutScrollView = useCallback((e: LayoutChangeEvent) => {
     ScrollViewWidthRef.current = e.nativeEvent.layout.width
@@ -161,7 +167,7 @@ const TabBar = <T extends TabValue>({
     initIndicator()
   }
 
-  const tabs = options.map((item, index) => {
+  const tabs = optionsDeepCopy.map((item, index) => {
     const isActive = item.value === value
 
     return (
