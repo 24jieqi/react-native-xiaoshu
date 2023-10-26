@@ -15,7 +15,10 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/base.tsx"></code>
+<code src="./__fixtures__/indicator.tsx"></code>
+<code src="./__fixtures__/align.tsx"></code>
+<code src="./__fixtures__/label.tsx"></code>
 
 ## API
 

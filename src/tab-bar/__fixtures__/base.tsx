@@ -1,18 +1,17 @@
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-import { ScrollView, Text } from 'react-native'
+/**
+ * title: 基本
+ * desc: 一般用于固定页面底部，支持文案、图标。
+ */
 
-import { TabBar, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react'
+import type { ViewStyle } from 'react-native'
+
+import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
 } from '@fruits-chain/icons-react-native'
-
-import BasicTabBarBase from './base'
-import BasicTabBarIndicator from './indicator'
-import BasicTabBarAlign from './align'
-import BasicTabBarLabel from './label'
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -62,40 +61,38 @@ const bottomBar = [
   },
 ]
 
-const BasicSwitch: React.FC = () => {
+const BasicTabBarBase: React.FC = () => {
+  const [value1, setValue1] = useState(bottomBar[1].value)
+
   return (
-    <>
-      <ScrollView>
-        <Space head>
-          <Text>基本</Text>
+    <Space head>
+      <TabBar
+        safeAreaInsetBottom={false}
+        options={bottomBar}
+        value={value1}
+        onChange={v => {
+          setValue1(v as number)
+        }}
+      />
 
-          <BasicTabBarBase />
+      <TabBar
+        safeAreaInsetBottom={false}
+        options={bottomBar.map(({ iconRender, ...rest }) => rest)}
+        value={value1}
+        onChange={v => {
+          setValue1(v as number)
+        }}
+      />
 
-          <Divider type="dark">.</Divider>
-
-          <Text>指示器</Text>
-
-          <BasicTabBarIndicator />
-
-          <Divider type="dark">.</Divider>
-
-          <Text>左对齐</Text>
-
-          <BasicTabBarAlign />
-
-          <Divider type="dark">.</Divider>
-
-          <Text>文字突出</Text>
-
-          <BasicTabBarLabel />
-
-          <Divider type="dark">.</Divider>
-        </Space>
-      </ScrollView>
-
-      <TabBar options={bottomBar} defaultValue={bottomBar[0].value} />
-    </>
+      <Button
+        text="重置"
+        danger
+        onPress={() => {
+          setValue1(bottomBar[1].value)
+        }}
+      />
+    </Space>
   )
 }
 
-export default BasicSwitch
+export default BasicTabBarBase

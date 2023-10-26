@@ -5,14 +5,14 @@ import type { BottomBarProps } from '../bottom-bar/interface'
 
 export type TabValue = number | string
 
-export type TabItem = {
-  value: TabValue
+export type TabItem<T> = {
+  value: T
   label: string
   badge?: number | string
   iconRender?: (color?: ColorValue, isActive?: boolean) => React.ReactElement
 }
 
-export interface TabBarProps extends BottomBarProps {
+export interface TabBarProps<T extends TabValue> extends BottomBarProps {
   /**
    * 文案颜色
    * @default tab_bar_text_color
@@ -40,22 +40,22 @@ export interface TabBarProps extends BottomBarProps {
   /**
    * 当前选中的值
    */
-  value?: TabValue
+  value?: T
 
   /**
    * 默认数据
    */
-  defaultValue?: TabValue
+  defaultValue?: T
 
   /**
-   * tab 数据
+   * tab 数据，数组 memo 一下，避免错误
    */
-  options: TabItem[]
+  options: TabItem<T>[]
 
   /**
    * 点击切换回调
    */
-  onChange?: (value: TabValue) => void
+  onChange?: (value: T) => void
 
   /**
    * 是否采用指示器模式

@@ -37,7 +37,7 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   const [_options, _tabs] = useMemo(() => {
     const tabs = parseTabList(children)
-    const options: TabItem[] = tabs.map(t => ({
+    const options: TabItem<string>[] = tabs.map(t => ({
       value: t.key,
       label: t.tab,
       badge: t.badge,

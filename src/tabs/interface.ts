@@ -3,9 +3,11 @@ import type { ColorValue } from 'react-native'
 
 import type { TabBarProps, TabItem } from '../tab-bar/interface'
 
+type UsedTabBarProps = TabBarProps<string>
+
 export interface TabsProps
   extends Omit<
-      TabBarProps,
+      UsedTabBarProps,
       | 'value'
       | 'defaultValue'
       | 'options'
@@ -23,18 +25,18 @@ export interface TabsProps
   /**
    * TabBar style
    */
-  tabBarStyle?: TabBarProps['style']
+  tabBarStyle?: UsedTabBarProps['style']
 
   /**
    * TabBar 高度
    */
-  tabBarHeight?: TabBarProps['height']
+  tabBarHeight?: UsedTabBarProps['height']
 
   /**
    * TabBar 背景色
    * @default bottom_bar_background_color
    */
-  tabBarBackgroundColor?: TabBarProps['backgroundColor']
+  tabBarBackgroundColor?: UsedTabBarProps['backgroundColor']
 
   /**
    * 当前激活 tab 面板的 key
@@ -64,7 +66,7 @@ export interface TabsProps
 }
 
 export interface TabPaneProps
-  extends PropsWithChildren<Pick<TabItem, 'badge'>> {
+  extends PropsWithChildren<Pick<TabItem<string>, 'badge'>> {
   /**
    * 对应 activeKey
    */

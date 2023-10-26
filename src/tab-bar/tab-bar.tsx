@@ -13,7 +13,7 @@ import Theme from '../theme'
 import type { TabBarProps, TabValue } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const TabBar: React.FC<TabBarProps> = ({
+const TabBar = <T extends TabValue>({
   textColor,
   iconColor,
   activeTextColor,
@@ -29,7 +29,7 @@ const TabBar: React.FC<TabBarProps> = ({
   height,
   style,
   ...restProps
-}) => {
+}: TabBarProps<T>) => {
   const _labelBulge = isNumber(labelBulge) ? labelBulge : labelBulge ? 1.2 : 0
   const tabNum = options.length
   const isTabAdaption = tabAlign === 'center'
@@ -139,7 +139,7 @@ const TabBar: React.FC<TabBarProps> = ({
     ScrollViewWidthRef.current = e.nativeEvent.layout.width
   }, [])
 
-  const genOnPress = (v: TabValue) => () => {
+  const genOnPress = (v: T) => () => {
     onChange(v)
   }
 
@@ -259,4 +259,6 @@ const TabBar: React.FC<TabBarProps> = ({
   )
 }
 
-export default memo(TabBar)
+export default memo(TabBar) as <T extends TabValue>(
+  p: TabBarProps<T>,
+) => JSX.Element
