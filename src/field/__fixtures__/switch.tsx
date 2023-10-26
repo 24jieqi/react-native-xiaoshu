@@ -16,7 +16,9 @@ const BasicFieldSwitch: React.FC = () => {
         onChange={v => {
           console.log(v)
         }}
-        size={16}
+        size={24}
+        activeChildren="开启"
+        inactiveChildren="关闭"
       />
 
       <Field.Switch
