@@ -1,3 +1,9 @@
+## [0.3.17-beta.8](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.7...v0.3.17-beta.8) (2023-10-26)
+
+### Features
+
+- **Switch:** 🎸 支持内部插入文字\图标 ([167c65d](https://github.com/hjfruit/react-native-xiaoshu/commit/167c65d0eb68dc0861457dbb64a6905ceec1e934))
+
 ## [0.3.17-beta.7](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.6...v0.3.17-beta.7) (2023-10-25)
 
 ### Bug Fixes
