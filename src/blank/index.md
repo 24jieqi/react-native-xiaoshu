@@ -19,7 +19,8 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/direction.tsx"></code>
+<code src="./__fixtures__/size.tsx"></code>
 
 ## API
 
