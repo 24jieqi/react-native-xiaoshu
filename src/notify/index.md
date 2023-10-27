@@ -19,7 +19,7 @@ group:
 
 ## API
 
-<API src="./notify.tsx"></API>
+<API hideTitle src="./notify.tsx"></API>
 
 ## 主题定制
 

@@ -30,6 +30,8 @@ group:
 
 ## API
 
+- `shrink` <Badge>0.3.17+</Badge>
+
 <API hideTitle></API>
 
 ## 主题定制

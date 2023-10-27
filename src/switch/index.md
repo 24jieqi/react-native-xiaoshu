@@ -23,6 +23,8 @@ group:
 
 ## API
 
+- `activeChildren`、`inactiveChildren` <Badge>0.3.17+</Badge>
+
 <API hideTitle src="./switch.tsx"></API>
 
 ## 主题定制

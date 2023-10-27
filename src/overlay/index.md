@@ -19,8 +19,6 @@ group:
 
 ## API
 
-### Overlay
-
 - `backgroundColor` <Badge>0.2.17+</Badge>
 
 <API hideTitle src="./overlay.tsx"></API>
