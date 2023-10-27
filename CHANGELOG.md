@@ -1,3 +1,9 @@
+## [0.3.17-beta.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.9...v0.3.17-beta.10) (2023-10-27)
+
+### Features
+
+- **Space:** 🎸 新增 shrink,底边距收缩 ([a9b9879](https://github.com/hjfruit/react-native-xiaoshu/commit/a9b9879dc0f775801d58df4f5f507a60b891f6e0))
+
 ## [0.3.17-beta.9](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.8...v0.3.17-beta.9) (2023-10-26)
 
 ### Bug Fixes
