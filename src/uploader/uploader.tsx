@@ -45,6 +45,9 @@ const Uploader = <T extends UploaderValue>({
     onLayoutWrapper(e)
     onLayout?.(e)
   })
+  const onPressUploadPersistFn = usePersistFn(() => {
+    onPressUpload()
+  })
 
   const genOnPressDelete = (item: T, index: number) => () => {
     onPressDelete?.(item, index, list)
@@ -101,7 +104,7 @@ const Uploader = <T extends UploaderValue>({
               ? imageGap
               : undefined
           }
-          onPress={onPressUpload}>
+          onPress={onPressUploadPersistFn}>
           {isValidElement(uploadIcon) ? (
             uploadIcon
           ) : (
