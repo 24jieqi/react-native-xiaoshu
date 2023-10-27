@@ -27,6 +27,7 @@ const Space: React.FC<SpaceProps> = ({
   justify,
   align,
   minWidth,
+  shrink = false,
 
   style,
   children,
@@ -55,6 +56,12 @@ const Space: React.FC<SpaceProps> = ({
           paddingLeft: getMarginGap(head, _gapHorizontal),
           paddingRight: getMarginGap(tail, _gapHorizontal),
         }),
+
+    ...(shrink && direction === 'horizontal'
+      ? {
+          marginBottom: -_gapVertical,
+        }
+      : {}),
   }
   const itemStyle: ViewStyle = {
     marginBottom: isVertical || wrap ? _gapVertical : 0,

@@ -52,6 +52,22 @@ const BasicSpaceDirection: React.FC = () => {
             <Button text="Button" />
           </Space>
         </Card>
+
+        <Card title="方向:horizontal:wrap">
+          <Text>
+            多行的情况下边距不好消除，可以使用 shrink（0.3.17+） 收缩底边距
+          </Text>
+
+          <Space gap="m" direction="horizontal" wrap shrink>
+            <Button text="Button" />
+            <Button text="Button" />
+            <Button text="Button" />
+            <Button text="Button" />
+            <Button text="Button" />
+            <Button text="Button" />
+            <Button text="Button" />
+          </Space>
+        </Card>
       </Space>
     </Blank>
   )

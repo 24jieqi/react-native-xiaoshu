@@ -61,4 +61,10 @@ export interface SpaceProps extends ViewProps {
    * 子元素最小宽
    */
   minWidth?: number
+
+  /**
+   * direction 为 'horizontal' 时底边距收缩
+   * @default false
+   */
+  shrink?: boolean
 }
