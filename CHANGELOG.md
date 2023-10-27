@@ -1,3 +1,9 @@
+## [0.3.17-beta.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.10...v0.3.17-beta.11) (2023-10-27)
+
+### Bug Fixes
+
+- **Uploader:** 🐛 点击选择按钮回调按照类型约定去掉参数 ([e1cfe1e](https://github.com/hjfruit/react-native-xiaoshu/commit/e1cfe1e8696182168694d79ee30a07258d71c052))
+
 ## [0.3.17-beta.10](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.9...v0.3.17-beta.10) (2023-10-27)
 
 ### Features
