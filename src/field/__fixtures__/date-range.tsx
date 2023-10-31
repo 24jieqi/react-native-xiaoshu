@@ -30,6 +30,9 @@ const BasicFieldDateRange: React.FC = () => {
           confirmButtonText: 'OKK',
           resetButtonText: 'Back',
         })}
+        valueTextStyle={{
+          fontSize: 20,
+        }}
       />
       <Field.DateRange
         title="标题:非受控"

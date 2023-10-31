@@ -27,6 +27,9 @@ const BasicFieldDate: React.FC = () => {
           confirmButtonText: 'OKK',
           duration: 600,
         })}
+        valueTextStyle={{
+          fontSize: 20,
+        }}
       />
       <Field.Date
         title="标题:非受控"

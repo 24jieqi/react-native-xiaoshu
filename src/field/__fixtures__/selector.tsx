@@ -27,6 +27,9 @@ const BasicFieldSelector: React.FC = () => {
           setS1(v as number)
         }}
         clearable
+        valueTextStyle={{
+          fontSize: 20,
+        }}
       />
       <Field.Selector
         title="单选:renderResultText"

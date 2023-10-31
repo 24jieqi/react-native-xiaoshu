@@ -17,6 +17,9 @@ const BasicFieldTextInput: React.FC = () => {
         onChange={v => {
           console.log(v)
         }}
+        textInputStyle={{
+          fontSize: 20,
+        }}
       />
       <Field.NumberInput
         title="非受控输入框:禁止输入"

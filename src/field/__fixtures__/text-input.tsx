@@ -11,7 +11,13 @@ const BasicFieldTextInput: React.FC = () => {
 
   return (
     <Cell.Group title="Field TextInput">
-      <Field.TextInput title="非受控输入框" placeholder="请输入" />
+      <Field.TextInput
+        title="非受控输入框"
+        placeholder="请输入"
+        textInputStyle={{
+          fontSize: 20,
+        }}
+      />
       <Field.TextInput
         title="非受控输入框:禁用"
         placeholder="请输入"
