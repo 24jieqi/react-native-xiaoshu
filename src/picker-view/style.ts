@@ -43,17 +43,16 @@ export const styleCreator = (cv: ComponentVars) => {
 
     column: {
       flex: 1,
-      position: 'relative',
     },
 
-    column_touch: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      zIndex: 4,
-    },
+    // column_touch: {
+    //   position: 'absolute',
+    //   left: 0,
+    //   right: 0,
+    //   top: 0,
+    //   bottom: 0,
+    //   zIndex: 4,
+    // },
 
     column_text: {
       textAlign: 'center',

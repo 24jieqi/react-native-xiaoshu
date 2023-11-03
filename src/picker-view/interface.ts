@@ -60,7 +60,7 @@ export interface PickerViewProps extends Pick<ViewProps, 'testID'> {
   itemHeight?: number
 
   /**
-   * 可见的选项个数
+   * 可见的选项个数，基数
    * @default 5
    */
   visibleItemCount?: number

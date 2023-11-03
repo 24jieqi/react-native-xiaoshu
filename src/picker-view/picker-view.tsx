@@ -19,6 +19,13 @@ import type { PickerViewProps, PickerValue, PickerOption } from './interface'
 import PickerColumn from './picker-view-column'
 import { varCreator, styleCreator } from './style'
 
+const getVisibleItemCount = (n: number) => {
+  if (n % 2 === 0) {
+    return n + 1
+  }
+  return n
+}
+
 /**
  * 选择器视图
  */
@@ -31,8 +38,9 @@ const PickerView: React.FC<PickerViewProps> = ({
   testID,
   ...restProps
 }) => {
+  const _visibleItemCount = getVisibleItemCount(visibleItemCount)
   /** 选项的高度 */
-  const columnsHeight = visibleItemCount * itemHeight
+  const columnsHeight = _visibleItemCount * itemHeight
   /** 居中选中的偏移量 */
   const markMargin = itemHeight / 2
   const TOKENS = Theme.useThemeTokens()
@@ -154,7 +162,7 @@ const PickerView: React.FC<PickerViewProps> = ({
             <PickerColumn
               key={optionIndex}
               itemHeight={itemHeight}
-              visibleItemCount={visibleItemCount}
+              visibleItemCount={_visibleItemCount}
               options={optionItem}
               value={_value}
               onChange={column => {
