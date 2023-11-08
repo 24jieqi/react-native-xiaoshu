@@ -176,7 +176,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
 
   return (
     <>
-      {!state.loading && !fail ? children : null}
+      {!loadingOut && !state.loading && !fail ? children : null}
       {placeholderJSX}
       {errorJSX}
     </>
