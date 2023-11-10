@@ -1,3 +1,10 @@
+## [0.3.17](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.12...v0.3.17) (2023-11-10)
+
+### Bug Fixes
+
+- **Dialog:** 🐛 类型错误 ([c6a8a5e](https://github.com/hjfruit/react-native-xiaoshu/commit/c6a8a5e759f84f68a9d811d348713dc08e884386)), closes [#39](https://github.com/hjfruit/react-native-xiaoshu/issues/39)
+- progress-page children 渲染时机异常 ([495eb95](https://github.com/hjfruit/react-native-xiaoshu/commit/495eb9553016076dac22a50ba1c7271c5c88f282))
+
 ## [0.3.17-beta.12](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.11...v0.3.17-beta.12) (2023-11-03)
 
 ## [0.3.17-beta.11](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.10...v0.3.17-beta.11) (2023-10-27)
