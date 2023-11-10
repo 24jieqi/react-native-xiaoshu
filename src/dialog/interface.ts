@@ -154,7 +154,7 @@ export interface DialogMethodProps
 export interface DialogOptions
   extends Omit<DialogMethodProps, 'onResponse' | 'onRequestClose'> {}
 
-export interface DialogKeyboardProps extends PropsWithChildren<DialogProps> {
+export interface DialogKeyboardProps extends DialogProps {
   safeAreaTop?: number
 }
 

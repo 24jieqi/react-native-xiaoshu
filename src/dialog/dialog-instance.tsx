@@ -11,6 +11,7 @@ import type {
   DialogAction,
   DialogInputOptions,
   DialogProps,
+  DialogKeyboardProps,
 } from './interface'
 
 export const Instance = (opts: DialogOptions) => {
@@ -60,7 +61,7 @@ export const Component: React.FC<
 export const DialogComponent = Dialog
 
 export const Keyboard: React.FC<
-  React.PropsWithChildren<DialogProps>
+  React.PropsWithChildren<DialogKeyboardProps>
 > = props => (
   <Portal>
     <DialogKeyboard {...props} />
