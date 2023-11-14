@@ -91,7 +91,7 @@ const Demo = ({ visible }) => {
 
 ```jsx | pure
 // 把状态变化和 Popup 拆分后能输入中文
-// 如果是表单推荐使使用 Form 组件
+// 如果是表单业务推荐使用 Form 组件
 const PopupInner = () => {
   const [value, setValue] = useState('')
   return (
