@@ -66,3 +66,48 @@ group:
 | popup_close_icon_size        | 24                        | -    |
 | popup_close_icon_color       | `TOKENS.gray_7`           | -    |
 | popup_close_icon_margin_left | `TOKENS.space_2`          | -    |
+
+## FAQ
+
+### 受控输入控件不能输入中文
+
+```jsx | pure
+// 在这个案例中 Popup 弹出层内的输入框无法输入中文
+// 原因是 Popup 内部使用了 Portal，状态变化引起 Portal 内部触发 children 更新，导致 TextInput 输入控件重新渲染
+const Demo = ({ visible }) => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Popup visible={visible}>
+      <TextInput
+        placeholder="请输入关键词"
+        value={value}
+        onChangeText={setValue}
+      />
+    </Popup>
+  )
+}
+```
+
+```jsx | pure
+// 把状态变化和 Popup 拆分后能输入中文
+// 如果是表单推荐使使用 Form 组件
+const PopupInner = () => {
+  const [value, setValue] = useState('')
+  return (
+    <TextInput
+      placeholder="请输入关键词"
+      value={value}
+      onChangeText={setValue}
+    />
+  )
+}
+
+const Demo2 = ({ visible }) => {
+  return (
+    <Popup visible={visible}>
+      <PopupInner />
+    </Popup>
+  )
+}
+```
