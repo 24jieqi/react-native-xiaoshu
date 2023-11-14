@@ -451,7 +451,9 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     path: 'DemoSearch',
     Page: () => (
       <DemoWrapper>
-        <DemoSearch />
+        <KeyboardAwareScrollView>
+          <DemoSearch />
+        </KeyboardAwareScrollView>
       </DemoWrapper>
     ),
   },
