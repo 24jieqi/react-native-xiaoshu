@@ -5,12 +5,34 @@
 
 import React, { useState } from 'react'
 
-import { Cell, Search, ActionSheet } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Cell,
+  Search,
+  ActionSheet,
+  Button,
+  Popup,
+} from '@fruits-chain/react-native-xiaoshu'
 import { MenuOutline } from '@fruits-chain/icons-react-native'
 import { Text, View } from 'react-native'
 
+const PopupSearch = () => {
+  const [value1, setValue] = useState('22')
+
+  return (
+    <Search
+      key="123"
+      placeholder="请输入关键词搜索"
+      value={value1}
+      onChangeText={setValue}
+    />
+  )
+}
+
 const BasicPasswordInput: React.FC = () => {
   const [value1, setValue] = useState('多福多寿')
+  const [visible, setVisible] = useState(false)
+
+  console.log('value1 => ', value1)
 
   return (
     <>
@@ -66,8 +88,8 @@ const BasicPasswordInput: React.FC = () => {
           onChangeText={v => {
             setValue(v.replace(/？/g, ''))
           }}
-          onSearch={() => {
-            console.log(value1)
+          onSearch={v => {
+            console.log(v)
           }}
         />
       </Cell.Group>
@@ -113,6 +135,40 @@ const BasicPasswordInput: React.FC = () => {
             />
           }
         />
+      </Cell.Group>
+
+      <Cell.Group title="在 Popup 里面">
+        <Button
+          text="打开 Popup"
+          onPress={() => {
+            setVisible(true)
+          }}
+        />
+        <Popup visible={visible} position="top">
+          <View
+            style={{
+              height: 100,
+            }}
+          />
+          <Popup.Header
+            title="输入中文"
+            showClose
+            onClose={() => {
+              setVisible(false)
+            }}
+          />
+
+          <Cell.Group title="无法输入中文">
+            <Search
+              placeholder="请输入关键词搜索"
+              value={value1}
+              onChangeText={setValue}
+            />
+          </Cell.Group>
+          <Cell.Group title="可以输入中文">
+            <PopupSearch />
+          </Cell.Group>
+        </Popup>
       </Cell.Group>
     </>
   )
