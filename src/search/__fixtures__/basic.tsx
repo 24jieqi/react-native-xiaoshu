@@ -13,7 +13,7 @@ import {
   Popup,
 } from '@fruits-chain/react-native-xiaoshu'
 import { MenuOutline } from '@fruits-chain/icons-react-native'
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 
 const PopupSearch = () => {
   const [value1, setValue] = useState('22')
@@ -158,16 +158,22 @@ const BasicPasswordInput: React.FC = () => {
             }}
           />
 
-          <Cell.Group title="无法输入中文">
-            <Search
-              placeholder="请输入关键词搜索"
-              value={value1}
-              onChangeText={setValue}
-            />
-          </Cell.Group>
-          <Cell.Group title="可以输入中文">
-            <PopupSearch />
-          </Cell.Group>
+          <ScrollView
+            style={{ height: 500 }}
+            keyboardShouldPersistTaps="handled">
+            <Search placeholder="请输入关键词搜索" />
+
+            <Cell.Group title="无法输入中文">
+              <Search
+                placeholder="请输入关键词搜索"
+                value={value1}
+                onChangeText={setValue}
+              />
+            </Cell.Group>
+            <Cell.Group title="可以输入中文">
+              <PopupSearch />
+            </Cell.Group>
+          </ScrollView>
         </Popup>
       </Cell.Group>
     </>
