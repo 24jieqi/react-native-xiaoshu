@@ -1,3 +1,9 @@
+## [0.3.18-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17...v0.3.18-beta.0) (2023-11-20)
+
+### Bug Fixes
+
+- **Collapse:** 🐛 在 Popup 里面收起时动画反复触发 ([b53a029](https://github.com/hjfruit/react-native-xiaoshu/commit/b53a0293661373e50c9e6ff1d538fed3db873543))
+
 ## [0.3.17](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17-beta.12...v0.3.17) (2023-11-10)
 
 ### Bug Fixes
