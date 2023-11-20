@@ -98,8 +98,11 @@ const Collapse: React.FC<CollapseProps> = ({
     (e: LayoutChangeEvent) => {
       // 有点疑惑，折叠的过程中，高度在动态变化，通过 absolute 布局解决无法完全渲染
       BodyHeight.current = e.nativeEvent.layout.height
-      // 当收齐的时候已知高度
-      toggleBody(Visible.current, Visible.current)
+      // 展开的过程中才会存在动态高度
+      if (Visible.current) {
+        // 当收齐的时候已知高度
+        toggleBody(Visible.current, Visible.current)
+      }
     },
     [toggleBody],
   )

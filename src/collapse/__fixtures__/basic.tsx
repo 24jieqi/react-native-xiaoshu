@@ -6,13 +6,50 @@
 import React, { useCallback, useState } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 
-import { Collapse, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Collapse,
+  Cell,
+  Space,
+  Button,
+  Popup,
+} from '@fruits-chain/react-native-xiaoshu'
 
 const BasicCollapse: React.FC = () => {
   const [value, setValue] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const [openKey, setOpenKey] = useState<number | undefined>()
 
   return (
     <ScrollView>
+      <Button
+        text="打开弹出"
+        onPress={() => {
+          setVisible(true)
+        }}
+      />
+
+      <Popup visible={visible} position="bottom" safeAreaInsetBottom round>
+        <Popup.Header
+          title="测试"
+          onClose={() => {
+            setVisible(false)
+          }}
+        />
+        {new Array(5).fill(0).map((_, index) => {
+          return (
+            <Collapse
+              key={index}
+              collapse={index === openKey}
+              title={`${index} 项`}
+              onCollapse={() => {
+                setOpenKey(index)
+              }}>
+              <View style={{ height: 400 }} />
+            </Collapse>
+          )
+        })}
+      </Popup>
+
       <Cell.Group title="单元格用法">
         <Collapse
           title="标题11"
