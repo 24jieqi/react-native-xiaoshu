@@ -30,7 +30,8 @@ React Native UI library
 ## 安装
 
 ```bash
-yarn add @fruits-chain/react-native-xiaoshu
+## react-native-svg 需大于 12.4.1，结合项目的 React Native 选择一个合适的版本
+yarn add @fruits-chain/react-native-xiaoshu react-native-safe-area-context react-native-svg rc-field-form
 ```
 
 ## 使用
