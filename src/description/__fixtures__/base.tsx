@@ -129,19 +129,24 @@ const DescriptionBase: React.FC = () => {
           />
           <Description
             label="renderAlignCenter"
-            addonAfter={<Button type="outline" size="xs" text="修改" />}
+            addonAfter={<Button type="ghost" size="xs" text="修改" />}
             text="10000"
             render={Description.renderAlignCenter}
           />
           <Description
+            label="文字过长"
+            addonAfter={<Button type="ghost" size="xs" text="修改" />}
+            text="我那么多遗憾那么多期盼你知道吗"
+          />
+          <Description
             label="render"
-            addonAfter={<Button type="outline" size="xs" text="修改" />}
+            addonAfter={<Button type="ghost" size="xs" text="修改" />}
             text="10000"
             contentTextStyle={{ flex: 1 }}
           />
           <Description
             label="children"
-            addonAfter={<Button type="outline" size="xs" text="修改" />}
+            addonAfter={<Button type="ghost" size="xs" text="修改" />}
             contentTextStyle={{ flex: 1 }}>
             <Text>children</Text>
             <Text>children</Text>

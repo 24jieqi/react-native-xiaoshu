@@ -32,6 +32,8 @@ export const styleCreator = (cv: ComponentVars) => {
 
     content_text: {
       color: cv.description_text_color,
+      flexShrink: 1,
+      maxWidth: '100%',
     },
 
     content_date_range: {
