@@ -1,3 +1,9 @@
+## [0.3.18-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.0...v0.3.18-beta.1) (2023-11-24)
+
+### Bug Fixes
+
+- **Description:** 🐛 内容文字过长也要显示 addonAfter ([302f47b](https://github.com/hjfruit/react-native-xiaoshu/commit/302f47b1c63563bd7cbb6beeffd292724289aeaf))
+
 ## [0.3.18-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.17...v0.3.18-beta.0) (2023-11-20)
 
 ### Bug Fixes
