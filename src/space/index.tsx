@@ -1,4 +1,4 @@
-import React, { memo, Children } from 'react'
+import React, { memo, Children, isValidElement } from 'react'
 import type { ViewStyle } from 'react-native'
 import { View } from 'react-native'
 
@@ -75,9 +75,13 @@ const Space: React.FC<SpaceProps> = ({
   return (
     <View {...restProps} style={[wrapperStyle, style]}>
       {childArray.map((child, index) => {
+        let key: React.Key = index
+        if (isValidElement(child)) {
+          key = child.key ?? index
+        }
         return (
           <View
-            key={index}
+            key={key}
             style={[
               itemStyle,
               index + 1 === count
