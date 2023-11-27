@@ -1,3 +1,9 @@
+## [0.3.18-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.1...v0.3.18-beta.2) (2023-11-27)
+
+### Bug Fixes
+
+- space key 异常 ([a0232a4](https://github.com/hjfruit/react-native-xiaoshu/commit/a0232a4dc9c97af638c3b4cc2502c02aafd390cb))
+
 ## [0.3.18-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.0...v0.3.18-beta.1) (2023-11-24)
 
 ### Bug Fixes
