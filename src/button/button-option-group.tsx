@@ -31,7 +31,7 @@ function ButtonOptionGroup<T = any>({
       direction="horizontal">
       {options.map(item => {
         const selected = multiple
-          ? (value as T[]).indexOf(item.value) > -1
+          ? ((value as T[]) || []).indexOf(item.value) > -1
           : value === item.value
 
         return (
@@ -50,7 +50,7 @@ function ButtonOptionGroup<T = any>({
               }
 
               if (multiple) {
-                const oldValue = value as T[]
+                const oldValue = (value as T[]) || []
                 const _value = oldValue.filter(v => v !== item.value)
                 const newValue =
                   _value.length === oldValue.length

@@ -98,6 +98,13 @@ const ButtonOptionGroup: React.FC = () => {
             }}
             scrollable
           />
+          <Button
+            text="清空"
+            disabled={!value2?.length}
+            onPress={() => {
+              setValue2(undefined)
+            }}
+          />
         </Space>
       </Card>
     </Space>
