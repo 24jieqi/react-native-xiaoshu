@@ -1,3 +1,9 @@
+## [0.3.18-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.2...v0.3.18-beta.3) (2023-11-28)
+
+### Features
+
+- **Button:** 🎸 选项按钮多选模式的值兼容 undefined\null ([ac11afe](https://github.com/hjfruit/react-native-xiaoshu/commit/ac11afe3cfe2a9ceee36876330718f0410e816ac))
+
 ## [0.3.18-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.1...v0.3.18-beta.2) (2023-11-27)
 
 ### Bug Fixes
