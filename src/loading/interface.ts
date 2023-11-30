@@ -32,4 +32,11 @@ export interface LoadingProps extends ViewProps {
    * @default false
    */
   vertical?: boolean
+
+  /**
+   * 自定义 loading 图标，需要自己实现动画
+   */
+  loadingIcon?:
+    | React.ReactNode
+    | ((size: number, color: ColorValue) => React.ReactNode)
 }

@@ -23,6 +23,7 @@ const Loading: React.FC<LoadingProps> = ({
   textSize,
   vertical = false,
   type = 'circular',
+  loadingIcon,
 
   ...restProps
 }) => {
@@ -58,11 +59,16 @@ const Loading: React.FC<LoadingProps> = ({
         vertical ? STYLES.loading_vertical : null,
         style,
       ])}>
-      {type === 'circular' ? (
+      {isValidElement(loadingIcon) ? (
+        loadingIcon
+      ) : typeof loadingIcon === 'function' ? (
+        loadingIcon(ICON_SIZE, ICON_COLOR)
+      ) : type === 'circular' ? (
         <Circular size={ICON_SIZE} color={ICON_COLOR} />
       ) : (
         <Spinner size={ICON_SIZE} color={ICON_COLOR} />
       )}
+
       {textJSX}
     </View>
   )
