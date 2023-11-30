@@ -30,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   loading = false,
   loadingText,
+  loadingIcon,
   square = false,
   round = false,
   renderLeftIcon,
@@ -139,7 +140,8 @@ const Button: React.FC<ButtonProps> = ({
       type="spinner"
       color={iconColor}
       size={iconSize}
-      textSize={textStyleSummary.fontSize}>
+      textSize={textStyleSummary.fontSize}
+      loadingIcon={loadingIcon}>
       {loadingText}
     </Loading>
   ) : (

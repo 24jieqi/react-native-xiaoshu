@@ -6,10 +6,12 @@ import type {
   ColorValue,
 } from 'react-native'
 
+import type { LoadingProps } from '../loading/interface'
 import type { SpaceProps } from '../space/interface'
 
 export interface ButtonProps
-  extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'> {
+  extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'>,
+    Pick<LoadingProps, 'loadingIcon'> {
   /**
    * 按钮文案
    */
