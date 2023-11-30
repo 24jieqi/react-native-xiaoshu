@@ -1,3 +1,10 @@
+## [0.3.18-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.3...v0.3.18-beta.4) (2023-11-30)
+
+### Features
+
+- **Button:** 🎸 新增自定义 loading icon ([9b725fd](https://github.com/hjfruit/react-native-xiaoshu/commit/9b725fd765a880a5bdd077b9b0765c34a62a5ccf))
+- **Loading:** 🎸 新增自定义 loading icon ([41fabec](https://github.com/hjfruit/react-native-xiaoshu/commit/41fabec8c7af617c54c9a89298dbe588774b3999))
+
 ## [0.3.18-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.2...v0.3.18-beta.3) (2023-11-28)
 
 ### Features
