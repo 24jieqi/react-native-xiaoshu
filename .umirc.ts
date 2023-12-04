@@ -18,6 +18,10 @@ const navs = [
     path: '/case',
   },
   {
+    title: '维护团队',
+    path: 'https://techblog.hjgpscm.com',
+  },
+  {
     title: `GitHub v${p.version}`,
     path: 'https://github.com/hjfruit/react-native-xiaoshu',
   },
