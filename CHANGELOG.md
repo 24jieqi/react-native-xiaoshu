@@ -1,3 +1,9 @@
+## [0.3.18](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.4...v0.3.18) (2023-12-08)
+
+### Bug Fixes
+
+- **Loading:** 🐛 高版本 React Native Android 端会出现奇怪的截断 ([5af1336](https://github.com/hjfruit/react-native-xiaoshu/commit/5af1336534e0a01d50faf4752a266faa91975e94))
+
 ## [0.3.18-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.3...v0.3.18-beta.4) (2023-11-30)
 
 ### Features
