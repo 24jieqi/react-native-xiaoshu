@@ -114,7 +114,8 @@ const STYLES = StyleSheet.create({
   inner: {
     width: 2,
     height: '30%',
-    borderRadius: 1,
+    // 高版本 React Native Android 端会出现奇怪的截断
+    // borderRadius: 1,
     // backgroundColor: '#000',
   },
 })
