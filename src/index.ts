@@ -98,6 +98,9 @@ export { default as Locale } from './locale'
 export type { NavBarProps } from './nav-bar/interface'
 export { default as NavBar } from './nav-bar'
 
+export type { NavTabProps } from './nav-tab/interface'
+export { default as NavTab } from './nav-tab'
+
 export type { NoticeBarProps } from './notice-bar/interface'
 export { default as NoticeBar } from './notice-bar'
 

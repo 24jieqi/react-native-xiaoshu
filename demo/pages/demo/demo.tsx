@@ -250,11 +250,15 @@ const navDatas: {
     datas: [
       {
         title: 'ElevatorNav 电梯导航',
-        name: 'ElevatorNav',
+        name: 'DemoElevatorNav',
       },
       {
         title: 'NavBar 导航栏',
         name: 'DemoNavBar',
+      },
+      {
+        title: 'NavTab 导航标签栏',
+        name: 'DemoNavTab',
       },
       {
         title: 'Sidebar 侧边导航',

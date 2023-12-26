@@ -21,7 +21,7 @@ import DemoDescription from '../../src/description/__fixtures__/basic'
 import DemoDialog from '../../src/dialog/__fixtures__/basic'
 import DemoDivider from '../../src/divider/__fixtures__/basic'
 import DemoDropdown from '../../src/dropdown/__fixtures__/basic'
-import ElevatorNav from '../../src/elevator-nav/__fixtures__/basic'
+import DemoElevatorNav from '../../src/elevator-nav/__fixtures__/basic'
 import DemoEmpty from '../../src/empty/__fixtures__/basic'
 import DemoErrorBoundary from '../../src/error-boundary/__fixtures__/basic'
 import DemoField from '../../src/field/__fixtures__/basic'
@@ -31,6 +31,7 @@ import DemoForm from '../../src/form/__fixtures__/basic'
 import DemoGrid from '../../src/grid/__fixtures__/basic'
 import DemoLoading from '../../src/loading/__fixtures__/basic'
 import DemoNavBar from '../../src/nav-bar/__fixtures__/basic'
+import DemoNavTab from '../../src/nav-tab/__fixtures__/basic'
 import DemoNoticeBar from '../../src/notice-bar/__fixtures__/basic'
 import DemoNotify from '../../src/notify/__fixtures__/basic'
 import DemoNumberInput from '../../src/number-input/__fixtures__/basic'
@@ -116,7 +117,8 @@ export type DemoPaths =
   | 'DemoTabs'
   | 'DemoTree'
   | 'DemoFloatingPanel'
-  | 'ElevatorNav'
+  | 'DemoElevatorNav'
+  | 'DemoNavTab'
 
 const onScrollBeginDrag = () => {
   Keyboard.dismiss()
@@ -578,10 +580,18 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
     ),
   },
   {
-    path: 'ElevatorNav',
+    path: 'DemoElevatorNav',
     Page: () => (
       <DemoWrapper>
-        <ElevatorNav />
+        <DemoElevatorNav />
+      </DemoWrapper>
+    ),
+  },
+  {
+    path: 'DemoNavTab',
+    Page: () => (
+      <DemoWrapper>
+        <DemoNavTab />
       </DemoWrapper>
     ),
   },

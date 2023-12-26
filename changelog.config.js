@@ -30,6 +30,7 @@ module.exports = {
     'Loading',
     'Locale',
     'NavBar',
+    'NavTab',
     'NoticeBar',
     'Notify',
     'NumberInput',
