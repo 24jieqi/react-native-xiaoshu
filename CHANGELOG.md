@@ -1,3 +1,10 @@
+## [0.3.19-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18...v0.3.19-beta.0) (2023-12-26)
+
+### Features
+
+- **ci:** 🎸 开发环境更新 ([4d15748](https://github.com/hjfruit/react-native-xiaoshu/commit/4d15748765446ff2da42e4ede13d86c6235388a4))
+- **NavTab:** 🎸 新增 NavTab 导航标签栏 ([39cb2ce](https://github.com/hjfruit/react-native-xiaoshu/commit/39cb2ce1ca24e80892485669acaaa2e1018ca8c8))
+
 ## [0.3.18](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18-beta.4...v0.3.18) (2023-12-08)
 
 ### Bug Fixes
