@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import React, { memo } from 'react'
 import { Text, View } from 'react-native'
 
 import { useControllableValue } from '../hooks'
@@ -42,4 +42,4 @@ const NavTab = <T,>({ options, ...restProps }: NavTabProps<T>) => {
   )
 }
 
-export default memo(NavTab) as <T>(props: NavTabProps<T>) => JSX.Element
+export default memo(NavTab) as <T>(props: NavTabProps<T>) => React.JSX.Element
