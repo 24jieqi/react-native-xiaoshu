@@ -1,3 +1,9 @@
+## [0.3.19-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.0...v0.3.19-beta.1) (2024-01-04)
+
+### Bug Fixes
+
+- **NavTab:** 🐛 react ([c3c400b](https://github.com/hjfruit/react-native-xiaoshu/commit/c3c400b0b9e2c91ad3047ea125d8657eb02f9332))
+
 ## [0.3.19-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.18...v0.3.19-beta.0) (2023-12-26)
 
 ### Features
