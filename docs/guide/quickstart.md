@@ -16,6 +16,8 @@ group:
 
 在现有项目中使用 `小暑` 时，可以通过 npm 或 yarn 进行安装。
 
+> 推荐使用 yarn，npm 可能造成项目中存在多个版本 react native，引入 `小暑` 代码后红屏。
+
 ```bash
 ## npm
 npm i @fruits-chain/react-native-xiaoshu
@@ -50,4 +52,5 @@ const App: React.FC = () => {
 
 ## 常见问题
 
-待收集。
+- [Expo 中引入时报错 Invariant Violation: Module AppRegistry is not a registered callable module](https://github.com/hjfruit/react-native-xiaoshu/issues/41)
+- [invalid hook call.hooks can only be called inside of the body of a function component.](https://github.com/hjfruit/react-native-xiaoshu/issues/48)

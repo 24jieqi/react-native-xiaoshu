@@ -46,19 +46,18 @@ group:
 
 基础变量请参考 [design-tokens-bailu](./design-tokens)。
 
+### 使用组件的变量、样式
+
+适合扩展组件时样式与 `小暑` 对齐。
+
 ```tsx | pure
 import React from 'react'
-import { Provider, Theme } from '@fruits-chain/react-native-xiaoshu'
-// 结合项目配置情况引入对应文件，避免自定义后的变量不生效
-import {
-  varCreator as varCreatorButton,
-  styleCreator as styleCreatorButton,
-} from '@fruits-chain/react-native-xiaoshu/src/button/style.ts'
+import { Provider, Theme, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const CustomText: React.FC<{ text: string }> = ({ text }) => {
   const TOKENS = Theme.useThemeTokens()
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES_BUTTON = Theme.createStyle(CV, styleCreatorButton)
+  const CV_BUTTON = Theme.createVar(TOKENS, Button.varCreator)
+  const STYLES_BUTTON = Theme.createStyle(CV, Button.styleCreator)
 
   return (
     <Text
@@ -93,11 +92,11 @@ import { Provider, Button } from '@fruits-chain/react-native-xiaoshu'
 const customThemeVar = {
   // 基础变量，
   brand_6: '#098',
-  // 其他变量名参考「design-tokens-bailu」
+  // 其他基础变量名参考「design-tokens-bailu」
 
   // 某个组件
   button_s_height: 28,
-  // 具体变量名可以参考组件文档下方「主题定制」列表
+  // 具体组件变量名可以参考组件文档下方「主题定制」列表
 }
 
 const App: React.FC = () => {
