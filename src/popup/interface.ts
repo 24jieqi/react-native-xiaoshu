@@ -96,6 +96,12 @@ export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {
   safeAreaInsetBottom?: boolean
 
   /**
+   * 是否开启顶部安全区适配
+   * @default false
+   */
+  safeAreaInsetTop?: boolean
+
+  /**
    * 是否在显示弹层时才渲染节点
    * @default true
    */
@@ -108,7 +114,8 @@ export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {
   destroyOnClosed?: boolean
 }
 
-export interface PopupPageProps extends Omit<PopupProps, 'position'> {
+export interface PopupPageProps
+  extends Omit<PopupProps, 'position' | 'safeAreaInsetTop'> {
   /**
    * 顶部安全高度
    * @default safeAreaInsets.top

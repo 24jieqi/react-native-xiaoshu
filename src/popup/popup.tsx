@@ -32,6 +32,7 @@ const Popup: React.FC<PopupProps> = ({
   position = 'center',
   round = false,
   safeAreaInsetBottom = false,
+  safeAreaInsetTop = false,
   lazyRender = true,
   destroyOnClosed = false,
   onPressOverlay: onPressOverlayFn,
@@ -170,6 +171,7 @@ const Popup: React.FC<PopupProps> = ({
     getBorderRadius(CV, position, round),
     {
       paddingBottom: state.visible && safeAreaInsetBottom ? insets.bottom : 0,
+      paddingTop: state.visible && safeAreaInsetTop ? insets.top : 0,
       zIndex: state.zIndex,
     },
     style,
