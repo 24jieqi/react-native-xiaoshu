@@ -15,7 +15,7 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
         // eslint-disable-next-line max-params
         ViewHeight.current.measure((_x, _y, _width, _height, _pageX, pageY) => {
           Animated.timing(KeyboardHeight.current, {
-            toValue: e.endCoordinates.height - (height - pageY),
+            toValue: e.endCoordinates.height - (height - pageY - _height),
             duration: 300,
             useNativeDriver: false,
           }).start()
