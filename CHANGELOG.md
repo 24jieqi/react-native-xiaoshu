@@ -1,3 +1,15 @@
+## [0.3.19-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.1...v0.3.19-beta.2) (2024-01-11)
+
+### Bug Fixes
+
+- **Button:** 🐛 按钮 loading 图标默认大小 ([980f8e5](https://github.com/hjfruit/react-native-xiaoshu/commit/980f8e56a293db13b5c6992b0c45e1afbb30e375))
+- **Popup:** 🐛 修复 Popup.KeyboardShim 计算软键盘高度有误 ([24d4fbb](https://github.com/hjfruit/react-native-xiaoshu/commit/24d4fbbc80fe261a17bf5d450719bbe0a988f07d))
+
+### Features
+
+- **Button:** 🎸 loading 时默认使用按钮文案填充 loading 文案 ([e4d0ce9](https://github.com/hjfruit/react-native-xiaoshu/commit/e4d0ce9ee2346da4951ca0f6768fd9e04b3edf95))
+- **Popup:** 🎸 新增 safeAreaInsetTop ([623add5](https://github.com/hjfruit/react-native-xiaoshu/commit/623add517e6135ac9249ee0c4c6f816e0cbc7f44))
+
 ## [0.3.19-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.0...v0.3.19-beta.1) (2024-01-04)
 
 ### Bug Fixes
