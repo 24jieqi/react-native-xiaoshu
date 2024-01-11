@@ -62,6 +62,8 @@ const BasicPopupPopup: React.FC = () => {
       </Card>
 
       <Popup
+        safeAreaInsetBottom
+        safeAreaInsetTop
         visible={state.show}
         position={state.position}
         onPressOverlay={() => {
@@ -98,6 +100,7 @@ const BasicPopupPopup: React.FC = () => {
         visible={state.show2}
         round
         position="bottom"
+        safeAreaInsetBottom
         onPressOverlay={() => {
           setState(s => ({
             ...s,

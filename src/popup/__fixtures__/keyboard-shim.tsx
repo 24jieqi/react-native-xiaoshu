@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { Keyboard, ScrollView, Text } from 'react-native'
 
 import {
   Blank,
@@ -27,7 +27,13 @@ const BasicPopupKeyboardShim: React.FC = () => {
         text="底部弹出、内部有输入框"
       />
 
-      <Popup visible={visible} position="bottom" round>
+      <Popup
+        visible={visible}
+        position="bottom"
+        round
+        onClose={() => {
+          Keyboard.dismiss()
+        }}>
         <Popup.Header
           title="底部弹出、内部有输入框"
           onClose={() => {
@@ -40,12 +46,14 @@ const BasicPopupKeyboardShim: React.FC = () => {
             bordered
             placeholder="请输入备注"
             onChangeText={text => {
-              setData(new Array(20).fill(0).map((_, i) => `${text}-${i}`))
+              setData(
+                text ? new Array(20).fill(0).map((_, i) => `${text}-${i}`) : [],
+              )
             }}
           />
         </Blank>
 
-        <ScrollView style={{ maxHeight: 400 }}>
+        <ScrollView style={{ maxHeight: 200 }}>
           {data.map(item => {
             return (
               <Text
