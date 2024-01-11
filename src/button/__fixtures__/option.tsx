@@ -48,7 +48,7 @@ const ButtonOption: React.FC = () => {
           />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space>
           <Button.Option text="大小:xs" size="xs" onPress={onPress} />
@@ -58,7 +58,7 @@ const ButtonOption: React.FC = () => {
           <Button.Option text="大小:xl" size="xl" onPress={onPress} />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space direction="horizontal">
           <Button.Option text="最小" onPress={onPress} />

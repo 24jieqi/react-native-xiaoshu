@@ -33,7 +33,7 @@ const ButtonSubtext: React.FC = () => {
           <Button
             loading
             type="primary"
-            text="primary"
+            text="主要文案"
             subtext="更多描述内容，哈哈哈"
             onPress={onPress}
             renderLeftIcon={color => <PlusOutline color={color} size={16} />}
@@ -41,7 +41,7 @@ const ButtonSubtext: React.FC = () => {
           <Button
             disabled
             type="primary"
-            text="primary"
+            text="主要文案&disabled"
             subtext="更多描述内容，哈哈哈"
             onPress={onPress}
             renderLeftIcon={color => <PlusOutline color={color} size={16} />}
@@ -73,7 +73,7 @@ const ButtonSubtext: React.FC = () => {
           />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space direction="horizontal" wrap>
           <Button

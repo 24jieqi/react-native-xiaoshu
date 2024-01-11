@@ -78,67 +78,60 @@ const ButtonLoading: React.FC = () => {
       <Space>
         <Space>
           <Button type="primary" text="primary" loading />
-          <Button type="hazy" text="hazy" loading loadingText="自定义文案" />
-          <Button
-            type="outline"
-            text="outline"
-            loading
-            loadingText="自定义文案"
-          />
-          <Button type="ghost" text="ghost" loading />
-          <Button type="link" text="link" loading loadingText="自定义文案" />
-        </Space>
-
-        <Divider />
-
-        <Space direction="horizontal" wrap>
-          <Button type="primary" text="primary" loading />
-          <Button type="hazy" text="hazy" loading loadingText="自定义文案" />
-          <Button
-            type="outline"
-            text="outline"
-            loading
-            loadingText="自定义文案"
-          />
-          <Button type="ghost" text="ghost" loading />
-          <Button type="link" text="link" loading loadingText="自定义文案" />
-        </Space>
-
-        <Space direction="horizontal" wrap>
-          <Button type="primary" text="primary" size="xl" loading />
           <Button
             type="hazy"
             text="hazy"
-            size="l"
             loading
-            loadingText="自定义文案"
+            loadingText="自定义 loading 文案"
           />
           <Button
             type="outline"
             text="outline"
-            size="m"
             loading
-            loadingText="自定义文案"
+            loadingText="自定义 loading 文案"
           />
-          <Button type="ghost" text="ghost" size="s" loading />
+          <Button type="ghost" text="ghost" loading />
           <Button
             type="link"
             text="link"
-            size="xs"
             loading
-            loadingText="自定义文案"
+            loadingText="自定义 loading 文案"
           />
+        </Space>
+
+        <Divider>·</Divider>
+
+        <Space direction="horizontal" wrap>
+          <Button type="primary" text="primary" loading />
+          <Button
+            type="hazy"
+            text="hazy"
+            loading
+            loadingText="自定义 loading 文案"
+          />
+          <Button
+            type="outline"
+            text="outline"
+            loading
+            loadingText="自定义 loading 文案"
+          />
+          <Button type="ghost" text="ghost" loading />
           <Button
             type="link"
             text="link"
+            loading
+            loadingText="自定义 loading 文案"
+          />
+          <Button
+            type="link"
+            text="link & xs"
             size="xs"
             loading
             loadingIcon={<CustomLoading size={20} color="#098" />}
-            loadingText="自定义图标"
           />
           <Button
             type="link"
-            text="link"
+            text="link & xs"
             size="xs"
             loading
             loadingIcon={(size, color) => (
@@ -146,6 +139,16 @@ const ButtonLoading: React.FC = () => {
             )}
             loadingText="自定义图标2"
           />
+        </Space>
+
+        <Divider>·</Divider>
+
+        <Space direction="horizontal" wrap>
+          <Button type="primary" text="primary & xl" size="xl" loading />
+          <Button type="hazy" text="hazy & l" size="l" loading />
+          <Button type="outline" text="outline & m" size="m" loading />
+          <Button type="ghost" text="ghost & s" size="s" loading />
+          <Button type="link" text="link & xs" size="xs" loading />
         </Space>
       </Space>
     </Card>

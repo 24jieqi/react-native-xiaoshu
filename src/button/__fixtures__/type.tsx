@@ -23,22 +23,22 @@ const ButtonType: React.FC = () => {
         <Space>
           <Button
             type="primary"
-            text="primary"
+            text="primary 主按钮&点击事件防抖动"
             onPress={onPress}
             onPressDebounceWait={500}
           />
           <Button
             type="hazy"
-            text="hazy"
+            text="hazy 朦胧按钮"
             onPress={onPress}
             onPressDebounceWait={300}
           />
-          <Button type="outline" text="outline" onPress={onPress} />
-          <Button type="ghost" text="ghost" onPress={onPress} />
-          <Button type="link" text="link" onPress={onPress} />
+          <Button type="outline" text="outline 边框按钮" onPress={onPress} />
+          <Button type="ghost" text="ghost 幽灵按钮" onPress={onPress} />
+          <Button type="link" text="link 链接按钮" onPress={onPress} />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space direction="horizontal" wrap>
           <Button type="primary" text="primary" onPress={onPress} />

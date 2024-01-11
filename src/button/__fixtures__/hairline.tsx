@@ -1,6 +1,6 @@
 /**
  * title: 细边框
- * desc: 适用于小按钮。
+ * desc: 适用于小按钮，一像素（StyleSheet.hairlineWidth）边框。
  */
 
 import React, { memo } from 'react'
@@ -25,15 +25,21 @@ const ButtonHairline: React.FC = () => {
           <Button type="ghost" text="ghost" onPress={onPress} hairline />
           <Button
             type="outline"
-            text="outline"
+            text="outline & danger"
             onPress={onPress}
             danger
             hairline
           />
-          <Button type="ghost" text="ghost" onPress={onPress} danger hairline />
+          <Button
+            type="ghost"
+            text="ghost & danger"
+            onPress={onPress}
+            danger
+            hairline
+          />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space direction="horizontal">
           <Button
@@ -52,7 +58,7 @@ const ButtonHairline: React.FC = () => {
           />
           <Button
             type="outline"
-            text="outline"
+            text="outline & danger"
             size="xs"
             onPress={onPress}
             danger
@@ -60,7 +66,7 @@ const ButtonHairline: React.FC = () => {
           />
           <Button
             type="ghost"
-            text="ghost"
+            text="ghost & danger"
             size="xs"
             onPress={onPress}
             danger

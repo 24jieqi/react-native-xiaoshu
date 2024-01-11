@@ -28,7 +28,7 @@ const ButtonDanger: React.FC = () => {
           <Button type="link" text="link" onPress={onPress} danger />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space direction="horizontal" wrap>
           <Button type="primary" text="primary" onPress={onPress} danger />

@@ -36,7 +36,7 @@ const ButtonOptionGroup: React.FC = () => {
             round
           />
 
-          <Divider />
+          <Divider>·</Divider>
 
           <Button.OptionGroup
             options={options}
@@ -45,7 +45,7 @@ const ButtonOptionGroup: React.FC = () => {
             defaultValue={2}
           />
 
-          <Divider />
+          <Divider>·</Divider>
 
           <View
             style={{
@@ -60,11 +60,11 @@ const ButtonOptionGroup: React.FC = () => {
             />
           </View>
 
-          <Divider />
+          <Divider>·</Divider>
 
           <Button.OptionGroup options={options} multiple scrollable />
 
-          <Divider />
+          <Divider>·</Divider>
 
           <Button.OptionGroup
             options={options}
@@ -86,7 +86,7 @@ const ButtonOptionGroup: React.FC = () => {
             scrollable
           />
 
-          <Divider />
+          <Divider>·</Divider>
 
           <Button.OptionGroup
             options={options}

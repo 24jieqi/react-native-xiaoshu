@@ -24,7 +24,7 @@ const ButtonDisabled: React.FC = () => {
           <Button type="link" text="link" disabled />
         </Space>
 
-        <Divider />
+        <Divider>·</Divider>
 
         <Space direction="horizontal" wrap>
           <Button type="primary" text="primary" disabled />
