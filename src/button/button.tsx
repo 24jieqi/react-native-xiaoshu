@@ -1,5 +1,6 @@
 import Color from 'color'
 import isNil from 'lodash/isNil'
+import isUndefined from 'lodash/isUndefined'
 import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
@@ -132,7 +133,8 @@ const Button: React.FC<ButtonProps> = ({
     commonTextStyle,
     textStyle,
   ])
-  const iconSize = CV[`button_${size}_loading_size`] || 24
+  const iconSize =
+    CV[`button_${size}_loading_size`] || textStyleSummary.fontSize
   const iconColor = textStyleSummary.color as string
 
   const contextJSX = loading ? (
@@ -142,7 +144,7 @@ const Button: React.FC<ButtonProps> = ({
       size={iconSize}
       textSize={textStyleSummary.fontSize}
       loadingIcon={loadingIcon}>
-      {loadingText}
+      {isUndefined(loadingText) ? text : loadingText}
     </Loading>
   ) : (
     <>
