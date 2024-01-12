@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 采用函数的方式使用，自定义标题、message、按钮。
+ * desc: 采用函数的方式使用，自定义标题、message、按钮，异步操作配合 `beforeClose` 控制点击按钮的 loading 状态。
  */
 
 import React from 'react'
@@ -130,7 +130,7 @@ const BasicDialogBase: React.FC = () => {
         }}
       />
       <Cell
-        title="确认弹窗:自定义颜色、文案"
+        title="确认弹窗:自定义颜色、文案、beforeClose"
         isLink
         divider={false}
         onPress={() => {

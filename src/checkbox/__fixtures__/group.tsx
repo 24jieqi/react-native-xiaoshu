@@ -1,6 +1,6 @@
 /**
  * title: Checkbox 组
- * desc: 方便的从数组生成 Checkbox 组，候选项多推荐竖向，候选项少推荐横向。
+ * desc: 快捷组织一组可选项，可选项多的场景推荐竖向，候选项少的场景推荐横向。
  */
 
 import React, { useState } from 'react'
@@ -10,6 +10,7 @@ import {
   Space,
   Divider,
 } from '@fruits-chain/react-native-xiaoshu'
+import { Text } from 'react-native'
 
 const options = new Array(5).fill(0).map((_, index) => ({
   value: index + 1,
@@ -24,14 +25,19 @@ const CheckboxGroup: React.FC = () => {
     <Space>
       <Card title="Checkbox 组:单选">
         <Checkbox.Group options={options} />
-        <Divider />
+
+        <Divider>·</Divider>
+
         <Checkbox.Group
           options={options}
           value={value1}
           direction="horizontal"
           scrollable
         />
-        <Divider />
+
+        <Divider>·</Divider>
+
+        <Text>受控，不响应 onChange</Text>
         <Checkbox.Group
           options={options}
           value={value1}
@@ -42,9 +48,13 @@ const CheckboxGroup: React.FC = () => {
           }}
         />
       </Card>
+
       <Card title="Checkbox 组:多选">
         <Checkbox.Group multiple options={options} />
-        <Divider />
+
+        <Divider>·</Divider>
+
+        <Text>受控，不响应 onChange</Text>
         <Checkbox.Group
           multiple
           options={options}
@@ -52,7 +62,9 @@ const CheckboxGroup: React.FC = () => {
           direction="horizontal"
           scrollable
         />
-        <Divider />
+
+        <Divider>·</Divider>
+
         <Checkbox.Group
           multiple
           options={options}
@@ -64,6 +76,7 @@ const CheckboxGroup: React.FC = () => {
           }}
         />
       </Card>
+
       <Card title="Checkbox 组:自定义样式">
         <Checkbox.Group
           direction="horizontal"
@@ -76,7 +89,9 @@ const CheckboxGroup: React.FC = () => {
           activeColor="#098"
           options={options}
         />
-        <Divider />
+
+        <Divider>·</Divider>
+
         <Checkbox.Group
           options={options.map(o => ({
             ...o,

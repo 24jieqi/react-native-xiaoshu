@@ -113,6 +113,7 @@ const BasicPopupPopup: React.FC = () => {
           addonAfter="元/kg"
           addonBefore="采购价"
         />
+        <Popup.KeyboardShim />
       </Popup>
     </>
   )

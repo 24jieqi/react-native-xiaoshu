@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 把各种场景、API 都运用了
+ * desc: Checkbox 默认在 true、false 之间切换，通过 `activeValue`、`inactiveValue` 自定义切换的值。Checkbox 组件支持传入泛型，更友好的约束 `value`、`activeValue`、`inactiveValue`、`onChange`。
  */
 
 import React, { useState } from 'react'
@@ -15,24 +15,24 @@ const CheckboxBase: React.FC = () => {
 
   return (
     <Space>
-      <Card title="基础用法" square>
+      <Card title="基础用法">
         <Space>
           <Checkbox
-            label="自定义文案"
+            label="初始化时未激活"
             onChange={v => {
               console.log('当前状态：', v)
             }}
           />
           <Checkbox
-            defaultValue={true}
-            label="自定义文案:默认值"
+            defaultValue
+            label="初始化时激活"
             onChange={v => {
               console.log('当前状态：', v)
             }}
           />
           <Checkbox
-            defaultValue={true}
-            label="icon 边距"
+            defaultValue
+            label="自定义 icon 边距"
             iconStyle={{ marginRight: 16 }}
           />
           <Checkbox label="受控:不更新" value={value} />
@@ -40,41 +40,37 @@ const CheckboxBase: React.FC = () => {
         </Space>
       </Card>
 
-      <Card title="禁用状态" square>
+      <Card title="禁用状态">
         <Space>
-          <Checkbox disabled label="自定义文案" />
-          <Checkbox disabled defaultValue label="自定义文案:默认值" />
+          <Checkbox disabled label="未激活" />
+          <Checkbox disabled defaultValue label="已激活" />
         </Space>
       </Card>
 
-      <Card title="自定义颜色" square>
+      <Card title="自定义">
+        <Space>
+          <Checkbox
+            defaultValue
+            activeColor="#f30"
+            label="自定义激活时图标颜色"
+          />
+          <Checkbox defaultValue iconSize={30} label="自定义图标大小" />
+        </Space>
+      </Card>
+
+      <Card title="禁用文本点击">
         <Checkbox
-          defaultValue={true}
-          activeColor="#f30"
-          label="自定义文案:默认值"
+          labelDisabled
+          defaultValue
+          label="点击图标可以更新状态，点击文字不更新状态"
         />
       </Card>
 
-      <Card title="自定义大小" square>
+      <Card title="自定义图标">
         <Space>
           <Checkbox
-            defaultValue={true}
-            iconSize={30}
-            activeColor="#f30"
-            label="自定义文案:默认值"
-          />
-        </Space>
-      </Card>
-
-      <Card title="禁用文本点击" square>
-        <Checkbox labelDisabled defaultValue={true} label="自定义文案:默认值" />
-      </Card>
-
-      <Card title="自定义图标" square>
-        <Space>
-          <Checkbox
-            defaultValue={true}
-            label="点击文案响应切换"
+            defaultValue
+            label="点击文案响应切换，图标没有绑定点击回调"
             activeColor="#f30"
             renderIcon={({ activeColor, size, active }) =>
               active ? (
@@ -86,8 +82,8 @@ const CheckboxBase: React.FC = () => {
           />
           <Checkbox
             labelDisabled
-            defaultValue={true}
-            label="点击切换的事件绑定给图标"
+            defaultValue
+            label="点击图标响应切换"
             renderIcon={({ activeColor, size, active, onPress }) =>
               active ? (
                 <ArrowUpOutline
@@ -106,8 +102,8 @@ const CheckboxBase: React.FC = () => {
           />
           <Checkbox
             disabled
-            defaultValue={true}
-            label="点击切换的事件绑定给图标"
+            defaultValue
+            label="renderIcon 把 disabled 状态传递给图标"
             renderIcon={({ activeColor, size, active, onPress, disabled }) =>
               active ? (
                 <ArrowUpOutline
@@ -129,13 +125,13 @@ const CheckboxBase: React.FC = () => {
         </Space>
       </Card>
 
-      <Card title="自定义选中/未选中的值" square>
+      <Card title="自定义激活/未激活的值">
         <Space>
           <Checkbox
             activeValue="1"
             inactiveValue="2"
             defaultValue="1"
-            label="选中值为字符1，未选中值为字符2，默认值为字符串1"
+            label="激活值为字符1，未激活值为字符2，默认值为字符串1"
             onChange={v => {
               console.log('当前状态：', v)
             }}
@@ -143,7 +139,7 @@ const CheckboxBase: React.FC = () => {
           <Checkbox
             activeValue={1}
             defaultValue="1"
-            label="选中值为数字1，未选中值为false，默认值为字符串1"
+            label="激活值为数字1，未激活值为false，默认值为字符串1"
             onChange={v => {
               console.log('当前状态：', v)
             }}
@@ -151,7 +147,7 @@ const CheckboxBase: React.FC = () => {
           <Checkbox
             activeValue={1}
             defaultValue={1}
-            label="选中值为数字1，未选中值为false，默认值为数字1"
+            label="激活值为数字1，未激活值为false，默认值为数字1"
             onChange={v => {
               console.log('当前状态：', v)
             }}
@@ -159,13 +155,13 @@ const CheckboxBase: React.FC = () => {
         </Space>
       </Card>
 
-      <Card title="自定义样式" square>
+      <Card title="自定义样式">
         <Space>
-          <Checkbox gap={12} label="图标、文案间距12" />
+          <Checkbox gap={12} label="gap 自定义图标、文案间距" />
           <Checkbox
             iconSize={16}
             labelTextStyle={{ color: '#666', fontSize: 12 }}
-            label="文案颜色、大小自定义，图标大小自定义"
+            label="iconSize、iconStyle 自定义 icon 样式，labelTextStyle 自定义文案样式"
           />
         </Space>
       </Card>

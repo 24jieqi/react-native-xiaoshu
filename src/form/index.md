@@ -11,7 +11,7 @@ group:
 
 # Form 表单
 
-> 基于 [rc-field-form](https://github.com/react-component/field-form) 的表单。
+> 基于 [rc-field-form](https://github.com/react-component/field-form) 的表单，使用体验大致与 Antd Form 一致。
 
 ## 何时使用
 

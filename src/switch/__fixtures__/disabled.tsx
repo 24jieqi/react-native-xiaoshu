@@ -15,7 +15,7 @@ const BasicSwitchDisabled: React.FC = () => {
   return (
     <Space direction="vertical">
       <Switch disabled={state} />
-      <Switch loading={state} />
+      <Switch disabled={state} loading={loading} />
       <Button
         text="Toggle disabled"
         onPress={() => {

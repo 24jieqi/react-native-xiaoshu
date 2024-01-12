@@ -1,6 +1,6 @@
 /**
  * title: 输入框
- * desc: 对话框内有一个输入框，支持数字、单/多行字符串，对应 numberInput、textInput 可以自定义输入框一些属性。
+ * desc: 对话框内有一个输入框，支持数字、单/多行字符串，对应 numberInput、textInput 可以自定义输入框一些属性。异步操作配合 `beforeClose`、`onPressCancel`、`onPressConfirm` 控制点击按钮的 loading 状态。
  */
 
 import React from 'react'
@@ -67,7 +67,7 @@ const BasicDialogInput: React.FC = () => {
         }}
       />
       <Cell
-        title="普通文字:必须有值"
+        title="普通文字:必须有值:确认时延迟关闭"
         isLink
         onPress={() => {
           Dialog.input({
@@ -174,7 +174,7 @@ const BasicDialogInput: React.FC = () => {
         }}
       />
       <Cell
-        title="数字:number:4位小数"
+        title="数字:number:4位小数:确认时延迟关闭"
         isLink
         divider={false}
         onPress={() => {
@@ -197,7 +197,7 @@ const BasicDialogInput: React.FC = () => {
 
               return new Promise<boolean>(resolve => {
                 setTimeout(() => {
-                  resolve(false)
+                  resolve(true)
                 }, 600)
               })
             },

@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 把各种场景、API 都运用了
+ * desc: 点击图标切换输入框内容是否明文。
  */
 
 import React, { useState } from 'react'
