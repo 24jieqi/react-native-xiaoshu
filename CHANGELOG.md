@@ -1,3 +1,9 @@
+## [0.3.19-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.2...v0.3.19-beta.3) (2024-01-16)
+
+### Bug Fixes
+
+- **Selector:** 🐛 修复 Selector.Text 取消选择时无意义抛错 ([8b46fed](https://github.com/hjfruit/react-native-xiaoshu/commit/8b46fed106c9e0fa4dcc7da48d4032d6782411da))
+
 ## [0.3.19-beta.2](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.1...v0.3.19-beta.2) (2024-01-11)
 
 ### Bug Fixes
