@@ -34,7 +34,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
       options: options,
       value,
       onChange,
-    })
+    }).catch(() => {})
   })
   const IconArrow = getArrowOutline(arrowDirection)
   const textIndex = options.findIndex(op => op.value === value)
