@@ -11,7 +11,9 @@ group:
 
 # Skeleton 骨架屏
 
-> 在需要等待加载内容的位置提供一个占位图形组合。
+> 使用 [rn-placeholder](https://github.com/mfrachet/rn-placeholder) 实现。
+
+在需要等待加载内容的位置提供一个占位图形组合。
 
 ## 何时使用
 

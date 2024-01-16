@@ -35,7 +35,7 @@ group:
 ## 元素结构
 
 ```bash
-## 状态一 相对纯的输入框
+## 状态一 相对纯粹的输入框
 |-- TouchableOpacity  ## 属性 inputWidth 会控制该元素的宽
 |--|-- RNTextInput  ## style
 |--|-- TextInputClear  ## 属性 clearable、clearTrigger 控制是否显示

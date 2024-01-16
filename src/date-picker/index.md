@@ -13,6 +13,8 @@ group:
 
 > 提供多种时间格式选择。
 
+在 [DatePickerView 时间选择器视图](./date-picker-view) 基础上添加弹出层。
+
 ## 代码演示
 
 <code src="./__fixtures__/single.tsx"></code>

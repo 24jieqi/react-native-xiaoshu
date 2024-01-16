@@ -30,3 +30,9 @@ group:
 | picker_view_column_text_color            | `TOKENS.gray_8`         | -    |
 | picker_view_column_text_disabled_color   | `TOKENS.gray_6`         | -    |
 | picker_view_column_text_font_size        | `TOKENS.font_size_5`    | -    |
+
+## FAQ
+
+### web 端不触发 `onChange`
+
+[ScrollView event handlers not working: onScrollBeginDrag, onScrollEndDrag, onMomentumScrollBegin, onMomentumScrollEnd](https://github.com/necolas/react-native-web/issues/2249)

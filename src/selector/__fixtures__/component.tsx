@@ -33,7 +33,7 @@ const BasicSelectorComponent: React.FC = () => {
           }}
         />
         <Cell
-          title="组件调用:重置"
+          title="点击重置已选的数据"
           isLink
           divider={false}
           onPress={() => {

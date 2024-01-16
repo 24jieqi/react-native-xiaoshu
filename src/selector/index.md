@@ -25,7 +25,11 @@ group:
 
 ## API
 
-### Selector
+### Selector.Component
+
+### Selector.SelectorComponent
+
+`Selector.SelectorComponent` 与 `Selector.Component` 属性相同，`Selector.SelectorComponent` 被 `Portal` 组件包裹，在根节点渲染。
 
 <API hideTitle src="./selector.tsx"></API>
 

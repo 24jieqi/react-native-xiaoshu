@@ -13,6 +13,8 @@ group:
 
 > 提供多个选项集合供用户选择，支持单列选择和多列级联。
 
+在 [PickerView 选择器视图](./picker-view) 基础上添加弹出层。
+
 ## 代码演示
 
 <code src="./__fixtures__/basic.tsx"></code>

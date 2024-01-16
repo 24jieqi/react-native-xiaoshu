@@ -1,6 +1,6 @@
 /**
  * title: 文案模式
- * desc: 适用于单位切换
+ * desc: 适用于单位切换，对输入控件进行补充、扩展。
  */
 
 import React, { useState } from 'react'
@@ -25,7 +25,7 @@ const BasicSelectorLabel: React.FC = () => {
   return (
     <Cell.Group title="文案">
       <Field.TextInput
-        title="在 Field.TextInput 中使用"
+        title="配合 Field.TextInput"
         defaultValue="100"
         valueExtra={
           <Selector.Text
@@ -36,7 +36,7 @@ const BasicSelectorLabel: React.FC = () => {
         }
       />
       <Field.TextInput
-        title="在 Field.TextInput 中使用"
+        title="配合 Field.TextInput"
         defaultValue="100"
         textInputBordered
         valueExtra={
@@ -49,7 +49,7 @@ const BasicSelectorLabel: React.FC = () => {
         }
       />
       <Field.TextInput
-        title="在输入框中使用"
+        title="配合 TextInput"
         defaultValue="100"
         textInputBordered
         addonAfter={
@@ -62,7 +62,7 @@ const BasicSelectorLabel: React.FC = () => {
         }
       />
       <Cell
-        title="在单元格中使用"
+        title="配合 Cell"
         center
         value={
           <Selector.Text

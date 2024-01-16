@@ -18,7 +18,7 @@ group:
 - iOS `numbers-and-punctuation`
 - Android `decimal-pad`
 
-[A visual guide to the React Native TextInput keyboardType prop values](https://lefkowitz.me/visual-guide-to-react-native-textinput-keyboardtype-options/)
+系统软键盘各种模式，[A visual guide to the React Native TextInput keyboardType prop values](https://lefkowitz.me/visual-guide-to-react-native-textinput-keyboardtype-options/)
 
 ## 元素结构
 
