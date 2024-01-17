@@ -53,8 +53,9 @@ const BottomBar: React.FC<BottomBarProps> = ({
       const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
         Animated.timing(heightAnimated.current, {
           toValue: realHeight,
-          duration: 0,
+          duration: 100,
           useNativeDriver: false,
+          delay: 200,
         }).start()
       })
 
