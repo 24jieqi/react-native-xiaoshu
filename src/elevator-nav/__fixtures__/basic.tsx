@@ -34,6 +34,7 @@ import {
 //   return (
 //     <KeyboardAwareScrollView
 //       {...props}
+//       extraScrollHeight={60}
 //       innerRef={ref => {
 //         props.innerRef?.(ref)
 //         ScrollViewRef.current = ref as any

@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react'
-import { View, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, TouchableWithoutFeedback } from 'react-native'
 
 import {
   Overlay,
@@ -92,10 +92,7 @@ const BasicOverlay: React.FC = () => {
             inset: false,
           }))
         }}>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            console.log('????====')
-          }}>
+        <TouchableWithoutFeedback>
           <View
             style={{
               backgroundColor: '#fff',
@@ -103,8 +100,14 @@ const BasicOverlay: React.FC = () => {
               height: 300,
               zIndex: 4,
               borderRadius: 4,
-            }}
-          />
+            }}>
+            <Text>
+              外层嵌套 TouchableWithoutFeedback
+              可以阻断子元素的点击事件向外传递，避免误触发关闭。
+            </Text>
+
+            <Text>一般情况不在内部放置子元素，而是和其他弹出层同层级。</Text>
+          </View>
         </TouchableWithoutFeedback>
       </Overlay>
 

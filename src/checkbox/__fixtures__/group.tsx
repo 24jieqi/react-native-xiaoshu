@@ -12,7 +12,7 @@ import {
 } from '@fruits-chain/react-native-xiaoshu'
 import { Text } from 'react-native'
 
-const options = new Array(5).fill(0).map((_, index) => ({
+const options = new Array(6).fill(0).map((_, index) => ({
   value: index + 1,
   label: `选项${index + 1}`,
 }))
@@ -28,6 +28,7 @@ const CheckboxGroup: React.FC = () => {
 
         <Divider>·</Divider>
 
+        <Text>选项多了，scrollable 左右滚动</Text>
         <Checkbox.Group
           options={options}
           value={value1}
@@ -54,7 +55,7 @@ const CheckboxGroup: React.FC = () => {
 
         <Divider>·</Divider>
 
-        <Text>受控，不响应 onChange</Text>
+        <Text>受控，不响应 onChange，选项多了，scrollable 左右滚动</Text>
         <Checkbox.Group
           multiple
           options={options}
@@ -78,6 +79,7 @@ const CheckboxGroup: React.FC = () => {
       </Card>
 
       <Card title="Checkbox 组:自定义样式">
+        <Text>选项多了无法左右滚动</Text>
         <Checkbox.Group
           direction="horizontal"
           gap={12}
@@ -92,6 +94,7 @@ const CheckboxGroup: React.FC = () => {
 
         <Divider>·</Divider>
 
+        <Text>选项多了，scrollable 左右滚动</Text>
         <Checkbox.Group
           options={options.map(o => ({
             ...o,
