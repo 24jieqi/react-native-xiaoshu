@@ -1,3 +1,9 @@
+## [0.3.19-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.4...v0.3.19-beta.5) (2024-01-17)
+
+### Features
+
+- **BottomBar:** 🎸 优化出现的动画时机 ([e356feb](https://github.com/hjfruit/react-native-xiaoshu/commit/e356feb7f6927c275850dc25a9e6ad0e5c480a17))
+
 ## [0.3.19-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.3...v0.3.19-beta.4) (2024-01-17)
 
 ### Features
