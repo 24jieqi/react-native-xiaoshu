@@ -1,3 +1,9 @@
+## [0.3.19-beta.4](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.3...v0.3.19-beta.4) (2024-01-17)
+
+### Features
+
+- **BottomBar:** 🎸 优化键盘弹出时不渲染时的变化 ([43a9a48](https://github.com/hjfruit/react-native-xiaoshu/commit/43a9a48102a7a21688697c0c86939af62b8e90af))
+
 ## [0.3.19-beta.3](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.2...v0.3.19-beta.3) (2024-01-16)
 
 ### Bug Fixes
