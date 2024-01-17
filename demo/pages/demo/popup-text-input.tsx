@@ -8,6 +8,7 @@ import {
   Field,
   ButtonBar,
   Space,
+  TextInput,
 } from '@fruits-chain/react-native-xiaoshu'
 
 import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll-view'
@@ -15,6 +16,8 @@ import Layout from '@/layouts/layout'
 import type * as Routes from '@/routes'
 
 type PopupTextInputProps = Routes.RootStackScreenProps<'PopupTextInput'>
+
+const inputs = new Array(20).fill(0)
 
 const PopupTextInput: React.FC<PopupTextInputProps> = () => {
   const [pageVisible, setPageVisible] = useState(false)
@@ -38,12 +41,30 @@ const PopupTextInput: React.FC<PopupTextInputProps> = () => {
 
   return (
     <Layout.Page>
-      <Button
-        text="显示弹出层"
-        onPress={() => {
-          setPageVisible(true)
-        }}
-      />
+      <KeyboardAwareScrollView style={{ paddingHorizontal: 12 }}>
+        <Space>
+          <Button
+            text="显示弹出层"
+            onPress={() => {
+              setPageVisible(true)
+            }}
+          />
+
+          {inputs.map((_, index) => {
+            return (
+              <TextInput
+                key={`${index}`}
+                placeholder={`${index}测试底部按钮消失的过渡效果`}
+                bordered
+              />
+            )
+          })}
+        </Space>
+      </KeyboardAwareScrollView>
+
+      <ButtonBar alone>
+        <Button text="确定" />
+      </ButtonBar>
 
       <Popup.Page
         visible={pageVisible}

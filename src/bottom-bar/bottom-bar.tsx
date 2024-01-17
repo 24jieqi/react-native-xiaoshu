@@ -1,10 +1,11 @@
-import React, { useMemo, useEffect, useState, memo } from 'react'
+import React, { useMemo, useEffect, memo, useRef } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
-import { View, Keyboard, Platform } from 'react-native'
+import { Keyboard, Platform, Animated } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { varCreator as varCreatorDivider } from '../divider/style'
 import { getDefaultValue } from '../helpers'
+import easing from '../helpers/easing'
 import Theme from '../theme'
 
 import type { BottomBarProps } from './interface'
@@ -22,29 +23,10 @@ const BottomBar: React.FC<BottomBarProps> = ({
   ...restProps
 }) => {
   const { bottom } = useSafeAreaInsets()
+
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const CV_DIVIDER = Theme.createVar(TOKENS, varCreatorDivider)
-  const [keyboardShow, setKeyboardShow] = useState(false)
-
-  // 监听键盘
-  useEffect(() => {
-    // 安卓才隐藏底部
-    if (keyboardShowNotRender && Platform.OS === 'android') {
-      // 注意如果你把 android:windowSoftInputMode 设置为 adjustResize 或是 adjustPan，则在 Android 上只有 keyboardDidShow 和 keyboardDidHide 事件有效。
-      const keyboardDidShow = Keyboard.addListener('keyboardDidShow', () => {
-        setKeyboardShow(true)
-      })
-      const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
-        setKeyboardShow(false)
-      })
-
-      return () => {
-        keyboardDidShow.remove()
-        keyboardDidHide.remove()
-      }
-    }
-  }, [keyboardShowNotRender])
 
   backgroundColor = getDefaultValue(
     backgroundColor,
@@ -52,14 +34,46 @@ const BottomBar: React.FC<BottomBarProps> = ({
   )
   height = getDefaultValue(height, CV.bottom_bar_height)
 
+  const realHeight = height + (safeAreaInsetBottom ? bottom : 0)
+  const heightAnimated = useRef(new Animated.Value(realHeight))
+
+  // 监听键盘
+  useEffect(() => {
+    // 安卓才隐藏底部
+    if (keyboardShowNotRender && Platform.OS === 'android') {
+      // 注意如果你把 android:windowSoftInputMode 设置为 adjustResize 或是 adjustPan，则在 Android 上只有 keyboardDidShow 和 keyboardDidHide 事件有效。
+      const keyboardDidShow = Keyboard.addListener('keyboardDidShow', () => {
+        Animated.timing(heightAnimated.current, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: false,
+          easing: easing.easeInQuint,
+        }).start()
+      })
+      const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
+        Animated.timing(heightAnimated.current, {
+          toValue: realHeight,
+          duration: 0,
+          useNativeDriver: false,
+        }).start()
+      })
+
+      return () => {
+        keyboardDidShow.remove()
+        keyboardDidHide.remove()
+      }
+    }
+  }, [keyboardShowNotRender, realHeight])
+
   const viewStyles = useMemo<StyleProp<ViewStyle>>(
     () => [
       {
-        height: height + (safeAreaInsetBottom ? bottom : 0),
+        height: heightAnimated.current as unknown as number,
         paddingBottom: safeAreaInsetBottom ? bottom : 0,
         backgroundColor,
         borderTopColor: CV_DIVIDER.divider_color_light,
         borderTopWidth: divider ? 1 : 0,
+        overflow: 'hidden',
       },
       style,
     ],
@@ -67,7 +81,6 @@ const BottomBar: React.FC<BottomBarProps> = ({
       bottom,
       backgroundColor,
       divider,
-      height,
       CV_DIVIDER.divider_color_light,
       safeAreaInsetBottom,
       style,
@@ -75,11 +88,11 @@ const BottomBar: React.FC<BottomBarProps> = ({
   )
 
   // 本身隐藏
-  if (hidden || keyboardShow) {
+  if (hidden) {
     return null
   }
 
-  return <View {...restProps} style={viewStyles} />
+  return <Animated.View {...restProps} style={viewStyles} />
 }
 
 export default memo(BottomBar)
