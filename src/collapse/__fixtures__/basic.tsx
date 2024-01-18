@@ -41,10 +41,10 @@ const BasicCollapse: React.FC = () => {
               key={index}
               collapse={index === openKey}
               title={`${index} 项`}
-              onCollapse={() => {
-                setOpenKey(index)
+              onCollapse={collapse => {
+                setOpenKey(collapse ? index : undefined)
               }}>
-              <View style={{ height: 400 }} />
+              <View style={{ height: 300 }} />
             </Collapse>
           )
         })}
