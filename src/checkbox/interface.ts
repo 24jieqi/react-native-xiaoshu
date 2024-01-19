@@ -157,4 +157,10 @@ export interface CheckboxGroupProps<ActiveValueT = any>
    * @default false
    */
   scrollable?: boolean
+
+  /**
+   * 单选的情况下是否可以取消选择
+   * @default true
+   */
+  deselect?: boolean
 }

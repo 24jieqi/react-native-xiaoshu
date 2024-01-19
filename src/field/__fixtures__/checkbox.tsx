@@ -48,6 +48,16 @@ const BasicFieldCheckbox: React.FC = () => {
           console.log(option)
         }}
       />
+      <Field.Checkbox
+        title="单选:不可取消已选择"
+        options={options}
+        value={value}
+        onChange={(v, option) => {
+          setValue(v as number)
+          console.log(option)
+        }}
+        deselect={false}
+      />
       <Field.Checkbox title="多选:非受控" multiple options={options} />
       <Field.Checkbox
         title="多选:非受控"

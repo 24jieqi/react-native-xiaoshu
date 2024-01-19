@@ -24,7 +24,13 @@ const CheckboxGroup: React.FC = () => {
   return (
     <Space>
       <Card title="Checkbox 组:单选">
+        <Text>默认选中后点击可以取消选中</Text>
         <Checkbox.Group options={options} />
+
+        <Divider>·</Divider>
+
+        <Text>选中后点击可以不取消选中</Text>
+        <Checkbox.Group options={options} deselect={false} />
 
         <Divider>·</Divider>
 

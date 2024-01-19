@@ -306,6 +306,7 @@ export interface FieldCheckboxProps
       | 'checkboxIconLabelGap'
       | 'activeColor'
       | 'iconSize'
+      | 'deselect'
     > {}
 
 export interface FieldPasswordInputProps

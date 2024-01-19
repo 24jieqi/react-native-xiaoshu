@@ -13,6 +13,7 @@ function CheckboxGroup<T = any>({
   multiple,
   editable = true,
   scrollable = false,
+  deselect = true,
   checkboxLabelTextStyle,
   activeColor,
   iconSize,
@@ -65,12 +66,14 @@ function CheckboxGroup<T = any>({
 
                 onChange(newValue, newOptions)
               } else {
-                const newValue = isReset ? undefined : _value
-                const newOptions = isReset
-                  ? undefined
-                  : options.filter(o => o.value === _value)
+                if (!isReset || (isReset && deselect)) {
+                  const newValue = isReset ? undefined : _value
+                  const newOptions = isReset
+                    ? undefined
+                    : options.filter(o => o.value === _value)
 
-                onChange(newValue, newOptions)
+                  onChange(newValue, newOptions)
+                }
               }
             }}
           />
