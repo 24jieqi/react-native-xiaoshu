@@ -1,3 +1,9 @@
+## [0.3.19-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.5...v0.3.19-beta.6) (2024-01-19)
+
+### Features
+
+- **Checkbox:** 🎸 新增单选的情况下是否可以取消选择 ([dda2000](https://github.com/hjfruit/react-native-xiaoshu/commit/dda200042a30afed47c6d05a97cbed3f52141986))
+
 ## [0.3.19-beta.5](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.4...v0.3.19-beta.5) (2024-01-17)
 
 ### Features
