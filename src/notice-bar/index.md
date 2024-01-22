@@ -21,7 +21,15 @@ group:
 
 ## 代码演示
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/base.tsx"></code>
+
+<code src="./__fixtures__/status.tsx"></code>
+
+<code src="./__fixtures__/size.tsx"></code>
+
+<code src="./__fixtures__/mode.tsx"></code>
+
+<code src="./__fixtures__/custom.tsx"></code>
 
 ## API
 

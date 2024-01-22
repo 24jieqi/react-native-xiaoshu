@@ -22,7 +22,9 @@ group:
 
 > 文档上看不到 SVG 图标。
 
-<code src="./__fixtures__/basic.tsx"></code>
+<code src="./__fixtures__/base.tsx"></code>
+<code src="./__fixtures__/icon.tsx"></code>
+<code src="./__fixtures__/custom.tsx"></code>
 
 ## API
 
