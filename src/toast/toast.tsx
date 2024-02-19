@@ -11,6 +11,7 @@ import React, {
 } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { Text, View, TouchableWithoutFeedback } from 'react-native'
+import isNil from 'lodash/isNil'
 
 import Circular from '../loading/loading-circular'
 import Spinner from '../loading/loading-spinner'
@@ -164,13 +165,13 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                 </View>
               ) : null}
 
-              <Text
+              {!isNil(msg) && <Text
                 style={[
                   STYLES.text,
                   type === 'text' ? STYLES.text_top_0 : null,
                 ]}>
                 {msg}
-              </Text>
+              </Text>}
             </View>
           </View>
         </TouchableWithoutFeedback>
