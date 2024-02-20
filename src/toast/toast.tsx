@@ -2,6 +2,7 @@ import {
   CrossCircleOutline,
   SuccessCircleOutline,
 } from '@fruits-chain/icons-react-native'
+import isNil from 'lodash/isNil'
 import React, {
   useEffect,
   useState,
@@ -164,13 +165,15 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
                 </View>
               ) : null}
 
-              <Text
-                style={[
-                  STYLES.text,
-                  type === 'text' ? STYLES.text_top_0 : null,
-                ]}>
-                {msg}
-              </Text>
+              {!isNil(msg) && msg !== '' ? (
+                <Text
+                  style={[
+                    STYLES.text,
+                    type === 'text' ? STYLES.text_top_0 : null,
+                  ]}>
+                  {msg}
+                </Text>
+              ) : null}
             </View>
           </View>
         </TouchableWithoutFeedback>

@@ -115,6 +115,15 @@ const BasicToast: React.FC = () => {
 
       <Cell.Group title="loading">
         <Cell
+          title="加载提示:禁止背景点击:无提示内容"
+          isLink
+          onPress={() => {
+            Toast.loading({
+              forbidPress: true,
+            })
+          }}
+        />
+        <Cell
           title="加载提示:禁止背景点击"
           isLink
           onPress={() => {
