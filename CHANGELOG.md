@@ -1,3 +1,9 @@
+## [0.3.20-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19...v0.3.20-beta.0) (2024-02-20)
+
+### Bug Fixes
+
+- **Toast:** 🐛 当 message 为空字符串时不渲染文字提示 ([e877d3b](https://github.com/hjfruit/react-native-xiaoshu/commit/e877d3bf6eb74713d0fbedcd1eb2e9c71dc86d31))
+
 ## [0.3.19](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.6...v0.3.19) (2024-01-22)
 
 ## [0.3.19-beta.6](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19-beta.5...v0.3.19-beta.6) (2024-01-19)
