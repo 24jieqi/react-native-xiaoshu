@@ -109,6 +109,7 @@ const BasicSelectorBase: React.FC = () => {
           Selector({
             title: '测试选项',
             options: v,
+            defaultValue: v[v.length - 2].value,
           })
             .then(k => {
               console.log(k)
@@ -282,7 +283,7 @@ const BasicSelectorBase: React.FC = () => {
             multiple: true,
             title: '测试选项',
             options: v,
-            value: [1, 3, 4, 5],
+            defaultValue: [1, 3, 4, 5],
           })
             .then(k => {
               console.log(k)
