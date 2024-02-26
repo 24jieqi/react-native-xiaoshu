@@ -1,3 +1,9 @@
+## [0.3.20-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.20-beta.0...v0.3.20-beta.1) (2024-02-26)
+
+### Bug Fixes
+
+- **Selector:** 🐛 函数调用方式 defaultValue 不生效 ([8fdf931](https://github.com/hjfruit/react-native-xiaoshu/commit/8fdf931a5dc6955ac5b9c12d839afaec7fefccd9))
+
 ## [0.3.20-beta.0](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.19...v0.3.20-beta.0) (2024-02-20)
 
 ### Bug Fixes
