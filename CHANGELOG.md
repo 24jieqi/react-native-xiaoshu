@@ -1,3 +1,5 @@
+## [0.3.20](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.20-beta.1...v0.3.20) (2024-03-04)
+
 ## [0.3.20-beta.1](https://github.com/hjfruit/react-native-xiaoshu/compare/v0.3.20-beta.0...v0.3.20-beta.1) (2024-02-26)
 
 ### Bug Fixes
