@@ -46,6 +46,33 @@ group:
 
 基础变量请参考 [design-tokens-bailu](./design-tokens)。
 
+## 自定义主题
+
+项目根组件引入小暑，设置需要自定义的变量值。
+
+```tsx | pure
+import React from 'react'
+import { Provider, Button } from '@fruits-chain/react-native-xiaoshu'
+
+const customThemeVar = {
+  // 基础变量，
+  brand_6: '#098',
+  // 其他基础变量名参考「design-tokens-bailu」
+
+  // 某个组件
+  button_s_height: 28,
+  // 具体组件变量名可以参考组件文档下方「主题定制」列表
+}
+
+const App: React.FC = () => {
+  return (
+    <Provider theme={customThemeVar}>
+      <Button text="普通按钮" type="primary" />
+    </Provider>
+  )
+}
+```
+
 ### 使用组件的变量、样式
 
 适合扩展组件时样式与 `小暑` 对齐。
@@ -76,33 +103,6 @@ const App: React.FC = () => {
   return (
     <Provider>
       <CustomText text="普通文字" />
-    </Provider>
-  )
-}
-```
-
-## 自定义主题
-
-项目根组件引入小暑，设置需要自定义的变量值。
-
-```tsx | pure
-import React from 'react'
-import { Provider, Button } from '@fruits-chain/react-native-xiaoshu'
-
-const customThemeVar = {
-  // 基础变量，
-  brand_6: '#098',
-  // 其他基础变量名参考「design-tokens-bailu」
-
-  // 某个组件
-  button_s_height: 28,
-  // 具体组件变量名可以参考组件文档下方「主题定制」列表
-}
-
-const App: React.FC = () => {
-  return (
-    <Provider theme={customThemeVar}>
-      <Button text="普通按钮" type="primary" />
     </Provider>
   )
 }
