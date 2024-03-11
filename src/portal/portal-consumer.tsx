@@ -42,7 +42,7 @@ export default class PortalConsumer extends Component<PortalConsumerProps> {
       throw new Error(
         'Looks like you forgot to wrap your root component with `Provider` component from `@fruits-chain/react-native-xiaoshu`.\n\n' +
           "Please read our getting-started guide and make sure you've followed all the required steps.\n\n" +
-          'https://hjfruit.github.io/xiaoshu-doc/component/basic/portal',
+          'https://24jieqi.github.io/xiaoshu-doc/component/basic/portal',
       )
     }
   }
