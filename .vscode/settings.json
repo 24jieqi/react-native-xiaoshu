@@ -1,9 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "javascript.format.enable": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["wrapable"]
-}

@@ -1,0 +1,33 @@
+{
+  "navs": [
+    {
+      "title": "指南",
+      "path": "/guide"
+    },
+    {
+      "title": "组件",
+      "path": "/component"
+    },
+    {
+      "title": "案例",
+      "path": "/case"
+    },
+    {
+      "title": "维护团队",
+      "path": "https://techblog.hjgpscm.com"
+    },
+    {
+      "title": "GitHub v0.3.20",
+      "path": "https://github.com/24jieqi/react-native-xiaoshu"
+    },
+    {
+      "title": "更新日志",
+      "path": "https://github.com/24jieqi/react-native-xiaoshu/releases"
+    },
+    {
+      "title": "下载 Android 预览 APK",
+      "path": "https://www.onlyling.com/apks/@fruits-chain/react-native-xiaoshu-v0.3.20.apk"
+    }
+  ],
+  "appName": "@fruits-chain/react-native-xiaoshu"
+}
