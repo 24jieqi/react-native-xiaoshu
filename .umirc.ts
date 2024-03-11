@@ -23,11 +23,11 @@ const navs = [
   },
   {
     title: `GitHub v${p.version}`,
-    path: 'https://github.com/hjfruit/react-native-xiaoshu',
+    path: 'https://github.com/24jieqi/react-native-xiaoshu',
   },
   {
     title: '更新日志',
-    path: 'https://github.com/hjfruit/react-native-xiaoshu/releases',
+    path: 'https://github.com/24jieqi/react-native-xiaoshu/releases',
   },
   {
     title: '下载 Android 预览 APK',

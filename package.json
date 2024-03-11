@@ -22,10 +22,10 @@
   "homepage": "https://hjfruit.github.io/xiaoshu-doc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hjfruit/react-native-xiaoshu"
+    "url": "https://github.com/24jieqi/react-native-xiaoshu"
   },
   "bugs": {
-    "url": "https://github.com/hjfruit/react-native-xiaoshu/issues"
+    "url": "https://github.com/24jieqi/react-native-xiaoshu/issues"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

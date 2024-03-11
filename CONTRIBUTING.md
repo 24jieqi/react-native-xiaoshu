@@ -1,6 +1,6 @@
 # 代码贡献规范
 
-有任何疑问，欢迎提交 [issue](https://github.com/hjfruit/react-native-xiaoshu/issues) 或 [PR](https://github.com/hjfruit/react-native-xiaoshu/pulls)!
+有任何疑问，欢迎提交 [issue](https://github.com/24jieqi/react-native-xiaoshu/issues) 或 [PR](https://github.com/24jieqi/react-native-xiaoshu/pulls)!
 
 ## 提交 issue
 

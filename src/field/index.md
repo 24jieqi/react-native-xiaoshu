@@ -112,4 +112,4 @@ group:
 
 ### Field.TextInput 使用 vertical 上下排列的时候，addonAfter 不显示
 
-`Field.TextInput` 竖向排版时默认它的内部是 textarea 多行文本输入框。[可以使用 Cell 和 TextInput 组合一下](https://github.com/hjfruit/react-native-xiaoshu/issues/46#issuecomment-1851336433)，可以实现想要的排版。
+`Field.TextInput` 竖向排版时默认它的内部是 textarea 多行文本输入框。[可以使用 Cell 和 TextInput 组合一下](https://github.com/24jieqi/react-native-xiaoshu/issues/46#issuecomment-1851336433)，可以实现想要的排版。
