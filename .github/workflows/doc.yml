@@ -6,11 +6,6 @@ on:
 jobs:
   build:
     name: Build and deploy gh-pages
-    env:
-      MY_SECRET: ${{secrets.ACCESS_TOKEN}}
-      USER_NAME: winljm001
-      USER_EMAIL: 819648983@qq.com
-      PUBLISH_DIR: ./docs-dist
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,16 +22,10 @@ jobs:
       - name: run build
         run: |
           yarn doc:github-build
-      - name: Commit files
+      - name: Deploy with gh-pages
         run: |
-          cd $PUBLISH_DIR
-          git init
-          git config --local user.name $USER_NAME
-          git config --local user.email $USER_EMAIL
-          git status
-          git remote add origin https://$MY_SECRET@github.com/hjfruit/xiaoshu-doc.git
-          git checkout -b main
-          git add --all
-          git commit -m "deploy to Github pages"
-          git push origin main -f
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d docs-dist -u "github-actions-bot <support+actions@github.com>"
           echo 🤘 deploy doc-pages complete.
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}

@@ -48,7 +48,7 @@
     "lint-staged": "lint-staged --allow-empty",
     "doc": "dumi dev",
     "doc:build": "dumi build",
-    "doc:github-build": "cross-env PUBLIC_PATH=xiaoshu-doc/ dumi build",
+    "doc:github-build": "cross-env PUBLIC_PATH=react-native-xiaoshu/ dumi build",
     "doc:commit": "git add docs-dist && git commit -n -m 'commit doc file'",
     "doc:pulish-safe": "git subtree push --prefix docs-dist origin gh-pages",
     "doc:pulish": "git push origin `git subtree split --prefix docs-dist master`:gh-pages --force",
