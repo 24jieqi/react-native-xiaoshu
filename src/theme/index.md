@@ -6,7 +6,7 @@ nav:
 group:
   title: 基础组件
   path: /basic
-  order: 0
+  order: 1
 ---
 
 # Theme 主题

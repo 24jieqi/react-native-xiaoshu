@@ -6,7 +6,7 @@ nav:
 group:
   title: 基础组件
   path: /basic
-  order: 0
+  order: 1
 ---
 
 # Blank 留白 <Badge>0.2.3+</Badge>
@@ -24,7 +24,8 @@ group:
 
 ## API
 
-<API hideTitle src="./blank.tsx"></API>
+| 属性名 | 描述 | 类型 | 默认值 |
+| :----- | ---- | ---- | ------ |
 
 ## 主题定制
 

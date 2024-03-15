@@ -6,7 +6,7 @@ nav:
 group:
   title: 基础组件
   path: /basic
-  order: 0
+  order: 1
 ---
 
 # Space 间距
@@ -31,8 +31,6 @@ group:
 ## API
 
 - `shrink` <Badge>0.3.17+</Badge>
-
-<API hideTitle></API>
 
 ## 主题定制
 

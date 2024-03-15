@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 单独使用 Cell。
+ * description: 单独使用 Cell。
  */
 
 import React from 'react'

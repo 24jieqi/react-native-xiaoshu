@@ -1,19 +1,13 @@
-import React, { createContext, memo, useRef, useMemo } from 'react'
+import React, { memo, useRef, useMemo } from 'react'
 import type { FC } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import Theme from '../theme'
 
+import { maxSteps, StepsContext } from './context'
 import type { StepsPropsType } from './interface'
 import Step from './step'
 import { varCreator, styleCreator } from './style'
-
-export const StepsContext = createContext<{
-  current?: number
-  data?: StepsPropsType['data']
-}>({})
-
-export const maxSteps = 3
 
 const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
   const TOKENS = Theme.useThemeTokens()

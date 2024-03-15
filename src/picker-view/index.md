@@ -6,7 +6,7 @@ nav:
 group:
   title: 表单组件
   path: /form
-  order: 1
+  order: 2
 ---
 
 # PickerView 选择器视图
@@ -18,8 +18,6 @@ group:
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
-
-<API hideTitle src="./picker-view.tsx"></API>
 
 ## 主题定制
 

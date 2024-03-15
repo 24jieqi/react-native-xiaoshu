@@ -4,8 +4,9 @@ nav:
   title: 组件
   path: /component
 group:
+  title: 表单组件
   path: /form
-  order: 1
+  order: 2
 ---
 
 # Search 搜索
@@ -27,8 +28,6 @@ group:
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
-
-<API hideTitle src="./search.tsx"></API>
 
 ## 主题定制
 

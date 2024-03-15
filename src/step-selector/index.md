@@ -6,7 +6,7 @@ nav:
 group:
   title: 表单组件
   path: /form
-  order: 1
+  order: 2
 ---
 
 # StepSelector 步骤选择器 <Badge>0.2.9+</Badge>
@@ -21,15 +21,11 @@ group:
 
 ### Selector 函数
 
-<API hideTitle src="./step-selector-method.tsx"></API>
-
 ### Selector.Component
 
 ### Selector.StepSelectorComponent
 
 `Selector.Component` 与 `Selector.StepSelectorComponent` 属性相同，`Selector.Component` 被 `Portal` 组件包裹，在根节点渲染。
-
-<API hideTitle src="./step-selector.tsx"></API>
 
 ## 主题定制
 

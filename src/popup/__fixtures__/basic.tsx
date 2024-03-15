@@ -1,10 +1,11 @@
 /**
  * title: 综合用法
- * desc: 把各种场景、API 都运用了
+ * description: 把各种场景、API 都运用了
  */
 
 import React from 'react'
 import { ScrollView } from 'react-native'
+import { Space } from '@fruits-chain/react-native-xiaoshu'
 
 import PopupHeader from './header'
 import PopupPopup from './popup'
@@ -14,13 +15,15 @@ import PopupKeyboardShim from './keyboard-shim'
 const BasicPopup: React.FC = () => {
   return (
     <ScrollView>
-      <PopupHeader />
+      <Space>
+        <PopupHeader />
 
-      <PopupPopup />
+        <PopupPopup />
 
-      <PopupKeyboardShim />
+        <PopupKeyboardShim />
 
-      <PopupPage />
+        <PopupPage />
+      </Space>
     </ScrollView>
   )
 }

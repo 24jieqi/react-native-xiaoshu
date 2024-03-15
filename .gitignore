@@ -1,12 +1,14 @@
 # yarn.lock
 package-lock.json
 coverage
-.umi
-.umi-production
 lib
 docs-dist/
 .jest
 coverage
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
+
 # OSX
 #
 .DS_Store
@@ -71,3 +73,8 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+# Expo
+.expo/
+dist/
+web-build/

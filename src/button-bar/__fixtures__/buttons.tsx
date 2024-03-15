@@ -1,6 +1,6 @@
 /**
  * title: 按钮组
- * desc: 通过 `buttons` 放置按钮，配合 `count` 动态限制最大个数。
+ * description: 通过 `buttons` 放置按钮，配合 `count` 动态限制最大个数。
  */
 import {
   ButtonBar,

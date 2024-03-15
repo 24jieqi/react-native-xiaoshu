@@ -1,6 +1,6 @@
 /**
  * title: 选项按钮组
- * desc: 方便的从数组生成 Button.Option 组。
+ * description: 方便的从数组生成 Button.Option 组。
  */
 
 import React, { memo, useState } from 'react'

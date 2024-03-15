@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: Checkbox 默认在 true、false 之间切换，通过 `activeValue`、`inactiveValue` 自定义切换的值。Checkbox 组件支持传入泛型，更友好的约束 `value`、`activeValue`、`inactiveValue`、`onChange`。
+ * description: Checkbox 默认在 true、false 之间切换，通过 `activeValue`、`inactiveValue` 自定义切换的值。Checkbox 组件支持传入泛型，更友好的约束 `value`、`activeValue`、`inactiveValue`、`onChange`。
  */
 
 import React, { useState } from 'react'

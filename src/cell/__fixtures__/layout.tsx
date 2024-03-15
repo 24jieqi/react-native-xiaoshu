@@ -1,6 +1,6 @@
 /**
  * title: 排版布局
- * desc: Cell 支持右侧文案左右、居中对齐，标题与内容上下布局。
+ * description: Cell 支持右侧文案左右、居中对齐，标题与内容上下布局。
  */
 
 import React from 'react'

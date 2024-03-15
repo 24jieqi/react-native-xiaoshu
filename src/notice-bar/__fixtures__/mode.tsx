@@ -1,6 +1,6 @@
 /**
  * title: 模式
- * desc: 共有两个种模式可以使用。
+ * description: 共有两个种模式可以使用。
  */
 
 import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'

@@ -1,6 +1,6 @@
 /**
  * title: 选择控件
- * desc: 适合单选、多选。
+ * description: 适合单选、多选。
  */
 
 import React, { useState } from 'react'

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
+import type { ViewStyle, StyleProp, DimensionValue } from 'react-native'
 import { View } from 'react-native'
 
 import { useRow } from './context'
@@ -13,8 +13,8 @@ const BASE_SPAN_WIDTH = 100 / 24
  */
 const Col: React.FC<ColProps> = ({ style, span, offset = 0, ...restProps }) => {
   const { gap = 0 } = useRow()
-  const width = `${+span * BASE_SPAN_WIDTH}%`
-  const left = `${+offset * BASE_SPAN_WIDTH}%`
+  const width: DimensionValue = `${+span * BASE_SPAN_WIDTH}%`
+  const left: DimensionValue = `${+offset * BASE_SPAN_WIDTH}%`
 
   const colStyles: StyleProp<ViewStyle> = [
     {

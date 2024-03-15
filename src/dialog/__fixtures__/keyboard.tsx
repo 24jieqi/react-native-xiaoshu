@@ -1,6 +1,6 @@
 /**
  * title: 自定义输入框
- * desc: 对话框内有输入框的情况。
+ * description: 对话框内有输入框的情况。
  */
 
 import React, { useCallback, useState } from 'react'

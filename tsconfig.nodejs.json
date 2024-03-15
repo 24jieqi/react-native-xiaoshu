@@ -9,7 +9,8 @@
     // "src"
   ],
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "module": "commonjs",
     "isolatedModules": false,
     "resolveJsonModule": true
   }

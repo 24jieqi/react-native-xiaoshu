@@ -203,8 +203,8 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
                       ? activeColor
                       : CV.switch_on_background_color
                     : !isUndefined(inactiveColor)
-                    ? inactiveColor
-                    : CV_LOADING.loading_text_color
+                      ? inactiveColor
+                      : CV_LOADING.loading_text_color
                 }
               />
             ) : null}

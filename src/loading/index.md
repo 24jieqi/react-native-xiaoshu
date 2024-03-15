@@ -6,7 +6,7 @@ nav:
 group:
   title: 反馈组件
   path: /feedback
-  order: 2
+  order: 3
 ---
 
 # Loading 加载
@@ -21,15 +21,9 @@ group:
 
 ### Loading
 
-<API hideTitle src="./loading.tsx"></API>
-
 ### Loading.Circular <Badge>0.2.1+</Badge>
 
-<API hideTitle src="./loading-circular.tsx"></API>
-
 ### Loading.Spinner <Badge>0.2.1+</Badge>
-
-<API hideTitle src="./loading-spinner.tsx"></API>
 
 ## 主题定制
 

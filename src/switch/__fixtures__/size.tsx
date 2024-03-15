@@ -1,6 +1,6 @@
 /**
  * title: 大小
- * desc: 通过 `size` 可以自定义元素大小。
+ * description: 通过 `size` 可以自定义元素大小。
  */
 
 import React from 'react'

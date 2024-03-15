@@ -1,6 +1,6 @@
 /**
  * title: 图标
- * desc: 复选框选择图标，可以独立使用，`active` 属性控制激活状态，`activeColor` 修改激活状态的颜色，`size` 修改图标大小。
+ * description: 复选框选择图标，可以独立使用，`active` 属性控制激活状态，`activeColor` 修改激活状态的颜色，`size` 修改图标大小。
  */
 
 import React, { useState } from 'react'

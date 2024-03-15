@@ -1,6 +1,6 @@
 /**
  * title: 选项按钮
- * desc: 简化版按钮，适合用于选择场景，和 Checkbox 组件有相似的作用。
+ * description: 简化版按钮，适合用于选择场景，和 Checkbox 组件有相似的作用。
  */
 
 import React, { memo } from 'react'

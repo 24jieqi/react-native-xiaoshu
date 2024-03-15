@@ -6,7 +6,7 @@ nav:
 group:
   title: 反馈组件
   path: /feedback
-  order: 2
+  order: 3
 ---
 
 # Dialog 对话框
@@ -31,11 +31,7 @@ group:
 
 ### Dialog
 
-<API hideTitle src="./dialog-method.tsx"></API>
-
 ### Dialog.input
-
-<API hideTitle src="./dialog-input.tsx"></API>
 
 ### Dialog.Component
 
@@ -48,8 +44,6 @@ group:
 `Dialog.KeyboardComponent` 内部没有嵌套 `Portal`。
 
 > `Dialog.Keyboard`、`Dialog.KeyboardComponent` 在 `Dialog` 添加键盘出现、消失事件监听，键盘出现时整个对话框距离顶部一个安全距离。
-
-<API hideTitle src="./dialog.tsx"></API>
 
 ## 主题定制
 

@@ -6,7 +6,7 @@ nav:
 group:
   title: 表单组件
   path: /form
-  order: 1
+  order: 2
 ---
 
 # Selector 选择器
@@ -31,11 +31,7 @@ group:
 
 `Selector.SelectorComponent` 与 `Selector.Component` 属性相同，`Selector.SelectorComponent` 被 `Portal` 组件包裹，在根节点渲染。
 
-<API hideTitle src="./selector.tsx"></API>
-
 ### Selector.Text
-
-<API hideTitle src="./selector-text.tsx"></API>
 
 ## 主题定制
 

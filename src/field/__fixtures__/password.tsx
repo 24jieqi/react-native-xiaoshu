@@ -1,6 +1,6 @@
 /**
  * title: 密码输入
- * desc: 适用于单行文本输入。
+ * description: 适用于单行文本输入。
  */
 
 import React from 'react'

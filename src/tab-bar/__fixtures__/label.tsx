@@ -1,6 +1,6 @@
 /**
  * title: 文字突出
- * desc: 比较特殊的场景，文字突出的表现方式，适合出现在分类场景。
+ * description: 比较特殊的场景，文字突出的表现方式，适合出现在分类场景。
  */
 
 import React, { useState } from 'react'

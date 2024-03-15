@@ -1,6 +1,6 @@
 /**
  * title: 其他组件
- * desc: 内置一些其他格式组件。
+ * description: 内置一些其他格式组件。
  */
 
 import React from 'react'

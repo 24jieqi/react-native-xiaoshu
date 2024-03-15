@@ -6,7 +6,7 @@ nav:
 group:
   title: 表单组件
   path: /form
-  order: 1
+  order: 2
 ---
 
 # Picker 选择器
@@ -23,11 +23,7 @@ group:
 
 ### Picker
 
-<API hideTitle src="./picker-method.tsx"></API>
-
 ### Picker.Component
-
-<API hideTitle src="./picker.tsx"></API>
 
 ## 主题定制
 

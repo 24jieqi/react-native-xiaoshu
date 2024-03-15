@@ -1,6 +1,6 @@
 /**
  * title: 加载中按钮
- * desc: 用于异步操作等待反馈的时候，也可以避免多次提交。
+ * description: 用于异步操作等待反馈的时候，也可以避免多次提交。
  */
 
 import React, { memo, useEffect, useRef } from 'react'

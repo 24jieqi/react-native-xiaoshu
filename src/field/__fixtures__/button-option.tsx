@@ -1,6 +1,6 @@
 /**
  * title: 选项按钮
- * desc: 适合单选、多选场景。
+ * description: 适合单选、多选场景。
  */
 
 import React from 'react'

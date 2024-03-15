@@ -1,6 +1,6 @@
 /**
  * title: 间距大小
- * desc: 组件 `gap` 属性内置三个不同大小的间距，也可以采用具体的间距数值。
+ * description: 组件 `gap` 属性内置三个不同大小的间距，也可以采用具体的间距数值。
  */
 
 import React from 'react'

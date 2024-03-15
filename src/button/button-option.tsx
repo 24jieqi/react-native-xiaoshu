@@ -93,8 +93,8 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
           color: restProps.disabled
             ? CV.button_option_disabled_text_color
             : active && activeHighlight
-            ? CV.button_primary_color
-            : TOKENS.gray_8,
+              ? CV.button_primary_color
+              : TOKENS.gray_8,
           fontSize: CV[`button_${size}_font_size`],
         },
         textStyle,

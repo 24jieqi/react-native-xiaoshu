@@ -6,7 +6,7 @@ nav:
 group:
   title: 反馈组件
   path: /feedback
-  order: 2
+  order: 3
 ---
 
 # Notify 消息提示
@@ -18,8 +18,6 @@ group:
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
-
-<API hideTitle src="./notify.tsx"></API>
 
 ## 主题定制
 

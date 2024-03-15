@@ -1,6 +1,6 @@
 /**
  * title: 咨询按钮组
- * desc: 在内部放置两个以上按钮，其中一个有相对更大的空间占比。
+ * description: 在内部放置两个以上按钮，其中一个有相对更大的空间占比。
  */
 import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 

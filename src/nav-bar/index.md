@@ -6,7 +6,7 @@ nav:
 group:
   title: 导航组件
   path: /nav
-  order: 4
+  order: 5
 ---
 
 # NavBar 导航栏
@@ -18,8 +18,6 @@ group:
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
-
-<API hideTitle src="./nav-bar.tsx"></API>
 
 ## 主题定制
 

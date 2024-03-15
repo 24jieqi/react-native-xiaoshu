@@ -6,7 +6,7 @@ nav:
 group:
   title: 反馈组件
   path: /feedback
-  order: 2
+  order: 3
 ---
 
 # FloatingPanel 浮动面板 <Badge>0.3.16+</Badge>
@@ -31,15 +31,11 @@ group:
 
 `FloatingPanel` 与 `Popup.Component` 属性相同，`FloatingPanel` 被 `Portal` 组件包裹，在根节点渲染。
 
-<API hideTitle src="./floating-panel.tsx"></API>
-
 ### FloatingPanel.ScrollView
 
 ### FloatingPanel.ScrollViewComponent
 
 `FloatingPanel.ScrollView` 与 `Popup.ScrollViewComponent` 属性相同，`FloatingPanel.ScrollView` 被 `Portal` 组件包裹，在根节点渲染。
-
-<API hideTitle src="./floating-panel-scroll-view.tsx"></API>
 
 ## 主题定制
 

@@ -1,6 +1,6 @@
 /**
  * title: 组件调用
- * desc: 普通组件。
+ * description: 普通组件。
  */
 
 import React, { useState } from 'react'

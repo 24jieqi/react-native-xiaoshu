@@ -1,6 +1,6 @@
 /**
  * title: 基础
- * desc: 内部无滚动，整个面板都可以触发滑动打开、关闭。
+ * description: 内部无滚动，整个面板都可以触发滑动打开、关闭。
  */
 
 import React from 'react'

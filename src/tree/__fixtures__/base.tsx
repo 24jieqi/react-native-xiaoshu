@@ -1,6 +1,6 @@
 /**
  * title: 单选
- * desc: 最简单的用法。
+ * description: 最简单的用法。
  */
 
 import React, { useState } from 'react'

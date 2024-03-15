@@ -123,8 +123,8 @@ const Collapse: React.FC<CollapseProps> = ({
     lazyRender && !MountedRef.current && !collapse
       ? null
       : renderBody
-      ? renderBody()
-      : children
+        ? renderBody()
+        : children
 
   const ctxJSX = (
     <Animated.View style={[STYLES.collapse, { height: AnimatedValue }]}>

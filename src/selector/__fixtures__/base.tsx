@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 通过函数的方式使用，使用 `options` 填充选项，可以使用 `onChange` 响应改变后的值，也可以采用 Promise 的方式。`beforeChange` 可以拿到当前选择的值，也可以阻断弹出层关闭，返回 `boolean | Promise<boolean>`。
+ * description: 通过函数的方式使用，使用 `options` 填充选项，可以使用 `onChange` 响应改变后的值，也可以采用 Promise 的方式。`beforeChange` 可以拿到当前选择的值，也可以阻断弹出层关闭，返回 `boolean | Promise<boolean>`。
  */
 
 import React from 'react'

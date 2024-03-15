@@ -1,6 +1,6 @@
 /**
  * title: 大小
- * desc: 直接修改 `left`、`right`、`top`、`bottom` 属性，或使用内置的 `size` 统一设置边距大小。
+ * description: 直接修改 `left`、`right`、`top`、`bottom` 属性，或使用内置的 `size` 统一设置边距大小。
  */
 
 import React from 'react'

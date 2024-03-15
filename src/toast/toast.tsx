@@ -110,8 +110,8 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
           position === 'top'
             ? 'flex-start'
             : position === 'bottom'
-            ? 'flex-end'
-            : 'center',
+              ? 'flex-end'
+              : 'center',
       },
     ]
 

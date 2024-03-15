@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # TabBar 标签栏
@@ -21,8 +21,6 @@ group:
 <code src="./__fixtures__/label.tsx"></code>
 
 ## API
-
-<API hideTitle src="./tab-bar.tsx"></API>
 
 ## 主题定制
 

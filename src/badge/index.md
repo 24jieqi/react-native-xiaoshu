@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # Badge 徽标
@@ -24,8 +24,6 @@ group:
 <code src="./__fixtures__/status.tsx"></code>
 
 ## API
-
-<API hideTitle src="./badge.tsx"></API>
 
 ## 主题定制
 

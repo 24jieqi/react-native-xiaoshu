@@ -1,6 +1,6 @@
 /**
  * title: 组件用法
- * desc: 普通受控组件使用方式。
+ * description: 普通受控组件使用方式。
  */
 
 import React, { useState } from 'react'

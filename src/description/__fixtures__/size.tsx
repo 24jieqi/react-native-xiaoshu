@@ -1,6 +1,6 @@
 /**
  * title: 不同尺寸
- * desc: 支持三种尺寸。
+ * description: 支持三种尺寸。
  */
 
 import React from 'react'

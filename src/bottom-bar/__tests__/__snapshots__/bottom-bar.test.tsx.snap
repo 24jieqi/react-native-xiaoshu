@@ -2,17 +2,16 @@
 
 exports[`Blank render snapshot 1`] = `
 <View
+  collapsable={false}
   style={
-    [
-      {
-        "backgroundColor": "#FFFFFF",
-        "borderTopColor": "#EFF3F9",
-        "borderTopWidth": 1,
-        "height": 50,
-        "paddingBottom": 0,
-      },
-      undefined,
-    ]
+    {
+      "backgroundColor": "#FFFFFF",
+      "borderTopColor": "#EFF3F9",
+      "borderTopWidth": 1,
+      "height": 50,
+      "overflow": "hidden",
+      "paddingBottom": 0,
+    }
   }
 >
   <Text>

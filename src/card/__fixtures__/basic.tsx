@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 可以传入一个 buttons 按钮数组，也可以嵌套子元素。
+ * description: 可以传入一个 buttons 按钮数组，也可以嵌套子元素。
  */
 
 import React from 'react'

@@ -1,6 +1,6 @@
 /**
  * title: 基本
- * desc: 最简单的用法，受控、非受控。
+ * description: 最简单的用法，受控、非受控。
  */
 
 import React, { useState } from 'react'

@@ -4,7 +4,7 @@ import { varCreator as varCreatorCell } from '../cell/style'
 import Theme from '../theme'
 import type { TokensType } from '../theme/interface'
 
-export const varCreator = (TOKENS: TokensType) => {
+export const varCreator = () => {
   return {}
 }
 

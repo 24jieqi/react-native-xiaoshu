@@ -1,6 +1,6 @@
 /**
  * title: 自定义
- * desc: 根据自身需求自定义组件。
+ * description: 根据自身需求自定义组件。
  */
 
 import { Empty, Flex, Space } from '@fruits-chain/react-native-xiaoshu'

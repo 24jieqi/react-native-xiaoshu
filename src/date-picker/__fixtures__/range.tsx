@@ -1,6 +1,6 @@
 /**
  * title: 时间段选择
- * desc: 函数调用方式，`Promise` 或 `onConfirm` 两种方式拿到选择的时间，在确定之前可以通过 `beforeClose` 判断时间是否合适以及阻止关闭弹层。
+ * description: 函数调用方式，`Promise` 或 `onConfirm` 两种方式拿到选择的时间，在确定之前可以通过 `beforeClose` 判断时间是否合适以及阻止关闭弹层。
  */
 
 import React from 'react'

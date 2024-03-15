@@ -1,6 +1,6 @@
 /**
  * title: 单选多选
- * desc: 单选多选。
+ * description: 单选多选。
  */
 
 import React, { useState } from 'react'

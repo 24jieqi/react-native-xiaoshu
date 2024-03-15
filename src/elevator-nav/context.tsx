@@ -40,7 +40,7 @@ const ElevatorContext = createContext<ElevatorContextState>({
   registerTarget: function () {
     throw new Error('Function not implemented.')
   },
-  cancelTarget: function (id: string): void {
+  cancelTarget: function (): void {
     throw new Error('Function not implemented.')
   },
   registerScroll: function () {
@@ -54,7 +54,9 @@ const getTargetRelativeLayout = (target: TargetRef, scroll: ScrollViewRef) =>
   new Promise<{ left: number; top: number; width: number; height: number }>(
     (resolve, reject) => {
       target.current.measureLayout(
-        scroll.current as unknown as HostComponent<ScrollViewProps>,
+        scroll.current as unknown as React.ElementRef<
+          HostComponent<ScrollViewProps>
+        >,
         // eslint-disable-next-line max-params
         (left: number, top: number, width: number, height: number) => {
           resolve({ left, top, width, height })

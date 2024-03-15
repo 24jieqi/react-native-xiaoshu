@@ -1,6 +1,6 @@
 /**
  * title: 输入框
- * desc: 适用于单行、多行文本输入。
+ * description: 适用于单行、多行文本输入。
  */
 
 import React, { useState } from 'react'

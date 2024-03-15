@@ -1,6 +1,6 @@
 /**
  * title: Popup
- * desc: 通过 `position` 控制弹出层出现的动画。`Popup` 组件已经嵌套在 `Portal` 组件内，可以随意放置位置都会在根节点渲染，`Popup.PopupComponent` 则未被嵌套，需要结合业务自行安排。
+ * description: 通过 `position` 控制弹出层出现的动画。`Popup` 组件已经嵌套在 `Portal` 组件内，可以随意放置位置都会在根节点渲染，`Popup.PopupComponent` 则未被嵌套，需要结合业务自行安排。
  */
 
 import React, { useState } from 'react'
@@ -62,8 +62,8 @@ const BasicPopupPopup: React.FC = () => {
       </Card>
 
       <Popup
-        safeAreaInsetBottom
-        safeAreaInsetTop
+        safeAreaInsetBottom={state.position !== 'top'}
+        safeAreaInsetTop={state.position !== 'bottom'}
         visible={state.show}
         position={state.position}
         onPressOverlay={() => {

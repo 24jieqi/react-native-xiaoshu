@@ -76,12 +76,12 @@ const Description: React.FC<DescriptionProps> = ({
   const labelJSX = !isNil(renderLabel)
     ? renderLabel(colonStr)
     : !isNil(label)
-    ? renderTextLikeJSX(`${label}${colonStr}`, [
-        STYLES.label_text,
-        textSizeStyle,
-        _labelTextStyle,
-      ])
-    : null
+      ? renderTextLikeJSX(`${label}${colonStr}`, [
+          STYLES.label_text,
+          textSizeStyle,
+          _labelTextStyle,
+        ])
+      : null
 
   const renderText = (node: React.ReactNode) =>
     renderTextLikeJSX(

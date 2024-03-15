@@ -10,6 +10,7 @@ import type {
   ColorValue,
 } from 'react-native'
 
+import type { FixHitSlopProps } from '../helpers/types'
 import type { PopupPropsCommon } from '../popup/interface'
 import type { TreeOption, TreeProps } from '../tree/interface'
 
@@ -39,7 +40,8 @@ export interface DropdownItemOption<T> {
   children?: DropdownItemOption<T>[]
 }
 
-export interface DropdownTextProps extends TouchableOpacityProps {
+export interface DropdownTextProps
+  extends FixHitSlopProps<TouchableOpacityProps> {
   /**
    * 标题文案样式
    */

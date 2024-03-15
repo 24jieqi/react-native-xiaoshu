@@ -6,7 +6,7 @@ nav:
 group:
   title: 基础组件
   path: /basic
-  order: 0
+  order: 1
 ---
 
 # Toast 轻提示
@@ -29,8 +29,6 @@ Toast.loading、Toast.success、Toast.fail 使用方式与 Toast 相似，参考
 Toast.clear 暂时未实现。
 
 Toast.setDefaultOptions 设置默认参数，例如是否背景可以点击、持续时长。
-
-<API hideTitle src="./toast.tsx"></API>
 
 ## 主题定制
 

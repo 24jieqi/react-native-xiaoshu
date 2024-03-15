@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 点击图标切换输入框内容是否明文。
+ * description: 点击图标切换输入框内容是否明文。
  */
 
 import React, { useState } from 'react'

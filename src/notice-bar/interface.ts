@@ -6,11 +6,14 @@ import type {
   ColorValue,
 } from 'react-native'
 
+import type { FixHitSlopProps } from '../helpers/types'
+
 export type NoticeBarStatus = 'primary' | 'success' | 'warning' | 'error'
 
 export type NoticeBarMode = 'closeable' | 'link'
 
-export interface NoticeBarProps extends TouchableWithoutFeedbackProps {
+export interface NoticeBarProps
+  extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
   /**
    * 通知文本文案样式
    */

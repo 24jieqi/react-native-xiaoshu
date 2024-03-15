@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 组件 `Toast` 参数支持字符串或配置对象，当 `duration` 为 `0` 的时候不会主动消失。
+ * description: 组件 `Toast` 参数支持字符串或配置对象，当 `duration` 为 `0` 的时候不会主动消失。
  */
 
 import React, { useState, useEffect, useRef } from 'react'

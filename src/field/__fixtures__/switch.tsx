@@ -1,6 +1,6 @@
 /**
  * title: 开关
- * desc: 适合开启或关闭部分控件填写。
+ * description: 适合开启或关闭部分控件填写。
  */
 
 import React, { useState } from 'react'

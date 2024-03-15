@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 给指定内容添加文字。
+ * description: 给指定内容添加文字。
  */
 
 import React from 'react'

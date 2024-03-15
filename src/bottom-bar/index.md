@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # BottomBar 底部工具
@@ -14,8 +14,6 @@ group:
 > 用于固定在屏幕底部。
 
 ## API
-
-<API hideTitle src="./bottom-bar.tsx"></API>
 
 ## 主题定制
 

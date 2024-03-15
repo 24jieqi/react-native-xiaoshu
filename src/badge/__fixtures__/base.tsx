@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 包裹子组件或独立使用。
+ * description: 包裹子组件或独立使用。
  */
 
 import React from 'react'

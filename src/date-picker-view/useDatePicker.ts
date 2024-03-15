@@ -172,8 +172,8 @@ const useDatePicker = ({
       newValue.getTime() <= maxDate.getTime()
         ? newValue
         : newValue.getTime() < minDate.getTime()
-        ? minDate
-        : maxDate
+          ? minDate
+          : maxDate
 
     // console.log('_minDate   =>   ', toDateObject(_minDate))
     // console.log('_maxDate   =>   ', toDateObject(_maxDate))

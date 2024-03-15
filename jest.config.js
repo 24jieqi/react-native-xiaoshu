@@ -16,6 +16,6 @@ module.exports = {
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '\\.snap$', 'test-utils'],
   transformIgnorePatterns: [
-    '/node_modules/(?!(@react-native|react-native|react-native-safe-area-context/jest)/).*/',
+    'node_modules/(?!(@react-native|react-native|@react-native-community|react-native-gesture-handler|react-native-safe-area-context/jest)/)',
   ],
 }

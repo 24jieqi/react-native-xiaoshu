@@ -1,6 +1,6 @@
 /**
  * title: 组件调用
- * desc: 结合业务自定义对话框的内容。
+ * description: 结合业务自定义对话框的内容。
  */
 
 import React, { useState } from 'react'

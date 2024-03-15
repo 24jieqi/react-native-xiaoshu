@@ -7,8 +7,8 @@ import { Dimensions, View } from 'react-native'
 import { renderTextLikeJSX } from '../helpers'
 import Theme from '../theme'
 
+import { maxSteps, StepsContext } from './context'
 import type { StepsItemPropsType } from './interface'
-import { maxSteps, StepsContext } from './steps'
 import { varCreator, styleCreator } from './style'
 
 /** Step */

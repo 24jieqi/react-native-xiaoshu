@@ -1,6 +1,6 @@
 /**
  * title: Page
- * desc: 类似 iOS 的 Sheet 组件，看似独立一个页面。
+ * description: 类似 iOS 的 Sheet 组件，看似独立一个页面。
  */
 
 import React, { useState } from 'react'

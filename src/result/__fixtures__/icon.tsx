@@ -1,6 +1,6 @@
 /**
  * title: 图标集合
- * desc: 内置几种图标。
+ * description: 内置几种图标。
  */
 
 import { Result, Space } from '@fruits-chain/react-native-xiaoshu'

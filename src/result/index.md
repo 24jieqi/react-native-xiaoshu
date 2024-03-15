@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # Result 结果
@@ -22,8 +22,6 @@ react-native-svg-web 并没有提供 SvgXml 组件，web 端看不到部分 SVG 
 <code src="./__fixtures__/custom.tsx"></code>
 
 ## API
-
-<API hideTitle src="./result.tsx"></API>
 
 ## 主题定制
 

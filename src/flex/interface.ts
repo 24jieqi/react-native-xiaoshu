@@ -1,10 +1,13 @@
 import type { TouchableWithoutFeedbackProps, FlexStyle } from 'react-native'
 
+import type { FixHitSlopProps } from '../helpers/types'
+
 export type FlexJustify = 'start' | 'end' | 'center' | 'between' | 'around'
 
 export type FlexAlign = 'start' | 'center' | 'end' | 'baseline' | 'stretch'
 
-export interface FlexProps extends TouchableWithoutFeedbackProps {
+export interface FlexProps
+  extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
   /**
    * 项目定位方向
    */
@@ -26,6 +29,7 @@ export interface FlexProps extends TouchableWithoutFeedbackProps {
   align?: FlexAlign
 }
 
-export interface FlexItemProps extends TouchableWithoutFeedbackProps {
+export interface FlexItemProps
+  extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
   flex?: FlexStyle['flex']
 }

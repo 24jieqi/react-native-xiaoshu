@@ -6,7 +6,7 @@ nav:
 group:
   title: 基础组件
   path: /basic
-  order: 0
+  order: 1
 ---
 
 # Button 按钮
@@ -65,15 +65,9 @@ group:
 
 ### Button
 
-<API hideTitle src="./button.tsx"></API>
-
 ### Button.Option
 
-<API hideTitle src="./button-option.tsx"></API>
-
 ### Button.OptionGroup
-
-<API hideTitle src="./button-option-group.tsx"></API>
 
 ## 主题定制
 

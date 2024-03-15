@@ -1,6 +1,6 @@
 /**
  * title: 数字输入框
- * desc: 适用于纯数字输入。
+ * description: 适用于纯数字输入。
  */
 
 import React, { useState } from 'react'

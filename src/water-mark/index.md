@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # WaterMark 水印 <Badge>0.3.0+</Badge>
@@ -20,8 +20,6 @@ group:
 <code src="./__fixtures__/foreground.tsx"></code>
 
 ## API
-
-<API hideTitle src="./water-mark.tsx"></API>
 
 ## 主题定制
 

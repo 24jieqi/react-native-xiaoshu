@@ -1,6 +1,6 @@
 /**
  * title: 分割线
- * desc: Cell 支持自定义分割线左右边距。
+ * description: Cell 支持自定义分割线左右边距。
  */
 
 import React from 'react'

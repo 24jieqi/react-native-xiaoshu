@@ -15,6 +15,7 @@ import type {
   DatePickerRangeMethodProps,
   DatePickerRangeValue,
 } from '../date-picker/interface'
+import type { FixHitSlopProps } from '../helpers/types'
 import type { NumberInputProps } from '../number-input/interface'
 import type { PasswordInputProps } from '../password-input/interface'
 import type { SelectorProps } from '../selector/interface'
@@ -292,7 +293,9 @@ export interface FieldDateRangeProps
 }
 
 export interface FieldCheckboxProps
-  extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>,
+  extends FixHitSlopProps<
+      Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>
+    >,
     Pick<
       CheckboxGroupProps<any>,
       | 'value'
@@ -324,7 +327,9 @@ export interface FieldPasswordInputProps
 }
 
 export interface FieldButtonOptionProps
-  extends Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>,
+  extends FixHitSlopProps<
+      Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>
+    >,
     Pick<
       ButtonOptionGroupProps<any>,
       | 'value'

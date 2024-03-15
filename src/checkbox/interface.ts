@@ -8,6 +8,7 @@ import type {
   ColorValue,
 } from 'react-native'
 
+import type { FixHitSlopProps } from '../helpers/types'
 import type { SpaceProps } from '../space/interface'
 
 interface CheckboxIconPrivateProps {
@@ -30,7 +31,7 @@ interface CheckboxIconPrivateProps {
 }
 
 export interface CheckboxIconProps
-  extends TouchableOpacityProps,
+  extends FixHitSlopProps<TouchableOpacityProps>,
     CheckboxIconPrivateProps {}
 
 interface RenderIconProps extends CheckboxIconPrivateProps {

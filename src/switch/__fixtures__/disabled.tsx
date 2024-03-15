@@ -1,6 +1,6 @@
 /**
  * title: 不可用
- * desc: Switch 失效状态。
+ * description: Switch 失效状态。
  */
 
 import React, { useState } from 'react'

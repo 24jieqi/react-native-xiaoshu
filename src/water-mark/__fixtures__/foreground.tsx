@@ -1,6 +1,6 @@
 /**
  * title: 前置水印
- * desc: 前置水印，不受内容遮挡。
+ * description: 前置水印，不受内容遮挡。
  */
 
 import React from 'react'

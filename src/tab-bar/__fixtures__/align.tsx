@@ -1,6 +1,6 @@
 /**
  * title: 左对齐
- * desc: 默认子选项居中对齐，如果选项太多可以左对齐，且出现滚动。
+ * description: 默认子选项居中对齐，如果选项太多可以左对齐，且出现滚动。
  */
 
 import React from 'react'

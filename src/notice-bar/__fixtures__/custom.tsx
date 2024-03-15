@@ -1,6 +1,6 @@
 /**
  * title: 自定义
- * desc: 根据自身需求自定义组件。
+ * description: 根据自身需求自定义组件。
  */
 
 import {

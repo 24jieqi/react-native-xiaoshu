@@ -1,6 +1,6 @@
 /**
  * title: Checkbox 组
- * desc: 快捷组织一组可选项，可选项多的场景推荐竖向，候选项少的场景推荐横向。
+ * description: 快捷组织一组可选项，可选项多的场景推荐竖向，候选项少的场景推荐横向。
  */
 
 import React, { useState } from 'react'

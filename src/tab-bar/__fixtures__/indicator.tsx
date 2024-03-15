@@ -1,6 +1,6 @@
 /**
  * title: 指示器
- * desc: 不同的设施指示器不一样。
+ * description: 不同的设施指示器不一样。
  */
 
 import React from 'react'

@@ -1,6 +1,6 @@
 /**
  * title: 基本使用
- * desc: 左右、上下布局，自定义 label、text 样式，自定义内容区域渲染、排版。
+ * description: 左右、上下布局，自定义 label、text 样式，自定义内容区域渲染、排版。
  */
 
 import React from 'react'

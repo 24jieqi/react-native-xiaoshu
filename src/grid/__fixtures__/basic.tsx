@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 使用 `Row` 和 `Col` 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 Row 内。`Row` 的 `justify`、`align` 控制排版，`Col` 的 `span` 设置所占比例。
+ * description: 使用 `Row` 和 `Col` 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 Row 内。`Row` 的 `justify`、`align` 控制排版，`Col` 的 `span` 设置所占比例。
  */
 
 import React from 'react'

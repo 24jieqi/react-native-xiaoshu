@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # Empty 空元素
@@ -27,8 +27,6 @@ group:
 <code src="./__fixtures__/custom.tsx"></code>
 
 ## API
-
-<API hideTitle src="./empty.tsx"></API>
 
 ## 主题定制
 

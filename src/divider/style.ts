@@ -1,3 +1,4 @@
+import type { DimensionValue } from 'react-native'
 import { StyleSheet } from 'react-native'
 
 import type { TokensType } from '../theme/interface'
@@ -11,8 +12,8 @@ export const varCreator = (TOKENS: TokensType) => {
     divider_text_color: TOKENS.gray_8,
     divider_font_size: TOKENS.font_size_4,
     divider_line_height: TOKENS.line_height_2,
-    divider_content_left_width: '10%',
-    divider_content_right_width: '10%',
+    divider_content_left_width: '10%' as DimensionValue,
+    divider_content_right_width: '10%' as DimensionValue,
   }
 }
 

@@ -1,6 +1,6 @@
 /**
  * title: 空数据
- * desc: 支持自定义空数据占位符。
+ * description: 支持自定义空数据占位符。
  */
 
 import React from 'react'

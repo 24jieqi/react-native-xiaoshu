@@ -1,6 +1,6 @@
 /**
  * title: 文案模式
- * desc: 适用于单位切换，对输入控件进行补充、扩展。
+ * description: 适用于单位切换，对输入控件进行补充、扩展。
  */
 
 import React, { useState } from 'react'

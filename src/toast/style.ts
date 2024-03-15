@@ -1,10 +1,11 @@
+import type { DimensionValue } from 'react-native'
 import { StyleSheet } from 'react-native'
 
 import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
-    toast_max_width: '70%',
+    toast_max_width: '70%' as DimensionValue,
     toast_background_color: `rgba(0,0,0,${TOKENS.opacity_70})`,
     toast_border_radius: TOKENS.border_radius_xl,
     toast_text_border_radius: TOKENS.border_radius_m,
@@ -22,8 +23,8 @@ export const varCreator = (TOKENS: TokensType) => {
     toast_text_padding_vertical: TOKENS.space_2,
     toast_text_padding_horizontal: TOKENS.space_3,
     toast_text_margin_top: TOKENS.space_2,
-    toast_position_top_distance: '20%',
-    toast_position_bottom_distance: '20%',
+    toast_position_top_distance: '20%' as DimensionValue,
+    toast_position_bottom_distance: '20%' as DimensionValue,
   }
 }
 

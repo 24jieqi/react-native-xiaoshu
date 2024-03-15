@@ -1,6 +1,6 @@
 /**
  * title: 多彩徽标
- * desc: 我们添加了多种预设色彩的徽标样式，用作不同场景使用。
+ * description: 我们添加了多种预设色彩的徽标样式，用作不同场景使用。
  */
 
 import React from 'react'

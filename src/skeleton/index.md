@@ -6,7 +6,7 @@ nav:
 group:
   title: 反馈组件
   path: /feedback
-  order: 2
+  order: 3
 ---
 
 # Skeleton 骨架屏
@@ -29,15 +29,9 @@ group:
 
 ### Skeleton
 
-<API hideTitle src="./skeleton.tsx"></API>
-
 ### SkeletonAvatarProps
 
-<API hideTitle src="./skeleton-avatar.tsx"></API>
-
 ### SkeletonParagraphProps
-
-<API hideTitle src="./skeleton-paragraph.tsx"></API>
 
 ## 主题定制
 

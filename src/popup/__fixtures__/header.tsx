@@ -1,6 +1,6 @@
 /**
  * title: Header
- * desc: 适用于各种弹出层头部。
+ * description: 适用于各种弹出层头部。
  */
 
 import React from 'react'

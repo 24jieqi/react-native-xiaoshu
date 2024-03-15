@@ -144,8 +144,8 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
             textAlign === 'left'
               ? 'flex-start'
               : textAlign === 'center'
-              ? 'center'
-              : 'flex-end',
+                ? 'center'
+                : 'flex-end',
         },
         valueStyle,
       ]}

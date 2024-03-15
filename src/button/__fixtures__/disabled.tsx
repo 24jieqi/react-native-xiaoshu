@@ -1,6 +1,6 @@
 /**
  * title: 禁用按钮
- * desc: 行动点不可用的时候，一般需要文案解释。
+ * description: 行动点不可用的时候，一般需要文案解释。
  */
 
 import React, { memo } from 'react'

@@ -1,6 +1,6 @@
 /**
  * title: 单元格组
- * desc: Cell.Group 使用案例。
+ * description: Cell.Group 使用案例。
  */
 
 import React from 'react'

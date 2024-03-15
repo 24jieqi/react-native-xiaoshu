@@ -1,6 +1,6 @@
 /**
  * title: 输入限制
- * desc: 最小、最小值，小数位控制
+ * description: 最小、最小值，小数位控制
  */
 
 import React from 'react'

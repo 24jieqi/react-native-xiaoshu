@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # ButtonBar 按钮组
@@ -34,11 +34,7 @@ group:
 
 ### ButtonBar
 
-<API hideTitle src="./button-bar.tsx"></API>
-
 ### ButtonBar.Confirm <Badge>0.3.9+</Badge>
-
-<API hideTitle src="./button-bar-confirm.tsx"></API>
 
 ## 主题定制
 

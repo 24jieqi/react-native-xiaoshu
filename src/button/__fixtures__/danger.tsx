@@ -1,6 +1,6 @@
 /**
  * title: 危险按钮
- * desc: 删除/移动/修改权限等危险操作，一般需要二次确认。
+ * description: 删除/移动/修改权限等危险操作，一般需要二次确认。
  */
 
 import React, { memo } from 'react'

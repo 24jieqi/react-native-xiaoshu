@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 非受控、受控两种使用方式，简单的输入限制
+ * description: 非受控、受控两种使用方式，简单的输入限制
  */
 
 import React, { useState } from 'react'

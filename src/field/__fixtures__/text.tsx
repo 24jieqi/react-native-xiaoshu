@@ -1,6 +1,6 @@
 /**
  * title: 文字显示
- * desc: 适合文案展示的地方。
+ * description: 适合文案展示的地方。
  */
 
 import React from 'react'

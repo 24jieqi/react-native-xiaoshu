@@ -48,8 +48,8 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   const textColor = disabled
     ? CV.dropdown_text_disabled_color
     : active
-    ? activeColor
-    : textStyleFlatten.color || CV.dropdown_text_color
+      ? activeColor
+      : textStyleFlatten.color || CV.dropdown_text_color
 
   const itemStyles: StyleProp<ViewStyle> = [
     STYLES.text_item,

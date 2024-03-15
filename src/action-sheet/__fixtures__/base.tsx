@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 函数调用后返回一个 Promise。
+ * description: 函数调用后返回一个 Promise。
  */
 
 import React from 'react'

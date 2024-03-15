@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 在内部放置一个、多个按钮。
+ * description: 在内部放置一个、多个按钮。
  */
 import { StyleSheet } from 'react-native'
 import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'

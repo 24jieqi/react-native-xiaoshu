@@ -1,6 +1,6 @@
 /**
  * title: 文字和图标
- * desc: 带有文字和图标。`activeChildren`、`inactiveChildren` 在 `0.3.17` 以后的版本中可以使用。
+ * description: 带有文字和图标。`activeChildren`、`inactiveChildren` 在 `0.3.17` 以后的版本中可以使用。
  */
 
 import React from 'react'

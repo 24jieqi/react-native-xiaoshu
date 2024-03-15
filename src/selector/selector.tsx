@@ -68,8 +68,8 @@ const Selector: React.FC<SelectorProps> = ({
     Array.isArray(treeProps.value)
       ? treeProps.value
       : Array.isArray(treeProps.defaultValue)
-      ? treeProps.defaultValue
-      : [],
+        ? treeProps.defaultValue
+        : [],
   )
 
   // 同步外面的数据

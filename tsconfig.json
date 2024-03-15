@@ -1,18 +1,25 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true,
+    "resolveJsonModule": true
     // "baseUrl": "demo",
     // "paths": {
     //   "@/*": ["./*"],
     //   "react-native-xiaoshu": ["../src"]
     // }
   },
-  "include": ["./src", "./demo", "typing.d.ts", "./.dumi", "./docs"],
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+  "include": [
+    "./src",
+    "typing.d.ts",
+    ".dumirc.ts",
+    "./docs",
+    ".dumi",
+    ".eslintrc.js",
+    "./scripts",
+    "jest.config.js",
+    "jest-setup.js",
+    "babel.config.js"
+  ],
+  "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 /**
  * title: 子文案
- * desc: 通过 `subtext` 设置更多描述。
+ * description: 通过 `subtext` 设置更多描述。
  */
 
 import React, { memo } from 'react'

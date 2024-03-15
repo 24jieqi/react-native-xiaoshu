@@ -1,6 +1,6 @@
 /**
  * title: 扩展单元格
- * desc: 单元格支持各个部件的 style 覆盖。
+ * description: 单元格支持各个部件的 style 覆盖。
  */
 
 import React from 'react'

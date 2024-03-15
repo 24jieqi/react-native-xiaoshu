@@ -1,6 +1,6 @@
 /**
  * title: 图标按钮
- * desc: renderLeftIcon 的 color、size 会结合文案的字体颜色、大小动态计算。
+ * description: renderLeftIcon 的 color、size 会结合文案的字体颜色、大小动态计算。
  */
 
 import React, { memo } from 'react'

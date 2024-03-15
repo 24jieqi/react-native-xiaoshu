@@ -1,6 +1,6 @@
 /**
  * title: 基本
- * desc: 一般用于固定页面底部，支持文案、图标。
+ * description: 一般用于固定页面底部，支持文案、图标。
  */
 
 import React, { useState } from 'react'

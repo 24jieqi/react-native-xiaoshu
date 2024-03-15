@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # Divider 分割线
@@ -25,8 +25,6 @@ React Native 在 iOS 端的 borderStyle 暂时不支持虚线，使用 SVG 的�
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
-
-<API hideTitle src="./divider.tsx"></API>
 
 ## 主题定制
 

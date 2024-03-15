@@ -1,6 +1,6 @@
 /**
  * title: 基础用法
- * desc: 采用函数的方式使用，自定义标题、message、按钮，异步操作配合 `beforeClose` 控制点击按钮的 loading 状态。
+ * description: 采用函数的方式使用，自定义标题、message、按钮，异步操作配合 `beforeClose` 控制点击按钮的 loading 状态。
  */
 
 import React from 'react'

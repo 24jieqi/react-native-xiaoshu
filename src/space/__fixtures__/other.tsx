@@ -1,6 +1,6 @@
 /**
  * title: 其他
- * desc: 其他属性。
+ * description: 其他属性。
  */
 
 import React from 'react'

@@ -1,6 +1,6 @@
 /**
  * title: 大小
- * desc: 共有两个大小可以选择。
+ * description: 共有两个大小可以选择。
  */
 
 import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'

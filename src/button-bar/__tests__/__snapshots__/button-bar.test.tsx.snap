@@ -3,28 +3,20 @@
 exports[`ButtonBar render snapshot 1`] = `
 <View
   accessibilityLabel="ButtonBar"
+  collapsable={false}
   style={
-    [
-      {
-        "backgroundColor": "#FFFFFF",
-        "borderTopColor": "#EFF3F9",
-        "borderTopWidth": 1,
-        "height": 50,
-        "paddingBottom": 0,
-      },
-      [
-        {
-          "paddingHorizontal": 12,
-        },
-        {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "flex-end",
-        },
-        null,
-        undefined,
-      ],
-    ]
+    {
+      "alignItems": "center",
+      "backgroundColor": "#FFFFFF",
+      "borderTopColor": "#EFF3F9",
+      "borderTopWidth": 1,
+      "flexDirection": "row",
+      "height": 50,
+      "justifyContent": "flex-end",
+      "overflow": "hidden",
+      "paddingBottom": 0,
+      "paddingHorizontal": 12,
+    }
   }
 >
   <View
@@ -58,7 +50,19 @@ exports[`ButtonBar render snapshot 1`] = `
         accessibilityRole="button"
         accessibilityState={
           {
+            "busy": undefined,
+            "checked": undefined,
             "disabled": false,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -82,7 +86,7 @@ exports[`ButtonBar render snapshot 1`] = `
             "flexDirection": "column",
             "height": 40,
             "justifyContent": "center",
-            "minWidth": 84,
+            "minWidth": 92,
             "opacity": 1,
             "paddingHorizontal": 8,
           }
@@ -135,7 +139,19 @@ exports[`ButtonBar render snapshot 1`] = `
         accessibilityRole="button"
         accessibilityState={
           {
+            "busy": undefined,
+            "checked": undefined,
             "disabled": false,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -159,7 +175,7 @@ exports[`ButtonBar render snapshot 1`] = `
             "flexDirection": "column",
             "height": 40,
             "justifyContent": "center",
-            "minWidth": 84,
+            "minWidth": 92,
             "opacity": 1,
             "paddingHorizontal": 8,
           }

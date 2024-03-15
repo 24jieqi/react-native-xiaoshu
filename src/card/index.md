@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # Card 卡片
@@ -46,8 +46,6 @@ group:
 <code src="./__fixtures__/square.tsx"></code>
 
 ## API
-
-<API hideTitle src="./card.tsx"></API>
 
 ## 主题定制
 

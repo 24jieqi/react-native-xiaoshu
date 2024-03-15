@@ -1,6 +1,6 @@
 /**
  * title: 多选:数据独立
- * desc: 父子节点没有关联关系。
+ * description: 父子节点没有关联关系。
  */
 
 import React from 'react'

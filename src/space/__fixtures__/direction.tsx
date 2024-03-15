@@ -1,6 +1,6 @@
 /**
  * title: 排版方向
- * desc: 组件 `direction` 属性可以改变子组件排版方向，横向排版子组件太多可以通过 `wrap` 达到换行的效果。
+ * description: 组件 `direction` 属性可以改变子组件排版方向，横向排版子组件太多可以通过 `wrap` 达到换行的效果。
  */
 
 import React from 'react'

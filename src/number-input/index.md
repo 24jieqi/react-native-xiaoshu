@@ -6,7 +6,7 @@ nav:
 group:
   title: 表单组件
   path: /form
-  order: 1
+  order: 2
 ---
 
 # NumberInput 数字输入框
@@ -35,5 +35,3 @@ group:
 <code src="./__fixtures__/extra.tsx"></code>
 
 ## API
-
-<API hideTitle></API>

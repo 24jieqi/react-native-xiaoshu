@@ -1,6 +1,6 @@
 /**
  * title: 内置状态
- * desc: 共有四种样式 info、success、warning、error。
+ * description: 共有四种样式 info、success、warning、error。
  */
 
 import { Result, Space } from '@fruits-chain/react-native-xiaoshu'

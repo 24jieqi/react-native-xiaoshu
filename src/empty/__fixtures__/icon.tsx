@@ -1,6 +1,6 @@
 /**
  * title: 自定义图标
- * desc: icon={null} 可以隐藏图标，或传入一个自定义组件
+ * description: icon={null} 可以隐藏图标，或传入一个自定义组件
  */
 
 import { ArrowDownOutline } from '@fruits-chain/icons-react-native'

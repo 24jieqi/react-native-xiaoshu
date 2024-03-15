@@ -1,6 +1,6 @@
 /**
  * title: dependencies
- * desc: 使用 dependencies 动态渲染。
+ * description: 使用 dependencies 动态渲染。
  */
 
 import React from 'react'

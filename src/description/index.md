@@ -6,7 +6,7 @@ nav:
 group:
   title: 展示组件
   path: /show
-  order: 3
+  order: 4
 ---
 
 # Description 描述列表
@@ -37,23 +37,13 @@ group:
 
 ### Description
 
-<API hideTitle src="./description.tsx"></API>
-
 ### Description.Group
-
-<API hideTitle src="./description-group.tsx"></API>
 
 ### Description.Thousand
 
-<API hideTitle src="./description-thousand.tsx"></API>
-
 ### Description.Date
 
-<API hideTitle src="./description-date.tsx"></API>
-
 ### Description.DateRange
-
-<API hideTitle src="./description-date-range.tsx"></API>
 
 ## 主题定制
 

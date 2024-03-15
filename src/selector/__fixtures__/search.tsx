@@ -1,6 +1,6 @@
 /**
  * title: 搜索
- * desc: 当候选项太多的时候可以启用搜索。
+ * description: 当候选项太多的时候可以启用搜索。
  */
 
 import React from 'react'

@@ -4,6 +4,7 @@ import type {
   StyleProp,
   ViewStyle,
   TouchableWithoutFeedbackProps,
+  DimensionValue,
 } from 'react-native'
 
 import type { NumberInputProps } from '../number-input/interface'
@@ -28,7 +29,7 @@ interface DialogCommon extends PopupPropsCommon {
    * 弹窗宽度
    * @default 300
    */
-  width?: number | string
+  width?: DimensionValue
 
   /**
    * 文本内容，支持通过\n换行

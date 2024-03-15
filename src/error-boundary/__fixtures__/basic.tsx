@@ -1,6 +1,6 @@
 /**
  * title: 综合用法
- * desc: 对可能出错的组件进行包裹
+ * description: 对可能出错的组件进行包裹
  */
 
 import React, { useMemo } from 'react'

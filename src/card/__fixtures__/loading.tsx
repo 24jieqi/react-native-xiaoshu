@@ -1,6 +1,6 @@
 /**
  * title: 预加载的卡片
- * desc: 数据读入前会有文本块样式。
+ * description: 数据读入前会有文本块样式。
  */
 
 import React from 'react'

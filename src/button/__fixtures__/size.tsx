@@ -1,6 +1,6 @@
 /**
  * title: 按钮尺寸
- * desc: 内置 xl、l、m、s、xs 五个尺寸。
+ * description: 内置 xl、l、m、s、xs 五个尺寸。
  */
 
 import React, { memo } from 'react'

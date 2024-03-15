@@ -1,6 +1,6 @@
 /**
  * title: 方向
- * desc: 提供 `left`、`right`、`top`、`bottom` 四个方向，默认外边距，通过 `type` 可以设定为内边距。
+ * description: 提供 `left`、`right`、`top`、`bottom` 四个方向，默认外边距，通过 `type` 可以设定为内边距。
  */
 
 import React from 'react'
