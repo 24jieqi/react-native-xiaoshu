@@ -2,7 +2,7 @@
 title: Popover 气泡卡片
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 反馈组件
   path: /feedback

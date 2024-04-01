@@ -2,7 +2,7 @@
 title: FloatingPanel 浮动面板
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 反馈组件
   path: /feedback

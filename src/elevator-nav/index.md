@@ -2,7 +2,7 @@
 title: ElevatorNav 电梯导航
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 导航组件
   path: /nav

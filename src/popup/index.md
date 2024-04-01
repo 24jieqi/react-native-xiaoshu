@@ -2,7 +2,7 @@
 title: Popup 弹出层
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 基础组件
   path: /basic

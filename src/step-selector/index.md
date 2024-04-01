@@ -2,7 +2,7 @@
 title: StepSelector 步骤选择器
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 表单组件
   path: /form

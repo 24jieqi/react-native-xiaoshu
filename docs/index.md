@@ -2,37 +2,50 @@
 title: 🌈 React Native UI library
 hero:
   title: 小暑 xiǎo shǔ
-  desc: 🌈 轻量、可靠的 React Native 组件库
+  description: 🌈 轻量、可靠的 React Native 组件库
   actions:
     - text: 快速上手 →
       link: /guide/quickstart
+    - text: GitHub
+      link: https://github.com/24jieqi/react-native-xiaoshu
 features:
-  - icon: https://gw.alipayobjects.com/zos/basement_prod/a1c647aa-a410-4024-8414-c9837709cb43/k7787itw_w126_h114.png
+  - emoji: 🔧
     title: 可定制
-    desc: 支持灵活的样式定制，简易生成多种风格，满足个性化产品需求。
-  - icon: https://gw.alipayobjects.com/zos/basement_prod/b54b48c7-087a-4984-b150-bcecb40920de/k7787z07_w114_h120.png
+    description: 支持灵活的样式定制，简易生成多种风格，满足个性化产品需求。
+  - emoji: 🧳
     title: 开箱即用
-    desc: 可以一次加载所有代码、也可以只加载用到的某几个组件的代码、避免冗余。
-  - icon: https://gw.alipayobjects.com/zos/basement_prod/201bea40-cf9d-4be2-a1d8-55bec136faf2/k7788a8s_w102_h120.png
+    description: 可以一次加载所有代码、也可以只加载用到的某几个组件的代码、避免冗余。
+  - emoji: 🚀
     title: 高性能
-    desc: 在不损失功能的基础上，尽量保证了单个组件的体积最小、性能最优。
-  - icon: https://gw.alipayobjects.com/zos/basement_prod/464cb990-6db8-4611-89af-7766e208b365/k77899wk_w108_h132.png
+    description: 在不损失功能的基础上，尽量保证了单个组件的体积最小、性能最优。
+  - emoji: 🎨
     title: 低依赖
-    desc: 组件皆在 JavaScript 层实现，无需关心 Android、iOS 各个版本依赖问题。
-  - icon: https://gw.alipayobjects.com/zos/basement_prod/67b771c5-4bdd-4384-80a4-978b85f91282/k7788ov2_w126_h126.png
+    description: 组件皆在 JavaScript 层实现，无需关心 Android、iOS 各个版本依赖问题。
+  - emoji: 🌐
     title: 国际化
-    desc: 提供完备的国际化支持，内置数种语言。
-  - icon: https://gw.alipayobjects.com/zos/basement_prod/d078a5a9-1cb3-4352-9f05-505c2e98bc95/k7788v4b_w102_h126.png
+    description: 提供完备的国际化支持，内置数种语言。
+  - emoji: 🛡
     title: 规范交互
-    # desc: react-native-xiaoshu 是基于全果链视觉规范实现的组件库。
-    desc: 使用 TypeScript 编写，提供完整的类型定义、丰富的中文文档和组件示例。
+    # description: react-native-xiaoshu 是基于全果链视觉规范实现的组件库。
+    description: 使用 TypeScript 编写，提供完整的类型定义、丰富的中文文档和组件示例。
 # footer: Copyright © 2021-present<br />Powered by [二十四节气团队](https://github.com/24jieqi).
-footer: 相关资源：[维护团队](https://techblog.hjgpscm.com/)、[小暑](https://24jieqi.github.io/react-native-xiaoshu/)、[白露](https://hjfruit.github.io/bailu-doc/)、[寒露](https://hjfruit.github.io/hanlu-doc/)、[SVG 图标库](https://hjfruit.github.io/icon-doc/)、[腊八](https://hjfruit.github.io/laba-doc/)、[工具集](https://24jieqi.github.io/utils/)
 ---
+
+## Expo
+
+- **Expo demo app**
+
+<div style="width:420px;">
+
+| SDK 50+ iOS                                                                                                                                                   | SDK 50+ Android                                                                                                                                               |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://qr.expo.dev/eas-update?updateId=caed0749-de10-443d-a104-b592529c06fa&appScheme=exp&host=u.expo.dev" alt="react-native-xiaoshu" width="200"> | <img src="https://qr.expo.dev/eas-update?updateId=caed0749-de10-443d-a104-b592529c06fa&appScheme=exp&host=u.expo.dev" alt="react-native-xiaoshu" width="200"> |
+
+</div>
 
 [xiaoshu-npm-url]: https://www.npmjs.com/package/@fruits-chain/react-native-xiaoshu
 
-<div align="center">
+<div class="markdown-text-center">
 
 [![](https://img.shields.io/npm/v/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]&nbsp;
 [![](https://img.shields.io/npm/dm/@fruits-chain/react-native-xiaoshu.svg)][xiaoshu-npm-url]&nbsp;
@@ -41,5 +54,11 @@ footer: 相关资源：[维护团队](https://techblog.hjgpscm.com/)、[小暑](
 
 [![Platform - Android](https://img.shields.io/badge/platform-Android-3ddc84.svg?logo=android)](https://www.android.com)&nbsp;
 [![Platform - iOS](https://img.shields.io/badge/platform-iOS-000.svg?logo=apple)](https://developer.apple.com/ios)
+
+</div>
+
+<div class="markdown-text-center">
+
+相关资源：[维护团队](https://techblog.hjgpscm.com/)、[小暑](https://24jieqi.github.io/react-native-xiaoshu/)、[白露](https://hjfruit.github.io/bailu-doc/)、[寒露](https://hjfruit.github.io/hanlu-doc/)、[SVG 图标库](https://hjfruit.github.io/icon-doc/)、[腊八](https://hjfruit.github.io/laba-doc/)、[工具集](https://24jieqi.github.io/utils/)
 
 </div>

@@ -2,7 +2,7 @@
 title: Tag 标签
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 展示组件
   path: /show

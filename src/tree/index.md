@@ -2,7 +2,7 @@
 title: Tree 树形控件
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 表单组件
   path: /form

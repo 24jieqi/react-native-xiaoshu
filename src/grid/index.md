@@ -2,7 +2,7 @@
 title: Grid 栅格
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 基础组件
   path: /basic

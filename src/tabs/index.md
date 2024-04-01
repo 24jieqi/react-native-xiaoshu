@@ -2,7 +2,7 @@
 title: Tabs 标签页
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 展示组件
   path: /show

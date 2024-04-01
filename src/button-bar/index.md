@@ -2,7 +2,7 @@
 title: ButtonBar 按钮组
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 展示组件
   path: /show

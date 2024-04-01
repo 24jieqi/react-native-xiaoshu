@@ -2,7 +2,7 @@
 title: NumberInput 数字输入框
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 表单组件
   path: /form

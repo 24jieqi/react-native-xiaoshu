@@ -2,7 +2,7 @@
 title: DatePickerView 时间选择器视图
 nav:
   title: 组件
-  path: /component
+
 group:
   title: 表单组件
   path: /form
