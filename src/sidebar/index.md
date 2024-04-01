@@ -2,10 +2,8 @@
 title: Sidebar 侧边导航
 nav:
   title: 组件
-
 group:
   title: 导航组件
-  path: /nav
   order: 5
 ---
 

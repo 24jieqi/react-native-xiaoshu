@@ -2,10 +2,8 @@
 title: FloatingPanel 浮动面板
 nav:
   title: 组件
-
 group:
   title: 反馈组件
-  path: /feedback
   order: 3
 ---
 

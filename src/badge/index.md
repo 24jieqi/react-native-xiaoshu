@@ -4,7 +4,6 @@ nav:
   title: 组件
 group:
   title: 展示组件
-  path: /show
   order: 4
 ---
 

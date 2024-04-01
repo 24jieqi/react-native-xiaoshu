@@ -2,10 +2,8 @@
 title: Search 搜索
 nav:
   title: 组件
-
 group:
   title: 表单组件
-  path: /form
   order: 2
 ---
 
