@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "react-native-xiaoshu",
-    "slug": "xiaoshu demo",
+    "slug": "react-native-xiaoshu",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -24,6 +26,18 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": []
+    "plugins": [],
+    "extra": {
+      "eas": {
+        "projectId": "610e3121-d086-4484-8023-130dca7937ec"
+      }
+    },
+    "owner": "onlyling",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/610e3121-d086-4484-8023-130dca7937ec"
+    }
   }
 }
