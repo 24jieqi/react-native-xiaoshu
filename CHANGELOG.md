@@ -1,3 +1,11 @@
+## [0.3.21](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.20...v0.3.21) (2024-04-01)
+
+### Features
+
+- **ci:** 🎸 使用 expo 制作预览\开发 App ([1c4a6f6](https://github.com/24jieqi/react-native-xiaoshu/commit/1c4a6f63a8cc4e75f08a911e3233369b82e74c83))
+- **ci:** 🎸 添加预览相关配置 ([8d6b031](https://github.com/24jieqi/react-native-xiaoshu/commit/8d6b031b50ce6cd715355b3204245b7a9834f41b))
+- **docs:** 🎸 添加 Expo 预览二维码 ([4bd2a01](https://github.com/24jieqi/react-native-xiaoshu/commit/4bd2a01a519bc80ae49085be83ca2c770592e68b))
+
 ## [0.3.20](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.20-beta.1...v0.3.20) (2024-03-04)
 
 ## [0.3.20-beta.1](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.20-beta.0...v0.3.20-beta.1) (2024-02-26)
