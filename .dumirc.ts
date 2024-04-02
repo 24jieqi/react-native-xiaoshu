@@ -22,9 +22,9 @@ export default defineConfig({
   },
   theme: {
     '@c-primary': '#0065FE',
-    '@c-warning': '#FFA238',
-    '@c-success': '#34B545',
-    '@c-error': '#F92F2F',
+    // '@c-warning': '#FFA238',
+    // '@c-success': '#34B545',
+    // '@c-error': '#F92F2F',
   },
   mfsu: false,
   alias: {
