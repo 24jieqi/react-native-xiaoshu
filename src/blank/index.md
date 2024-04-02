@@ -22,8 +22,14 @@ group:
 
 ## API
 
-| 属性名 | 描述 | 类型 | 默认值 |
-| :----- | ---- | ---- | ------ |
+| 属性名 | 描述         | 类型                  | 默认值     | 版本 |
+| :----- | ------------ | --------------------- | ---------- | ---- |
+| top    | 上边距       | `boolean\|number`     | `false`    | -    |
+| bottom | 下边距       | `boolean\|number`     | `false`    | -    |
+| left   | 左边距       | `boolean\|number`     | `true`     | -    |
+| right  | 右边距       | `boolean\|number`     | `true`     | -    |
+| size   | 默认留白大小 | `'s'\|'m'\|'l'`       | `'m'`      | -    |
+| type   | 边距类型     | `'margin'\|'padding'` | `'margin'` | -    |
 
 ## 主题定制
 

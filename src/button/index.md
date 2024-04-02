@@ -63,9 +63,54 @@ group:
 
 ### Button
 
+| 属性名              | 描述                  | 类型                                                                   | 默认值                 | 版本 |
+| :------------------ | --------------------- | ---------------------------------------------------------------------- | ---------------------- | ---- |
+| text                | 按钮文案              | `string`                                                               | -                      | -    |
+| subtext             | 按钮子文案            | `string`                                                               | -                      | -    |
+| textStyle           | 文字自定义样式        | `StyleProp<TextStyle>`                                                 | -                      | -    |
+| size                | 大小                  | `'xl'\|'l'\|'m'\|'s'\|'xs'`                                            | `'l'`                  | -    |
+| type                | 类型                  | `'primary'\|'hazy'\|'outline'\|'ghost'\|'link'`                        | `'primary'`            | -    |
+| danger              | 设置危险按钮          | `boolean`                                                              | `false`                | -    |
+| hairline            | 细边框                | `boolean`                                                              | `false`                | -    |
+| disabled            | 是否禁用按钮          | `boolean`                                                              | `false`                | -    |
+| loading             | 是否显示为加载状态    | `boolean`                                                              | `false`                | -    |
+| loadingText         | 加载状态提示文字      | `string`                                                               | -                      | -    |
+| loadingIcon         | 加载状态图标          | `React.ReactNode\|((size:number,color:ColorValue) => React.ReactNode)` | -                      | -    |
+| square              | 是否为方形按钮        | `boolean`                                                              | `false`                | -    |
+| round               | 是否为圆形按钮        | `boolean`                                                              | `false`                | -    |
+| renderLeftIcon      | 渲染左侧图标          | `(color:ColorValue,size:number) => React.ReactElement`                 | -                      | -    |
+| color               | 按钮颜色，不支持渐变  | `ColorValue`                                                           | -                      | -    |
+| textColor           | 按钮文案颜色          | `ColorValue`                                                           | `button_primary_color` | -    |
+| onPressDebounceWait | onPress debounce wait | `number`                                                               | `0`                    | -    |
+
 ### Button.Option
 
+继承 `ButtonProps` 的 `text`、`textStyle`、`size`、`hairline`、`round`。
+
+| 属性名          | 描述                         | 类型                         | 默认值   | 版本 |
+| :-------------- | ---------------------------- | ---------------------------- | -------- | ---- |
+| active          | 是否选中、高亮               | `boolean`                    | -        | -    |
+| activeHighlight | 选中状态文案颜色、背景色高亮 | `boolean`                    | `true`   | -    |
+| badge           | 显示的数量                   | `React.ReactNode`            | -        | -    |
+| type            | 类型                         | `'hazy'\|'outline'\|'white'` | `'hazy'` | -    |
+
 ### Button.OptionGroup
+
+继承 `SpaceProps` 的 `direction`。
+
+| 属性名          | 描述                                                       | 类型                                                                                                               | 默认值   | 版本 |
+| :-------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ---- |
+| activeHighlight | 选中状态文案颜色、背景色高亮                               | `boolean`                                                                                                          | `true`   | -    |
+| type            | 类型                                                       | `'hazy'\|'outline'\|'white'`                                                                                       | `'hazy'` | -    |
+| round           | 是否为圆形按钮                                             | `boolean`                                                                                                          | `false`  | -    |
+| options         | 选项组                                                     | `{value:TValue label:string disabled?:boolean badge?:React.ReactNode}[]`                                           | -        | -    |
+| multiple        | 是否多选                                                   | `boolean`                                                                                                          | `false`  | -    |
+| value           | 受控模式的值                                               | `TValue\|TValue[]`                                                                                                 | -        | -    |
+| defaultValue    | 受控模式的默认值                                           | `TValue\|TValue[]`                                                                                                 | -        | -    |
+| onChange        | 变化时的回调函数                                           | `(value:TValue[]\|TValue,options:{value:TValue label:string disabled?:boolean badge?:React.ReactNode }[]) => void` | -        | -    |
+| editable        | 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果 | `boolean`                                                                                                          | `true`   | -    |
+| scrollable      | 是否可滚动                                                 | `boolean`                                                                                                          | `false`  | -    |
+| deselect        | 单选的情况下是否可以取消选择                               | `boolean`                                                                                                          | `true`   | -    |
 
 ## 主题定制
 

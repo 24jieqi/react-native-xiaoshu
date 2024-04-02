@@ -47,16 +47,19 @@ export interface ButtonProps
 
   /**
    * 细边框
+   * @default false
    */
   hairline?: boolean
 
   /**
    * 是否禁用按钮
+   * @default false
    */
   disabled?: boolean
 
   /**
    * 是否显示为加载状态
+   * @default false
    */
   loading?: boolean
 
@@ -67,11 +70,13 @@ export interface ButtonProps
 
   /**
    * 是否为方形按钮
+   * @default false
    */
   square?: boolean
 
   /**
    * 是否为圆形按钮
+   * @default false
    */
   round?: boolean
 
@@ -140,6 +145,7 @@ export interface ButtonOptionGroupProps<TValue = any>
 
   /**
    * 是否为圆形按钮
+   * @default false
    */
   round?: boolean
 
@@ -166,8 +172,7 @@ export interface ButtonOptionGroupProps<TValue = any>
       value: TValue
       label: string
       disabled?: boolean
-      badge?: number
-      style?: ButtonOptionProps['style']
+      badge?: React.ReactNode
     }[],
   ) => void
   /**
