@@ -21,6 +21,10 @@ React Native UI library
 
 </div>
 
+![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+![](./snapshoot.png)
+
 ## 特点
 
 - 🛡 纯 TypeScript 实现

@@ -31,6 +31,8 @@ features:
 # footer: Copyright © 2021-present<br />Powered by [二十四节气团队](https://github.com/24jieqi).
 ---
 
+<Home></Home>
+
 <div class="home-expo">
 
 ## Expo

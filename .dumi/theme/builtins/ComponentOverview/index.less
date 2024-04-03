@@ -1,0 +1,94 @@
+.overview {
+  &-search {
+    border-width: 0;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 18px;
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &-divider {
+      height: 1px;
+      margin: 24px 0;
+      background-color: rgba(5, 5, 5, 0.06);
+    }
+
+    &-wrapper {
+      position: sticky;
+      // top: @s-header-height;
+      top: 86px;
+      z-index: 29;
+      box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
+      padding: 12px;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+  }
+
+  &-group {
+    &-name {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      padding: 24px 0;
+    }
+    &-count {
+      border-radius: 4px;
+      border: 1px solid #d9d9d9;
+      background-color: #f5f5f5;
+      font-size: 12px;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      margin-left: 12px;
+      font-weight: normal;
+    }
+  }
+
+  &-row {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 0;
+    row-gap: 24px;
+    box-sizing: border-box;
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  &-col {
+    box-sizing: border-box;
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  &-card {
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.6s;
+    color: #666;
+    
+    &:hover {
+      color: @c-primary;
+      border-color: @c-primary;
+      box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
+    }
+  }
+}
