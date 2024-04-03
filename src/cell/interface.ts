@@ -6,6 +6,7 @@ import type {
   StyleProp,
   TextProps,
   TouchableOpacityProps,
+  TouchableWithoutFeedbackProps,
 } from 'react-native'
 
 export interface CellGroupProps extends PropsWithChildren<{}> {
@@ -25,7 +26,7 @@ export interface CellGroupProps extends PropsWithChildren<{}> {
   style?: StyleProp<ViewStyle>
 
   /**
-   * 分组名自定义文字样式
+   * 分组名称自定义文字样式
    */
   titleTextStyle?: StyleProp<TextStyle>
 
@@ -35,24 +36,24 @@ export interface CellGroupProps extends PropsWithChildren<{}> {
   bodyStyle?: StyleProp<ViewStyle>
 
   /**
-   * 是否显示 body 区域上分割线
+   * 是否显示 body 区域上方分割线
    * @default false
    */
   bodyTopDivider?: boolean
 
   /**
-   * 是否显示 body 区域上分割线
+   * 是否显示 body 区域下方分割线
    * @default false
    */
   bodyBottomDivider?: boolean
 
   /**
-   * 点击分组名称区域，包含 title、extra
+   * 点击分组名称区域的回调函数，包含 title、extra
    */
-  onPressTitle?: TextProps['onPress']
+  onPressTitle?: TouchableWithoutFeedbackProps['onPress']
 
   /**
-   * 点击分组名称文案
+   * 点击分组名称文字的回调函数
    */
   onPressTitleText?: TextProps['onPress']
 }
