@@ -31,6 +31,8 @@ features:
 # footer: Copyright © 2021-present<br />Powered by [二十四节气团队](https://github.com/24jieqi).
 ---
 
+<div class="home-expo">
+
 ## Expo
 
 - **Expo demo app**
@@ -40,6 +42,8 @@ features:
 | SDK 50+ iOS                                                                                                                                                   | SDK 50+ Android                                                                                                                                               |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <img src="https://qr.expo.dev/eas-update?updateId=caed0749-de10-443d-a104-b592529c06fa&appScheme=exp&host=u.expo.dev" alt="react-native-xiaoshu" width="200"> | <img src="https://qr.expo.dev/eas-update?updateId=caed0749-de10-443d-a104-b592529c06fa&appScheme=exp&host=u.expo.dev" alt="react-native-xiaoshu" width="200"> |
+
+</div>
 
 </div>
 

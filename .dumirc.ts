@@ -25,6 +25,7 @@ export default defineConfig({
     // '@c-warning': '#FFA238',
     // '@c-success': '#34B545',
     // '@c-error': '#F92F2F',
+    '@s-content-width': '1800px',
   },
   mfsu: false,
   alias: {
