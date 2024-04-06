@@ -31,19 +31,57 @@ group:
 
 ## API
 
+### 公共属性
+
+| 属性名              | 描述                                                                      | 类型            | 默认值                    | 版本 |
+| :------------------ | ------------------------------------------------------------------------- | --------------- | ------------------------- | ---- |
+| visible             | 是否显示                                                                  | `boolean`       | `false`                   | -    |
+| duration            | 动画时长，单位毫秒                                                        | `number`        | `animation_duration_base` | -    |
+| overlay             | 是否显示遮罩层                                                            | `boolean`       | `true`                    | -    |
+| closeOnPressOverlay | 受控组件：用于阻止 overlay onPress 事件；函数调用：可以用来阻碍弹出层消失 | `boolean`       | `true`                    | -    |
+| onPressOverlay      | 点击遮罩层时触发                                                          | `() => void`    | -                         | -    |
+| onOpen              | 打开弹出层时触发                                                          | `() => void`    | -                         | -    |
+| onOpened            | 打开弹出层且动画结束后触发                                                | `() => void`    | -                         | -    |
+| onClose             | 关闭弹出层时触发                                                          | `() => void`    | -                         | -    |
+| onClosed            | 关闭弹出层且动画结束后触发                                                | `() => void`    | -                         | -    |
+| onRequestClose      | 当点击返回按钮时触发，Android                                             | `() => boolean` | -                         | -    |
+
 ### Popup
 
 ### Popup.Component
 
 `Popup` 与 `Popup.Component` 属性相同，`Popup` 被 `Portal` 组件包裹，在根节点渲染。
 
+| 属性名              | 描述                                                            | 类型                   | 默认值     | 版本 |
+| :------------------ | --------------------------------------------------------------- | ---------------------- | ---------- | ---- |
+| style               | 最外层样式                                                      | `StyleProp<ViewStyle>` | -          | -    |
+| position            | 弹出位置，可选值为 `'top'\|'bottom'\|'right'\|'left'\|'center'` | `PopupPosition`        | `'center'` | -    |
+| round               | 是否显示圆角                                                    | `boolean`              | `false`    | -    |
+| safeAreaInsetBottom | 是否开启底部安全区适配                                          | `boolean`              | `false`    | -    |
+| safeAreaInsetTop    | 是否开启顶部安全区适配                                          | `boolean`              | `false`    | -    |
+| lazyRender          | 是否在显示弹层时才渲染节点                                      | `boolean`              | `true`     | -    |
+| destroyOnClosed     | 关闭时销毁 Popup，回退到 lazyRender 的状态                      | `boolean`              | `false`    | -    |
+
 ### Popup.Header
+
+去掉 `NavBarProps` 的 `showBackArrow`、`backArrowColor`、`backArrowSize`、`onPressBackArrow`、`border`。
+
+| 属性名    | 描述             | 类型         | 默认值 | 版本 |
+| :-------- | ---------------- | ------------ | ------ | ---- |
+| onClose   | 点击关闭         | `() => void` | -      | -    |
+| showClose | 是否显示关闭按钮 | `boolean`    | `true` | -    |
 
 ### Popup.Page <Badge>0.2.47+</Badge>
 
 ### Popup.PageComponent
 
 `Popup.Page` 与 `Popup.PageComponent` 属性相同，`Popup.Page` 被 `Portal` 组件包裹，在根节点渲染。
+
+去掉 `PopupProps` 的 `position`、`safeAreaInsetTop`。
+
+| 属性名           | 描述         | 类型     | 默认值               | 版本 |
+| :--------------- | ------------ | -------- | -------------------- | ---- |
+| safeAreaInsetTop | 顶部安全高度 | `number` | `safeAreaInsets.top` | -    |
 
 ### Popup.KeyboardShim
 

@@ -3,6 +3,7 @@ import type { ViewProps, FlexStyle } from 'react-native'
 export interface RowProps extends ViewProps {
   /**
    * 列元素之间的间距
+   * @default 0
    */
   gap?: number
 

@@ -17,7 +17,7 @@ export interface PopupPropsCommon {
   visible: boolean
 
   /**
-   * 动画时长，单位毫秒秒
+   * 动画时长，单位毫秒
    * @default animation_duration_base
    */
   duration?: number

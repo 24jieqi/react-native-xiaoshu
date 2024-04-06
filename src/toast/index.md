@@ -28,6 +28,21 @@ Toast.clear 暂时未实现。
 
 Toast.setDefaultOptions 设置默认参数，例如是否背景可以点击、持续时长。
 
+去掉 `Popup 公共属性` 的 `visible`、`duration`、`closeOnPressOverlay`。
+
+| 属性名              | 描述                                                              | 类型                        | 默认值      | 版本 |
+| :------------------ | ----------------------------------------------------------------- | --------------------------- | ----------- | ---- |
+| type                | 提示类型，可选值为 `'text'\|'loading'\|'success'\|'fail'\|'icon'` | `ToastType`                 | `'text'`    | -    |
+| position            | 位置，可选值为 `'top'\|'bottom'\|'middle'`                        | `'top'\|'bottom'\|'middle'` | `'middle'`  | -    |
+| message             | 文本内容(支持模板字符串\n换行)                                    | `string`                    | `''`        | -    |
+| overlay             | 是否显示背景遮罩层                                                | `boolean`                   | `false`     | -    |
+| forbidPress         | 是否禁止背景点击                                                  | `boolean`                   | `false`     | -    |
+| closeOnPress        | 是否在点击后关闭                                                  | `boolean`                   | `false`     | -    |
+| closeOnPressOverlay | 是否在点击遮罩层后关闭                                            | `boolean`                   | `false`     | -    |
+| loadingType         | 加载图标类型, 可选值为 `'circular'\|'spinner'`                    | `'circular'\|'spinner'`     | `'spinner'` | -    |
+| duration            | 展示时长(ms)，值为 0 时，toast 不会消失                           | `number`                    | `2000`      | -    |
+| icon                | 自定义图标                                                        | `React.ReactNode`           | -           | -    |
+
 ## 主题定制
 
 | 名称                           | 默认值                          | 描述 |
