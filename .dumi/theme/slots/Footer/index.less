@@ -1,0 +1,66 @@
+@import (reference) '../../../variables.less';
+
+.dumi-custom-footer {
+  margin-top: @s-content-padding;
+  border-top: 1px solid @c-border-light;
+  // color: #b0b1ba;
+
+  @{dark-selector} & {
+    border-top-color: @c-border-less-dark;
+    color: @c-text-note-dark;
+  }
+
+  [data-no-sidebar] > & &-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media @mobile {
+    padding: @s-content-padding * 0.3 0;
+    font-size: 13px;
+  }
+
+  &-inner {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 0;
+    row-gap: 24px;
+    box-sizing: border-box;
+  }
+
+  dl {
+    box-sizing: border-box;
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  dt {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.85);
+
+    @{dark-selector} & {
+      color: @c-text-dark;
+    }
+  }
+
+  dd {
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  a {
+    // color: @c-primary;
+    color: rgba(0, 0, 0, 0.65);
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
+
+    &:not(:hover) {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import (reference) '../../../variables.less';
+
 .overview {
   &-search {
     border-width: 0;
@@ -16,10 +18,19 @@
       color: #999;
     }
 
+    @{dark-selector} & {
+      background-color: @c-text-dark;
+      color: @c-primary-dark;
+    }
+
     &-divider {
       height: 1px;
       margin: 24px 0;
       background-color: rgba(5, 5, 5, 0.06);
+
+      @{dark-selector} & {
+        background-color: @c-text-secondary-dark;
+      }
     }
 
     &-wrapper {
@@ -27,10 +38,17 @@
       // top: @s-header-height;
       top: 86px;
       z-index: 29;
-      box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
+      box-shadow:
+        0 6px 16px -8px #00000014,
+        0 9px 28px #0000000d,
+        0 12px 48px 16px #00000008;
       padding: 12px;
       border-radius: 6px;
       background-color: #fff;
+
+      @{dark-selector} & {
+        background-color: @c-text-secondary-dark;
+      }
     }
   }
 
@@ -41,6 +59,10 @@
       align-items: center;
       font-weight: bold;
       padding: 24px 0;
+
+      @{dark-selector} & {
+        color: @c-text-dark;
+      }
     }
     &-count {
       border-radius: 4px;
@@ -79,16 +101,30 @@
 
   &-card {
     border-radius: 4px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @c-border;
     padding: 12px;
     cursor: pointer;
     transition: all 0.6s;
-    color: #666;
-    
+    color: @c-text-secondary;
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+      border-color: @c-border-dark;
+      background-color: #333;
+
+      &:hover {
+        color: @c-primary-dark;
+        border-color: @c-primary-dark;
+        background-color: #222;
+      }
+    }
+
     &:hover {
       color: @c-primary;
       border-color: @c-primary;
-      box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
+      box-shadow:
+        0 6px 16px -8px #00000014,
+        0 9px 28px #0000000d,
+        0 12px 48px 16px #00000008;
     }
   }
 }

@@ -62,9 +62,3 @@ features:
 [![Platform - iOS](https://img.shields.io/badge/platform-iOS-000.svg?logo=apple)](https://developer.apple.com/ios)
 
 </div>
-
-<div class="markdown-text-center">
-
-相关资源：[维护团队](https://techblog.hjgpscm.com/)、[小暑](https://24jieqi.github.io/react-native-xiaoshu/)、[白露](https://hjfruit.github.io/bailu-doc/)、[寒露](https://hjfruit.github.io/hanlu-doc/)、[SVG 图标库](https://hjfruit.github.io/icon-doc/)、[腊八](https://hjfruit.github.io/laba-doc/)、[工具集](https://24jieqi.github.io/utils/)
-
-</div>

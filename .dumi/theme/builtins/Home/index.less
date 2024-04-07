@@ -1,17 +1,27 @@
+@import (reference) '../../../variables.less';
+
 .custom-home {
   &-h2 {
-    color: rgba(0, 0, 0, 0.8);
+    color: @c-text;
     font-size: 38px;
     line-height: 46px;
     text-align: center;
+
+    @{dark-selector} & {
+      color: @c-text-dark;
+    }
   }
 
   &-desc {
-    color: rgba(0, 0, 0, 0.8);
+    color: @c-text-secondary;
     font-size: 14px;
     line-height: 22px;
     text-align: center;
     margin: 0;
+
+    @{dark-selector} & {
+      color: @c-text-secondary-dark;
+    }
   }
 
   &-snapshoot {
@@ -19,5 +29,25 @@
     display: block;
     margin: 42px auto;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+    @{dark-selector} & {
+      position: relative;
+
+      &::after {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 2;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
   }
 }
