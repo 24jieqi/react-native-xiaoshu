@@ -1,3 +1,5 @@
+# [0.4.0-beta.0](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.21...v0.4.0-beta.0) (2024-04-08)
+
 ## [0.3.21](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.20...v0.3.21) (2024-04-01)
 
 ### Features
