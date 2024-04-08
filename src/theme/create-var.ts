@@ -21,9 +21,11 @@ export const createVar = <T>(token: TokensType, creator: Creator<T>): T => {
     }
   }
 
+  // @ts-ignore
   if (!myStyle) {
     myStyle = creator(token)
     // 变量覆盖
+    // @ts-ignore
     Object.keys(myStyle).forEach(field => {
       if (!isNil(token[field])) {
         myStyle[field] = token[field]

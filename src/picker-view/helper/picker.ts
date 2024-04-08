@@ -129,12 +129,12 @@ export const buildOptions = (
         if (isOption) {
           const option = item as PickerOption[]
           mixOptions.push(option)
-          defaultValues.push(findDefaultValue(option[0].value, option))
+          defaultValues.push(findDefaultValue(option[0].value, option)!)
         } else {
           const { options: _options, defaultValue: _defaultValue } =
             item as PickerOptionMultipleWidthDefaultValue
           mixOptions.push(_options)
-          defaultValues.push(findDefaultValue(_defaultValue, _options))
+          defaultValues.push(findDefaultValue(_defaultValue!, _options)!)
         }
       })
 

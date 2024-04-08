@@ -50,7 +50,7 @@ const Progress: React.FC<ProgressProps> = ({
   pivotColor = getDefaultValue(pivotColor, color)
   textColor = getDefaultValue(textColor, CV.progress_pivot_text_color)
   pivotText = getDefaultValue(pivotText, `${percentage}%`)
-  strokeWidth = getDefaultValue(strokeWidth, CV.progress_height)
+  strokeWidth = getDefaultValue(strokeWidth, CV.progress_height)!
   animationDuration = getDefaultValue(
     animationDuration,
     TOKENS.animation_duration_base,

@@ -26,7 +26,7 @@ type ListData = {
 export const findNodeByValue = (
   tree: TreeOption[],
   value: TreeValue,
-): TreeOption => {
+): TreeOption | undefined => {
   for (const item of tree) {
     if (item.value === value) {
       return item
@@ -38,6 +38,8 @@ export const findNodeByValue = (
       }
     }
   }
+
+  return undefined
 }
 
 export const findAllChildrenValue = (tree: TreeOption[]) => {
@@ -129,7 +131,7 @@ export const buildHighlightLabelConfig = (
         })
       }
 
-      pointer = res.index + res[0].length
+      pointer = (res.index || 0) + res[0].length
 
       nodes.push({
         highlight: true,
@@ -159,7 +161,7 @@ const switcherIconWrapperStyle: ViewStyle = {
 }
 
 const Tree: React.FC<TreeProps> = ({
-  multiple,
+  multiple = false,
   multipleMode = TreeMultipleMode.NORMAL,
   options,
   renderSwitcherIcon,
@@ -179,12 +181,11 @@ const Tree: React.FC<TreeProps> = ({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
-  const [value, onChange] = useControllableValue<TreeValue | TreeValue[]>(
-    restProps,
-    {
-      defaultValue: multiple ? [] : undefined,
-    },
-  )
+  const [value, onChange] = useControllableValue<
+    TreeValue | TreeValue[] | null
+  >(restProps, {
+    defaultValue: multiple ? [] : undefined,
+  })
   const getOnSearch = usePersistFn(() => {
     return onSearch
   })
@@ -276,8 +277,8 @@ const Tree: React.FC<TreeProps> = ({
     return _onSearch ? _onSearch(keyword, _options) : _defaultFilter()
   }, [keyword, getOnSearch, options])
 
-  const _indent = getDefaultValue(indent, CV.tree_indent)
-  const _activeColor = getDefaultValue(activeColor, CV.tree_active_color)
+  const _indent = getDefaultValue(indent, CV.tree_indent)!
+  const _activeColor = getDefaultValue(activeColor, CV.tree_active_color)!
   const flatListStyle = useMemo<ViewStyle>(() => {
     if (minHeight === false) {
       return {}
@@ -349,7 +350,7 @@ const Tree: React.FC<TreeProps> = ({
           const doPushParent = (subValue: TreeValue) => {
             const _p = findParentNodeByValue(options, subValue)
             if (_p) {
-              const _pNextValues = findAllChildrenValue(_p.children)
+              const _pNextValues = findAllChildrenValue(_p.children || [])
               // 父节点的所有子节点是否都在 _value
               if (
                 _pNextValues.filter(pnv => _value.indexOf(pnv) === -1)
@@ -534,7 +535,7 @@ const Tree: React.FC<TreeProps> = ({
                 active={isActive}
                 renderLabel={item.render}
                 labelHighlight={_labelHighlight}
-                hasChildren={item.children?.length > 0}
+                hasChildren={(item.children?.length || 0) > 0}
                 onPressSwitcherIcon={_onPressSwitcherIcon}
               />
             )

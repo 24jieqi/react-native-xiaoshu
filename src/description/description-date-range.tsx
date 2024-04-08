@@ -20,8 +20,8 @@ const DescriptionDateRange: React.FC<DescriptionDateRangeProps> = ({
 
   ...restProps
 }) => {
-  const start = !isNil(text?.[0]) ? formatDate(mode, text[0]) : null
-  const end = !isNil(text?.[1]) ? formatDate(mode, text[1]) : null
+  const start = !isNil(text?.[0]) ? formatDate(mode, text![0]) : null
+  const end = !isNil(text?.[1]) ? formatDate(mode, text![1]) : null
 
   const locale = Locale.useLocale().DescriptionDateRange
   const TOKENS = Theme.useThemeTokens()

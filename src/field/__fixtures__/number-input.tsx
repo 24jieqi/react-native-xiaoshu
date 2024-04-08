@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
-  const [text1, setText1] = useState<number>(null)
+  const [text1, setText1] = useState<number | undefined>(undefined)
 
   return (
     <Cell.Group title="Field NumberInput">
@@ -64,7 +64,7 @@ const BasicFieldTextInput: React.FC = () => {
             size="xs"
             danger
             onPress={() => {
-              setText1(null)
+              setText1(undefined)
             }}
           />
         }

@@ -21,7 +21,7 @@ function ButtonOptionGroup<T = any>({
 
   ...restProps
 }: ButtonOptionGroupProps<T>) {
-  const [value, onChange] = useControllableValue<T | T[]>(restProps, {
+  const [value, onChange] = useControllableValue<T | T[] | null>(restProps, {
     defaultValue: multiple ? [] : undefined,
   })
 

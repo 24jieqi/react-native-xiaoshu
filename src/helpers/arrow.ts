@@ -11,7 +11,7 @@ import {
 
 type DirectionValue = 'left' | 'up' | 'right' | 'down'
 
-export const getArrowOutline = (x: DirectionValue) => {
+export const getArrowOutline = (x: DirectionValue | undefined) => {
   switch (x) {
     case 'down':
       return ArrowDownOutline
@@ -27,7 +27,7 @@ export const getArrowOutline = (x: DirectionValue) => {
   }
 }
 
-export const getArrowFill = (x: DirectionValue) => {
+export const getArrowFill = (x: DirectionValue | undefined) => {
   switch (x) {
     case 'down':
       return ArrowDownFill

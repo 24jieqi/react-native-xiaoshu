@@ -16,7 +16,7 @@ const NavTab = <T,>({ options, ...restProps }: NavTabProps<T>) => {
   return (
     <View style={STYLES.navWrapper}>
       <View style={STYLES.nav}>
-        {options.map(item => {
+        {options?.map(item => {
           const isActive = item.value === value
 
           return (

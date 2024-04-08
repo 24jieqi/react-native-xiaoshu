@@ -12,7 +12,8 @@ export interface ButtonBarProps extends BottomBarProps {
   /**
    * 配置方式的按钮
    */
-  buttons?: (Omit<ButtonProps, 'onPress'> & {
+  buttons?: (Omit<ButtonProps, 'onPress' | 'text'> & {
+    text: string
     hidden?: boolean
     onPress?: () => void
   })[]

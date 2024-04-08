@@ -33,7 +33,7 @@ const BasicUploader: React.FC = () => {
       status: 'error',
     },
   ])
-  const [list2, setList2] = useState<UploaderValue[]>(
+  const [list2, setList2] = useState<(UploaderValue | null)[]>(
     new Array(10).fill(0).map((_, index) => {
       if (index === 0) {
         return {
@@ -153,7 +153,7 @@ const BasicUploader: React.FC = () => {
                   if (action === 'confirm') {
                     setList2(s => {
                       const ns = [...s]
-                      ns[index] = undefined
+                      ns[index] = null
 
                       return ns
                     })

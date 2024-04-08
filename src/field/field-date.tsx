@@ -27,7 +27,7 @@ const FieldDate: React.FC<FieldDateProps> = ({
 
   ...restProps
 }) => {
-  const [value, onChange] = useControllableValue<Date>(restProps)
+  const [value, onChange] = useControllableValue<Date | null>(restProps)
   const valueText = useMemo(
     () => (value ? formatDate(mode, value) : undefined),
     [value, mode],
@@ -62,7 +62,7 @@ const FieldDate: React.FC<FieldDateProps> = ({
       disabled={!editable}
       onPress={onPress}
       value={
-        formatValueText && !isUndefined(valueText)
+        formatValueText && !isUndefined(valueText) && value
           ? formatValueText(value, mode, valueText)
           : valueText
       }

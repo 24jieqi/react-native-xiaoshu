@@ -152,6 +152,7 @@ export interface DropdownItemProps<T>
 
   /**
    * 没有值时提示文案
+   * @default ''
    */
   placeholder?: string
 }
@@ -201,7 +202,7 @@ export interface DropdownContext
   /**
    * 菜单的 Ref，内部使用不向外暴露
    */
-  MenuRef: MutableRefObject<View>
+  MenuRef: MutableRefObject<View | null>
 }
 
 export interface DropdownMenuProps

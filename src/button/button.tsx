@@ -1,6 +1,7 @@
 import Color from 'color'
 import isNil from 'lodash/isNil'
 import isUndefined from 'lodash/isUndefined'
+import noop from 'lodash/noop'
 import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
@@ -44,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
   const STYLES = Theme.createStyle(CV, styleCreator)
-  const { run: runOnPress } = useDebounceFn(restProps.onPress, {
+  const { run: runOnPress } = useDebounceFn(restProps.onPress || noop, {
     wait: onPressDebounceWait,
     leading: true,
     trailing: false,
@@ -133,8 +134,8 @@ const Button: React.FC<ButtonProps> = ({
     commonTextStyle,
     textStyle,
   ])
-  const iconSize =
-    CV[`button_${size}_loading_size`] || textStyleSummary.fontSize
+  const iconSize = (CV[`button_${size}_loading_size`] ||
+    textStyleSummary.fontSize)!
   const iconColor = textStyleSummary.color as string
 
   const contextJSX = loading ? (

@@ -8,14 +8,18 @@ import React, { useState } from 'react'
 import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicSelectorComponent: React.FC = () => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<{
+    show: boolean
+    option: { value: number; label: string }[]
+    value?: number
+  }>({
     show: false,
     option: [
       { value: 1, label: '111111' },
       { value: 2, label: '2222222' },
       { value: 3, label: '3333333' },
     ],
-    value: null,
+    value: undefined,
   })
 
   return (
@@ -40,7 +44,7 @@ const BasicSelectorComponent: React.FC = () => {
             console.log('组件调用 -> rest')
             setState(s => ({
               ...s,
-              value: null,
+              value: undefined,
             }))
           }}
         />
@@ -64,7 +68,7 @@ const BasicSelectorComponent: React.FC = () => {
           console.log('组件调用 -> onChange')
           setState(s => ({
             ...s,
-            value: v,
+            value: v as number,
             show: false,
           }))
         }}

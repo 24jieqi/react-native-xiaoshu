@@ -17,15 +17,15 @@ const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
   const scrollRef = useRef<ScrollView>(null)
 
   const setScrollDistance = (width: number) => {
-    if (scrollRef.current && data?.length > maxSteps) {
+    if (scrollRef.current && data && data.length > maxSteps) {
       scrollRef.current.scrollTo({
-        x: (width / data?.length) * (current - 1 > 0 ? current - 1 : 0),
+        x: (width / data.length) * (current - 1 > 0 ? current - 1 : 0),
         y: 0,
       })
     }
   }
   const inner =
-    data?.length > 0 ? (
+    data && data.length > 0 ? (
       <View
         style={[STYLES.stepsBox, style]}
         onLayout={e => {
@@ -41,7 +41,7 @@ const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
 
   return (
     <View style={STYLES.outWrap}>
-      {data?.length > maxSteps ? (
+      {data && data.length > maxSteps ? (
         <ScrollView style={STYLES.scrollViewBox} horizontal ref={scrollRef}>
           {inner}
         </ScrollView>

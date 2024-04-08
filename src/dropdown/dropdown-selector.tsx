@@ -131,7 +131,7 @@ const DropdownSelectorMethod = <T,>({
   const findNodeByValue = (
     tree: DropdownItemOption<T>[],
     value: T,
-  ): DropdownItemOption<T> => {
+  ): DropdownItemOption<T> | undefined => {
     for (const item of tree) {
       if (item.value === value) {
         return item
@@ -143,6 +143,8 @@ const DropdownSelectorMethod = <T,>({
         }
       }
     }
+
+    return undefined
   }
 
   const onPressShade = useCallback(() => {
@@ -212,7 +214,7 @@ const DropdownSelectorMethod = <T,>({
     onConfirm?.(
       multipleValue,
       multipleValue.map(item => {
-        return findNodeByValue(options, item)
+        return findNodeByValue(options, item)!
       }),
     )
   })

@@ -2,6 +2,7 @@ import { SuccessOutline } from '@fruits-chain/icons-react-native'
 import isNil from 'lodash/isNil'
 import React, { useContext, useEffect, useState } from 'react'
 import type { FC } from 'react'
+import type { TextStyle } from 'react-native'
 import { Dimensions, View } from 'react-native'
 
 import { renderTextLikeJSX } from '../helpers'
@@ -21,9 +22,9 @@ const Step: FC<StepsItemPropsType> = props => {
   const windowWidth = Dimensions.get('window').width
   const stepWidth = windowWidth / maxSteps
   const [elementCount, setElementCount] = useState(0)
-  let resIcon = null
+  let resIcon: React.ReactNode = null
   let resStatus = status ? status : current >= index ? 'finish' : 'wait'
-  let titleStyle = null
+  let titleStyle: TextStyle | null = null
 
   switch (resStatus) {
     case 'finish':
@@ -49,8 +50,9 @@ const Step: FC<StepsItemPropsType> = props => {
     resIcon = icon
   }
   useEffect(() => {
-    setElementCount(data?.length)
+    setElementCount(data?.length || 0)
   }, [data?.length])
+
   const isFirst = index === 0
   const isLast = index === elementCount - 1
 

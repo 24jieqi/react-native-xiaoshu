@@ -23,7 +23,8 @@ const onChangeLog = (v: [Date, Date]) => {
 }
 
 const BasicDatePickerViewRangeView: React.FC = () => {
-  const [value, setValue] = useState(defaultValueView)
+  const [value, setValue] =
+    useState<[Date | null, Date | null]>(defaultValueView)
 
   return (
     <Card title="时间段视图">

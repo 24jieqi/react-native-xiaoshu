@@ -263,7 +263,7 @@ const BasicDropdown: React.FC = () => {
           <Button
             text="打开一个"
             onPress={() => {
-              ViewRef.current.measure((x, y, width, height, pageX, pageY) => {
+              ViewRef.current?.measure((x, y, width, height, pageX, pageY) => {
                 setPopupProps(s => ({
                   ...s,
                   targetHeight: height,

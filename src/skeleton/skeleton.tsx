@@ -45,7 +45,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({
 }) => {
   const showTitle = !!title
   const titleWidths = isObject(title)
-    ? [(title as SkeletonTitleProps).width]
+    ? [(title as SkeletonTitleProps).width!]
     : defaultTitleWidths
 
   const showParagraph = !!paragraph

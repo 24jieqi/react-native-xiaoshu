@@ -46,7 +46,7 @@ const Uploader = <T extends UploaderValue>({
     onLayout?.(e)
   })
   const onPressUploadPersistFn = usePersistFn(() => {
-    onPressUpload()
+    onPressUpload?.()
   })
 
   const genOnPressDelete = (item: T, index: number) => () => {

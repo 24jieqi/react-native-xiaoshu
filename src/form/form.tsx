@@ -35,7 +35,7 @@ const InternalForm: React.ForwardRefRenderFunction<
   useImperativeHandle(ref, () => wrapForm)
 
   const onFinishPersistFn = usePersistFn(() => {
-    onFinish(wrapForm.getFieldsValue(true))
+    onFinish?.(wrapForm.getFieldsValue(true))
   })
 
   return (

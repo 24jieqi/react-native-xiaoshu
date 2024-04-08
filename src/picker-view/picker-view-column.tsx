@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useMemo, memo } from 'react'
 import type { FlatListProps } from 'react-native'
 import { View, Text, FlatList } from 'react-native'
 
+import type { ExcludeUndefined } from '../helpers/types'
 import { usePersistFn } from '../hooks'
 import Theme from '../theme'
 
@@ -58,7 +59,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
   }, [selectedIndex])
 
   const onMomentumScrollEnd = usePersistFn<
-    FlatListProps<any>['onMomentumScrollEnd']
+    ExcludeUndefined<FlatListProps<any>['onMomentumScrollEnd']>
   >(event => {
     const offsetY = Math.min(
       itemHeight * (options.length - 1),
@@ -80,7 +81,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
 
     const selectOption = options[index]
     if (selectOption.value !== value) {
-      onChange(selectOption)
+      onChange?.(selectOption)
     }
   })
 

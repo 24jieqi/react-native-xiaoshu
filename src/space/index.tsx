@@ -10,7 +10,7 @@ import type { SpaceProps } from './interface'
 
 const NO_GAP = 0
 
-const getMarginGap = (d: boolean | number, gap: number) =>
+const getMarginGap = (d: boolean | number | undefined, gap: number) =>
   d ? (typeof d === 'number' ? d : gap) : 0
 
 /**
@@ -40,8 +40,8 @@ const Space: React.FC<SpaceProps> = ({
   const defaultGap: number =
     typeof gap === 'string' ? CV_BLANK[`blank_size_${gap}`] : gap
   const isVertical = direction === 'vertical'
-  const _gapVertical = getDefaultValue(gapVertical, defaultGap)
-  const _gapHorizontal = getDefaultValue(gapHorizontal, defaultGap)
+  const _gapVertical = getDefaultValue(gapVertical, defaultGap)!
+  const _gapHorizontal = getDefaultValue(gapHorizontal, defaultGap)!
   const wrapperStyle: ViewStyle = {
     flexDirection: isVertical ? 'column' : 'row',
     flexWrap: wrap ? 'wrap' : 'nowrap',

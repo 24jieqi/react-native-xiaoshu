@@ -147,15 +147,25 @@ export interface UploaderRegularProps<T extends UploaderValue>
   extends ViewProps,
     Pick<
       UploaderProps<T>,
-      | 'list'
-      | 'imageComponent'
-      | 'colCount'
-      | 'colGap'
-      | 'onPressImage'
-      | 'onPressDelete'
-      | 'onPressError'
-      | 'deletable'
+      'imageComponent' | 'colCount' | 'colGap' | 'deletable'
     > {
+  list: (T | null)[]
+
+  /**
+   * 点击某一个图片
+   */
+  onPressImage?: (current: T, index: number, list: (T | null)[]) => void
+
+  /**
+   * 点击删除文件
+   */
+  onPressDelete?: (current: T, index: number, list: (T | null)[]) => void
+
+  /**
+   * 点击上传出错的文件
+   */
+  onPressError?: (current: T, index: number, list: (T | null)[]) => void
+
   /**
    * 共多少个上传，请保持数组引用不变
    */

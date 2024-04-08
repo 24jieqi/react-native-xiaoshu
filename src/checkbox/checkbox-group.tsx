@@ -20,9 +20,12 @@ function CheckboxGroup<T = any>({
   checkboxIconLabelGap,
   ...restProps
 }: CheckboxGroupProps<T>) {
-  const [value, onChange] = useControllableValue<T | T[]>(restProps, {
-    defaultValue: multiple ? [] : undefined,
-  })
+  const [value, onChange] = useControllableValue<T | T[] | undefined | null>(
+    restProps,
+    {
+      defaultValue: multiple ? [] : undefined,
+    },
+  )
 
   const contentJSX = (
     <Space {...omit(restProps, ['value', 'defaultValue', 'onChange'])}>

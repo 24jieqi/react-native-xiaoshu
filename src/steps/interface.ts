@@ -4,7 +4,7 @@ export interface StepsPropsType {
   /**
    * 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 status 属性覆盖状态
    */
-  current?: number
+  current: number
   data?: Omit<StepsItemPropsType, 'index'>[]
   children?: ReactNode
   style?: StyleProp<ViewStyle>

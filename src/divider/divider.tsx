@@ -35,7 +35,7 @@ const Divider: React.FC<DividerProps> = ({
   color = getDefaultValue(
     color,
     type === 'dark' ? CV.divider_color_dark : CV.divider_color_light,
-  )
+  )!
 
   return (
     <View

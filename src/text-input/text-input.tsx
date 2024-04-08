@@ -145,7 +145,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
 
     // 转发实例
     useImperativeHandle(ref, () => {
-      return TextInputRef.current
+      return TextInputRef.current!
     })
 
     /** 点击完成收起软键盘 */

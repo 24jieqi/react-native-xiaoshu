@@ -15,6 +15,7 @@ const parseTabList = (children: React.ReactNode) => {
       if (isValidElement(node)) {
         const key = node.key !== undefined ? String(node.key) : undefined
         return {
+          // @ts-ignore
           key,
           ...node.props,
           node,
@@ -38,9 +39,9 @@ const Tabs: React.FC<TabsProps> = ({
   const [_options, _tabs] = useMemo(() => {
     const tabs = parseTabList(children)
     const options: TabItem<string>[] = tabs.map(t => ({
-      value: t.key,
-      label: t.tab,
-      badge: t.badge,
+      value: t!.key,
+      label: t!.tab,
+      badge: t!.badge,
     }))
 
     return [options, tabs]
@@ -74,10 +75,10 @@ const Tabs: React.FC<TabsProps> = ({
       {_tabs.map(t => {
         return (
           <TabView
-            key={t.key}
-            lazyRender={t.node.props.lazyRender}
-            active={t.key === value}>
-            {t.node}
+            key={t!.key}
+            lazyRender={t!.node.props.lazyRender}
+            active={t!.key === value}>
+            {t!.node}
           </TabView>
         )
       })}

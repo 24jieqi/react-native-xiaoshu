@@ -12,7 +12,7 @@ const consoleNum = (n: number) => {
 }
 
 const BasicNumberInputBase: React.FC = () => {
-  const [value, setValue] = useState<number>(null)
+  const [value, setValue] = useState<number | undefined>(undefined)
 
   return (
     <Cell.Group title="基础用法">

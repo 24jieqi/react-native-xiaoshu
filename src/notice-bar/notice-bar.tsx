@@ -21,7 +21,7 @@ import Theme from '../theme'
 import type { NoticeBarProps, NoticeBarMode } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const getModeIcon = (mode: NoticeBarMode) => {
+const getModeIcon = (mode: NoticeBarMode | undefined) => {
   switch (mode) {
     case 'closeable':
       return CrossOutline
@@ -72,7 +72,7 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   // 修正数据
   color = getDefaultValue(color, textColor)
   backgroundColor = getDefaultValue(backgroundColor, barBackgroundColor)
-  iconColor = getDefaultValue(iconColor, color)
+  iconColor = getDefaultValue(iconColor, color)!
 
   const noticeBarStyles: StyleProp<ViewStyle> = [
     STYLES.notice_bar,

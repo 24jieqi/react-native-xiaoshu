@@ -81,7 +81,7 @@ function StepSelector<T = number>({
   )
 
   const optionScrollToTop = useCallback(() => {
-    ScrollViewRef.current.scrollTo({
+    ScrollViewRef.current?.scrollTo({
       x: 0,
       y: 0,
       animated: false,
@@ -99,7 +99,7 @@ function StepSelector<T = number>({
 
       Promise.all(
         _value.map((_, index) => {
-          return fetchOption(value[index - 1] || null, index)
+          return fetchOption(value[index - 1], index)
         }),
       ).then(datas => {
         const isEnd = !datas[datas.length - 1].options.length

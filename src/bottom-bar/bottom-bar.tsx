@@ -32,7 +32,7 @@ const BottomBar: React.FC<BottomBarProps> = ({
     backgroundColor,
     CV.bottom_bar_background_color,
   )
-  height = getDefaultValue(height, CV.bottom_bar_height)
+  height = getDefaultValue(height, CV.bottom_bar_height)!
 
   const realHeight = height + (safeAreaInsetBottom ? bottom : 0)
   const heightAnimated = useRef(new Animated.Value(realHeight))

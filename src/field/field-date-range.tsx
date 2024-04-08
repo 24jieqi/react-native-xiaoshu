@@ -54,9 +54,10 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
     CV_TEXT_INPUT.text_input_placeholder_text_color,
   )
 
-  const [value, onChange] =
-    useControllableValue<DatePickerRangeValue>(restProps)
-  const valueTexts = useMemo<[string, string]>(
+  const [value, onChange] = useControllableValue<
+    DatePickerRangeValue | undefined
+  >(restProps)
+  const valueTexts = useMemo<[string, string] | undefined>(
     () =>
       value?.[0] && value[1]
         ? [formatDate(mode, value[0]), formatDate(mode, value[1])]
@@ -126,9 +127,9 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
     />
   )
   const showTexts =
-    hasValue && formatValueText
+    hasValue && formatValueText && value
       ? formatValueText(value, mode, valueTexts)
-      : valueTexts
+      : (valueTexts as [string, string])
 
   return (
     <Cell

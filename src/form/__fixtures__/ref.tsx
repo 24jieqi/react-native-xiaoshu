@@ -56,7 +56,7 @@ const BasicFormRef: React.FC = () => {
             text="管理员"
             danger
             onPress={() => {
-              FormRef.current.setFieldsValue({
+              FormRef.current?.setFieldsValue({
                 username: 'admin',
               })
             }}
@@ -66,7 +66,7 @@ const BasicFormRef: React.FC = () => {
             text="提交"
             type="primary"
             onPress={() => {
-              FormRef.current.submit()
+              FormRef.current?.submit()
             }}
           />
         </Space>

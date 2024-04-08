@@ -5,5 +5,5 @@
   },
   "javascript.format.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["jieqi", "wrapable"]
+  "cSpell.words": ["collapsable", "jieqi", "wrapable"]
 }

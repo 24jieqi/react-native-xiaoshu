@@ -152,10 +152,13 @@ const PickerView: React.FC<PickerViewProps> = ({
               }
 
               // 真的没有就默认第一个选项
-              return findDefaultValue(options[optionIndex][0].value, optionItem)
+              return findDefaultValue(
+                options[optionIndex][0].value,
+                optionItem,
+              )!
             }
 
-            return null
+            return undefined
           })()
 
           return (

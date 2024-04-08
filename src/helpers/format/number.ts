@@ -60,7 +60,7 @@ export function formatDecimal(t: string, n: number) {
   } else if (values.length === 1 || n === 0) {
     return `${mark}${integer}`
   } else {
-    const d = decimal.match(new RegExp(`\\d{0,${n}}`))[0]
+    const d = decimal.match(new RegExp(`\\d{0,${n}}`))?.[0]
     return `${mark}${integer}.${d}`
   }
 }

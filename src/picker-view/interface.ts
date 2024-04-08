@@ -85,7 +85,7 @@ export interface PickerViewColumnProps {
   /**
    * 可见的选项个数
    */
-  visibleItemCount?: number
+  visibleItemCount: number
 
   /**
    * 当值变化的时候

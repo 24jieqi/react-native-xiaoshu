@@ -42,7 +42,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
 
   const [visible, setVisible] = useState(false)
   const [loading, setLoading] = useState(false)
-  const Values = useRef<[Date, Date]>(
+  const Values = useRef<[Date | null, Date | null]>(
     defaultValue && defaultValue.length === 2 ? defaultValue : [null, null],
   )
 

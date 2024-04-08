@@ -42,7 +42,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
     activeOpacity,
     CV_BUTTON.button_active_opacity,
   )
-  direction = getDefaultValue(direction, config.direction)
+  direction = getDefaultValue(direction, config.direction)!
 
   const textStyleFlatten = StyleSheet.flatten(textStyle) || {}
   const textColor = disabled

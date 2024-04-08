@@ -25,6 +25,7 @@ export const createStyle = <T>(
     }
   }
 
+  // @ts-ignore
   if (!myStyle) {
     myStyle = creator(componentVar, tokens)
 

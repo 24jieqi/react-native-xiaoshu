@@ -13,7 +13,7 @@ import {
   Popup,
 } from '@fruits-chain/react-native-xiaoshu'
 import { MenuOutline } from '@fruits-chain/icons-react-native'
-import { ScrollView, Text, View } from 'react-native'
+import { ScrollView, Text, View, Keyboard } from 'react-native'
 
 const PopupSearch = () => {
   const [value1, setValue] = useState('22')
@@ -144,12 +144,13 @@ const BasicPasswordInput: React.FC = () => {
             setVisible(true)
           }}
         />
-        <Popup visible={visible} position="top">
-          <View
-            style={{
-              height: 100,
-            }}
-          />
+        <Popup
+          visible={visible}
+          position="top"
+          safeAreaInsetTop
+          onClose={() => {
+            Keyboard.dismiss()
+          }}>
           <Popup.Header
             title="输入中文"
             showClose

@@ -102,7 +102,7 @@ const TabBar = <T extends TabValue>({
 
       if (!isTabAdaption) {
         const hh = ScrollViewWidthRef.current / 2
-        ScrollViewRef.current.scrollTo({
+        ScrollViewRef.current?.scrollTo({
           x: targetLayout.tab.x + targetLayout.tab.width / 2 - hh,
           animated: true,
         })

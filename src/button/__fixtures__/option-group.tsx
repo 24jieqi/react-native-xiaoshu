@@ -102,7 +102,7 @@ const ButtonOptionGroup: React.FC = () => {
             text="清空"
             disabled={!value2?.length}
             onPress={() => {
-              setValue2(undefined)
+              setValue2([])
             }}
           />
         </Space>

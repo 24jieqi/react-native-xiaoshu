@@ -1,5 +1,7 @@
 import type { ViewProps, PanResponderCallbacks } from 'react-native'
 
+import type { ExcludeUndefined } from '../helpers/types'
+
 export interface FloatingPanelProps extends ViewProps {
   /**
    * 起点
@@ -53,7 +55,9 @@ export interface FloatingPanelProps extends ViewProps {
    * FloatingPanel.ScrollView 扩展判断回调函数
    */
   _onMoveShouldSetPanResponder?: (
-    ...p: Parameters<PanResponderCallbacks['onMoveShouldSetPanResponder']>
+    ...p: Parameters<
+      ExcludeUndefined<PanResponderCallbacks['onMoveShouldSetPanResponder']>
+    >
   ) => boolean | undefined
 }
 
