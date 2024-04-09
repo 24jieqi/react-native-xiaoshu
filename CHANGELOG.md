@@ -1,3 +1,9 @@
+# [0.4.0-beta.1](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.4.0-beta.0...v0.4.0-beta.1) (2024-04-09)
+
+### Features
+
+- **Theme:** 🎸 每个组件新增自定义 theme ([4605b27](https://github.com/24jieqi/react-native-xiaoshu/commit/4605b27251e105535b9c8647d9730f5eb31fa2a1))
+
 # [0.4.0-beta.0](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.21...v0.4.0-beta.0) (2024-04-08)
 
 ## [0.3.21](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.20...v0.3.21) (2024-04-01)
