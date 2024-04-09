@@ -69,7 +69,7 @@ export interface DatePickerViewProps extends Pick<ViewProps, 'testID'> {
   max?: Date
 
   /**
-   * 自定义渲染每列展示的内容。
+   * 自定义渲染每列展示的内容
    * @param t 数据类型 年月日时分秒
    * @param n 当前数据 月份从 1 开始
    */

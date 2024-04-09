@@ -94,7 +94,7 @@ export interface DatePickerRangeViewProps
   resetButtonText?: string
 
   /**
-   * 站位文案
+   * 占位文案
    * @default ['请选择', '请选择']
    */
   placeholder?: [string, string]
@@ -110,7 +110,7 @@ export interface DatePickerRangeViewProps
   onChange?: (values: DatePickerRangeValue) => void
 
   /**
-   * 出现清空按钮
+   * 显示清空按钮
    * @default false
    */
   clearable?: boolean

@@ -19,7 +19,7 @@ interface CheckboxIconPrivateProps {
 
   /**
    * 选中状态颜色
-   * @default TOKENS.gray_6
+   * @default checkbox_checked_icon_color
    */
   activeColor?: ColorValue
 
@@ -59,7 +59,7 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   defaultValue?: ActiveValueT | InactiveValueT
 
   /**
-   * 当前是否选择
+   * 当前的值
    */
   value?: ActiveValueT | InactiveValueT
 
@@ -87,11 +87,13 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
 
   /**
    * 是否禁用复选框文本点击
+   * @default false
    */
   labelDisabled?: boolean
 
   /**
    * 文本位置，可选值为 `'left' | 'right'`
+   * @default 'right'
    */
   labelPosition?: 'left' | 'right'
 
@@ -113,7 +115,7 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
 
   /**
    * 文字与图标之间的间距
-   * @default TOKENS.space_2
+   * @default checkbox_label_margin
    */
   gap?: number
 }
