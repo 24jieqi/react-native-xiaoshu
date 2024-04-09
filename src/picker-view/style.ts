@@ -12,9 +12,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-export type ComponentVars = ReturnType<typeof varCreator>
+export type PickerViewTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: PickerViewTheme) => {
   return StyleSheet.create({
     picker: {
       backgroundColor: cv.picker_view_background_color,

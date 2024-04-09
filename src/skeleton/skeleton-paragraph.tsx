@@ -10,13 +10,16 @@ import SkeletonActive from './skeleton-active'
 import { varCreator } from './style'
 
 const SkeletonParagraph: React.FC<SkeletonParagraphProps> = ({
+  theme,
   active = true,
   rows,
   widths,
   testID,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const style = useMemo<ViewStyle>(
     () => ({
       backgroundColor: CV.skeleton_color,

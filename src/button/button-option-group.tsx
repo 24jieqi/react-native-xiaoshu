@@ -9,6 +9,7 @@ import ButtonOption from './button-option'
 import type { ButtonOptionGroupProps } from './interface'
 
 function ButtonOptionGroup<T = any>({
+  theme,
   activeHighlight = true,
   type = 'hazy',
   round = false,
@@ -36,6 +37,7 @@ function ButtonOptionGroup<T = any>({
 
         return (
           <ButtonOption
+            theme={theme}
             key={`${item.value}`}
             type={type}
             round={round}

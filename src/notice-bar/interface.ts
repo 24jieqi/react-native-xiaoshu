@@ -8,12 +8,15 @@ import type {
 
 import type { FixHitSlopProps } from '../helpers/types'
 
+import type { NoticeBarTheme } from './style'
+
 export type NoticeBarStatus = 'primary' | 'success' | 'warning' | 'error'
 
 export type NoticeBarMode = 'closeable' | 'link'
 
 export interface NoticeBarProps
   extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
+  theme?: Partial<NoticeBarTheme>
   /**
    * 通知文本文案样式
    */

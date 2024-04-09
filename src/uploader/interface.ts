@@ -1,6 +1,8 @@
 import type { PropsWithChildren, ComponentType, ReactNode } from 'react'
 import type { ImageSourcePropType, ViewProps } from 'react-native'
 
+import type { UploaderTheme } from './style'
+
 export type UploaderValue = {
   /**
    * 当前资源的唯一标识
@@ -28,6 +30,7 @@ export type UploaderValue = {
 }
 
 export interface UploaderProps<T extends UploaderValue> extends ViewProps {
+  theme?: Partial<UploaderTheme>
   /**
    * 图片数组
    */
@@ -107,6 +110,7 @@ export interface UploaderImageProps
   extends Partial<Pick<UploaderValue, 'filepath' | 'status'>>,
     Pick<UploaderProps<UploaderValue>, 'imageComponent' | 'deletable'>,
     PropsWithChildren<{}> {
+  theme?: Partial<UploaderTheme>
   /**
    * 缩略图尺寸
    */
@@ -149,6 +153,7 @@ export interface UploaderRegularProps<T extends UploaderValue>
       UploaderProps<T>,
       'imageComponent' | 'colCount' | 'colGap' | 'deletable'
     > {
+  theme?: Partial<UploaderTheme>
   list: (T | null)[]
 
   /**

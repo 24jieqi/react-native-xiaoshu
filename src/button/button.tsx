@@ -22,6 +22,7 @@ import { varCreator, styleCreator } from './style'
 const Button: React.FC<ButtonProps> = ({
   children,
   style,
+  theme,
   text,
   subtext,
   textStyle,
@@ -42,9 +43,11 @@ const Button: React.FC<ButtonProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const { run: runOnPress } = useDebounceFn(restProps.onPress || noop, {
     wait: onPressDebounceWait,
     leading: true,

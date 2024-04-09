@@ -17,9 +17,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-export type ComponentVars = ReturnType<typeof varCreator>
+export type UploaderTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: UploaderTheme) => {
   return StyleSheet.create({
     uploader: {
       flexDirection: 'row',

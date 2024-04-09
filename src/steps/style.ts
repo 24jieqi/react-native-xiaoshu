@@ -17,9 +17,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type StepsTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+export const styleCreator = (cv: StepsTheme, TOKENS: TokensType) => {
   return StyleSheet.create({
     scrollViewBox: {
       width: '100%',

@@ -9,9 +9,12 @@ import type {
 import type { LoadingProps } from '../loading/interface'
 import type { SpaceProps } from '../space/interface'
 
+import type { ButtonTheme } from './style'
+
 export interface ButtonProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'>,
     Pick<LoadingProps, 'loadingIcon'> {
+  theme?: Partial<ButtonTheme>
   /**
    * 按钮文案
    */
@@ -106,6 +109,7 @@ export interface ButtonProps
 export interface ButtonOptionProps
   extends Omit<TouchableHighlightProps, 'underlayColor' | 'activeOpacity'>,
     Pick<ButtonProps, 'text' | 'textStyle' | 'size' | 'hairline' | 'round'> {
+  theme?: Partial<ButtonTheme>
   /**
    * 是否选中、高亮
    */
@@ -131,6 +135,7 @@ export interface ButtonOptionProps
 
 export interface ButtonOptionGroupProps<TValue = any>
   extends Omit<SpaceProps, 'direction'> {
+  theme?: Partial<ButtonTheme>
   /**
    * 选中状态文案颜色、背景色高亮
    * @default true

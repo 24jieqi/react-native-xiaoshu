@@ -14,6 +14,7 @@ import { varCreator, styleCreator } from './style'
  */
 const Badge: React.FC<BadgeProps> = ({
   children,
+  theme,
   count,
   dot,
   max,
@@ -29,7 +30,11 @@ const Badge: React.FC<BadgeProps> = ({
 }) => {
   const TOKENS = Theme.useThemeTokens()
   const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   if (!isNil(max) && typeof count === 'number' && count > max) {
     count = `${max}+`

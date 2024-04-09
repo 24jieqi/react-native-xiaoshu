@@ -10,6 +10,8 @@ import type {
 
 import type { DatePickerColumnMode } from '../date-picker-view/interface'
 
+import type { DescriptionTheme } from './style'
+
 export interface DescriptionContextState {
   /**
    * label 和 text 之间是否有冒号
@@ -87,6 +89,7 @@ export interface DescriptionGroupProps
     ViewProps {}
 
 export interface DescriptionProps extends DescriptionContextState, ViewProps {
+  theme?: Partial<DescriptionTheme>
   /**
    * 内容的描述
    */

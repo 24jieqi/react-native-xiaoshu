@@ -14,6 +14,7 @@ import type { ButtonBarProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const ButtonBar: React.FC<ButtonBarProps> = ({
+  theme,
   alone = false,
   buttons,
   count = 4,
@@ -25,10 +26,14 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   ...restProps
 }) => {
   const locale = Locale.useLocale().ButtonBar
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BLANK] = Theme.useStyle({
+    varCreator: varCreatorBlank,
+  })
 
   const realButtons = (buttons || []).filter(item => !item.hidden)
   const isConfig = isArray(buttons)

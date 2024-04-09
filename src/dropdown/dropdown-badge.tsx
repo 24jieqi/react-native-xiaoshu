@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 
 import Theme from '../theme'
 
+import { useDropdownConfig } from './context'
 import type { DropdownBadgeProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
@@ -12,9 +13,12 @@ const DropdownBadge: React.FC<DropdownBadgeProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const { theme } = useDropdownConfig()
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   if (isNil(count)) {
     return null

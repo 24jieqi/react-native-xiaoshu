@@ -18,6 +18,7 @@ import type { TabBarProps, TabValue } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const TabBar = <T extends TabValue>({
+  theme,
   textColor,
   iconColor,
   activeTextColor,
@@ -42,10 +43,14 @@ const TabBar = <T extends TabValue>({
   const [value, onChange] = useControllableValue(restProps, {
     defaultValue: options[0]?.value,
   })
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
 
   const optionsDeepCopy = useOriginalDeepCopy(options)
   const [state, setState] = useState({

@@ -1,6 +1,10 @@
 import type { ViewProps } from 'react-native'
 
+import type { BlankTheme } from './style'
+
 export interface BlankProps extends ViewProps {
+  theme?: Partial<BlankTheme>
+
   /**
    * 上边距
    * @default false

@@ -25,6 +25,7 @@ const defaultOnRequestClose = () => {
 const Dialog: React.FC<DialogProps> = ({
   children,
   style,
+  theme,
   title,
   message,
   width,
@@ -53,9 +54,11 @@ const Dialog: React.FC<DialogProps> = ({
   const fadeAnim = useRef(new Animated.Value(0)).current
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
   const locale = Locale.useLocale().Dialog
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   width = getDefaultValue(width, CV.dialog_width)
   duration = getDefaultValue(duration, CV.dialog_transition)

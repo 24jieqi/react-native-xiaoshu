@@ -35,9 +35,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type TextInputTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+export const styleCreator = (cv: TextInputTheme, TOKENS: TokensType) => {
   return StyleSheet.create({
     input: {
       // flex: 1,

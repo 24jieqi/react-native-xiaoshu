@@ -15,6 +15,7 @@ import { varCreator, styleCreator } from './style'
  */
 const CellGroup: React.FC<CellGroupProps> = ({
   children,
+  theme,
   title,
   extra,
   style,
@@ -25,9 +26,11 @@ const CellGroup: React.FC<CellGroupProps> = ({
   onPressTitle,
   onPressTitleText,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   /** 标题 可能是自定义 JSX */
   const titleJSX = renderTextLikeJSX(

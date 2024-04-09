@@ -2,7 +2,10 @@ import type { ViewProps, PanResponderCallbacks } from 'react-native'
 
 import type { ExcludeUndefined } from '../helpers/types'
 
+import type { FloatingPanelTheme } from './style'
+
 export interface FloatingPanelProps extends ViewProps {
+  theme?: Partial<FloatingPanelTheme>
   /**
    * 起点
    */

@@ -25,6 +25,7 @@ import { varCreator, styleCreator } from './style'
 const Search = forwardRef<TextInputInstance, SearchProps>(
   (
     {
+      theme,
       iconSize = 20,
       iconColor,
       onSearch,
@@ -51,10 +52,14 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
     ref,
   ) => {
     const locale = Locale.useLocale().Search
-    const TOKENS = Theme.useThemeTokens()
-    const CV = Theme.createVar(TOKENS, varCreator)
-    const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)
-    const STYLES = Theme.createStyle(CV, styleCreator)
+    const [CV, STYLES] = Theme.useStyle({
+      varCreator,
+      styleCreator,
+      theme,
+    })
+    const [CV_TEXT_INPUT] = Theme.useStyle({
+      varCreator: varCreatorTextInput,
+    })
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const { run: runOnSearch } = useDebounceFn(onSearch || noop, {
       wait: onSearchDebounceWait,

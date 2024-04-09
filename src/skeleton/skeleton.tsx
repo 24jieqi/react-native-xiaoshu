@@ -37,6 +37,7 @@ const STYLES = StyleSheet.create({
 
 const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({
   children,
+  theme,
   active = true,
   loading,
   title = true,
@@ -63,10 +64,19 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({
     showParagraph || showTitle ? (
       <Space>
         {showTitle ? (
-          <SkeletonParagraph active={active} rows={1} widths={titleWidths} />
+          <SkeletonParagraph
+            theme={theme}
+            active={active}
+            rows={1}
+            widths={titleWidths}
+          />
         ) : null}
         {showParagraph ? (
-          <SkeletonParagraph {...paragraphOption} active={paragraphActive} />
+          <SkeletonParagraph
+            theme={theme}
+            {...paragraphOption}
+            active={paragraphActive}
+          />
         ) : null}
       </Space>
     ) : null
@@ -74,6 +84,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> = ({
     <View style={STYLES.skeleton}>
       <View style={STYLES.avatar}>
         <SkeletonAvatar
+          theme={theme}
           {...avatarOption}
           active={!isNil(avatarOption.active) ? avatarOption.active : active}
         />

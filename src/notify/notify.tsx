@@ -16,6 +16,7 @@ import { varCreator, styleCreator } from './style'
  */
 const Notify: React.FC<React.PropsWithChildren<NotifyProps>> = ({
   children,
+  theme,
   style,
   textStyle,
   type = 'primary',
@@ -26,9 +27,11 @@ const Notify: React.FC<React.PropsWithChildren<NotifyProps>> = ({
   ...restProps
 }) => {
   const insets = useSafeAreaInsets()
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const messageJSX = !isNil(message) ? (
     isValidElement(message) ? (

@@ -7,3 +7,5 @@ export const varCreator = (TOKENS: TokensType) => {
     skeleton_avatar_border_radius: TOKENS.border_radius_s,
   }
 }
+
+export type SkeletonTheme = ReturnType<typeof varCreator>

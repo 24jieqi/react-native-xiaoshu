@@ -33,9 +33,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-export type ComponentVars = ReturnType<typeof varCreator>
+export type CellTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: CellTheme) => {
   const innerHeight = cv.cell_title_height
 
   return StyleSheet.create({

@@ -20,9 +20,9 @@ export const varCreator = (TOKENS: TokensType) => {
     notice_bar_background_color_lightness: 95,
   }
 }
-type ComponentVars = ReturnType<typeof varCreator>
+export type NoticeBarTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: NoticeBarTheme) => {
   return StyleSheet.create({
     notice_bar: {
       flexDirection: 'row',

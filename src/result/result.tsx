@@ -40,6 +40,7 @@ const renderStatusIcon = (status: ResultStatus, size: number) => {
  * @description 用于反馈一系列操作任务的处理结果。
  */
 const Result: React.FC<ResultProps> = ({
+  theme,
   subtitleTextStyle,
   titleTextStyle,
   title,
@@ -50,9 +51,11 @@ const Result: React.FC<ResultProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const color = CV[`result_${status}_color`]
   const iconSize = (CV.result_icon_size / 4) * 3
 

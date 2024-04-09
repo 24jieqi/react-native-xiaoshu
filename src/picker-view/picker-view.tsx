@@ -30,6 +30,7 @@ const getVisibleItemCount = (n: number) => {
  * 选择器视图
  */
 const PickerView: React.FC<PickerViewProps> = ({
+  theme,
   visibleItemCount = 5,
   itemHeight = 50,
   loading = false,
@@ -43,9 +44,12 @@ const PickerView: React.FC<PickerViewProps> = ({
   const columnsHeight = _visibleItemCount * itemHeight
   /** 居中选中的偏移量 */
   const markMargin = itemHeight / 2
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+
   /**
    * 数据类型
    * @description cascade 联级选择，multiple 多列选择，single 单列选择
@@ -164,6 +168,7 @@ const PickerView: React.FC<PickerViewProps> = ({
           return (
             <PickerColumn
               key={optionIndex}
+              theme={theme}
               itemHeight={itemHeight}
               visibleItemCount={_visibleItemCount}
               options={optionItem}

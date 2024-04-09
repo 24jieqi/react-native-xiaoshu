@@ -28,9 +28,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type ToastTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: ToastTheme) => {
   return StyleSheet.create({
     toast: {
       // backgroundColor: '#f30', // to test ui

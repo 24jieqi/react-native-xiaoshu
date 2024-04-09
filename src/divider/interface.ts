@@ -6,9 +6,12 @@ import type {
   ViewProps,
 } from 'react-native'
 
+import type { DividerTheme } from './style'
+
 type DividerDirection = 'vertical' | 'horizontal'
 
 export interface DividerProps extends ViewProps {
+  theme?: Partial<DividerTheme>
   /**
    * 外层容器自定义样式
    */
@@ -51,6 +54,7 @@ export interface DividerProps extends ViewProps {
 
 export interface DividerLineProps
   extends Required<Pick<DividerProps, 'color'>> {
+  theme?: Partial<DividerTheme>
   /**
    * 所处位置
    */

@@ -21,6 +21,7 @@ import { varCreator } from './style'
 const Overlay: React.FC<OverlayProps> = ({
   testID,
   children,
+  theme,
   style,
   overlayStyle,
   zIndex,
@@ -30,8 +31,10 @@ const Overlay: React.FC<OverlayProps> = ({
   onRequestClose,
   backgroundColor,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV, , TOKENS] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const fadeAnim = useRef(new Animated.Value(0))
   const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
   const [localVisible, setLocalVisible] = useState(visible)

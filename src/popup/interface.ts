@@ -4,6 +4,8 @@ import type { ViewStyle, StyleProp, ViewProps } from 'react-native'
 
 import type { NavBarProps } from '../nav-bar/interface'
 
+import type { PopupTheme } from './style'
+
 export type PopupPosition = 'top' | 'bottom' | 'right' | 'left' | 'center'
 
 type PopupPropsCommonCallback = () => void
@@ -72,6 +74,7 @@ export interface PopupPropsCommon {
 }
 
 export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {
+  theme?: Partial<PopupTheme>
   /**
    * 最外层样式
    */
@@ -138,7 +141,9 @@ export interface PopupHeaderProps
     | 'backArrowSize'
     | 'onPressBackArrow'
     | 'border'
+    | 'theme'
   > {
+  theme?: Partial<PopupTheme>
   /**
    * 点击关闭
    */

@@ -1,6 +1,9 @@
 import type { TextStyle, StyleProp, ColorValue, ViewProps } from 'react-native'
 
+import type { LoadingTheme } from './style'
+
 export interface LoadingProps extends ViewProps {
+  theme?: Partial<LoadingTheme>
   /**
    * 文案部分的样式
    */

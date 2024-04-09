@@ -53,8 +53,10 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const realValue = isInputText ? textInputValue : numberInputValue
 
   const TextInputRef = useRef<TextInputInstance>(null)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme: restProps.theme,
+  })
 
   const [state, setState] = useState<DialogInputState>({
     visible: false,

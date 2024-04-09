@@ -17,6 +17,7 @@ import { varCreator, styleCreator } from './style'
  * @description 底部弹起的模态面板，包含与当前情境相关的多个选项。
  */
 const ActionSheet: React.FC<ActionSheetProps> = ({
+  theme,
   actions,
   title,
   cancelText,
@@ -28,9 +29,11 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   ...restProps
 }) => {
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const isTitleDef = !isNil(title)
   const isCancelTextDef = !isNil(cancelText)
   const isDescriptionDef = !isNil(description)

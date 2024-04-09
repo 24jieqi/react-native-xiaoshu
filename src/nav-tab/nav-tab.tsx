@@ -7,10 +7,12 @@ import Theme from '../theme'
 import type { NavTabProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const NavTab = <T,>({ options, ...restProps }: NavTabProps<T>) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+const NavTab = <T,>({ options, theme, ...restProps }: NavTabProps<T>) => {
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const [value, onChange] = useControllableValue<T>(restProps)
 
   return (

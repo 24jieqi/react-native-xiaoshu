@@ -6,10 +6,12 @@ import Theme from '../theme'
 import type { TextInputClearProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const TextInputClear: React.FC<TextInputClearProps> = ({ onPress }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
+const TextInputClear: React.FC<TextInputClearProps> = ({ theme, onPress }) => {
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   return (
     <CrossOutline

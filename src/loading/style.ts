@@ -10,3 +10,5 @@ export const varCreator = (TOKENS: TokensType) => {
     loading_icon_animation_duration: 800,
   }
 }
+
+export type LoadingTheme = ReturnType<typeof varCreator>

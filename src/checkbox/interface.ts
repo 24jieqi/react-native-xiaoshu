@@ -11,6 +11,8 @@ import type {
 import type { FixHitSlopProps } from '../helpers/types'
 import type { SpaceProps } from '../space/interface'
 
+import type { CheckboxTheme } from './style'
+
 interface CheckboxIconPrivateProps {
   /**
    * 是否选中、高亮
@@ -32,7 +34,9 @@ interface CheckboxIconPrivateProps {
 
 export interface CheckboxIconProps
   extends FixHitSlopProps<TouchableOpacityProps>,
-    CheckboxIconPrivateProps {}
+    CheckboxIconPrivateProps {
+  theme?: Partial<CheckboxTheme>
+}
 
 interface RenderIconProps extends CheckboxIconPrivateProps {
   disabled?: boolean
@@ -43,6 +47,7 @@ interface RenderIconProps extends CheckboxIconPrivateProps {
 export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   extends Pick<CheckboxIconPrivateProps, 'activeColor'>,
     ViewProps {
+  theme?: Partial<CheckboxTheme>
   /**
    * 文案样式
    */
@@ -121,6 +126,7 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
 export interface CheckboxGroupProps<ActiveValueT = any>
   extends SpaceProps,
     Partial<Pick<CheckboxProps, 'activeColor' | 'iconSize'>> {
+  theme?: Partial<CheckboxTheme>
   checkboxLabelTextStyle?: CheckboxProps['labelTextStyle']
   checkboxIconLabelGap?: number
   options: ({

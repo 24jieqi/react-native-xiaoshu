@@ -6,3 +6,5 @@ export const varCreator = (TOKENS: TokensType) => {
     bottom_bar_height: 50,
   }
 }
+
+export type BottomBar = ReturnType<typeof varCreator>

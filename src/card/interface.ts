@@ -7,7 +7,10 @@ import type {
   ViewProps,
 } from 'react-native'
 
+import type { CardTheme } from './style'
+
 export interface CardProps extends ViewProps {
+  theme?: Partial<CardTheme>
   /**
    * 标题
    */

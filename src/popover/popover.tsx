@@ -23,6 +23,7 @@ const arrowSize = { width: 0, height: 0 }
 
 const Popover = <T,>({
   children,
+  theme,
   content,
   dark = false,
   shadow = false,
@@ -38,10 +39,14 @@ const Popover = <T,>({
   popoverStyle,
   ...restProps
 }: React.PropsWithChildren<PopoverProps<T>>) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
 
   duration = getDefaultValue(duration, TOKENS.animation_duration_base)
 

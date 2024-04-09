@@ -17,9 +17,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type DividerTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: DividerTheme) => {
   return StyleSheet.create({
     divider: {
       flexDirection: 'row',

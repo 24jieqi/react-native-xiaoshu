@@ -3,13 +3,18 @@ import type React from 'react'
 import type { PopupPropsCommon } from '../popup/interface'
 import type { TreeProps, TreeValue, TreeOption } from '../tree/interface'
 
+import type { SelectorTheme } from './style'
+
 export type SelectorValue = TreeValue
 
 export type SelectorOption = TreeOption
 
 export interface SelectorProps
   extends Omit<PopupPropsCommon, 'closeOnPressOverlay' | 'onPressOverlay'>,
-    Omit<TreeProps, 'value' | 'defaultValue' | 'options' | 'onChange'> {
+    Omit<
+      TreeProps,
+      'value' | 'defaultValue' | 'options' | 'onChange' | 'theme'
+    > {
   value?: SelectorValue | SelectorValue[]
 
   defaultValue?: SelectorValue | SelectorValue[]
@@ -72,6 +77,7 @@ export interface SelectorOptions
 }
 
 export interface SelectorTextProps {
+  theme?: Partial<SelectorTheme>
   /**
    * 标题
    * @default '请选择'

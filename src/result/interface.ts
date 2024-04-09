@@ -1,9 +1,12 @@
 import type React from 'react'
 import type { TextStyle, StyleProp, ViewProps, ColorValue } from 'react-native'
 
+import type { ResultTheme } from './style'
+
 export type ResultStatus = 'success' | 'error' | 'info' | 'warning'
 
 export interface ResultProps extends ViewProps {
+  theme?: Partial<ResultTheme>
   /**
    * subtitle 文字样式
    */

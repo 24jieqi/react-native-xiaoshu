@@ -31,6 +31,7 @@ const STYLES = StyleSheet.create({
 })
 
 const WaterMark: React.FC<WaterMarkProps> = ({
+  theme,
   text,
   color,
   fontSize,
@@ -45,8 +46,10 @@ const WaterMark: React.FC<WaterMarkProps> = ({
   onLayout,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const [measure, setMeasure] = useState({ width: 0, height: 0 })
 
   const _color = getDefaultValue(color, CV.water_mark_text_color)

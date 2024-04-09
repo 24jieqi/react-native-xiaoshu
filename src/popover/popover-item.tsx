@@ -9,6 +9,7 @@ import { varCreator, styleCreator } from './style'
 
 const PopoverItem = <T,>({
   children,
+  theme,
   value,
   disabled,
   dark,
@@ -17,10 +18,14 @@ const PopoverItem = <T,>({
 
   onSelect,
 }: React.PropsWithChildren<PopoverItemProps<T>>) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
 
   return (
     <TouchableOpacity

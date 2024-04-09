@@ -19,6 +19,7 @@ import { styleCreator } from './style.image'
  * UploaderImage 文件上传的缩略图
  */
 const UploaderImage: React.FC<UploaderImageProps> = ({
+  theme,
   filepath,
   status = 'done',
   imageComponent: ImageComponent = Image,
@@ -32,11 +33,14 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   children,
 }) => {
   const locale = Locale.useLocale().UploaderImage
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
   const customSizeStyle = useMemo(() => ({ width: size, height: size }), [size])
 
   const customStyle = useMemo(

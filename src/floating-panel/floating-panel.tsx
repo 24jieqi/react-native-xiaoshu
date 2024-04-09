@@ -12,6 +12,7 @@ import type { FloatingPanelProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const FloatingPanel: React.FC<React.PropsWithChildren<FloatingPanelProps>> = ({
+  theme,
   anchorStart,
   anchorEnd,
   title,
@@ -27,9 +28,11 @@ const FloatingPanel: React.FC<React.PropsWithChildren<FloatingPanelProps>> = ({
 }) => {
   const insets = useSafeAreaInsets()
   const { height } = useWindowDimensions()
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const hasTitle = !isNil(title)
 
   const _anchorStart = getDefaultValue(

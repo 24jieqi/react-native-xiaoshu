@@ -18,9 +18,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type SwitchTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: SwitchTheme) => {
   return StyleSheet.create({
     switch: {
       position: 'relative',

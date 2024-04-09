@@ -12,9 +12,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type FloatingPanelTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: FloatingPanelTheme) => {
   return StyleSheet.create({
     floatingPanel: {
       borderTopLeftRadius: cv.floating_panel_border_radio,

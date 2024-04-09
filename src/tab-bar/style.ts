@@ -18,9 +18,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type TabBarTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: TabBarTheme) => {
   return StyleSheet.create({
     tab_bar: {
       flexDirection: 'row',

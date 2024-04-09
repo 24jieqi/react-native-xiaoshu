@@ -16,15 +16,18 @@ const getSelectedIndex = (n: number) => (n < 0 ? 0 : n)
  * 选择器 列
  */
 const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
+  theme,
   itemHeight,
   visibleItemCount,
   options,
   value,
   onChange,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const flatListRef = useRef<FlatList>(null)
   const LastTop = useRef(0)

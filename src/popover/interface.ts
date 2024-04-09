@@ -1,7 +1,11 @@
 import type { PropsWithChildren, ReactNode } from 'react'
 import type { StyleProp, ViewStyle, TextProps } from 'react-native'
 import type { PopoverProps as RNPVProps } from 'react-native-popover-view/src/Types'
+
+import type { PopoverTheme } from './style'
+
 export interface PopoverItemProps<T> {
+  theme?: Partial<PopoverTheme>
   value: T
 
   /**
@@ -30,6 +34,7 @@ export interface PopoverProps<T>
       'from' | 'isVisible' | 'animationConfig' | 'onRequestClose'
     >,
     PropsWithChildren<{}> {
+  theme?: Partial<PopoverTheme>
   /**
    * 卡片内容
    */
@@ -95,6 +100,7 @@ export interface PopoverProps<T>
 }
 
 export interface PopoverTextProps extends TextProps {
+  theme?: Partial<PopoverTheme>
   /**
    * 显示文案
    */

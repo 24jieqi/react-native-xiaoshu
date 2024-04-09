@@ -21,9 +21,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type SidebarTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: SidebarTheme) => {
   return StyleSheet.create({
     sidebar: {
       flex: 1,

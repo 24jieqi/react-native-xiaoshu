@@ -7,9 +7,13 @@ import type {
   ViewProps,
 } from 'react-native'
 
+import type { CollapseTheme } from './style'
+
 export interface CollapseProps
   extends PropsWithChildren<{}>,
     Pick<ViewProps, 'testID'> {
+  theme?: Partial<CollapseTheme>
+
   /**
    * 标题
    */

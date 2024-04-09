@@ -21,9 +21,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type BadgeTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: BadgeTheme) => {
   return StyleSheet.create({
     count: {
       minWidth: cv.badge_size,

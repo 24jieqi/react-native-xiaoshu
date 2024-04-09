@@ -17,9 +17,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type PopoverTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: PopoverTheme) => {
   return StyleSheet.create({
     trigger: {
       alignItems: 'center',

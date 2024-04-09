@@ -2,7 +2,10 @@ import type { BlankProps } from '../blank/interface'
 import type { BottomBarProps } from '../bottom-bar/interface'
 import type { ButtonProps } from '../button/interface'
 
-export interface ButtonBarProps extends BottomBarProps {
+import type { ButtonTheme } from './style'
+
+export interface ButtonBarProps extends Omit<BottomBarProps, 'theme'> {
+  theme?: Partial<ButtonTheme>
   /**
    * 单独一个按钮
    * @default false

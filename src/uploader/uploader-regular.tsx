@@ -18,6 +18,7 @@ import UploaderImage from './uploader-image'
 import useImageLayout from './useImageLayout'
 
 const UploaderRegular = <T extends UploaderValue>({
+  theme,
   list,
   imageComponent = Image,
   colCount = 4,
@@ -34,9 +35,11 @@ const UploaderRegular = <T extends UploaderValue>({
   ...restProps
 }: UploaderRegularProps<T>) => {
   const locale = Locale.useLocale().Uploader
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout()
 

@@ -9,13 +9,16 @@ import SkeletonActive from './skeleton-active'
 import { varCreator } from './style'
 
 const SkeletonAvatar: React.FC<SkeletonAvatarProps> = ({
+  theme,
   active = true,
   size = 40,
   shape = 'circle',
   testID,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const style = useMemo<ViewStyle>(
     () => ({
       height: size,

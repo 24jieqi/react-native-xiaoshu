@@ -19,9 +19,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-export type ComponentVars = ReturnType<typeof varCreator>
+export type DropdownTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: DropdownTheme) => {
   return StyleSheet.create({
     menu: {
       flexDirection: 'row',

@@ -12,6 +12,7 @@ import { varCreator } from './style'
  * 分割线
  */
 const DividerLineDashed: React.FC<DividerLineProps> = ({
+  theme,
   color,
   position,
   adaptive = true,
@@ -19,10 +20,12 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
 }) => {
   const isVertical = direction === 'vertical'
   const { width } = useWindowDimensions()
-  const TOKENS = Theme.useThemeTokens()
-  const VC = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const [size, setSize] = useState(
-    isVertical ? VC.divider_vertical_min_height : width,
+    isVertical ? CV.divider_vertical_min_height : width,
   )
 
   const viewStyle = useMemo(() => {
@@ -40,18 +43,18 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
     }
 
     if (position === 'left') {
-      s.marginRight = VC.divider_margin_horizontal
+      s.marginRight = CV.divider_margin_horizontal
     }
 
     if (position === 'right') {
-      s.marginLeft = VC.divider_margin_horizontal
+      s.marginLeft = CV.divider_margin_horizontal
     }
 
     if (!adaptive) {
       s.maxWidth =
         position === 'left'
-          ? VC.divider_content_left_width
-          : VC.divider_content_right_width
+          ? CV.divider_content_left_width
+          : CV.divider_content_right_width
     }
 
     return s
@@ -59,9 +62,9 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
     isVertical,
     position,
     adaptive,
-    VC.divider_margin_horizontal,
-    VC.divider_content_left_width,
-    VC.divider_content_right_width,
+    CV.divider_margin_horizontal,
+    CV.divider_content_left_width,
+    CV.divider_content_right_width,
   ])
 
   const onLayout = useCallback(

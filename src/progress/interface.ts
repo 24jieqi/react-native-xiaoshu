@@ -1,7 +1,11 @@
 import type { PropsWithChildren, ReactNode } from 'react'
 import type { ColorValue, ViewProps } from 'react-native'
 
+import type { ProgressTheme } from './style'
+
 export interface ProgressProps extends Pick<ViewProps, 'testID'> {
+  theme?: Partial<ProgressTheme>
+
   /**
    * 进度百分比
    * @default 0
@@ -82,6 +86,7 @@ export interface ProgressProps extends Pick<ViewProps, 'testID'> {
 }
 
 export interface ProgressPageProps extends PropsWithChildren<{}> {
+  theme?: Partial<ProgressTheme>
   /**
    * 页面是否在加载中
    * @default false

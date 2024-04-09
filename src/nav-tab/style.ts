@@ -20,9 +20,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type NavTabTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: NavTabTheme) => {
   return StyleSheet.create({
     navWrapper: {
       flexDirection: 'row',

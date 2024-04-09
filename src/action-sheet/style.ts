@@ -14,9 +14,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type ActionSheetTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: ActionSheetTheme) => {
   return StyleSheet.create({
     description: {
       flexShrink: 0,

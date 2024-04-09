@@ -13,6 +13,7 @@ import { varCreator, styleCreator } from './style'
  * DropdownMenu 下拉菜单的横条
  */
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
+  theme,
   titleStyle,
   titleTextStyle,
   iconStyle,
@@ -30,10 +31,14 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   ...restProps
 }) => {
   const MenuRef = useRef<View>(null)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_DIVIDER = Theme.createVar(TOKENS, varCreatorDivider)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_DIVIDER] = Theme.useStyle({
+    varCreator: varCreatorDivider,
+  })
 
   activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
   duration = getDefaultValue(duration, TOKENS.animation_duration_fast)
@@ -49,6 +54,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       zIndex,
       closeOnPressOutside,
       MenuRef,
+      theme,
     }),
     [
       activeColor,
@@ -56,6 +62,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       direction,
       duration,
       iconStyle,
+      theme,
       titleStyle,
       titleTextStyle,
       zIndex,

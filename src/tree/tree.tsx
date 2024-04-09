@@ -161,6 +161,7 @@ const switcherIconWrapperStyle: ViewStyle = {
 }
 
 const Tree: React.FC<TreeProps> = ({
+  theme,
   multiple = false,
   multipleMode = TreeMultipleMode.NORMAL,
   options,
@@ -178,9 +179,11 @@ const Tree: React.FC<TreeProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const [value, onChange] = useControllableValue<
     TreeValue | TreeValue[] | null
   >(restProps, {
@@ -413,6 +416,7 @@ const Tree: React.FC<TreeProps> = ({
 
               return (
                 <TreeItem
+                  theme={theme}
                   onPress={genOnPressItem(item)}
                   multiple={multiple}
                   activeColor={_activeColor}
@@ -522,6 +526,7 @@ const Tree: React.FC<TreeProps> = ({
 
             return (
               <TreeItem
+                theme={theme}
                 onPress={genOnPressItem(item)}
                 switcherIcon={_switcherIconJSX}
                 switcherHighlight={item.switcherHighlight}

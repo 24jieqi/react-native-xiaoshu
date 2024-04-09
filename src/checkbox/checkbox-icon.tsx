@@ -8,14 +8,17 @@ import type { CheckboxIconProps } from './interface'
 import { varCreator } from './style'
 
 const CheckboxIcon: React.FC<CheckboxIconProps> = ({
+  theme,
   active,
   activeColor,
   size,
   disabled,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
 
   // 从配置中拿默认值
   size = getDefaultValue(size, CV.checkbox_icon_size)

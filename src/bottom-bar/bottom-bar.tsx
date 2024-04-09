@@ -12,6 +12,7 @@ import type { BottomBarProps } from './interface'
 import { varCreator } from './style'
 
 const BottomBar: React.FC<BottomBarProps> = ({
+  theme,
   safeAreaInsetBottom = true,
   backgroundColor,
   height,
@@ -23,10 +24,13 @@ const BottomBar: React.FC<BottomBarProps> = ({
   ...restProps
 }) => {
   const { bottom } = useSafeAreaInsets()
-
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_DIVIDER = Theme.createVar(TOKENS, varCreatorDivider)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
+  const [CV_DIVIDER] = Theme.useStyle({
+    varCreator: varCreatorDivider,
+  })
 
   backgroundColor = getDefaultValue(
     backgroundColor,

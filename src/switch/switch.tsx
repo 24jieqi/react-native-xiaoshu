@@ -18,6 +18,7 @@ import { varCreator, styleCreator } from './style'
  * @description 用于在打开和关闭状态之间进行切换。
  */
 function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
+  theme,
   size,
   disabled = false,
   loading = false,
@@ -40,11 +41,14 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_LOADING = Theme.createVar(TOKENS, varCreatorLoading)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_LOADING] = Theme.useStyle({
+    varCreator: varCreatorLoading,
+  })
   const unitSize = getDefaultValue(size, CV.switch_size)!
   const nodeEdgeDistance = 2
 

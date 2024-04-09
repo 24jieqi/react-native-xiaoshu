@@ -1,6 +1,10 @@
 import type { ColorValue, ViewProps } from 'react-native'
 
+import type { BottomBar } from './style'
+
 export interface BottomBarProps extends ViewProps {
+  theme?: Partial<BottomBar>
+
   /**
    * 是否开启底部安全区适配
    * @default true

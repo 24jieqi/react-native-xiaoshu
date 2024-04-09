@@ -6,3 +6,5 @@ export const varCreator = () => {
     overlay_background_color: 'rgba(0, 0, 0, 0.7)',
   }
 }
+
+export type OverlayTheme = ReturnType<typeof varCreator>

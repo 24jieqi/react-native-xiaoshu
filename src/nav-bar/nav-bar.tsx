@@ -24,6 +24,7 @@ const BACK_ARROW_HIT_SLOP = {
 const NavBar: React.FC<NavBarProps> = ({
   testID,
   style,
+  theme,
   leftStyle,
   rightStyle,
   titleTextStyle,
@@ -36,10 +37,14 @@ const NavBar: React.FC<NavBarProps> = ({
   divider = true,
   onPressBackArrow,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
 
   backArrowColor = getDefaultValue(backArrowColor, CV.nav_bar_icon_color)
   backArrowSize = getDefaultValue(backArrowSize, CV.nav_bar_arrow_size)

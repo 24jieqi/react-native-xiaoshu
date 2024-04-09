@@ -34,6 +34,7 @@ const getModeIcon = (mode: NoticeBarMode | undefined) => {
  * 通知栏
  */
 const NoticeBar: React.FC<NoticeBarProps> = ({
+  theme,
   message,
   messageTextStyle,
   status = 'warning',
@@ -54,9 +55,11 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   ...restProps
 }) => {
   const onPressClosePersistFn = usePersistFn(onPressClose || noop)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const [visible, setVisible] = useState(true)
 
   const textColor =

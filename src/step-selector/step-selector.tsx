@@ -32,6 +32,7 @@ type LocalState<T> = {
 const defaultLoading = <Loading vertical />
 
 function StepSelector<T = number>({
+  theme,
   title,
   safeAreaInsetTop,
   round = true,
@@ -43,10 +44,11 @@ function StepSelector<T = number>({
 }: StepSelectorProps<T>) {
   const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
   const locale = Locale.useLocale().StepSelector
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const requestPersistFn = usePersistFn(request)
   const ScrollViewRef = useRef<ScrollView>(null)
   const [value, onChange] = useControllableValue<T[]>(resetProps, {

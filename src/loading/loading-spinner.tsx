@@ -5,10 +5,12 @@ import { View, Animated, StyleSheet, Easing } from 'react-native'
 import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
+import type { LoadingTheme } from './style'
 import { varCreator } from './style'
 import useLoop from './useLoop'
 
 export interface SpinnerProps extends ViewProps {
+  theme?: Partial<LoadingTheme>
   /**
    * 图像大小
    */
@@ -25,9 +27,16 @@ const PETALS = new Array(PETAL_COUNT).fill(0)
 const A_OPACITY = 1 / PETAL_COUNT
 const A_ROTATE = 360 / PETAL_COUNT
 
-const Spinner: React.FC<SpinnerProps> = ({ size, color, ...restProps }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+const Spinner: React.FC<SpinnerProps> = ({
+  theme,
+  size,
+  color,
+  ...restProps
+}) => {
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
 
   size = getDefaultValue(size, CV.loading_icon_size)

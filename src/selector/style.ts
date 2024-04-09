@@ -8,9 +8,9 @@ export const varCreator = () => {
   return {}
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type SelectorTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+export const styleCreator = (cv: SelectorTheme, TOKENS: TokensType) => {
   const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
 
   return StyleSheet.create({

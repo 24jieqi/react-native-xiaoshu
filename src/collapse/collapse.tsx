@@ -18,6 +18,7 @@ import { varCreator, styleCreator } from './style'
  */
 const Collapse: React.FC<CollapseProps> = ({
   children,
+  theme,
   title,
   titleStyle,
   titleTextStyle,
@@ -40,9 +41,11 @@ const Collapse: React.FC<CollapseProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   bodyDivider = getDefaultValue(bodyDivider, type === 'cell')
 

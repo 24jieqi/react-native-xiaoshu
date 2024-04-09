@@ -6,7 +6,11 @@ import type {
   ViewProps,
 } from 'react-native'
 
+import type { BadgeTheme } from './style'
+
 export interface BadgeProps extends ViewProps {
+  theme?: Partial<BadgeTheme>
+
   /**
    * 文案部分样式
    */

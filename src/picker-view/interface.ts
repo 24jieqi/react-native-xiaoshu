@@ -1,5 +1,7 @@
 import type { ViewProps } from 'react-native'
 
+import type { PickerViewTheme } from './style'
+
 export type PickerOptionType = 'cascade' | 'multiple' | 'single'
 
 export type PickerValue = string | number
@@ -33,6 +35,8 @@ export type PickerOptionCascade = PickerOption & {
 export type Column = PickerOption | PickerOptionMultiple | PickerOptionCascade
 
 export interface PickerViewProps extends Pick<ViewProps, 'testID'> {
+  theme?: Partial<PickerViewTheme>
+
   value?: PickerValue[]
 
   defaultValue?: PickerValue[]
@@ -67,6 +71,7 @@ export interface PickerViewProps extends Pick<ViewProps, 'testID'> {
 }
 
 export interface PickerViewColumnProps {
+  theme?: Partial<PickerViewTheme>
   /**
    * 选项高度
    */

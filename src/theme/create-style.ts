@@ -1,6 +1,6 @@
 import type { TokensType } from './interface'
 
-type ComponentVar = Record<string, any>
+export type ComponentVar = Record<string, any>
 
 type Creator<T> = (v: ComponentVar, t?: TokensType) => T
 

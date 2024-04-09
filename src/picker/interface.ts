@@ -8,9 +8,14 @@ import type {
 } from '../picker-view/interface'
 import type { PopupPropsCommon } from '../popup/interface'
 
+import type { PickerTheme } from './style'
+
 export type PickerAction = 'cancel' | 'confirm' | 'overlay'
 
-export interface PickerProps extends PickerViewProps, PopupPropsCommon {
+export interface PickerProps
+  extends Omit<PickerViewProps, 'theme'>,
+    PopupPropsCommon {
+  theme?: Partial<PickerTheme>
   /**
    * 顶部栏标题
    */

@@ -7,6 +7,7 @@ import type { CircleProps } from 'react-native-svg/lib/typescript/elements/Circl
 import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
+import type { LoadingTheme } from './style'
 import { varCreator } from './style'
 import useLoop from './useLoop'
 
@@ -14,6 +15,7 @@ const AnimatedCircle =
   Animated.createAnimatedComponent<React.ComponentType<CircleProps>>(Circle)
 
 export interface CircularProps extends ViewProps {
+  theme?: Partial<LoadingTheme>
   /**
    * 图像大小
    */
@@ -27,9 +29,16 @@ export interface CircularProps extends ViewProps {
 
 const STROKE_WIDTH = 2
 
-const Circular: React.FC<CircularProps> = ({ size, color, ...restProps }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+const Circular: React.FC<CircularProps> = ({
+  theme,
+  size,
+  color,
+  ...restProps
+}) => {
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const AnimatedCircle0Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current

@@ -9,10 +9,12 @@ import type { StepsPropsType } from './interface'
 import Step from './step'
 import { varCreator, styleCreator } from './style'
 
-const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
+const Steps: FC<StepsPropsType> = ({ current, data, style, theme }) => {
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const ctx = useMemo(() => ({ current, data }), [current, data])
   const scrollRef = useRef<ScrollView>(null)
 
@@ -33,7 +35,7 @@ const Steps: FC<StepsPropsType> = ({ current, data, style }) => {
         }}>
         <StepsContext.Provider value={ctx}>
           {data?.map((v, i) => {
-            return <Step key={i} index={i} {...v} />
+            return <Step key={i} index={i} theme={theme} {...v} />
           })}
         </StepsContext.Provider>
       </View>

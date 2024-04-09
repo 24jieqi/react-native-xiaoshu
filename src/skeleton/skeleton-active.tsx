@@ -4,14 +4,18 @@ import { Fade } from 'rn-placeholder'
 
 import Theme from '../theme'
 
+import type { SkeletonTheme } from './style'
 import { varCreator } from './style'
 
-const SkeletonActive: React.FC<React.PropsWithChildren<{}>> = ({
-  children,
-}) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-
+const SkeletonActive: React.FC<
+  React.PropsWithChildren<{
+    theme?: Partial<SkeletonTheme>
+  }>
+> = ({ children, theme }) => {
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const style = useMemo<ViewStyle>(
     () => ({
       backgroundColor: CV.skeleton_color_active,

@@ -11,6 +11,7 @@ import { varCreator } from './style'
 import { styleCreator } from './style.header'
 
 const PopupHeader: React.FC<PopupHeaderProps> = ({
+  theme,
   showClose = true,
   onClose,
 
@@ -18,9 +19,11 @@ const PopupHeader: React.FC<PopupHeaderProps> = ({
   ...restProps
 }) => {
   const onClosePersistFn = usePersistFn(onClose || noop)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const rightExtraJSX = (
     <>

@@ -11,6 +11,7 @@ const getGapValue = (v: boolean | number, initialValue: number) => {
 }
 
 const Blank: React.FC<BlankProps> = ({
+  theme,
   left = true,
   right = true,
   top = false,
@@ -22,8 +23,11 @@ const Blank: React.FC<BlankProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
+
   const defaultGap = CV[`blank_size_${size}`]
 
   // 重置值

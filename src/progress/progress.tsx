@@ -17,6 +17,7 @@ type ViewLayout = { width: number; height: number }
  */
 const Progress: React.FC<ProgressProps> = ({
   testID,
+  theme,
   percentage = 0,
   pivotText,
   color,
@@ -36,8 +37,10 @@ const Progress: React.FC<ProgressProps> = ({
   const onAnimationEndPersistFn = usePersistFn((n: number) => {
     onAnimationEnd?.(n)
   })
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV, , TOKENS] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
 
   // 默认值
   color = getDefaultValue(color, CV.progress_color)

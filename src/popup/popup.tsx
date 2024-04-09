@@ -26,6 +26,7 @@ import {
 const Popup: React.FC<PopupProps> = ({
   children,
   style,
+  theme,
   visible = false,
   overlay = true,
   duration,
@@ -49,9 +50,11 @@ const Popup: React.FC<PopupProps> = ({
   const onOpenedPersistFn = usePersistFn(onOpenedFn || noop)
   const onClosePersistFn = usePersistFn(onCloseFn || noop)
   const onClosedPersistFn = usePersistFn(onClosedFn || noop)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   duration = helpers.getDefaultValue(duration, TOKENS.animation_duration_base)
 

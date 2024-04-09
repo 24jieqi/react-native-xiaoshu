@@ -9,7 +9,10 @@ import type {
   TouchableWithoutFeedbackProps,
 } from 'react-native'
 
+import type { CellTheme } from './style'
+
 export interface CellGroupProps extends PropsWithChildren<{}> {
+  theme?: Partial<CellTheme>
   /**
    * 分组名称
    */
@@ -195,4 +198,6 @@ export interface CellPrivateProps {
   onPressDebounceWait?: number
 }
 
-export interface CellProps extends TouchableHighlightProps, CellPrivateProps {}
+export interface CellProps extends TouchableHighlightProps, CellPrivateProps {
+  theme?: Partial<CellTheme>
+}

@@ -13,9 +13,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type CollapseTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+export const styleCreator = (cv: CollapseTheme, TOKENS: TokensType) => {
   const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
 
   return StyleSheet.create({

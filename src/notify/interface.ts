@@ -9,6 +9,8 @@ import type {
 
 import type { PopupPropsCommon } from '../popup/interface'
 
+import type { NotifyTheme } from './style'
+
 export type NotifyType = 'primary' | 'success' | 'error' | 'warning'
 
 export type NotifyMethods = {
@@ -21,6 +23,7 @@ export interface NotifyProps
     PopupPropsCommon,
     'overlay' | 'closeOnClickOverlay' | 'onPressOverlay' | 'duration'
   > {
+  theme?: Partial<NotifyTheme>
   /**
    * 最外层样式
    */

@@ -16,9 +16,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type ResultTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: ResultTheme) => {
   return StyleSheet.create({
     icon: {
       width: cv.result_icon_size,

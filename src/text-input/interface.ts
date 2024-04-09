@@ -8,9 +8,12 @@ import type {
   TouchableOpacityProps,
 } from 'react-native'
 
+import type { TextInputTheme } from './style'
+
 export type TextInputInstance = RNTextInput
 
 export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
+  theme?: Partial<TextInputTheme>
   /**
    * 当设置 addonXxx 的时候就会出现一个组
    */
@@ -128,5 +131,6 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
 }
 
 export interface TextInputClearProps {
+  theme?: Partial<TextInputTheme>
   onPress?: TouchableOpacityProps['onPress']
 }

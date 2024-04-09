@@ -7,7 +7,10 @@ import type {
   ViewProps,
 } from 'react-native'
 
+import type { NavBarTheme } from './style'
+
 export interface NavBarProps extends Pick<ViewProps, 'testID'> {
+  theme?: Partial<NavBarTheme>
   /**
    * 最外层的样式
    */

@@ -11,6 +11,8 @@ import type { NumberInputProps } from '../number-input/interface'
 import type { PopupPropsCommon } from '../popup/interface'
 import type { TextInputProps } from '../text-input/interface'
 
+import type { DialogTheme } from './style'
+
 export type DialogType = 'alert' | 'confirm'
 
 type messageAlign = 'center' | 'left' | 'right'
@@ -107,6 +109,7 @@ interface DialogCommon extends PopupPropsCommon {
 }
 
 export interface DialogProps extends DialogCommon, PropsWithChildren<{}> {
+  theme?: Partial<DialogTheme>
   /**
    * 取消按钮加载中
    * @default false
@@ -169,6 +172,7 @@ export interface DialogInputProps
       'visible' | 'onPressOverlay' | 'messageAlign' | 'onPressClose'
     >,
     Pick<DialogKeyboardProps, 'safeAreaTop'> {
+  theme?: Partial<DialogTheme>
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */

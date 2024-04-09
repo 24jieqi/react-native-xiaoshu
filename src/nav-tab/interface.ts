@@ -1,6 +1,9 @@
+import type { NavTabTheme } from './style'
+
 type TabValue<T> = { value: T; label: string }
 
 export interface NavTabProps<T> {
+  theme?: Partial<NavTabTheme>
   /**
    * 当前选中的值
    */

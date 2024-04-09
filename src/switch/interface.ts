@@ -1,7 +1,10 @@
 import type { ColorValue, ViewProps } from 'react-native'
 
+import type { SwitchTheme } from './style'
+
 export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
   extends Pick<ViewProps, 'testID'> {
+  theme?: Partial<SwitchTheme>
   /**
    * 开关选中状态
    * @default false

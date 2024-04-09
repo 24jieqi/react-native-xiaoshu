@@ -17,6 +17,7 @@ import useImageLayout from './useImageLayout'
  * Uploader 文件上传
  */
 const Uploader = <T extends UploaderValue>({
+  theme,
   list,
   maxCount = Number.MAX_SAFE_INTEGER,
   imageComponent = Image,
@@ -36,9 +37,11 @@ const Uploader = <T extends UploaderValue>({
   ...restProps
 }: UploaderProps<T>) => {
   const locale = Locale.useLocale().Uploader
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout()
   const onLayoutView = usePersistFn((e: LayoutChangeEvent) => {

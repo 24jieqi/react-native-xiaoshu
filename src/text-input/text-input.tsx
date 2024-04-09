@@ -56,6 +56,7 @@ const iOSPlatform = Platform.OS === 'ios'
 const TextInput = forwardRef<TextInputInstance, TextInputProps>(
   (
     {
+      theme,
       addonGroupStyle,
       addonBeforeTextStyle,
       addonAfterTextStyle,
@@ -105,10 +106,14 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     }
 
     const locale = Locale.useLocale().TextInput
-    const TOKENS = Theme.useThemeTokens()
-    const CV = Theme.createVar(TOKENS, varCreator)
-    const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-    const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
+    const [CV, STYLES] = Theme.useStyle({
+      varCreator,
+      styleCreator,
+      theme,
+    })
+    const [CV_BUTTON] = Theme.useStyle({
+      varCreator: varCreatorButton,
+    })
 
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
@@ -357,7 +362,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
         (clearTrigger === 'focus' ? focus : true) &&
         value &&
         value.length ? (
-          <TextInputClear onPress={onPressClearable} />
+          <TextInputClear theme={theme} onPress={onPressClearable} />
         ) : null}
 
         {showWordLimit ? (

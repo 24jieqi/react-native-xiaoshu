@@ -18,6 +18,7 @@ import { varCreator, styleCreator } from './style'
 const hitSlop = { left: 8, right: 8 }
 
 const TreeItem: React.FC<TreeItemProps> = ({
+  theme,
   tier,
   indent,
   switcherIcon,
@@ -33,10 +34,14 @@ const TreeItem: React.FC<TreeItemProps> = ({
   onPressSwitcherIcon,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
 
   const leftJSX = (
     <Flex direction="row" align="center">

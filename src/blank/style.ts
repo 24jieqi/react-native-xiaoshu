@@ -7,3 +7,5 @@ export const varCreator = (TOKENS: TokensType) => {
     blank_size_l: TOKENS.space_4,
   }
 }
+
+export type BlankTheme = ReturnType<typeof varCreator>

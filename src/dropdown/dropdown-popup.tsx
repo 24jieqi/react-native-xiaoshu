@@ -11,6 +11,7 @@ import useState from '../hooks/useStateUpdate'
 import Popup from '../popup/popup'
 import Theme from '../theme'
 
+import { useDropdownConfig } from './context'
 import type { DropdownPopupProps } from './interface'
 import { varCreator } from './style'
 
@@ -31,8 +32,11 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
 }) => {
   const insets = useSafeAreaInsets()
   const { height: windowHeight } = useWindowDimensions()
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const { theme } = useDropdownConfig()
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
 
   const [wrapperStyle, setWrapperStyle] = useState<ViewStyle>({
     maxHeight: 0,
