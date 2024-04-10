@@ -20,3 +20,13 @@ group:
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
+
+去掉 TextInputProps 的 formatTrigger、showWordLimit、rows、type、secureTextEntry、suffix。
+
+| 属性名                  | 描述             | 类型                  | 默认值   | 版本 |
+| :---------------------- | ---------------- | --------------------- | -------- | ---- |
+| secureTextEntry         | 安全输入         | `boolean`             | `true`   | -    |
+| defaultSecureTextEntry  | 安全输入默认状态 | `boolean`             | -        | -    |
+| onChangeSecureTextEntry | 安全输入状态变更 | `(v:boolean) => void` | -        | -    |
+| iconSize                | 图标大小         | `number`              | `20`     | -    |
+| iconColor               | 图标颜色         | `ColorValue`          | `gray_6` | -    |

@@ -14,7 +14,7 @@ export interface DatePickerSingleMethodProps
   extends Omit<DatePickerViewProps, 'value' | 'onChange' | 'loading'>,
     Omit<PopupPropsCommon, 'onPressOverlay' | 'visible' | 'onRequestClose'> {
   /**
-   * 顶部栏标题
+   * 顶部标题
    */
   title?: React.ReactNode
 
@@ -105,7 +105,7 @@ export interface DatePickerRangeViewProps
   onConfirm?: (values: DatePickerRangeValue) => void
 
   /**
-   * 触发改变
+   * 变化时的回调函数
    */
   onChange?: (values: DatePickerRangeValue) => void
 
@@ -134,7 +134,7 @@ export interface DatePickerRangeMethodProps
     >,
     Omit<PopupPropsCommon, 'visible' | 'onPressOverlay' | 'onRequestClose'> {
   /**
-   * 顶部栏标题
+   * 顶部标题
    */
   title?: React.ReactNode
 

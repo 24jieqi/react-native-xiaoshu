@@ -23,7 +23,7 @@ group:
 | :----------- | ------------------------ | ---------------------- | -------- | ---- |
 | value        | 选中项                   | `Date`                 | -        | -    |
 | defaultValue | 默认选中项               | `Date`                 | -        | -    |
-| onChange     | 选项改变时触发           | `(v: Date) => void`    | -        | -    |
+| onChange     | 变化时的回调函数         | `(v: Date) => void`    | -        | -    |
 | mode         | 日期选择的类型           | `DatePickerColumnMode` | `'Y-m'`  | -    |
 | min          | 最小值                   | `Date`                 | `十年前` | -    |
 | max          | 最大值                   | `Date`                 | `十年后` | -    |

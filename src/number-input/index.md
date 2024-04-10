@@ -33,3 +33,17 @@ group:
 <code src="./__fixtures__/extra.tsx"></code>
 
 ## API
+
+去掉 TextInputProps 的 value、defaultValue、formatTrigger、showWordLimit、rows、type、onChange、onChangeText。
+
+| 属性名          | 描述                                                                                       | 类型                             | 默认值                    | 版本 |
+| :-------------- | ------------------------------------------------------------------------------------------ | -------------------------------- | ------------------------- | ---- |
+| type            | 输入内容格式，digit 整数，number 允许小数                                                  | `'digit'\|'number'`              | `'number'`                | -    |
+| value           | 受控模式所显示的值                                                                         | `number`                         | -                         | -    |
+| defaultValue    | 非受控模式初始值                                                                           | `number`                         | -                         | -    |
+| onChange        | 变化时的回调函数                                                                           | `(n:number) => void`             | -                         | -    |
+| min             | 最小值                                                                                     | `number`                         | `Number.MIN_SAFE_INTEGER` | -    |
+| max             | 最大值                                                                                     | `number`                         | `Number.MAX_SAFE_INTEGER` | -    |
+| parser          | 指定从 formatter 里转换回数字的方式，和 formatter 搭配使用，在输入结束的时候调用该运算结果 | `(v:string) => number`           | -                         | -    |
+| limitDecimals   | 是否限制小数位，-1 不限制                                                                  | `number`                         | `-1`                      | -    |
+| validateTrigger | 校验输入范围触发的时机，不推荐这样使用，可能造成无法正常输入，推荐使用 formatter           | `'onChangeText'\|'onEndEditing'` | `'onEndEditing'`          | -    |

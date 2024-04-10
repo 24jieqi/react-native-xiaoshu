@@ -12,7 +12,7 @@ export type PickerAction = 'cancel' | 'confirm' | 'overlay'
 
 export interface PickerProps extends PickerViewProps, PopupPropsCommon {
   /**
-   * 顶部栏标题
+   * 顶部标题
    */
   title?: React.ReactNode
 
@@ -29,13 +29,13 @@ export interface PickerProps extends PickerViewProps, PopupPropsCommon {
   cancelButtonText?: string
 
   /**
-   * 顶部栏位置
+   * 标题、工具栏位置
    * @default 'top'
    */
   toolbarPosition?: 'top' | 'bottom'
 
   /**
-   * 是否显示顶部栏
+   * 是否显示标题、工具栏
    * @default true
    */
   showToolbar?: boolean

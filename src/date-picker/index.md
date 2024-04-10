@@ -29,7 +29,7 @@ group:
 
 | 属性名            | 描述                                                      | 类型                                                                               | 默认值   | 版本 |
 | :---------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | ---- |
-| title             | 顶部栏标题                                                | `React.ReactNode`                                                                  | -        | -    |
+| title             | 顶部标题                                                  | `React.ReactNode`                                                                  | -        | -    |
 | confirmButtonText | 确认按钮文字                                              | `string`                                                                           | `'确认'` | -    |
 | cancelButtonText  | 取消按钮文字                                              | `string`                                                                           | `'取消'` | -    |
 | onCancel          | 点击取消                                                  | `(value:Date) => void`                                                             | -        | -    |
@@ -51,7 +51,7 @@ group:
 | resetButtonText   | 重置按钮文字                     | `string`                                | `'重置'`               | -    |
 | placeholder       | 占位文案                         | `[string, string]`                      | `['请选择', '请选择']` | -    |
 | onConfirm         | 点击确定                         | `(values:DatePickerRangeValue) => void` | -                      | -    |
-| onChange          | 触发改变                         | `(values:DatePickerRangeValue) => void` | -                      | -    |
+| onChange          | 变化时的回调函数                 | `(values:DatePickerRangeValue) => void` | -                      | -    |
 | clearable         | 显示清空按钮                     | `boolean`                               | `false`                | -    |
 | onClear           | 点击清空按钮                     | `(values:DatePickerRangeValue) => void` | -                      | -    |
 | clearButtonText   | 清空按钮文字                     | `string`                                | `'清空'`               | -    |
@@ -62,7 +62,7 @@ group:
 
 | 属性名         | 描述                                                      | 类型                                                                                       | 默认值 | 版本 |
 | :------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------ | ---- |
-| title          | 顶部栏标题                                                | `React.ReactNode`                                                                          | -      | -    |
+| title          | 顶部标题                                                  | `React.ReactNode`                                                                          | -      | -    |
 | onCancel       | 点击取消                                                  | `(values:DatePickerRangeValue) => void`                                                    | -      | -    |
 | onConfirm      | 点击确定                                                  | `(values:DatePickerRangeValue) => void`                                                    | -      | -    |
 | onConfirm      | 点击确定                                                  | `(values:DatePickerRangeValue) => void`                                                    | -      | -    |

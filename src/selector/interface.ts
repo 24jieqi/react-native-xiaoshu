@@ -14,7 +14,10 @@ export interface SelectorProps
 
   defaultValue?: SelectorValue | SelectorValue[]
 
-  onChange?: (v: TreeValue[] | TreeValue, options: TreeOption[]) => void
+  onChange?: (
+    v: SelectorValue[] | SelectorValue,
+    options: SelectorOption[],
+  ) => void
 
   options: SelectorOption[]
   /**
@@ -63,13 +66,7 @@ export interface SelectorMethodProps extends Omit<SelectorProps, 'visible'> {
 }
 
 export interface SelectorOptions
-  extends Omit<SelectorMethodProps, 'onChange' | 'onRequestClose'> {
-  // 是否可以删了，函数的方式直接用 .then 操作
-  onChange?: (
-    value: SelectorValue[] | SelectorValue,
-    options: SelectorOption | SelectorOption[],
-  ) => void
-}
+  extends Omit<SelectorMethodProps, 'onRequestClose'> {}
 
 export interface SelectorTextProps {
   /**
@@ -84,14 +81,14 @@ export interface SelectorTextProps {
   value: SelectorValue
 
   /**
-   * 当前的选项
+   * 候选项数组
    */
   options: SelectorOption[]
 
   /**
-   * 选择后的回调
+   * 变化时的回调函数
    */
-  onChange?: (value: SelectorValue, options: SelectorOption) => void
+  onChange?: (value: SelectorValue, options: SelectorOption[]) => void
 
   /**
    * 箭头方向

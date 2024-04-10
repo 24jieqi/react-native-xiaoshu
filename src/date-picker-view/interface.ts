@@ -46,7 +46,7 @@ export interface DatePickerViewProps extends Pick<ViewProps, 'testID'> {
   defaultValue?: Date
 
   /**
-   * 选项改变时触发
+   * 变化时的回调函数
    */
   onChange?: (v: Date) => void
 

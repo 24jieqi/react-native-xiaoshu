@@ -19,9 +19,32 @@ group:
 
 ## API
 
+### Picker.Component
+
+### Picker.PickerComponent
+
+继承了 Popup 公共属性、PickerViewProps。
+
+| 属性名            | 描述                 | 类型                   | 默认值   | 版本 |
+| :---------------- | -------------------- | ---------------------- | -------- | ---- |
+| title             | 顶部标题             | `React.ReactNode`      | -        | -    |
+| confirmButtonText | 确认按钮文字         | `string`               | `'确认'` | -    |
+| cancelButtonText  | 取消按钮文字         | `string`               | `'取消'` | -    |
+| toolbarPosition   | 标题、工具栏位置     | `'top'\|'bottom'`      | `'top'`  | -    |
+| showToolbar       | 是否显示标题、工具栏 | `boolean`              | `true`   | -    |
+| onCancel          | 点击取消按钮时触发   | `TextProps['onPress']` | -        | -    |
+| onConfirm         | 点击完成按钮时触发   | `TextProps['onPress']` | -        | -    |
+
 ### Picker
 
-### Picker.Component
+去掉 PickerProps 的 visible、value、onChange、loading、onCancel、onConfirm、onPressOverlay、onRequestClose。
+
+| 属性名         | 描述                                                    | 类型                                                                                         | 默认值 | 版本 |
+| :------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------ | ---- |
+| onCancel       | 点击取消                                                | `(values:PickerValue[], columns:Column[]) => void`                                           | -      | -    |
+| onConfirm      | 点击确定                                                | `(values:PickerValue[], columns:Column[]) => void`                                           | -      | -    |
+| onPressOverlay | 点击遮罩层                                              | `(values:PickerValue[], columns:Column[]) => void`                                           | -      | -    |
+| beforeClose    | 闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise | `(action:PickerAction, values:PickerValue[], columns:Column[]) => boolean\|Promise<boolean>` | -      | -    |
 
 ## 主题定制
 
