@@ -42,7 +42,7 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
   suffixTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 输入内容格式
+   * 输入框的形状
    * @default 'text'
    */
   type?: 'text' | 'textarea'
@@ -115,13 +115,13 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
   inputWidth?: number
 
   /**
-   * 控件大小。
+   * 控件大小
    * @default 'm'
    */
   size?: 'xl' | 'l' | 'm' | 's'
 
   /**
-   * 当文本框内容变化时调用此回调函数。
+   * 当文本框内容变化时调用此回调函数
    * @description 与原生控件不同，这里的参数直接是值
    */
   onChange?: (value: string) => void

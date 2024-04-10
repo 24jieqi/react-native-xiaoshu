@@ -27,21 +27,76 @@ group:
 
 ## API
 
-### Dialog
+### Dialog 公共属性
 
-### Dialog.input
+继承 Popup 公共属性。
+
+| 属性名                | 描述                                              | 类型                                       | 默认值     | 版本 |
+| :-------------------- | ------------------------------------------------- | ------------------------------------------ | ---------- | ---- |
+| style                 | 最外层的样式                                      | `StyleProp<ViewStyle>`                     | -          | -    |
+| title                 | 标题                                              | `React.ReactNode`                          | -          | -    |
+| width                 | 弹窗宽度                                          | `DimensionValue`                           | `300`      | -    |
+| message               | 文本内容，支持通过\n换行                          | `React.ReactNode`                          | -          | -    |
+| messageAlign          | 内容对齐方式，可选值为`'center'\|'left'\|'right'` | `MessageAlign`                             | `'center'` | -    |
+| showConfirmButton     | 是否展示确认按钮                                  | `boolean`                                  | `true`     | -    |
+| showCancelButton      | 是否展示取消按钮                                  | `boolean`                                  | -          | -    |
+| confirmButtonText     | 确认按钮文案                                      | `string`                                   | `'确认'`   | -    |
+| confirmButtonColor    | 确认按钮颜色                                      | `ColorValue`                               | -          | -    |
+| confirmButtonTextBold | 确认按钮文案 粗体                                 | `boolean`                                  | `true`     | -    |
+| cancelButtonText      | 取消按钮文案                                      | `string`                                   | `'取消'`   | -    |
+| cancelButtonColor     | 取消按钮颜色                                      | `ColorValue`                               | -          | -    |
+| cancelButtonTextBold  | 取消按钮文案 粗体                                 | `boolean`                                  | `false`    | -    |
+| showClose             | 是否显示关闭按钮                                  | `boolean`                                  | `false`    | -    |
+| onPressClose          | 点击关闭按钮                                      | `TouchableWithoutFeedbackProps['onPress']` | -          | -    |
+| buttonReverse         | 按钮翻转顺序                                      | `boolean`                                  | `false`    | -    |
 
 ### Dialog.Component
+
+继承 Dialog 公共属性。
+
+| 属性名               | 描述           | 类型         | 默认值  | 版本 |
+| :------------------- | -------------- | ------------ | ------- | ---- |
+| cancelButtonLoading  | 取消按钮加载中 | `boolean`    | `false` | -    |
+| confirmButtonLoading | 确定按钮加载中 | `boolean`    | `false` | -    |
+| onPressCancel        | 点击取消       | `() => void` | -       | -    |
+| onPressConfirm       | 点击确定       | `() => void` | -       | -    |
+
+### Dialog
+
+去掉 Dialog 公共属性的 visible、onPressOverlay、onPressClose、onRequestClose。
+
+| 属性名      | 描述                                                      | 类型                                                 | 默认值 | 版本 |
+| :---------- | --------------------------------------------------------- | ---------------------------------------------------- | ------ | ---- |
+| beforeClose | 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise | `(action:DialogAction) => boolean\|Promise<boolean>` | -      | -    |
 
 ### Dialog.Keyboard <Badge>0.2.48+</Badge>
 
 ### Dialog.KeyboardComponent <Badge>0.2.48+</Badge>
 
-`Dialog.Component`、`Dialog.Keyboard`、`Dialog.KeyboardComponent` 三个组件接口一致。
-
 `Dialog.KeyboardComponent` 内部没有嵌套 `Portal`。
 
-> `Dialog.Keyboard`、`Dialog.KeyboardComponent` 在 `Dialog` 添加键盘出现、消失事件监听，键盘出现时整个对话框距离顶部一个安全距离。
+继承 DialogProps 的属性。
+
+| 属性名      | 描述               | 类型     | 默认值               | 版本 |
+| :---------- | ------------------ | -------- | -------------------- | ---- |
+| safeAreaTop | 自定义顶部安全边距 | `number` | `safeAreaInsets.top` | -    |
+
+### Dialog.input
+
+去掉 Dialog 公共属性的 visible、onPressOverlay、messageAlign、onPressClose。
+
+| 属性名         | 描述                                                      | 类型                                                                                   | 默认值               | 版本 |
+| :------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------- | ---- |
+| safeAreaTop    | 自定义顶部安全边距                                        | `number`                                                                               | `safeAreaInsets.top` | -    |
+| beforeClose    | 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise | `(action:Exclude<DialogAction, 'overlay'>, text: string) => boolean\|Promise<boolean>` | -                    | -    |
+| onPressCancel  | 点击取消                                                  | `(text: string) => boolean\|Promise<boolean>\|void\|Promise<void>`                     | -                    | -    |
+| onPressConfirm | 点击确定                                                  | `(text: string) => boolean\|Promise<boolean>\|void\|Promise<void>`                     | -                    | -    |
+| defaultValue   | 默认值                                                    | `string`                                                                               | -                    | -    |
+| placeholder    | 提示文案                                                  | `string`                                                                               | -                    | -    |
+| type           | 输入框类型                                                | `TextInputProps['type']\|NumberInputProps['type']`                                     | `'text'`             | -    |
+| autoFocus      | 自动对焦输入框                                            | `boolean`                                                                              | `true`               | -    |
+| textInput      | 自定义 TextInput 属性                                     | `Omit<TextInputProps, 'defaultValue'\|'placeholder'\|'type'\|'autoFocus'>`             | -                    | -    |
+| numberInput    | 自定义 NumberInput 属性                                   | `Omit<NumberInputProps, 'defaultValue'\|'placeholder'\|'type'\|'autoFocus'>`           | -                    | -    |
 
 ## 主题定制
 

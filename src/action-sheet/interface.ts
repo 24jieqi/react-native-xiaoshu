@@ -92,7 +92,7 @@ export interface ActionSheetOptions
   ) => boolean | Promise<boolean>
 
   /**
-   * 触发了某个机制
+   * 触发了某个选项
    */
   onResponse?: (
     action: ActionSheetAction,
