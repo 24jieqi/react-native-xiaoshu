@@ -58,6 +58,30 @@ group:
 
 ## API
 
+| 属性名               | 描述                                                                                  | 类型                             | 默认值    | 版本 |
+| :------------------- | ------------------------------------------------------------------------------------- | -------------------------------- | --------- | ---- |
+| addonGroupStyle      | 当设置 addonXxx 的时候就会出现一个组                                                  | `StyleProp<ViewStyle>`           | -         | -    |
+| addonBeforeTextStyle | addonBefore 文案的样式                                                                | `StyleProp<TextStyle>`           | -         | -    |
+| addonAfterTextStyle  | addonAfter 文案的样式                                                                 | `StyleProp<TextStyle>`           | -         | -    |
+| fixGroupStyle        | xxxfix 相关父组件样式                                                                 | `StyleProp<ViewStyle>`           | -         | -    |
+| prefixTextStyle      | prefix 文案的样式                                                                     | `StyleProp<TextStyle>`           | -         | -    |
+| suffixTextStyle      | suffix 文案的样式                                                                     | `StyleProp<TextStyle>`           | -         | -    |
+| type                 | 输入框的形状                                                                          | `'text'\|'textarea'`             | `'text'`  | -    |
+| rows                 | 多行的时候最低多少行的高度                                                            | `number`                         | `2`       | -    |
+| clearable            | 是否启用清除图标，点击清除图标后会清空输入框                                          | `boolean`                        | `false`   | -    |
+| clearTrigger         | 显示清除图标的时机，always 表示输入框不为空时展示，focus 表示输入框聚焦且不为空时展示 | `'always'\|'focus'`              | `'focus'` | -    |
+| formatter            | 输入内容格式化函数                                                                    | `(s:string) => string`           | -         | -    |
+| formatTrigger        | 格式化函数触发的时机，可选值为 `onEndEditing\|onChangeText`                           | `'onEndEditing'\|'onChangeText'` | -         | -    |
+| showWordLimit        | 是否显示字数统计，需要设置 maxLength 属性，只有 textarea 模式下才有效                 | `boolean`                        | `false`   | -    |
+| bordered             | 是否显示边框                                                                          | `boolean`                        | `false`   | -    |
+| addonBefore          | 输入框外部前置标签，边框外，textarea 无                                               | `React.ReactNode`                | -         | -    |
+| addonAfter           | 输入框外部后置标签，边框外，textarea 无                                               | `React.ReactNode`                | -         | -    |
+| prefix               | 输入框内部前缀，边框内部，textarea 无                                                 | `React.ReactNode`                | -         | -    |
+| suffix               | 输入框内部后缀，边框内部，textarea 无                                                 | `React.ReactNode`                | -         | -    |
+| inputWidth           | 输入框自定义宽                                                                        | `number`                         | -         | -    |
+| size                 | 控件大小                                                                              | `'xl'\|'l'\|'m'\|'s'`            | `'m'`     | -    |
+| onChange             | 当文本框内容变化时调用此回调函数                                                      | `(value: string) => void`        | -         | -    |
+
 ## 主题定制
 
 | 名称                                         | 默认值                   | 描述 |

@@ -27,6 +27,26 @@ group:
 
 ## API
 
+| 属性名                | 描述                                   | 类型                                                                                                  | 默认值                    | 版本 |
+| :-------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------- | ---- |
+| multiple              | 支持点选多个节点                       | `boolean`                                                                                             | -                         | -    |
+| multipleMode          | 多选的模式                             | `TreeMultipleMode`                                                                                    | `TreeMultipleMode.NORMAL` | -    |
+| value                 | 受控模式所显示的值                     | `TreeValue[]\|TreeValue`                                                                              | -                         | -    |
+| defaultValue          | 非受控模式的初始值                     | `TreeValue[]\|TreeValue`                                                                              | -                         | -    |
+| onChange              | 变化时的回调函数                       | `(v:TreeValue[]\|TreeValue, option:TreeOption[], event:{checked:boolean, option:TreeOption}) => void` | -                         | -    |
+| options               | 候选项数组                             | `TreeOption[]`                                                                                        | -                         | -    |
+| renderSwitcherIcon    | 自定义渲染树节点的展开/折叠图标        | `TreeOption['renderSwitcherIcon']`                                                                    | -                         | -    |
+| indent                | 父子节点的缩进                         | `number`                                                                                              | `tree_indent`             | -    |
+| activeColor           | 选中状态颜色                           | `ColorValue`                                                                                          | `tree_active_color`       | -    |
+| defaultExpandedValues | 默认展开指定的树节点                   | `TreeValue[]`                                                                                         | -                         | -    |
+| defaultExpandAll      | 默认展开所有树节点                     | `boolean`                                                                                             | `false`                   | -    |
+| search                | 支持搜索                               | `boolean`                                                                                             | -                         | -    |
+| onSearch              | 自定义搜索方案                         | `(keyword:string, options:TreeOption[]) => TreeSearchListData[]`                                      | -                         | -    |
+| placeholder           | 搜索提示文案                           | `string`                                                                                              | -                         | -    |
+| minHeight             | 最小高度                               | `boolean\|number`                                                                                     | `true`                    | -    |
+| cancellable           | 单选的情况下再次点击选中可以取消       | `boolean`                                                                                             | `false`                   | -    |
+| editable              | 是否可以编辑 命名与 TextInput 保持一致 | `boolean`                                                                                             | `true`                    | -    |
+
 ## 注意事项
 
 ### 多选的模式

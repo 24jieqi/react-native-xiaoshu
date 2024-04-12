@@ -30,7 +30,7 @@ export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
 
   /**
    * 开关尺寸
-   * @default `switch_size`
+   * @default switch_size
    */
   size?: number
 
@@ -69,7 +69,7 @@ export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
   /**
    * 点击时触发
    */
-  onPress?: Function
+  onPress?: () => void
 
   /**
    * 开关状态切换时触发

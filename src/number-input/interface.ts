@@ -31,7 +31,7 @@ export interface NumberInputProps
   defaultValue?: number
 
   /**
-   * 数字变化时的回调
+   * 变化时的回调函数
    */
   onChange?: (n: number) => void
 

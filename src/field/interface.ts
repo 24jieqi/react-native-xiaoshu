@@ -170,7 +170,7 @@ export interface FieldDateProps
   ) => string
 
   /**
-   * 时间选择器顶部栏标题
+   * 时间选择器顶部标题
    */
   datePickerTitle?: string
 
@@ -236,7 +236,7 @@ export interface FieldDateRangeProps
   ) => [string, string]
 
   /**
-   * 时间选择器顶部栏标题
+   * 时间选择器顶部标题
    */
   datePickerTitle?: string
 
@@ -340,4 +340,7 @@ export interface FieldButtonOptionProps
       | 'editable'
       | 'type'
       | 'deselect'
+      | 'activeHighlight'
+      | 'round'
+      | 'scrollable'
     > {}

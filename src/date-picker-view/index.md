@@ -18,3 +18,14 @@ group:
 <code src="./__fixtures__/basic.tsx"></code>
 
 ## API
+
+| 属性名       | 描述                     | 类型                   | 默认值   | 版本 |
+| :----------- | ------------------------ | ---------------------- | -------- | ---- |
+| value        | 选中项                   | `Date`                 | -        | -    |
+| defaultValue | 默认选中项               | `Date`                 | -        | -    |
+| onChange     | 变化时的回调函数         | `(v: Date) => void`    | -        | -    |
+| mode         | 日期选择的类型           | `DatePickerColumnMode` | `'Y-m'`  | -    |
+| min          | 最小值                   | `Date`                 | `十年前` | -    |
+| max          | 最大值                   | `Date`                 | `十年后` | -    |
+| renderLabel  | 自定义渲染每列展示的内容 | `RenderLabel`          | -        | -    |
+| loading      | 加载中                   | `boolean`              | -        | -    |

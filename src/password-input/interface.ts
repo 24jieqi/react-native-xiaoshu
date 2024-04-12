@@ -36,7 +36,7 @@ export interface PasswordInputProps
 
   /**
    * 图标颜色
-   * @default text_color_3
+   * @default gray_6
    */
   iconColor?: ColorValue
 }

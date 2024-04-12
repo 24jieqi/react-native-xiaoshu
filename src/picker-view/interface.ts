@@ -42,12 +42,12 @@ export interface PickerViewProps extends Pick<ViewProps, 'testID'> {
   defaultValue?: PickerValue[]
 
   /**
-   * 选项改变时触发
+   * 变化时的回调函数
    */
   onChange?: (values: PickerValue[], options: Column[]) => void
 
   /**
-   * 对象数组，配置每一列显示的数据
+   * 选项数组，配置每一列显示的数据
    */
   columns: Column[]
 
@@ -64,7 +64,7 @@ export interface PickerViewProps extends Pick<ViewProps, 'testID'> {
   itemHeight?: number
 
   /**
-   * 可见的选项个数，基数
+   * 可见的选项个数，奇数
    * @default 5
    */
   visibleItemCount?: number

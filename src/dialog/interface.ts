@@ -15,7 +15,7 @@ import type { DialogTheme } from './style'
 
 export type DialogType = 'alert' | 'confirm'
 
-type messageAlign = 'center' | 'left' | 'right'
+type MessageAlign = 'center' | 'left' | 'right'
 
 export type DialogAction = 'cancel' | 'confirm' | 'overlay'
 
@@ -40,9 +40,9 @@ interface DialogCommon extends PopupPropsCommon {
 
   /**
    * 内容对齐方式，可选值为`'center' | 'left' | 'right'`
-   * @default center
+   * @default 'center'
    */
-  messageAlign?: messageAlign
+  messageAlign?: MessageAlign
 
   /**
    * 是否展示确认按钮
@@ -58,7 +58,7 @@ interface DialogCommon extends PopupPropsCommon {
 
   /**
    * 确认按钮文案
-   * @default 确认
+   * @default '确认'
    */
   confirmButtonText?: string
 
@@ -75,7 +75,7 @@ interface DialogCommon extends PopupPropsCommon {
 
   /**
    * 取消按钮文案
-   * @default 取消
+   * @default '取消'
    */
   cancelButtonText?: string
 

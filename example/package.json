@@ -1,6 +1,6 @@
 {
   "name": "xiaoshu",
-  "version": "1.0.0",
+  "version": "0.3.22",
   "main": "index.ts",
   "scripts": {
     "start": "expo start",

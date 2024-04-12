@@ -2,7 +2,7 @@
   "expo": {
     "name": "react-native-xiaoshu",
     "slug": "react-native-xiaoshu",
-    "version": "1.0.0",
+    "version": "0.3.22",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

@@ -102,7 +102,7 @@ export interface StepSelectorMethodProps<T>
   onConfirm?: (v: T[], o: OptionData<T>[], isEnd?: boolean) => void
 
   /**
-   * 取消
+   * 点击取消
    */
   onCancel?: () => void
 }

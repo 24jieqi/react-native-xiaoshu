@@ -27,6 +27,23 @@ group:
 
 ## API
 
+继承 TextInputProps 的 value、defaultValue、placeholder、placeholderTextColor、autoFocus、onChangeText。
+
+| 属性名               | 描述                        | 类型                     | 默认值                              | 版本 |
+| :------------------- | --------------------------- | ------------------------ | ----------------------------------- | ---- |
+| iconSize             | 图标大小                    | `number`                 | `20`                                | -    |
+| iconColor            | 图标颜色                    | `ColorValue`             | `text_input_placeholder_text_color` | -    |
+| onSearch             | 点击搜索                    | `(value:string) => void` | -                                   | -    |
+| showBack             | 显示返回图标                | `boolean`                | `false`                             | -    |
+| onPressBack          | 点击返回图标                | `() => void`             | -                                   | -    |
+| autoSearch           | 内容变化时自动触发 onSearch | `boolean`                | `false`                             | -    |
+| onSearchDebounceWait | onSearch debounce wait      | `number`                 | `300`                               | -    |
+| searchText           | 搜索按钮文案                | `string`                 | `'搜索'`                            | -    |
+| extra                | 搜索按钮右侧自定义内容      | `React.ReactNode`        | -                                   | -    |
+| prefix               | 搜索 icon 左边自定义内容    | `React.ReactNode`        | -                                   | -    |
+| suffix               | 搜索框内右边自定义内容      | `React.ReactNode`        | -                                   | -    |
+| showSearchButton     | 是否显示搜索按钮            | `boolean`                | `true`                              | -    |
+
 ## 主题定制
 
 | 名称                               | 默认值           | 描述 |
