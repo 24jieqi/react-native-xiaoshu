@@ -340,4 +340,7 @@ export interface FieldButtonOptionProps
       | 'editable'
       | 'type'
       | 'deselect'
+      | 'activeHighlight'
+      | 'round'
+      | 'scrollable'
     > {}

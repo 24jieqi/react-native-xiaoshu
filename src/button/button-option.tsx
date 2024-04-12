@@ -76,7 +76,10 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
     STYLES.option,
     {
       height: CV[`button_${size}_height`],
-      backgroundColor: active ? activeBackgroundColor : inactiveBackgroundColor,
+      backgroundColor:
+        active && activeHighlight
+          ? activeBackgroundColor
+          : inactiveBackgroundColor,
       borderColor: active ? CV.button_primary_color : inactiveBorderColor,
       borderWidth: hairline ? StyleSheet.hairlineWidth : 1,
     },
