@@ -61,10 +61,6 @@ export default defineConfig({
         link: '/case',
       },
       {
-        title: '维护团队',
-        link: 'https://techblog.hjgpscm.com',
-      },
-      {
         title: '更新日志',
         link: 'https://github.com/24jieqi/react-native-xiaoshu/releases',
       },
