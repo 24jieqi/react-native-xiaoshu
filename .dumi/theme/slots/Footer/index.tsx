@@ -14,7 +14,7 @@ const data: {
       },
       {
         title: '维护团队',
-        link: 'https://techblog.hjgpscm.com',
+        link: 'https://24jieqi.github.io',
       },
     ],
   },
@@ -52,7 +52,7 @@ const data: {
       },
       {
         title: '秋分',
-        link: 'https://techblog.hjgpscm.com/qiufen/',
+        link: 'https://24jieqi.github.io/qiufen/',
       },
       {
         title: '图标库',
