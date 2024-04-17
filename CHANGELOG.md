@@ -1,3 +1,13 @@
+## [0.3.23](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.22...v0.3.23) (2024-04-17)
+
+### Documentation
+
+- **docs:** ✏️ 文档展示组件 API ([1070c42](https://github.com/24jieqi/react-native-xiaoshu/commit/1070c4269f21fe253b0635c40de80dd0df52e09a))
+
+### BREAKING CHANGES
+
+- **docs:** 🧨 ProgressProps 的 strokeWidth 更名为 strokeHeight
+
 ## [0.3.22](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.21...v0.3.22) (2024-04-12)
 
 ### Bug Fixes
