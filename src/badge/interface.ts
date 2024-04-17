@@ -12,12 +12,12 @@ export interface BadgeProps extends ViewProps {
   theme?: Partial<BadgeTheme>
 
   /**
-   * 文案部分样式
+   * 文案样式
    */
   countStyle?: StyleProp<ViewStyle>
 
   /**
-   * 数字文案样式
+   * 文案文字样式
    */
   countTextStyle?: StyleProp<TextStyle>
 
@@ -28,6 +28,7 @@ export interface BadgeProps extends ViewProps {
 
   /**
    * 徽标背景颜色
+   * @default badge_background_color
    */
   color?: ColorValue
 
@@ -60,7 +61,7 @@ export interface BadgeProps extends ViewProps {
   offset?: [number, number]
 
   /**
-   * 设置 Badge 为状态点
+   * 内置颜色，优先级低于自定义 color
    */
   status?: 'primary' | 'success' | 'warning' | 'error'
 }

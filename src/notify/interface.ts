@@ -37,7 +37,7 @@ export interface NotifyProps
   /**
    * 类型，可选值为 `'primary' | 'success' | 'error' | 'warning'`
    *
-   * @default `danger`
+   * @default 'primary'
    */
   type?: NotifyType
 

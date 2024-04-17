@@ -13,27 +13,27 @@ export interface ProgressProps extends Pick<ViewProps, 'testID'> {
   percentage?: number
 
   /**
-   * 进度条粗细，默认单位为 px
+   * 进度条粗细
    * @default progress_height
    */
-  strokeWidth?: number
+  strokeHeight?: number
 
   /**
    * 进度条颜色
-   * @default 主题色
+   * @default progress_color
    */
   color?: ColorValue
 
   /**
    * 轨道颜色
    *
-   * @default '#e5e5e5'
+   * @default progress_background_color
    */
   trackColor?: ColorValue
 
   /**
    * 进度文字内容
-   * @default 百分比
+   * @default `${percentage}%`
    */
   pivotText?: string
 
@@ -45,7 +45,7 @@ export interface ProgressProps extends Pick<ViewProps, 'testID'> {
 
   /**
    * 进度文字颜色
-   * @default white
+   * @default progress_pivot_text_color
    */
   textColor?: ColorValue
 
@@ -80,7 +80,7 @@ export interface ProgressProps extends Pick<ViewProps, 'testID'> {
   animationDuration?: number
 
   /**
-   * 动画结束的回调
+   * 动画结束时的回调函数
    */
   onAnimationEnd?: (percentage: number) => void
 }
@@ -94,7 +94,7 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
   loading?: boolean
 
   /**
-   * 默认起点进度
+   * 初始起点进度百分值
    * @default 10
    */
   defaultPercentage?: number
@@ -103,7 +103,7 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
    * 背景色，默认会占满个屏幕
    * @default progress_page_background_color
    */
-  backgroundColor?: string
+  backgroundColor?: ColorValue
 
   /**
    * 加载出错
@@ -128,6 +128,7 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
 
   /**
    * 刷新按钮文案
+   * @default '点击刷新'
    */
   refreshText?: string
 
@@ -137,12 +138,12 @@ export interface ProgressPageProps extends PropsWithChildren<{}> {
   failExtra?: ReactNode
 
   /**
-   * 额外的 loading
+   * loading 时自定义显示扩展元素
    */
   extraLoading?: ReactNode
 
   /**
-   * 遮罩层的 zIndex
+   * 同步渲染 children 遮罩层的 zIndex
    * @default 1000
    */
   overlayZIndex?: number

@@ -43,7 +43,7 @@ export interface ButtonBarProps extends Omit<BottomBarProps, 'theme'> {
 export interface ButtonBarConfirmProps
   extends Omit<ButtonBarProps, 'alone' | 'buttons' | 'count' | 'moreText'> {
   /**
-   * 更多小按钮
+   * 取消按钮，可以是多个按钮
    */
   cancel?: React.ReactNode
 }

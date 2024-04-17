@@ -14,7 +14,7 @@ export interface ErrorBoundaryProps extends PropsWithChildren<{}> {
   reloadText?: string
 
   /**
-   * 出错的时候回到
+   * 出错时的回调函数
    */
   onError?: (e: Error, info: ErrorInfo) => void
 

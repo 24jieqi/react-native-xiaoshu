@@ -24,7 +24,7 @@ const Progress: React.FC<ProgressProps> = ({
   trackColor,
   pivotColor,
   textColor,
-  strokeWidth,
+  strokeHeight,
   inactive = false,
   showPivot = true,
   square = false,
@@ -53,13 +53,13 @@ const Progress: React.FC<ProgressProps> = ({
   pivotColor = getDefaultValue(pivotColor, color)
   textColor = getDefaultValue(textColor, CV.progress_pivot_text_color)
   pivotText = getDefaultValue(pivotText, `${percentage}%`)
-  strokeWidth = getDefaultValue(strokeWidth, CV.progress_height)!
+  strokeHeight = getDefaultValue(strokeHeight, CV.progress_height)!
   animationDuration = getDefaultValue(
     animationDuration,
     TOKENS.animation_duration_base,
   )
 
-  const borderRadius = square ? 0 : strokeWidth / 2
+  const borderRadius = square ? 0 : strokeHeight / 2
 
   const [progressLayout, setProgressLayout] = useState<ViewLayout>({
     width: 0,
@@ -101,7 +101,7 @@ const Progress: React.FC<ProgressProps> = ({
     left: 0,
     top: 0,
     width: AnimatedValue as unknown as number,
-    height: strokeWidth,
+    height: strokeHeight,
     backgroundColor: color,
     borderRadius: borderRadius,
   }
@@ -119,7 +119,7 @@ const Progress: React.FC<ProgressProps> = ({
         translateX: -textLayout.width / 2,
       },
       {
-        translateY: -(textLayout.height - strokeWidth) / 2,
+        translateY: -(textLayout.height - strokeHeight) / 2,
       },
     ],
   }
@@ -143,7 +143,7 @@ const Progress: React.FC<ProgressProps> = ({
       testID={testID}
       onLayout={onLayoutProgress}
       style={{
-        height: strokeWidth,
+        height: strokeHeight,
         backgroundColor: trackColor,
         borderRadius: borderRadius,
       }}>

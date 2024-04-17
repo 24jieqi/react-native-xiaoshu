@@ -8,13 +8,15 @@
 
 # [0.4.0-beta.0](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.22...v0.4.0-beta.2) (2024-04-08)
 
-## [0.4.0-beta.1](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.4.0-beta.0...v0.4.0-beta.1) (2024-04-09)
+## [0.3.23](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.22...v0.3.23) (2024-04-17)
 
-### Features
+### Documentation
 
-- **Theme:** 🎸 每个组件新增自定义 theme ([4605b27](https://github.com/24jieqi/react-native-xiaoshu/commit/4605b27251e105535b9c8647d9730f5eb31fa2a1))
+- **docs:** ✏️ 文档展示组件 API ([1070c42](https://github.com/24jieqi/react-native-xiaoshu/commit/1070c4269f21fe253b0635c40de80dd0df52e09a))
 
-## [0.4.0-beta.0](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.21...v0.4.0-beta.0) (2024-04-08)
+### BREAKING CHANGES
+
+- **docs:** 🧨 ProgressProps 的 strokeWidth 更名为 strokeHeight
 
 ## [0.3.22](https://github.com/24jieqi/react-native-xiaoshu/compare/v0.3.21...v0.3.22) (2024-04-12)
 

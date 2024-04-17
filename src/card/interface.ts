@@ -68,7 +68,7 @@ export interface CardProps extends ViewProps {
   // bordered?: boolean
 
   /**
-   * card 的尺寸
+   * 大小
    * @default 'm'
    */
   size?: 'm' | 's'

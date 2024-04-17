@@ -19,4 +19,15 @@ group:
 
 ### Flex
 
+| 属性名    | 描述           | 类型                         | 默认值     | 版本 |
+| :-------- | -------------- | ---------------------------- | ---------- | ---- |
+| direction | flexDirection  | `FlexStyle['flexDirection']` | `'row'`    | -    |
+| wrap      | flexWrap       | `FlexStyle['flexWrap']`      | `'nowrap'` | -    |
+| justify   | justifyContent | `FlexJustify`                | `'start'`  | -    |
+| align     | alignItems     | `FlexAlign`                  | `'center'` | -    |
+
 ### Flex.Item
+
+| 属性名 | 描述 | 类型                | 默认值 | 版本 |
+| :----- | ---- | ------------------- | ------ | ---- |
+| flex   | flex | `FlexStyle['flex']` | `1`    | -    |

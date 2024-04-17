@@ -29,11 +29,24 @@ group:
 
 `FloatingPanel` 与 `Popup.Component` 属性相同，`FloatingPanel` 被 `Portal` 组件包裹，在根节点渲染。
 
+| 属性名            | 描述                                                       | 类型                        | 默认值                   | 版本 |
+| :---------------- | ---------------------------------------------------------- | --------------------------- | ------------------------ | ---- |
+| anchorStart       | 起点                                                       | `number`                    | 内部计算一个初始值       | -    |
+| anchorEnd         | 终点                                                       | `number`                    | 屏幕高度减去安全顶部边距 | -    |
+| title             | 标题                                                       | `React.ReactNode`           | -                        | -    |
+| titleDivider      | 头部分割线                                                 | `boolean`                   | `true`                   | -    |
+| offsetThreshold   | 滑动偏移阈值，0~1                                          | `number`                    | `0.2`                    | -    |
+| zIndex            | 层级                                                       | `number`                    | `10`                     | -    |
+| draggingOnContent | 是否会处理面板内容区域的手势事件，禁用后则只能拖拽头部区域 | `boolean`                   | `true`                   | -    |
+| onAnimationEnd    | 动画结束时的回调函数                                       | `(opened: boolean) => void` | -                        | -    |
+
 ### FloatingPanel.ScrollView
 
 ### FloatingPanel.ScrollViewComponent
 
 `FloatingPanel.ScrollView` 与 `Popup.ScrollViewComponent` 属性相同，`FloatingPanel.ScrollView` 被 `Portal` 组件包裹，在根节点渲染。
+
+继承 FloatingPanelProps。
 
 ## 主题定制
 

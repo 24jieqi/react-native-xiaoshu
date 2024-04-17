@@ -19,9 +19,29 @@ group:
 
 ### Loading
 
+| 属性名      | 描述                                  | 类型                                                                     | 默认值       | 版本 |
+| :---------- | ------------------------------------- | ------------------------------------------------------------------------ | ------------ | ---- |
+| textStyle   | 文案的样式                            | `StyleProp<TextStyle>`                                                   | -            | -    |
+| color       | 颜色                                  | `ColorValue`                                                             | -            | -    |
+| type        | 图标类型                              | `'spinner'\|'circular'`                                                  | `'circular'` | -    |
+| size        | 加载图标大小                          | `number`                                                                 | -            | -    |
+| textSize    | 文字大小                              | `number`                                                                 | -            | -    |
+| vertical    | 是否垂直排列图标和文字内容            | `boolean`                                                                | `false`      | -    |
+| loadingIcon | 自定义 loading 图标，需要自己实现动画 | ` React.ReactNode\|((size:number, color:ColorValue) => React.ReactNode)` | -            | -    |
+
 ### Loading.Circular <Badge>0.2.1+</Badge>
 
+| 属性名 | 描述 | 类型         | 默认值               | 版本 |
+| :----- | ---- | ------------ | -------------------- | ---- |
+| size   | 大小 | `number`     | `loading_icon_size`  | -    |
+| color  | 颜色 | `ColorValue` | `loading_icon_color` | -    |
+
 ### Loading.Spinner <Badge>0.2.1+</Badge>
+
+| 属性名 | 描述 | 类型         | 默认值               | 版本 |
+| :----- | ---- | ------------ | -------------------- | ---- |
+| size   | 大小 | `number`     | `loading_icon_size`  | -    |
+| color  | 颜色 | `ColorValue` | `loading_icon_color` | -    |
 
 ## 主题定制
 

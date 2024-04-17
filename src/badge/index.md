@@ -23,6 +23,19 @@ group:
 
 ## API
 
+| 属性名         | 描述                                                     | 类型                                       | 默认值                   | 版本 |
+| :------------- | -------------------------------------------------------- | ------------------------------------------ | ------------------------ | ---- |
+| countStyle     | 文案样式                                                 | `StyleProp<ViewStyle>`                     | -                        | -    |
+| countTextStyle | 文案文字样式                                             | `StyleProp<TextStyle>`                     | -                        | -    |
+| count          | 徽标内容/展示的数字                                      | `number\|string`                           | -                        | -    |
+| color          | 徽标背景颜色                                             | `ColorValue`                               | `badge_background_color` | -    |
+| dot            | 不展示数字，只有一个小红点                               | `boolean`                                  | `false`                  | -    |
+| max            | 最大值，超过最大值会显示 {max}+，仅当 count 为数字时有效 | `number`                                   | -                        | -    |
+| loading        | 数据是否在加载中，如果在加载中就暂时不显示 count         | `boolean`                                  | `false`                  | -    |
+| showZero       | 当数值为 0 时，是否展示 Badge                            | `boolean`                                  | `false`                  | -    |
+| offset         | 设置状态点的位置偏移                                     | `[number, number]`                         | -                        | -    |
+| status         | 内置颜色，优先级低于自定义 color                         | `'primary'\|'success'\|'warning'\|'error'` | -                        | -    |
+
 ## 主题定制
 
 | 名称                      | 默认值                     | 描述 |

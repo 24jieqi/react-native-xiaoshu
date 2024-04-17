@@ -27,9 +27,29 @@ group:
 
 ### Skeleton
 
+| 属性名    | 描述                                         | 类型                              | 默认值  | 版本 |
+| :-------- | -------------------------------------------- | --------------------------------- | ------- | ---- |
+| active    | 是否展示动画效果                             | `boolean`                         | `true`  | -    |
+| loading   | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`                         | -       | -    |
+| avatar    | 是否显示头像占位图                           | `boolean\|SkeletonAvatarProps`    | `false` | -    |
+| title     | 是否显示标题占位图                           | `boolean\|SkeletonTitleProps`     | `true`  | -    |
+| paragraph | 是否显示段落占位图                           | `boolean\|SkeletonParagraphProps` | `true`  | -    |
+
 ### SkeletonAvatarProps
 
+| 属性名 | 描述             | 类型                 | 默认值     | 版本 |
+| :----- | ---------------- | -------------------- | ---------- | ---- |
+| active | 是否展示动画效果 | `boolean`            | `true`     | -    |
+| size   | 元素大小         | `number`             | `40`       | -    |
+| shape  | 形状             | `'circle'\|'square'` | `'circle'` | -    |
+
 ### SkeletonParagraphProps
+
+| 属性名 | 描述                 | 类型       | 默认值 | 版本 |
+| :----- | -------------------- | ---------- | ------ | ---- |
+| active | 是否展示动画效果     | `boolean`  | `true` | -    |
+| rows   | 设置段落占位图的行数 | `number`   | -      | -    |
+| widths | 每行的宽             | `number[]` | -      | -    |
 
 ## 主题定制
 

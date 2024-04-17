@@ -17,7 +17,7 @@ const AnimatedCircle =
 export interface CircularProps extends ViewProps {
   theme?: Partial<LoadingTheme>
   /**
-   * 图像大小
+   * 大小
    */
   size?: number
 

@@ -31,6 +31,23 @@ group:
 
 ## API
 
+| 属性名           | 描述                                       | 类型                                                 | 默认值                        | 版本 |
+| :--------------- | ------------------------------------------ | ---------------------------------------------------- | ----------------------------- | ---- |
+| messageTextStyle | 通知文本文字样式                           | `StyleProp<TextStyle>`                               | -                             | -    |
+| message          | 通知文本内容                               | `React.ReactNode`                                    | -                             | -    |
+| status           | 内置状态                                   | `NoticeBarStatus`                                    | `'warning'`                   | -    |
+| mode             | 通知栏模式，可选值为 `'closeable'\|'link'` | `NoticeBarMode`                                      | -                             | -    |
+| bordered         | 是否显示边框                               | `boolean`                                            | `false`                       | -    |
+| color            | 通知文本颜色                               | `ColorValue`                                         | `notice_bar_text_color`       | -    |
+| backgroundColor  | 通知背景颜色                               | `ColorValue`                                         | `notice_bar_background_color` | -    |
+| iconColor        | 图标颜色                                   | `ColorValue`                                         | `notice_bar_text_color`       | -    |
+| wrapable         | 是否开启文本换行                           | `boolean`                                            | `false`                       | -    |
+| square           | 是否为方形                                 | `boolean`                                            | `true`                        | -    |
+| size             | 大小                                       | `'m'\|'s'`                                           | `'m'`                         | -    |
+| renderLeftIcon   | 渲染左侧图标                               | `(color:ColorValue, size:number) => React.ReactNode` | -                             | -    |
+| renderRightIcon  | 渲染右侧图标                               | `(color:ColorValue, size:number) => React.ReactNode` | -                             | -    |
+| onPressClose     | 点击关闭按钮                               | `() => void`                                         | -                             | -    |
+
 ## 主题定制
 
 | 名称                                  | 默认值                   | 描述 |

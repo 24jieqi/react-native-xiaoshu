@@ -18,7 +18,7 @@ export interface NoticeBarProps
   extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
   theme?: Partial<NoticeBarTheme>
   /**
-   * 通知文本文案样式
+   * 通知文本文字样式
    */
   messageTextStyle?: StyleProp<TextStyle>
 

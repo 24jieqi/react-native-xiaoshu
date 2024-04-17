@@ -24,6 +24,15 @@ React Native 在 iOS 端的 borderStyle 暂时不支持虚线，使用 SVG 的�
 
 ## API
 
+| 属性名          | 描述                                                       | 类型                        | 默认值         | 版本 |
+| :-------------- | ---------------------------------------------------------- | --------------------------- | -------------- | ---- |
+| textStyle       | 文字样式                                                   | `StyleProp<TextStyle>`      | -              | -    |
+| type            | 颜色模式                                                   | `'dark'\|'light'`           | `'light'`      | -    |
+| direction       | 间距方向 `'vertical'\|'horizontal'`，vertical 只有线无文案 | `'vertical'\|'horizontal'`  | `'horizontal'` | -    |
+| dashed          | 是否使用虚线                                               | `boolean`                   | -              | -    |
+| color           | 自定义颜色                                                 | `ColorValue`                | -              | -    |
+| contentPosition | 内容位置，可选值为 `'left'\|'center'\|'right'`             | `'left'\|'center'\|'right'` | `'center'`     | -    |
+
 ## 主题定制
 
 | 名称                        | 默认值                 | 描述 |

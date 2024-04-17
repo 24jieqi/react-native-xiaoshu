@@ -12,7 +12,7 @@ export interface OverlayProps
    */
   style?: StyleProp<ViewStyle>
   /**
-   * overlay样式
+   * overlay 样式
    */
   overlayStyle?: StyleProp<ViewStyle>
 
