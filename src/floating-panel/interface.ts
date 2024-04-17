@@ -10,10 +10,10 @@ export interface FloatingPanelProps extends ViewProps {
    */
   anchorEnd?: number
 
-  /**
-   * 锚点变化
-   */
-  onChangeAnchor?: (anchor: number) => void
+  // /**
+  //  * 锚点变化
+  //  */
+  // onChangeAnchor?: (anchor: number) => void
 
   /**
    * 标题
@@ -45,7 +45,7 @@ export interface FloatingPanelProps extends ViewProps {
   draggingOnContent?: boolean
 
   /**
-   * 当动画结束
+   * 动画结束时的回调函数
    */
   onAnimationEnd?: (opened: boolean) => void
 

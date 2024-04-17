@@ -10,7 +10,7 @@ import useLoop from './useLoop'
 
 export interface SpinnerProps extends ViewProps {
   /**
-   * 图像大小
+   * 大小
    */
   size?: number
 

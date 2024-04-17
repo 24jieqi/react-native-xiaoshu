@@ -2,7 +2,7 @@ import type { TextStyle, StyleProp, ColorValue, ViewProps } from 'react-native'
 
 export interface LoadingProps extends ViewProps {
   /**
-   * 文案部分的样式
+   * 文案的样式
    */
   textStyle?: StyleProp<TextStyle>
 
@@ -12,8 +12,8 @@ export interface LoadingProps extends ViewProps {
   color?: ColorValue
 
   /**
-   * 类型，可选值为 spinner
-   * @default circular
+   * 图标类型
+   * @default 'circular'
    */
   type?: 'spinner' | 'circular'
 

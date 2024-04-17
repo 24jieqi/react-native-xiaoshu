@@ -17,6 +17,30 @@ group:
 
 ## API
 
+### Notify.Component
+
+### Notify.NotifyComponent
+
+去掉 Popup 公共属性的 overlay、closeOnClickOverlay、onPressOverlay、duration。
+
+| 属性名          | 描述                                                      | 类型                                       | 默认值      | 版本 |
+| :-------------- | --------------------------------------------------------- | ------------------------------------------ | ----------- | ---- |
+| style           | 最外层样式                                                | `StyleProp<ViewStyle>`                     | -           | -    |
+| textStyle       | 文字样式                                                  | `StyleProp<TextStyle>`                     | -           | -    |
+| type            | 类型，可选值为 `'primary'\|'success'\|'error'\|'warning'` | `NotifyType`                               | `'primary'` | -    |
+| message         | 展示文案                                                  | `React.ReactNode`                          | -           | -    |
+| color           | 字体颜色                                                  | `ColorValue`                               | -           | -    |
+| backgroundColor | 背景颜色                                                  | `ColorValue`                               | -           | -    |
+| onPress         | 点击时的回调函数                                          | `TouchableWithoutFeedbackProps['onPress']` | -           | -    |
+
+### Notify
+
+去掉 NotifyProps 的 visible。
+
+| 属性名   | 描述                                     | 类型     | 默认值 | 版本 |
+| :------- | ---------------------------------------- | -------- | ------ | ---- |
+| duration | 展示时长(ms)，值为 0 时，notify 不会消失 | `number` | `3000` | -    |
+
 ## 主题定制
 
 | 名称                            | 默认值                 | 描述 |

@@ -101,7 +101,7 @@ const BasicProgress: React.FC = () => {
             <Progress
               percentage={40}
               color="#f30"
-              strokeWidth={10}
+              strokeHeight={10}
               trackColor="#ddd"
               textColor="#000"
             />
@@ -118,7 +118,7 @@ const BasicProgress: React.FC = () => {
               <Progress
                 percentage={40}
                 color="#f30"
-                strokeWidth={10}
+                strokeHeight={10}
                 trackColor="#ddd"
                 textColor="#000"
                 inactive

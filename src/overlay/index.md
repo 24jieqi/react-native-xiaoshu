@@ -17,7 +17,16 @@ group:
 
 ## API
 
-- `backgroundColor` <Badge>0.2.17+</Badge>
+| 属性名          | 描述                                    | 类型                   | 默认值                     | 版本      |
+| :-------------- | --------------------------------------- | ---------------------- | -------------------------- | --------- |
+| style           | 最外层样式                              | `StyleProp<ViewStyle>` | -                          | -         |
+| overlayStyle    | overlay 样式                            | `StyleProp<ViewStyle>` | -                          | -         |
+| visible         | 是否展示遮罩层                          | `boolean`              | `false`                    | -         |
+| zIndex          | z-index 层级                            | `number`               | `1`                        | -         |
+| duration        | 动画时长，单位毫秒                      | `number`               | `animation_duration_base`  | -         |
+| onPress         | 点击弹层                                | `number`               | `() => void`               | -         |
+| onRequestClose  | 当点击返回按钮时触发 `@support Android` | `() => boolean`        | -                          | -         |
+| backgroundColor | 点击弹层                                | `ColorValue`           | `overlay_background_color` | `0.2.17+` |
 
 ## 主题定制
 
