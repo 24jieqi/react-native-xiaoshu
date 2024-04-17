@@ -1,21 +1,10 @@
-import type {
-  ViewStyle,
-  TextStyle,
-  StyleProp,
-  ColorValue,
-  ViewProps,
-} from 'react-native'
+import type { TextStyle, StyleProp, ColorValue, ViewProps } from 'react-native'
 
 type DividerDirection = 'vertical' | 'horizontal'
 
 export interface DividerProps extends ViewProps {
   /**
-   * 外层容器自定义样式
-   */
-  style?: StyleProp<ViewStyle>
-
-  /**
-   * 自定义文字样式
+   * 文字样式
    */
   textStyle?: StyleProp<TextStyle>
 

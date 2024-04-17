@@ -8,13 +8,13 @@ export type SkeletonAvatarProps = {
   active?: boolean
 
   /**
-   * 设置头像占位图的大小
+   * 元素大小
    * @default 40
    */
   size?: number
 
   /**
-   * 指定头像的形状
+   * 形状
    * @default 'circle'
    */
   shape?: 'circle' | 'square'

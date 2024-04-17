@@ -32,7 +32,23 @@ group:
 
 ### ButtonBar
 
+继承 BottomBarProps。
+
+| 属性名    | 描述                       | 类型                                                                    | 默认值   | 版本 |
+| :-------- | -------------------------- | ----------------------------------------------------------------------- | -------- | ---- |
+| alone     | 单独一个按钮               | `boolean`                                                               | `false`  | -    |
+| buttons   | 配置方式的按钮             | `Omit<ButtonProps, 'onPress'>&{hidden?:boolean, onPress?:() => void}[]` | `false`  | -    |
+| count     | 配置方式的按钮最大显示个数 | `number`                                                                | `4`      | -    |
+| moreText  | 更多按钮文案               | `更多`                                                                  | `'更多'` | -    |
+| blankSize | 左右留白大小               | `BlankProps['size']`                                                    | `'m'`    | -    |
+
 ### ButtonBar.Confirm <Badge>0.3.9+</Badge>
+
+去掉 ButtonBarProps 的 alone、buttons、count、moreText。
+
+| 属性名 | 描述                     | 类型              | 默认值 | 版本 |
+| :----- | ------------------------ | ----------------- | ------ | ---- |
+| cancel | 取消按钮，可以是多个按钮 | `React.ReactNode` | -      | -    |
 
 ## 主题定制
 

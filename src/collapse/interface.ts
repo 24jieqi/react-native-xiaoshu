@@ -21,7 +21,7 @@ export interface CollapseProps
   titleStyle?: StyleProp<ViewStyle>
 
   /**
-   * 标题文案样式
+   * 标题文字样式
    */
   titleTextStyle?: StyleProp<TextStyle>
 
@@ -78,7 +78,7 @@ export interface CollapseProps
   onCollapse?: (collapse: boolean) => void
 
   /**
-   * 样式、场景
+   * 模式、场景
    * @default 'cell'
    */
   type?: 'cell' | 'card'

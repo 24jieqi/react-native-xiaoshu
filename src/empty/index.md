@@ -26,6 +26,15 @@ group:
 
 ## API
 
+| 属性名    | 描述               | 类型                   | 默认值       | 版本 |
+| :-------- | ------------------ | ---------------------- | ------------ | ---- |
+| style     | 最外层 View 的样式 | `StyleProp<ViewStyle>` | -            | -    |
+| textStyle | 文案文字样式       | `StyleProp<TextStyle>` | -            | -    |
+| iconStyle | 图标样式           | `StyleProp<ViewStyle>` | -            | -    |
+| icon      | 自定义图标         | `React.ReactNode`      | -            | -    |
+| text      | 空数据提示文案     | `React.ReactNode`      | `'暂无数据'` | -    |
+| full      | 全屏填充           | `boolean`              | `false`      | -    |
+
 ## 主题定制
 
 | 名称                     | 默认值                 | 描述 |

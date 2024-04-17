@@ -21,6 +21,16 @@ react-native-svg-web 并没有提供 SvgXml 组件，web 端看不到部分 SVG 
 
 ## API
 
+| 属性名            | 描述                       | 类型                                                 | 默认值 | 版本 |
+| :---------------- | -------------------------- | ---------------------------------------------------- | ------ | ---- |
+| subtitleTextStyle | subtitle 文字样式          | `StyleProp<TextStyle>`                               | -      | -    |
+| titleTextStyle    | title 文字样式             | `StyleProp<TextStyle>`                               | -      | -    |
+| extra             | 操作区                     | `React.ReactNode`                                    | -      | -    |
+| renderIcon        | 自定义 icon                | `(color:ColorValue, size:number) => React.ReactNode` | -      | -    |
+| status            | 结果的状态，决定图标和颜色 | `ResultStatus`                                       | -      | -    |
+| subtitle          | subtitle 文字              | `React.ReactNode`                                    | -      | -    |
+| title             | title 文字                 | `React.ReactNode`                                    | -      | -    |
+
 ## 主题定制
 
 | 名称                      | 默认值               | 描述 |

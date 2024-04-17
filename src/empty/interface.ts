@@ -8,7 +8,7 @@ export interface EmptyProps extends Pick<ViewProps, 'testID'> {
   style?: StyleProp<ViewStyle>
 
   /**
-   * 文案样式
+   * 文案文字样式
    */
   textStyle?: StyleProp<TextStyle>
 

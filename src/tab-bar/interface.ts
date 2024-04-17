@@ -38,12 +38,12 @@ export interface TabBarProps<T extends TabValue> extends BottomBarProps {
   activeIconColor?: ColorValue
 
   /**
-   * 当前选中的值
+   * 受控模式所显示的值
    */
   value?: T
 
   /**
-   * 默认数据
+   * 非受控模式的初始值
    */
   defaultValue?: T
 
@@ -53,7 +53,7 @@ export interface TabBarProps<T extends TabValue> extends BottomBarProps {
   options: TabItem<T>[]
 
   /**
-   * 点击切换回调
+   * 变化时的回调函数
    */
   onChange?: (value: T) => void
 
@@ -90,6 +90,7 @@ export interface TabBarProps<T extends TabValue> extends BottomBarProps {
 
   /**
    * label 文字突出，scale 缩放倍数，默认 1.2
+   * @default 1.2
    */
   labelBulge?: boolean | number
 }

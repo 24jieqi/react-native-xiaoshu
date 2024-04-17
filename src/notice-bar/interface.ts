@@ -15,7 +15,7 @@ export type NoticeBarMode = 'closeable' | 'link'
 export interface NoticeBarProps
   extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
   /**
-   * 通知文本文案样式
+   * 通知文本文字样式
    */
   messageTextStyle?: StyleProp<TextStyle>
 

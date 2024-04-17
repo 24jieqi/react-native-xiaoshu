@@ -20,6 +20,25 @@ group:
 
 ## API
 
+继承 BottomBarProps。
+
+| 属性名          | 描述                                                             | 类型                | 默认值                      | 版本 |
+| :-------------- | ---------------------------------------------------------------- | ------------------- | --------------------------- | ---- |
+| textColor       | 文案颜色                                                         | `ColorValue`        | `tab_bar_text_color`        | -    |
+| iconColor       | 图标颜色                                                         | `ColorValue`        | `tab_bar_icon_color`        | -    |
+| activeTextColor | 激活的文案颜色                                                   | `ColorValue`        | `tab_bar_active_text_color` | -    |
+| activeIconColor | 激活的图标颜色                                                   | `ColorValue`        | `tab_bar_active_icon_color` | -    |
+| value           | 受控模式所显示的值                                               | `T`                 | -                           | -    |
+| defaultValue    | 非受控模式的初始值                                               | `T`                 | -                           | -    |
+| onChange        | 变化时的回调函数                                                 | `(value:T) => void` | -                           | -    |
+| options         | tab 数据，数组 memo 一下，避免错误                               | `TabItem<T>[]`      | -                           | -    |
+| indicator       | 是否采用指示器模式                                               | `boolean`           | `false`                     | -    |
+| indicatorWidth  | 指示器宽（0 表示撑满，其他数值标识固定，不填写与文字同宽）       | `number`            | -                           | -    |
+| indicatorHeight | 指示器高度（设置为 0 就是不出现）                                | `number`            | `3`                         | -    |
+| indicatorColor  | 指示器颜色                                                       | `ColorValue`        | `tab_bar_indicator_color`   | -    |
+| tabAlign        | 排列方式，left 标识自适应宽、有滚动条，center 标识居中、无滚动条 | `'left'\| 'center'` | `'center'`                  | -    |
+| labelBulge      | label 文字突出，scale 缩放倍数，默认 1.2                         | `boolean\|number`   | `1.2`                       | -    |
+
 ## 主题定制
 
 | 名称                            | 默认值               | 描述 |

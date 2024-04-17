@@ -45,6 +45,36 @@ group:
 
 ## API
 
+### Card
+
+| 属性名          | 描述                                                      | 类型                                                                                                              | 默认值  | 版本 |
+| :-------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------- | ---- |
+| title           | 标题                                                      | `React.ReactNode`                                                                                                 | -       | -    |
+| titleLeftExtra  | 标题左侧操作区                                            | `React.ReactNode`                                                                                                 | -       | -    |
+| extra           | 卡片右上角的操作区域                                      | `React.ReactNode`                                                                                                 | -       | -    |
+| footer          | 底部区域                                                  | `React.ReactNode`                                                                                                 | -       | -    |
+| headerStyle     | 自定义标题区域样式                                        | `StyleProp<ViewStyle>`                                                                                            | -       | -    |
+| titleStyle      | 头部标题的样式                                            | `StyleProp<ViewStyle>`                                                                                            | -       | -    |
+| titleTextStyle  | 头部标题文案样式                                          | `StyleProp<TextStyle>`                                                                                            | -       | -    |
+| bodyStyle       | 内容区域自定义样式                                        | `StyleProp<ViewStyle>`                                                                                            | -       | -    |
+| footerStyle     | 底部自定义样式                                            | `StyleProp<ViewStyle>`                                                                                            | -       | -    |
+| footerTextStyle | 底部文案自定义样式                                        | `StyleProp<TextStyle>`                                                                                            | -       | -    |
+| size            | 大小                                                      | `'m'\|'s'`                                                                                                        | `'m'`   | -    |
+| square          | 是否为方形                                                | `boolean`                                                                                                         | `false` | -    |
+| loading         | 当卡片内容还在加载中时，可以用 loading 展示一个占位       | `boolean`                                                                                                         | `false` | -    |
+| headerDivider   | header 区域显示分割线                                     | `boolean`                                                                                                         | `true`  | -    |
+| footerDivider   | footer 区域显示分割线                                     | `boolean`                                                                                                         | `true`  | -    |
+| bodyPadding     | body 是否有内边距                                         | `boolean\|number\|{left?:boolean\|number, right?:boolean\|number, top?:boolean\|number, bottom?:boolean\|number}` | `true`  | -    |
+| onPressHeader   | 点击 header 区域，该区域包含 titleLeftExtra、title、extra | `TouchableWithoutFeedbackProps['onPress']`                                                                        | -       | -    |
+| onLayoutHeader  | header 区域渲染完成                                       | `ViewProps['onLayout']`                                                                                           | -       | -    |
+| onLayoutBody    | body 区域渲染完成                                         | `ViewProps['onLayout']`                                                                                           | -       | -    |
+
+### Card.Body
+
+| 属性名  | 描述   | 类型                       | 默认值 | 版本 |
+| :------ | ------ | -------------------------- | ------ | ---- |
+| padding | 内边距 | `CardProps['bodyPadding']` | -      | -    |
+
 ## 主题定制
 
 | 名称                           | 默认值                   | 描述 |

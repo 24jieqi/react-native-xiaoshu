@@ -9,27 +9,34 @@ export type FlexAlign = 'start' | 'center' | 'end' | 'baseline' | 'stretch'
 export interface FlexProps
   extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
   /**
-   * 项目定位方向
+   * flexDirection
+   * @default 'row'
    */
   direction?: FlexStyle['flexDirection']
 
   /**
-   * 子元素的换行方式
+   * flexWrap
+   * @default 'nowrap'
    */
   wrap?: FlexStyle['flexWrap']
 
   /**
-   * 子元素在主轴上的对齐方式
+   * justifyContent
+   * @default 'start'
    */
   justify?: FlexJustify
 
   /**
-   * 子元素在交叉轴上的对齐方式
+   * alignItems
+   * @default 'center'
    */
   align?: FlexAlign
 }
 
 export interface FlexItemProps
   extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
+  /**
+   * @default 1
+   */
   flex?: FlexStyle['flex']
 }

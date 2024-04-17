@@ -10,7 +10,7 @@ export interface ResultProps extends ViewProps {
   subtitleTextStyle?: StyleProp<TextStyle>
 
   /**
-   * subTitle 文字样式
+   * title 文字样式
    */
   titleTextStyle?: StyleProp<TextStyle>
 

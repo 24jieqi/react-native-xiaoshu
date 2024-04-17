@@ -18,38 +18,38 @@ export interface DescriptionContextState {
   colon?: boolean
 
   /**
-   * 自定义内容样式
+   * 内容样式
    */
   contentStyle?: StyleProp<ViewStyle>
 
   /**
-   * 自定义内容文案样式
+   * 内容文字样式
    */
   contentTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 自定义标签样式
+   * 标签样式
    */
   labelStyle?: StyleProp<ViewStyle>
 
   /**
-   * 自定义标签文案样式
+   * 标签文字样式
    */
   labelTextStyle?: StyleProp<TextStyle>
 
   /**
-   * 标签文案宽
+   * 标签文字宽
    */
   labelWidth?: number
 
   /**
-   * 描述布局
+   * label 与 text 的排版、布局
    * @default 'horizontal'
    */
   layout?: 'horizontal' | 'vertical'
 
   /**
-   * 设置列表的大小
+   * 文案大小
    * @default 'm'
    */
   size?: 's' | 'm' | 'l'
@@ -93,7 +93,7 @@ export interface DescriptionProps extends DescriptionContextState, ViewProps {
   label?: string
 
   /**
-   * 内容
+   * 内容，自定义内容使用子元素的方式
    */
   text?: string
 
