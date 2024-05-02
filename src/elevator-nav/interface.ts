@@ -24,6 +24,6 @@ export interface ElevatorNavProps extends ScrollViewProps {
 }
 
 export interface ElevatorNavAnchorProps extends ViewProps {
-  /** 唯一的title */
+  /** 唯一的 title */
   title: string
 }

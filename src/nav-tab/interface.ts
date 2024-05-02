@@ -20,7 +20,7 @@ export interface NavTabProps<T> {
   options?: TabValue<T>[]
 
   /**
-   * 点击切换回调
+   * 改变时的回调函数
    */
   onChange?: (value: T) => void
 }

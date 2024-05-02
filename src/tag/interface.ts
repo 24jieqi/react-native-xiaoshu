@@ -48,7 +48,7 @@ export interface TagProps extends ViewProps {
    */
   closeIcon?: React.ReactNode
   /**
-   * 设置图标
+   * 自定义图标
    */
   icon?: React.ReactNode
   /**

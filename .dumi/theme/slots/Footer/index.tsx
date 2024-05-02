@@ -56,7 +56,7 @@ const data: {
       },
       {
         title: '图标库',
-        link: 'https://hjfruit.github.io/icon-doc/',
+        link: 'https://24jieqi.github.io/icon/',
       },
       {
         title: '工具集',

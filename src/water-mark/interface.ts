@@ -11,19 +11,19 @@ export interface WaterMarkProps extends ViewProps {
 
   /**
    * 文字颜色
-   * @default gray_6
+   * @default water_mark_text_color
    */
   color?: ColorValue
 
   /**
    * 字体大小
-   * @default font_size_2
+   * @default water_mark_text_font_size
    */
   fontSize?: number
 
   /**
    * 文字透明度
-   * @default opacity_10
+   * @default water_mark_text_opacity
    */
   opacity?: number
 
