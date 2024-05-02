@@ -17,6 +17,16 @@ group:
 
 ## API
 
+| 属性名             | 描述                                            | 类型                           | 默认值 | 版本 |
+| :----------------- | ----------------------------------------------- | ------------------------------ | ------ | ---- |
+| width              | 宽度                                            | `number`                       | `88`   | -    |
+| loading            | 当选项还在加载中时，可以用 loading 展示一个占位 | `boolean`                      | -      | -    |
+| options            | 选项                                            | `SidebarOption[]`              | -      | -    |
+| activeValue        | 受控模式所显示的值                              | `SidebarValue`                 | -      | -    |
+| defaultActiveValue | 非受控模式的初始值                              | `SidebarValue`                 | -      | -    |
+| onChange           | 改变时的回调函数                                | `(value:SidebarValue) => void` | -      | -    |
+| empty              | 空数据占位符                                    | `React.ReactNode`              | -      | -    |
+
 ## 主题定制
 
 | 名称                                      | 默认值                   | 描述 |

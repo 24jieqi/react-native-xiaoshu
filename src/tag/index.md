@@ -17,6 +17,20 @@ group:
 
 ## API
 
+| 属性名     | 描述                                     | 类型                   | 默认值      | 版本 |
+| :--------- | ---------------------------------------- | ---------------------- | ----------- | ---- |
+| innerStyle | 内部包裹层样式，可以对文案、图标排版影响 | `StyleProp<ViewStyle>` | -           | -    |
+| closable   | 是否为可关闭标签                         | `boolean`              | `false`     | -    |
+| onClose    | 关闭时的回调                             | `() => void`           | -           | -    |
+| size       | 大小                                     | `TagSize`              | `'m'`       | -    |
+| type       | 类型                                     | `TagType`              | `'primary'` | -    |
+| visible    | 是否显示标签                             | `boolean`              | `true`      | -    |
+| color      | 标签色                                   | `ColorValue`           | -           | -    |
+| textColor  | 按钮文案颜色                             | `ColorValue`           | -           | -    |
+| closeIcon  | 自定义关闭按钮                           | `React.ReactNode`      | -           | -    |
+| icon       | 自定义图标                               | `React.ReactNode`      | -           | -    |
+| hairline   | 细边框                                   | `boolean`              | -           | -    |
+
 ## 主题定制
 
 | 名称                       | 默认值                    | 描述 |

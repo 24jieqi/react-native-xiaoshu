@@ -19,6 +19,17 @@ group:
 
 ## API
 
+| 属性名     | 描述                           | 类型         | 默认值                      | 版本 |
+| :--------- | ------------------------------ | ------------ | --------------------------- | ---- |
+| text       | 文字内容                       | `string`     | -                           | -    |
+| color      | 文字颜色                       | `ColorValue` | `water_mark_text_color`     | -    |
+| fontSize   | 字体大小                       | `number`     | `water_mark_text_font_size` | -    |
+| opacity    | 文字透明度                     | `number`     | `water_mark_text_opacity`   | -    |
+| textWidth  | 文字宽                         | `number`     | `64`                        | -    |
+| textHeight | 文字高/行高                    | `number`     | `64`                        | -    |
+| rotate     | 水印绘制时，旋转的角度，单位 ° | `number`     | `-45`                       | -    |
+| foreground | 否需要前置水印                 | `boolean`    | `false`                     | -    |
+
 ## 主题定制
 
 | 名称                      | 默认值               | 描述 |
