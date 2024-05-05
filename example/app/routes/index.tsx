@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 
 import BackArrow from '~/components/back-arrow'
+import Benchmark from '~/pages/demo/benchmark'
 import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
 import CustomHeaderRed from '~/pages/demo/custom-header-red'
 import PopupTextInput from '~/pages/demo/popup-text-input'
@@ -25,6 +26,7 @@ export type RootStackParamList = {
   CustomHeaderRed: undefined
   CustomHeaderPrimary: undefined
   PopupTextInput: undefined
+  Benchmark: undefined
 } & Record<DemoPaths, undefined>
 
 /** Stack 路由的 props */
@@ -76,6 +78,8 @@ const NestingNavigators: React.FC = () => {
         />
 
         <Stack.Screen name="PopupTextInput" component={PopupTextInput} />
+
+        <Stack.Screen name="Benchmark" component={Benchmark} />
 
         {demoConfigs.map(({ Page, path }) => (
           <Stack.Screen key={path} name={path} component={Page} />

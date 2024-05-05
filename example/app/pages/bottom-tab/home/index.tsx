@@ -50,6 +50,14 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           }}>
           弹出层中有输入框
         </Text>
+
+        <Text
+          style={Styles.demo}
+          onPress={() => {
+            navigation.navigate('Benchmark')
+          }}>
+          Benchmark
+        </Text>
       </Blank>
     </Layout.Page>
   )
