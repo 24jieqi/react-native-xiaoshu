@@ -79,7 +79,15 @@ const NestingNavigators: React.FC = () => {
 
         <Stack.Screen name="PopupTextInput" component={PopupTextInput} />
 
-        <Stack.Screen name="Benchmark" component={Benchmark} />
+        <Stack.Screen
+          name="Benchmark"
+          component={Benchmark}
+          options={{
+            cardStyle: {
+              backgroundColor: '#fff',
+            },
+          }}
+        />
 
         {demoConfigs.map(({ Page, path }) => (
           <Stack.Screen key={path} name={path} component={Page} />

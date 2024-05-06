@@ -25,19 +25,27 @@ const TimedRender: React.FC<React.PropsWithChildren> = props => {
 
 const mockData = 1000
 
-type ButtonType = 'primary' | 'ghost' | 'hazy'
+type ButtonType = 'primary' | 'ghost' | 'hazy' | 'custom'
 
 const Buttons: React.FC<{ type: ButtonType }> = ({ type }) => {
-  return new Array(mockData).fill(0).map((_, i) => {
-    return (
-      <Button key={i} type={type}>
-        {i}
-      </Button>
-    )
-  })
+  return (
+    <Space>
+      {new Array(mockData).fill(0).map((_, i) => {
+        return type === 'custom' ? (
+          <Button key={i} theme={{ button_primary_color: '#098' }}>
+            {i}
+          </Button>
+        ) : (
+          <Button key={i} type={type}>
+            {i}
+          </Button>
+        )
+      })}
+    </Space>
+  )
 }
 
-const list: ButtonType[] = ['primary', 'ghost', 'hazy']
+const list: ButtonType[] = ['primary', 'ghost', 'hazy', 'custom']
 
 const Benchmark: React.FC<ScreenProps> = () => {
   const [type, setType] = useState<ButtonType | undefined>(undefined)
@@ -65,7 +73,7 @@ const Benchmark: React.FC<ScreenProps> = () => {
         </Button>
       </Space>
 
-      <Divider />
+      <Divider>render {mockData} button</Divider>
 
       <TimedRender key={type}>
         {type ? <Buttons type={type} /> : null}
