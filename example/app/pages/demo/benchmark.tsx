@@ -1,6 +1,16 @@
-import { Button, Divider, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Button,
+  Divider,
+  Space,
+  Field,
+} from '@fruits-chain/react-native-xiaoshu'
 import React, { useLayoutEffect, useState } from 'react'
-import { StyleSheet, Text } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native'
 
 import Layout from '~/layouts/layout'
 import type { RootStackScreenProps } from '~/routes'
@@ -25,58 +35,90 @@ const TimedRender: React.FC<React.PropsWithChildren> = props => {
 
 const mockData = 1000
 
-type ButtonType = 'primary' | 'ghost' | 'hazy' | 'custom'
+type ButtonType = 'primary' | 'custom' | 'native'
 
-const Buttons: React.FC<{ type: ButtonType }> = ({ type }) => {
+const Buttons: React.FC<{ type: ButtonType; loading: boolean }> = ({
+  type,
+  loading,
+}) => {
   return (
     <Space>
       {new Array(mockData).fill(0).map((_, i) => {
-        return type === 'custom' ? (
-          <Button key={i} theme={{ button_primary_color: '#098' }}>
-            {i}
-          </Button>
-        ) : (
-          <Button key={i} type={type}>
-            {i}
-          </Button>
-        )
+        switch (type) {
+          case 'native':
+            return (
+              <TouchableOpacity
+                key={i}
+                activeOpacity={0.6}
+                style={[STYLES.button, loading ? STYLES.buttonLoading : null]}
+                disabled={loading}>
+                {loading ? <ActivityIndicator color="#fff" /> : null}
+                <Text
+                  style={[
+                    STYLES.buttonText,
+                    loading ? STYLES.buttonTextLoading : null,
+                  ]}>
+                  {i}
+                </Text>
+              </TouchableOpacity>
+            )
+
+          case 'custom':
+            return (
+              <Button
+                key={i}
+                theme={{ button_primary_color: '#098' }}
+                loading={loading}>
+                {i}
+              </Button>
+            )
+
+          default:
+            return (
+              <Button key={i} loading={loading}>
+                {i}
+              </Button>
+            )
+        }
       })}
     </Space>
   )
 }
 
-const list: ButtonType[] = ['primary', 'ghost', 'hazy', 'custom']
+const list: ButtonType[] = ['primary', 'custom', 'native']
 
 const Benchmark: React.FC<ScreenProps> = () => {
   const [type, setType] = useState<ButtonType | undefined>(undefined)
+  const [loading, setLoading] = useState(false)
+  const options = list.map(o => ({
+    value: o,
+    label: o,
+  }))
 
   return (
     <Layout.Page title="Benchmark" barStyle="light-content">
       <Space>
-        {list.map(item => {
-          return (
-            <Button
-              key={item}
-              onPress={() => {
-                setType(item)
-              }}>
-              {item}
-            </Button>
-          )
-        })}
+        <Field.Switch title="loading" value={loading} onChange={setLoading} />
+        <Field.ButtonOption
+          title="type"
+          deselect={false}
+          options={options}
+          value={type}
+          onChange={setType}
+        />
 
         <Button
           onPress={() => {
             setType(undefined)
           }}>
-          clean
+          clean type
         </Button>
       </Space>
 
       <Divider>render {mockData} button</Divider>
 
-      <TimedRender key={type}>
-        {type ? <Buttons type={type} /> : null}
+      <TimedRender key={`${loading.toString()}_${type}`}>
+        {type ? <Buttons type={type} loading={loading} /> : null}
       </TimedRender>
     </Layout.Page>
   )
@@ -84,6 +126,23 @@ const Benchmark: React.FC<ScreenProps> = () => {
 
 const STYLES = StyleSheet.create({
   time: { color: 'green', marginTop: 12, fontSize: 18 },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f30',
+    height: 44,
+    borderRadius: 4,
+    flexDirection: 'row',
+  },
+  buttonLoading: {
+    opacity: 0.4,
+  },
+  buttonText: {
+    color: '#fff',
+  },
+  buttonTextLoading: {
+    marginLeft: 4,
+  },
 })
 
 export default Benchmark
