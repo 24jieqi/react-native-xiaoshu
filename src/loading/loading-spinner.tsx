@@ -1,4 +1,4 @@
-import React, { useRef, memo } from 'react'
+import React, { useRef, memo, useEffect } from 'react'
 import type { ColorValue, ViewProps } from 'react-native'
 import { View, Animated, StyleSheet, Easing } from 'react-native'
 
@@ -7,7 +7,6 @@ import Theme from '../theme'
 
 import type { LoadingTheme } from './style'
 import { varCreator } from './style'
-import useLoop from './useLoop'
 
 export interface SpinnerProps extends ViewProps {
   theme?: Partial<LoadingTheme>
@@ -26,6 +25,26 @@ const PETAL_COUNT = 8
 const PETALS = new Array(PETAL_COUNT).fill(0)
 const A_OPACITY = 1 / PETAL_COUNT
 const A_ROTATE = 360 / PETAL_COUNT
+
+const useLoop = (
+  AnimatedValue: Animated.Value,
+  initValue: number,
+  config: Pick<
+    Animated.TimingAnimationConfig,
+    'toValue' | 'duration' | 'easing'
+  >,
+) => {
+  useEffect(() => {
+    const spinAnimation = Animated.timing(AnimatedValue, {
+      toValue: config.toValue,
+      duration: config.duration,
+      easing: config.easing,
+      useNativeDriver: true,
+    })
+
+    Animated.loop(spinAnimation).start()
+  }, [AnimatedValue, initValue, config.duration, config.toValue, config.easing])
+}
 
 const Spinner: React.FC<SpinnerProps> = ({
   theme,

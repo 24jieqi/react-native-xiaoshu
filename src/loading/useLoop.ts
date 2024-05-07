@@ -18,6 +18,8 @@ const useLoop = (
       useNativeDriver: true,
     })
 
+    // Animated.loop 暂时没找到每次动画结束后如何重置初始值，暂时采用这个方案
+    // 这个方案的问题在于很多动画一起就会变得卡顿
     const loop = () => {
       if (stop) {
         return
