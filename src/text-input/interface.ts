@@ -128,6 +128,11 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
    * @description 与原生控件不同，这里的参数直接是值
    */
   onChange?: (value: string) => void
+
+  /**
+   * 多行输入框最大高度
+   */
+  textareaMaxHeight?: number
 }
 
 export interface TextInputClearProps {

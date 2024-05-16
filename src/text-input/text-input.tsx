@@ -78,6 +78,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       suffix,
       inputWidth,
       size = 'm',
+      textareaMaxHeight,
 
       // TextInput 的属性
       style,
@@ -290,6 +291,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       isTextarea
         ? {
             minHeight: textInputMinHeight * rows - inputUncertainHeight,
+            maxHeight: textareaMaxHeight,
             paddingVertical: 2,
             alignItems: 'flex-start',
           }
