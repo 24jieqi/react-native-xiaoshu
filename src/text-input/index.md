@@ -114,3 +114,14 @@ group:
 | text_input_accessory_text_color              | `TOKENS.brand_6`         | -    |
 | text_input_word_limit_text_font_size         | `TOKENS.font_size_3`     | -    |
 | text_input_word_limit_text_color             | `TOKENS.gray_7`          | -    |
+
+## FAQ
+
+### iPhone 读取短信验证码
+
+`iOS12` 以后，输入框可以响应第一条新短信，通过 `textContentType` 属性配置，[详情阅读](https://reactnative.dev/docs/textinput#textcontenttype-ios)。
+
+```tsx
+// 读取验证码
+<TextInput textContentType="oneTimeCode" />
+```
