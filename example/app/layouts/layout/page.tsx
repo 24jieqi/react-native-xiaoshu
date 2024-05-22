@@ -5,6 +5,9 @@ import type { ViewStyle } from 'react-native'
 import { View, Platform } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { getDefaultValue } from '~/helper'
+import useColorSchemeDark from '~/hooks/useColorSchemeDark'
+
 import FocusAwareStatusBar from '../focus-aware-status-bar'
 
 import type { PageProps } from './interface'
@@ -30,16 +33,26 @@ const Page: React.FC<React.PropsWithChildren<PageProps>> = memo(
   ({
     children,
     statusBarProps,
-    barStyle = 'dark-content',
+    barStyle,
     headerShown = true,
     headerBackgroundColor,
     title = '',
     statusBarShown = true,
-    headerTintColor = '#11151A',
+    headerTintColor,
   }) => {
+    const isColorSchemeDark = useColorSchemeDark()
     const navigation = useNavigation()
     const insets = useSafeAreaInsets()
     const TOKENS = Theme.useThemeTokens()
+
+    const _headerTintColor = getDefaultValue(
+      headerTintColor,
+      isColorSchemeDark ? 'rgb(229, 229, 231)' : '#11151A',
+    )!
+    const _barStyle = getDefaultValue(
+      barStyle,
+      isColorSchemeDark ? 'light-content' : 'dark-content',
+    )
 
     useLayoutEffect(() => {
       const options: {
@@ -52,11 +65,11 @@ const Page: React.FC<React.PropsWithChildren<PageProps>> = memo(
         headerStyle: {
           ...noHeaderShadowStyle,
           backgroundColor: headerBackgroundColor,
-          borderBottomWidth: 1,
-          borderBottomColor: TOKENS.border_color,
-          borderStyle: 'solid',
+          borderBottomWidth: 0,
+          // borderBottomColor: TOKENS.border_color,
+          // borderStyle: 'solid',
         },
-        headerTintColor,
+        headerTintColor: _headerTintColor,
         title,
         headerShown,
       }
@@ -67,13 +80,13 @@ const Page: React.FC<React.PropsWithChildren<PageProps>> = memo(
       headerShown,
       headerBackgroundColor,
       title,
-      headerTintColor,
       TOKENS.border_color,
+      _headerTintColor,
     ])
 
     return (
       <>
-        <FocusAwareStatusBar barStyle={barStyle} {...statusBarProps} />
+        <FocusAwareStatusBar barStyle={_barStyle} {...statusBarProps} />
         {!headerShown && statusBarShown ? (
           <View
             style={{

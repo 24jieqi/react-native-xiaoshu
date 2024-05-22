@@ -10,7 +10,7 @@ export const varCreator = (TOKENS: TokensType) => {
     action_sheet_text_color: TOKENS.gray_8,
     action_sheet_text_font_size: TOKENS.font_size_5,
     action_sheet_cancel_padding_top: TOKENS.space_2,
-    action_sheet_cancel_padding_color: '#ECEEF1',
+    action_sheet_cancel_padding_color: TOKENS.gray_2,
   }
 }
 

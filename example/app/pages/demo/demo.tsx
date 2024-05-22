@@ -10,8 +10,6 @@ import { ScrollView } from 'react-native'
 import Layout from '~/layouts/layout'
 import type * as Routes from '~/routes'
 
-import { sceneContainerStyle } from '../../routes/config'
-
 import FontSize from './font-size'
 
 type DemoProps = Routes.RootStackScreenProps<'DemoHome'>
@@ -301,10 +299,7 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
           )
         })}
 
-        <ButtonBar
-          divider={false}
-          backgroundColor={sceneContainerStyle.backgroundColor}
-        />
+        <ButtonBar divider={false} />
       </ScrollView>
     </Layout.Page>
   )

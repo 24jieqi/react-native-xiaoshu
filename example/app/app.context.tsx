@@ -1,5 +1,7 @@
-import { Provider, Switch } from '@fruits-chain/react-native-xiaoshu'
+import { Provider, Switch, Theme } from '@fruits-chain/react-native-xiaoshu'
 import React, { createContext, useContext, useMemo, useState } from 'react'
+
+import useColorSchemeDark from '~/hooks/useColorSchemeDark'
 
 import en_US from '../../src/locale/lang/en_US'
 import zh_CN from '../../src/locale/lang/zh_CN'
@@ -11,8 +13,6 @@ interface AppContextState {
   setLang: (l: LocalLang) => void
 }
 
-const colors = {}
-
 const AppContext = createContext<AppContextState>({
   lang: 'zh',
   setLang: () => {},
@@ -23,6 +23,7 @@ export const useAppContext = () => useContext(AppContext)
 export const AppContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
+  const isColorSchemeDark = useColorSchemeDark()
   const [lang, setLang] = useState<LocalLang>('zh')
   const value = useMemo(
     () => ({
@@ -34,7 +35,9 @@ export const AppContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
 
   return (
     <AppContext.Provider value={value}>
-      <Provider theme={colors} locale={lang === 'en' ? en_US : zh_CN}>
+      <Provider
+        theme={isColorSchemeDark ? Theme.dark : undefined}
+        locale={lang === 'en' ? en_US : zh_CN}>
         {children}
       </Provider>
     </AppContext.Provider>
@@ -43,12 +46,13 @@ export const AppContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
 
 export const LocalLangSwitch = () => {
   const { lang, setLang } = useAppContext()
+  const { yellow_6 } = Theme.useThemeTokens()
 
   return (
     <Switch<LocalLang, LocalLang>
       activeValue="zh"
       inactiveValue="en"
-      inactiveColor="#000"
+      inactiveColor={yellow_6}
       value={lang}
       onChange={setLang}
       inactiveChildren="English"

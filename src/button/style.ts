@@ -32,6 +32,7 @@ export const varCreator = (TOKENS: TokensType) => {
     button_ghost_background_color: 'transparent',
     button_hazy_lightness: 95,
     button_icon_gap: TOKENS.space_1,
+    button_text_color: TOKENS.white,
     button_subtext_line_height: 20,
     button_subtext_font_size: 13,
     button_subtext_opacity: 0.7,

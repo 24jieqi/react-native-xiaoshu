@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
 
   ...restProps
 }) => {
-  const [CV, STYLES, TOKENS] = Theme.useStyle({
+  const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
@@ -58,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
     color,
     danger ? CV.button_danger_color : CV.button_primary_color,
   )
-  textColor = getDefaultValue(textColor, TOKENS.white)
+  textColor = getDefaultValue(textColor, CV.button_text_color)
 
   const [_backgroundColor, _borderColor, _textColor, _borderWidth] =
     useMemo(() => {

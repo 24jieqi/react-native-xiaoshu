@@ -96,7 +96,7 @@ const Benchmark: React.FC<ScreenProps> = () => {
   }))
 
   return (
-    <Layout.Page title="Benchmark" barStyle="light-content">
+    <Layout.Page title="Benchmark">
       <Space>
         <Field.Switch title="loading" value={loading} onChange={setLoading} />
         <Field.ButtonOption

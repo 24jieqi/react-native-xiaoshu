@@ -19,6 +19,9 @@ const CustomHeaderPrimary: React.FC<ScreenProps> = ({ navigation }) => {
       <Text
         onPress={() => {
           navigation.navigate('CustomHeaderRed')
+        }}
+        style={{
+          color: TOKENS.black,
         }}>
         GO Red
       </Text>

@@ -1,22 +1,23 @@
+import type { TokensType } from '@fruits-chain/react-native-xiaoshu'
 import { Blank } from '@fruits-chain/react-native-xiaoshu'
 import React from 'react'
 import { Text, StyleSheet } from 'react-native'
 
 import { LocalLangSwitch } from '~/app.context'
+import useStyle from '~/hooks/useStyle'
 import Layout from '~/layouts/layout'
 import type { BottomTabScreenProps } from '~/routes'
-import { sceneContainerStyle } from '~/routes/config'
 
 type ScreenProps = BottomTabScreenProps<'Home'>
 
 const Home: React.FC<ScreenProps> = ({ navigation }) => {
+  const Styles = useStyle(styleCreator)
+
   return (
-    <Layout.Page
-      headerShown={false}
-      headerBackgroundColor={sceneContainerStyle.backgroundColor as string}>
+    <Layout.Page headerShown={false}>
       <Blank top>
         <Text style={Styles.title}>小暑</Text>
-        <Text>🌈 轻量、可靠的 React Native 组件库</Text>
+        <Text style={Styles.demo}>🌈 轻量、可靠的 React Native 组件库</Text>
         <LocalLangSwitch />
 
         <Text
@@ -63,17 +64,20 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
   )
 }
 
-const Styles = StyleSheet.create({
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+const styleCreator = (t: TokensType) => {
+  return StyleSheet.create({
+    title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: t.gray_8,
+    },
 
-  demo: {
-    marginTop: 20,
-    fontSize: 16,
-    color: '#000',
-  },
-})
+    demo: {
+      marginTop: 20,
+      fontSize: 16,
+      color: t.gray_7,
+    },
+  })
+}
 
 export default Home

@@ -10,9 +10,13 @@ interface BackArrowProps extends HeaderBackButtonProps {}
  * @description 添加一个反馈高亮
  * @description TODO 修复 使用 memo 包裹后，`src/router/config.tsx` 里面报错的问题
  */
-const BackArrow: React.FC<BackArrowProps> = ({ tintColor, ...restProps }) => {
+const BackArrow: React.FC<BackArrowProps> = ({
+  tintColor,
+  style,
+  ...restProps
+}) => {
   return (
-    <View style={Styles.back}>
+    <View style={[Styles.back, style]}>
       <ArrowLeftOutline {...restProps} color={tintColor} />
     </View>
   )

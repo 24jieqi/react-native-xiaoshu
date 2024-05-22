@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 
 import BackArrow from '~/components/back-arrow'
+import useColorSchemeDark from '~/hooks/useColorSchemeDark'
 import Benchmark from '~/pages/demo/benchmark'
 import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
 import CustomHeaderRed from '~/pages/demo/custom-header-red'
@@ -16,7 +17,7 @@ import PopupTextInput from '~/pages/demo/popup-text-input'
 
 import type { BottomTabParamList } from './bottom-tab'
 import TabsView from './bottom-tab'
-import { sceneContainerStyle, buildHeaderTitleStyle } from './config'
+import { buildHeaderTitleStyle, darkTheme, lightTheme } from './config'
 import type { DemoPaths } from './demo-config'
 import { demoConfigs } from './demo-config'
 
@@ -48,13 +49,15 @@ export type BottomTabScreenProps<T extends keyof BottomTabParamList> = {
 const Stack = createStackNavigator<RootStackParamList>()
 
 const NestingNavigators: React.FC = () => {
+  const isColorSchemeDark = useColorSchemeDark()
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={isColorSchemeDark ? darkTheme : lightTheme}>
       <Stack.Navigator
         initialRouteName="Index"
         screenOptions={{
           // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          cardStyle: sceneContainerStyle,
+          // cardStyle: sceneContainerStyle,
           headerTitleAlign: 'center',
           headerTitleStyle: buildHeaderTitleStyle(),
           headerBackTitleVisible: false,
@@ -82,11 +85,11 @@ const NestingNavigators: React.FC = () => {
         <Stack.Screen
           name="Benchmark"
           component={Benchmark}
-          options={{
-            cardStyle: {
-              backgroundColor: '#fff',
-            },
-          }}
+          // options={{
+          //   cardStyle: {
+          //     backgroundColor: '#fff',
+          //   },
+          // }}
         />
 
         {demoConfigs.map(({ Page, path }) => (

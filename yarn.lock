@@ -1859,10 +1859,10 @@
     intl-messageformat "10.5.12"
     tslib "^2.4.0"
 
-"@fruits-chain/design-tokens-bailu@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.npmmirror.com/@fruits-chain/design-tokens-bailu/-/design-tokens-bailu-0.0.9.tgz#fafc8dc3a33922bb72a823965fe4e6d8c3d2d786"
-  integrity sha512-Jg7Wgf14JiDMM9Vm4yYfZZjcvI+cWiexpdCKZ5ly8yKnf1K7WfjQKhC7PTHcupumbArA4UBxjnZDhTWVbAInTA==
+"@fruits-chain/design-tokens-bailu@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmmirror.com/@fruits-chain/design-tokens-bailu/-/design-tokens-bailu-0.1.0.tgz#7e4bcc1d0cbe2759d7c61e741e18f918d804c316"
+  integrity sha512-ndlE3ifCh1hiTUMAKPedoosF4RPURDWYpE14zcJzN/2uenm7RhvL+HlWSqutJ0yU1UIQJoFYD5s2SclkFd0Rlg==
 
 "@fruits-chain/eslint-config-preset@^0.3.23":
   version "0.3.23"
