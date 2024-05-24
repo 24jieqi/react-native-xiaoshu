@@ -52,7 +52,9 @@ interface SelectorPropsUsed
     'value' | 'multiple' | 'options' | 'onChange' | 'search'
   > {}
 
-export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
+export interface FieldSelectorProps
+  extends Omit<CellPropsUsed, 'isLink'>,
+    SelectorPropsUsed {
   /**
    * 没有值时提示文案
    */
@@ -94,6 +96,12 @@ export interface FieldSelectorProps extends CellPropsUsed, SelectorPropsUsed {
     value: SelectorPropsUsed['value'],
     options: SelectorPropsUsed['options'],
   ) => ReactNode
+
+  /**
+   * 是否展示右侧箭头
+   * @default true
+   */
+  isLink?: boolean
 }
 
 export interface FieldTextCellPropsUsed
@@ -106,31 +114,43 @@ export interface FieldTextCellPropsUsed
   > {}
 
 export interface FieldTextInputProps
-  extends Omit<TextInputProps, 'style' | 'bordered' | 'size'>,
+  extends Omit<TextInputProps, 'style' | 'bordered' | 'size' | 'textAlign'>,
     FieldTextCellPropsUsed {
   /**
-   * 自定义输入框的样式
+   * 自定义输入框的样式，TextInputProps 的 style
    */
   textInputStyle?: StyleProp<TextStyle>
 
   /**
-   * 是否显示输入框border
+   * 是否显示输入框 border，TextInputProps 的 bordered
    */
   textInputBordered?: boolean
+
+  /**
+   * 文字对齐，TextInputProps 的 textAlign
+   * @default 'right'
+   */
+  textAlign?: TextInputProps['textAlign']
 }
 
 export interface FieldNumberInputProps
-  extends Omit<NumberInputProps, 'style' | 'bordered' | 'size'>,
+  extends Omit<NumberInputProps, 'style' | 'bordered' | 'size' | 'textAlign'>,
     FieldTextCellPropsUsed {
   /**
-   * 自定义输入框的样式
+   * 自定义输入框的样式，NumberInputProps 的 bordered
    */
   textInputStyle?: StyleProp<TextStyle>
 
   /**
-   * 是否显示输入框border
+   * 是否显示输入框 border，NumberInputProps 的 bordered
    */
   textInputBordered?: boolean
+
+  /**
+   * 文字对齐，NumberInputProps 的 textAlign
+   * @default 'right'
+   */
+  textAlign?: NumberInputProps['textAlign']
 }
 
 export interface FieldSwitchCellPropsUsed
@@ -154,10 +174,19 @@ export interface FieldDateProps
       | 'confirmButtonText'
       | 'cancelButtonText'
     > {
+  /**
+   * 非受控模式初始化的值
+   */
   defaultValue?: Date
 
+  /**
+   * 受控模式所显示的值
+   */
   value?: Date
 
+  /**
+   * 变化时的回调函数
+   */
   onChange?: (v: Date) => void
 
   /**
@@ -192,6 +221,7 @@ export interface FieldDateProps
   ) => Omit<DatePickerSingleMethodProps, 'onCancel' | 'onConfirm'>
 
   /**
+   * 是否展示右侧箭头
    * @default true
    */
   isLink?: boolean
@@ -210,7 +240,7 @@ export interface FieldDateProps
 }
 
 export interface FieldDateRangeProps
-  extends Omit<CellProps, 'value' | 'isLink' | 'disabled'>,
+  extends Omit<CellPropsUsed, 'isLink'>,
     Pick<
       DatePickerRangeMethodProps,
       | 'mode'
@@ -220,10 +250,19 @@ export interface FieldDateRangeProps
       | 'confirmButtonText'
       | 'resetButtonText'
     > {
+  /**
+   * 非受控模式初始化的值
+   */
   defaultValue?: DatePickerRangeValue
 
+  /**
+   * 受控模式所显示的值
+   */
   value?: DatePickerRangeValue
 
+  /**
+   * 变化时的回调函数
+   */
   onChange?: (v: DatePickerRangeValue) => void
 
   /**
@@ -294,7 +333,7 @@ export interface FieldDateRangeProps
 
 export interface FieldCheckboxProps
   extends FixHitSlopProps<
-      Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>
+      Omit<CellPropsUsed, 'value' | 'isLink' | 'center' | 'textAlign'>
     >,
     Pick<
       CheckboxGroupProps<any>,
@@ -313,17 +352,23 @@ export interface FieldCheckboxProps
     > {}
 
 export interface FieldPasswordInputProps
-  extends Omit<PasswordInputProps, 'style' | 'bordered' | 'size'>,
+  extends Omit<PasswordInputProps, 'style' | 'bordered' | 'size' | 'textAlign'>,
     FieldTextCellPropsUsed {
   /**
-   * 自定义输入框的样式
+   * 自定义输入框的样式，PasswordInputProps 的 style
    */
   textInputStyle?: StyleProp<TextStyle>
 
   /**
-   * 是否显示输入框border
+   * 是否显示输入框 border，PasswordInputProps 的 bordered
    */
   textInputBordered?: boolean
+
+  /**
+   * 文字对齐，PasswordInputProps 的 textAlign
+   * @default 'right'
+   */
+  textAlign?: PasswordInputProps['textAlign']
 }
 
 export interface FieldButtonOptionProps
