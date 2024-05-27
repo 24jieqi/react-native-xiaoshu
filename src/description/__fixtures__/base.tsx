@@ -12,6 +12,7 @@ import {
   Space,
   Button,
   Uploader,
+  Theme,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const list = [
@@ -26,12 +27,14 @@ const list = [
 ]
 
 const DescriptionBase: React.FC = () => {
+  const { gray_1 } = Theme.useThemeTokens()
+
   return (
     <Space>
       <Card title="基本使用" square>
         <Description.Group
           style={{
-            backgroundColor: '#f5f5f5',
+            backgroundColor: gray_1,
           }}>
           <Description label="标题的题" text="一袋米要抗几楼" />
           <Description label="children 是 字符串">一袋米要抗几楼</Description>

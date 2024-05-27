@@ -6,9 +6,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-import { Cell, Toast, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
 
 const CellGroup: React.FC = () => {
+  const { gray_1, gray_3 } = Theme.useThemeTokens()
+
   return (
     <Space>
       <Cell.Group
@@ -27,12 +29,12 @@ const CellGroup: React.FC = () => {
 
       <View
         style={{
-          backgroundColor: '#f9f9f9',
+          backgroundColor: gray_1,
           paddingVertical: 24,
         }}>
         <Cell.Group
           title="内容区域有上下分割线"
-          titleTextStyle={{ color: '#f30', backgroundColor: '#666' }}
+          titleTextStyle={{ color: '#f30', backgroundColor: gray_3 }}
           bodyTopDivider
           bodyBottomDivider>
           <Cell title="标题" value="显示文案" />

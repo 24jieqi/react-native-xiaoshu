@@ -37,12 +37,23 @@ export const dark: ThemeProviderProps['theme'] = {
 
   ...resetColorMap,
 
+  badge_color: '#f9f9f9',
+
   button_text_color: '#f9f9f9',
+
   dialog_footer_divider_color: '#5A6068',
+
   notify_text_color: '#f9f9f9',
+
+  progress_pivot_text_color: '#f9f9f9',
+
   skeleton_color_active: '#5A6068',
+
+  switch_background_color: '#5A6068',
   switch_node_background_color: '#f9f9f9',
   switch_children_text_color: '#f9f9f9',
+
   tag_text_color: '#f9f9f9',
-  toast_background_color: 'rgba(229,229,231,0.7)',
+
+  toast_background_color: 'rgb(229,229,231)',
 }
