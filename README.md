@@ -57,9 +57,9 @@ const App: React.FC = () => {
 
 - **Expo demo app**
 
-| SDK 50+ iOS                                                                                                                                                                                 | SDK 50+ Android                                                                                                                                                                             |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://qr.expo.dev/eas-update?appScheme=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=6ac68a4e-7c7d-4fcc-b0e1-4d671d54afb3" alt="react-native-xiaoshu" width="200"> | <img src="https://qr.expo.dev/eas-update?appScheme=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=6ac68a4e-7c7d-4fcc-b0e1-4d671d54afb3" alt="react-native-xiaoshu" width="200"> |
+SDK 51+
+
+<img src="https://qr.expo.dev/eas-update?slug=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=2bad6cb6-d148-4935-959e-bd8717f4d9a5" alt="react-native-xiaoshu" width="200">
 
 ## 参与开发 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
