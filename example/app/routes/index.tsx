@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 
 import BackArrow from '~/components/back-arrow'
-import useColorSchemeDark from '~/hooks/useColorSchemeDark'
+import { useThemeDark } from '~/contexts/theme'
 import Benchmark from '~/pages/demo/benchmark'
 import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
 import CustomHeaderRed from '~/pages/demo/custom-header-red'
@@ -49,10 +49,10 @@ export type BottomTabScreenProps<T extends keyof BottomTabParamList> = {
 const Stack = createStackNavigator<RootStackParamList>()
 
 const NestingNavigators: React.FC = () => {
-  const isColorSchemeDark = useColorSchemeDark()
+  const isThemeDark = useThemeDark()
 
   return (
-    <NavigationContainer theme={isColorSchemeDark ? darkTheme : lightTheme}>
+    <NavigationContainer theme={isThemeDark ? darkTheme : lightTheme}>
       <Stack.Navigator
         initialRouteName="Index"
         screenOptions={{

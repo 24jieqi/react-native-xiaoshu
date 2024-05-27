@@ -1,13 +1,20 @@
 import React from 'react'
 
-import { AppContextProvider } from './app.context'
+import { LangProvider } from '~/contexts/lang'
+import { ThemeProvider } from '~/contexts/theme'
+
+import { AppProvider } from './app.provider'
 import Routes from './routes'
 
 const App = () => {
   return (
-    <AppContextProvider>
-      <Routes />
-    </AppContextProvider>
+    <LangProvider>
+      <ThemeProvider>
+        <AppProvider>
+          <Routes />
+        </AppProvider>
+      </ThemeProvider>
+    </LangProvider>
   )
 }
 

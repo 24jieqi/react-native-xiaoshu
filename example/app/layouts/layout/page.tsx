@@ -5,8 +5,8 @@ import type { ViewStyle } from 'react-native'
 import { View, Platform } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { useThemeDark } from '~/contexts/theme'
 import { getDefaultValue } from '~/helper'
-import useColorSchemeDark from '~/hooks/useColorSchemeDark'
 
 import FocusAwareStatusBar from '../focus-aware-status-bar'
 
@@ -40,18 +40,18 @@ const Page: React.FC<React.PropsWithChildren<PageProps>> = memo(
     statusBarShown = true,
     headerTintColor,
   }) => {
-    const isColorSchemeDark = useColorSchemeDark()
+    const isThemeDark = useThemeDark()
     const navigation = useNavigation()
     const insets = useSafeAreaInsets()
     const TOKENS = Theme.useThemeTokens()
 
     const _headerTintColor = getDefaultValue(
       headerTintColor,
-      isColorSchemeDark ? 'rgb(229, 229, 231)' : '#11151A',
+      isThemeDark ? 'rgb(229, 229, 231)' : '#11151A',
     )!
     const _barStyle = getDefaultValue(
       barStyle,
-      isColorSchemeDark ? 'light-content' : 'dark-content',
+      isThemeDark ? 'light-content' : 'dark-content',
     )
 
     useLayoutEffect(() => {
