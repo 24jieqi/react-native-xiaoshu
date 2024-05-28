@@ -6,7 +6,7 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { Sidebar, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Sidebar, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
 
 const nullArray = []
 
@@ -82,8 +82,9 @@ const options2 = [
 ]
 
 const BasicSidebar: React.FC = () => {
+  const { gray_1 } = Theme.useThemeTokens()
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
+    <ScrollView style={{ backgroundColor: gray_1 }}>
       <Space>
         <View style={{ height: 300 }}>
           <Sidebar options={nullArray} />

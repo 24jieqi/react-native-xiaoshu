@@ -23,6 +23,9 @@ resetColorKey.forEach(key => {
   resetColorMap[key] = Color(color).darken(0.3).hex()
 })
 
+const darkTextColor = '#f9f9f9'
+const darkSubtextColor = '#B9BEC5'
+
 export const dark: ThemeProviderProps['theme'] = {
   white: '#2b2b2b',
   black: 'rgb(229, 229, 231)',
@@ -37,23 +40,40 @@ export const dark: ThemeProviderProps['theme'] = {
 
   ...resetColorMap,
 
-  badge_color: '#f9f9f9',
+  badge_color: darkTextColor,
 
-  button_text_color: '#f9f9f9',
+  button_text_color: darkTextColor,
 
   dialog_footer_divider_color: '#5A6068',
+  dialog_confirm_button_text_color: darkTextColor,
+  dialog_cancel_button_text_color: darkSubtextColor,
 
-  notify_text_color: '#f9f9f9',
+  nav_tab_background_color: '#5A6068',
 
-  progress_pivot_text_color: '#f9f9f9',
+  notify_text_color: darkTextColor,
+
+  picker_header_cancel_text_color: darkSubtextColor,
+  picker_header_confirm_text_color: darkTextColor,
+  picker_date_range_day_color: darkSubtextColor,
+  picker_date_range_day_color_active: darkTextColor,
+
+  progress_pivot_text_color: darkTextColor,
+
+  sidebar_background_color: '#11151A',
+  sidebar_item_background_color: '#5A6068',
+  sidebar_item_underlay_color: '#5A6068',
+  sidebar_item_disabled_inactive_text_color: darkSubtextColor,
 
   skeleton_color_active: '#5A6068',
 
-  switch_background_color: '#5A6068',
-  switch_node_background_color: '#f9f9f9',
-  switch_children_text_color: '#f9f9f9',
+  steps_title_color: darkTextColor,
+  steps_icon_dot_active_background_color: darkTextColor,
 
-  tag_text_color: '#f9f9f9',
+  switch_background_color: '#5A6068',
+  switch_node_background_color: darkTextColor,
+  switch_children_text_color: darkTextColor,
+
+  tag_text_color: darkTextColor,
 
   toast_background_color: 'rgb(229,229,231)',
 }
