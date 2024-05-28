@@ -469,7 +469,7 @@ const Tree: React.FC<TreeProps> = ({
             }}
           />
         ) : (
-          <Empty style={flatListStyle} />
+          <Empty style={flatListStyle} full />
         )
       ) : (
         <FlatList
