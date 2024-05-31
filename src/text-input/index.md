@@ -121,7 +121,7 @@ group:
 
 `iOS12` 以后，输入框可以响应第一条新短信，通过 `textContentType` 属性配置，[详情阅读](https://reactnative.dev/docs/textinput#textcontenttype-ios)。
 
-```tsx
+```tsx | pure
 // 读取验证码
 <TextInput textContentType="oneTimeCode" />
 ```
