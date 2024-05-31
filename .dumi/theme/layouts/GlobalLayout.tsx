@@ -7,8 +7,6 @@ const GlobalLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   // color 为当前应用的主题色，dark or light
   const [color] = usePrefersColor()
 
-  console.log('isDark => ', color)
-
   return (
     <Provider theme={color === 'dark' ? Theme.dark : undefined}>
       {outlet}
