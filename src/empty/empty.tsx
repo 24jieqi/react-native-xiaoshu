@@ -15,6 +15,7 @@ import { varCreator, styleCreator } from './style'
  */
 const Empty: React.FC<EmptyProps> = ({
   testID,
+  theme,
   text,
   style,
   textStyle,
@@ -23,9 +24,11 @@ const Empty: React.FC<EmptyProps> = ({
   full = false,
 }) => {
   const locale = Locale.useLocale().Empty
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const iconJSX = !isUndefined(icon) ? (
     icon

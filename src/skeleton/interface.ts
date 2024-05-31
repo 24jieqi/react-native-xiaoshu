@@ -1,6 +1,9 @@
 import type { ViewProps } from 'react-native'
 
+import type { SkeletonTheme } from './style'
+
 export type SkeletonAvatarProps = {
+  theme?: Partial<SkeletonTheme>
   /**
    * 是否展示动画效果
    * @default true
@@ -28,6 +31,7 @@ export type SkeletonTitleProps = {
 }
 
 export type SkeletonParagraphProps = {
+  theme?: Partial<SkeletonTheme>
   /**
    * 是否展示动画效果
    * @default true
@@ -46,6 +50,7 @@ export type SkeletonParagraphProps = {
 } & Pick<ViewProps, 'testID'>
 
 export interface SkeletonProps {
+  theme?: Partial<SkeletonTheme>
   /**
    * 是否展示动画效果
    * @default true

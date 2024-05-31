@@ -11,6 +11,7 @@ import type { ButtonOptionProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const ButtonOption: React.FC<ButtonOptionProps> = ({
+  theme,
   active,
   activeHighlight = true,
   badge,
@@ -26,9 +27,11 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
   children,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const inactiveBackgroundColor = useMemo(() => {
     if (type === 'outline') {

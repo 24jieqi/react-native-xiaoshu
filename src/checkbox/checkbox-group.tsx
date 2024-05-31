@@ -9,6 +9,7 @@ import Checkbox from './checkbox'
 import type { CheckboxGroupProps } from './interface'
 
 function CheckboxGroup<T = any>({
+  theme,
   options,
   multiple,
   editable = true,
@@ -20,9 +21,12 @@ function CheckboxGroup<T = any>({
   checkboxIconLabelGap,
   ...restProps
 }: CheckboxGroupProps<T>) {
-  const [value, onChange] = useControllableValue<T | T[]>(restProps, {
-    defaultValue: multiple ? [] : undefined,
-  })
+  const [value, onChange] = useControllableValue<T | T[] | undefined | null>(
+    restProps,
+    {
+      defaultValue: multiple ? [] : undefined,
+    },
+  )
 
   const contentJSX = (
     <Space {...omit(restProps, ['value', 'defaultValue', 'onChange'])}>
@@ -34,6 +38,7 @@ function CheckboxGroup<T = any>({
         return (
           <Checkbox
             {...checkboxProps}
+            theme={theme}
             labelTextStyle={
               checkboxProps.labelTextStyle ?? checkboxLabelTextStyle
             }

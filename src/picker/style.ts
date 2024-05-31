@@ -23,9 +23,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type PickerTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: PickerTheme) => {
   const headerBtn = {
     lineHeight: cv.picker_header_text_line_height,
     height: cv.picker_header_text_line_height,

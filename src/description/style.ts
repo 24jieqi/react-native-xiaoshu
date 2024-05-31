@@ -15,9 +15,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type DescriptionTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: DescriptionTheme) => {
   return StyleSheet.create({
     label_text: {
       color: cv.description_label_color,

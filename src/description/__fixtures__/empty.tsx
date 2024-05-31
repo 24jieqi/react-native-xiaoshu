@@ -23,7 +23,7 @@ const DescriptionEmpty: React.FC = () => {
           <Description label="Description" />
           <Description label="Description" text="" />
           <Description label="Description" text="一袋米由我洗嘞" />
-          <Description label="Description" text={null} />
+          <Description label="Description" text={undefined} />
           <Description.Thousand label="Description.Thousand" />
           <Description.Thousand
             label="Description.Thousand"
@@ -40,7 +40,7 @@ const DescriptionEmpty: React.FC = () => {
         <Description.Group showEmpty empty="暂无数据">
           <Description label="Description" />
           <Description label="Description" text="一袋米由我洗嘞" />
-          <Description label="Description" text={null} />
+          <Description label="Description" text={undefined} />
           <Description.Thousand label="Description.Thousand" />
           <Description.Thousand
             label="Description.Thousand"
@@ -60,7 +60,7 @@ const DescriptionEmpty: React.FC = () => {
           <Description
             label="Description"
             empty="没没想到答案就不用寻找题目"
-            text={null}
+            text={undefined}
           />
           <Description.Thousand
             label="Description.Thousand"

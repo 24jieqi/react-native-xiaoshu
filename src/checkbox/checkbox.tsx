@@ -12,6 +12,7 @@ import type { CheckboxProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
+  theme,
   labelTextStyle,
   iconStyle,
   activeValue = true as unknown as ActiveValueT,
@@ -40,9 +41,11 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const _gap = getDefaultValue(gap, CV.checkbox_label_margin)
   const active = value === activeValue

@@ -20,7 +20,7 @@ const DropdownMultiple = <T,>({
   zIndex,
   closeOnPressOutside,
   loading,
-  placeholder,
+  placeholder = '',
   beforeChecked,
 
   search,
@@ -67,7 +67,7 @@ const DropdownMultiple = <T,>({
   const onPressText = usePersistFn(() => {
     // 计算 Menu 的 Top 和元素高度
     // eslint-disable-next-line max-params
-    config.MenuRef.current.measure((x, y, width, height, pageX, pageY) => {
+    config.MenuRef.current?.measure((x, y, width, height, pageX, pageY) => {
       setActive(true)
       DropdownSelector({
         targetHeight: height,

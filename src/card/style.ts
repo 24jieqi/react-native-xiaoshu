@@ -23,9 +23,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type CardTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: CardTheme) => {
   return StyleSheet.create({
     card: {
       backgroundColor: cv.card_background_color,

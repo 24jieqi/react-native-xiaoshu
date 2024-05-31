@@ -12,6 +12,7 @@ import {
   Button,
   Portal,
   Tree,
+  Theme,
 } from '@fruits-chain/react-native-xiaoshu'
 
 const itemOptions = [
@@ -54,6 +55,7 @@ const itemOptions4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13, 14].map(v => ({
 }))
 
 const BasicDropdown: React.FC = () => {
+  const { gray_2 } = Theme.useThemeTokens()
   const [values, setValues] = useState({
     v1: itemOptions[0].value,
     v2: itemOptions[3].value,
@@ -74,7 +76,7 @@ const BasicDropdown: React.FC = () => {
   }, [])
 
   return (
-    <ScrollView scrollsToTop={false} style={{ backgroundColor: '#f5f5f5' }}>
+    <ScrollView scrollsToTop={false} style={{ backgroundColor: gray_2 }}>
       <Cell.Group title="基础用法">
         <Text>暂无数据</Text>
         <Dropdown>
@@ -263,7 +265,7 @@ const BasicDropdown: React.FC = () => {
           <Button
             text="打开一个"
             onPress={() => {
-              ViewRef.current.measure((x, y, width, height, pageX, pageY) => {
+              ViewRef.current?.measure((x, y, width, height, pageX, pageY) => {
                 setPopupProps(s => ({
                   ...s,
                   targetHeight: height,

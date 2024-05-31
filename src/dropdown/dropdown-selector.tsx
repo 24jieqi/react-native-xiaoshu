@@ -14,6 +14,7 @@ import Theme from '../theme'
 import Tree from '../tree'
 import type { TreeOption, TreeValue } from '../tree/interface'
 
+import { useDropdownConfig } from './context'
 import DropdownBadge from './dropdown-badge'
 import DropdownPopup from './dropdown-popup'
 import type {
@@ -45,10 +46,15 @@ const DropdownSelectorMethod = <T,>({
   testID,
 }: DropdownSelectorMethodProps<T>) => {
   const locale = Locale.useLocale().DropdownSelector
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_TREE = Theme.createVar(TOKENS, Tree.varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const { theme } = useDropdownConfig()
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_TREE] = Theme.useStyle({
+    varCreator: Tree.varCreator,
+  })
   const [multipleValue, setMultipleValue] = useState<T[]>(
     multiple ? (defaultValue as T[]) || [] : [],
   )
@@ -131,7 +137,7 @@ const DropdownSelectorMethod = <T,>({
   const findNodeByValue = (
     tree: DropdownItemOption<T>[],
     value: T,
-  ): DropdownItemOption<T> => {
+  ): DropdownItemOption<T> | undefined => {
     for (const item of tree) {
       if (item.value === value) {
         return item
@@ -143,6 +149,8 @@ const DropdownSelectorMethod = <T,>({
         }
       }
     }
+
+    return undefined
   }
 
   const onPressShade = useCallback(() => {
@@ -212,7 +220,7 @@ const DropdownSelectorMethod = <T,>({
     onConfirm?.(
       multipleValue,
       multipleValue.map(item => {
-        return findNodeByValue(options, item)
+        return findNodeByValue(options, item)!
       }),
     )
   })

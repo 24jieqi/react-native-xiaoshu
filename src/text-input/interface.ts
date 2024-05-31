@@ -8,9 +8,12 @@ import type {
   TouchableOpacityProps,
 } from 'react-native'
 
+import type { TextInputTheme } from './style'
+
 export type TextInputInstance = RNTextInput
 
 export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
+  theme?: Partial<TextInputTheme>
   /**
    * 当设置 addonXxx 的时候就会出现一个组
    */
@@ -125,8 +128,14 @@ export interface TextInputProps extends Omit<RNTextInputProps, 'onChange'> {
    * @description 与原生控件不同，这里的参数直接是值
    */
   onChange?: (value: string) => void
+
+  /**
+   * 多行输入框最大高度
+   */
+  textareaMaxHeight?: number
 }
 
 export interface TextInputClearProps {
+  theme?: Partial<TextInputTheme>
   onPress?: TouchableOpacityProps['onPress']
 }

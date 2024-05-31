@@ -16,9 +16,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type NotifyTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: NotifyTheme) => {
   return StyleSheet.create({
     notify: {
       alignItems: 'center',

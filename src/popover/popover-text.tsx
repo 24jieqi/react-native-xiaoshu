@@ -8,6 +8,7 @@ import PopoverItem from './popover-item'
 import { varCreator, styleCreator } from './style'
 
 const PopoverText: React.FC<PopoverTextProps> = ({
+  theme,
   text,
   onSelect,
   dark,
@@ -17,9 +18,11 @@ const PopoverText: React.FC<PopoverTextProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   return (
     <PopoverItem

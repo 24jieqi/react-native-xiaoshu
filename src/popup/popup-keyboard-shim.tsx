@@ -13,13 +13,16 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
     if (Platform.OS === 'ios') {
       const keyboardDidShow = (e: KeyboardEvent) => {
         // eslint-disable-next-line max-params
-        ViewHeight.current.measure((_x, _y, _width, _height, _pageX, pageY) => {
-          Animated.timing(KeyboardHeight.current, {
-            toValue: e.endCoordinates.height - (height - pageY - _height),
-            duration: 300,
-            useNativeDriver: false,
-          }).start()
-        })
+        ViewHeight.current?.measure(
+          // eslint-disable-next-line max-params
+          (_x, _y, _width, _height, _pageX, pageY) => {
+            Animated.timing(KeyboardHeight.current, {
+              toValue: e.endCoordinates.height - (height - pageY - _height),
+              duration: 300,
+              useNativeDriver: false,
+            }).start()
+          },
+        )
 
         Animated.timing(KeyboardHeight.current, {
           toValue: e.endCoordinates.height,

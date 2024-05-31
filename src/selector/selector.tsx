@@ -95,7 +95,7 @@ const Selector: React.FC<SelectorProps> = ({
 
     _onChange?.(
       valueMultiple,
-      valueMultiple.map(i => Tree.findNodeByValue(treeProps.options, i)),
+      valueMultiple.map(i => Tree.findNodeByValue(treeProps.options, i)!),
     )
   })
 

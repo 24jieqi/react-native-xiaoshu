@@ -21,7 +21,7 @@ import Theme from '../theme'
 import type { NoticeBarProps, NoticeBarMode } from './interface'
 import { varCreator, styleCreator } from './style'
 
-const getModeIcon = (mode: NoticeBarMode) => {
+const getModeIcon = (mode: NoticeBarMode | undefined) => {
   switch (mode) {
     case 'closeable':
       return CrossOutline
@@ -34,6 +34,7 @@ const getModeIcon = (mode: NoticeBarMode) => {
  * 通知栏
  */
 const NoticeBar: React.FC<NoticeBarProps> = ({
+  theme,
   message,
   messageTextStyle,
   status = 'warning',
@@ -54,9 +55,11 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   ...restProps
 }) => {
   const onPressClosePersistFn = usePersistFn(onPressClose || noop)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const [visible, setVisible] = useState(true)
 
   const textColor =
@@ -72,7 +75,7 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   // 修正数据
   color = getDefaultValue(color, textColor)
   backgroundColor = getDefaultValue(backgroundColor, barBackgroundColor)
-  iconColor = getDefaultValue(iconColor, color)
+  iconColor = getDefaultValue(iconColor, color)!
 
   const noticeBarStyles: StyleProp<ViewStyle> = [
     STYLES.notice_bar,

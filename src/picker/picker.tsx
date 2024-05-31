@@ -24,6 +24,7 @@ const PICKER_VIEW_PROPS_KEYS = [
 ]
 
 const Picker: React.FC<PickerProps> = ({
+  theme,
   visible,
   title,
   confirmButtonText,
@@ -36,9 +37,11 @@ const Picker: React.FC<PickerProps> = ({
   ...restProps
 }) => {
   const locale = Locale.useLocale().Picker
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const insets = useSafeAreaInsets()
 
   const headerTitleJSX = (

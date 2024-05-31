@@ -56,6 +56,7 @@ const iOSPlatform = Platform.OS === 'ios'
 const TextInput = forwardRef<TextInputInstance, TextInputProps>(
   (
     {
+      theme,
       addonGroupStyle,
       addonBeforeTextStyle,
       addonAfterTextStyle,
@@ -77,6 +78,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       suffix,
       inputWidth,
       size = 'm',
+      textareaMaxHeight,
 
       // TextInput 的属性
       style,
@@ -105,10 +107,14 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     }
 
     const locale = Locale.useLocale().TextInput
-    const TOKENS = Theme.useThemeTokens()
-    const CV = Theme.createVar(TOKENS, varCreator)
-    const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-    const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
+    const [CV, STYLES] = Theme.useStyle({
+      varCreator,
+      styleCreator,
+      theme,
+    })
+    const [CV_BUTTON] = Theme.useStyle({
+      varCreator: varCreatorButton,
+    })
 
     const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
     const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
@@ -145,7 +151,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
 
     // 转发实例
     useImperativeHandle(ref, () => {
-      return TextInputRef.current
+      return TextInputRef.current!
     })
 
     /** 点击完成收起软键盘 */
@@ -285,6 +291,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       isTextarea
         ? {
             minHeight: textInputMinHeight * rows - inputUncertainHeight,
+            maxHeight: textareaMaxHeight,
             paddingVertical: 2,
             alignItems: 'flex-start',
           }
@@ -357,7 +364,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
         (clearTrigger === 'focus' ? focus : true) &&
         value &&
         value.length ? (
-          <TextInputClear onPress={onPressClearable} />
+          <TextInputClear theme={theme} onPress={onPressClearable} />
         ) : null}
 
         {showWordLimit ? (

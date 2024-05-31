@@ -4,6 +4,7 @@ import type { ViewStyle, ViewProps } from 'react-native'
 import { TouchableWithoutFeedback, Animated, View } from 'react-native'
 
 import { getDefaultValue, callInterceptor, renderTextLikeJSX } from '../helpers'
+import type { ExcludeUndefined } from '../helpers/types'
 import { useControllableValue, usePersistFn, useDifferentState } from '../hooks'
 import LoadingCircular from '../loading/loading-circular'
 import { varCreator as varCreatorLoading } from '../loading/style'
@@ -17,6 +18,7 @@ import { varCreator, styleCreator } from './style'
  * @description 用于在打开和关闭状态之间进行切换。
  */
 function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
+  theme,
   size,
   disabled = false,
   loading = false,
@@ -39,12 +41,15 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
       defaultValue: inactiveValue,
     },
   )
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_LOADING = Theme.createVar(TOKENS, varCreatorLoading)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-
-  const unitSize = getDefaultValue(size, CV.switch_size)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_LOADING] = Theme.useStyle({
+    varCreator: varCreatorLoading,
+  })
+  const unitSize = getDefaultValue(size, CV.switch_size)!
   const nodeEdgeDistance = 2
 
   const [switchWidth, setSwitchWidth] = useDifferentState(
@@ -124,7 +129,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         ? activeColor || CV.switch_on_background_color
         : inactiveColor || CV.switch_background_color,
     },
-    disabled ? STYLES.disabled : null,
+    disabled ? STYLES.disabled : {},
   ]
   const nodeStyleSummary: ViewStyle[] = [
     STYLES.node,
@@ -178,7 +183,9 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
     ],
   }
 
-  const onLayoutChildren = usePersistFn<ViewProps['onLayout']>(e => {
+  const onLayoutChildren = usePersistFn<
+    ExcludeUndefined<ViewProps['onLayout']>
+  >(e => {
     setSwitchWidth(v => Math.max(v, e.nativeEvent.layout.width))
   })
 

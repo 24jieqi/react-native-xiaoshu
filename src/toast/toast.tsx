@@ -24,6 +24,7 @@ import { varCreator, styleCreator } from './style'
 const Toast = forwardRef<ToastMethods, ToastProps>(
   (
     {
+      theme,
       type,
       position = 'middle',
       message,
@@ -38,9 +39,11 @@ const Toast = forwardRef<ToastMethods, ToastProps>(
     },
     ref,
   ) => {
-    const TOKENS = Theme.useThemeTokens()
-    const CV = Theme.createVar(TOKENS, varCreator)
-    const STYLES = Theme.createStyle(CV, styleCreator)
+    const [CV, STYLES] = Theme.useStyle({
+      varCreator,
+      styleCreator,
+      theme,
+    })
     const [show, setShow] = useState(false)
     const [msg, setMsg] = useState(message)
 

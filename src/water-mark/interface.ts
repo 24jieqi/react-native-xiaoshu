@@ -1,6 +1,9 @@
 import type { ColorValue, ViewProps } from 'react-native'
 
+import type { WaterMarkTheme } from './style'
+
 export interface WaterMarkProps extends ViewProps {
+  theme?: Partial<WaterMarkTheme>
   /**
    * 文字内容
    */

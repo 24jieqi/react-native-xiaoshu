@@ -10,7 +10,7 @@ import ResultIconError from '../result/icons/result-icon-error'
 import type { ErrorBoundaryProps } from './interface'
 
 type ErrorBoundaryState = {
-  error: Error
+  error: Error | null
 }
 
 const ERROR_PAGE_STYLE: ViewStyle = {

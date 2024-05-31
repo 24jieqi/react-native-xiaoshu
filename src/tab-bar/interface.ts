@@ -3,6 +3,8 @@ import type { ColorValue } from 'react-native'
 
 import type { BottomBarProps } from '../bottom-bar/interface'
 
+import type { TabBarTheme } from './style'
+
 export type TabValue = number | string
 
 export type TabItem<T> = {
@@ -12,7 +14,9 @@ export type TabItem<T> = {
   iconRender?: (color?: ColorValue, isActive?: boolean) => React.ReactElement
 }
 
-export interface TabBarProps<T extends TabValue> extends BottomBarProps {
+export interface TabBarProps<T extends TabValue>
+  extends Omit<BottomBarProps, 'theme'> {
+  theme?: Partial<TabBarTheme>
   /**
    * 文案颜色
    * @default tab_bar_text_color

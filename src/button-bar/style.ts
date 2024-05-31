@@ -9,9 +9,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type ButtonTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: ButtonTheme) => {
   return StyleSheet.create({
     button_bar: {
       flexDirection: 'row',

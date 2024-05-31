@@ -22,8 +22,8 @@ export const ActionSheetInstance = (opts: ActionSheetOptions) => {
           // 语义上应该是指定某个操作，不会关系是如何取消的，所以 Promise 只关系点击了哪个操作
           if (action === 'item') {
             resolve({
-              item,
-              index,
+              item: item!,
+              index: index!,
             })
           } else {
             reject(new Error(action))

@@ -25,9 +25,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type TagTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: TagTheme) => {
   return StyleSheet.create({
     tag: {
       backgroundColor: 'transparent',

@@ -1,6 +1,8 @@
 import type { PropsWithChildren, ComponentType, ReactNode } from 'react'
 import type { ImageSourcePropType, ViewProps } from 'react-native'
 
+import type { UploaderTheme } from './style'
+
 export type UploaderValue = {
   /**
    * 当前资源的唯一标识
@@ -28,6 +30,7 @@ export type UploaderValue = {
 }
 
 export interface UploaderProps<T extends UploaderValue> extends ViewProps {
+  theme?: Partial<UploaderTheme>
   /**
    * 图片数组
    */
@@ -107,6 +110,7 @@ export interface UploaderImageProps
   extends Partial<Pick<UploaderValue, 'filepath' | 'status'>>,
     Pick<UploaderProps<UploaderValue>, 'imageComponent' | 'deletable'>,
     PropsWithChildren<{}> {
+  theme?: Partial<UploaderTheme>
   /**
    * 缩略图尺寸
    */
@@ -147,15 +151,26 @@ export interface UploaderRegularProps<T extends UploaderValue>
   extends ViewProps,
     Pick<
       UploaderProps<T>,
-      | 'list'
-      | 'imageComponent'
-      | 'colCount'
-      | 'colGap'
-      | 'onPressImage'
-      | 'onPressDelete'
-      | 'onPressError'
-      | 'deletable'
+      'imageComponent' | 'colCount' | 'colGap' | 'deletable'
     > {
+  theme?: Partial<UploaderTheme>
+  list: (T | null)[]
+
+  /**
+   * 点击某一个图片
+   */
+  onPressImage?: (current: T, index: number, list: (T | null)[]) => void
+
+  /**
+   * 点击删除文件
+   */
+  onPressDelete?: (current: T, index: number, list: (T | null)[]) => void
+
+  /**
+   * 点击上传出错的文件
+   */
+  onPressError?: (current: T, index: number, list: (T | null)[]) => void
+
   /**
    * 共多少个上传，请保持数组引用不变
    */

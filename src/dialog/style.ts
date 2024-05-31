@@ -29,9 +29,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type DialogTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: DialogTheme) => {
   return StyleSheet.create({
     dialog: {
       overflow: 'hidden',

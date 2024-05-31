@@ -10,6 +10,7 @@ import type { DescriptionProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const Description: React.FC<DescriptionProps> = ({
+  theme,
   colon,
   contentStyle,
   contentTextStyle,
@@ -37,9 +38,11 @@ const Description: React.FC<DescriptionProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const descriptionContext = useDescription()
 
   // 整理默认值

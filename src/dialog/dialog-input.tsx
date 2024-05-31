@@ -53,12 +53,14 @@ const DialogInput: React.FC<DialogInputProps> = ({
   const realValue = isInputText ? textInputValue : numberInputValue
 
   const TextInputRef = useRef<TextInputInstance>(null)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme: restProps.theme,
+  })
 
   const [state, setState] = useState<DialogInputState>({
     visible: false,
-    value: defaultValue,
+    value: defaultValue || '',
     cancel: false,
     confirm: false,
     overlay: false,
@@ -136,7 +138,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
     // 当对话框完全显示的时候再去聚焦
     if (autoFocus) {
       setTimeout(() => {
-        TextInputRef.current.focus()
+        TextInputRef.current?.focus()
       }, duration)
     }
   }, [duration, autoFocus])

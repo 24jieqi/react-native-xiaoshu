@@ -1,4 +1,5 @@
 import { CrossOutline } from '@fruits-chain/icons-react-native'
+import noop from 'lodash/noop'
 import React, { memo } from 'react'
 
 import { usePersistFn } from '../hooks'
@@ -10,16 +11,19 @@ import { varCreator } from './style'
 import { styleCreator } from './style.header'
 
 const PopupHeader: React.FC<PopupHeaderProps> = ({
+  theme,
   showClose = true,
   onClose,
 
   rightExtra,
   ...restProps
 }) => {
-  const onClosePersistFn = usePersistFn(onClose)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const onClosePersistFn = usePersistFn(onClose || noop)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const rightExtraJSX = (
     <>

@@ -14,9 +14,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type NavBarTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: NavBarTheme) => {
   return StyleSheet.create({
     bar: {
       height: cv.nav_bar_height,

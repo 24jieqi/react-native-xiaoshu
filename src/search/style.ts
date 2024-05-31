@@ -13,9 +13,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type SearchTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: SearchTheme) => {
   return StyleSheet.create({
     search: {
       backgroundColor: cv.search_background_color,

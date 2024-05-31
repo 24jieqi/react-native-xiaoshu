@@ -1,3 +1,4 @@
+import noop from 'lodash/noop'
 import React, { memo } from 'react'
 import type { ViewStyle } from 'react-native'
 import { Text, View, TouchableHighlight } from 'react-native'
@@ -15,6 +16,7 @@ import { varCreator, styleCreator } from './style'
  * @description 单元格为列表中的单个展示项。
  */
 const Cell: React.FC<CellProps> = ({
+  theme,
   innerStyle,
   title,
   titleStyle,
@@ -46,10 +48,12 @@ const Cell: React.FC<CellProps> = ({
   style,
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-  const { run: runOnPress } = useDebounceFn(restProps.onPress, {
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const { run: runOnPress } = useDebounceFn(restProps.onPress || noop, {
     wait: onPressDebounceWait,
     leading: true,
     trailing: false,
@@ -70,7 +74,7 @@ const Cell: React.FC<CellProps> = ({
     textAlign = 'left'
   }
 
-  const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : null
+  const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : {}
 
   const requiredJSX = required ? (
     <View style={STYLES.title_required} testID="CELL_REQUIRED">

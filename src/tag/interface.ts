@@ -1,8 +1,11 @@
 import type { ViewProps, ViewStyle, StyleProp, ColorValue } from 'react-native'
 
+import type { TagTheme } from './style'
+
 export type TagSize = 'l' | 'm' | 's'
 export type TagType = 'primary' | 'hazy' | 'ghost'
 export interface TagProps extends ViewProps {
+  theme?: Partial<TagTheme>
   /**
    * 内部包裹层样式，可以对文案、图标排版影响
    */

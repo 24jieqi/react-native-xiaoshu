@@ -17,6 +17,7 @@ import { varCreator, styleCreator } from './style'
 const Divider: React.FC<DividerProps> = ({
   children,
   style,
+  theme,
   textStyle,
   type = 'light',
   direction = 'horizontal',
@@ -26,16 +27,18 @@ const Divider: React.FC<DividerProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const isVertical = direction === 'vertical'
   const Line = dashed ? DividerLineDashed : DividerLine
 
   color = getDefaultValue(
     color,
     type === 'dark' ? CV.divider_color_dark : CV.divider_color_light,
-  )
+  )!
 
   return (
     <View
@@ -46,10 +49,16 @@ const Divider: React.FC<DividerProps> = ({
         style,
       ]}>
       {isVertical ? (
-        <Line color={color} position="center" direction={direction} />
+        <Line
+          theme={theme}
+          color={color}
+          position="center"
+          direction={direction}
+        />
       ) : !isNil(children) ? (
         <>
           <Line
+            theme={theme}
             color={color}
             position="left"
             adaptive={contentPosition !== 'left'}
@@ -58,13 +67,14 @@ const Divider: React.FC<DividerProps> = ({
           <Text style={[STYLES.text, textStyle]}>{children}</Text>
 
           <Line
+            theme={theme}
             color={color}
             position="right"
             adaptive={contentPosition !== 'right'}
           />
         </>
       ) : (
-        <Line color={color} position="center" />
+        <Line theme={theme} color={color} position="center" />
       )}
     </View>
   )

@@ -20,9 +20,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type ProgressTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: ProgressTheme) => {
   return StyleSheet.create({
     fail_page: {
       backgroundColor: cv.progress_page_background_color,

@@ -7,6 +7,7 @@ import type { CircleProps } from 'react-native-svg/lib/typescript/elements/Circl
 import { getDefaultValue } from '../helpers'
 import Theme from '../theme'
 
+import type { LoadingTheme } from './style'
 import { varCreator } from './style'
 import useLoop from './useLoop'
 
@@ -14,6 +15,7 @@ const AnimatedCircle =
   Animated.createAnimatedComponent<React.ComponentType<CircleProps>>(Circle)
 
 export interface CircularProps extends ViewProps {
+  theme?: Partial<LoadingTheme>
   /**
    * 大小
    */
@@ -27,18 +29,25 @@ export interface CircularProps extends ViewProps {
 
 const STROKE_WIDTH = 2
 
-const Circular: React.FC<CircularProps> = ({ size, color, ...restProps }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+const Circular: React.FC<CircularProps> = ({
+  theme,
+  size,
+  color,
+  ...restProps
+}) => {
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
   const AnimatedCircle0Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current
 
-  size = getDefaultValue(size, CV.loading_icon_size)
+  let _size: number = getDefaultValue(size, CV.loading_icon_size)!
   color = getDefaultValue(color, CV.loading_icon_color)
 
   const circle1Props = useMemo(() => {
-    const center = Math.floor(size / 2)
+    const center = Math.floor(_size / 2)
     const radios = Math.floor(center - STROKE_WIDTH / 2)
 
     return {
@@ -46,10 +55,10 @@ const Circular: React.FC<CircularProps> = ({ size, color, ...restProps }) => {
       cx: center,
       r: radios,
     }
-  }, [size])
+  }, [_size])
 
   const circle2Props = useMemo(() => {
-    const center = Math.floor(size / 2)
+    const center = Math.floor(_size / 2)
     const radios = Math.floor(center - STROKE_WIDTH / 2 - center / 2)
 
     return {
@@ -57,7 +66,7 @@ const Circular: React.FC<CircularProps> = ({ size, color, ...restProps }) => {
       cx: center,
       r: radios,
     }
-  }, [size])
+  }, [_size])
 
   const half1Circle = useMemo(() => circle1Props.r * Math.PI, [circle1Props.r])
   const half2Circle = useMemo(() => circle2Props.r * Math.PI, [circle2Props.r])
@@ -80,8 +89,8 @@ const Circular: React.FC<CircularProps> = ({ size, color, ...restProps }) => {
   const iconStyle: ViewStyle = {
     justifyContent: 'center',
     alignItems: 'center',
-    width: size,
-    height: size,
+    width: _size,
+    height: _size,
     transform: [
       {
         rotateZ: AnimatedCircle0Value.interpolate({

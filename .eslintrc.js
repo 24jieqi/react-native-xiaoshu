@@ -14,6 +14,7 @@ module.exports = {
     ],
 
     'no-console': ['error', { allow: ['warn', 'error'] }],
+    'react-native/no-unused-styles': 0,
   },
   settings: {
     'import/ignore': ['node_modules/react-native/'],

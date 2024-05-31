@@ -11,6 +11,7 @@ import {
   Popover,
   PopoverPlacement,
   Space,
+  Theme,
   Toast,
 } from '@fruits-chain/react-native-xiaoshu'
 
@@ -19,28 +20,31 @@ const onSelect = (v: string, index: number) => {
 }
 
 const BasicPopover: React.FC = () => {
+  const { white, black, gray_2 } = Theme.useThemeTokens()
+  const textStyle = { color: black }
+
   return (
     <ScrollView>
-      <Space gap={300} tail style={{ backgroundColor: '#fff' }}>
+      <Space gap={300} tail style={{ backgroundColor: gray_2 }}>
         <Popover<string>
           trigger="onLongPress"
           triggerStyle={{ backgroundColor: '#f30' }}
-          popoverStyle={{ backgroundColor: '#000' }}
+          popoverStyle={{ backgroundColor: black }}
           statusBarTranslucent
           duration={0}
           onSelect={onSelect}
           content={[
             <Popover.Item key="1" value="1" divider>
-              <Text style={{ color: '#fff' }}>弹出1</Text>
+              <Text style={{ color: white }}>弹出1</Text>
             </Popover.Item>,
             <Popover.Item key="2" value="2" disabled>
-              <Text style={{ color: '#fff' }}>弹出2 disabled</Text>
+              <Text style={{ color: white }}>弹出2 disabled</Text>
             </Popover.Item>,
             <Popover.Item key="3" value="3">
-              <Text style={{ color: '#fff' }}>弹出3</Text>
+              <Text style={{ color: white }}>弹出3</Text>
             </Popover.Item>,
           ]}>
-          <Text>自构 UI:多选项:自定义样式:长按</Text>
+          <Text style={textStyle}>自构 UI:多选项:自定义样式:长按</Text>
         </Popover>
 
         <Popover<string>
@@ -58,7 +62,9 @@ const BasicPopover: React.FC = () => {
               <Text>弹出3</Text>
             </Popover.Item>,
           ]}>
-          <Text>自构文案 UI:多选项:亮色:白色背景不好区分</Text>
+          <Text style={textStyle}>
+            自构文案 UI:多选项:亮色:白色背景不好区分
+          </Text>
         </Popover>
 
         <Popover<string>
@@ -77,7 +83,7 @@ const BasicPopover: React.FC = () => {
               <Text>弹出3</Text>
             </Popover.Item>,
           ]}>
-          <Text>自构 UI:多选项:亮色:阴影</Text>
+          <Text style={textStyle}>自构 UI:多选项:亮色:阴影</Text>
         </Popover>
 
         <Popover<string>
@@ -97,7 +103,7 @@ const BasicPopover: React.FC = () => {
               <Text>弹出3</Text>
             </Popover.Item>,
           ]}>
-          <Text>自构 UI:多选项:亮色:阴影:无箭头</Text>
+          <Text style={textStyle}>自构 UI:多选项:亮色:阴影:无箭头</Text>
         </Popover>
 
         <Popover
@@ -107,10 +113,10 @@ const BasicPopover: React.FC = () => {
           onSelect={onSelect}
           content={
             <Popover.Item value="1">
-              <Text style={{ color: '#fff' }}>弹出</Text>
+              <Text style={{ color: white }}>弹出</Text>
             </Popover.Item>
           }>
-          <Text>自构文案 UI:单选项:深色</Text>
+          <Text style={textStyle}>自构文案 UI:单选项:深色</Text>
         </Popover>
 
         <Popover
@@ -118,7 +124,7 @@ const BasicPopover: React.FC = () => {
           statusBarTranslucent
           content={<Popover.Text text="哈哈哈 dark" />}
           onSelect={onSelect}>
-          <Text>内置文案 UI:单选项:深色</Text>
+          <Text style={textStyle}>内置文案 UI:单选项:深色</Text>
         </Popover>
 
         <View style={{ flexDirection: 'row' }}>
@@ -132,7 +138,7 @@ const BasicPopover: React.FC = () => {
               <Popover.Text key="3" text="哈哈哈 dark" />,
             ]}
             onSelect={onSelect}>
-            <Text>内置文案 UI:多选项:深色:无箭头</Text>
+            <Text style={textStyle}>内置文案 UI:多选项:深色:无箭头</Text>
           </Popover>
         </View>
 
@@ -143,7 +149,7 @@ const BasicPopover: React.FC = () => {
             arrow={false}
             content={<Popover.Text text="哈哈哈 not dark" />}
             onSelect={onSelect}>
-            <Text>内置 UI:单选项:亮色:阴影:无箭头</Text>
+            <Text style={textStyle}>内置 UI:单选项:亮色:阴影:无箭头</Text>
           </Popover>
         </View>
 
@@ -157,7 +163,7 @@ const BasicPopover: React.FC = () => {
             <Popover.Text key="3" text="哈哈哈 dark" />,
           ]}
           onSelect={onSelect}>
-          <Text>内置文案 UI:多选项:亮色:阴影:无箭头</Text>
+          <Text style={textStyle}>内置文案 UI:多选项:亮色:阴影:无箭头</Text>
         </Popover>
       </Space>
     </ScrollView>

@@ -6,7 +6,7 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
 
-import { NavTab, Cell } from '@fruits-chain/react-native-xiaoshu'
+import { NavTab, Cell, Theme } from '@fruits-chain/react-native-xiaoshu'
 
 const options = new Array(3).fill(0).map((_, index) => ({
   value: index,
@@ -14,9 +14,10 @@ const options = new Array(3).fill(0).map((_, index) => ({
 }))
 
 const BasicNavBar: React.FC = () => {
+  const { gray_1 } = Theme.useThemeTokens()
   const [value, onChange] = useState(options[1].value)
   return (
-    <View style={{ backgroundColor: '#fff', paddingVertical: 20 }}>
+    <View style={{ backgroundColor: gray_1, paddingVertical: 20 }}>
       <Cell.Group title="一般使用">
         <NavTab options={options} defaultValue={options[2].value} />
       </Cell.Group>

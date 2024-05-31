@@ -3,6 +3,8 @@ import type { ViewProps } from 'react-native'
 
 import type { BadgeProps } from '../badge/interface'
 
+import type { SidebarTheme } from './style'
+
 export type SidebarValue = string | number
 
 export type SidebarOption = {
@@ -13,6 +15,7 @@ export type SidebarOption = {
 }
 
 export interface SidebarProps extends ViewProps {
+  theme?: Partial<SidebarTheme>
   /**
    * 宽度
    * @default 88

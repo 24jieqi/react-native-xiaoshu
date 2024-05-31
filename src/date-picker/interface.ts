@@ -8,7 +8,7 @@ export type DatePickerAction = 'cancel' | 'confirm' | 'overlay'
 
 export type DatePickerRangeAction = 'cancel' | 'confirm' | 'overlay' | 'clear'
 
-export type DatePickerRangeValue = [Date, Date]
+export type DatePickerRangeValue = [Date | null, Date | null]
 
 export interface DatePickerSingleMethodProps
   extends Omit<DatePickerViewProps, 'value' | 'onChange' | 'loading'>,

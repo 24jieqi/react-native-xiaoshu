@@ -7,3 +7,5 @@ export const varCreator = (TOKENS: TokensType) => {
     water_mark_text_opacity: TOKENS.opacity_10,
   }
 }
+
+export type WaterMarkTheme = ReturnType<typeof varCreator>

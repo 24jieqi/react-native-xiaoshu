@@ -1,6 +1,7 @@
 import type React from 'react'
 import type { ColorValue, TouchableOpacityProps } from 'react-native'
 
+import type { TreeTheme } from './style'
 import type { TreeMultipleMode } from './var'
 
 export type TreeValue = number | string
@@ -69,6 +70,7 @@ export interface TreeSearchListData extends TreeOption {
 }
 
 export interface TreeItemProps extends TouchableOpacityProps {
+  theme?: Partial<TreeTheme>
   /**
    * 缩进
    */
@@ -137,6 +139,7 @@ export interface TreeItemProps extends TouchableOpacityProps {
 }
 
 export interface TreeProps {
+  theme?: Partial<TreeTheme>
   /**
    * 支持点选多个节点
    */

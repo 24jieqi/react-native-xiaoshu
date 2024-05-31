@@ -58,7 +58,7 @@ const parserNum = (n: string) => {
 }
 
 const BasicNumberInputFormatter: React.FC = () => {
-  const [value, setValue] = useState<number>(null)
+  const [value, setValue] = useState<number | undefined>(undefined)
 
   return (
     <Cell.Group title="格式化展示">

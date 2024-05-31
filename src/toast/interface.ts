@@ -2,6 +2,8 @@ import type React from 'react'
 
 import type { PopupPropsCommon } from '../popup/interface'
 
+import type { ToastTheme } from './style'
+
 export type ToastType = 'text' | 'loading' | 'success' | 'fail' | 'icon'
 
 export type ToastMethods = {
@@ -14,6 +16,7 @@ export interface ToastProps
     PopupPropsCommon,
     'visible' | 'duration' | 'closeOnPressOverlay'
   > {
+  theme?: Partial<ToastTheme>
   /**
    * 提示类型，可选值为 `'text' | 'loading' | 'success' | 'fail' | 'icon'`
    * @default 'text'

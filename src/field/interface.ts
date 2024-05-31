@@ -373,7 +373,7 @@ export interface FieldPasswordInputProps
 
 export interface FieldButtonOptionProps
   extends FixHitSlopProps<
-      Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign'>
+      Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign' | 'theme'>
     >,
     Pick<
       ButtonOptionGroupProps<any>,

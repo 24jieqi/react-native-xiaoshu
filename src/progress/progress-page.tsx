@@ -22,6 +22,7 @@ import { varCreator, styleCreator } from './style'
 
 const ProgressPage: React.FC<ProgressPageProps> = ({
   children,
+  theme,
   loading: loadingOut,
   backgroundColor,
   defaultPercentage = 10,
@@ -36,9 +37,11 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   syncRenderChildren = false,
 }) => {
   const locale = Locale.useLocale().ProgressPage
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   backgroundColor = getDefaultValue(
     backgroundColor,

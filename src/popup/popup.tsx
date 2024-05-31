@@ -1,3 +1,4 @@
+import noop from 'lodash/noop'
 import React, { useEffect, useRef, useCallback, memo } from 'react'
 import type { ViewStyle, StyleProp } from 'react-native'
 import { Animated, BackHandler } from 'react-native'
@@ -25,6 +26,7 @@ import {
 const Popup: React.FC<PopupProps> = ({
   children,
   style,
+  theme,
   visible = false,
   overlay = true,
   duration,
@@ -43,14 +45,16 @@ const Popup: React.FC<PopupProps> = ({
   onRequestClose,
 }) => {
   const insets = useSafeAreaInsets()
-  const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn)
-  const onOpenPersistFn = usePersistFn(onOpenFn)
-  const onOpenedPersistFn = usePersistFn(onOpenedFn)
-  const onClosePersistFn = usePersistFn(onCloseFn)
-  const onClosedPersistFn = usePersistFn(onClosedFn)
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn || noop)
+  const onOpenPersistFn = usePersistFn(onOpenFn || noop)
+  const onOpenedPersistFn = usePersistFn(onOpenedFn || noop)
+  const onClosePersistFn = usePersistFn(onCloseFn || noop)
+  const onClosedPersistFn = usePersistFn(onClosedFn || noop)
+  const [CV, STYLES, TOKENS] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   duration = helpers.getDefaultValue(duration, TOKENS.animation_duration_base)
 

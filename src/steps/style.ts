@@ -9,6 +9,7 @@ export const varCreator = (TOKENS: TokensType) => {
     steps_padding_horizontal: TOKENS.space_6,
     steps_icon_dot_size: 10,
     steps_icon_dot_active_size: 16,
+    steps_icon_dot_active_background_color: TOKENS.white,
     steps_icon_success_active_size: 16,
     steps_title_size: TOKENS.font_size_4,
     steps_line_normal_color: '#5A9CFF',
@@ -17,9 +18,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type StepsTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+export const styleCreator = (cv: StepsTheme, TOKENS: TokensType) => {
   return StyleSheet.create({
     scrollViewBox: {
       width: '100%',
@@ -56,7 +57,7 @@ export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
       top: cv.steps_icon_dot_active_size / 2,
       zIndex: 1,
       height: 1,
-      backgroundColor: TOKENS.white,
+      backgroundColor: cv.steps_icon_dot_active_background_color,
     },
     dot: {
       width: cv.steps_icon_dot_size,
@@ -69,7 +70,7 @@ export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
     dotActive: {
       width: cv.steps_icon_dot_active_size,
       height: cv.steps_icon_dot_active_size,
-      backgroundColor: TOKENS.white,
+      backgroundColor: cv.steps_icon_dot_active_background_color,
       borderRadius: cv.steps_icon_dot_size,
     },
     titleText: {

@@ -167,6 +167,8 @@ const BasicTextInput: React.FC = () => {
               addonAfter="addonAfterAAA"
               addonBefore="addonBefore中文"
               bordered
+              rows={3}
+              textareaMaxHeight={300}
             />
           }
         />

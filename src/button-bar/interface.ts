@@ -2,7 +2,10 @@ import type { BlankProps } from '../blank/interface'
 import type { BottomBarProps } from '../bottom-bar/interface'
 import type { ButtonProps } from '../button/interface'
 
-export interface ButtonBarProps extends BottomBarProps {
+import type { ButtonTheme } from './style'
+
+export interface ButtonBarProps extends Omit<BottomBarProps, 'theme'> {
+  theme?: Partial<ButtonTheme>
   /**
    * 单独一个按钮
    * @default false
@@ -12,7 +15,8 @@ export interface ButtonBarProps extends BottomBarProps {
   /**
    * 配置方式的按钮
    */
-  buttons?: (Omit<ButtonProps, 'onPress'> & {
+  buttons?: (Omit<ButtonProps, 'onPress' | 'text'> & {
+    text: string
     hidden?: boolean
     onPress?: () => void
   })[]

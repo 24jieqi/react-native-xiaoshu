@@ -14,6 +14,7 @@ import SelectorInstance from './selector-instance'
 import { varCreator, styleCreator } from './style'
 
 const SelectorText: React.FC<SelectorTextProps> = ({
+  theme,
   title,
   value,
   options,
@@ -22,11 +23,17 @@ const SelectorText: React.FC<SelectorTextProps> = ({
   divider = true,
   head = true,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
-  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
-  const STYLES = Theme.createStyle(CV, styleCreator, TOKENS)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
+  const [CV_CELL] = Theme.useStyle({
+    varCreator: varCreatorCell,
+  })
 
   const onPress = usePersistFn(() => {
     SelectorInstance({

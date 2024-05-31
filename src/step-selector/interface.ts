@@ -2,6 +2,8 @@ import type React from 'react'
 
 import type { PopupPropsCommon } from '../popup/interface'
 
+import type { StepSelector } from './style'
+
 export type OptionData<T> = {
   value: T
   label: string
@@ -15,6 +17,7 @@ export type RequestResponseData<T> = {
 }
 
 export interface StepSelectorProps<T> extends PopupPropsCommon {
+  theme?: Partial<StepSelector>
   /**
    * 标题
    * @default '请选择'

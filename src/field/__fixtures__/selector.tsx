@@ -13,7 +13,7 @@ const options = new Array(6).fill(0).map((_, index) => ({
 }))
 
 const BasicFieldSelector: React.FC = () => {
-  const [s1, setS1] = useState(undefined as number)
+  const [s1, setS1] = useState<number | undefined>(undefined)
   const [s2, setS2] = useState([] as number[])
 
   return (

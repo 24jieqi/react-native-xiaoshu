@@ -3,10 +3,12 @@
  * description: 根据自身需求自定义组件。
  */
 
-import { Empty, Flex, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Empty, Flex, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
 import { Text, View } from 'react-native'
 
 const EmptyCustom = () => {
+  const { gray_1 } = Theme.useThemeTokens()
+
   return (
     <>
       <Space>
@@ -29,7 +31,7 @@ const EmptyCustom = () => {
         />
       </Space>
 
-      <View style={{ height: 500, backgroundColor: '#f5f5f5' }}>
+      <View style={{ height: 500, backgroundColor: gray_1 }}>
         <Empty text="占满剩余空间 full" full />
       </View>
     </>

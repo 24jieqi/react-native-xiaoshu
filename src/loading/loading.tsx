@@ -17,6 +17,7 @@ import { varCreator } from './style'
 const Loading: React.FC<LoadingProps> = ({
   children,
   style,
+  theme,
   textStyle,
   size,
   color,
@@ -27,10 +28,12 @@ const Loading: React.FC<LoadingProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)
-  const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)
+  const [CV] = Theme.useStyle({
+    varCreator,
+    theme,
+  })
+  const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)!
+  const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)!
 
   const textJSX = !isNil(children) ? (
     isValidElement(children) ? (

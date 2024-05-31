@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text, ScrollView, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
-import { Space } from '@fruits-chain/react-native-xiaoshu'
+import { Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 import BasicSwitchBase from './base'
 import BasicSwitchText from './text'
@@ -9,35 +9,29 @@ import BasicSwitchDisabled from './disabled'
 import BasicSwitchSize from './size'
 import BasicSwitchCustom from './custom'
 
-const titleStyle = {
-  fontSize: 18,
-  color: '#333',
-  paddingTop: 16,
-}
-
 const BasicSwitch: React.FC = () => {
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
+    <ScrollView>
       <Space>
-        <Text style={titleStyle}>基础</Text>
+        <Card title="基础">
+          <BasicSwitchBase />
+        </Card>
 
-        <BasicSwitchBase />
+        <Card title="文字和图标">
+          <BasicSwitchText />
+        </Card>
 
-        <Text style={titleStyle}>文字和图标</Text>
+        <Card title="不可用">
+          <BasicSwitchDisabled />
+        </Card>
 
-        <BasicSwitchText />
+        <Card title="大小">
+          <BasicSwitchSize />
+        </Card>
 
-        <Text style={titleStyle}>不可用</Text>
-
-        <BasicSwitchDisabled />
-
-        <Text style={titleStyle}>大小</Text>
-
-        <BasicSwitchSize />
-
-        <Text style={titleStyle}>自定义</Text>
-
-        <BasicSwitchCustom />
+        <Card title="自定义">
+          <BasicSwitchCustom />
+        </Card>
 
         <View style={{ height: 50 }} />
       </Space>

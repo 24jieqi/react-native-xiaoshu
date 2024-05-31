@@ -14,6 +14,7 @@ import { varCreator, styleCreator } from './style'
 
 const Card: React.FC<CardProps> = ({
   children,
+  theme,
   title,
   titleLeftExtra,
   extra,
@@ -39,9 +40,11 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const isS = size === 's'
 
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const hasTitleLeftExtra = !isNil(titleLeftExtra)
   const titleJSX = renderTextLikeJSX(

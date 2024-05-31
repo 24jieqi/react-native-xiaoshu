@@ -15,7 +15,7 @@ import type { TextInputInstance } from '../text-input/interface'
 
 import type { NumberInputProps } from './interface'
 
-const parserNumberToString = (n?: number) => `${!isNil(n) ? n : ''}`
+const parserNumberToString = (n?: number | null) => `${!isNil(n) ? n : ''}`
 const defaultFormatter = (t: string) => t
 const defaultParser = (t: string) => Number(t)
 
@@ -66,7 +66,9 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       ),
     )
     /** 记录外部的数值 */
-    const LastValue = useRef<number>(!isUndefined(value) ? value : defaultValue)
+    const LastValue = useRef<number | null | undefined>(
+      !isUndefined(value) ? value : defaultValue,
+    )
 
     // 同步数据
     useUpdateEffect(() => {
@@ -93,7 +95,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
         t = formatNumber(t, isNumber, true)
 
         // 解析数据
-        let newValueStringify = parserInputValue(t)
+        let newValueStringify: string | null = parserInputValue(t)
 
         if (newValueStringify !== '') {
           if (validate) {
@@ -137,7 +139,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
         // 同步更新到组件状态
         // 第一个字符串非数字，newValueStringify 是 null，setLocalValue(null) 不能触发更新，导致限制其他字符输入失败
-        setLocalValue(formatterPersistFn(newValueStringify) || '')
+        setLocalValue(formatterPersistFn(newValueStringify!) || '')
 
         // 1. 空字符串 + 非 null
         // 2. 空字符串 + null
@@ -204,11 +206,12 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
 
     const onEndEditingTextInput = useCallback(
       (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
-        e.nativeEvent.text = triggerValueUpdate(
-          e.nativeEvent.text,
-          validateTrigger === 'onEndEditing',
-          true,
-        )
+        e.nativeEvent.text =
+          triggerValueUpdate(
+            e.nativeEvent.text,
+            validateTrigger === 'onEndEditing',
+            true,
+          ) || ''
         onEndEditingPersistFn(e)
       },
       [onEndEditingPersistFn, triggerValueUpdate, validateTrigger],

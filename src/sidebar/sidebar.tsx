@@ -15,6 +15,7 @@ import type { SidebarProps } from './interface'
 import { varCreator, styleCreator } from './style'
 
 const Sidebar: React.FC<SidebarProps> = ({
+  theme,
   width = 88,
   loading,
   options,
@@ -27,9 +28,11 @@ const Sidebar: React.FC<SidebarProps> = ({
     defaultValuePropName: 'defaultActiveValue',
   })
   const locale = Locale.useLocale().Sidebar
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const isEmpty = loading || options.length === 0
   const curIndex = options.findIndex(o => o.value === value)
 

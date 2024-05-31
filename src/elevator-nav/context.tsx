@@ -15,7 +15,7 @@ import type {
 
 import useDebounceFn from '../hooks/useDebounceFn'
 
-type TargetRef = React.MutableRefObject<View>
+type TargetRef = React.MutableRefObject<View | null>
 type ScrollViewRef = React.MutableRefObject<ScrollView>
 type Elevator = {
   label: string
@@ -53,7 +53,7 @@ export const useElevator = () => useContext(ElevatorContext)
 const getTargetRelativeLayout = (target: TargetRef, scroll: ScrollViewRef) =>
   new Promise<{ left: number; top: number; width: number; height: number }>(
     (resolve, reject) => {
-      target.current.measureLayout(
+      target.current?.measureLayout(
         scroll.current as unknown as React.ElementRef<
           HostComponent<ScrollViewProps>
         >,
@@ -70,7 +70,7 @@ export const ElevatorContextProvider = ({
   children,
 }: React.PropsWithChildren) => {
   const TargetRefMap = useRef<Record<string, TargetRef | undefined>>({})
-  const ScrollRef = useRef<ScrollViewRef>(null)
+  const ScrollRef = useRef<ScrollViewRef | null>(null)
   const [elevator, setElevator] = useState<Elevator[]>([])
   const { run: initNav } = useDebounceFn(
     () => {
@@ -84,7 +84,9 @@ export const ElevatorContextProvider = ({
         .filter(item => !!item.ref)
 
       Promise.all(
-        refs.map(item => getTargetRelativeLayout(item.ref, ScrollRef.current)),
+        refs.map(item =>
+          getTargetRelativeLayout(item.ref!, ScrollRef.current!),
+        ),
       )
         .then(datas => {
           setElevator(

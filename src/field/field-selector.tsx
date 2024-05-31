@@ -11,6 +11,7 @@ import Selector from '../selector'
 import type { SelectorValue } from '../selector/interface'
 import TextInputClear from '../text-input/text-input-clear'
 import Theme from '../theme'
+import type { TreeOption } from '../tree/interface'
 
 import FieldText from './field-text'
 import type { FieldSelectorProps } from './interface'
@@ -57,7 +58,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
     ? ((multiple ? value : [value]) as SelectorValue[])
     : undefined
   const _option =
-    _value
+    (_value
       ?.map(o => {
         const index = options.findIndex(ops => ops.value === o)
         if (index >= 0) {
@@ -65,7 +66,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
         }
         return null
       })
-      .filter(Boolean) ?? []
+      .filter(Boolean) as TreeOption[]) ?? []
   const value2text = hasValue
     ? renderResultText
       ? renderResultText(_value, _option)
@@ -99,7 +100,8 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
             ) : (
               <TextInputClear
                 onPress={() => {
-                  onChange(multiple ? [] : undefined, multiple ? [] : undefined)
+                  // TODO 修复类型报错
+                  onChange?.((multiple ? [] : undefined) as any, [])
                 }}
               />
             )}

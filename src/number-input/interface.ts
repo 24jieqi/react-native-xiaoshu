@@ -50,7 +50,7 @@ export interface NumberInputProps
   /**
    * 指定从 formatter 里转换回数字的方式，和 formatter 搭配使用，在输入结束的时候调用该运算结果
    */
-  parser?: (v: string) => number
+  parser?: (v: string) => number | null
 
   /**
    * 是否限制小数位，-1 不限制

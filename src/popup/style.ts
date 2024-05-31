@@ -16,9 +16,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-export type ComponentVars = ReturnType<typeof varCreator>
+export type PopupTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: PopupTheme) => {
   return StyleSheet.create({
     popup: {
       position: 'relative',
@@ -34,7 +34,7 @@ export const styleCreator = (cv: ComponentVars) => {
 }
 
 export const getBorderRadius = (
-  cv: ComponentVars,
+  cv: PopupTheme,
   position: PopupPosition,
   round: boolean,
 ): ViewStyle => {

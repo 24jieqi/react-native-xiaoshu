@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useMemo, memo } from 'react'
 import type { FlatListProps } from 'react-native'
 import { View, Text, FlatList } from 'react-native'
 
+import type { ExcludeUndefined } from '../helpers/types'
 import { usePersistFn } from '../hooks'
 import Theme from '../theme'
 
@@ -15,15 +16,18 @@ const getSelectedIndex = (n: number) => (n < 0 ? 0 : n)
  * 选择器 列
  */
 const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
+  theme,
   itemHeight,
   visibleItemCount,
   options,
   value,
   onChange,
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
 
   const flatListRef = useRef<FlatList>(null)
   const LastTop = useRef(0)
@@ -58,7 +62,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
   }, [selectedIndex])
 
   const onMomentumScrollEnd = usePersistFn<
-    FlatListProps<any>['onMomentumScrollEnd']
+    ExcludeUndefined<FlatListProps<any>['onMomentumScrollEnd']>
   >(event => {
     const offsetY = Math.min(
       itemHeight * (options.length - 1),
@@ -80,7 +84,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
 
     const selectOption = options[index]
     if (selectOption.value !== value) {
-      onChange(selectOption)
+      onChange?.(selectOption)
     }
   })
 

@@ -14,6 +14,8 @@ import type { FixHitSlopProps } from '../helpers/types'
 import type { PopupPropsCommon } from '../popup/interface'
 import type { TreeOption, TreeProps } from '../tree/interface'
 
+import type { DropdownTheme } from './style'
+
 export interface DropdownBadgeProps extends TextProps {
   /**
    * 徽标内容/展示的数字
@@ -152,6 +154,7 @@ export interface DropdownItemProps<T>
 
   /**
    * 没有值时提示文案
+   * @default ''
    */
   placeholder?: string
 }
@@ -201,7 +204,9 @@ export interface DropdownContext
   /**
    * 菜单的 Ref，内部使用不向外暴露
    */
-  MenuRef: MutableRefObject<View>
+  MenuRef: MutableRefObject<View | null>
+
+  theme?: Partial<DropdownTheme>
 }
 
 export interface DropdownMenuProps

@@ -30,7 +30,7 @@ export const pickCellProps = <T extends FieldTextCellPropsUsed>(
   }: T,
   defaultProps?: Partial<T>,
 ) => {
-  const cellProps: Required<FieldTextCellPropsUsed> = {
+  const cellProps: Partial<FieldTextCellPropsUsed> = {
     innerStyle,
     title,
     titleStyle,

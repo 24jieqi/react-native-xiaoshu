@@ -4,8 +4,8 @@ import type { TokensType } from '../theme/interface'
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
-    empty_image_width: 130,
-    empty_image_height: 115,
+    // empty_image_width: 130,
+    // empty_image_height: 115,
     empty_icon_margin_bottom: TOKENS.space_2,
     empty_text_color: TOKENS.gray_6,
     empty_text_font_size: TOKENS.font_size_3,
@@ -13,9 +13,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type EmptyTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: EmptyTheme) => {
   return StyleSheet.create({
     empty: {
       // flex: 1,

@@ -85,8 +85,8 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
   const Values = useRef<DatePickerRangeValue>([...value])
   const OriginalValues = useRef<DatePickerRangeValue>([..._initialValue])
   const [limitDates, setLimitDates] = useState<DatePickerRangeValue>([
-    min,
-    Values.current[1] || max,
+    min || null,
+    Values.current[1] || max || null,
   ])
 
   // 同步 value，避免外部 value 清空后，触发 onChangePickView 的时候把旧数据带出来
@@ -114,7 +114,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     }
 
     setDayActive(0)
-    setLimitDates([min, Values.current[1] || max])
+    setLimitDates([min || null, Values.current[1] || max || null])
   })
 
   const onPressDay2 = usePersistFn(() => {
@@ -129,7 +129,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
     }
 
     setDayActive(1)
-    setLimitDates([Values.current[0] || min, max])
+    setLimitDates([Values.current[0] || min || null, max || null])
   })
 
   const onPressReset = usePersistFn(() => {
@@ -193,8 +193,8 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
         value={value[dayActive] || currentDate}
         renderLabel={renderLabel}
         onChange={onChangePickView}
-        min={limitDates[0]}
-        max={limitDates[1]}
+        min={limitDates[0] || undefined}
+        max={limitDates[1] || undefined}
         loading={loading}
       />
 

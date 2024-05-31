@@ -1,6 +1,7 @@
 import Color from 'color'
 import isNil from 'lodash/isNil'
 import isUndefined from 'lodash/isUndefined'
+import noop from 'lodash/noop'
 import React, { memo, useMemo } from 'react'
 import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
@@ -21,6 +22,7 @@ import { varCreator, styleCreator } from './style'
 const Button: React.FC<ButtonProps> = ({
   children,
   style,
+  theme,
   text,
   subtext,
   textStyle,
@@ -41,10 +43,12 @@ const Button: React.FC<ButtonProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-  const { run: runOnPress } = useDebounceFn(restProps.onPress, {
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
+  const { run: runOnPress } = useDebounceFn(restProps.onPress || noop, {
     wait: onPressDebounceWait,
     leading: true,
     trailing: false,
@@ -54,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
     color,
     danger ? CV.button_danger_color : CV.button_primary_color,
   )
-  textColor = getDefaultValue(textColor, TOKENS.white)
+  textColor = getDefaultValue(textColor, CV.button_text_color)
 
   const [_backgroundColor, _borderColor, _textColor, _borderWidth] =
     useMemo(() => {
@@ -133,8 +137,8 @@ const Button: React.FC<ButtonProps> = ({
     commonTextStyle,
     textStyle,
   ])
-  const iconSize =
-    CV[`button_${size}_loading_size`] || textStyleSummary.fontSize
+  const iconSize = (CV[`button_${size}_loading_size`] ||
+    textStyleSummary.fontSize)!
   const iconColor = textStyleSummary.color as string
 
   const contextJSX = loading ? (

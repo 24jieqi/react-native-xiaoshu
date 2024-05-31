@@ -1,7 +1,10 @@
 import type React from 'react'
 import type { StyleProp, ViewStyle, TextStyle, ViewProps } from 'react-native'
 
+import type { EmptyTheme } from './style'
+
 export interface EmptyProps extends Pick<ViewProps, 'testID'> {
+  theme?: Partial<EmptyTheme>
   /**
    * 最外层 View 的样式
    */

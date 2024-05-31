@@ -2,6 +2,8 @@ import type { ColorValue, ViewProps } from 'react-native'
 
 import type { TextInputProps } from '../text-input/interface'
 
+import type { SearchTheme } from './style'
+
 export interface SearchProps
   extends Pick<
       TextInputProps,
@@ -13,6 +15,7 @@ export interface SearchProps
       | 'onChangeText'
     >,
     ViewProps {
+  theme?: Partial<SearchTheme>
   /**
    * 图标大小
    * @default 20

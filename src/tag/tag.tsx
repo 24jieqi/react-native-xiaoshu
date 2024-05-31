@@ -16,6 +16,7 @@ import { varCreator, styleCreator } from './style'
 const Tag: React.FC<TagProps> = ({
   children,
   style,
+  theme,
   innerStyle,
   closable = false,
   onClose,
@@ -30,9 +31,11 @@ const Tag: React.FC<TagProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme,
+  })
   const mainColor = !isNil(color) ? color : CV.tag_primary_color
   const { innerTypeStyle, textTypeStyle } = useMemo(() => {
     const tempInnerStyle: ViewStyle = {}

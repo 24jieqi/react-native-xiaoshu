@@ -63,7 +63,7 @@ const CaseList1: React.FC = () => {
           <Card
             size="s"
             title="备货生产"
-            titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
+            titleLeftExtra={<Tag color={TOKENS.red_1}>辅料</Tag>}
             extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}>
             <Description.Group colon={false} labelWidth={88}>
               <Description label="配送客户" text="美团优选" bold />
@@ -79,7 +79,7 @@ const CaseList1: React.FC = () => {
           <Card
             size="s"
             title="备货生产"
-            titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
+            titleLeftExtra={<Tag color={TOKENS.red_1}>辅料</Tag>}
             extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}>
             <Description.Group colon={false} labelWidth={88}>
               <Description label="配送客户" text="美团优选" bold />
@@ -95,7 +95,7 @@ const CaseList1: React.FC = () => {
           <Card
             size="s"
             title="备货生产"
-            titleLeftExtra={<Tag color={TOKENS.cyan_6}>辅料</Tag>}
+            titleLeftExtra={<Tag color={TOKENS.red_1}>辅料</Tag>}
             extra={<Text style={STATUS_STYLE_MAP.b}>已拒绝</Text>}>
             <Description.Group colon={false} labelWidth={88}>
               <Description label="配送客户" text="美团优选" bold />

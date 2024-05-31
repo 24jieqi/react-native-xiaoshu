@@ -30,10 +30,15 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   ...restProps
 }) => {
   const config = useDropdownConfig()
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const STYLES = Theme.createStyle(CV, styleCreator)
-  const CV_BUTTON = Theme.createVar(TOKENS, varCreatorButton)
+  const [CV, STYLES] = Theme.useStyle({
+    varCreator,
+    styleCreator,
+    theme: config.theme,
+  })
+  const [CV_BUTTON] = Theme.useStyle({
+    varCreator: varCreatorButton,
+  })
+
   const showBadge = !active && !isNil(badge) && badge !== false
 
   // 修正数据
@@ -42,7 +47,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
     activeOpacity,
     CV_BUTTON.button_active_opacity,
   )
-  direction = getDefaultValue(direction, config.direction)
+  direction = getDefaultValue(direction, config.direction)!
 
   const textStyleFlatten = StyleSheet.flatten(textStyle) || {}
   const textColor = disabled

@@ -2,10 +2,10 @@
   "expo": {
     "name": "react-native-xiaoshu",
     "slug": "react-native-xiaoshu",
-    "version": "0.3.22",
+    "version": "0.4.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

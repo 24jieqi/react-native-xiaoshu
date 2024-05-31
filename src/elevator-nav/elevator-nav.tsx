@@ -2,6 +2,7 @@ import React, { memo, useMemo, useRef } from 'react'
 import type { ScrollViewProps } from 'react-native'
 import { View, ScrollView } from 'react-native'
 
+import type { ExcludeUndefined } from '../helpers/types'
 import { usePersistFn, useDifferentState, useUpdateEffect } from '../hooks'
 import TabBar from '../tab-bar'
 
@@ -60,9 +61,12 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
     initTabBar(ScrollTop.current)
   }, [tabBarOptions])
 
-  registerScroll(ScrollViewRef)
+  // TODO 修复类型报错
+  registerScroll(ScrollViewRef as React.MutableRefObject<ScrollView>)
 
-  const onScrollPersist = usePersistFn<ScrollViewProps['onScroll']>(e => {
+  const onScrollPersist = usePersistFn<
+    ExcludeUndefined<ScrollViewProps['onScroll']>
+  >(e => {
     onScroll?.(e)
 
     ScrollTop.current = e.nativeEvent.contentOffset.y
@@ -74,13 +78,13 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
 
     ActionChangeTabBarValue.current = true
 
-    ScrollViewRef.current.scrollTo({
+    ScrollViewRef.current?.scrollTo({
       y: elevator.filter(item => item.label === v)[0].top,
       animated: true,
     })
   })
   const onMomentumScrollEndPersist = usePersistFn<
-    ScrollViewProps['onMomentumScrollEnd']
+    ExcludeUndefined<ScrollViewProps['onMomentumScrollEnd']>
   >(e => {
     onMomentumScrollEnd?.(e)
     ActionChangeTabBarValue.current = false
@@ -104,7 +108,8 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
         scrollEventThrottle={16}
         bounces={false}
         {...restProps}
-        ref={ScrollViewRef}
+        // TODO 修复类型报错
+        ref={ScrollViewRef as React.MutableRefObject<ScrollView>}
         onScroll={onScrollPersist}
         onMomentumScrollEnd={onMomentumScrollEndPersist}>
         {children}

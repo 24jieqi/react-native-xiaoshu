@@ -15,7 +15,10 @@ const formatValueText = (
 }
 
 const BasicFieldDateRange: React.FC = () => {
-  const [value, setValue] = useState<[Date, Date]>([new Date(), new Date()])
+  const [value, setValue] = useState<[Date | null, Date | null]>([
+    new Date(),
+    new Date(),
+  ])
 
   return (
     <Cell.Group title="Field Date Range">

@@ -5,6 +5,8 @@ import type { PopupPropsCommon } from '../popup/interface'
 
 export type ActionSheetAction = 'cancel' | 'item' | 'overlay'
 
+import type { ActionSheetTheme } from './style'
+
 export interface Action {
   /** 标题 */
   name: string
@@ -23,6 +25,8 @@ export interface Action {
 }
 
 export interface ActionSheetProps extends PopupPropsCommon {
+  theme?: Partial<ActionSheetTheme>
+
   /**
    * 面板选项列表
    */

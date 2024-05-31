@@ -2,6 +2,7 @@ import React, { memo, useEffect, useRef } from 'react'
 import type { ViewProps } from 'react-native'
 import { View } from 'react-native'
 
+import type { ExcludeUndefined } from '../helpers/types'
 import { usePersistFn } from '../hooks'
 
 import { useElevator } from './context'
@@ -11,7 +12,7 @@ const ElevatorNavAnchor: React.FC<
   React.PropsWithChildren<ElevatorNavAnchorProps>
 > = ({ title, children, onLayout, ...restProps }) => {
   const { cancelTarget, registerTarget } = useElevator()
-  const ViewRef = useRef<View>()
+  const ViewRef = useRef<View>(null)
 
   useEffect(() => {
     return () => {
@@ -19,7 +20,9 @@ const ElevatorNavAnchor: React.FC<
     }
   }, [cancelTarget, title])
 
-  const onLayoutPersistFn = usePersistFn<ViewProps['onLayout']>(e => {
+  const onLayoutPersistFn = usePersistFn<
+    ExcludeUndefined<ViewProps['onLayout']>
+  >(e => {
     onLayout?.(e)
     registerTarget(title, ViewRef)
   })

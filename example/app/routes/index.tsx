@@ -9,13 +9,15 @@ import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 
 import BackArrow from '~/components/back-arrow'
+import { useThemeDark } from '~/contexts/theme'
+import Benchmark from '~/pages/demo/benchmark'
 import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
 import CustomHeaderRed from '~/pages/demo/custom-header-red'
 import PopupTextInput from '~/pages/demo/popup-text-input'
 
 import type { BottomTabParamList } from './bottom-tab'
 import TabsView from './bottom-tab'
-import { sceneContainerStyle, buildHeaderTitleStyle } from './config'
+import { buildHeaderTitleStyle, darkTheme, lightTheme } from './config'
 import type { DemoPaths } from './demo-config'
 import { demoConfigs } from './demo-config'
 
@@ -25,6 +27,7 @@ export type RootStackParamList = {
   CustomHeaderRed: undefined
   CustomHeaderPrimary: undefined
   PopupTextInput: undefined
+  Benchmark: undefined
 } & Record<DemoPaths, undefined>
 
 /** Stack 路由的 props */
@@ -46,13 +49,15 @@ export type BottomTabScreenProps<T extends keyof BottomTabParamList> = {
 const Stack = createStackNavigator<RootStackParamList>()
 
 const NestingNavigators: React.FC = () => {
+  const isThemeDark = useThemeDark()
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={isThemeDark ? darkTheme : lightTheme}>
       <Stack.Navigator
         initialRouteName="Index"
         screenOptions={{
           // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          cardStyle: sceneContainerStyle,
+          // cardStyle: sceneContainerStyle,
           headerTitleAlign: 'center',
           headerTitleStyle: buildHeaderTitleStyle(),
           headerBackTitleVisible: false,
@@ -76,6 +81,16 @@ const NestingNavigators: React.FC = () => {
         />
 
         <Stack.Screen name="PopupTextInput" component={PopupTextInput} />
+
+        <Stack.Screen
+          name="Benchmark"
+          component={Benchmark}
+          // options={{
+          //   cardStyle: {
+          //     backgroundColor: '#fff',
+          //   },
+          // }}
+        />
 
         {demoConfigs.map(({ Page, path }) => (
           <Stack.Screen key={path} name={path} component={Page} />

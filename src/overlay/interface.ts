@@ -1,9 +1,12 @@
 import type { PropsWithChildren } from 'react'
 import type { ViewStyle, StyleProp, ColorValue, ViewProps } from 'react-native'
 
+import type { OverlayTheme } from './style'
+
 export interface OverlayProps
   extends PropsWithChildren<{}>,
     Pick<ViewProps, 'testID'> {
+  theme?: Partial<OverlayTheme>
   /**
    * 最外层样式
    */

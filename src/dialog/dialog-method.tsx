@@ -34,7 +34,7 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
     callInterceptor(beforeClose, {
       args: [action],
       done: () => {
-        onResponse(action)
+        onResponse?.(action)
         setState({
           [action]: false,
           visible: false,

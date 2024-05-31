@@ -16,7 +16,7 @@ export const varCreator = (TOKENS: TokensType) => {
     text_input_placeholder_text_color: TOKENS.gray_5,
     text_input_color: TOKENS.gray_7,
     text_input_disabled_color: TOKENS.gray_6,
-    text_input_disabled_background_color: '#EFEFF1',
+    text_input_disabled_background_color: TOKENS.gray_3,
     text_input_border_radio: TOKENS.border_radius_s,
     text_input_padding_horizontal: TOKENS.space_2,
     text_input_clearable_size: 16,
@@ -35,9 +35,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-type ComponentVars = ReturnType<typeof varCreator>
+export type TextInputTheme = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars, TOKENS: TokensType) => {
+export const styleCreator = (cv: TextInputTheme, TOKENS: TokensType) => {
   return StyleSheet.create({
     input: {
       // flex: 1,

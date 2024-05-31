@@ -43,7 +43,7 @@ const buildChildren = (
     value: `${valuePrefix}_${index}`,
     children: insertChildren
       ? insertChildren(`${valuePrefix}_${index}`, `${labelPrefix}_${index}`)
-      : null,
+      : undefined,
   }))
 }
 

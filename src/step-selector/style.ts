@@ -11,9 +11,9 @@ export const varCreator = (TOKENS: TokensType) => {
   }
 }
 
-export type ComponentVars = ReturnType<typeof varCreator>
+export type StepSelector = ReturnType<typeof varCreator>
 
-export const styleCreator = (cv: ComponentVars) => {
+export const styleCreator = (cv: StepSelector) => {
   return StyleSheet.create({
     selected_cell: {
       paddingVertical: 0,
