@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_fruits_chain_react_native_xiaoshu=self.webpackChunk_fruits_chain_react_native_xiaoshu||[]).push([[1009],{12535:function(f,a,e){e.r(a),e.d(a,{default:function(){return o}});var n=e(54929),r=e(67294),u=function(){var s=(0,n.UO)(),i=s.id,c=(0,n.WF)(),d=c.demos,m=d[i]||{},t=m.component;return t&&(0,r.createElement)(t)},o=u}}]);
