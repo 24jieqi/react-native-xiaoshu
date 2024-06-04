@@ -141,3 +141,7 @@ const Demo2 = ({ visible }) => {
   )
 }
 ```
+
+### 类似小红书弹出层评论
+
+实现代码参考 [example/app/pages/demo/popup-comment.tsx](https://github.com/24jieqi/react-native-xiaoshu/tree/main/example/app/pages/demo/popup-comment.tsx)。

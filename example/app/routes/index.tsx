@@ -13,6 +13,7 @@ import { useThemeDark } from '~/contexts/theme'
 import Benchmark from '~/pages/demo/benchmark'
 import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
 import CustomHeaderRed from '~/pages/demo/custom-header-red'
+import PopupComment from '~/pages/demo/popup-comment'
 import PopupTextInput from '~/pages/demo/popup-text-input'
 
 import type { BottomTabParamList } from './bottom-tab'
@@ -27,6 +28,7 @@ export type RootStackParamList = {
   CustomHeaderRed: undefined
   CustomHeaderPrimary: undefined
   PopupTextInput: undefined
+  PopupComment: undefined
   Benchmark: undefined
 } & Record<DemoPaths, undefined>
 
@@ -81,6 +83,7 @@ const NestingNavigators: React.FC = () => {
         />
 
         <Stack.Screen name="PopupTextInput" component={PopupTextInput} />
+        <Stack.Screen name="PopupComment" component={PopupComment} />
 
         <Stack.Screen
           name="Benchmark"

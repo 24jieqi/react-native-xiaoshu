@@ -87,6 +87,14 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           <Text
             style={Styles.demo}
             onPress={() => {
+              navigation.navigate('PopupComment')
+            }}>
+            弹出层评论输入框
+          </Text>
+
+          <Text
+            style={Styles.demo}
+            onPress={() => {
               navigation.navigate('Benchmark')
             }}>
             Benchmark

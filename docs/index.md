@@ -43,7 +43,7 @@ features:
 
 SDK 51+
 
-<img src="https://qr.expo.dev/eas-update?slug=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=0c1e02ed-1bdd-468b-8361-e5a5e7c4b0ef" alt="react-native-xiaoshu" width="200">
+<img src="https://qr.expo.dev/eas-update?slug=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=bacdef2d-c521-4faf-8b27-32707c3ac10a" alt="react-native-xiaoshu" width="200">
 
 </div>
 

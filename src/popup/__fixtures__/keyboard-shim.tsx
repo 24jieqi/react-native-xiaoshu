@@ -1,6 +1,6 @@
 /**
  * title: 软键盘垫片
- * description: 适用于底部弹出层、内部有输入框，且布局不适合是独立页面的场景，针对 `iOS` 自动监听软键盘弹出、收齐。独立页面可以使用 `keyboard-aware-scroll-view` 实现，参考 `demo/pages/demo/popup-text-input.tsx`。
+ * description: 适用于 bottom 方向弹出层、内部有不 autoFocus 输入框，弹出层有 autoFocus 输入框需求请参考「类似小红书弹出层评论」，针对 `iOS` 监听软键盘出现自动撑开到合适的高度。独立页面可以使用 `keyboard-aware-scroll-view` 实现，参考 `example/app/pages/demo/popup-text-input.tsx`。
  */
 
 import React, { useState } from 'react'
