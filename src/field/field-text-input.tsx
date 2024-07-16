@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { StyleSheet } from 'react-native'
 
 import Cell from '../cell'
 import TextInput from '../text-input'
@@ -35,6 +36,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   }
 
   const TOKENS = Theme.useThemeTokens()
+  const outerValueStyle = StyleSheet.flatten(cellProps.valueStyle || {})
 
   return (
     <Cell
@@ -43,7 +45,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
         cellProps.valueStyle,
         cellProps.vertical
           ? {
-              marginTop: TOKENS.space_2,
+              marginTop: outerValueStyle.marginTop ?? TOKENS.space_2,
             }
           : null,
       ]}
