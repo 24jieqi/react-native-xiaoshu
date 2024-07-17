@@ -1,5 +1,4 @@
 import React, { memo } from 'react'
-import { StyleSheet } from 'react-native'
 
 import Cell from '../cell'
 import PasswordInput from '../password-input'
@@ -26,18 +25,17 @@ const FieldPasswordInput: React.FC<FieldPasswordInputProps> = ({
   }
 
   const TOKENS = Theme.useThemeTokens()
-  const outerValueStyle = StyleSheet.flatten(cellProps.valueStyle || {})
 
   return (
     <Cell
       {...cellProps}
       valueStyle={[
-        cellProps.valueStyle,
         cellProps.vertical
           ? {
-              marginTop: outerValueStyle.marginTop ?? TOKENS.space_2,
+              marginTop: TOKENS.space_2,
             }
           : null,
+        cellProps.valueStyle,
       ]}
       value={
         <PasswordInput
