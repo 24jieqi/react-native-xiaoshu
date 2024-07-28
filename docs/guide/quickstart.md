@@ -54,3 +54,4 @@ const App: React.FC = () => {
 
 - [Expo 中引入时报错 Invariant Violation: Module AppRegistry is not a registered callable module](https://github.com/24jieqi/react-native-xiaoshu/issues/41)
 - [invalid hook call.hooks can only be called inside of the body of a function component.](https://github.com/24jieqi/react-native-xiaoshu/issues/48)
+- [如何在 web 项目中使用](https://github.com/24jieqi/react-native-xiaoshu/issues/67)
