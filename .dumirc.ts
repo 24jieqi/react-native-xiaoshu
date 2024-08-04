@@ -6,8 +6,16 @@ const repo = process.env.PUBLIC_PATH || ''
 const publicPath = repo ? `/${repo}` : '/'
 
 export default defineConfig({
+  title: '小暑 xiǎo shǔ - 轻量、可靠的 React Native 组件库',
   favicons: [
     'https://raw.githubusercontent.com/24jieqi/react-native-xiaoshu/main/logo-xiaoshu.svg',
+  ],
+  metas: [
+    { name: 'keywords', content: 'react,react native,组件库,expo' },
+    {
+      name: 'description',
+      content: '小暑 xiǎo shǔ - 轻量、可靠的 React Native 组件库.',
+    },
   ],
   define: {
     'process.env.BAILU_VERSION': p.version,
