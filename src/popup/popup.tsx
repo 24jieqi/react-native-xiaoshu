@@ -43,6 +43,7 @@ const Popup: React.FC<PopupProps> = ({
   onClose: onCloseFn,
   onClosed: onClosedFn,
   onRequestClose,
+  overlayBackgroundColor,
 }) => {
   const insets = useSafeAreaInsets()
   const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn || noop)
@@ -200,6 +201,7 @@ const Popup: React.FC<PopupProps> = ({
           zIndex={state.zIndex}
           duration={duration}
           onPress={onPressOverlay}
+          backgroundColor={overlayBackgroundColor}
         />
       ) : null}
 

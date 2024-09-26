@@ -3,6 +3,7 @@ import type { PropsWithChildren } from 'react'
 import type { ViewStyle, StyleProp, ViewProps } from 'react-native'
 
 import type { NavBarProps } from '../nav-bar/interface'
+import type { OverlayProps } from '../overlay/interface'
 
 import type { PopupTheme } from './style'
 
@@ -71,6 +72,12 @@ export interface PopupPropsCommon {
    * Used to locate this view in end-to-end tests.
    */
   testID?: string | undefined
+
+  /**
+   * 自定义遮罩层颜色
+   * @default overlay_background_color
+   */
+  overlayBackgroundColor?: OverlayProps['backgroundColor']
 }
 
 export interface PopupProps extends PopupPropsCommon, PropsWithChildren<{}> {

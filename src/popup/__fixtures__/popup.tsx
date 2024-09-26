@@ -22,10 +22,12 @@ const BasicPopupPopup: React.FC = () => {
     show: boolean
     position: PopupPosition
     show2: boolean
+    show3: boolean
   }>({
     show: false,
     position: 'left',
     show2: false,
+    show3: false,
   })
   return (
     <>
@@ -55,6 +57,17 @@ const BasicPopupPopup: React.FC = () => {
               setState(s => ({
                 ...s,
                 show2: true,
+              }))
+            }}
+          />
+
+          <Button
+            type="primary"
+            text="overlayBackgroundColor"
+            onPress={() => {
+              setState(s => ({
+                ...s,
+                show3: true,
               }))
             }}
           />
@@ -114,6 +127,21 @@ const BasicPopupPopup: React.FC = () => {
           addonBefore="采购价"
         />
         <Popup.KeyboardShim />
+      </Popup>
+
+      <Popup
+        overlayBackgroundColor="#098"
+        visible={state.show3}
+        round
+        position="bottom"
+        safeAreaInsetBottom
+        onPressOverlay={() => {
+          setState(s => ({
+            ...s,
+            show3: false,
+          }))
+        }}>
+        <Popup.Header title="自定义 Overlay 颜色" />
       </Popup>
     </>
   )

@@ -132,7 +132,6 @@ const BasicDialogBase: React.FC = () => {
       <Cell
         title="确认弹窗:自定义颜色、文案、beforeClose"
         isLink
-        divider={false}
         onPress={() => {
           Dialog.confirm({
             title: '提示',
@@ -161,6 +160,18 @@ const BasicDialogBase: React.FC = () => {
             if (action === 'cancel') {
               console.log('确认弹窗->取消')
             }
+          })
+        }}
+      />
+      <Cell
+        title="其他:自定义 Overlay 颜色"
+        isLink
+        divider={false}
+        onPress={() => {
+          Dialog.confirm({
+            title: '提示',
+            message: '自定义 Overlay 颜色',
+            overlayBackgroundColor: '#098',
           })
         }}
       />
