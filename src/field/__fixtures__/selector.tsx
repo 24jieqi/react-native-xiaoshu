@@ -5,16 +5,30 @@
 
 import React, { useState } from 'react'
 import { Text } from 'react-native'
-import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, TreeOption } from '@fruits-chain/react-native-xiaoshu'
 
 const options = new Array(6).fill(0).map((_, index) => ({
   value: index,
   label: `选项 ${index}`,
 }))
 
+const treeOptions = new Array(6).fill(0).map((_, index) => ({
+  value: index,
+  label: `选项 ${index}`,
+  disabled: index % 2 === 1,
+  children:
+    index % 2 === 1
+      ? new Array(3).fill(0).map((__, sIndex) => ({
+          value: 100 + index * 10 + sIndex,
+          label: `选项_${index}_${sIndex}`,
+        }))
+      : [],
+}))
+
 const BasicFieldSelector: React.FC = () => {
   const [s1, setS1] = useState<number | undefined>(undefined)
   const [s2, setS2] = useState([] as number[])
+  const [s3, setS3] = useState<number | undefined>(undefined)
 
   return (
     <Cell.Group title="Field Selector">
@@ -142,7 +156,39 @@ const BasicFieldSelector: React.FC = () => {
           setS2(v as number[])
         }}
         valueTextNumberOfLines={1}
+      />
+      <Field.Selector
+        title="单选（树结构）"
+        placeholder="请选择"
+        value={s3}
+        options={treeOptions}
+        onChange={v => {
+          setS3(v as number)
+        }}
+        clearable
+        valueTextNumberOfLines={1}
         divider={false}
+        renderResultText={(v: number[] | undefined) => {
+          if (!v) {
+            return undefined
+          }
+
+          const texts: string[] = []
+          const findText = (list: TreeOption[]) => {
+            list.forEach(item => {
+              if (v.indexOf(item.value as number) > -1) {
+                texts.push(item.label)
+              }
+              if (item.children?.length) {
+                findText(item.children)
+              }
+            })
+          }
+
+          findText(treeOptions)
+
+          return texts.join('、')
+        }}
       />
     </Cell.Group>
   )
