@@ -99,6 +99,14 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
             }}>
             Benchmark
           </Text>
+
+          <Text
+            style={Styles.demo}
+            onPress={() => {
+              navigation.navigate('Issues75')
+            }}>
+            Issues75
+          </Text>
         </Space>
       </Blank>
     </Layout.Page>
