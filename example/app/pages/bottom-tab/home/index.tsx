@@ -103,7 +103,7 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
           <Text
             style={Styles.demo}
             onPress={() => {
-              navigation.navigate('Issues75')
+              navigation.navigate('Issues85')
             }}>
             Issues75
           </Text>

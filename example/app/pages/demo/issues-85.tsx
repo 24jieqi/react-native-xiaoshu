@@ -13,7 +13,7 @@ const selectorOption = new Array(10).fill(0).map((_, index) => ({
   value: index,
 }))
 
-const Issues75 = () => {
+const Issues85 = () => {
   return (
     <>
       <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
@@ -44,4 +44,4 @@ const Issues75 = () => {
   )
 }
 
-export default Issues75
+export default Issues85
