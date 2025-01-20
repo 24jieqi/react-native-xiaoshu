@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'example/**'
 jobs:
   build:
     name: Build and deploy gh-pages
