@@ -310,7 +310,7 @@ const App: React.FC = () => {
     </Provider>
   )
 }
-`,paraId:7,tocIndex:2}]},51446:function(o,n,e){e.r(n),e.d(n,{texts:function(){return t}});var a=e(68537);const t=[{value:"Expo demo app",paraId:0,tocIndex:0},{value:"SDK 51+",paraId:1,tocIndex:0},{value:`\xA0
+`,paraId:7,tocIndex:2}]},51446:function(o,n,e){e.r(n),e.d(n,{texts:function(){return t}});var a=e(68537);const t=[{value:"Expo demo app",paraId:0,tocIndex:0},{value:"SDK 52+",paraId:1,tocIndex:0},{value:`\xA0
 `,paraId:2},{value:`\xA0
 `,paraId:2},{value:`\xA0
 `,paraId:2},{value:`\xA0
