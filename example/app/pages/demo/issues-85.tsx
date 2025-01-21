@@ -7,6 +7,7 @@ import {
 import React from 'react'
 
 import { KeyboardAwareScrollView } from '~/components/keyboard-aware-scroll-view'
+import Layout from '~/layouts/layout'
 
 const selectorOption = new Array(10).fill(0).map((_, index) => ({
   label: `选项-${index}`,
@@ -15,7 +16,7 @@ const selectorOption = new Array(10).fill(0).map((_, index) => ({
 
 const Issues85 = () => {
   return (
-    <>
+    <Layout.Page>
       <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
         <Form>
           <Form.Item name="a1">
@@ -40,7 +41,7 @@ const Issues85 = () => {
       <BottomBar>
         <Button text="提交" type="primary" />
       </BottomBar>
-    </>
+    </Layout.Page>
   )
 }
 

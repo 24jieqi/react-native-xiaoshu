@@ -105,7 +105,7 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
             onPress={() => {
               navigation.navigate('Issues85')
             }}>
-            Issues75
+            Issues85
           </Text>
         </Space>
       </Blank>
