@@ -21,9 +21,11 @@ export type PopupTheme = ReturnType<typeof varCreator>
 export const styleCreator = (cv: PopupTheme) => {
   return StyleSheet.create({
     popup: {
-      position: 'relative',
       backgroundColor: cv.popup_background_color,
       overflow: 'hidden',
+    },
+    popup_hide: {
+      position: 'relative',
       height: 0,
     },
     popup_active: {

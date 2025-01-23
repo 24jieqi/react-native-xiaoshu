@@ -186,7 +186,7 @@ const Popup: React.FC<PopupProps> = ({
           getTransform(position, fadeAnim),
           PopupPositionMap[position],
         ]
-      : null,
+      : STYLES.popup_hide,
   ]
 
   if (state.lazyRender) {
