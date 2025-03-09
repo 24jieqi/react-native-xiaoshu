@@ -64,3 +64,12 @@ SDK 52+
 ## 参与开发 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 阅读更多[开发约定](./CONTRIBUTING.md)。
+
+## Sponsors
+
+<ul style="list-style:none;padding:0;margin:0;">
+  <li style="display:flex;align-items:center;gap:16px;">
+    <img src="https://zhiyabonsai.com/images/icon.png" alt="知芽App-属于盆景爱好者的专业AI社区" width="48">
+    <a target="\_blank" rel="noopener" href="https://zhiyabonsai.com" style="color:#666;">知芽App-属于盆景爱好者的专业AI社区</a>
+  </li>
+</ul>
