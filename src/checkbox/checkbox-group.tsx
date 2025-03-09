@@ -32,7 +32,7 @@ function CheckboxGroup<T = any>({
     <Space {...omit(restProps, ['value', 'defaultValue', 'onChange'])}>
       {options.map(({ value: checkboxValue, ...checkboxProps }) => {
         const selected = multiple
-          ? (value as T[]).indexOf(checkboxValue) > -1
+          ? ((value || []) as T[]).indexOf(checkboxValue) > -1
           : value === checkboxValue
 
         return (
@@ -57,7 +57,7 @@ function CheckboxGroup<T = any>({
               const isReset = _value !== checkboxValue
 
               if (multiple) {
-                const oldValue = value as T[]
+                const oldValue = (value || []) as T[]
                 const newValue = isReset
                   ? oldValue.filter(v => v !== checkboxValue)
                   : [checkboxValue, ...oldValue]
