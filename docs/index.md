@@ -47,6 +47,15 @@ SDK 52+
 
 </div>
 
+## Sponsors
+
+<ul style="list-style:none;padding:0;margin:0;">
+  <li style="display:flex;align-items:center;gap:16px;">
+    <img src="https://zhiyabonsai.com/images/icon.png" alt="知芽App-属于盆景爱好者的专业AI社区" width="48">
+    <a target="\_blank" rel="noopener" href="https://zhiyabonsai.com" style="color:#666;">知芽App-属于盆景爱好者的专业AI社区</a>
+  </li>
+</ul>
+
 </div>
 
 [xiaoshu-npm-url]: https://www.npmjs.com/package/@fruits-chain/react-native-xiaoshu
