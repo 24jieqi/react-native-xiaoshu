@@ -14,6 +14,7 @@ import Benchmark from '~/pages/demo/benchmark'
 import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
 import CustomHeaderRed from '~/pages/demo/custom-header-red'
 import Issues85 from '~/pages/demo/issues-85'
+import Issues91 from '~/pages/demo/issues-91'
 import PopupComment from '~/pages/demo/popup-comment'
 import PopupTextInput from '~/pages/demo/popup-text-input'
 
@@ -32,6 +33,7 @@ export type RootStackParamList = {
   PopupComment: undefined
   Benchmark: undefined
   Issues85: undefined
+  Issues91: undefined
 } & Record<DemoPaths, undefined>
 
 /** Stack 路由的 props */
@@ -97,6 +99,7 @@ const NestingNavigators: React.FC = () => {
           // }}
         />
         <Stack.Screen name="Issues85" component={Issues85} />
+        <Stack.Screen name="Issues91" component={Issues91} />
 
         {demoConfigs.map(({ Page, path }) => (
           <Stack.Screen key={path} name={path} component={Page} />
