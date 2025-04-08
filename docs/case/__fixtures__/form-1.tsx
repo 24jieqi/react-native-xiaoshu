@@ -30,6 +30,7 @@ const CaseForm1: React.FC = () => {
   const [form] = Form.useForm()
 
   const onFinish = useCallback((value: any) => {
+    // eslint-disable-next-line no-console
     console.log(value)
   }, [])
 
