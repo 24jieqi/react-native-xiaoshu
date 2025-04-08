@@ -3,6 +3,7 @@ import type {
   ViewStyle,
   TextStyle,
   TouchableHighlightProps,
+  PressableProps,
   StyleProp,
   TextProps,
   TouchableOpacityProps,
@@ -198,6 +199,9 @@ export interface CellPrivateProps {
   onPressDebounceWait?: number
 }
 
-export interface CellProps extends TouchableHighlightProps, CellPrivateProps {
+export interface CellProps
+  extends PressableProps,
+    Pick<TouchableHighlightProps, 'underlayColor'>,
+    CellPrivateProps {
   theme?: Partial<CellTheme>
 }

@@ -1,7 +1,7 @@
 import noop from 'lodash/noop'
 import React, { memo } from 'react'
 import type { ViewStyle } from 'react-native'
-import { Text, View, TouchableHighlight } from 'react-native'
+import { Text, View, Pressable } from 'react-native'
 
 import Divider from '../divider'
 import { renderTextLikeJSX, getDefaultValue, getArrowOutline } from '../helpers'
@@ -130,10 +130,23 @@ const Cell: React.FC<CellProps> = ({
   )
 
   return (
-    <TouchableHighlight
+    <Pressable
       {...restProps}
-      underlayColor={underlayColor}
-      style={[STYLES.cell, style]}
+      style={({ pressed }) => [
+        STYLES.cell,
+        typeof style === 'function' ? style({ pressed }) : style,
+        // 绑定了点击事件才改变背景色
+        // 与原来的 TouchableHighlight 交互保持一致
+        pressed &&
+        (restProps.onPress ||
+          restProps.onLongPress ||
+          restProps.onPressIn ||
+          restProps.onPressOut)
+          ? {
+              backgroundColor: underlayColor,
+            }
+          : undefined,
+      ]}
       onPress={
         restProps.onPress
           ? onPressDebounceWait
@@ -141,37 +154,35 @@ const Cell: React.FC<CellProps> = ({
             : restProps.onPress
           : undefined
       }>
-      <>
-        <View
-          style={[
-            STYLES.cell_inner,
-            vertical ? null : STYLES.cell_inner_row,
-            extra ? STYLES.cell_inner_has_extra : null,
-            innerStyle,
-          ]}>
-          <View style={[STYLES.title, centerStyle, titleStyle]}>
-            {requiredJSX}
-            {titleExtra}
-            {titleJSX}
-          </View>
-
-          {vertical ? (
-            <View style={[STYLES.content, contentStyle]}>{ctxJSX}</View>
-          ) : (
-            ctxJSX
-          )}
+      <View
+        style={[
+          STYLES.cell_inner,
+          vertical ? null : STYLES.cell_inner_row,
+          extra ? STYLES.cell_inner_has_extra : null,
+          innerStyle,
+        ]}>
+        <View style={[STYLES.title, centerStyle, titleStyle]}>
+          {requiredJSX}
+          {titleExtra}
+          {titleJSX}
         </View>
-        {extraJSX}
-        {divider ? (
-          <Divider
-            style={{
-              marginLeft: dividerLeftGap,
-              marginRight: dividerRightGap,
-            }}
-          />
-        ) : null}
-      </>
-    </TouchableHighlight>
+
+        {vertical ? (
+          <View style={[STYLES.content, contentStyle]}>{ctxJSX}</View>
+        ) : (
+          ctxJSX
+        )}
+      </View>
+      {extraJSX}
+      {divider ? (
+        <Divider
+          style={{
+            marginLeft: dividerLeftGap,
+            marginRight: dividerRightGap,
+          }}
+        />
+      ) : null}
+    </Pressable>
   )
 }
 

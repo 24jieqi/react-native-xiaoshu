@@ -19,7 +19,7 @@ group:
 
 ```bash
 ## 最基础的元素结构
-|-- TouchableHighlight  ## style
+|-- Pressable  ## style
 |--|-- View  ## innerStyle, marginHorizontal 左右边距
 |--|--|-- 内容部分 上下、左右布局
 |--|-- Divider  ## 属性 divider 控制是否显示，dividerLeftGap、dividerRightGap

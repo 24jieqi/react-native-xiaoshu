@@ -28,7 +28,28 @@ const CellBase: React.FC = () => {
         title="onPress 点击事件"
         isLink
         onPress={() => {
-          Toast('点击整个单元格')
+          Toast('onPress 点击整个单元格')
+        }}
+      />
+      <Cell
+        title="onLongPress 点击事件"
+        isLink
+        onLongPress={() => {
+          Toast('onLongPress 点击整个单元格')
+        }}
+      />
+      <Cell
+        title="onPressIn 点击事件"
+        isLink
+        onPressIn={() => {
+          Toast('onPressIn 点击整个单元格')
+        }}
+      />
+      <Cell
+        title="onPressOut 点击事件"
+        isLink
+        onPressOut={() => {
+          Toast('onPressOut 点击整个单元格')
         }}
       />
       <Cell
