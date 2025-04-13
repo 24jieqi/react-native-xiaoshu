@@ -22,11 +22,7 @@ import type { SelectorProps } from '../selector/interface'
 import type { SwitchProps } from '../switch/interface'
 import type { TextInputProps } from '../text-input/interface'
 
-interface CellPropsFixed extends Omit<CellProps, 'style' | 'children'> {
-  style?: StyleProp<ViewStyle>
-}
-
-export interface FieldTextProps extends Omit<CellPropsFixed, 'value'> {
+export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**
    * 没有值时提示文案
    */
@@ -377,10 +373,7 @@ export interface FieldPasswordInputProps
 
 export interface FieldButtonOptionProps
   extends FixHitSlopProps<
-      Omit<
-        CellPropsFixed,
-        'value' | 'isLink' | 'center' | 'textAlign' | 'theme'
-      >
+      Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign' | 'theme'>
     >,
     Pick<
       ButtonOptionGroupProps<any>,

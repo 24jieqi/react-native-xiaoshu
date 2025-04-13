@@ -200,8 +200,10 @@ export interface CellPrivateProps {
 }
 
 export interface CellProps
-  extends PressableProps,
+  extends Omit<PressableProps, 'style' | 'children'>,
     Pick<TouchableHighlightProps, 'underlayColor'>,
     CellPrivateProps {
   theme?: Partial<CellTheme>
+
+  style?: StyleProp<ViewStyle>
 }

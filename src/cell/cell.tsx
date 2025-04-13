@@ -134,7 +134,7 @@ const Cell: React.FC<CellProps> = ({
       {...restProps}
       style={({ pressed }) => [
         STYLES.cell,
-        typeof style === 'function' ? style({ pressed }) : style,
+        style,
         // 绑定了点击事件才改变背景色
         // 与原来的 TouchableHighlight 交互保持一致
         pressed &&
