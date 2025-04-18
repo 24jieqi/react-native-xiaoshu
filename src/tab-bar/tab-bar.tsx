@@ -192,10 +192,12 @@ const TabBar = <T extends TabValue>({
             STYLES.item_text,
             isTabTextCompact ? null : STYLES.item_text_full,
             item.iconRender ? STYLES.item_text_icon : null,
-            // eslint-disable-next-line react-native/no-inline-styles
             {
               color: isActive ? activeTextColor : textColor,
-              fontWeight: isActive && indicator ? '500' : 'normal',
+              fontWeight:
+                isActive && indicator
+                  ? CV.tab_bar_active_text_font_weight
+                  : CV.tab_bar_text_font_weight,
             },
             isActive && !!_labelBulge
               ? {

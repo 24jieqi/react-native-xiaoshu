@@ -1,3 +1,4 @@
+import type { TextStyle } from 'react-native'
 import { StyleSheet } from 'react-native'
 
 import type { TokensType } from '../theme/interface'
@@ -9,10 +10,12 @@ export const varCreator = (TOKENS: TokensType) => {
     tab_bar_text_alone_font_size: TOKENS.font_size_4,
     tab_bar_text_margin_top: TOKENS.space_1,
     tab_bar_text_color: TOKENS.gray_6,
+    tab_bar_text_font_weight: 'normal' as TextStyle['fontWeight'],
     tab_bar_badge_font_size: TOKENS.font_size_4,
     tab_bar_badge_color: TOKENS.red_6,
     tab_bar_icon_color: TOKENS.gray_6,
     tab_bar_active_text_color: TOKENS.brand_6,
+    tab_bar_active_text_font_weight: '500' as TextStyle['fontWeight'],
     tab_bar_active_icon_color: TOKENS.brand_6,
     tab_bar_indicator_color: TOKENS.brand_6,
   }
