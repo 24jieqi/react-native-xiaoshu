@@ -47,6 +47,7 @@
     "prepare": "husky install && dumi setup",
     "build": "bob build",
     "release": "release-it",
+    "release:beta": "release-it --preRelease=beta",
     "release:major": "release-it major",
     "release:minor": "release-it minor",
     "release:patch": "release-it patch",
