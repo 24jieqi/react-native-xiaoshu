@@ -9,6 +9,7 @@ import React, {
   Children,
   cloneElement,
 } from 'react'
+import type { View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native'
 import RNPopoverView from 'react-native-popover-view'
 
@@ -50,7 +51,7 @@ const Popover = <T,>({
 
   duration = getDefaultValue(duration, TOKENS.animation_duration_base)
 
-  const touchable = useRef<TouchableOpacity>(null)
+  const touchable = useRef<View>(null)
   const [showPopover, setShowPopover] = useState(false)
   const animationConfig = useMemo(() => ({ duration }), [duration])
 
