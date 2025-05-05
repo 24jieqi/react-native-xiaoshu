@@ -59,7 +59,7 @@ const App: React.FC = () => {
 
 SDK 52+
 
-<img src="https://qr.expo.dev/eas-update?slug=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=1823e8c6-3e52-425d-a311-020cf61d9a69&host=u.expo.dev" alt="react-native-xiaoshu" width="200">
+<img src="https://qr.expo.dev/eas-update?slug=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=e1c786d5-e805-4833-a71c-22f98f33f413&host=u.expo.dev" alt="react-native-xiaoshu" width="200">
 
 ## 参与开发 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
