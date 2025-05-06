@@ -57,7 +57,7 @@ const App: React.FC = () => {
 
 - **Expo demo app**
 
-SDK 52+
+SDK 53+
 
 <img src="https://qr.expo.dev/eas-update?slug=exp&projectId=610e3121-d086-4484-8023-130dca7937ec&groupId=e1c786d5-e805-4833-a71c-22f98f33f413&host=u.expo.dev" alt="react-native-xiaoshu" width="200">
 
