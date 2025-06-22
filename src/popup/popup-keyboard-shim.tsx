@@ -1,16 +1,40 @@
 import React, { memo, useEffect, useRef } from 'react'
 import { Animated, Keyboard, Platform, useWindowDimensions } from 'react-native'
-import type { KeyboardEvent, View } from 'react-native'
+import type { KeyboardEvent, KeyboardEventName, View } from 'react-native'
 
 import type { PopupKeyboardShimProps } from './interface'
 
-const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
+const listenerEventType: { show: KeyboardEventName; hide: KeyboardEventName } =
+  Platform.select({
+    ios: {
+      show: 'keyboardWillShow',
+      hide: 'keyboardWillHide',
+    },
+    android: {
+      show: 'keyboardDidShow',
+      hide: 'keyboardDidHide',
+    },
+    default: {
+      show: 'keyboardWillShow',
+      hide: 'keyboardWillHide',
+    },
+  })
+
+const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
+  allowOnAndroid = false,
+  ...props
+}) => {
   const KeyboardHeight = useRef(new Animated.Value(0))
   const ViewHeight = useRef<View>(null)
   const { height } = useWindowDimensions()
 
   useEffect(() => {
-    if (Platform.OS === 'ios') {
+    if (
+      // iOS 软键盘出来覆盖内容区域
+      Platform.OS === 'ios' ||
+      // Android 根据自身应用配置不同，软键盘可能挤压内容区域，也可能覆盖内容区域
+      (allowOnAndroid && Platform.OS === 'android')
+    ) {
       const keyboardDidShow = (e: KeyboardEvent) => {
         // eslint-disable-next-line max-params
         ViewHeight.current?.measure(
@@ -38,11 +62,11 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
         }).start()
       }
       const _keyboardDidShow = Keyboard.addListener(
-        'keyboardWillShow',
+        listenerEventType.show,
         keyboardDidShow,
       )
       const _keyboardDidHide = Keyboard.addListener(
-        'keyboardWillHide',
+        listenerEventType.hide,
         keyboardDidHide,
       )
 
@@ -51,16 +75,16 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = props => {
         // @ts-ignore
         if (Keyboard.removeListener) {
           // @ts-ignore
-          Keyboard.removeListener('keyboardWillShow', keyboardDidShow)
+          Keyboard.removeListener(listenerEventType.show, keyboardDidShow)
           // @ts-ignore
-          Keyboard.removeListener('keyboardWillHide', keyboardDidHide)
+          Keyboard.removeListener(listenerEventType.hide, keyboardDidHide)
         } else {
           _keyboardDidShow.remove?.()
           _keyboardDidHide.remove?.()
         }
       }
     }
-  }, [height])
+  }, [height, allowOnAndroid])
 
   return (
     <Animated.View

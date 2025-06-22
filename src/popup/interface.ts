@@ -163,4 +163,11 @@ export interface PopupHeaderProps
   showClose?: boolean
 }
 
-export interface PopupKeyboardShimProps extends ViewProps {}
+export interface PopupKeyboardShimProps extends ViewProps {
+  /**
+   * 是否在 Android 设备中生效
+   * @default false
+   * @description 在 Android 端开启 android:windowSoftInputMode="adjustResize"，软键盘出现，App 可视区域会自动收缩。
+   */
+  allowOnAndroid?: boolean
+}
