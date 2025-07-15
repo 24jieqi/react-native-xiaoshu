@@ -21,7 +21,9 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   actions,
   title,
   cancelText,
+  cancelTextStyle,
   description,
+  descriptionStyle,
   safeAreaInsetTop,
   round = true,
   onCancel,
@@ -48,6 +50,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
           style={[
             STYLES.description,
             isTitleDef ? null : STYLES.description_alone,
+            descriptionStyle,
           ]}
           numberOfLines={1}>
           {description}
@@ -75,7 +78,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
                 color={item.color || CV.action_sheet_text_color}
                 type="link"
                 size="xl"
-                textStyle={STYLES.button_text}
+                textStyle={[STYLES.button_text, item.textStyle]}
                 onPress={() => {
                   if (!item.disabled && !item.loading) {
                     item.callback?.()
@@ -96,7 +99,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
               type="link"
               size="xl"
               color={CV.action_sheet_text_color}
-              textStyle={STYLES.button_text}
+              textStyle={[STYLES.button_text, cancelTextStyle]}
               onPress={onCancel}
             />
           </>
