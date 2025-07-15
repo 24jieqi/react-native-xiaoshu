@@ -34,7 +34,9 @@ group:
 | actions          | 面板选项列表                             | `Action[]`                              | -                    | -    |
 | title            | 顶部标题                                 | `React.ReactNode`                       | -                    | -    |
 | cancelText       | 取消按钮文字                             | `string`                                | -                    | -    |
+| cancelTextStyle  | 取消按钮文字样式                         | `StyleProp<TextStyle>`                  | -                    | -    |
 | description      | 选项上方的描述信息                       | `React.ReactNode`                       | -                    | -    |
+| descriptionStyle | 选项上方的描述信息样式                   | `StyleProp<TextStyle>`                  | -                    | -    |
 | safeAreaInsetTop | 顶部安全高度                             | `number`                                | `safeAreaInsets.top` | -    |
 | round            | 是否显示圆角                             | `boolean`                               | `true`               | -    |
 | lazyRender       | 是否在显示弹层时才渲染节点               | `boolean`                               | `true`               | -    |
