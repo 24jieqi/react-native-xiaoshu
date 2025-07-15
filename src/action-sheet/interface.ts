@@ -1,5 +1,5 @@
 import type React from 'react'
-import type { ColorValue } from 'react-native'
+import type { ColorValue, StyleProp, TextStyle } from 'react-native'
 
 import type { PopupPropsCommon } from '../popup/interface'
 
@@ -13,6 +13,9 @@ export interface Action {
 
   /** 选项文字颜色 */
   color?: ColorValue
+
+  /** 选项文字样式 */
+  textStyle?: StyleProp<TextStyle>
 
   /** 是否为加载状态 */
   loading?: boolean
@@ -43,9 +46,19 @@ export interface ActionSheetProps extends PopupPropsCommon {
   cancelText?: string
 
   /**
+   * 取消按钮文字样式
+   */
+  cancelTextStyle?: StyleProp<TextStyle>
+
+  /**
    * 选项上方的描述信息
    */
   description?: React.ReactNode
+
+  /**
+   * 选项上方的描述信息样式
+   */
+  descriptionStyle?: StyleProp<TextStyle>
 
   /**
    * 顶部安全高度
