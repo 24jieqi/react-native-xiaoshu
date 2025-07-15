@@ -123,6 +123,14 @@ const Home: React.FC<ScreenProps> = ({ navigation }) => {
             }}>
             Issues93
           </Text>
+
+          <Text
+            style={Styles.demo}
+            onPress={() => {
+              navigation.navigate('Issues101')
+            }}>
+            Issues101
+          </Text>
         </Space>
       </Blank>
     </Layout.Page>
