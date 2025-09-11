@@ -6,20 +6,25 @@ import React from 'react'
 
 import { usePersistFn } from '../hooks'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>,
 ) => React.ReactNode
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface FormItemProps<Values = any> extends RcFieldProps<Values> {
   children?: ChildrenType<Values>
 }
 
-const hasValidName = (name?: NamePath): Boolean => {
+const hasValidName = (name?: NamePath): boolean => {
   return !(name === undefined || name === null)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function FormItem<Values = any>(
   props: FormItemProps<Values>,
 ): React.ReactElement {

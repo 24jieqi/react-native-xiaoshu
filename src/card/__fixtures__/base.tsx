@@ -5,6 +5,7 @@
 
 import React from 'react'
 import { Text } from 'react-native'
+
 import {
   Card,
   Space,
@@ -94,6 +95,7 @@ const CardBase: React.FC = () => {
         <Card
           title="title"
           bodyPadding={{ top: true, bottom: 32 }}
+          // eslint-disable-next-line react-native/no-inline-styles
           bodyStyle={{
             paddingVertical: 40,
           }}>

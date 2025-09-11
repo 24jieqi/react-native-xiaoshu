@@ -2,6 +2,7 @@
  * title: 模式
  * description: 共有两个种模式可以使用。
  */
+import React from 'react'
 
 import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
 

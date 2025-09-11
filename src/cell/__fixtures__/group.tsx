@@ -28,12 +28,14 @@ const CellGroup: React.FC = () => {
       </Cell.Group>
 
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           backgroundColor: gray_1,
           paddingVertical: 24,
         }}>
         <Cell.Group
           title="内容区域有上下分割线"
+          // eslint-disable-next-line react-native/no-inline-styles
           titleTextStyle={{ color: '#f30', backgroundColor: gray_3 }}
           bodyTopDivider
           bodyBottomDivider>

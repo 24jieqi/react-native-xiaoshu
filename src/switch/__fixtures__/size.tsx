@@ -4,9 +4,9 @@
  */
 
 import React from 'react'
+import { Text } from 'react-native'
 
 import { Switch, Space } from '@fruits-chain/react-native-xiaoshu'
-import { Text } from 'react-native'
 
 const BasicSwitchSize: React.FC = () => {
   return (
@@ -17,6 +17,7 @@ const BasicSwitchSize: React.FC = () => {
         defaultValue
         activeChildren={
           <Text
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               fontSize: 24,
               fontWeight: 'bold',

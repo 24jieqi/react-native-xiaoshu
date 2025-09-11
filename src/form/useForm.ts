@@ -6,6 +6,7 @@ import Toast from '../toast'
 
 import type { FormInstance } from './interface'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function <Values = any>(
   form?: FormInstance<Values>,
 ): [FormInstance<Values>] {

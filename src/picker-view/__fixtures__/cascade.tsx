@@ -8,7 +8,6 @@ const buildChildren = (
   valuePrefix: string,
   labelPrefix: string,
   insertChildren?: (value: string, label: string) => PickerOptionCascade[],
-  // eslint-disable-next-line max-params
 ) => {
   return new Array(num).fill(0).map((_, index) => ({
     label: `${labelPrefix}_${index}`,

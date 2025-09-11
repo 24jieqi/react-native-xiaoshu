@@ -1,5 +1,10 @@
 import React, { useRef, useMemo, memo } from 'react'
-import type { ColorValue, ViewStyle, ViewProps } from 'react-native'
+import type {
+  ColorValue,
+  ViewStyle,
+  ViewProps,
+  AnimatableStringValue,
+} from 'react-native'
 import { Animated } from 'react-native'
 import { Svg, Circle } from 'react-native-svg'
 import type { CircleProps } from 'react-native-svg/lib/typescript/elements/Circle'
@@ -43,7 +48,7 @@ const Circular: React.FC<CircularProps> = ({
   const AnimatedCircle1Value = useRef(new Animated.Value(0)).current
   const AnimatedCircle2Value = useRef(new Animated.Value(0)).current
 
-  let _size: number = getDefaultValue(size, CV.loading_icon_size)!
+  const _size: number = getDefaultValue(size, CV.loading_icon_size)!
   color = getDefaultValue(color, CV.loading_icon_color)
 
   const circle1Props = useMemo(() => {
@@ -96,7 +101,7 @@ const Circular: React.FC<CircularProps> = ({
         rotateZ: AnimatedCircle0Value.interpolate({
           inputRange: [0, 1],
           outputRange: ['-90deg', '270deg'],
-        }) as any,
+        }) as AnimatableStringValue,
       },
     ],
   }

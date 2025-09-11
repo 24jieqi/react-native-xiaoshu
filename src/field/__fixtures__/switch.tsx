@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react'
+
 import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldSwitch: React.FC = () => {

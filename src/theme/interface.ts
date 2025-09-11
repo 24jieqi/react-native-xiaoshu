@@ -11,6 +11,7 @@ export type StyleVar = Partial<TokensType>
 /** 默认初始化状态 */
 export interface ThemeProviderProps extends PropsWithChildren<{}> {
   theme?: StyleVar & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key in string]: any
   }
 }

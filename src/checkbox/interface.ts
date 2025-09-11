@@ -50,6 +50,7 @@ interface RenderIconProps extends CheckboxIconPrivateProps {
   onPress?: TouchableOpacityProps['onPress']
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   extends Pick<CheckboxIconPrivateProps, 'activeColor' | 'inactiveColor'>,
     ViewProps {
@@ -131,6 +132,7 @@ export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   gap?: number
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface CheckboxGroupProps<ActiveValueT = any>
   extends SpaceProps,
     Partial<

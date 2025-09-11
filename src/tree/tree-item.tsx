@@ -47,7 +47,6 @@ const TreeItem: React.FC<TreeItemProps> = ({
     <Flex direction="row" align="center">
       {indent ? (
         <View
-          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             width: tier * indent,
             height: CV.tree_item_height,

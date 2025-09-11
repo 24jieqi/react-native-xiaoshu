@@ -1,12 +1,7 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable no-unmodified-loop-condition */
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import React, { createContext, Component } from 'react'
 import type { EmitterSubscription } from 'react-native'
 import {
   DeviceEventEmitter,
-  // eslint-disable-next-line import/named
   NativeEventEmitter,
   StyleSheet,
   View,
@@ -29,6 +24,7 @@ export type PortalMethods = {
   unmount: (key: number) => void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const PortalContext = createContext<PortalMethods>(null as any)
 // events
 const addType = 'REACT_NATIVE_XIAOSHU_ADD_PORTAL'
@@ -118,7 +114,8 @@ export default class PortalHost extends Component<PortalHostProps> {
       this.addTypeEmitter.remove()
     } else {
       // TODO 旧版本如何做兼容
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       TopViewEventEmitter.removeListener?.(addType, this.mount)
     }
 
@@ -126,7 +123,8 @@ export default class PortalHost extends Component<PortalHostProps> {
       this.removeTypeEmitter.remove()
     } else {
       // TODO 旧版本如何做兼容
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       TopViewEventEmitter.removeListener?.(removeType, this.unmount)
     }
   }

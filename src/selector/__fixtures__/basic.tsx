@@ -6,9 +6,9 @@
 import React from 'react'
 
 import SelectorBase from './base'
-import SelectorSearch from './search'
-import SelectorLabel from './label'
 import SelectorComponent from './component'
+import SelectorLabel from './label'
+import SelectorSearch from './search'
 
 const BasicSelector: React.FC = () => {
   return (

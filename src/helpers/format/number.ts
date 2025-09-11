@@ -38,8 +38,7 @@ export function formatNumber(
   return value.replace(regExp, '')
 }
 
-export function formatThousandths(t: string, sign?: string) {
-  !sign && (sign = ',')
+export function formatThousandths(t: string, sign = ',') {
   const parts = t.split('.')
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sign)
   return parts.join('.')

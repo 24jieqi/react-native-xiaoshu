@@ -2,9 +2,11 @@
  * title: 基础用法
  * description: 在内部放置一个、多个按钮。
  */
-import { StyleSheet } from 'react-native'
-import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 import { PlusOutline } from '@fruits-chain/icons-react-native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
+
+import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const ButtonBarBase = () => {
   return (

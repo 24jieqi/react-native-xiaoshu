@@ -185,9 +185,7 @@ const DropdownSelectorMethod = <T,>({
             returnVal.then(nv => {
               setMultipleValue(mv =>
                 uniqBy(
-                  // eslint-disable-next-line max-nested-callbacks
                   [...mv.filter(mvi => mvi !== event.option.value), ...nv],
-                  // eslint-disable-next-line max-nested-callbacks
                   x => x,
                 ),
               )

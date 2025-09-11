@@ -43,9 +43,8 @@ function formatNumber(value: string, allowDot = true, allowMinus = true) {
   return value.replace(regExp, '')
 }
 
-const formatterTo = (t: string, sign?: string) => {
-  !sign && (sign = ',')
-  var parts = (t || '').split('.')
+const formatterTo = (t: string, sign = ',') => {
+  const parts = (t || '').split('.')
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sign)
   return parts.join('.')
 }

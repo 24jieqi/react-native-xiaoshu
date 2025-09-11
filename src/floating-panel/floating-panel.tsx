@@ -1,6 +1,6 @@
 import isBoolean from 'lodash/isBoolean'
 import isNil from 'lodash/isNil'
-import { memo, useMemo, useRef } from 'react'
+import React, { memo, useMemo, useRef } from 'react'
 import { View, Animated, useWindowDimensions, PanResponder } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 

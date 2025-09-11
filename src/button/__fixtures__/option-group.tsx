@@ -4,6 +4,7 @@
  */
 
 import React, { memo, useState } from 'react'
+import { View } from 'react-native'
 
 import {
   Button,
@@ -11,7 +12,6 @@ import {
   Space,
   Divider,
 } from '@fruits-chain/react-native-xiaoshu'
-import { View } from 'react-native'
 
 const options = new Array(10).fill(0).map((_, index) => ({
   value: index + 1,
@@ -48,6 +48,7 @@ const ButtonOptionGroup: React.FC = () => {
           <Divider>·</Divider>
 
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               padding: 4,
               backgroundColor: '#f5f5f5',

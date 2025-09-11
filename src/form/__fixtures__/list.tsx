@@ -3,7 +3,9 @@
  * description: 使用 Form.List 渲染一组控件。
  */
 
+import { DeleteFill } from '@fruits-chain/icons-react-native'
 import React from 'react'
+
 import {
   Card,
   Form,
@@ -13,7 +15,6 @@ import {
   Dialog,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
-import { DeleteFill } from '@fruits-chain/icons-react-native'
 
 const BasicFormList: React.FC = () => {
   const [form] = Form.useForm()

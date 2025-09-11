@@ -1,17 +1,18 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
+
 import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
-import ButtonType from './type'
 import ButtonDanger from './danger'
-import ButtonHairline from './hairline'
 import ButtonDisabled from './disabled'
-import ButtonLoading from './loading'
-import ButtonSize from './size'
+import ButtonHairline from './hairline'
 import ButtonIcon from './icon'
+import ButtonLoading from './loading'
 import ButtonOption from './option'
 import ButtonOptionGroup from './option-group'
+import ButtonSize from './size'
 import ButtonSubtext from './subtext'
+import ButtonType from './type'
 
 const BasicButton: React.FC = () => {
   return (

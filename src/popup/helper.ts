@@ -8,6 +8,7 @@ const isTopOrBottom = (position: PopupPosition) =>
 
 export const getTransform = (
   position: PopupPosition,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any,
 ): ViewStyle => {
   if (position === 'center') {

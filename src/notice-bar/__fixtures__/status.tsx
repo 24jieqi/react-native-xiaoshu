@@ -2,6 +2,7 @@
  * title: 内置状态
  * description: 共有四种样式 primary、success、warning、error。
  */
+import React from 'react'
 
 import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
 

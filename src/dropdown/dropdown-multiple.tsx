@@ -66,7 +66,6 @@ const DropdownMultiple = <T,>({
 
   const onPressText = usePersistFn(() => {
     // 计算 Menu 的 Top 和元素高度
-    // eslint-disable-next-line max-params
     config.MenuRef.current?.measure((x, y, width, height, pageX, pageY) => {
       setActive(true)
       DropdownSelector({

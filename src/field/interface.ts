@@ -159,6 +159,7 @@ export interface FieldSwitchCellPropsUsed
     'textAlign' | 'valueTextStyle' | 'valueTextNumberOfLines'
   > {}
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface FieldSwitchProps<ActiveValueT = any, InactiveValueT = any>
   extends SwitchProps<ActiveValueT, InactiveValueT>,
     FieldSwitchCellPropsUsed {}
@@ -336,6 +337,7 @@ export interface FieldCheckboxProps
       Omit<CellPropsUsed, 'value' | 'isLink' | 'center' | 'textAlign'>
     >,
     Pick<
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       CheckboxGroupProps<any>,
       | 'value'
       | 'defaultValue'
@@ -377,6 +379,7 @@ export interface FieldButtonOptionProps
       Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign' | 'theme'>
     >,
     Pick<
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ButtonOptionGroupProps<any>,
       | 'value'
       | 'defaultValue'

@@ -14,10 +14,7 @@ import type {
   ViewStyle,
   TextStyle,
   StyleProp,
-  NativeSyntheticEvent,
-  TextInputFocusEventData,
-  TextInputEndEditingEventData,
-  TextInputChangeEventData,
+  TextInputProps as RNTextInputProps,
 } from 'react-native'
 import {
   View,
@@ -29,6 +26,8 @@ import {
   Platform,
   useColorScheme,
 } from 'react-native'
+
+import type { ExcludeUndefined } from 'src/helpers/types'
 
 import { varCreator as varCreatorButton } from '../button/style'
 import { getDefaultValue, renderTextLikeJSX } from '../helpers'
@@ -54,7 +53,7 @@ const iOSPlatform = Platform.OS === 'ios'
  * @description 动态切换输入内容可见，请手动控制 secureTextEntry，如果只是切换 type 在 iOS 正式环境可能会不生效
  */
 const TextInput = forwardRef<TextInputInstance, TextInputProps>(
-  (
+  function TextInputForwardRef(
     {
       theme,
       addonGroupStyle,
@@ -93,7 +92,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       ...resetProps
     },
     ref,
-  ) => {
+  ) {
     // 修正数据
     if (type === 'textarea') {
       multiline = true
@@ -182,8 +181,10 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     )
 
     /** 编辑结束的时候 */
-    const onEndEditingTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
+    const onEndEditingTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onEndEditing']>
+    >(
+      e => {
         if (formatTrigger === 'onEndEditing') {
           e.nativeEvent.text = formatterPersistFn(e.nativeEvent.text)
         }
@@ -198,8 +199,10 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     )
 
     /** 当文本框内容变化时 */
-    const onChangeTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+    const onChangeTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onChange']>
+    >(
+      e => {
         onChange(e.nativeEvent.text)
       },
       [onChange],
@@ -217,8 +220,10 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     }, [onChangeTextPersistFn, onPressTextInput, onChange])
 
     /** 输入框聚焦 */
-    const onFocusTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const onFocusTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onFocus']>
+    >(
+      e => {
         setFocus(true)
         onFocusPersistFn(e)
       },
@@ -226,8 +231,10 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     )
 
     /** 输入框失焦 */
-    const onBlurTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const onBlurTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onBlur']>
+    >(
+      e => {
         setFocus(false)
         onBlurPersistFn(e)
       },

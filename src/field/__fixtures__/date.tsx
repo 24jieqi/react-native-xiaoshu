@@ -4,9 +4,10 @@
  */
 
 import React, { useState } from 'react'
+
 import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
-const formatValueText = (_: Date, __: any, s: string) => {
+const formatValueText = (_: Date, __: unknown, s: string) => {
   return `自定义：${s}`
 }
 
@@ -27,6 +28,7 @@ const BasicFieldDate: React.FC = () => {
           confirmButtonText: 'OKK',
           duration: 600,
         })}
+        // eslint-disable-next-line react-native/no-inline-styles
         valueTextStyle={{
           fontSize: 20,
         }}

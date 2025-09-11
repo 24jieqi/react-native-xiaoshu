@@ -21,6 +21,7 @@ const UploaderBase: React.FC = () => {
         <Blank>
           <Space>
             <View
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 height: 300,
                 backgroundColor: '#f30',
@@ -28,6 +29,7 @@ const UploaderBase: React.FC = () => {
             />
 
             <View
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 height: 300,
                 backgroundColor: '#098',
@@ -35,6 +37,7 @@ const UploaderBase: React.FC = () => {
             />
 
             <View
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
                 height: 300,
                 backgroundColor: '#678',

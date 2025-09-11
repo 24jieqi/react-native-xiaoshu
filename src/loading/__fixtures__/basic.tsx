@@ -3,11 +3,12 @@
  * description: 把各种场景、API 都运用了
  */
 
+import { DoubleArrowClockwiseOutline } from '@fruits-chain/icons-react-native'
 import React, { useEffect, useRef } from 'react'
+import type { ColorValue } from 'react-native'
+import { Animated } from 'react-native'
 
 import { Loading, Cell } from '@fruits-chain/react-native-xiaoshu'
-import { DoubleArrowClockwiseOutline } from '@fruits-chain/icons-react-native'
-import { Animated, ColorValue } from 'react-native'
 
 const CustomLoading = ({
   size,
@@ -48,6 +49,7 @@ const CustomLoading = ({
 
   return (
     <Animated.View
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: size,
         height: size,

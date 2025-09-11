@@ -17,6 +17,7 @@ const BasicNavBar: React.FC = () => {
   const { gray_1 } = Theme.useThemeTokens()
   const [value, onChange] = useState(options[1].value)
   return (
+    // eslint-disable-next-line react-native/no-inline-styles
     <View style={{ backgroundColor: gray_1, paddingVertical: 20 }}>
       <Cell.Group title="一般使用">
         <NavTab options={options} defaultValue={options[2].value} />

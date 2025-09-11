@@ -44,7 +44,6 @@ const SkeletonParagraph: React.FC<SkeletonParagraphProps> = ({
     return <SkeletonActive>{nodeJSX}</SkeletonActive>
   }
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   return nodeJSX
 }
 

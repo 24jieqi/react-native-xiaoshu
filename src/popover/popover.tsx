@@ -103,7 +103,7 @@ const Popover = <T,>({
       </TouchableOpacity>
       <RNPopoverView
         {...restProps}
-        from={touchable}
+        from={touchable as React.RefObject<React.Component>}
         isVisible={showPopover}
         backgroundStyle={[STYLES.background, backgroundStyle]}
         popoverStyle={[

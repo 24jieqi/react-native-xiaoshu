@@ -106,7 +106,9 @@ const Selector: React.FC<SelectorProps> = ({
       <Tree
         {...treeProps}
         value={
-          isMultiple ? valueMultiple : treeProps.value ?? treeProps.defaultValue
+          isMultiple
+            ? valueMultiple
+            : (treeProps.value ?? treeProps.defaultValue)
         }
         onChange={isMultiple ? onChangeMultiplePersistFn : treeProps.onChange}
       />

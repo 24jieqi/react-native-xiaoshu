@@ -3,7 +3,10 @@
  * description: 用于异步操作等待反馈的时候，也可以避免多次提交。
  */
 
+import { DoubleArrowClockwiseOutline } from '@fruits-chain/icons-react-native'
 import React, { memo, useEffect, useRef } from 'react'
+import type { ColorValue } from 'react-native'
+import { Animated } from 'react-native'
 
 import {
   Button,
@@ -11,8 +14,6 @@ import {
   Space,
   Divider,
 } from '@fruits-chain/react-native-xiaoshu'
-import { DoubleArrowClockwiseOutline } from '@fruits-chain/icons-react-native'
-import { Animated, ColorValue } from 'react-native'
 
 const CustomLoading = ({
   size,
@@ -53,6 +54,7 @@ const CustomLoading = ({
 
   return (
     <Animated.View
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: size,
         height: size,

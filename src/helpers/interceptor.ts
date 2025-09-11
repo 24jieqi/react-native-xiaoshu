@@ -4,9 +4,9 @@ import noop from 'lodash/noop'
 import { isPromise } from './typeof'
 
 export type Interceptor = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...args: any[]
-) => // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-Promise<boolean> | boolean | undefined | Promise<void> | void
+) => Promise<boolean> | boolean | undefined | Promise<void> | void
 
 export function callInterceptor(
   interceptor: Interceptor | undefined,
@@ -21,6 +21,7 @@ export function callInterceptor(
   },
 ) {
   if (interceptor) {
+    // eslint-disable-next-line prefer-spread
     const returnVal = interceptor.apply(null, args)
 
     if (isPromise(returnVal)) {

@@ -5,6 +5,7 @@
 
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
+
 import { Button, Flex, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const Circle = (props: { size?: number }) => {
@@ -25,30 +26,42 @@ const BasicFlex: React.FC = () => {
       <Space head tail>
         <Card title="项目的排列方向" square>
           <Space>
-            <Text>direction="row":主轴为水平方向，起点在左端</Text>
+            <Text>direction=row:主轴为水平方向，起点在左端</Text>
 
             <Flex>
-              <Flex.Item style={{ paddingRight: 4 }}>
+              <Flex.Item
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingRight: 4 }}>
                 <Button size="xs">按钮1</Button>
               </Flex.Item>
-              <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+              <Flex.Item
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingLeft: 4, paddingRight: 4 }}>
                 <Button size="xs">按钮2</Button>
               </Flex.Item>
-              <Flex.Item style={{ paddingLeft: 4 }}>
+              <Flex.Item
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingLeft: 4 }}>
                 <Button size="xs">按钮3</Button>
               </Flex.Item>
             </Flex>
 
-            <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
+            <Text>direction=column:主轴为垂直方向，起点在上沿</Text>
 
             <Flex direction="column">
-              <Flex.Item style={{ paddingBottom: 4 }}>
+              <Flex.Item
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingBottom: 4 }}>
                 <Button size="xs">按钮1</Button>
               </Flex.Item>
-              <Flex.Item style={{ paddingBottom: 4 }}>
+              <Flex.Item
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingBottom: 4 }}>
                 <Button size="xs">按钮2</Button>
               </Flex.Item>
-              <Flex.Item style={{ paddingBottom: 4 }}>
+              <Flex.Item
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingBottom: 4 }}>
                 <Button size="xs">按钮3</Button>
               </Flex.Item>
             </Flex>
@@ -57,7 +70,7 @@ const BasicFlex: React.FC = () => {
 
         <Card title="对齐方式" square>
           <Space>
-            <Text>justify="start":左对齐</Text>
+            <Text>justify=start:左对齐</Text>
             <Flex justify="start">
               <Circle />
               <Circle />
@@ -66,7 +79,7 @@ const BasicFlex: React.FC = () => {
               <Circle />
             </Flex>
 
-            <Text>justify="center":居中</Text>
+            <Text>justify=center:居中</Text>
 
             <Flex justify="center">
               <Circle />
@@ -76,7 +89,7 @@ const BasicFlex: React.FC = () => {
               <Circle />
             </Flex>
 
-            <Text>justify="end":右对齐</Text>
+            <Text>justify=end:右对齐</Text>
 
             <Flex justify="end">
               <Circle />

@@ -4,6 +4,7 @@
  */
 
 import React, { useCallback, useState } from 'react'
+import { Keyboard } from 'react-native'
 
 import {
   Cell,
@@ -13,7 +14,6 @@ import {
   Blank,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
-import { Keyboard } from 'react-native'
 
 const BasicDialogKeyboard: React.FC = () => {
   const [state, setState] = useState({

@@ -8,6 +8,7 @@ import Space from '../space'
 import Checkbox from './checkbox'
 import type { CheckboxGroupProps } from './interface'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CheckboxGroup<T = any>({
   theme,
   options,
@@ -105,6 +106,7 @@ function CheckboxGroup<T = any>({
   return contentJSX
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default memo(CheckboxGroup) as <ActiveValueT = any>(
   p: CheckboxGroupProps<ActiveValueT>,
-) => JSX.Element
+) => React.ReactElement

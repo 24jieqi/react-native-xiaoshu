@@ -86,23 +86,33 @@ const BasicSidebar: React.FC = () => {
   return (
     <ScrollView style={{ backgroundColor: gray_1 }}>
       <Space>
-        <View style={{ height: 300 }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 300 }}>
           <Sidebar options={nullArray} />
         </View>
 
-        <View style={{ height: 300 }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 300 }}>
           <Sidebar options={nullArray} loading />
         </View>
 
-        <View style={{ height: 300 }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 300 }}>
           <Sidebar options={options} defaultActiveValue={options[1].value} />
         </View>
 
-        <View style={{ height: 300 }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 300 }}>
           <Sidebar options={options2} defaultActiveValue={options2[1].value} />
         </View>
 
-        <View style={{ height: 300 }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 300 }}>
           <Sidebar options={[]} empty={null} />
         </View>
       </Space>

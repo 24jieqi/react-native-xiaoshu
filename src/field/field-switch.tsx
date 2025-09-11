@@ -33,4 +33,4 @@ export default memo(FieldSwitch) as <
   InactiveValueT = boolean,
 >(
   p: FieldSwitchProps<ActiveValueT, InactiveValueT>,
-) => JSX.Element
+) => React.ReactElement

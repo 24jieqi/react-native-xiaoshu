@@ -133,6 +133,7 @@ export interface ButtonOptionProps
   type?: 'hazy' | 'outline' | 'white'
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface ButtonOptionGroupProps<TValue = any>
   extends Omit<SpaceProps, 'direction'> {
   theme?: Partial<ButtonTheme>

@@ -8,9 +8,9 @@ import { ScrollView } from 'react-native'
 
 import { Space, Blank } from '@fruits-chain/react-native-xiaoshu'
 
-import DatePickerViewSingle from './single'
-import DatePickerViewRangeView from './range-view'
 import DatePickerViewRange from './range'
+import DatePickerViewRangeView from './range-view'
+import DatePickerViewSingle from './single'
 
 const BasicDatePickerView: React.FC = () => {
   return (

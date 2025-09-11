@@ -1,6 +1,6 @@
 import isUndefined from 'lodash/isUndefined'
 import React, { useEffect, useRef, useMemo, memo } from 'react'
-import type { ViewStyle, ViewProps } from 'react-native'
+import type { ViewStyle, ViewProps, AnimatableNumericValue } from 'react-native'
 import { TouchableWithoutFeedback, Animated, View } from 'react-native'
 
 import { getDefaultValue, callInterceptor, renderTextLikeJSX } from '../helpers'
@@ -143,7 +143,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
           translateX: translateX.current.interpolate({
             inputRange: [0, 1],
             outputRange: [translateXValueStart, translateXValueEnd],
-          }) as any,
+          }) as AnimatableNumericValue,
         },
       ],
     },
@@ -162,7 +162,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         translateX: translateX.current.interpolate({
           inputRange: [0, 1],
           outputRange: [-switchWidth, 0],
-        }) as any,
+        }) as AnimatableNumericValue,
       },
     ],
   }
@@ -178,7 +178,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         translateX: translateX.current.interpolate({
           inputRange: [0, 1],
           outputRange: [0, switchWidth],
-        }) as any,
+        }) as AnimatableNumericValue,
       },
     ],
   }
@@ -239,4 +239,4 @@ export default memo(Switch) as <
   InactiveValueT = boolean,
 >(
   p: SwitchProps<ActiveValueT, InactiveValueT>,
-) => JSX.Element
+) => React.ReactElement

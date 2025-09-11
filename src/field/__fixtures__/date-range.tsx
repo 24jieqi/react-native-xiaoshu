@@ -4,11 +4,12 @@
  */
 
 import React, { useState } from 'react'
+
 import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const formatValueText = (
   _: [Date, Date],
-  __: any,
+  __: unknown,
   s: [string, string],
 ): [string, string] => {
   return [s[0], s[1]]
@@ -33,6 +34,7 @@ const BasicFieldDateRange: React.FC = () => {
           confirmButtonText: 'OKK',
           resetButtonText: 'Back',
         })}
+        // eslint-disable-next-line react-native/no-inline-styles
         valueTextStyle={{
           fontSize: 20,
         }}

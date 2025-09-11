@@ -15,7 +15,7 @@ const hitSlop = { top: 4, bottom: 4, left: 4, right: 4 }
  * 密码输入
  */
 const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
-  (
+  function PasswordInputForwardRef(
     {
       iconSize = 20,
       iconColor,
@@ -23,7 +23,7 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
       ...restProps
     },
     ref,
-  ) => {
+  ) {
     const TOKENS = Theme.useThemeTokens()
     const [secure, onChangeSecureTextEntry] = useControllableValue(restProps, {
       valuePropName: 'secureTextEntry',

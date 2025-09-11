@@ -5,7 +5,9 @@
 
 import React, { useState } from 'react'
 import { Text } from 'react-native'
-import { Cell, Field, TreeOption } from '@fruits-chain/react-native-xiaoshu'
+
+import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
 const options = new Array(6).fill(0).map((_, index) => ({
   value: index,
@@ -41,6 +43,7 @@ const BasicFieldSelector: React.FC = () => {
           setS1(v as number)
         }}
         clearable
+        // eslint-disable-next-line react-native/no-inline-styles
         valueTextStyle={{
           fontSize: 20,
         }}
@@ -58,10 +61,12 @@ const BasicFieldSelector: React.FC = () => {
             return (
               <>
                 <Text
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{ textAlign: 'right', fontSize: 14, color: '#666' }}>
                   {opts[0].label}
                 </Text>
                 <Text
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{ textAlign: 'right', fontSize: 12, color: '#098' }}>
                   其他描述
                 </Text>
@@ -85,7 +90,13 @@ const BasicFieldSelector: React.FC = () => {
         value={s1}
         options={options.map(item => ({
           ...item,
-          render: () => <Text style={{ color: '#098' }}>{item.label}</Text>,
+          render: () => (
+            <Text
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ color: '#098' }}>
+              {item.label}
+            </Text>
+          ),
         }))}
         onChange={v => {
           setS1(v as number)
@@ -125,6 +136,7 @@ const BasicFieldSelector: React.FC = () => {
         multiple
         title="多选多选多选多选多选多选"
         titleTextNumberOfLines={1}
+        // eslint-disable-next-line react-native/no-inline-styles
         titleStyle={{ flexBasis: 120 }}
         placeholder="请选择"
         value={s2}
@@ -137,6 +149,7 @@ const BasicFieldSelector: React.FC = () => {
         multiple
         title="多选:搜索"
         titleTextNumberOfLines={1}
+        // eslint-disable-next-line react-native/no-inline-styles
         titleStyle={{ flexBasis: 120 }}
         placeholder="请选择"
         value={s2}

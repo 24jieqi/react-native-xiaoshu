@@ -3,12 +3,13 @@
  * description: Checkbox 默认在 true、false 之间切换，通过 `activeValue`、`inactiveValue` 自定义切换的值。Checkbox 组件支持传入泛型，更友好的约束 `value`、`activeValue`、`inactiveValue`、`onChange`。
  */
 
-import React, { useState } from 'react'
-import { Checkbox, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   ArrowUpOutline,
   ArrowDownOutline,
 } from '@fruits-chain/icons-react-native'
+import React, { useState } from 'react'
+
+import { Checkbox, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const CheckboxBase: React.FC = () => {
   const [value, setValue] = useState(true)
@@ -33,6 +34,7 @@ const CheckboxBase: React.FC = () => {
           <Checkbox
             defaultValue
             label="自定义 icon 边距"
+            // eslint-disable-next-line react-native/no-inline-styles
             iconStyle={{ marginRight: 16 }}
           />
           <Checkbox label="受控:不更新" value={value} />
@@ -160,6 +162,7 @@ const CheckboxBase: React.FC = () => {
           <Checkbox gap={12} label="gap 自定义图标、文案间距" />
           <Checkbox
             iconSize={16}
+            // eslint-disable-next-line react-native/no-inline-styles
             labelTextStyle={{ color: '#666', fontSize: 12 }}
             label="iconSize、iconStyle 自定义 icon 样式，labelTextStyle 自定义文案样式"
           />

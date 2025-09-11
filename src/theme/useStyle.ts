@@ -31,7 +31,7 @@ export const useStyle = <CV extends ComponentVar, CS>({
 
       return createStyle(cv, styleCreator, TOKENS)
     }
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+
     return {} as CS
   }, [TOKENS, cv, cvMerge, styleCreator, theme])
 

@@ -9,6 +9,7 @@ export interface Options<T> {
   trigger?: string
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Props = Record<string, any>
 
 export interface StandardProps<T> {
@@ -17,13 +18,17 @@ export interface StandardProps<T> {
   onChange: (val: T) => void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useControllableValue<T = any>(
   props: StandardProps<T>,
 ): [T, (val: T) => void]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useControllableValue<T = any>(
   props?: Props,
   options?: Options<T>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): [T, (v: T, ...args: any[]) => void]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useControllableValue<T = any>(
   props: Props = {},
   options: Options<T> = {},
@@ -48,6 +53,7 @@ function useControllableValue<T = any>(
     return defaultValue
   })
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setState = (v: T, ...args: any[]) => {
     if (!isControlled) {
       setLocalValue(v)

@@ -186,7 +186,6 @@ export interface DialogInputProps
    */
   onPressCancel?: (
     text: string,
-    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   ) => boolean | Promise<boolean> | void | Promise<void>
 
   /**
@@ -194,7 +193,6 @@ export interface DialogInputProps
    */
   onPressConfirm?: (
     text: string,
-    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   ) => boolean | Promise<boolean> | void | Promise<void>
 
   /**

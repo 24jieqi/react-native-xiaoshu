@@ -109,7 +109,7 @@ function StepSelector<T = number>({
         const selected = __value
           .map((v, index) => {
             const opts = datas[index].options
-            // eslint-disable-next-line max-nested-callbacks
+
             const vIndex = opts.findIndex(op => op.value === v)
             return opts[vIndex]
           })
@@ -234,7 +234,7 @@ function StepSelector<T = number>({
 
                     const option = newValue.map((v, index) => {
                       const opts = state.responseData[index].options
-                      // eslint-disable-next-line max-nested-callbacks
+
                       const vIndex = opts.findIndex(op => op.value === v)
                       return opts[vIndex]
                     })

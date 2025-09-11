@@ -5,6 +5,7 @@
 
 import React from 'react'
 import { ScrollView, Text } from 'react-native'
+
 import { Steps, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicDemo: React.FC = () => {

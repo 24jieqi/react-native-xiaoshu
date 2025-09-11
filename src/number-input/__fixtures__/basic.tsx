@@ -6,8 +6,8 @@
 import React from 'react'
 
 import NumberInputBase from './base'
-import NumberInputFormatter from './formatter'
 import NumberInputExtra from './extra'
+import NumberInputFormatter from './formatter'
 import NumberInputLimit from './limit'
 
 const BasicNumberInput: React.FC = () => {

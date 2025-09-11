@@ -2,6 +2,7 @@
  * title: 大小
  * description: 共有两个大小可以选择。
  */
+import React from 'react'
 
 import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
 

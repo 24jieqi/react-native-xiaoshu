@@ -3,15 +3,15 @@
  * description: 一般用于固定页面底部，支持文案、图标。
  */
 
-import React, { useState } from 'react'
-import type { ViewStyle } from 'react-native'
-
-import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
 } from '@fruits-chain/icons-react-native'
+import React, { useState } from 'react'
+import type { ViewStyle } from 'react-native'
+
+import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -77,7 +77,7 @@ const BasicTabBarBase: React.FC = () => {
 
       <TabBar
         safeAreaInsetBottom={false}
-        options={bottomBar.map(({ iconRender, ...rest }) => rest)}
+        options={bottomBar.map(({ iconRender: _, ...rest }) => rest)}
         value={value1}
         onChange={v => {
           setValue1(v as number)

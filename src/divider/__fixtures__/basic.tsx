@@ -27,7 +27,9 @@ const BasicDivider: React.FC = () => {
             <Divider direction="vertical" type="light" />
             <Divider direction="vertical" dashed />
             <Divider direction="vertical" dashed type="light" />
-            <View style={{ height: 30 }}>
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 30 }}>
               <Divider direction="vertical" />
             </View>
             <Divider direction="vertical" color="#000" />
@@ -82,13 +84,17 @@ const BasicDivider: React.FC = () => {
         <Card title="自定义样式" square>
           <Space>
             <Divider
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{ backgroundColor: '#999' }}
+              // eslint-disable-next-line react-native/no-inline-styles
               textStyle={{ color: '#690' }}>
               文字
             </Divider>
 
             <Divider
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{ backgroundColor: '#f30' }}
+              // eslint-disable-next-line react-native/no-inline-styles
               textStyle={{ color: '#000' }}>
               文字
             </Divider>

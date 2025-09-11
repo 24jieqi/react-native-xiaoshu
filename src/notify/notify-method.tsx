@@ -14,7 +14,10 @@ import Notify from './notify'
  * @description 在页面顶部展示消息提示，支持函数调用和组件调用两种方式。
  */
 const NotifyMethod = forwardRef<NotifyMethods, NotifyMethodProps>(
-  ({ duration = 3000, message, ...restProps }, ref) => {
+  function NotifyMethodForwardRef(
+    { duration = 3000, message, ...restProps },
+    ref,
+  ) {
     const [visible, setVisible] = useState(false)
     const [msg, setMsg] = useState(message)
 

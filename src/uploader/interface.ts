@@ -26,6 +26,7 @@ export type UploaderValue = {
    */
   deletable?: boolean
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [index: string]: any
 }
 
@@ -48,6 +49,7 @@ export interface UploaderProps<T extends UploaderValue> extends ViewProps {
    */
   imageComponent?: ComponentType<{
     source?: ImageSourcePropType
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [index: string]: any
   }>
 

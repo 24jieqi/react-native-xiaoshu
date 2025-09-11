@@ -57,7 +57,7 @@ const getTargetRelativeLayout = (target: TargetRef, scroll: ScrollViewRef) =>
         scroll.current as unknown as React.ElementRef<
           HostComponent<ScrollViewProps>
         >,
-        // eslint-disable-next-line max-params
+
         (left: number, top: number, width: number, height: number) => {
           resolve({ left, top, width, height })
         },

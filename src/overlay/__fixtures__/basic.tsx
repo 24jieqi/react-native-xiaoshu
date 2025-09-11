@@ -85,6 +85,7 @@ const BasicOverlay: React.FC = () => {
 
       <Overlay
         visible={state.inset}
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ justifyContent: 'center', alignItems: 'center' }}
         onPress={() => {
           setState(s => ({
@@ -94,6 +95,7 @@ const BasicOverlay: React.FC = () => {
         }}>
         <TouchableWithoutFeedback>
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               backgroundColor: '#fff',
               width: 200,

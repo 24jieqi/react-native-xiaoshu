@@ -8,6 +8,7 @@ import Space from '../space'
 import ButtonOption from './button-option'
 import type { ButtonOptionGroupProps } from './interface'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ButtonOptionGroup<T = any>({
   theme,
   activeHighlight = true,

@@ -101,6 +101,7 @@ const FieldSelector: React.FC<FieldSelectorProps> = ({
               <TextInputClear
                 onPress={() => {
                   // TODO 修复类型报错
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange?.((multiple ? [] : undefined) as any, [])
                 }}
               />

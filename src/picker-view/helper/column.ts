@@ -32,7 +32,6 @@ export const findUsableOptionIndex = (
   index: number,
   /** 是否可以翻转查找 */
   reverse = true,
-  // eslint-disable-next-line max-params
 ) => {
   const maxIndex = options.length - 1
   // 两端的情况不能反转查找

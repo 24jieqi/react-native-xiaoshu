@@ -62,7 +62,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = ({
   }, [selectedIndex])
 
   const onMomentumScrollEnd = usePersistFn<
-    ExcludeUndefined<FlatListProps<any>['onMomentumScrollEnd']>
+    ExcludeUndefined<FlatListProps<unknown>['onMomentumScrollEnd']>
   >(event => {
     const offsetY = Math.min(
       itemHeight * (options.length - 1),

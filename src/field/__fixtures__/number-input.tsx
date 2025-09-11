@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react'
+
 import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
@@ -17,6 +18,7 @@ const BasicFieldTextInput: React.FC = () => {
         onChange={v => {
           console.log(v)
         }}
+        // eslint-disable-next-line react-native/no-inline-styles
         textInputStyle={{
           fontSize: 20,
         }}

@@ -1,6 +1,8 @@
-import { ScrollView } from 'react-native'
-import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 import { PlusOutline } from '@fruits-chain/icons-react-native'
+import React from 'react'
+import { ScrollView } from 'react-native'
+
+import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
 
 import ButtonBarBase from './base'
 import ButtonBarButtons from './buttons'

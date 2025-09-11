@@ -36,7 +36,6 @@ const buildColumnData = (
   start: number,
   end: number,
   renderLabel: RenderLabel,
-  // eslint-disable-next-line max-params
 ) => {
   const items: PickerOption[] = []
   for (let index = start; index <= end; index++) {

@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react'
+
 import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldTextInput: React.FC = () => {
@@ -14,6 +15,7 @@ const BasicFieldTextInput: React.FC = () => {
       <Field.TextInput
         title="非受控输入框"
         placeholder="请输入"
+        // eslint-disable-next-line react-native/no-inline-styles
         textInputStyle={{
           fontSize: 20,
         }}
@@ -58,6 +60,7 @@ const BasicFieldTextInput: React.FC = () => {
       <Field.TextInput
         vertical
         title="自定义 valueStyle"
+        // eslint-disable-next-line react-native/no-inline-styles
         valueStyle={{ marginTop: 16 }}
         placeholder="请输入"
         value={text1}

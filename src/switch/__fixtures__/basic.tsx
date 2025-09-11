@@ -4,10 +4,10 @@ import { ScrollView, View } from 'react-native'
 import { Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 import BasicSwitchBase from './base'
-import BasicSwitchText from './text'
+import BasicSwitchCustom from './custom'
 import BasicSwitchDisabled from './disabled'
 import BasicSwitchSize from './size'
-import BasicSwitchCustom from './custom'
+import BasicSwitchText from './text'
 
 const BasicSwitch: React.FC = () => {
   return (
@@ -33,7 +33,10 @@ const BasicSwitch: React.FC = () => {
           <BasicSwitchCustom />
         </Card>
 
-        <View style={{ height: 50 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 50 }}
+        />
       </Space>
     </ScrollView>
   )

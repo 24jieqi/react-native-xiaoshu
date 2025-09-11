@@ -5,6 +5,7 @@
 
 import React from 'react'
 import { Text } from 'react-native'
+
 import { Card, Button, Space, Blank } from '@fruits-chain/react-native-xiaoshu'
 
 const CardLoading: React.FC = () => {

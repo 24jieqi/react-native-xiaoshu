@@ -3,18 +3,19 @@
  * description: 快捷组织一组可选项，可选项多的场景推荐竖向，候选项少的场景推荐横向。
  */
 
+import {
+  ArrowUpOutline,
+  ArrowDownOutline,
+} from '@fruits-chain/icons-react-native'
 import React, { useState } from 'react'
+import { Text, Pressable } from 'react-native'
+
 import {
   Checkbox,
   Card,
   Space,
   Divider,
 } from '@fruits-chain/react-native-xiaoshu'
-import { Text, Pressable } from 'react-native'
-import {
-  ArrowUpOutline,
-  ArrowDownOutline,
-} from '@fruits-chain/icons-react-native'
 
 const options = new Array(6).fill(0).map((_, index) => ({
   value: index + 1,
@@ -112,6 +113,7 @@ const CheckboxGroup: React.FC = () => {
         <Checkbox.Group
           direction="horizontal"
           gap={12}
+          // eslint-disable-next-line react-native/no-inline-styles
           checkboxLabelTextStyle={{
             color: '#666',
             fontSize: 12,

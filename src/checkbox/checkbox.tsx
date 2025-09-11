@@ -109,4 +109,4 @@ export default memo(Checkbox) as <
   InactiveValueT = boolean,
 >(
   p: CheckboxProps<ActiveValueT, InactiveValueT>,
-) => JSX.Element
+) => React.ReactElement

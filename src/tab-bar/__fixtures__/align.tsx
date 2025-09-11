@@ -3,15 +3,15 @@
  * description: 默认子选项居中对齐，如果选项太多可以左对齐，且出现滚动。
  */
 
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-
-import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
 } from '@fruits-chain/icons-react-native'
+import React from 'react'
+import type { ViewStyle } from 'react-native'
+
+import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',

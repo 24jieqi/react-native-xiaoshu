@@ -25,6 +25,7 @@ export interface PopoverItemProps<T> {
    */
   divider?: boolean
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 
@@ -122,5 +123,6 @@ export interface PopoverTextProps extends TextProps {
    */
   disabled?: boolean
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }

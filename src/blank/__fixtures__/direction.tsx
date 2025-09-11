@@ -4,7 +4,9 @@
  */
 
 import React from 'react'
-import { Text, View, ViewStyle } from 'react-native'
+import type { ViewStyle } from 'react-native'
+import { Text, View } from 'react-native'
+
 import { Blank, Card, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
 
 const ctxStyle = { backgroundColor: '#f5f5f5' }
@@ -54,9 +56,12 @@ const BasicBlankDirection: React.FC = () => {
 
 const Tip = ({ text, style }: { text: string; style: ViewStyle }) => {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View
+      // eslint-disable-next-line react-native/no-inline-styles
+      style={{ flexDirection: 'row', alignItems: 'center' }}>
       <Text>{text}</Text>
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           width: 20,
           height: 20,

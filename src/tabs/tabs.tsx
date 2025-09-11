@@ -15,7 +15,8 @@ const parseTabList = (children: React.ReactNode) => {
       if (isValidElement(node)) {
         const key = node.key !== undefined ? String(node.key) : undefined
         return {
-          // @ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           key,
           ...node.props,
           node,

@@ -2,9 +2,10 @@
  * title: 自定义
  * description: 根据自身需求自定义组件。
  */
+import React from 'react'
+import { Text, View } from 'react-native'
 
 import { Empty, Flex, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
-import { Text, View } from 'react-native'
 
 const EmptyCustom = () => {
   const { gray_1 } = Theme.useThemeTokens()
@@ -19,6 +20,7 @@ const EmptyCustom = () => {
             <Flex direction="row" align="center">
               <Text>还没有，请</Text>
               <Text
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{ color: '#098', marginLeft: 2 }}
                 suppressHighlighting={false}
                 onPress={() => {
@@ -31,7 +33,9 @@ const EmptyCustom = () => {
         />
       </Space>
 
-      <View style={{ height: 500, backgroundColor: gray_1 }}>
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{ height: 500, backgroundColor: gray_1 }}>
         <Empty text="占满剩余空间 full" full />
       </View>
     </>

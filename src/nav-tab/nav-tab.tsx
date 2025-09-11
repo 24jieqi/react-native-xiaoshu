@@ -44,4 +44,4 @@ const NavTab = <T,>({ options, theme, ...restProps }: NavTabProps<T>) => {
   )
 }
 
-export default memo(NavTab) as <T>(props: NavTabProps<T>) => React.JSX.Element
+export default memo(NavTab) as <T>(props: NavTabProps<T>) => React.ReactElement

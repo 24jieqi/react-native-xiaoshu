@@ -274,4 +274,4 @@ const TabBar = <T extends TabValue>({
 
 export default memo(TabBar) as <T extends TabValue>(
   p: TabBarProps<T>,
-) => JSX.Element
+) => React.ReactElement

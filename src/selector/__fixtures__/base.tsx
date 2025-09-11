@@ -6,8 +6,8 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-import { SelectorOption, Toast } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
+import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
+import { Toast, Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicSelectorBase: React.FC = () => {
   return (
@@ -72,11 +72,28 @@ const BasicSelectorBase: React.FC = () => {
               label: `文案_${index}`,
               value: index,
               render: ({ label }) => (
+                // eslint-disable-next-line react-native/no-inline-styles
                 <View style={{ flex: 1 }}>
-                  <Text style={{ color: '#f30' }}>{label}</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#f30' }}>
+                    {label}
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
                 </View>
               ),
             })
@@ -167,8 +184,8 @@ const BasicSelectorBase: React.FC = () => {
           Selector({
             title: '测试选项',
             options: v,
-            onChange: (v, o) => {
-              console.log(v)
+            onChange: (vv, o) => {
+              console.log(vv)
               console.log(o)
             },
           }).catch(() => {})
@@ -190,8 +207,8 @@ const BasicSelectorBase: React.FC = () => {
           Selector({
             title: '测试选项',
             options: v,
-            beforeChange: (v, o) => {
-              console.log(v)
+            beforeChange: (vv, o) => {
+              console.log(vv)
               console.log(o)
               return new Promise<boolean>(resolve => {
                 const { close } = Toast.loading({
@@ -225,8 +242,8 @@ const BasicSelectorBase: React.FC = () => {
             multiple: true,
             title: '测试选项',
             options: v,
-            onChange: (v, o) => {
-              console.log(v)
+            onChange: (vv, o) => {
+              console.log(vv)
               console.log(o)
             },
           }).catch(() => {})
@@ -243,11 +260,28 @@ const BasicSelectorBase: React.FC = () => {
               label: `文案_${index}`,
               value: index,
               render: ({ label }) => (
+                // eslint-disable-next-line react-native/no-inline-styles
                 <View style={{ flex: 1 }}>
-                  <Text style={{ color: '#f30' }}>{label}</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#f30' }}>
+                    {label}
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
                 </View>
               ),
             })
@@ -257,8 +291,8 @@ const BasicSelectorBase: React.FC = () => {
             multiple: true,
             title: '测试选项',
             options: v,
-            onChange: (v, o) => {
-              console.log(v)
+            onChange: (vv, o) => {
+              console.log(vv)
               console.log(o)
             },
           }).catch(() => {})

@@ -1,6 +1,7 @@
 import debounce from 'lodash/debounce'
 import { useRef, useMemo, useEffect } from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type noop = (...args: any) => any
 
 export interface DebounceOptions {
@@ -21,7 +22,6 @@ const useDebounceFn = <T extends noop>(fn: T, options?: DebounceOptions) => {
     () =>
       debounce(
         (...args: Parameters<T>): ReturnType<T> => {
-          // @ts-ignore
           return fnRef.current?.(...args)
         },
         wait,

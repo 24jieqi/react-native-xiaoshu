@@ -6,9 +6,9 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 
-import PickerViewSingle from './single'
-import PickerViewMultiple from './multiple'
 import PickerViewCascade from './cascade'
+import PickerViewMultiple from './multiple'
+import PickerViewSingle from './single'
 
 const BasicMultiple: React.FC = () => {
   return (

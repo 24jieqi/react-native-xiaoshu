@@ -1,4 +1,4 @@
-import { memo, useCallback, useRef, useState } from 'react'
+import React, { memo, useCallback, useRef, useState } from 'react'
 import type { ScrollViewProps } from 'react-native'
 import { View, ScrollView } from 'react-native'
 

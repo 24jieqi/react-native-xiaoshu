@@ -4,7 +4,9 @@
  */
 
 import React from 'react'
-import { Text, View, ViewStyle } from 'react-native'
+import type { ViewStyle } from 'react-native'
+import { Text, View } from 'react-native'
+
 import { Blank, Card, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
 
 const ctxStyle = { backgroundColor: '#f5f5f5' }
@@ -34,19 +36,19 @@ const BasicBlankSize: React.FC = () => {
 
         <Card title="内置 size" bodyPadding={false} bodyStyle={cardBodyStyle}>
           <Blank top bottom style={blankStyle} size="s">
-            <Text style={ctxStyle}>size="s"</Text>
+            <Text style={ctxStyle}>size=s</Text>
           </Blank>
 
           <Divider style={dividerStyle}>·</Divider>
 
           <Blank top bottom style={blankStyle} size="m">
-            <Text style={ctxStyle}>size="m"</Text>
+            <Text style={ctxStyle}>size=m</Text>
           </Blank>
 
           <Divider style={dividerStyle}>·</Divider>
 
           <Blank top bottom style={blankStyle} size="l">
-            <Text style={ctxStyle}>size="l"</Text>
+            <Text style={ctxStyle}>size=l</Text>
           </Blank>
         </Card>
       </Space>
@@ -56,9 +58,11 @@ const BasicBlankSize: React.FC = () => {
 
 const Tip = ({ text, style }: { text: string; style: ViewStyle }) => {
   return (
+    // eslint-disable-next-line react-native/no-inline-styles
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
       <Text>{text}</Text>
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           width: 20,
           height: 20,

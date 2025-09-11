@@ -8,6 +8,7 @@ export type OptionData<T> = {
   value: T
   label: string
   index?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [index: string]: any
 }
 

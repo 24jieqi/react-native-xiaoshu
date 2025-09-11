@@ -3,6 +3,7 @@
  * description: 简化版按钮，适合用于选择场景，和 Checkbox 组件有相似的作用。
  */
 
+import { ArrowDownOutline } from '@fruits-chain/icons-react-native'
 import React, { memo } from 'react'
 
 import {
@@ -11,7 +12,6 @@ import {
   Space,
   Divider,
 } from '@fruits-chain/react-native-xiaoshu'
-import { ArrowDownOutline } from '@fruits-chain/icons-react-native'
 
 const onPress = () => {
   console.log('点击按钮')

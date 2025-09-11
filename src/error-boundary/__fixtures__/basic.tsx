@@ -18,8 +18,7 @@ const ErrorApp = () => {
     return null
   }, [])
 
-  // @ts-ignore
-  return <Text>{randomData.text}</Text>
+  return <Text>{randomData?.text}</Text>
 }
 
 const BasicResult: React.FC = () => {

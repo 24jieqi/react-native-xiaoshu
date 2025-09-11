@@ -6,6 +6,7 @@
 import React from 'react'
 import { Text, View, useWindowDimensions } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
 import { FloatingPanel } from '@fruits-chain/react-native-xiaoshu'
 
 const ScrollFloatingPanel: React.FC = () => {
@@ -18,6 +19,7 @@ const ScrollFloatingPanel: React.FC = () => {
   return (
     <>
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           height: 400,
           backgroundColor: '#981',
@@ -30,14 +32,38 @@ const ScrollFloatingPanel: React.FC = () => {
         anchorStart={anchorStart}
         anchorEnd={anchorEnd}>
         <Text>434</Text>
-        <View style={{ backgroundColor: '#ff8', height: 400 }} />
-        <View style={{ backgroundColor: '#f18', height: 400 }} />
-        <View style={{ backgroundColor: '#f98', height: 400 }} />
-        <View style={{ backgroundColor: '#a18', height: 400 }} />
-        <View style={{ backgroundColor: '#a58', height: 400 }} />
-        <View style={{ backgroundColor: '#b98', height: 400 }} />
-        <View style={{ backgroundColor: '#C18', height: 400 }} />
-        <View style={{ backgroundColor: '#C48', height: 400 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#ff8', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#f18', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#f98', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#a18', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#a58', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#b98', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#C18', height: 400 }}
+        />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ backgroundColor: '#C48', height: 400 }}
+        />
         <Text>end</Text>
       </FloatingPanel.ScrollView>
     </>

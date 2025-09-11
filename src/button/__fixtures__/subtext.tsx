@@ -3,8 +3,8 @@
  * description: 通过 `subtext` 设置更多描述。
  */
 
-import React, { memo } from 'react'
 import { PlusOutline } from '@fruits-chain/icons-react-native'
+import React, { memo } from 'react'
 
 import {
   Button,

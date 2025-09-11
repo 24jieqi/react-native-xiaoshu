@@ -31,7 +31,7 @@ const Step: FC<StepsItemPropsType> = ({
   const [elementCount, setElementCount] = useState(0)
 
   let resIcon: React.ReactNode = null
-  let resStatus = status ? status : current >= index ? 'finish' : 'wait'
+  const resStatus = status ? status : current >= index ? 'finish' : 'wait'
   let titleStyle: TextStyle | null = null
 
   switch (resStatus) {

@@ -53,11 +53,14 @@ const BasicPopupKeyboardShim: React.FC = () => {
           />
         </Blank>
 
-        <ScrollView style={{ maxHeight: 200 }}>
+        <ScrollView
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ maxHeight: 200 }}>
           {data.map(item => {
             return (
               <Text
                 key={item}
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                   paddingVertical: 8,
                   paddingHorizontal: 12,

@@ -2,6 +2,7 @@
  * title: 基本
  * description: 简单的展示。
  */
+import React from 'react'
 
 import { Empty } from '@fruits-chain/react-native-xiaoshu'
 

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import type React from 'react'
 import { Component } from 'react'
 
@@ -10,6 +9,7 @@ export type PortalConsumerProps = {
 }
 
 export default class PortalConsumer extends Component<PortalConsumerProps> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   key: any
 
   componentDidMount() {

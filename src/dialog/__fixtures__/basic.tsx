@@ -8,8 +8,8 @@ import { ScrollView } from 'react-native'
 
 import DialogBase from './base'
 import DialogInput from './input'
-import DialogOther from './other'
 import DialogKeyboard from './keyboard'
+import DialogOther from './other'
 
 const BasicDialog: React.FC = () => {
   return (

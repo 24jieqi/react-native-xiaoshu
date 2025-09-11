@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import React, { PureComponent } from 'react'
 import { View, StyleSheet } from 'react-native'
 

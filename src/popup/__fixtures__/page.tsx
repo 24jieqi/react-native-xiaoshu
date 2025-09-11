@@ -38,31 +38,46 @@ const BasicPopupPage: React.FC = () => {
 
         <ScrollView>
           <Space tail>
-            <View style={{ height: 200, backgroundColor: '#f09' }} />
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 200, backgroundColor: '#f09' }}
+            />
             <Field.TextInput
               title="文案棒"
               placeholder="请输入"
               divider={false}
             />
-            <View style={{ height: 200, backgroundColor: '#876' }} />
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 200, backgroundColor: '#876' }}
+            />
             <Field.TextInput
               title="文案秒"
               placeholder="请输入"
               divider={false}
             />
-            <View style={{ height: 200, backgroundColor: '#123' }} />
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 200, backgroundColor: '#123' }}
+            />
             <Field.TextInput
               title="文案雅"
               placeholder="请输入"
               divider={false}
             />
-            <View style={{ height: 200, backgroundColor: '#678' }} />
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 200, backgroundColor: '#678' }}
+            />
             <Field.TextInput
               title="文案水"
               placeholder="请输入"
               divider={false}
             />
-            <View style={{ height: 200, backgroundColor: '#321' }} />
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 200, backgroundColor: '#321' }}
+            />
           </Space>
         </ScrollView>
 

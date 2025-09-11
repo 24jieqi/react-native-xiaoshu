@@ -129,6 +129,7 @@ const BasicTabs: React.FC = () => {
       <Tabs
         tabBarHeight={60}
         tabBarBackgroundColor="#f9f9f9"
+        // eslint-disable-next-line react-native/no-inline-styles
         tabBarStyle={{ marginTop: 40 }}>
         <Tabs.TabPane key="1" tab="第一个">
           <Result status="success" title="啊哈" subtitle="嘿嘿嘿" />

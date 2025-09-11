@@ -2,8 +2,8 @@ import React from 'react'
 import { ScrollView } from 'react-native'
 
 import EmptyBase from './base'
-import EmptyIcon from './icon'
 import EmptyCustom from './custom'
+import EmptyIcon from './icon'
 
 const BasicTag: React.FC = () => {
   return (

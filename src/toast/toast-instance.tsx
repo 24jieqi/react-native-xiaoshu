@@ -25,7 +25,6 @@ const defaultOptions: ToastOptions = {
   loadingType: 'spinner',
 }
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 let defaultOptionsMap = {} as OptionsMap
 
 let currentOptions = {
@@ -107,7 +106,7 @@ export const resetDefaultOptions = (type: ToastType | ToastOptions) => {
     defaultOptionsMap[type] = null
   } else {
     currentOptions = { ...defaultOptions }
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+
     defaultOptionsMap = {} as OptionsMap
   }
 }

@@ -12,6 +12,7 @@ export type PickerOption = {
   label: PickerValue
   disabled?: boolean
   // for custom filed names
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 
@@ -29,6 +30,7 @@ export type PickerOptionMultiple =
 export type PickerOptionCascade = PickerOption & {
   children?: PickerOptionCascade[]
   // for custom filed names
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 

@@ -193,7 +193,7 @@ export interface DropdownContext
     >,
     Partial<
       Pick<
-        DropdownItemProps<any>,
+        DropdownItemProps<unknown>,
         | 'titleStyle'
         | 'titleTextStyle'
         | 'duration'
@@ -220,7 +220,7 @@ export interface DropdownMenuProps
 }
 
 export interface DropdownPopupProps
-  extends Pick<DropdownItemProps<any>, 'zIndex' | 'closeOnPressOutside'>,
+  extends Pick<DropdownItemProps<unknown>, 'zIndex' | 'closeOnPressOutside'>,
     PopupPropsCommon,
     PropsWithChildren<{}> {
   /**

@@ -93,6 +93,7 @@ const BasicNumberInputExtra: React.FC = () => {
         tail
         direction="horizontal"
         align="center"
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ backgroundColor: '#fff' }}>
         <Text>采购量</Text>
         <NumberInput

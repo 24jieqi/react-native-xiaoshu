@@ -1,17 +1,17 @@
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-import { ScrollView, Text } from 'react-native'
-
-import { TabBar, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
 } from '@fruits-chain/icons-react-native'
+import React from 'react'
+import type { ViewStyle } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 
+import { TabBar, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
+
+import BasicTabBarAlign from './align'
 import BasicTabBarBase from './base'
 import BasicTabBarIndicator from './indicator'
-import BasicTabBarAlign from './align'
 import BasicTabBarLabel from './label'
 
 const bottomBarIconStyle: ViewStyle = {

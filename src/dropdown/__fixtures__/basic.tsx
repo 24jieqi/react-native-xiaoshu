@@ -83,15 +83,20 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Item
             options={[]}
             placeholder="请选择"
+            // eslint-disable-next-line react-native/no-inline-styles
             titleTextStyle={{
               color: '#098',
             }}
           />
         </Dropdown>
-        <View style={{ height: 200 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 200 }}
+        />
 
         <Text>自定义布局 左右对齐</Text>
         <Dropdown
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{ justifyContent: 'space-between', paddingHorizontal: 12 }}>
           <Dropdown.Item
             search
@@ -104,6 +109,7 @@ const BasicDropdown: React.FC = () => {
                 v1: v as number,
               }))
             }}
+            // eslint-disable-next-line react-native/no-inline-styles
             titleStyle={{
               flex: 0,
             }}
@@ -111,13 +117,17 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Item
             options={itemOptions}
             defaultValue={itemOptions[2].value}
+            // eslint-disable-next-line react-native/no-inline-styles
             titleStyle={{
               flex: 0,
             }}
           />
         </Dropdown>
 
-        <View style={{ height: 200 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 200 }}
+        />
 
         <Text>禁用下拉框</Text>
         <Dropdown divider={false}>
@@ -135,7 +145,10 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Item options={itemOptions} value={itemOptions[2].value} />
         </Dropdown>
 
-        <View style={{ height: 200 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 200 }}
+        />
 
         <Text>下拉选项加载中、自定义高亮颜色</Text>
         <Dropdown direction="up" activeColor="#f30">
@@ -162,7 +175,10 @@ const BasicDropdown: React.FC = () => {
           />
         </Dropdown>
 
-        <View style={{ height: 500 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 500 }}
+        />
 
         <Text>自定义高亮颜色、有角标与无角标</Text>
         <Dropdown direction="up" activeColor="#f30">
@@ -188,7 +204,10 @@ const BasicDropdown: React.FC = () => {
           />
         </Dropdown>
 
-        <View style={{ height: 500 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 500 }}
+        />
 
         <Text>树形结构选项、有无搜索</Text>
         <Dropdown>
@@ -204,7 +223,10 @@ const BasicDropdown: React.FC = () => {
           <Dropdown.Item options={itemOptions3} defaultValue={null} />
         </Dropdown>
 
-        <View style={{ height: 500 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 500 }}
+        />
 
         <Text>选中后可以取消</Text>
         <Dropdown>
@@ -219,7 +241,10 @@ const BasicDropdown: React.FC = () => {
           />
         </Dropdown>
 
-        <View style={{ height: 500 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 500 }}
+        />
 
         <Text>多选</Text>
         <Dropdown>
@@ -239,6 +264,7 @@ const BasicDropdown: React.FC = () => {
             beforeChecked={({ checked, option }) => {
               if (checked) {
                 const cValues: string[] = []
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const findAllValue = (c: any) => {
                   cValues.push(c.value)
 
@@ -259,7 +285,10 @@ const BasicDropdown: React.FC = () => {
           />
         </Dropdown>
 
-        <View style={{ height: 500 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 500 }}
+        />
 
         <View ref={ViewRef} collapsable={false}>
           <Button
@@ -282,6 +311,7 @@ const BasicDropdown: React.FC = () => {
             {...popupProps}
             onPressShade={onPressShade}
             onPressOverlay={onPressShade}
+            // eslint-disable-next-line react-native/no-inline-styles
             contentStyle={{
               paddingVertical: 20,
               borderTopLeftRadius: 4,
@@ -298,7 +328,10 @@ const BasicDropdown: React.FC = () => {
           </Dropdown.Popup>
         </Portal>
 
-        <View style={{ height: 800 }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 800 }}
+        />
       </Cell.Group>
     </ScrollView>
   )

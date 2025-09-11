@@ -26,7 +26,8 @@ export default function childrenToArray(
     if (Array.isArray(child)) {
       ret = ret.concat(childrenToArray(child))
     } else if (isFragment(child) && child.props) {
-      ret = ret.concat(childrenToArray(child.props.children, option))
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ret = ret.concat(childrenToArray((child.props as any).children, option))
     } else {
       ret.push(child)
     }

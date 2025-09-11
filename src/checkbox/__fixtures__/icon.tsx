@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react'
+
 import { Checkbox, Card, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const CheckboxIcon: React.FC = () => {

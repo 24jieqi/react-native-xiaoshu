@@ -3,6 +3,8 @@
  * description: 最简单的用法，适用于简短的警告提示。
  */
 
+import React from 'react'
+
 import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const NoticeBarBase = () => {

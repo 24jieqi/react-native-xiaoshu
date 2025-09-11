@@ -23,7 +23,7 @@ import { varCreator, styleCreator } from './style'
  * 搜索
  */
 const Search = forwardRef<TextInputInstance, SearchProps>(
-  (
+  function SearchForwardRef(
     {
       theme,
       iconSize = 20,
@@ -50,7 +50,7 @@ const Search = forwardRef<TextInputInstance, SearchProps>(
       ...restProps
     },
     ref,
-  ) => {
+  ) {
     const locale = Locale.useLocale().Search
     const [CV, STYLES] = Theme.useStyle({
       varCreator,

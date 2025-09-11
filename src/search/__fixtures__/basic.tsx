@@ -3,7 +3,9 @@
  * description: 把各种场景、API 都运用了
  */
 
+import { MenuOutline } from '@fruits-chain/icons-react-native'
 import React, { useState } from 'react'
+import { ScrollView, Text, View, Keyboard } from 'react-native'
 
 import {
   Cell,
@@ -12,8 +14,6 @@ import {
   Button,
   Popup,
 } from '@fruits-chain/react-native-xiaoshu'
-import { MenuOutline } from '@fruits-chain/icons-react-native'
-import { ScrollView, Text, View, Keyboard } from 'react-native'
 
 const PopupSearch = () => {
   const [value1, setValue] = useState('22')
@@ -121,6 +121,7 @@ const BasicPasswordInput: React.FC = () => {
             <MenuOutline
               size={24}
               color="#098"
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{ marginLeft: 12 }}
               onPress={() => {
                 ActionSheet({
@@ -160,6 +161,7 @@ const BasicPasswordInput: React.FC = () => {
           />
 
           <ScrollView
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{ height: 500 }}
             keyboardShouldPersistTaps="handled">
             <Search placeholder="请输入关键词搜索" />

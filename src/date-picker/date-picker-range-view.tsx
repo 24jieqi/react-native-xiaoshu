@@ -165,7 +165,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
             ]}>
             {value[0]
               ? formatDate(mode, value[0])
-              : placeholder?.[0] ?? locale.placeholder[0]}
+              : (placeholder?.[0] ?? locale.placeholder[0])}
           </Text>
         </TouchableOpacity>
 
@@ -183,7 +183,7 @@ const DatePickerRangeView: React.FC<DatePickerRangeViewProps> = ({
             ]}>
             {value[1]
               ? formatDate(mode, value[1])
-              : placeholder?.[1] ?? locale.placeholder[1]}
+              : (placeholder?.[1] ?? locale.placeholder[1])}
           </Text>
         </TouchableOpacity>
       </View>

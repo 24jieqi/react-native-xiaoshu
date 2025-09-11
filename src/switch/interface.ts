@@ -2,6 +2,7 @@ import type { ColorValue, ViewProps } from 'react-native'
 
 import type { SwitchTheme } from './style'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface SwitchProps<ActiveValueT = any, InactiveValueT = any>
   extends Pick<ViewProps, 'testID'> {
   theme?: Partial<SwitchTheme>

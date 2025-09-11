@@ -3,19 +3,19 @@
  * description: 最简单的用法。
  */
 
-import React, { useMemo, useState } from 'react'
-import { View, Text } from 'react-native'
 import {
   CoordOutline,
   TimeCircleOutline,
 } from '@fruits-chain/icons-react-native'
+import React, { useMemo, useState } from 'react'
+import { View, Text } from 'react-native'
 
 import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
 import { Card, Switch, Theme, Tree } from '@fruits-chain/react-native-xiaoshu'
 
 const defaultExpandedValues = [0, 210, 112]
 
-const onChange = (...rest: any[]) => {
+const onChange = (...rest: unknown[]) => {
   console.log(rest[0])
   console.log(rest[1])
 }
@@ -32,14 +32,14 @@ const TreeBase: React.FC = () => {
         switcherHighlight: false,
         bold: true,
         label: `第一A_${index0}层a选项`,
-        children: new Array(3).fill(0).map((_, index1) => ({
+        children: new Array(3).fill(0).map((_0, index1) => ({
           value: index1 + (index0 + 1) * 10,
           label: `第二Ab层选项_${index0}_${index1}`,
-          children: new Array(4).fill(0).map((_, index2) => ({
+          children: new Array(4).fill(0).map((_1, index2) => ({
             value: index2 + (index0 + 1) * 100 + (index1 + 1) * 10,
             label: `第三层选项_${index0}_${index1}_${index2}`,
             disabled: index0 === 1,
-            children: new Array(4).fill(0).map((_, index3) => ({
+            children: new Array(4).fill(0).map((_2, index3) => ({
               value:
                 index3 +
                 (index0 + 1) * 1000 +
@@ -48,6 +48,7 @@ const TreeBase: React.FC = () => {
               label: `第四层选项_${index0}_${index1}_${index2}_${index3}`,
               render: ({ label, activeColor, labelHighlight }) => (
                 <View
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{
                     flexDirection: 'row',
                     flex: 1,
@@ -58,6 +59,7 @@ const TreeBase: React.FC = () => {
                     color={labelHighlight ? activeColor : gray_6}
                   />
                   <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
                     style={{
                       flex: 1,
                       marginLeft: 4,
@@ -78,6 +80,7 @@ const TreeBase: React.FC = () => {
     <Card
       title="基本"
       bodyPadding={false}
+      // eslint-disable-next-line react-native/no-inline-styles
       bodyStyle={{ height: 400 }}
       extra={
         <>

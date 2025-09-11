@@ -36,12 +36,12 @@ const DropdownItem = <T,>({
     if (loading) {
       const x: DropdownItemOption<T> = {
         label: locale.labelLoadingText,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: null as any,
       }
       return x
     }
 
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     let selectOption = {} as DropdownItemOption<T>
 
     const findX = (list: DropdownItemOption<T>[]) => {
@@ -68,7 +68,7 @@ const DropdownItem = <T,>({
 
   const onPressText = usePersistFn(() => {
     // 计算 Menu 的 Top 和元素高度
-    // eslint-disable-next-line max-params
+
     config.MenuRef.current?.measure((x, y, width, height, pageX, pageY) => {
       setActive(true)
       DropdownSelector({

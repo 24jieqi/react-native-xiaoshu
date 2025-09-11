@@ -3,6 +3,11 @@
  * description: 把各种场景、API 都运用了
  */
 
+import {
+  ArrowUpOutline,
+  ArrowDownOutline,
+  CrossFill,
+} from '@fruits-chain/icons-react-native'
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native'
 
@@ -14,11 +19,6 @@ import {
   Dialog,
   Space,
 } from '@fruits-chain/react-native-xiaoshu'
-import {
-  ArrowUpOutline,
-  ArrowDownOutline,
-  CrossFill,
-} from '@fruits-chain/icons-react-native'
 
 const BasicUploader: React.FC = () => {
   const [list1, setList1] = useState<UploaderValue[]>([

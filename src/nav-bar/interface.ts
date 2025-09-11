@@ -24,7 +24,7 @@ export interface NavBarProps extends Pick<ViewProps, 'testID'> {
   /**
    * 左侧自定义内容
    */
-  leftExtra?: JSX.Element
+  leftExtra?: React.ReactElement
 
   /**
    * 右侧布局的样式
@@ -34,7 +34,7 @@ export interface NavBarProps extends Pick<ViewProps, 'testID'> {
   /**
    * 右侧自定义内容
    */
-  rightExtra?: JSX.Element
+  rightExtra?: React.ReactElement
 
   /**
    * 标题文案样式

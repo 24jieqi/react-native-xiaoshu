@@ -4,6 +4,7 @@
  */
 
 import React, { useRef } from 'react'
+
 import type { FormInstance } from '@fruits-chain/react-native-xiaoshu'
 import {
   Card,

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * title: 综合用法
  * description: 把各种场景、API 都运用了

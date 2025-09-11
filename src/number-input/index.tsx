@@ -24,7 +24,7 @@ const defaultParser = (t: string) => Number(t)
  * @description 输入中过滤所有非数字类字符，输入结束结合外界的 parser 修正数据
  */
 const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
-  (
+  function NumberInputForwardRef(
     {
       type = 'number',
       min = Number.MIN_SAFE_INTEGER,
@@ -41,7 +41,7 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
       ...restProps
     },
     ref,
-  ) => {
+  ) {
     if (isNil(restProps.keyboardType)) {
       if (Platform.OS === 'ios') {
         restProps.keyboardType = 'numbers-and-punctuation'
@@ -134,7 +134,11 @@ const NumberInput = forwardRef<TextInputInstance, NumberInputProps>(
           t = t.replace(/-/g, '')
         }
 
-        let newValueStringify = computeValueStringify(t || '', validate, isEnd)
+        const newValueStringify = computeValueStringify(
+          t || '',
+          validate,
+          isEnd,
+        )
         let finallyValue = newValueStringify
 
         // 同步更新到组件状态

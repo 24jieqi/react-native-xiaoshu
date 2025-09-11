@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { FormContext } from './context'
 import type { FormInstance } from './interface'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function useFormInstance<Value = any>(): FormInstance<Value> {
   const { form } = useContext(FormContext)
 

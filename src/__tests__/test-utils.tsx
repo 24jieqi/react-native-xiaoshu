@@ -6,17 +6,15 @@ import Provider from '../provider'
 
 // jest.mock('react-native-safe-area-context', () => mockSafeAreaContext)
 
-const AllTheProviders: React.FC<React.PropsWithChildren<{}>> = ({
-  children,
-}) => {
+const AllTheProviders: React.FC<React.PropsWithChildren> = ({ children }) => {
   return <Provider>{children}</Provider>
 }
 
 export const customRender = (
-  component: React.ReactElement<any>,
+  component: React.ReactElement<unknown>,
   options?: {
-    wrapper?: React.ComponentType<any>
-    createNodeMock?: (element: React.ReactElement) => any
+    wrapper?: React.ComponentType<unknown>
+    createNodeMock?: (element: React.ReactElement) => unknown
   },
 ) =>
   render(component, {

@@ -3,15 +3,15 @@
  * description: 组件 `Toast` 参数支持字符串或配置对象，当 `duration` 为 `0` 的时候不会主动消失。
  */
 
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 import React, { useState, useEffect, useRef } from 'react'
 import { View, ScrollView } from 'react-native'
 
 import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu'
-import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
 
 const BasicToast: React.FC = () => {
   const [loading, setLoading] = useState(false)
-  const LoadingReturnRef = useRef<any>()
+  const LoadingReturnRef = useRef<{ close: () => void }>()
 
   useEffect(() => {
     if (loading) {
@@ -203,7 +203,10 @@ const BasicToast: React.FC = () => {
         />
       </Cell.Group>
 
-      <View style={{ height: 20 }} />
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{ height: 20 }}
+      />
     </ScrollView>
   )
 }

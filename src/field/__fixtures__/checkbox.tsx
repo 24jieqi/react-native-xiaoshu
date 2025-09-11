@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react'
+
 import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
 
 const options = new Array(2).fill(0).map((_, index) => ({
@@ -27,6 +28,7 @@ const BasicFieldCheckbox: React.FC = () => {
         options={options}
         activeColor="#098"
         checkboxIconLabelGap={16}
+        // eslint-disable-next-line react-native/no-inline-styles
         checkboxLabelTextStyle={{
           color: '#666',
         }}

@@ -36,9 +36,7 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
       (allowOnAndroid && Platform.OS === 'android')
     ) {
       const keyboardDidShow = (e: KeyboardEvent) => {
-        // eslint-disable-next-line max-params
         ViewHeight.current?.measure(
-          // eslint-disable-next-line max-params
           (_x, _y, _width, _height, _pageX, pageY) => {
             Animated.timing(KeyboardHeight.current, {
               toValue: e.endCoordinates.height - (height - pageY - _height),
@@ -72,11 +70,14 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
 
       return () => {
         // TODO 旧版本如何做兼容
-        // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         if (Keyboard.removeListener) {
-          // @ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           Keyboard.removeListener(listenerEventType.show, keyboardDidShow)
-          // @ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           Keyboard.removeListener(listenerEventType.hide, keyboardDidHide)
         } else {
           _keyboardDidShow.remove?.()

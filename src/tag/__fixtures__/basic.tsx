@@ -3,16 +3,18 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
-import { Tag, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 import { PlayCircleFill } from '@fruits-chain/icons-react-native'
-import { View, Text } from 'react-native'
+import React from 'react'
+import { ScrollView, View, Text } from 'react-native'
+
+import { Tag, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicTag: React.FC = () => {
   return (
     <ScrollView>
-      <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
         <Tag type="ghost" color="#098" size="s">
           入库
         </Tag>

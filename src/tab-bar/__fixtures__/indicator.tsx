@@ -3,15 +3,15 @@
  * description: 不同的设施指示器不一样。
  */
 
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-
-import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
 } from '@fruits-chain/icons-react-native'
+import React from 'react'
+import type { ViewStyle } from 'react-native'
+
+import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',

@@ -4,6 +4,7 @@
  */
 
 import React from 'react'
+
 import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
 
 const BasicFieldText: React.FC = () => {
@@ -18,6 +19,7 @@ const BasicFieldText: React.FC = () => {
       />
       <Field.Text
         title="商品类型商品类型商品类型商品类型商品类型商品类型商品类型"
+        // eslint-disable-next-line react-native/no-inline-styles
         titleStyle={{
           flexBasis: 180,
         }}

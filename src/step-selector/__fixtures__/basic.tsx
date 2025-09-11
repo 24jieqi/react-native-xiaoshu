@@ -4,9 +4,9 @@
  */
 
 import React, { useState } from 'react'
+import { Text } from 'react-native'
 
 import { StepSelector, Cell } from '@fruits-chain/react-native-xiaoshu'
-import { Text } from 'react-native'
 
 const request = (pId: string, index: number) =>
   new Promise<{
@@ -61,7 +61,13 @@ const BasicStepSelector: React.FC = () => {
                 console.log('o => ', o)
                 console.log('isEnd => ', isEnd)
               },
-              loading: <Text style={{ textAlign: 'center' }}>加载中...</Text>,
+              loading: (
+                <Text
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  style={{ textAlign: 'center' }}>
+                  加载中...
+                </Text>
+              ),
             }).catch(() => {})
           }}
         />
