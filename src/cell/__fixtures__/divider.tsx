@@ -3,9 +3,9 @@
  * description: Cell 支持自定义分割线左右边距。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell } from '@fruits-chain/react-native-xiaoshu'
+import { Cell } from '@fruits-chain/react-native-xiaoshu';
 
 const CellDivider: React.FC = () => {
   return (
@@ -52,7 +52,7 @@ const CellDivider: React.FC = () => {
         <Cell title="标题" value="不显示分割线" divider={false} />
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default CellDivider
+export default CellDivider;

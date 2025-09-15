@@ -3,10 +3,10 @@
  * description: 带有文字和图标。`activeChildren`、`inactiveChildren` 在 `0.3.17` 以后的版本中可以使用。
  */
 
-import { CrossOutline, SuccessOutline } from '@fruits-chain/icons-react-native'
-import React from 'react'
+import { CrossOutline, SuccessOutline } from '@fruits-chain/icons-react-native';
+import React from 'react';
 
-import { Switch, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Switch, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSwitchText: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const BasicSwitchText: React.FC = () => {
         inactiveChildren={<CrossOutline color="#fff" size={16} />}
       />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicSwitchText
+export default BasicSwitchText;

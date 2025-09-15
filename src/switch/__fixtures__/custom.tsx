@@ -3,11 +3,11 @@
  * description: 支持自定义激活、未激活的值、颜色。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Switch, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Switch, Space } from '@fruits-chain/react-native-xiaoshu';
 
-type TSwitch = '3' | '4'
+type TSwitch = '3' | '4';
 
 const BasicSwitchCustom: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const BasicSwitchCustom: React.FC = () => {
         inactiveValue="2"
         inactiveChildren="2"
         onChange={p => {
-          console.log(p)
+          console.log(p);
         }}
       />
       <Switch<TSwitch, TSwitch>
@@ -29,12 +29,12 @@ const BasicSwitchCustom: React.FC = () => {
         inactiveValue="4"
         inactiveChildren="4"
         onChange={p => {
-          console.log(p)
+          console.log(p);
         }}
       />
       <Switch defaultValue activeColor="#098" inactiveColor="#876" />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicSwitchCustom
+export default BasicSwitchCustom;

@@ -2,10 +2,10 @@
  * title: 自定义图标
  * description: icon={null} 可以隐藏图标，或传入一个自定义组件
  */
-import { ArrowDownOutline } from '@fruits-chain/icons-react-native'
-import React from 'react'
+import { ArrowDownOutline } from '@fruits-chain/icons-react-native';
+import React from 'react';
 
-import { Empty, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Empty, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const EmptyIcon = () => {
   return (
@@ -14,7 +14,7 @@ const EmptyIcon = () => {
 
       <Empty icon={<ArrowDownOutline />} />
     </Space>
-  )
-}
+  );
+};
 
-export default EmptyIcon
+export default EmptyIcon;

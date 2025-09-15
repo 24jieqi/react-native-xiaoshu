@@ -1,13 +1,13 @@
-import React from 'react'
-import { ScrollView, View } from 'react-native'
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 
-import { Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
-import BasicSwitchBase from './base'
-import BasicSwitchCustom from './custom'
-import BasicSwitchDisabled from './disabled'
-import BasicSwitchSize from './size'
-import BasicSwitchText from './text'
+import BasicSwitchBase from './base';
+import BasicSwitchCustom from './custom';
+import BasicSwitchDisabled from './disabled';
+import BasicSwitchSize from './size';
+import BasicSwitchText from './text';
 
 const BasicSwitch: React.FC = () => {
   return (
@@ -39,7 +39,7 @@ const BasicSwitch: React.FC = () => {
         />
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicSwitch
+export default BasicSwitch;

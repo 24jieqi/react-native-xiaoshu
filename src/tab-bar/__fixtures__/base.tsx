@@ -7,11 +7,11 @@ import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
-} from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
-import type { ViewStyle } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import type { ViewStyle } from 'react-native';
 
-import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
+import { TabBar, Button, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -20,7 +20,7 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
-}
+};
 
 const bottomBar = [
   {
@@ -59,10 +59,10 @@ const bottomBar = [
       />
     ),
   },
-]
+];
 
 const BasicTabBarBase: React.FC = () => {
-  const [value1, setValue1] = useState(bottomBar[1].value)
+  const [value1, setValue1] = useState(bottomBar[1].value);
 
   return (
     <Space head>
@@ -71,7 +71,7 @@ const BasicTabBarBase: React.FC = () => {
         options={bottomBar}
         value={value1}
         onChange={v => {
-          setValue1(v as number)
+          setValue1(v as number);
         }}
       />
 
@@ -80,7 +80,7 @@ const BasicTabBarBase: React.FC = () => {
         options={bottomBar.map(({ iconRender: _, ...rest }) => rest)}
         value={value1}
         onChange={v => {
-          setValue1(v as number)
+          setValue1(v as number);
         }}
       />
 
@@ -88,11 +88,11 @@ const BasicTabBarBase: React.FC = () => {
         text="重置"
         danger
         onPress={() => {
-          setValue1(bottomBar[1].value)
+          setValue1(bottomBar[1].value);
         }}
       />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicTabBarBase
+export default BasicTabBarBase;

@@ -3,8 +3,8 @@
  * description: 使用 Form.Provider 关联两个独立表单。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
 import {
   Card,
@@ -12,10 +12,10 @@ import {
   Field,
   Button,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const FormOne: React.FC = () => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
 
   return (
     <Form form={form} name="one">
@@ -43,11 +43,11 @@ const FormOne: React.FC = () => {
         </Space>
       </Card>
     </Form>
-  )
-}
+  );
+};
 
 const FormTwo: React.FC = () => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
 
   return (
     <Form form={form} name="two">
@@ -75,23 +75,23 @@ const FormTwo: React.FC = () => {
         </Space>
       </Card>
     </Form>
-  )
-}
+  );
+};
 
 const BasicFormContext: React.FC = () => {
   return (
     <Card title="Form Context" square>
       <Form.Provider
         onFormChange={(name, { changedFields, forms }) => {
-          console.log('change from:', name, changedFields, forms)
+          console.log('change from:', name, changedFields, forms);
           if (name === 'one') {
-            forms.two.setFields(changedFields)
+            forms.two.setFields(changedFields);
           }
         }}
         onFormFinish={(name, { values, forms }) => {
-          console.log('finish from:', name, values, forms)
+          console.log('finish from:', name, values, forms);
           if (name === 'two') {
-            forms.one.setFieldsValue(values)
+            forms.one.setFieldsValue(values);
           }
         }}>
         <Space>
@@ -105,7 +105,7 @@ const BasicFormContext: React.FC = () => {
         </Space>
       </Form.Provider>
     </Card>
-  )
-}
+  );
+};
 
-export default BasicFormContext
+export default BasicFormContext;

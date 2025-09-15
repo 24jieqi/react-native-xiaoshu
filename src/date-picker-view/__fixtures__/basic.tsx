@@ -3,16 +3,16 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
+import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 
-import type { DatePickerColumnMode } from '@fruits-chain/react-native-xiaoshu'
-import { DatePickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
+import type { DatePickerColumnMode } from '@fruits-chain/react-native-xiaoshu';
+import { DatePickerView, Cell } from '@fruits-chain/react-native-xiaoshu';
 
 const Y_M_LIMIT = {
   min: new Date(2022, 1, 20, 18, 40, 10),
   max: new Date(2036, 2, 10, 12, 20, 50),
-}
+};
 
 // 控件多了容易卡顿
 const modes: DatePickerColumnMode[] = [
@@ -37,15 +37,15 @@ const modes: DatePickerColumnMode[] = [
   // 'm',
   // 'm-s',
   // 's',
-]
+];
 
 const onChangeLog = (v: Date) => {
-  console.log('onChangeLog')
-  console.log(v)
-}
+  console.log('onChangeLog');
+  console.log(v);
+};
 
 const BasicDatePickerView: React.FC = () => {
-  const [value, setValue] = useState(new Date())
+  const [value, setValue] = useState(new Date());
 
   return (
     <ScrollView>
@@ -78,10 +78,10 @@ const BasicDatePickerView: React.FC = () => {
               <DatePickerView mode={mode} value={value} />
             </Cell.Group>
           </React.Fragment>
-        )
+        );
       })}
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicDatePickerView
+export default BasicDatePickerView;

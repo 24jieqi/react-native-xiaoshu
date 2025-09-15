@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
-import { Text } from 'react-native'
+import React, { memo } from 'react';
+import { Text } from 'react-native';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { PopoverTextProps } from './interface'
-import PopoverItem from './popover-item'
-import { varCreator, styleCreator } from './style'
+import type { PopoverTextProps } from './interface';
+import PopoverItem from './popover-item';
+import { varCreator, styleCreator } from './style';
 
 const PopoverText: React.FC<PopoverTextProps> = ({
   theme,
@@ -22,7 +22,7 @@ const PopoverText: React.FC<PopoverTextProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   return (
     <PopoverItem
@@ -37,7 +37,7 @@ const PopoverText: React.FC<PopoverTextProps> = ({
         {text}
       </Text>
     </PopoverItem>
-  )
-}
+  );
+};
 
-export default memo(PopoverText)
+export default memo(PopoverText);

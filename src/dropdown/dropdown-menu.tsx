@@ -1,13 +1,13 @@
-import React, { useMemo, useRef, memo } from 'react'
-import { View } from 'react-native'
+import React, { useMemo, useRef, memo } from 'react';
+import { View } from 'react-native';
 
-import { varCreator as varCreatorDivider } from '../divider/style'
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { varCreator as varCreatorDivider } from '../divider/style';
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import { DropdownConfig } from './context'
-import type { DropdownMenuProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import { DropdownConfig } from './context';
+import type { DropdownMenuProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * DropdownMenu 下拉菜单的横条
@@ -30,18 +30,18 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   style,
   ...restProps
 }) => {
-  const MenuRef = useRef<View>(null)
+  const MenuRef = useRef<View>(null);
   const [CV, STYLES, TOKENS] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_DIVIDER] = Theme.useStyle({
     varCreator: varCreatorDivider,
-  })
+  });
 
-  activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
-  duration = getDefaultValue(duration, TOKENS.animation_duration_fast)
+  activeColor = getDefaultValue(activeColor, CV.dropdown_active_color);
+  duration = getDefaultValue(duration, TOKENS.animation_duration_fast);
 
   const config = useMemo(
     () => ({
@@ -67,11 +67,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       titleTextStyle,
       zIndex,
     ],
-  )
+  );
   const dividerStyle = {
     borderBottomColor: CV_DIVIDER.divider_color_light,
     borderBottomWidth: divider ? 1 : 0,
-  }
+  };
 
   return (
     <DropdownConfig.Provider value={config}>
@@ -82,7 +82,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         style={[STYLES.menu, dividerStyle, style]}
       />
     </DropdownConfig.Provider>
-  )
-}
+  );
+};
 
-export default memo(DropdownMenu)
+export default memo(DropdownMenu);

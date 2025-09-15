@@ -3,15 +3,15 @@
  * description: 组件 `Toast` 参数支持字符串或配置对象，当 `duration` 为 `0` 的时候不会主动消失。
  */
 
-import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
-import React, { useState, useEffect, useRef } from 'react'
-import { View, ScrollView } from 'react-native'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, ScrollView } from 'react-native';
 
-import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicToast: React.FC = () => {
-  const [loading, setLoading] = useState(false)
-  const LoadingReturnRef = useRef<{ close: () => void }>()
+  const [loading, setLoading] = useState(false);
+  const LoadingReturnRef = useRef<{ close: () => void }>(null);
 
   useEffect(() => {
     if (loading) {
@@ -19,17 +19,17 @@ const BasicToast: React.FC = () => {
         message: '测试',
         duration: 0,
         forbidPress: true,
-      })
+      });
 
       setTimeout(() => {
-        setLoading(false)
-      }, 3000)
+        setLoading(false);
+      }, 3000);
     } else {
       if (LoadingReturnRef.current) {
-        LoadingReturnRef.current.close()
+        LoadingReturnRef.current.close();
       }
     }
-  }, [loading])
+  }, [loading]);
 
   return (
     <ScrollView>
@@ -37,27 +37,27 @@ const BasicToast: React.FC = () => {
         <Cell
           title="状态控制 loading"
           onPress={() => {
-            setLoading(true)
+            setLoading(true);
           }}
         />
         <Cell
           title="文字提示:快速移除:失败"
           isLink
           onPress={() => {
-            const { close } = Toast.loading('提示内容')
+            const { close } = Toast.loading('提示内容');
 
-            close()
+            close();
           }}
         />
         <Cell
           title="文字提示:快速移除:成功"
           isLink
           onPress={() => {
-            const { close } = Toast.loading('提示内容')
+            const { close } = Toast.loading('提示内容');
 
             setTimeout(() => {
-              close()
-            }, 0)
+              close();
+            }, 0);
           }}
           divider={false}
         />
@@ -71,7 +71,7 @@ const BasicToast: React.FC = () => {
             Toast({
               message: '提示内容',
               forbidPress: true,
-            })
+            });
           }}
         />
         <Cell
@@ -81,7 +81,7 @@ const BasicToast: React.FC = () => {
             Toast({
               message: `提示内容\n新的`,
               forbidPress: true,
-            })
+            });
           }}
         />
 
@@ -89,14 +89,14 @@ const BasicToast: React.FC = () => {
           title="成功提示"
           isLink
           onPress={() => {
-            Toast.success('恭喜你')
+            Toast.success('恭喜你');
           }}
         />
         <Cell
           title="失败提示"
           isLink
           onPress={() => {
-            Toast.fail('很抱歉哟')
+            Toast.fail('很抱歉哟');
           }}
         />
         <Cell
@@ -108,7 +108,7 @@ const BasicToast: React.FC = () => {
               type: 'icon',
               message: '自定义图标',
               icon: <ArrowLeftOutline size={40} color="#f30" />,
-            })
+            });
           }}
         />
       </Cell.Group>
@@ -120,7 +120,7 @@ const BasicToast: React.FC = () => {
           onPress={() => {
             Toast.loading({
               forbidPress: true,
-            })
+            });
           }}
         />
         <Cell
@@ -130,7 +130,7 @@ const BasicToast: React.FC = () => {
             Toast.loading({
               message: '加载中...',
               forbidPress: true,
-            })
+            });
           }}
         />
         <Cell
@@ -142,36 +142,36 @@ const BasicToast: React.FC = () => {
               loadingType: 'circular',
               message: '加载中...',
               forbidPress: true,
-            })
+            });
           }}
         />
         <Cell
           title="加载提示倒计时:禁止背景点击"
           isLink
           onPress={() => {
-            let d = 3
-            const buildMsg = () => `倒计时 ${d} 秒...`
+            let d = 3;
+            const buildMsg = () => `倒计时 ${d} 秒...`;
 
             const ddd = Toast.loading({
               message: buildMsg(),
               forbidPress: true,
               duration: 0,
-            })
+            });
             const doLoop = () => {
               if (d > 0) {
-                ddd.setMessage(buildMsg())
+                ddd.setMessage(buildMsg());
 
-                d -= 1
+                d -= 1;
 
                 setTimeout(() => {
-                  doLoop()
-                }, 1000)
+                  doLoop();
+                }, 1000);
               } else {
-                ddd.close()
+                ddd.close();
               }
-            }
+            };
 
-            doLoop()
+            doLoop();
           }}
           divider={false}
         />
@@ -186,7 +186,7 @@ const BasicToast: React.FC = () => {
               message: '提示内容',
               forbidPress: true,
               position: 'top',
-            })
+            });
           }}
         />
         <Cell
@@ -198,7 +198,7 @@ const BasicToast: React.FC = () => {
               message: '提示内容',
               forbidPress: true,
               position: 'bottom',
-            })
+            });
           }}
         />
       </Cell.Group>
@@ -208,7 +208,7 @@ const BasicToast: React.FC = () => {
         style={{ height: 20 }}
       />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicToast
+export default BasicToast;

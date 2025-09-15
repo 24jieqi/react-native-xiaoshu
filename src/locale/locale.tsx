@@ -1,11 +1,11 @@
-import React, { useMemo, useContext, createContext, memo } from 'react'
+import React, { useMemo, useContext, createContext, memo } from 'react';
 
-import type { LocaleProviderProps, Locale } from './interface'
-import defaultLocale from './lang/zh_CN'
+import type { LocaleProviderProps, Locale } from './interface';
+import defaultLocale from './lang/zh_CN';
 
-const LocaleContext = createContext(defaultLocale)
+const LocaleContext = createContext(defaultLocale);
 
-export const useLocale = () => useContext(LocaleContext)
+export const useLocale = () => useContext(LocaleContext);
 
 const LocaleProvider: React.FC<LocaleProviderProps> = ({
   children,
@@ -17,11 +17,11 @@ const LocaleProvider: React.FC<LocaleProviderProps> = ({
       ...locale,
     }),
     [locale],
-  )
+  );
 
   return (
     <LocaleContext.Provider value={state}>{children}</LocaleContext.Provider>
-  )
-}
+  );
+};
 
-export default memo(LocaleProvider)
+export default memo(LocaleProvider);

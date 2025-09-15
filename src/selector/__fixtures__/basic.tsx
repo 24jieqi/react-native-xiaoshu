@@ -3,12 +3,12 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
+import React from 'react';
 
-import SelectorBase from './base'
-import SelectorComponent from './component'
-import SelectorLabel from './label'
-import SelectorSearch from './search'
+import SelectorBase from './base';
+import SelectorComponent from './component';
+import SelectorLabel from './label';
+import SelectorSearch from './search';
 
 const BasicSelector: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const BasicSelector: React.FC = () => {
 
       <SelectorComponent />
     </>
-  )
-}
+  );
+};
 
-export default BasicSelector
+export default BasicSelector;

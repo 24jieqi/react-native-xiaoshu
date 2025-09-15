@@ -1,16 +1,16 @@
-import React, { useState, useCallback, useRef, useEffect, memo } from 'react'
-import type { LayoutChangeEvent, ViewStyle } from 'react-native'
-import { View, Text, Animated } from 'react-native'
+import React, { useState, useCallback, useRef, useEffect, memo } from 'react';
+import type { LayoutChangeEvent, ViewStyle } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import * as helpers from '../helpers'
-import { usePersistFn } from '../hooks'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import * as helpers from '../helpers';
+import { usePersistFn } from '../hooks';
+import Theme from '../theme';
 
-import type { ProgressProps } from './interface'
-import { varCreator } from './style'
+import type { ProgressProps } from './interface';
+import { varCreator } from './style';
 
-type ViewLayout = { width: number; height: number }
+type ViewLayout = { width: number; height: number };
 
 /**
  * Progress 进度条
@@ -32,43 +32,43 @@ const Progress: React.FC<ProgressProps> = ({
   animationDuration,
   onAnimationEnd,
 }) => {
-  const AnimatedValue = useRef(new Animated.Value(0)).current
-  const StartPercentage = useRef(percentage)
+  const AnimatedValue = useRef(new Animated.Value(0)).current;
+  const StartPercentage = useRef(percentage);
   const onAnimationEndPersistFn = usePersistFn((n: number) => {
-    onAnimationEnd?.(n)
-  })
+    onAnimationEnd?.(n);
+  });
   const [CV, , TOKENS] = Theme.useStyle({
     varCreator,
     theme,
-  })
+  });
 
   // 默认值
-  color = getDefaultValue(color, CV.progress_color)
+  color = getDefaultValue(color, CV.progress_color);
 
   if (inactive) {
-    color = '#cacaca'
+    color = '#cacaca';
   }
 
-  trackColor = getDefaultValue(trackColor, CV.progress_background_color)
-  pivotColor = getDefaultValue(pivotColor, color)
-  textColor = getDefaultValue(textColor, CV.progress_pivot_text_color)
-  pivotText = getDefaultValue(pivotText, `${percentage}%`)
-  strokeHeight = getDefaultValue(strokeHeight, CV.progress_height)!
+  trackColor = getDefaultValue(trackColor, CV.progress_background_color);
+  pivotColor = getDefaultValue(pivotColor, color);
+  textColor = getDefaultValue(textColor, CV.progress_pivot_text_color);
+  pivotText = getDefaultValue(pivotText, `${percentage}%`);
+  strokeHeight = getDefaultValue(strokeHeight, CV.progress_height)!;
   animationDuration = getDefaultValue(
     animationDuration,
     TOKENS.animation_duration_base,
-  )
+  );
 
-  const borderRadius = square ? 0 : strokeHeight / 2
+  const borderRadius = square ? 0 : strokeHeight / 2;
 
   const [progressLayout, setProgressLayout] = useState<ViewLayout>({
     width: 0,
     height: 0,
-  })
+  });
   const [textLayout, setTextLayout] = useState<ViewLayout>({
     width: 0,
     height: 0,
-  })
+  });
 
   useEffect(() => {
     const action = Animated.timing(AnimatedValue, {
@@ -76,17 +76,17 @@ const Progress: React.FC<ProgressProps> = ({
       duration: animated ? animationDuration : 0,
       easing: helpers.easing.easeInCubic,
       useNativeDriver: false,
-    })
+    });
 
     action.start(({ finished }) => {
       if (finished) {
-        onAnimationEndPersistFn(percentage)
+        onAnimationEndPersistFn(percentage);
       }
-    })
+    });
 
     return () => {
-      action.stop()
-    }
+      action.stop();
+    };
   }, [
     AnimatedValue,
     percentage,
@@ -94,7 +94,7 @@ const Progress: React.FC<ProgressProps> = ({
     progressLayout.width,
     animated,
     onAnimationEndPersistFn,
-  ])
+  ]);
 
   const barStyle: ViewStyle = {
     position: 'absolute',
@@ -104,7 +104,7 @@ const Progress: React.FC<ProgressProps> = ({
     height: strokeHeight,
     backgroundColor: color,
     borderRadius: borderRadius,
-  }
+  };
   const textBoxStyle: ViewStyle = {
     position: 'absolute',
     left: AnimatedValue as unknown as number,
@@ -122,21 +122,21 @@ const Progress: React.FC<ProgressProps> = ({
         translateY: -(textLayout.height - strokeHeight) / 2,
       },
     ],
-  }
+  };
 
   const onLayoutProgress = useCallback(
     (e: LayoutChangeEvent) => {
       AnimatedValue.setValue(
         (e.nativeEvent.layout.width * StartPercentage.current) / 100,
-      )
-      setProgressLayout(e.nativeEvent.layout)
+      );
+      setProgressLayout(e.nativeEvent.layout);
     },
     [AnimatedValue],
-  )
+  );
 
   const onLayoutText = useCallback((e: LayoutChangeEvent) => {
-    setTextLayout(e.nativeEvent.layout)
-  }, [])
+    setTextLayout(e.nativeEvent.layout);
+  }, []);
 
   return (
     <View
@@ -163,7 +163,7 @@ const Progress: React.FC<ProgressProps> = ({
         </Animated.View>
       ) : null}
     </View>
-  )
-}
+  );
+};
 
-export default memo(Progress)
+export default memo(Progress);

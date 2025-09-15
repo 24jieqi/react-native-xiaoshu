@@ -3,9 +3,9 @@
  * description: 适合文案展示的地方。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicFieldText: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const BasicFieldText: React.FC = () => {
         placeholder="请选择"
         value="供应商名称"
         onPress={() => {
-          Toast('点击选择后设置新值')
+          Toast('点击选择后设置新值');
         }}
         isLink
       />
@@ -41,13 +41,13 @@ const BasicFieldText: React.FC = () => {
         title="供应商"
         placeholder="请选择"
         onPress={() => {
-          Toast('点击选择后设置新值')
+          Toast('点击选择后设置新值');
         }}
         isLink
         divider={false}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldText
+export default BasicFieldText;

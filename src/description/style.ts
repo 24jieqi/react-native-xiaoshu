@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -12,10 +12,10 @@ export const varCreator = (TOKENS: TokensType) => {
     description_s_line_height: TOKENS.line_height_1,
     description_label_color: TOKENS.gray_7,
     description_text_color: TOKENS.gray_8,
-  }
-}
+  };
+};
 
-export type DescriptionTheme = ReturnType<typeof varCreator>
+export type DescriptionTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: DescriptionTheme) => {
   return StyleSheet.create({
@@ -55,5 +55,5 @@ export const styleCreator = (cv: DescriptionTheme) => {
       fontSize: cv.description_s_font_size,
       lineHeight: cv.description_s_line_height,
     },
-  })
-}
+  });
+};

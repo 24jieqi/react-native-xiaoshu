@@ -1,17 +1,17 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import Cell from '../cell'
-import CheckboxGroup from '../checkbox/checkbox-group'
-import Theme from '../theme'
+import Cell from '../cell';
+import CheckboxGroup from '../checkbox/checkbox-group';
+import Theme from '../theme';
 
-import { pickCellProps } from './helper'
-import type { FieldCheckboxProps } from './interface'
-import { varCreator } from './style'
+import { pickCellProps } from './helper';
+import type { FieldCheckboxProps } from './interface';
+import { varCreator } from './style';
 
 const FieldCheckbox: React.FC<FieldCheckboxProps> = restProps => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
-  const { cellProps, otherProps } = pickCellProps(restProps)
+  const TOKENS = Theme.useThemeTokens();
+  const CV = Theme.createVar(TOKENS, varCreator);
+  const { cellProps, otherProps } = pickCellProps(restProps);
 
   return (
     <Cell
@@ -27,7 +27,7 @@ const FieldCheckbox: React.FC<FieldCheckboxProps> = restProps => {
         />
       }
     />
-  )
-}
+  );
+};
 
-export default memo(FieldCheckbox)
+export default memo(FieldCheckbox);

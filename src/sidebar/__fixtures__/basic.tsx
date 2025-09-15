@@ -3,12 +3,12 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView, View } from 'react-native'
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 
-import { Sidebar, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
+import { Sidebar, Space, Theme } from '@fruits-chain/react-native-xiaoshu';
 
-const nullArray = []
+const nullArray = [];
 
 const options = [
   {
@@ -28,7 +28,7 @@ const options = [
     label: '请按照',
     disabled: true,
   },
-]
+];
 
 const options2 = [
   {
@@ -79,10 +79,10 @@ const options2 = [
     value: 8,
     label: '东方',
   },
-]
+];
 
 const BasicSidebar: React.FC = () => {
-  const { gray_1 } = Theme.useThemeTokens()
+  const { gray_1 } = Theme.useThemeTokens();
   return (
     <ScrollView style={{ backgroundColor: gray_1 }}>
       <Space>
@@ -117,7 +117,7 @@ const BasicSidebar: React.FC = () => {
         </View>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicSidebar
+export default BasicSidebar;

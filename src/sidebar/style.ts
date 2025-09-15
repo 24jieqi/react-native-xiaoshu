@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -18,10 +18,10 @@ export const varCreator = (TOKENS: TokensType) => {
     sidebar_item_active_text_color: TOKENS.gray_8,
     sidebar_item_inactive_text_color: TOKENS.gray_7,
     sidebar_item_disabled_inactive_text_color: TOKENS.gray_5,
-  }
-}
+  };
+};
 
-export type SidebarTheme = ReturnType<typeof varCreator>
+export type SidebarTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: SidebarTheme) => {
   return StyleSheet.create({
@@ -92,5 +92,5 @@ export const styleCreator = (cv: SidebarTheme) => {
     item_text_inactive: {
       color: cv.sidebar_item_inactive_text_color,
     },
-  })
-}
+  });
+};

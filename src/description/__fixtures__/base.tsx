@@ -3,8 +3,8 @@
  * description: 左右、上下布局，自定义 label、text 样式，自定义内容区域渲染、排版。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
 import {
   Description,
@@ -13,7 +13,7 @@ import {
   Button,
   Uploader,
   Theme,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const list = [
   {
@@ -24,10 +24,10 @@ const list = [
     key: (new Date().getTime() + 1).toString(),
     filepath: 'https://img.yzcdn.cn/vant/tree.jpg',
   },
-]
+];
 
 const DescriptionBase: React.FC = () => {
-  const { gray_1 } = Theme.useThemeTokens()
+  const { gray_1 } = Theme.useThemeTokens();
 
   return (
     <Space>
@@ -170,7 +170,7 @@ const DescriptionBase: React.FC = () => {
         </Description.Group>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default DescriptionBase
+export default DescriptionBase;

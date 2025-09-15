@@ -1,6 +1,6 @@
-import { StyleSheet, Platform } from 'react-native'
+import { StyleSheet, Platform } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -14,10 +14,10 @@ export const varCreator = (TOKENS: TokensType) => {
     popover_text_color: TOKENS.gray_8,
     popover_text_color_dark: TOKENS.white,
     popover_text_font_size: TOKENS.font_size_3,
-  }
-}
+  };
+};
 
-export type PopoverTheme = ReturnType<typeof varCreator>
+export type PopoverTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: PopoverTheme) => {
   return StyleSheet.create({
@@ -88,5 +88,5 @@ export const styleCreator = (cv: PopoverTheme) => {
     text_dark: {
       color: cv.popover_text_color_dark,
     },
-  })
-}
+  });
+};

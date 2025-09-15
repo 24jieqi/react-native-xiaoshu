@@ -3,11 +3,11 @@
  * description: 父子节点没有关联关系。
  */
 
-import { CoordOutline } from '@fruits-chain/icons-react-native'
-import React from 'react'
+import { CoordOutline } from '@fruits-chain/icons-react-native';
+import React from 'react';
 
-import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
-import { Card, Tree } from '@fruits-chain/react-native-xiaoshu'
+import type { TreeOption } from '@fruits-chain/react-native-xiaoshu';
+import { Card, Tree } from '@fruits-chain/react-native-xiaoshu';
 
 const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
   value: index0,
@@ -28,9 +28,9 @@ const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
       })),
     })),
   })),
-}))
+}));
 
-const defaultValue = [11]
+const defaultValue = [11];
 
 const TreeMultipleIndependent: React.FC = () => {
   return (
@@ -48,7 +48,7 @@ const TreeMultipleIndependent: React.FC = () => {
         multipleMode={Tree.MultipleMode.INDEPENDENT}
       />
     </Card>
-  )
-}
+  );
+};
 
-export default TreeMultipleIndependent
+export default TreeMultipleIndependent;

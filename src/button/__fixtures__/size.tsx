@@ -3,9 +3,9 @@
  * description: 内置 xl、l、m、s、xs 五个尺寸。
  */
 
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const ButtonSize: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const ButtonSize: React.FC = () => {
         <Button square text="square" />
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonSize)
+export default memo(ButtonSize);

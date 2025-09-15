@@ -3,39 +3,39 @@ import {
   Divider,
   Space,
   Field,
-} from '@fruits-chain/react-native-xiaoshu'
-import React, { useLayoutEffect, useState } from 'react'
+} from '@fruits-chain/react-native-xiaoshu';
+import React, { useLayoutEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
   TouchableOpacity,
   ActivityIndicator,
-} from 'react-native'
+} from 'react-native';
 
-import Layout from '~/layouts/layout'
-import type { RootStackScreenProps } from '~/routes'
+import Layout from '~/layouts/layout';
+import type { RootStackScreenProps } from '~/routes';
 
-type ScreenProps = RootStackScreenProps<'Benchmark'>
+type ScreenProps = RootStackScreenProps<'Benchmark'>;
 
 const TimedRender: React.FC<React.PropsWithChildren> = props => {
-  const [start] = useState(Date.now())
-  const [end, setEnd] = useState(0)
+  const [start] = useState(Date.now());
+  const [end, setEnd] = useState(0);
 
   useLayoutEffect(() => {
-    setEnd(Date.now())
-  }, [])
+    setEnd(Date.now());
+  }, []);
 
   return (
     <>
       {!!end && <Text style={STYLES.time}>Took {end - start}ms</Text>}
       {props.children}
     </>
-  )
-}
+  );
+};
 
-const mockData = 1000
+const mockData = 1000;
 
-type ButtonType = 'primary' | 'custom' | 'native'
+type ButtonType = 'primary' | 'custom' | 'native';
 
 const Buttons: React.FC<{ type: ButtonType; loading: boolean }> = ({
   type,
@@ -61,7 +61,7 @@ const Buttons: React.FC<{ type: ButtonType; loading: boolean }> = ({
                   {i}
                 </Text>
               </TouchableOpacity>
-            )
+            );
 
           case 'custom':
             return (
@@ -71,29 +71,29 @@ const Buttons: React.FC<{ type: ButtonType; loading: boolean }> = ({
                 loading={loading}>
                 {i}
               </Button>
-            )
+            );
 
           default:
             return (
               <Button key={i} loading={loading}>
                 {i}
               </Button>
-            )
+            );
         }
       })}
     </Space>
-  )
-}
+  );
+};
 
-const list: ButtonType[] = ['primary', 'custom', 'native']
+const list: ButtonType[] = ['primary', 'custom', 'native'];
 
 const Benchmark: React.FC<ScreenProps> = () => {
-  const [type, setType] = useState<ButtonType | undefined>(undefined)
-  const [loading, setLoading] = useState(false)
+  const [type, setType] = useState<ButtonType | undefined>(undefined);
+  const [loading, setLoading] = useState(false);
   const options = list.map(o => ({
     value: o,
     label: o,
-  }))
+  }));
 
   return (
     <Layout.Page title="Benchmark">
@@ -109,7 +109,7 @@ const Benchmark: React.FC<ScreenProps> = () => {
 
         <Button
           onPress={() => {
-            setType(undefined)
+            setType(undefined);
           }}>
           clean type
         </Button>
@@ -121,8 +121,8 @@ const Benchmark: React.FC<ScreenProps> = () => {
         {type ? <Buttons type={type} loading={loading} /> : null}
       </TimedRender>
     </Layout.Page>
-  )
-}
+  );
+};
 
 const STYLES = StyleSheet.create({
   time: { color: 'green', marginTop: 12, fontSize: 18 },
@@ -143,6 +143,6 @@ const STYLES = StyleSheet.create({
   buttonTextLoading: {
     marginLeft: 4,
   },
-})
+});
 
-export default Benchmark
+export default Benchmark;

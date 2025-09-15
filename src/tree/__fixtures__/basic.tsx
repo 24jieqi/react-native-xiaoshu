@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Blank, TabBar, Flex } from '@fruits-chain/react-native-xiaoshu'
+import { Blank, TabBar, Flex } from '@fruits-chain/react-native-xiaoshu';
 
-import TreeBase from './base'
-import TreeMultiple from './multiple'
-import TreeMultipleIndependent from './multiple-independent'
+import TreeBase from './base';
+import TreeMultiple from './multiple';
+import TreeMultipleIndependent from './multiple-independent';
 
 const bottomBar = [
   {
@@ -22,11 +22,11 @@ const bottomBar = [
     label: '多选(独立)',
     C: TreeMultipleIndependent,
   },
-]
+];
 
 const BasicTree: React.FC = () => {
-  const [value, setValue] = useState(bottomBar[0].value)
-  const { C } = bottomBar[value]
+  const [value, setValue] = useState(bottomBar[0].value);
+  const { C } = bottomBar[value];
 
   return (
     <>
@@ -41,7 +41,7 @@ const BasicTree: React.FC = () => {
         onChange={setValue as (v: number) => void}
       />
     </>
-  )
-}
+  );
+};
 
-export default BasicTree
+export default BasicTree;

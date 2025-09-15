@@ -3,9 +3,9 @@
  * description: 支持三种尺寸。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Description, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Description, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const DescriptionSize: React.FC = () => {
   return (
@@ -36,7 +36,7 @@ const DescriptionSize: React.FC = () => {
         </Description.Group>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default DescriptionSize
+export default DescriptionSize;

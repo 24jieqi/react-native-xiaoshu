@@ -3,10 +3,10 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { Card, Space, Skeleton } from '@fruits-chain/react-native-xiaoshu'
+import { Card, Space, Skeleton } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicCell: React.FC = () => {
   return (
@@ -44,7 +44,7 @@ const BasicCell: React.FC = () => {
         </Card>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicCell
+export default BasicCell;

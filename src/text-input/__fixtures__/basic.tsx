@@ -3,14 +3,14 @@
  * description: 把各种场景、API 都运用了
  */
 
-import { SuccessOutline } from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { SuccessOutline } from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
 
-import { Cell, TextInput, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, TextInput, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicTextInput: React.FC = () => {
-  const [value2, setValue2] = useState('')
+  const [value2, setValue2] = useState('');
 
   return (
     <>
@@ -44,20 +44,20 @@ const BasicTextInput: React.FC = () => {
               placeholder="受控"
               value={value2}
               onChangeText={e => {
-                console.log('onChangeText => ', e)
+                console.log('onChangeText => ', e);
               }}
               onChange={e => {
-                setValue2(e)
-                console.log('onChange => ', e)
+                setValue2(e);
+                console.log('onChange => ', e);
               }}
               onFocus={e => {
-                console.log('onFocus => ', e.nativeEvent)
+                console.log('onFocus => ', e.nativeEvent);
               }}
               onBlur={e => {
-                console.log('onBlur => ', e.nativeEvent)
+                console.log('onBlur => ', e.nativeEvent);
               }}
               onEndEditing={e => {
-                console.log('onEndEditing => ', e.nativeEvent.text)
+                console.log('onEndEditing => ', e.nativeEvent.text);
               }}
             />
           }
@@ -74,7 +74,7 @@ const BasicTextInput: React.FC = () => {
             <TextInput
               placeholder="内容左对齐"
               onChange={t => {
-                console.log('内容左对齐 => ', t)
+                console.log('内容左对齐 => ', t);
               }}
             />
           }
@@ -345,7 +345,7 @@ const BasicTextInput: React.FC = () => {
         <Text>placeholder</Text>
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicTextInput
+export default BasicTextInput;

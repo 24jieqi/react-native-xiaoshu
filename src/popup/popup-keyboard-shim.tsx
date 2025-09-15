@@ -1,8 +1,13 @@
-import React, { memo, useEffect, useRef } from 'react'
-import { Animated, Keyboard, Platform, useWindowDimensions } from 'react-native'
-import type { KeyboardEvent, KeyboardEventName, View } from 'react-native'
+import React, { memo, useEffect, useRef } from 'react';
+import {
+  Animated,
+  Keyboard,
+  Platform,
+  useWindowDimensions,
+} from 'react-native';
+import type { KeyboardEvent, KeyboardEventName, View } from 'react-native';
 
-import type { PopupKeyboardShimProps } from './interface'
+import type { PopupKeyboardShimProps } from './interface';
 
 const listenerEventType: { show: KeyboardEventName; hide: KeyboardEventName } =
   Platform.select({
@@ -18,15 +23,15 @@ const listenerEventType: { show: KeyboardEventName; hide: KeyboardEventName } =
       show: 'keyboardWillShow',
       hide: 'keyboardWillHide',
     },
-  })
+  });
 
 const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
   allowOnAndroid = false,
   ...props
 }) => {
-  const KeyboardHeight = useRef(new Animated.Value(0))
-  const ViewHeight = useRef<View>(null)
-  const { height } = useWindowDimensions()
+  const KeyboardHeight = useRef(new Animated.Value(0));
+  const ViewHeight = useRef<View>(null);
+  const { height } = useWindowDimensions();
 
   useEffect(() => {
     if (
@@ -42,31 +47,31 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
               toValue: e.endCoordinates.height - (height - pageY - _height),
               duration: 300,
               useNativeDriver: false,
-            }).start()
+            }).start();
           },
-        )
+        );
 
         Animated.timing(KeyboardHeight.current, {
           toValue: e.endCoordinates.height,
           duration: 300,
           useNativeDriver: false,
-        }).start()
-      }
+        }).start();
+      };
       const keyboardDidHide = () => {
         Animated.timing(KeyboardHeight.current, {
           toValue: 0,
           duration: 300,
           useNativeDriver: false,
-        }).start()
-      }
+        }).start();
+      };
       const _keyboardDidShow = Keyboard.addListener(
         listenerEventType.show,
         keyboardDidShow,
-      )
+      );
       const _keyboardDidHide = Keyboard.addListener(
         listenerEventType.hide,
         keyboardDidHide,
-      )
+      );
 
       return () => {
         // TODO 旧版本如何做兼容
@@ -75,17 +80,17 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
         if (Keyboard.removeListener) {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          Keyboard.removeListener(listenerEventType.show, keyboardDidShow)
+          Keyboard.removeListener(listenerEventType.show, keyboardDidShow);
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          Keyboard.removeListener(listenerEventType.hide, keyboardDidHide)
+          Keyboard.removeListener(listenerEventType.hide, keyboardDidHide);
         } else {
-          _keyboardDidShow.remove?.()
-          _keyboardDidHide.remove?.()
+          _keyboardDidShow.remove?.();
+          _keyboardDidHide.remove?.();
         }
-      }
+      };
     }
-  }, [height, allowOnAndroid])
+  }, [height, allowOnAndroid]);
 
   return (
     <Animated.View
@@ -93,7 +98,7 @@ const PopupKeyboardShim: React.FC<PopupKeyboardShimProps> = ({
       ref={ViewHeight}
       style={[{ height: KeyboardHeight.current }, props.style]}
     />
-  )
-}
+  );
+};
 
-export default memo(PopupKeyboardShim)
+export default memo(PopupKeyboardShim);

@@ -1,27 +1,27 @@
-import isNil from 'lodash/isNil'
-import uniqBy from 'lodash/uniqBy'
-import React, { useCallback, useMemo, useEffect, useState, memo } from 'react'
-import { Text, Keyboard } from 'react-native'
+import isNil from 'lodash/isNil';
+import uniqBy from 'lodash/uniqBy';
+import React, { useCallback, useMemo, useEffect, useState, memo } from 'react';
+import { Text, Keyboard } from 'react-native';
 
-import Button from '../button'
-import ButtonBarConfirm from '../button-bar/button-bar-confirm'
-import { getDefaultValue, isPromise } from '../helpers'
-import { usePersistFn } from '../hooks'
-import Locale from '../locale'
-import Portal from '../portal'
-import Space from '../space'
-import Theme from '../theme'
-import Tree from '../tree'
-import type { TreeOption, TreeValue } from '../tree/interface'
+import Button from '../button';
+import ButtonBarConfirm from '../button-bar/button-bar-confirm';
+import { getDefaultValue, isPromise } from '../helpers';
+import { usePersistFn } from '../hooks';
+import Locale from '../locale';
+import Portal from '../portal';
+import Space from '../space';
+import Theme from '../theme';
+import Tree from '../tree';
+import type { TreeOption, TreeValue } from '../tree/interface';
 
-import { useDropdownConfig } from './context'
-import DropdownBadge from './dropdown-badge'
-import DropdownPopup from './dropdown-popup'
+import { useDropdownConfig } from './context';
+import DropdownBadge from './dropdown-badge';
+import DropdownPopup from './dropdown-popup';
 import type {
   DropdownItemOption,
   DropdownSelectorMethodProps,
-} from './interface'
-import { varCreator, styleCreator } from './style'
+} from './interface';
+import { varCreator, styleCreator } from './style';
 
 const DropdownSelectorMethod = <T,>({
   targetHeight,
@@ -45,43 +45,43 @@ const DropdownSelectorMethod = <T,>({
 
   testID,
 }: DropdownSelectorMethodProps<T>) => {
-  const locale = Locale.useLocale().DropdownSelector
-  const { theme } = useDropdownConfig()
+  const locale = Locale.useLocale().DropdownSelector;
+  const { theme } = useDropdownConfig();
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_TREE] = Theme.useStyle({
     varCreator: Tree.varCreator,
-  })
+  });
   const [multipleValue, setMultipleValue] = useState<T[]>(
     multiple ? (defaultValue as T[]) || [] : [],
-  )
+  );
   const allOptions = useMemo(() => {
     const findNode = (op: DropdownItemOption<T>[]) => {
-      const ooo: DropdownItemOption<T>[] = []
+      const ooo: DropdownItemOption<T>[] = [];
 
       op.forEach(o => {
-        ooo.push(o)
+        ooo.push(o);
 
         if (o.children?.length) {
-          ooo.push(...findNode(o.children))
+          ooo.push(...findNode(o.children));
         }
-      })
+      });
 
-      return ooo
-    }
+      return ooo;
+    };
 
-    return findNode(options)
-  }, [options])
+    return findNode(options);
+  }, [options]);
 
-  const _activeColor = getDefaultValue(activeColor, CV.dropdown_active_color)
+  const _activeColor = getDefaultValue(activeColor, CV.dropdown_active_color);
 
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
   const treeOptions = useMemo(() => {
     const convertOption = (ops: DropdownItemOption<T>[]) => {
-      const nodes: TreeOption[] = []
+      const nodes: TreeOption[] = [];
 
       ops.forEach(item => {
         const _opt: TreeOption = {
@@ -113,26 +113,26 @@ const DropdownSelectorMethod = <T,>({
                     </Text>
                     <DropdownBadge count={item.badge} />
                   </Space>
-                )
+                );
               },
-        }
-        nodes.push(_opt)
-      })
+        };
+        nodes.push(_opt);
+      });
 
-      return nodes
-    }
+      return nodes;
+    };
 
-    return convertOption(options)
+    return convertOption(options);
   }, [
     CV_TREE.tree_item_text_color,
     CV_TREE.tree_item_text_font_size,
     STYLES.item_tree_item,
     options,
-  ])
+  ]);
 
   useEffect(() => {
-    setVisible(true)
-  }, [])
+    setVisible(true);
+  }, []);
 
   const findNodeByValue = (
     tree: DropdownItemOption<T>[],
@@ -140,37 +140,37 @@ const DropdownSelectorMethod = <T,>({
   ): DropdownItemOption<T> | undefined => {
     for (const item of tree) {
       if (item.value === value) {
-        return item
+        return item;
       }
       if (item.children) {
-        const _v = findNodeByValue(item.children, value)
+        const _v = findNodeByValue(item.children, value);
         if (_v) {
-          return _v
+          return _v;
         }
       }
     }
 
-    return undefined
-  }
+    return undefined;
+  };
 
   const onPressShade = useCallback(() => {
-    setVisible(false)
-    Keyboard.dismiss()
-    onCancel?.()
-  }, [onCancel])
+    setVisible(false);
+    Keyboard.dismiss();
+    onCancel?.();
+  }, [onCancel]);
 
   const onRequestClose = usePersistFn(() => {
-    onPressShade()
-    return true
-  })
+    onPressShade();
+    return true;
+  });
 
   const onChangePersistFn = usePersistFn(
     (
       v: TreeValue | TreeValue[],
       _: TreeOption[],
       event: {
-        checked: boolean
-        option: TreeOption
+        checked: boolean;
+        option: TreeOption;
       },
     ) => {
       if (multiple) {
@@ -179,7 +179,7 @@ const DropdownSelectorMethod = <T,>({
             value: [],
             checked: event.checked,
             option: event.option,
-          })
+          });
 
           if (isPromise(returnVal)) {
             returnVal.then(nv => {
@@ -188,40 +188,40 @@ const DropdownSelectorMethod = <T,>({
                   [...mv.filter(mvi => mvi !== event.option.value), ...nv],
                   x => x,
                 ),
-              )
-            })
+              );
+            });
           } else {
             setMultipleValue(mv =>
               uniqBy(
                 [...mv.filter(mvi => mvi !== event.option.value), ...returnVal],
                 x => x,
               ),
-            )
+            );
           }
         } else {
-          setMultipleValue(v as T[])
+          setMultipleValue(v as T[]);
         }
       } else {
-        setVisible(false)
-        Keyboard.dismiss()
-        const _v = v as unknown as T
-        const _o = findNodeByValue(options, _v)
-        onConfirm?.(_v as unknown as T, _o ? [_o] : [])
+        setVisible(false);
+        Keyboard.dismiss();
+        const _v = v as unknown as T;
+        const _o = findNodeByValue(options, _v);
+        onConfirm?.(_v as unknown as T, _o ? [_o] : []);
       }
     },
-  )
+  );
 
   const onConfirmMultiple = usePersistFn(() => {
-    setVisible(false)
-    Keyboard.dismiss()
+    setVisible(false);
+    Keyboard.dismiss();
 
     onConfirm?.(
       multipleValue,
       multipleValue.map(item => {
-        return findNodeByValue(options, item)!
+        return findNodeByValue(options, item)!;
       }),
-    )
-  })
+    );
+  });
 
   return (
     <DropdownPopup
@@ -269,9 +269,9 @@ const DropdownSelectorMethod = <T,>({
               }
               onPress={() => {
                 if (allOptions.length !== multipleValue.length) {
-                  setMultipleValue(allOptions.map(i => i.value))
+                  setMultipleValue(allOptions.map(i => i.value));
                 } else {
-                  setMultipleValue([])
+                  setMultipleValue([]);
                 }
               }}
             />,
@@ -286,12 +286,12 @@ const DropdownSelectorMethod = <T,>({
         </ButtonBarConfirm>
       ) : null}
     </DropdownPopup>
-  )
-}
+  );
+};
 
 const DropdownSelectorMethodMemo = memo(DropdownSelectorMethod) as <T>(
   p: DropdownSelectorMethodProps<T>,
-) => React.ReactElement
+) => React.ReactElement;
 
 export default <T,>(opt: Omit<DropdownSelectorMethodProps<T>, 'onClosed'>) => {
   return new Promise<{ value: T | T[]; data: DropdownItemOption<T>[] }>(
@@ -300,21 +300,21 @@ export default <T,>(opt: Omit<DropdownSelectorMethodProps<T>, 'onClosed'>) => {
         <DropdownSelectorMethodMemo<T>
           {...opt}
           onCancel={() => {
-            opt.onCancel?.()
-            reject(new Error())
+            opt.onCancel?.();
+            reject(new Error());
           }}
           onConfirm={(v, d) => {
-            opt.onConfirm?.(v, d)
+            opt.onConfirm?.(v, d);
             resolve({
               value: v,
               data: d,
-            })
+            });
           }}
           onClosed={() => {
-            Portal.remove(key)
+            Portal.remove(key);
           }}
         />,
-      )
+      );
     },
-  )
-}
+  );
+};

@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import Cell from '../cell'
-import TextInput from '../text-input'
-import Theme from '../theme'
+import Cell from '../cell';
+import TextInput from '../text-input';
+import Theme from '../theme';
 
-import { pickCellProps } from './helper'
-import type { FieldTextInputProps } from './interface'
+import { pickCellProps } from './helper';
+import type { FieldTextInputProps } from './interface';
 
 /**
  * Field 输入框
@@ -21,20 +21,20 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
   textInputBordered,
   ...restProps
 }) => {
-  const { cellProps, otherProps } = pickCellProps(restProps)
+  const { cellProps, otherProps } = pickCellProps(restProps);
 
   if (cellProps.vertical) {
-    textAlign = 'left'
-    type = 'textarea'
+    textAlign = 'left';
+    type = 'textarea';
   }
 
   if (type === 'textarea') {
-    textAlign = 'left'
-    textInputBordered = textInputBordered ?? true
-    cellProps.vertical = true
+    textAlign = 'left';
+    textInputBordered = textInputBordered ?? true;
+    cellProps.vertical = true;
   }
 
-  const TOKENS = Theme.useThemeTokens()
+  const TOKENS = Theme.useThemeTokens();
 
   return (
     <Cell
@@ -57,7 +57,7 @@ const FieldTextInput: React.FC<FieldTextInputProps> = ({
         />
       }
     />
-  )
-}
+  );
+};
 
-export default memo(FieldTextInput)
+export default memo(FieldTextInput);

@@ -1,10 +1,10 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import { createStyle } from './create-style'
-import { createVar } from './create-var'
-import { dark } from './dark'
-import Theme, { useThemeTokens } from './theme'
-import { useStyle } from './useStyle'
+import { createStyle } from './create-style';
+import { createVar } from './create-var';
+import { dark } from './dark';
+import Theme, { useThemeTokens } from './theme';
+import { useStyle } from './useStyle';
 
 export default attachPropertiesToComponent(Theme, {
   createStyle,
@@ -12,4 +12,4 @@ export default attachPropertiesToComponent(Theme, {
   useStyle,
   useThemeTokens,
   dark,
-})
+});

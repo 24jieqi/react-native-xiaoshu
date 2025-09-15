@@ -3,10 +3,10 @@
  * description: 通过 `size` 可以自定义元素大小。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Switch, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Switch, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSwitchSize: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ const BasicSwitchSize: React.FC = () => {
         }
       />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicSwitchSize
+export default BasicSwitchSize;

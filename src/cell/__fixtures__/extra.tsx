@@ -3,10 +3,10 @@
  * description: 单元格支持各个部件的 style 覆盖。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Cell, Tag } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Tag } from '@fruits-chain/react-native-xiaoshu';
 
 const CellExtra: React.FC = () => {
   return (
@@ -97,7 +97,7 @@ const CellExtra: React.FC = () => {
       />
       <Cell title="最后一项" value="一般不显示分割线" divider={false} />
     </>
-  )
-}
+  );
+};
 
-export default CellExtra
+export default CellExtra;

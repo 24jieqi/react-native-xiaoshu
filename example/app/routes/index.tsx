@@ -1,65 +1,65 @@
-import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs'
-import type { CompositeNavigationProp } from '@react-navigation/native'
-import { NavigationContainer } from '@react-navigation/native'
+import type { BottomTabNavigationProp as BottomTabNavigationPropOriginal } from '@react-navigation/bottom-tabs';
+import type { CompositeNavigationProp } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import type {
   StackScreenProps,
   StackNavigationProp,
-} from '@react-navigation/stack'
-import { createStackNavigator } from '@react-navigation/stack'
-import React from 'react'
+} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 
-import BackArrow from '~/components/back-arrow'
-import { useThemeDark } from '~/contexts/theme'
-import Benchmark from '~/pages/demo/benchmark'
-import CustomHeaderPrimary from '~/pages/demo/custom-header-primary'
-import CustomHeaderRed from '~/pages/demo/custom-header-red'
-import Issues85 from '~/pages/demo/issues-85'
-import Issues91 from '~/pages/demo/issues-91'
-import Issues93 from '~/pages/demo/issues-93'
-import Issues101 from '~/pages/demo/issues-101'
-import PopupComment from '~/pages/demo/popup-comment'
-import PopupTextInput from '~/pages/demo/popup-text-input'
+import BackArrow from '~/components/back-arrow';
+import { useThemeDark } from '~/contexts/theme';
+import Benchmark from '~/pages/demo/benchmark';
+import CustomHeaderPrimary from '~/pages/demo/custom-header-primary';
+import CustomHeaderRed from '~/pages/demo/custom-header-red';
+import Issues101 from '~/pages/demo/issues-101';
+import Issues85 from '~/pages/demo/issues-85';
+import Issues91 from '~/pages/demo/issues-91';
+import Issues93 from '~/pages/demo/issues-93';
+import PopupComment from '~/pages/demo/popup-comment';
+import PopupTextInput from '~/pages/demo/popup-text-input';
 
-import type { BottomTabParamList } from './bottom-tab'
-import TabsView from './bottom-tab'
-import { buildHeaderTitleStyle, darkTheme, lightTheme } from './config'
-import type { DemoPaths } from './demo-config'
-import { demoConfigs } from './demo-config'
+import type { BottomTabParamList } from './bottom-tab';
+import TabsView from './bottom-tab';
+import { buildHeaderTitleStyle, darkTheme, lightTheme } from './config';
+import type { DemoPaths } from './demo-config';
+import { demoConfigs } from './demo-config';
 
 /** 当前所有 Stack 路由的参数 */
 export type RootStackParamList = {
-  Index: undefined
-  CustomHeaderRed: undefined
-  CustomHeaderPrimary: undefined
-  PopupTextInput: undefined
-  PopupComment: undefined
-  Benchmark: undefined
-  Issues85: undefined
-  Issues91: undefined
-  Issues93: undefined
-  Issues101: undefined
-} & Record<DemoPaths, undefined>
+  Index: undefined;
+  CustomHeaderRed: undefined;
+  CustomHeaderPrimary: undefined;
+  PopupTextInput: undefined;
+  PopupComment: undefined;
+  Benchmark: undefined;
+  Issues85: undefined;
+  Issues91: undefined;
+  Issues93: undefined;
+  Issues101: undefined;
+} & Record<DemoPaths, undefined>;
 
 /** Stack 路由的 props */
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
-  StackScreenProps<RootStackParamList, T>
+  StackScreenProps<RootStackParamList, T>;
 
 /** BottomTab 路由的 navigation prop */
 export type BottomTabNavigationProp<T extends keyof BottomTabParamList> =
   CompositeNavigationProp<
     BottomTabNavigationPropOriginal<BottomTabParamList, T>,
     StackNavigationProp<RootStackParamList>
-  >
+  >;
 
 /** BottomTab 路由的 props */
 export type BottomTabScreenProps<T extends keyof BottomTabParamList> = {
-  navigation: BottomTabNavigationProp<T>
-}
+  navigation: BottomTabNavigationProp<T>;
+};
 
-const Stack = createStackNavigator<RootStackParamList>()
+const Stack = createStackNavigator<RootStackParamList>();
 
 const NestingNavigators: React.FC = () => {
-  const isThemeDark = useThemeDark()
+  const isThemeDark = useThemeDark();
 
   return (
     <NavigationContainer theme={isThemeDark ? darkTheme : lightTheme}>
@@ -112,7 +112,7 @@ const NestingNavigators: React.FC = () => {
         ))}
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default NestingNavigators
+export default NestingNavigators;

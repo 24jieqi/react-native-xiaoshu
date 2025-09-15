@@ -3,10 +3,10 @@
  * description: 包含标题、内容、操作区域。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Card, Button, Space, Blank } from '@fruits-chain/react-native-xiaoshu'
+import { Card, Button, Space, Blank } from '@fruits-chain/react-native-xiaoshu';
 
 const CardSquare: React.FC = () => {
   return (
@@ -31,7 +31,7 @@ const CardSquare: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
-export default CardSquare
+export default CardSquare;

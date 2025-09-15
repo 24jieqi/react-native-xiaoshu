@@ -1,33 +1,33 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import usePersistFn from './usePersistFn'
+import usePersistFn from './usePersistFn';
 
 export interface Options<T> {
-  defaultValue?: T
-  defaultValuePropName?: string
-  valuePropName?: string
-  trigger?: string
+  defaultValue?: T;
+  defaultValuePropName?: string;
+  valuePropName?: string;
+  trigger?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Props = Record<string, any>
+export type Props = Record<string, any>;
 
 export interface StandardProps<T> {
-  value: T
-  defaultValue?: T
-  onChange: (val: T) => void
+  value: T;
+  defaultValue?: T;
+  onChange: (val: T) => void;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useControllableValue<T = any>(
   props: StandardProps<T>,
-): [T, (val: T) => void]
+): [T, (val: T) => void];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useControllableValue<T = any>(
   props?: Props,
   options?: Options<T>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): [T, (v: T, ...args: any[]) => void]
+): [T, (v: T, ...args: any[]) => void];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useControllableValue<T = any>(
   props: Props = {},
@@ -38,32 +38,32 @@ function useControllableValue<T = any>(
     defaultValuePropName = 'defaultValue',
     valuePropName = 'value',
     trigger = 'onChange',
-  } = options
+  } = options;
 
-  const value = props[valuePropName] as T
-  const isControlled = valuePropName in props
+  const value = props[valuePropName] as T;
+  const isControlled = valuePropName in props;
 
   const [localValue, setLocalValue] = useState<T>(() => {
     if (isControlled) {
-      return value
+      return value;
     }
     if (defaultValuePropName in props) {
-      return props[defaultValuePropName]
+      return props[defaultValuePropName];
     }
-    return defaultValue
-  })
+    return defaultValue;
+  });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setState = (v: T, ...args: any[]) => {
     if (!isControlled) {
-      setLocalValue(v)
+      setLocalValue(v);
     }
     if (props[trigger]) {
-      props[trigger](v, ...args)
+      props[trigger](v, ...args);
     }
-  }
+  };
 
-  return [isControlled ? value : localValue, usePersistFn(setState)] as const
+  return [isControlled ? value : localValue, usePersistFn(setState)] as const;
 }
 
-export default useControllableValue
+export default useControllableValue;

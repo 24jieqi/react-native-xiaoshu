@@ -3,8 +3,8 @@
  * description: 使用 Form.List 渲染一组控件。
  */
 
-import { DeleteFill } from '@fruits-chain/icons-react-native'
-import React from 'react'
+import { DeleteFill } from '@fruits-chain/icons-react-native';
+import React from 'react';
 
 import {
   Card,
@@ -14,18 +14,18 @@ import {
   Toast,
   Dialog,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicFormList: React.FC = () => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
 
   return (
     <Card title="List" square>
       <Form
         form={form}
         onFinish={values => {
-          console.log(values)
-          Toast(JSON.stringify(values))
+          console.log(values);
+          Toast(JSON.stringify(values));
         }}>
         <Form.Item
           name="username"
@@ -63,10 +63,10 @@ const BasicFormList: React.FC = () => {
                             })
                               .then(data => {
                                 if (data === 'confirm') {
-                                  remove(fieldIndex)
+                                  remove(fieldIndex);
                                 }
                               })
-                              .catch(() => {})
+                              .catch(() => {});
                           }}
                         />
                       }>
@@ -100,17 +100,17 @@ const BasicFormList: React.FC = () => {
                         />
                       </Form.Item>
                     </Card>
-                  )
+                  );
                 })}
                 <Button
                   text="新增地址"
                   color="#780"
                   onPress={() => {
-                    add({})
+                    add({});
                   }}
                 />
               </>
-            )
+            );
           }}
         </Form.List>
 
@@ -119,7 +119,7 @@ const BasicFormList: React.FC = () => {
         </Space>
       </Form>
     </Card>
-  )
-}
+  );
+};
 
-export default BasicFormList
+export default BasicFormList;

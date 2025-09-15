@@ -3,10 +3,10 @@
  * description: 适用于单位切换，对输入控件进行补充、扩展。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, Selector, Field } from '@fruits-chain/react-native-xiaoshu'
+import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu';
+import { Cell, Selector, Field } from '@fruits-chain/react-native-xiaoshu';
 
 const units: SelectorOption[] = [
   {
@@ -17,10 +17,10 @@ const units: SelectorOption[] = [
     value: 2,
     label: '元/件',
   },
-]
+];
 
 const BasicSelectorLabel: React.FC = () => {
-  const [unitValue, setUnitValue] = useState<number | string>(units[0].value)
+  const [unitValue, setUnitValue] = useState<number | string>(units[0].value);
 
   return (
     <Cell.Group title="文案">
@@ -78,7 +78,7 @@ const BasicSelectorLabel: React.FC = () => {
         divider={false}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicSelectorLabel
+export default BasicSelectorLabel;

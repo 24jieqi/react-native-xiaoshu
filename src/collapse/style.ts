@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { varCreator as varCreatorCell } from '../cell/style'
-import Theme from '../theme'
-import type { TokensType } from '../theme/interface'
+import { varCreator as varCreatorCell } from '../cell/style';
+import Theme from '../theme';
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -10,13 +10,13 @@ export const varCreator = (TOKENS: TokensType) => {
     collapse_background_color: TOKENS.white,
     collapse_icon_color: TOKENS.gray_6,
     collapse_icon_size: TOKENS.font_size_5,
-  }
-}
+  };
+};
 
-export type CollapseTheme = ReturnType<typeof varCreator>
+export type CollapseTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: CollapseTheme, TOKENS: TokensType) => {
-  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell);
 
   return StyleSheet.create({
     collapse: {
@@ -36,5 +36,5 @@ export const styleCreator = (cv: CollapseTheme, TOKENS: TokensType) => {
     divider: {
       marginHorizontal: CV_CELL.cell_padding_horizontal,
     },
-  })
-}
+  });
+};

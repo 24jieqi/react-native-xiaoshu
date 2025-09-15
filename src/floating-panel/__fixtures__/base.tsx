@@ -3,18 +3,18 @@
  * description: 内部无滚动，整个面板都可以触发滑动打开、关闭。
  */
 
-import React from 'react'
-import { Text, View, useWindowDimensions } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React from 'react';
+import { Text, View, useWindowDimensions } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { FloatingPanel } from '@fruits-chain/react-native-xiaoshu'
+import { FloatingPanel } from '@fruits-chain/react-native-xiaoshu';
 
 const BaseFloatingPanel: React.FC = () => {
-  const insets = useSafeAreaInsets()
-  const { height } = useWindowDimensions()
+  const insets = useSafeAreaInsets();
+  const { height } = useWindowDimensions();
 
-  const anchorStart = insets.bottom + 100
-  const anchorEnd = height - insets.top - 100
+  const anchorStart = insets.bottom + 100;
+  const anchorEnd = height - insets.top - 100;
 
   return (
     <>
@@ -67,7 +67,7 @@ const BaseFloatingPanel: React.FC = () => {
         <Text>end</Text>
       </FloatingPanel>
     </>
-  )
-}
+  );
+};
 
-export default BaseFloatingPanel
+export default BaseFloatingPanel;

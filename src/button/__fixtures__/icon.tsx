@@ -3,10 +3,10 @@
  * description: renderLeftIcon 的 color、size 会结合文案的字体颜色、大小动态计算。
  */
 
-import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
-import React, { memo } from 'react'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native';
+import React, { memo } from 'react';
 
-import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Button, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const ButtonIcon: React.FC = () => {
   return (
@@ -65,7 +65,7 @@ const ButtonIcon: React.FC = () => {
         />
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonIcon)
+export default memo(ButtonIcon);

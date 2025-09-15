@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -13,10 +13,10 @@ export const varCreator = (TOKENS: TokensType) => {
     notify_success_background_color: TOKENS.green_6,
     notify_error_background_color: TOKENS.red_6,
     notify_warning_background_color: TOKENS.yellow_6,
-  }
-}
+  };
+};
 
-export type NotifyTheme = ReturnType<typeof varCreator>
+export type NotifyTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: NotifyTheme) => {
   return StyleSheet.create({
@@ -31,5 +31,5 @@ export const styleCreator = (cv: NotifyTheme) => {
       fontSize: cv.notify_font_size,
       lineHeight: cv.notify_line_height,
     },
-  })
-}
+  });
+};

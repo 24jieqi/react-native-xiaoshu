@@ -3,22 +3,22 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import React from 'react';
+import { View, Text, ScrollView } from 'react-native';
 
-import { Button, Flex, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Button, Flex, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const Circle = (props: { size?: number }) => {
-  const size = props.size || 20
+  const size = props.size || 20;
   const style = {
     borderRadius: size / 2,
     backgroundColor: '#527fe4',
     width: size,
     height: size,
     margin: 1,
-  }
-  return <View style={style} />
-}
+  };
+  return <View style={style} />;
+};
 
 const BasicFlex: React.FC = () => {
   return (
@@ -113,7 +113,7 @@ const BasicFlex: React.FC = () => {
         </Card>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicFlex
+export default BasicFlex;

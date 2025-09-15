@@ -7,18 +7,18 @@ import {
   ArrowUpOutline,
   ArrowDownOutline,
   CrossFill,
-} from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 
-import type { UploaderValue } from '@fruits-chain/react-native-xiaoshu'
+import type { UploaderValue } from '@fruits-chain/react-native-xiaoshu';
 import {
   Card,
   Uploader,
   Toast,
   Dialog,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicUploader: React.FC = () => {
   const [list1, setList1] = useState<UploaderValue[]>([
@@ -32,7 +32,7 @@ const BasicUploader: React.FC = () => {
       filepath: 'https://img.yzcdn.cn/vant/tree.jpg',
       status: 'error',
     },
-  ])
+  ]);
   const [list2, setList2] = useState<(UploaderValue | null)[]>(
     new Array(10).fill(0).map((_, index) => {
       if (index === 0) {
@@ -40,11 +40,11 @@ const BasicUploader: React.FC = () => {
           key: new Date().getTime().toString(),
           filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
           deletable: false,
-        }
+        };
       }
-      return null
+      return null;
     }),
-  )
+  );
 
   return (
     <ScrollView>
@@ -54,9 +54,9 @@ const BasicUploader: React.FC = () => {
             list={list1}
             maxCount={10}
             onPressUpload={() => {
-              Toast('TODO 实现选择文件')
+              Toast('TODO 实现选择文件');
 
-              const key = new Date().getTime().toString()
+              const key = new Date().getTime().toString();
 
               setList1(s => [
                 ...s,
@@ -65,18 +65,18 @@ const BasicUploader: React.FC = () => {
                   filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
                   status: 'loading',
                 },
-              ])
+              ]);
 
               setTimeout(() => {
                 setList1(s =>
                   s.map(item => {
                     if (item.key === key) {
-                      item.status = 'done'
+                      item.status = 'done';
                     }
-                    return item
+                    return item;
                   }),
-                )
-              }, 3000)
+                );
+              }, 3000);
             }}
             onPressDelete={(item, _, list) => {
               Dialog.confirm({
@@ -85,36 +85,36 @@ const BasicUploader: React.FC = () => {
               })
                 .then(action => {
                   if (action === 'confirm') {
-                    setList1(list.filter(img => img.key !== item.key))
+                    setList1(list.filter(img => img.key !== item.key));
                   }
                 })
-                .catch(() => {})
+                .catch(() => {});
             }}
             onPressImage={() => {
-              Toast('TODO 实现预览文件')
+              Toast('TODO 实现预览文件');
             }}
             onPressError={item => {
-              Toast('TODO 实现上传文件')
+              Toast('TODO 实现上传文件');
 
               setList1(s =>
                 s.map(l => {
                   if (l.key === item.key) {
-                    l.status = 'loading'
+                    l.status = 'loading';
                   }
-                  return l
+                  return l;
                 }),
-              )
+              );
 
               setTimeout(() => {
                 setList1(s =>
                   s.map(l => {
                     if (l.key === item.key) {
-                      l.status = 'error'
+                      l.status = 'error';
                     }
-                    return l
+                    return l;
                   }),
-                )
-              }, 2000)
+                );
+              }, 2000);
             }}
           />
         </Card>
@@ -152,42 +152,42 @@ const BasicUploader: React.FC = () => {
                 .then(action => {
                   if (action === 'confirm') {
                     setList2(s => {
-                      const ns = [...s]
-                      ns[index] = null
+                      const ns = [...s];
+                      ns[index] = null;
 
-                      return ns
-                    })
+                      return ns;
+                    });
                   }
                 })
-                .catch(() => {})
+                .catch(() => {});
             }}
             onPressUpload={index => {
-              Toast('TODO 实现选择文件')
+              Toast('TODO 实现选择文件');
 
-              const key = new Date().getTime().toString()
+              const key = new Date().getTime().toString();
 
               setList2(s => {
-                const ns = [...s]
+                const ns = [...s];
 
                 ns[index] = {
                   key,
                   filepath: 'https://img.yzcdn.cn/vant/leaf.jpg',
                   status: 'loading',
-                }
+                };
 
-                return ns
-              })
+                return ns;
+              });
 
               setTimeout(() => {
                 setList2(s =>
                   s.map(item => {
                     if (item?.key === key) {
-                      item.status = 'done'
+                      item.status = 'done';
                     }
-                    return item
+                    return item;
                   }),
-                )
-              }, 3000)
+                );
+              }, 3000);
             }}
           />
         </Card>
@@ -208,7 +208,7 @@ const BasicUploader: React.FC = () => {
         </Card>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicUploader
+export default BasicUploader;

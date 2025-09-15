@@ -1,5 +1,5 @@
-import type React from 'react'
-import { useEffect, useRef } from 'react'
+import type React from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * 页面更新后执行副作用操作
@@ -10,15 +10,15 @@ const useUpdateEffect = (
   effect: React.EffectCallback,
   deps: React.DependencyList,
 ) => {
-  const mounted = useRef(false)
+  const mounted = useRef(false);
   useEffect(() => {
     if (!mounted.current) {
-      mounted.current = true
+      mounted.current = true;
     } else {
-      return effect()
+      return effect();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps)
-}
+  }, deps);
+};
 
-export default useUpdateEffect
+export default useUpdateEffect;

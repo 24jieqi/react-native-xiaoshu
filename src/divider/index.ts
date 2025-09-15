@@ -1,9 +1,9 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import Divider from './divider'
-import { varCreator, styleCreator } from './style'
+import Divider from './divider';
+import { varCreator, styleCreator } from './style';
 
 export default attachPropertiesToComponent(Divider, {
   varCreator,
   styleCreator,
-})
+});

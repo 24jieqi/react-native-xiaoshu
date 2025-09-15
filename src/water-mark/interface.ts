@@ -1,53 +1,53 @@
-import type { ColorValue, ViewProps } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native';
 
-import type { WaterMarkTheme } from './style'
+import type { WaterMarkTheme } from './style';
 
 export interface WaterMarkProps extends ViewProps {
-  theme?: Partial<WaterMarkTheme>
+  theme?: Partial<WaterMarkTheme>;
   /**
    * 文字内容
    */
-  text: string
+  text: string;
 
   /**
    * 文字颜色
    * @default water_mark_text_color
    */
-  color?: ColorValue
+  color?: ColorValue;
 
   /**
    * 字体大小
    * @default water_mark_text_font_size
    */
-  fontSize?: number
+  fontSize?: number;
 
   /**
    * 文字透明度
    * @default water_mark_text_opacity
    */
-  opacity?: number
+  opacity?: number;
 
   /**
    * 文字宽
    * @default 64
    */
-  textWidth?: number
+  textWidth?: number;
 
   /**
    * 文字高/行高
    * @default 64
    */
-  textHeight?: number
+  textHeight?: number;
 
   /**
    * 水印绘制时，旋转的角度，单位 °
    * @default -45
    */
-  rotate?: number
+  rotate?: number;
 
   /**
    * 否需要前置水印
    * @default false
    */
-  foreground?: boolean
+  foreground?: boolean;
 }

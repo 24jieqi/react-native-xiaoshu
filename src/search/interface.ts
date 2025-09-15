@@ -1,8 +1,8 @@
-import type { ColorValue, ViewProps } from 'react-native'
+import type { ColorValue, ViewProps } from 'react-native';
 
-import type { TextInputProps } from '../text-input/interface'
+import type { TextInputProps } from '../text-input/interface';
 
-import type { SearchTheme } from './style'
+import type { SearchTheme } from './style';
 
 export interface SearchProps
   extends Pick<
@@ -15,69 +15,69 @@ export interface SearchProps
       | 'onChangeText'
     >,
     ViewProps {
-  theme?: Partial<SearchTheme>
+  theme?: Partial<SearchTheme>;
   /**
    * 图标大小
    * @default 20
    */
-  iconSize?: number
+  iconSize?: number;
 
   /**
    * 图标颜色
    * @default text_input_placeholder_text_color
    */
-  iconColor?: ColorValue
+  iconColor?: ColorValue;
 
   /**
    * 点击搜索
    */
-  onSearch?: (value: string) => void
+  onSearch?: (value: string) => void;
 
   /**
    * 显示返回图标
    * @default false
    */
-  showBack?: boolean
+  showBack?: boolean;
 
   /**
    * 点击返回图标
    */
-  onPressBack?: () => void
+  onPressBack?: () => void;
 
   /**
    * 内容变化时自动触发 onSearch
    * @default false
    */
-  autoSearch?: boolean
+  autoSearch?: boolean;
 
   /**
    * onSearch debounce wait
    * @default 300
    */
-  onSearchDebounceWait?: number
+  onSearchDebounceWait?: number;
 
   /**
    * 搜索按钮文案
    * @default '搜索'
    */
-  searchText?: string
+  searchText?: string;
 
   /**
    * 搜索按钮右侧自定义内容
    */
-  extra?: React.ReactNode
+  extra?: React.ReactNode;
   /**
    * 搜索 icon 左边自定义内容
    */
-  prefix?: React.ReactNode
+  prefix?: React.ReactNode;
   /**
    * 搜索框内右边自定义内容
    */
-  suffix?: React.ReactNode
+  suffix?: React.ReactNode;
 
   /**
    * 是否显示搜索按钮
    * @default true
    */
-  showSearchButton?: boolean
+  showSearchButton?: boolean;
 }

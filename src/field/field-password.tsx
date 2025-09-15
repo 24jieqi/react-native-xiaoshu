@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import Cell from '../cell'
-import PasswordInput from '../password-input'
-import Theme from '../theme'
+import Cell from '../cell';
+import PasswordInput from '../password-input';
+import Theme from '../theme';
 
-import { pickCellProps } from './helper'
-import type { FieldPasswordInputProps } from './interface'
+import { pickCellProps } from './helper';
+import type { FieldPasswordInputProps } from './interface';
 
 /**
  * Field 密码输入
@@ -18,13 +18,13 @@ const FieldPasswordInput: React.FC<FieldPasswordInputProps> = ({
   textInputBordered,
   ...restProps
 }) => {
-  const { cellProps, otherProps } = pickCellProps(restProps)
+  const { cellProps, otherProps } = pickCellProps(restProps);
 
   if (cellProps.vertical) {
-    textAlign = 'left'
+    textAlign = 'left';
   }
 
-  const TOKENS = Theme.useThemeTokens()
+  const TOKENS = Theme.useThemeTokens();
 
   return (
     <Cell
@@ -46,7 +46,7 @@ const FieldPasswordInput: React.FC<FieldPasswordInputProps> = ({
         />
       }
     />
-  )
-}
+  );
+};
 
-export default memo(FieldPasswordInput)
+export default memo(FieldPasswordInput);

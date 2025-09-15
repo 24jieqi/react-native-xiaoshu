@@ -1,4 +1,4 @@
-import type { SelectorOption } from './interface'
+import type { SelectorOption } from './interface';
 
 /**
  * 转换为侧边数据
@@ -18,4 +18,4 @@ export const conversionSelectorOptions = <T = Record<string, any>>(
     label: dt[label] as any,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value: dt[value] as any,
-  }))
+  }));

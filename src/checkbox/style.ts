@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -12,10 +12,10 @@ export const varCreator = (TOKENS: TokensType) => {
     checkbox_label_color: TOKENS.gray_8,
     checkbox_label_margin: TOKENS.space_2,
     checkbox_disabled_label_color: TOKENS.gray_6,
-  }
-}
+  };
+};
 
-export type CheckboxTheme = ReturnType<typeof varCreator>
+export type CheckboxTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: CheckboxTheme) => {
   return StyleSheet.create({
@@ -33,5 +33,5 @@ export const styleCreator = (cv: CheckboxTheme) => {
     label_disabled: {
       color: cv.checkbox_disabled_label_color,
     },
-  })
-}
+  });
+};

@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 // import type { ViewStyle } from 'react-native'
 // import { StyleSheet, Text } from 'react-native'
-import { create } from 'react-test-renderer'
+import { create } from 'react-test-renderer';
 // import type { ReactTestInstance } from 'react-test-renderer'
 
-import { customRender } from '../../__tests__/test-utils'
-import ActionSheet from '../action-sheet'
+import { customRender } from '../../__tests__/test-utils';
+import ActionSheet from '../action-sheet';
 
 describe('ActionSheet', () => {
   it('render snapshot', () => {
-    const tree = create(<ActionSheet visible actions={[]} />).toJSON()
+    const tree = create(<ActionSheet visible actions={[]} />).toJSON();
 
-    expect(tree).toMatchSnapshot()
-  })
+    expect(tree).toMatchSnapshot();
+  });
 
   it('element', () => {
     const { queryByText } = customRender(
@@ -24,8 +24,8 @@ describe('ActionSheet', () => {
           },
         ]}
       />,
-    )
+    );
 
-    expect(queryByText('一个')).not.toBeNull()
-  })
-})
+    expect(queryByText('一个')).not.toBeNull();
+  });
+});

@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -16,10 +16,10 @@ export const varCreator = (TOKENS: TokensType) => {
     dropdown_badge_color: TOKENS.red_6,
     dropdown_badge_text_font_size: TOKENS.font_size_3,
     dropdown_badge_dot_size: 8,
-  }
-}
+  };
+};
 
-export type DropdownTheme = ReturnType<typeof varCreator>
+export type DropdownTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: DropdownTheme) => {
   return StyleSheet.create({
@@ -78,5 +78,5 @@ export const styleCreator = (cv: DropdownTheme) => {
       marginTop: -cv.dropdown_badge_dot_size,
       marginLeft: cv.dropdown_text_margin_right / 2,
     },
-  })
-}
+  });
+};

@@ -1,10 +1,10 @@
-import type React from 'react'
-import { memo } from 'react'
+import type React from 'react';
+import { memo } from 'react';
 
-import type { TabPaneProps } from './interface'
+import type { TabPaneProps } from './interface';
 
 const TabPane: React.FC<TabPaneProps> = ({ children }) => {
-  return children as React.ReactElement
-}
+  return children as React.ReactElement;
+};
 
-export default memo(TabPane)
+export default memo(TabPane);

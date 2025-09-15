@@ -1,6 +1,6 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import { varCreator, styleCreator } from './style'
+import { varCreator, styleCreator } from './style';
 import {
   Instance,
   loading,
@@ -8,7 +8,7 @@ import {
   fail,
   setDefaultOptions,
   resetDefaultOptions,
-} from './toast-instance'
+} from './toast-instance';
 
 export default attachPropertiesToComponent(Instance, {
   varCreator,
@@ -18,4 +18,4 @@ export default attachPropertiesToComponent(Instance, {
   fail,
   setDefaultOptions,
   resetDefaultOptions,
-})
+});

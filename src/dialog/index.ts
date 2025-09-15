@@ -1,4 +1,4 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
 import {
   Instance,
@@ -8,8 +8,8 @@ import {
   DialogComponent,
   Keyboard,
   KeyboardComponent,
-} from './dialog-instance'
-import { varCreator, styleCreator } from './style'
+} from './dialog-instance';
+import { varCreator, styleCreator } from './style';
 
 export default attachPropertiesToComponent(Instance, {
   varCreator,
@@ -20,4 +20,4 @@ export default attachPropertiesToComponent(Instance, {
   DialogComponent,
   Keyboard,
   KeyboardComponent,
-})
+});

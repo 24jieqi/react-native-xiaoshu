@@ -1,17 +1,17 @@
-import type { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react';
 
-import type TOKENS from './tokens-mix'
+import type TOKENS from './tokens-mix';
 
 /** tokens */
-export type TokensType = typeof TOKENS
+export type TokensType = typeof TOKENS;
 
 /** 外界可以参与修改的变量 */
-export type StyleVar = Partial<TokensType>
+export type StyleVar = Partial<TokensType>;
 
 /** 默认初始化状态 */
 export interface ThemeProviderProps extends PropsWithChildren<{}> {
   theme?: StyleVar & {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key in string]: any
-  }
+    [key in string]: any;
+  };
 }

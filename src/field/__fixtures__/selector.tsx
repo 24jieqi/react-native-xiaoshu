@@ -3,16 +3,16 @@
  * description: 适合单选、多选。
  */
 
-import React, { useState } from 'react'
-import { Text } from 'react-native'
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 
-import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+import type { TreeOption } from '@fruits-chain/react-native-xiaoshu';
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu';
 
 const options = new Array(6).fill(0).map((_, index) => ({
   value: index,
   label: `选项 ${index}`,
-}))
+}));
 
 const treeOptions = new Array(6).fill(0).map((_, index) => ({
   value: index,
@@ -25,12 +25,12 @@ const treeOptions = new Array(6).fill(0).map((_, index) => ({
           label: `选项_${index}_${sIndex}`,
         }))
       : [],
-}))
+}));
 
 const BasicFieldSelector: React.FC = () => {
-  const [s1, setS1] = useState<number | undefined>(undefined)
-  const [s2, setS2] = useState([] as number[])
-  const [s3, setS3] = useState<number | undefined>(undefined)
+  const [s1, setS1] = useState<number | undefined>(undefined);
+  const [s2, setS2] = useState([] as number[]);
+  const [s3, setS3] = useState<number | undefined>(undefined);
 
   return (
     <Cell.Group title="Field Selector">
@@ -40,7 +40,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s1}
         options={options}
         onChange={v => {
-          setS1(v as number)
+          setS1(v as number);
         }}
         clearable
         // eslint-disable-next-line react-native/no-inline-styles
@@ -54,7 +54,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s1}
         options={options}
         onChange={v => {
-          setS1(v as number)
+          setS1(v as number);
         }}
         renderResultText={(_, opts) => {
           if (opts.length) {
@@ -71,10 +71,10 @@ const BasicFieldSelector: React.FC = () => {
                   其他描述
                 </Text>
               </>
-            )
+            );
           }
 
-          return undefined
+          return undefined;
         }}
       />
       <Field.Selector
@@ -99,7 +99,7 @@ const BasicFieldSelector: React.FC = () => {
           ),
         }))}
         onChange={v => {
-          setS1(v as number)
+          setS1(v as number);
         }}
       />
       <Field.Selector
@@ -109,7 +109,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s1}
         options={options}
         onChange={v => {
-          setS1(v as number)
+          setS1(v as number);
         }}
       />
       <Field.Selector
@@ -119,7 +119,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s1}
         options={options}
         onChange={v => {
-          setS1(v as number)
+          setS1(v as number);
         }}
       />
       <Field.Selector
@@ -129,7 +129,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s2}
         options={options}
         onChange={v => {
-          setS2(v as number[])
+          setS2(v as number[]);
         }}
       />
       <Field.Selector
@@ -142,7 +142,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s2}
         options={options}
         onChange={v => {
-          setS2(v as number[])
+          setS2(v as number[]);
         }}
       />
       <Field.Selector
@@ -156,7 +156,7 @@ const BasicFieldSelector: React.FC = () => {
         search
         options={options}
         onChange={v => {
-          setS2(v as number[])
+          setS2(v as number[]);
         }}
       />
       <Field.Selector
@@ -166,7 +166,7 @@ const BasicFieldSelector: React.FC = () => {
         value={s2}
         options={options}
         onChange={v => {
-          setS2(v as number[])
+          setS2(v as number[]);
         }}
         valueTextNumberOfLines={1}
       />
@@ -176,35 +176,35 @@ const BasicFieldSelector: React.FC = () => {
         value={s3}
         options={treeOptions}
         onChange={v => {
-          setS3(v as number)
+          setS3(v as number);
         }}
         clearable
         valueTextNumberOfLines={1}
         divider={false}
         renderResultText={(v: number[] | undefined) => {
           if (!v) {
-            return undefined
+            return undefined;
           }
 
-          const texts: string[] = []
+          const texts: string[] = [];
           const findText = (list: TreeOption[]) => {
             list.forEach(item => {
               if (v.indexOf(item.value as number) > -1) {
-                texts.push(item.label)
+                texts.push(item.label);
               }
               if (item.children?.length) {
-                findText(item.children)
+                findText(item.children);
               }
-            })
-          }
+            });
+          };
 
-          findText(treeOptions)
+          findText(treeOptions);
 
-          return texts.join('、')
+          return texts.join('、');
         }}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldSelector
+export default BasicFieldSelector;

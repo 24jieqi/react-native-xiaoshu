@@ -3,8 +3,8 @@
  * description: 类似 iOS 的 Sheet 组件，看似独立一个页面。
  */
 
-import React, { useState } from 'react'
-import { ScrollView, View } from 'react-native'
+import React, { useState } from 'react';
+import { ScrollView, View } from 'react-native';
 
 import {
   Blank,
@@ -13,10 +13,10 @@ import {
   Button,
   Field,
   ButtonBar,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicPopupPage: React.FC = () => {
-  const [pageVisible, setPageVisible] = useState(false)
+  const [pageVisible, setPageVisible] = useState(false);
 
   // ScrollView 在实际业务中替换成 react-native-keyboard-aware-scroll-view 更合适
   return (
@@ -24,7 +24,7 @@ const BasicPopupPage: React.FC = () => {
       <Button
         text="弹出层当做一个页面"
         onPress={() => {
-          setPageVisible(true)
+          setPageVisible(true);
         }}
       />
 
@@ -32,7 +32,7 @@ const BasicPopupPage: React.FC = () => {
         <Popup.Header
           title="独立页面"
           onClose={() => {
-            setPageVisible(false)
+            setPageVisible(false);
           }}
         />
 
@@ -86,7 +86,7 @@ const BasicPopupPage: React.FC = () => {
         </ButtonBar>
       </Popup.Page>
     </Blank>
-  )
-}
+  );
+};
 
-export default BasicPopupPage
+export default BasicPopupPage;

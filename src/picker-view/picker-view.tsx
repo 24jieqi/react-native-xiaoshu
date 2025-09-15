@@ -1,12 +1,12 @@
-import isNil from 'lodash/isNil'
-import React, { useMemo, useEffect, useState, useRef, memo } from 'react'
-import type { StyleProp, ViewStyle } from 'react-native'
-import { View } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { useMemo, useEffect, useState, useRef, memo } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
+import { View } from 'react-native';
 
-import Divider from '../divider'
-import { useControllableValue } from '../hooks'
-import Loading from '../loading'
-import Theme from '../theme'
+import Divider from '../divider';
+import { useControllableValue } from '../hooks';
+import Loading from '../loading';
+import Theme from '../theme';
 
 import {
   getDataType,
@@ -14,17 +14,17 @@ import {
   buildOptions,
   findNextAllColumns,
   buildSelectedValue,
-} from './helper/picker'
-import type { PickerViewProps, PickerValue, PickerOption } from './interface'
-import PickerColumn from './picker-view-column'
-import { varCreator, styleCreator } from './style'
+} from './helper/picker';
+import type { PickerViewProps, PickerValue, PickerOption } from './interface';
+import PickerColumn from './picker-view-column';
+import { varCreator, styleCreator } from './style';
 
 const getVisibleItemCount = (n: number) => {
   if (n % 2 === 0) {
-    return n + 1
+    return n + 1;
   }
-  return n
-}
+  return n;
+};
 
 /**
  * 选择器视图
@@ -39,69 +39,69 @@ const PickerView: React.FC<PickerViewProps> = ({
   testID,
   ...restProps
 }) => {
-  const _visibleItemCount = getVisibleItemCount(visibleItemCount)
+  const _visibleItemCount = getVisibleItemCount(visibleItemCount);
   /** 选项的高度 */
-  const columnsHeight = _visibleItemCount * itemHeight
+  const columnsHeight = _visibleItemCount * itemHeight;
   /** 居中选中的偏移量 */
-  const markMargin = itemHeight / 2
+  const markMargin = itemHeight / 2;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   /**
    * 数据类型
    * @description cascade 联级选择，multiple 多列选择，single 单列选择
    */
-  const dataType = useMemo(() => getDataType(columns), [columns])
-  const isControlled = 'value' in restProps
-  const isNoDefaultValue = 'defaultValue' in restProps
+  const dataType = useMemo(() => getDataType(columns), [columns]);
+  const isControlled = 'value' in restProps;
+  const isNoDefaultValue = 'defaultValue' in restProps;
 
   const [value, onChange] = useControllableValue<PickerValue[]>(restProps, {
     defaultValue: [],
-  })
-  const [options, setOptions] = useState<PickerOption[][]>([])
-  const ColumnDefaultValues = useRef<PickerValue[]>([])
+  });
+  const [options, setOptions] = useState<PickerOption[][]>([]);
+  const ColumnDefaultValues = useRef<PickerValue[]>([]);
 
   // 初始化数据
   useEffect(() => {
     if (dataType !== 'cascade') {
-      const [_options, defaultValues] = buildOptions(dataType, columns)
-      ColumnDefaultValues.current = defaultValues
-      setOptions(_options)
+      const [_options, defaultValues] = buildOptions(dataType, columns);
+      ColumnDefaultValues.current = defaultValues;
+      setOptions(_options);
 
       // 非受控的情况、并且没有默认值才去同步数据
       // 既然有默认数据了，由外面自己负责
       // 把数据同步到内部状态，初始化的时候看起来是选中默认数据或第一个数据的样子
       if (!isControlled && !isNoDefaultValue) {
-        const [v, o] = buildSelectedValue(defaultValues, _options)
-        onChange(v, o)
+        const [v, o] = buildSelectedValue(defaultValues, _options);
+        onChange(v, o);
       }
     }
-  }, [columns, dataType, onChange, isControlled, isNoDefaultValue])
+  }, [columns, dataType, onChange, isControlled, isNoDefaultValue]);
 
   // 联级依赖 value 单独处理
   useEffect(() => {
     if (dataType === 'cascade') {
-      const [_options, , _values] = buildOptions(dataType, columns, value)
-      const [v, o] = buildSelectedValue(_values, _options)
+      const [_options, , _values] = buildOptions(dataType, columns, value);
+      const [v, o] = buildSelectedValue(_values, _options);
 
-      setOptions(_options)
+      setOptions(_options);
 
       // 当
       if (value !== _values) {
-        onChange(v, o)
+        onChange(v, o);
       }
     }
-  }, [columns, value, dataType, onChange])
+  }, [columns, value, dataType, onChange]);
 
   const bodyStyle: ViewStyle = {
     height: columnsHeight,
     backgroundColor: CV.picker_view_background_color,
     flexDirection: 'row',
     overflow: 'hidden',
-  }
+  };
   const maskTopStyles: StyleProp<ViewStyle> = [
     STYLES.mask,
     {
@@ -114,7 +114,7 @@ const PickerView: React.FC<PickerViewProps> = ({
         },
       ],
     },
-  ]
+  ];
   const maskBottomStyles: StyleProp<ViewStyle> = [
     STYLES.mask,
     {
@@ -126,7 +126,7 @@ const PickerView: React.FC<PickerViewProps> = ({
         },
       ],
     },
-  ]
+  ];
 
   return (
     <View testID={testID} style={STYLES.picker}>
@@ -144,7 +144,7 @@ const PickerView: React.FC<PickerViewProps> = ({
         {options.map((optionItem, optionIndex) => {
           const _value = (() => {
             if (!isNil(value[optionIndex])) {
-              return value[optionIndex]
+              return value[optionIndex];
             }
 
             // 默认值
@@ -152,18 +152,18 @@ const PickerView: React.FC<PickerViewProps> = ({
             // 并且没有默认值
             if (!isControlled && !isNoDefaultValue) {
               if (dataType === 'multiple') {
-                return ColumnDefaultValues.current[optionIndex]
+                return ColumnDefaultValues.current[optionIndex];
               }
 
               // 真的没有就默认第一个选项
               return findDefaultValue(
                 options[optionIndex][0].value,
                 optionItem,
-              )!
+              )!;
             }
 
-            return undefined
-          })()
+            return undefined;
+          })();
 
           return (
             <PickerColumn
@@ -178,54 +178,54 @@ const PickerView: React.FC<PickerViewProps> = ({
                   // 联级选择
                   // 如果是 cascade 需要重置选项
                   case 'cascade': {
-                    const nextAll = findNextAllColumns(column?.children || [])
+                    const nextAll = findNextAllColumns(column?.children || []);
                     const _options = options
                       .slice(0, optionIndex + 1)
-                      .concat(nextAll.options)
+                      .concat(nextAll.options);
                     const values = value
                       .slice(0, optionIndex)
                       .concat(column?.value)
-                      .concat(nextAll.values)
+                      .concat(nextAll.values);
 
-                    const [v, o] = buildSelectedValue(values, _options)
-                    onChange(v, o)
-                    break
+                    const [v, o] = buildSelectedValue(values, _options);
+                    onChange(v, o);
+                    break;
                   }
 
                   // 多选
                   case 'multiple': {
-                    const newValues = value.concat([])
+                    const newValues = value.concat([]);
                     // 先从默认数据中拼凑好数据
                     ColumnDefaultValues.current.forEach((cdv, cdvIndex) => {
                       if (isNil(newValues[cdvIndex])) {
-                        newValues[cdvIndex] = cdv
+                        newValues[cdvIndex] = cdv;
                       }
-                    })
+                    });
 
-                    newValues[optionIndex] = column.value
+                    newValues[optionIndex] = column.value;
 
-                    const [v, o] = buildSelectedValue(newValues, options)
+                    const [v, o] = buildSelectedValue(newValues, options);
 
-                    onChange(v, o)
-                    break
+                    onChange(v, o);
+                    break;
                   }
 
                   // 单选
                   default: {
                     const columnsIndex = columns.findIndex(
                       c => (c as PickerOption).value === column.value,
-                    )
-                    onChange([column.value], [columns[columnsIndex]])
-                    break
+                    );
+                    onChange([column.value], [columns[columnsIndex]]);
+                    break;
                   }
                 }
               }}
             />
-          )
+          );
         })}
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default memo(PickerView)
+export default memo(PickerView);

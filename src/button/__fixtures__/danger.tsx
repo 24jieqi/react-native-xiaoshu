@@ -3,18 +3,18 @@
  * description: 删除/移动/修改权限等危险操作，一般需要二次确认。
  */
 
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
 import {
   Button,
   Card,
   Space,
   Divider,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onPress = () => {
-  console.log('点击按钮')
-}
+  console.log('点击按钮');
+};
 
 const ButtonDanger: React.FC = () => {
   return (
@@ -39,7 +39,7 @@ const ButtonDanger: React.FC = () => {
         </Space>
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonDanger)
+export default memo(ButtonDanger);

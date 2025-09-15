@@ -1,4 +1,4 @@
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -8,7 +8,7 @@ export const varCreator = (TOKENS: TokensType) => {
     loading_icon_color: TOKENS.gray_6,
     loading_icon_size: 24,
     loading_icon_animation_duration: 800,
-  }
-}
+  };
+};
 
-export type LoadingTheme = ReturnType<typeof varCreator>
+export type LoadingTheme = ReturnType<typeof varCreator>;

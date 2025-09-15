@@ -1,32 +1,32 @@
-import React, { useMemo, memo, isValidElement } from 'react'
+import React, { useMemo, memo, isValidElement } from 'react';
 
-import Divider from '../divider'
-import { childrenToArray } from '../helpers'
-import { useControllableValue } from '../hooks'
-import TabBar from '../tab-bar'
-import type { TabItem } from '../tab-bar/interface'
+import Divider from '../divider';
+import { childrenToArray } from '../helpers';
+import { useControllableValue } from '../hooks';
+import TabBar from '../tab-bar';
+import type { TabItem } from '../tab-bar/interface';
 
-import type { TabsProps, TabPaneProps } from './interface'
-import TabView from './tab-view'
+import type { TabsProps, TabPaneProps } from './interface';
+import TabView from './tab-view';
 
 const parseTabList = (children: React.ReactNode) => {
   return childrenToArray(children)
     .map((node: React.ReactElement<TabPaneProps>) => {
       if (isValidElement(node)) {
-        const key = node.key !== undefined ? String(node.key) : undefined
+        const key = node.key !== undefined ? String(node.key) : undefined;
         return {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
           key,
           ...node.props,
           node,
-        }
+        };
       }
 
-      return null
+      return null;
     })
-    .filter(tab => tab)
-}
+    .filter(tab => tab);
+};
 
 const Tabs: React.FC<TabsProps> = ({
   children,
@@ -38,21 +38,21 @@ const Tabs: React.FC<TabsProps> = ({
   ...restProps
 }) => {
   const [_options, _tabs] = useMemo(() => {
-    const tabs = parseTabList(children)
+    const tabs = parseTabList(children);
     const options: TabItem<string>[] = tabs.map(t => ({
       value: t!.key,
       label: t!.tab,
       badge: t!.badge,
-    }))
+    }));
 
-    return [options, tabs]
-  }, [children])
+    return [options, tabs];
+  }, [children]);
 
   const [value, onChange] = useControllableValue<string>(restProps, {
     valuePropName: 'activeKey',
     defaultValuePropName: 'defaultActiveKey',
     defaultValue: _options[0]?.value as string,
-  })
+  });
 
   return (
     <>
@@ -81,10 +81,10 @@ const Tabs: React.FC<TabsProps> = ({
             active={t!.key === value}>
             {t!.node}
           </TabView>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default memo(Tabs)
+export default memo(Tabs);

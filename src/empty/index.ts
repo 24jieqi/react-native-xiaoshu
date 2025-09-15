@@ -1,6 +1,6 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import Empty from './empty'
-import { varCreator, styleCreator } from './style'
+import Empty from './empty';
+import { varCreator, styleCreator } from './style';
 
-export default attachPropertiesToComponent(Empty, { varCreator, styleCreator })
+export default attachPropertiesToComponent(Empty, { varCreator, styleCreator });

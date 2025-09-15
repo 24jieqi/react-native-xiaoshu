@@ -1,6 +1,6 @@
-import isUndefined from 'lodash/isUndefined'
+import isUndefined from 'lodash/isUndefined';
 
-import type { FieldTextCellPropsUsed } from './interface'
+import type { FieldTextCellPropsUsed } from './interface';
 
 export const pickCellProps = <T extends FieldTextCellPropsUsed>(
   {
@@ -53,18 +53,18 @@ export const pickCellProps = <T extends FieldTextCellPropsUsed>(
     titleTextNumberOfLines,
     style,
     testID,
-  }
+  };
 
   if (defaultProps && typeof defaultProps === 'object') {
     Object.entries(defaultProps).forEach(([key, value]) => {
       if (isUndefined(cellProps[key])) {
-        cellProps[key] = value
+        cellProps[key] = value;
       }
-    })
+    });
   }
 
   return {
     cellProps,
     otherProps,
-  }
-}
+  };
+};

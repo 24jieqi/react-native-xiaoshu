@@ -3,52 +3,52 @@
  * description: 最小、最小值，小数位控制
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell, NumberInput } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, NumberInput } from '@fruits-chain/react-native-xiaoshu';
 
 const consoleNum = (n: number) => {
-  console.log('[新数据]  ->  ', n)
-}
+  console.log('[新数据]  ->  ', n);
+};
 
 function trimExtraChar(value: string, char: string, regExp: RegExp) {
-  const index = value.indexOf(char)
+  const index = value.indexOf(char);
 
   if (index === -1) {
-    return value
+    return value;
   }
 
   if (char === '-' && index !== 0) {
-    return value.slice(0, index)
+    return value.slice(0, index);
   }
 
-  return value.slice(0, index + 1) + value.slice(index).replace(regExp, '')
+  return value.slice(0, index + 1) + value.slice(index).replace(regExp, '');
 }
 
 function formatNumber(value: string, allowDot = true, allowMinus = true) {
   if (allowDot) {
-    value = trimExtraChar(value, '.', /\./g)
+    value = trimExtraChar(value, '.', /\./g);
   } else {
-    value = value.split('.')[0]
+    value = value.split('.')[0];
   }
 
   if (allowMinus) {
-    value = trimExtraChar(value, '-', /-/g)
+    value = trimExtraChar(value, '-', /-/g);
   } else {
-    value = value.replace(/-/, '')
+    value = value.replace(/-/, '');
   }
 
-  const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g
+  const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g;
 
-  return value.replace(regExp, '')
+  return value.replace(regExp, '');
 }
 
 const parserNum = (n: string) => {
   if (n) {
-    return +Number(formatNumber(n)).toFixed(2)
+    return +Number(formatNumber(n)).toFixed(2);
   }
-  return null
-}
+  return null;
+};
 
 const BasicNumberInputLimit: React.FC = () => {
   return (
@@ -81,11 +81,11 @@ const BasicNumberInputLimit: React.FC = () => {
           <NumberInput
             placeholder="请输入"
             parser={v => {
-              const vn = Number(v)
+              const vn = Number(v);
               if (vn < 100) {
-                return vn * 2
+                return vn * 2;
               }
-              return vn
+              return vn;
             }}
             onChange={consoleNum}
           />
@@ -101,9 +101,9 @@ const BasicNumberInputLimit: React.FC = () => {
             min={1.14}
             parser={n => {
               if (n) {
-                return +Number(n).toFixed(2)
+                return +Number(n).toFixed(2);
               }
-              return null
+              return null;
             }}
             onChange={consoleNum}
           />
@@ -129,7 +129,7 @@ const BasicNumberInputLimit: React.FC = () => {
         divider={false}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicNumberInputLimit
+export default BasicNumberInputLimit;

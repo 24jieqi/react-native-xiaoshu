@@ -3,19 +3,19 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { NavBar, Cell } from '@fruits-chain/react-native-xiaoshu'
+import { NavBar, Cell } from '@fruits-chain/react-native-xiaoshu';
 
-const BasicNavBar: React.FC = () => {
+const BasicNavBar = () => {
   return (
     <>
       <Cell.Group title="一般使用">
         <NavBar
           title="一般使用"
           onPressBackArrow={() => {
-            console.log('点击返回')
+            console.log('点击返回');
           }}
         />
       </Cell.Group>
@@ -36,7 +36,7 @@ const BasicNavBar: React.FC = () => {
         />
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicNavBar
+export default BasicNavBar;

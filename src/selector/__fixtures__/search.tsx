@@ -3,10 +3,10 @@
  * description: 当候选项太多的时候可以启用搜索。
  */
 
-import React from 'react'
+import React from 'react';
 
-import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
+import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu';
+import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSelectorSearch: React.FC = () => {
   return (
@@ -15,13 +15,13 @@ const BasicSelectorSearch: React.FC = () => {
         title="单选"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 20; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
@@ -30,9 +30,9 @@ const BasicSelectorSearch: React.FC = () => {
             search: true,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
       <Cell
@@ -40,14 +40,14 @@ const BasicSelectorSearch: React.FC = () => {
         isLink
         divider={false}
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 20; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
               disabled: index < 5,
-            })
+            });
           }
 
           Selector({
@@ -58,13 +58,13 @@ const BasicSelectorSearch: React.FC = () => {
             search: true,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicSelectorSearch
+export default BasicSelectorSearch;

@@ -1,10 +1,10 @@
-import React, { useMemo, memo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { View } from 'react-native'
+import React, { useMemo, memo } from 'react';
+import type { ViewStyle, StyleProp } from 'react-native';
+import { View } from 'react-native';
 
-import RowContext from './context'
-import type { RowProps } from './interface'
-import STYLES from './style'
+import RowContext from './context';
+import type { RowProps } from './interface';
+import STYLES from './style';
 
 /**
  * Row 布局
@@ -17,7 +17,7 @@ const Row: React.FC<RowProps> = ({
   align,
   ...restProps
 }) => {
-  const ctx = useMemo(() => ({ gap }), [gap])
+  const ctx = useMemo(() => ({ gap }), [gap]);
   const rowStyles: StyleProp<ViewStyle> = [
     STYLES.row,
     {
@@ -30,7 +30,7 @@ const Row: React.FC<RowProps> = ({
     // {
     //   backgroundColor: '#666',
     // },
-  ]
+  ];
 
   // console.log(-(+gutter / 2));
 
@@ -38,7 +38,7 @@ const Row: React.FC<RowProps> = ({
     <RowContext.Provider value={ctx}>
       <View {...restProps} style={rowStyles} />
     </RowContext.Provider>
-  )
-}
+  );
+};
 
-export default memo(Row)
+export default memo(Row);

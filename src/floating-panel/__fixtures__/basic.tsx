@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Button } from '@fruits-chain/react-native-xiaoshu'
+import { Button } from '@fruits-chain/react-native-xiaoshu';
 
-import BaseFloatingPanel from './base'
-import BaseFloatingPanel2 from './base2'
-import ScrollFloatingPanel from './scroll'
+import BaseFloatingPanel from './base';
+import BaseFloatingPanel2 from './base2';
+import ScrollFloatingPanel from './scroll';
 
 const demos = [
   {
@@ -19,10 +19,10 @@ const demos = [
     value: 'scroll',
     label: '滚动',
   },
-]
+];
 
 const BasicFloatingPanel: React.FC = () => {
-  const [demo, setDemo] = useState(demos[1].value)
+  const [demo, setDemo] = useState(demos[1].value);
 
   return (
     <>
@@ -31,7 +31,7 @@ const BasicFloatingPanel: React.FC = () => {
         options={demos}
         value={demo}
         onChange={(_, opts) => {
-          setDemo(opts[0].value)
+          setDemo(opts[0].value);
         }}
       />
 
@@ -39,7 +39,7 @@ const BasicFloatingPanel: React.FC = () => {
       {demo === demos[1].value ? <BaseFloatingPanel2 /> : null}
       {demo === demos[2].value ? <ScrollFloatingPanel /> : null}
     </>
-  )
-}
+  );
+};
 
-export default BasicFloatingPanel
+export default BasicFloatingPanel;

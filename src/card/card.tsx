@@ -1,16 +1,16 @@
-import isBoolean from 'lodash/isBoolean'
-import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
-import { View, TouchableWithoutFeedback } from 'react-native'
+import isBoolean from 'lodash/isBoolean';
+import isNil from 'lodash/isNil';
+import React, { memo } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
 
-import Divider from '../divider'
-import { renderTextLikeJSX } from '../helpers'
-import Skeleton from '../skeleton'
-import Theme from '../theme'
+import Divider from '../divider';
+import { renderTextLikeJSX } from '../helpers';
+import Skeleton from '../skeleton';
+import Theme from '../theme';
 
-import CardBody from './card-body'
-import type { CardProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import CardBody from './card-body';
+import type { CardProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const Card: React.FC<CardProps> = ({
   children,
@@ -38,15 +38,15 @@ const Card: React.FC<CardProps> = ({
   style,
   ...restProps
 }) => {
-  const isS = size === 's'
+  const isS = size === 's';
 
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
-  const hasTitleLeftExtra = !isNil(titleLeftExtra)
+  const hasTitleLeftExtra = !isNil(titleLeftExtra);
   const titleJSX = renderTextLikeJSX(
     title,
     [
@@ -58,13 +58,13 @@ const Card: React.FC<CardProps> = ({
     {
       numberOfLines: 1,
     },
-  )
+  );
   const footerJSX = renderTextLikeJSX(footer, [
     STYLES.footer_text,
     footerTextStyle,
-  ])
+  ]);
 
-  const showHeader = !isNil(titleJSX) || hasTitleLeftExtra || !isNil(extra)
+  const showHeader = !isNil(titleJSX) || hasTitleLeftExtra || !isNil(extra);
   const headerJSX = (
     <>
       <View
@@ -78,7 +78,7 @@ const Card: React.FC<CardProps> = ({
       </View>
       {headerDivider ? <Divider /> : null}
     </>
-  )
+  );
 
   return (
     <View
@@ -113,7 +113,7 @@ const Card: React.FC<CardProps> = ({
         </>
       ) : null}
     </View>
-  )
-}
+  );
+};
 
-export default memo(Card)
+export default memo(Card);

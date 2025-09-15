@@ -4,10 +4,10 @@ import React, {
   useImperativeHandle,
   forwardRef,
   memo,
-} from 'react'
+} from 'react';
 
-import type { NotifyMethodProps, NotifyMethods } from './interface'
-import Notify from './notify'
+import type { NotifyMethodProps, NotifyMethods } from './interface';
+import Notify from './notify';
 
 /**
  * Notify 消息提示
@@ -18,42 +18,42 @@ const NotifyMethod = forwardRef<NotifyMethods, NotifyMethodProps>(
     { duration = 3000, message, ...restProps },
     ref,
   ) {
-    const [visible, setVisible] = useState(false)
-    const [msg, setMsg] = useState(message)
+    const [visible, setVisible] = useState(false);
+    const [msg, setMsg] = useState(message);
 
     useEffect(() => {
-      setVisible(true)
+      setVisible(true);
 
-      let timer: ReturnType<typeof setTimeout>
+      let timer: ReturnType<typeof setTimeout>;
 
       if (duration !== 0) {
         timer = setTimeout(() => {
           // 隐藏弹窗
-          setVisible(false)
-        }, duration)
+          setVisible(false);
+        }, duration);
       }
 
       return () => {
-        clearTimeout(timer)
-      }
-    }, [duration])
+        clearTimeout(timer);
+      };
+    }, [duration]);
 
     // 向外暴露函数
     useImperativeHandle(
       ref,
       () => ({
         close: () => {
-          setVisible(false)
+          setVisible(false);
         },
         setMessage: s => {
-          setMsg(s)
+          setMsg(s);
         },
       }),
       [],
-    )
+    );
 
-    return <Notify {...restProps} visible={visible} message={msg} />
+    return <Notify {...restProps} visible={visible} message={msg} />;
   },
-)
+);
 
-export default memo(NotifyMethod)
+export default memo(NotifyMethod);

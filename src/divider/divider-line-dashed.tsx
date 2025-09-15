@@ -1,12 +1,16 @@
-import React, { useState, useCallback, useMemo, memo } from 'react'
-import type { ViewStyle, LayoutChangeEvent, DimensionValue } from 'react-native'
-import { View, useWindowDimensions } from 'react-native'
-import { Line, Svg } from 'react-native-svg'
+import React, { useState, useCallback, useMemo, memo } from 'react';
+import type {
+  ViewStyle,
+  LayoutChangeEvent,
+  DimensionValue,
+} from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Line, Svg } from 'react-native-svg';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { DividerLineProps } from './interface'
-import { varCreator } from './style'
+import type { DividerLineProps } from './interface';
+import { varCreator } from './style';
 
 /**
  * 分割线
@@ -18,15 +22,15 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
   adaptive = true,
   direction = 'horizontal',
 }) => {
-  const isVertical = direction === 'vertical'
-  const { width } = useWindowDimensions()
+  const isVertical = direction === 'vertical';
+  const { width } = useWindowDimensions();
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
+  });
   const [size, setSize] = useState(
     isVertical ? CV.divider_vertical_min_height : width,
-  )
+  );
 
   const viewStyle = useMemo(() => {
     if (isVertical) {
@@ -34,30 +38,30 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
         flex: 1,
         width: 1,
         height: '100%' as DimensionValue,
-      }
+      };
     }
 
     const s: ViewStyle = {
       flex: 1,
       maxWidth: 'auto',
-    }
+    };
 
     if (position === 'left') {
-      s.marginRight = CV.divider_margin_horizontal
+      s.marginRight = CV.divider_margin_horizontal;
     }
 
     if (position === 'right') {
-      s.marginLeft = CV.divider_margin_horizontal
+      s.marginLeft = CV.divider_margin_horizontal;
     }
 
     if (!adaptive) {
       s.maxWidth =
         position === 'left'
           ? CV.divider_content_left_width
-          : CV.divider_content_right_width
+          : CV.divider_content_right_width;
     }
 
-    return s
+    return s;
   }, [
     isVertical,
     position,
@@ -65,14 +69,14 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
     CV.divider_margin_horizontal,
     CV.divider_content_left_width,
     CV.divider_content_right_width,
-  ])
+  ]);
 
   const onLayout = useCallback(
     (e: LayoutChangeEvent) => {
-      setSize(e.nativeEvent.layout[isVertical ? 'height' : 'width'])
+      setSize(e.nativeEvent.layout[isVertical ? 'height' : 'width']);
     },
     [isVertical],
-  )
+  );
 
   return (
     <View onLayout={onLayout} style={viewStyle}>
@@ -102,7 +106,7 @@ const DividerLineDashed: React.FC<DividerLineProps> = ({
         </Svg>
       )}
     </View>
-  )
-}
+  );
+};
 
-export default memo(DividerLineDashed)
+export default memo(DividerLineDashed);

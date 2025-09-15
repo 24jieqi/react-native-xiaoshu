@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect, memo } from 'react'
-import { View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React, { useState, useRef, useEffect, memo } from 'react';
+import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { callInterceptor } from '../helpers'
-import { usePersistFn } from '../hooks'
-import { varCreator as varCreatorPicker } from '../picker/style'
-import Popup from '../popup'
-import Theme from '../theme'
+import { callInterceptor } from '../helpers';
+import { usePersistFn } from '../hooks';
+import { varCreator as varCreatorPicker } from '../picker/style';
+import Popup from '../popup';
+import Theme from '../theme';
 
-import DatePickerRangeView from './date-picker-range-view'
+import DatePickerRangeView from './date-picker-range-view';
 import type {
   DatePickerRangeMethodProps,
   DatePickerRangeAction,
-} from './interface'
+} from './interface';
 
 const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
   title,
@@ -36,76 +36,76 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker)
-  const insets = useSafeAreaInsets()
+  const TOKENS = Theme.useThemeTokens();
+  const CV_PICKER = Theme.createVar(TOKENS, varCreatorPicker);
+  const insets = useSafeAreaInsets();
 
-  const [visible, setVisible] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const Values = useRef<[Date | null, Date | null]>(
     defaultValue && defaultValue.length === 2 ? defaultValue : [null, null],
-  )
+  );
 
   useEffect(() => {
-    setVisible(true)
-  }, [])
+    setVisible(true);
+  }, []);
 
   const onChangeRangeView = usePersistFn((d: [Date, Date]) => {
-    Values.current = d
-  })
+    Values.current = d;
+  });
 
   const doAction = usePersistFn((action: DatePickerRangeAction) => {
-    setLoading(true)
+    setLoading(true);
 
     callInterceptor(beforeClose, {
       args: [action, Values.current],
       done: () => {
         switch (action) {
           case 'cancel':
-            onCancel?.(Values.current)
-            break
+            onCancel?.(Values.current);
+            break;
           case 'confirm':
-            onConfirm?.(Values.current)
-            break
+            onConfirm?.(Values.current);
+            break;
           case 'overlay':
-            onPressOverlay?.(Values.current)
-            break
+            onPressOverlay?.(Values.current);
+            break;
           case 'clear':
-            onClear?.(Values.current)
-            break
+            onClear?.(Values.current);
+            break;
           default:
-            break
+            break;
         }
 
-        setLoading(false)
-        setVisible(false)
+        setLoading(false);
+        setVisible(false);
       },
       canceled: () => {
-        setLoading(false)
+        setLoading(false);
       },
-    })
-  })
+    });
+  });
 
   const onPressPopupOverlay = usePersistFn(() => {
-    doAction('overlay')
-  })
+    doAction('overlay');
+  });
 
   const onPressClose = usePersistFn(() => {
-    doAction('cancel')
-  })
+    doAction('cancel');
+  });
 
   const onPressConfirm = usePersistFn(() => {
-    doAction('confirm')
-  })
+    doAction('confirm');
+  });
 
   const onPressClear = usePersistFn(() => {
-    doAction('clear')
-  })
+    doAction('clear');
+  });
 
   const onRequestClose = usePersistFn(() => {
-    doAction('overlay')
-    return true
-  })
+    doAction('overlay');
+    return true;
+  });
 
   const rangeProps = {
     mode,
@@ -120,7 +120,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
     clearable,
     clearButtonText,
     onClear: onPressClear,
-  }
+  };
 
   return (
     <Popup
@@ -140,7 +140,7 @@ const DatePickerRangeMethod: React.FC<DatePickerRangeMethodProps> = ({
 
       <View style={{ height: insets.bottom + CV_PICKER.picker_bottom_gap }} />
     </Popup>
-  )
-}
+  );
+};
 
-export default memo(DatePickerRangeMethod)
+export default memo(DatePickerRangeMethod);

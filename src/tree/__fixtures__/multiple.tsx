@@ -3,12 +3,12 @@
  * description: 最简单的用法。
  */
 
-import { CoordOutline } from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
-import { Text } from 'react-native'
+import { CoordOutline } from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 
-import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
-import { Card, Switch, Tree } from '@fruits-chain/react-native-xiaoshu'
+import type { TreeOption } from '@fruits-chain/react-native-xiaoshu';
+import { Card, Switch, Tree } from '@fruits-chain/react-native-xiaoshu';
 
 const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
   value: index0,
@@ -28,17 +28,17 @@ const options: TreeOption[] = new Array(7).fill(0).map((_, index0) => ({
       })),
     })),
   })),
-}))
+}));
 
-const defaultValue = [11]
+const defaultValue = [11];
 
 const onChange = (...rest: unknown[]) => {
-  console.log(rest[0])
-  console.log(rest[1])
-}
+  console.log(rest[0]);
+  console.log(rest[1]);
+};
 
 const TreeMultiple: React.FC = () => {
-  const [editable, setEditable] = useState(true)
+  const [editable, setEditable] = useState(true);
 
   return (
     <Card
@@ -61,7 +61,7 @@ const TreeMultiple: React.FC = () => {
         search
       />
     </Card>
-  )
-}
+  );
+};
 
-export default TreeMultiple
+export default TreeMultiple;

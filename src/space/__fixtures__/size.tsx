@@ -3,9 +3,9 @@
  * description: 组件 `gap` 属性内置三个不同大小的间距，也可以采用具体的间距数值。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Blank, Card, Space, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Blank, Card, Space, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSpaceSize: React.FC = () => {
   return (
@@ -45,7 +45,7 @@ const BasicSpaceSize: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
-export default BasicSpaceSize
+export default BasicSpaceSize;

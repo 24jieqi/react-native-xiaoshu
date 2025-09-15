@@ -3,11 +3,11 @@
  * description: 把各种场景、API 都运用了
  */
 
-import { PlayCircleFill } from '@fruits-chain/icons-react-native'
-import React from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import { PlayCircleFill } from '@fruits-chain/icons-react-native';
+import React from 'react';
+import { ScrollView, View, Text } from 'react-native';
 
-import { Tag, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Tag, Cell, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicTag: React.FC = () => {
   return (
@@ -79,7 +79,7 @@ const BasicTag: React.FC = () => {
             <Tag
               closable
               onClose={() => {
-                console.log('点击了关闭')
+                console.log('点击了关闭');
               }}>
               标签
             </Tag>
@@ -91,7 +91,7 @@ const BasicTag: React.FC = () => {
             <Tag
               closable
               onClose={() => {
-                console.log('点击了关闭')
+                console.log('点击了关闭');
               }}
               closeIcon={<PlayCircleFill />}>
               标签
@@ -165,7 +165,7 @@ const BasicTag: React.FC = () => {
         />
       </Cell.Group>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicTag
+export default BasicTag;

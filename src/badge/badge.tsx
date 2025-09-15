@@ -1,12 +1,12 @@
-import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { View, Text } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { memo } from 'react';
+import type { ViewStyle, StyleProp } from 'react-native';
+import { View, Text } from 'react-native';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { BadgeProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { BadgeProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Badge 徽标
@@ -28,19 +28,19 @@ const Badge: React.FC<BadgeProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens();
+  const CV = Theme.createVar(TOKENS, varCreator);
   const [, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   if (!isNil(max) && typeof count === 'number' && count > max) {
-    count = `${max}+`
+    count = `${max}+`;
   }
 
-  const hasCount = !isNil(count) && (count === 0 ? showZero : true)
+  const hasCount = !isNil(count) && (count === 0 ? showZero : true);
   const countStyles: StyleProp<ViewStyle> = [
     STYLES.count,
     {
@@ -67,7 +67,7 @@ const Badge: React.FC<BadgeProps> = ({
         ]
       : [],
     countStyle,
-  ]
+  ];
 
   const badgeJSX =
     !loading && (hasCount || dot) ? (
@@ -76,14 +76,14 @@ const Badge: React.FC<BadgeProps> = ({
           <Text style={[STYLES.count_text, countTextStyle]}>{count}</Text>
         )}
       </View>
-    ) : null
+    ) : null;
 
   return (
     <View {...restProps} collapsable={false}>
       {badgeJSX}
       {children}
     </View>
-  )
-}
+  );
+};
 
-export default memo(Badge)
+export default memo(Badge);

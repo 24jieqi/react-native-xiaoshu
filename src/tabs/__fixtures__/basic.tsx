@@ -3,8 +3,8 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
+import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 
 import {
   Tabs,
@@ -13,10 +13,10 @@ import {
   Blank,
   Field,
   Button,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const T = () => {
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
 
   return (
     <>
@@ -29,16 +29,16 @@ const T = () => {
       <Result status="warning" title="嗯哼？1" subtitle="哈哈哈" />
       <Button
         onPress={() => {
-          console.log(text)
+          console.log(text);
         }}>
         打印
       </Button>
     </>
-  )
-}
+  );
+};
 
 const BasicTabs: React.FC = () => {
-  const [value1, setValue1] = useState('2')
+  const [value1, setValue1] = useState('2');
 
   return (
     <ScrollView>
@@ -140,7 +140,7 @@ const BasicTabs: React.FC = () => {
         </Tabs.TabPane>
       </Tabs>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicTabs
+export default BasicTabs;

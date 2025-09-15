@@ -3,49 +3,49 @@
  * description: 把各种场景、API 都运用了
  */
 
-import { DoubleArrowClockwiseOutline } from '@fruits-chain/icons-react-native'
-import React, { useEffect, useRef } from 'react'
-import type { ColorValue } from 'react-native'
-import { Animated } from 'react-native'
+import { DoubleArrowClockwiseOutline } from '@fruits-chain/icons-react-native';
+import React, { useEffect, useRef } from 'react';
+import type { ColorValue } from 'react-native';
+import { Animated } from 'react-native';
 
-import { Loading, Cell } from '@fruits-chain/react-native-xiaoshu'
+import { Loading, Cell } from '@fruits-chain/react-native-xiaoshu';
 
 const CustomLoading = ({
   size,
   color,
 }: {
-  size: number
-  color: ColorValue
+  size: number;
+  color: ColorValue;
 }) => {
-  const spin = useRef(new Animated.Value(0))
+  const spin = useRef(new Animated.Value(0));
 
   useEffect(() => {
-    let stop = false
+    let stop = false;
     const action = Animated.timing(spin.current, {
       toValue: 1,
       duration: 600,
       useNativeDriver: true,
-    })
+    });
     const loop = () => {
       if (stop) {
-        return
+        return;
       }
 
       action.start(({ finished }) => {
         if (finished) {
-          action.reset()
-          loop()
+          action.reset();
+          loop();
         }
-      })
-    }
+      });
+    };
 
-    loop()
+    loop();
 
     return () => {
-      stop = true
-      action.stop()
-    }
-  }, [])
+      stop = true;
+      action.stop();
+    };
+  }, []);
 
   return (
     <Animated.View
@@ -66,8 +66,8 @@ const CustomLoading = ({
       }}>
       <DoubleArrowClockwiseOutline size={size} color={color} />
     </Animated.View>
-  )
-}
+  );
+};
 
 const BasicLoading: React.FC = () => {
   return (
@@ -114,7 +114,7 @@ const BasicLoading: React.FC = () => {
         </Loading>
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicLoading
+export default BasicLoading;

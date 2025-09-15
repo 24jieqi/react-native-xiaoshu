@@ -1,75 +1,75 @@
-import type React from 'react'
+import type React from 'react';
 import type {
   ViewStyle,
   TextStyle,
   StyleProp,
   ColorValue,
   ViewProps,
-} from 'react-native'
+} from 'react-native';
 
-import type { NavBarTheme } from './style'
+import type { NavBarTheme } from './style';
 
 export interface NavBarProps extends Pick<ViewProps, 'testID'> {
-  theme?: Partial<NavBarTheme>
+  theme?: Partial<NavBarTheme>;
   /**
    * 最外层的样式
    */
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>;
 
   /**
    * 左侧布局的样式
    */
-  leftStyle?: StyleProp<ViewStyle>
+  leftStyle?: StyleProp<ViewStyle>;
 
   /**
    * 左侧自定义内容
    */
-  leftExtra?: React.ReactElement
+  leftExtra?: React.ReactElement;
 
   /**
    * 右侧布局的样式
    */
-  rightStyle?: StyleProp<ViewStyle>
+  rightStyle?: StyleProp<ViewStyle>;
 
   /**
    * 右侧自定义内容
    */
-  rightExtra?: React.ReactElement
+  rightExtra?: React.ReactElement;
 
   /**
    * 标题文案样式
    */
-  titleTextStyle?: StyleProp<TextStyle>
+  titleTextStyle?: StyleProp<TextStyle>;
 
   /**
    * 标题文字或自定义 JSX
    */
-  title?: React.ReactNode
+  title?: React.ReactNode;
 
   /**
    * 显示返回箭头
    * @default true
    */
-  showBackArrow?: boolean
+  showBackArrow?: boolean;
 
   /**
    * 自定义返回按钮颜色
    */
-  backArrowColor?: ColorValue
+  backArrowColor?: ColorValue;
 
   /**
    * 自定义返回按钮尺寸
    */
-  backArrowSize?: number
+  backArrowSize?: number;
 
   /**
    * 是否显示分割线
    * @default true
    */
-  divider?: boolean
+  divider?: boolean;
 
   /**
    * 点击返回按钮的回调
    */
-  onPressBackArrow?: () => void
+  onPressBackArrow?: () => void;
 }

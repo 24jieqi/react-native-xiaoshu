@@ -1,17 +1,17 @@
-import isArray from 'lodash/isArray'
-import noop from 'lodash/noop'
-import React, { memo } from 'react'
+import isArray from 'lodash/isArray';
+import noop from 'lodash/noop';
+import React, { memo } from 'react';
 
-import ActionSheet from '../action-sheet'
-import { varCreator as varCreatorBlank } from '../blank/style'
-import BottomBar from '../bottom-bar'
-import Button from '../button'
-import Locale from '../locale'
-import Space from '../space'
-import Theme from '../theme'
+import ActionSheet from '../action-sheet';
+import { varCreator as varCreatorBlank } from '../blank/style';
+import BottomBar from '../bottom-bar';
+import Button from '../button';
+import Locale from '../locale';
+import Space from '../space';
+import Theme from '../theme';
 
-import type { ButtonBarProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { ButtonBarProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const ButtonBar: React.FC<ButtonBarProps> = ({
   theme,
@@ -25,38 +25,40 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
   style,
   ...restProps
 }) => {
-  const locale = Locale.useLocale().ButtonBar
+  const locale = Locale.useLocale().ButtonBar;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BLANK] = Theme.useStyle({
     varCreator: varCreatorBlank,
-  })
+  });
 
-  const realButtons = (buttons || []).filter(item => !item.hidden)
-  const isConfig = isArray(buttons)
-  const showMore = realButtons.length > count
-  const bottomButtons = showMore ? realButtons.slice(0, count - 1) : realButtons
+  const realButtons = (buttons || []).filter(item => !item.hidden);
+  const isConfig = isArray(buttons);
+  const showMore = realButtons.length > count;
+  const bottomButtons = showMore
+    ? realButtons.slice(0, count - 1)
+    : realButtons;
 
   const onPressMore = () => {
-    const restButtons = realButtons.slice(count - 1)
+    const restButtons = realButtons.slice(count - 1);
 
     ActionSheet({
       actions: restButtons.map(item => item.text),
       cancelText: locale.labelActionSheetCancelText,
     })
       .then(({ index }) => {
-        restButtons[index].onPress?.()
+        restButtons[index].onPress?.();
       })
-      .catch(noop)
-  }
+      .catch(noop);
+  };
 
-  const defaultGap = CV_BLANK[`blank_size_${blankSize}`]
+  const defaultGap = CV_BLANK[`blank_size_${blankSize}`];
 
   if (isConfig && realButtons.length === 0) {
-    return null
+    return null;
   }
 
   return (
@@ -89,14 +91,14 @@ const ButtonBar: React.FC<ButtonBarProps> = ({
                 size={b.size || 'm'}
                 style={b.style || STYLES.btn}
               />
-            )
+            );
           })}
         </Space>
       ) : (
         children
       )}
     </BottomBar>
-  )
-}
+  );
+};
 
-export default memo(ButtonBar)
+export default memo(ButtonBar);

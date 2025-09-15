@@ -3,12 +3,12 @@
  * description: 可以传入一个 buttons 按钮数组，也可以嵌套子元素。
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import CardBase from './base'
-import CardLoading from './loading'
-import CardSquare from './square'
+import CardBase from './base';
+import CardLoading from './loading';
+import CardSquare from './square';
 
 const BasicButtonBar: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const BasicButtonBar: React.FC = () => {
       <CardSquare />
       <CardLoading />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicButtonBar
+export default BasicButtonBar;

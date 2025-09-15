@@ -1,7 +1,7 @@
-import type { DimensionValue } from 'react-native'
-import { StyleSheet } from 'react-native'
+import type { DimensionValue } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -14,10 +14,10 @@ export const varCreator = (TOKENS: TokensType) => {
     divider_line_height: TOKENS.line_height_2,
     divider_content_left_width: '10%' as DimensionValue,
     divider_content_right_width: '10%' as DimensionValue,
-  }
-}
+  };
+};
 
-export type DividerTheme = ReturnType<typeof varCreator>
+export type DividerTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: DividerTheme) => {
   return StyleSheet.create({
@@ -39,5 +39,5 @@ export const styleCreator = (cv: DividerTheme) => {
       fontSize: cv.divider_font_size,
       lineHeight: cv.divider_line_height,
     },
-  })
-}
+  });
+};

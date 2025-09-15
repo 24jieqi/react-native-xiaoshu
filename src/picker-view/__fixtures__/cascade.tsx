@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import type { PickerOptionCascade } from '@fruits-chain/react-native-xiaoshu'
-import { PickerView, Cell } from '@fruits-chain/react-native-xiaoshu'
+import type { PickerOptionCascade } from '@fruits-chain/react-native-xiaoshu';
+import { PickerView, Cell } from '@fruits-chain/react-native-xiaoshu';
 
 const buildChildren = (
   num: number,
@@ -15,8 +15,8 @@ const buildChildren = (
     children: insertChildren
       ? insertChildren(`${valuePrefix}_${index}`, `${labelPrefix}_${index}`)
       : undefined,
-  }))
-}
+  }));
+};
 
 const columns4 = buildChildren(8, 'sj', '省级', (sjValue, sjLabel) =>
   buildChildren(
@@ -30,14 +30,14 @@ const columns4 = buildChildren(8, 'sj', '省级', (sjValue, sjLabel) =>
         sqLabel.replace('市区', '区县'),
       ),
   ),
-)
+);
 
-const defaultValue = ['sj_5', 'sq_5_2', 'qx_5_2_2']
+const defaultValue = ['sj_5', 'sq_5_2', 'qx_5_2_2'];
 
-const defaultValue2 = ['sj_2']
+const defaultValue2 = ['sj_2'];
 
 const PickerViewCascade: React.FC = () => {
-  const [value, setValue] = useState<(string | number)[]>([])
+  const [value, setValue] = useState<(string | number)[]>([]);
 
   return (
     <>
@@ -45,9 +45,9 @@ const PickerViewCascade: React.FC = () => {
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
-            console.log('级联选择:非受控')
-            console.log('滑动完成就触发 -> values:', v)
-            console.log('滑动完成就触发 -> options:', o)
+            console.log('级联选择:非受控');
+            console.log('滑动完成就触发 -> values:', v);
+            console.log('滑动完成就触发 -> options:', o);
           }}
           defaultValue={defaultValue}
         />
@@ -57,9 +57,9 @@ const PickerViewCascade: React.FC = () => {
         <PickerView
           columns={columns4}
           onChange={(v, o) => {
-            console.log('级联选择:非受控')
-            console.log('滑动完成就触发 -> values:', v)
-            console.log('滑动完成就触发 -> options:', o)
+            console.log('级联选择:非受控');
+            console.log('滑动完成就触发 -> values:', v);
+            console.log('滑动完成就触发 -> options:', o);
           }}
           defaultValue={defaultValue2}
         />
@@ -70,10 +70,10 @@ const PickerViewCascade: React.FC = () => {
           columns={columns4}
           value={value}
           onChange={(v, o) => {
-            console.log('级联选择:受控')
-            console.log('滑动完成就触发 -> values:', v)
-            console.log('滑动完成就触发 -> options:', o)
-            setValue(v)
+            console.log('级联选择:受控');
+            console.log('滑动完成就触发 -> values:', v);
+            console.log('滑动完成就触发 -> options:', o);
+            setValue(v);
           }}
         />
       </Cell.Group>
@@ -83,14 +83,14 @@ const PickerViewCascade: React.FC = () => {
           columns={columns4}
           value={value}
           onChange={(v, o) => {
-            console.log('级联选择:受控不更新')
-            console.log('滑动完成就触发 -> values:', v)
-            console.log('滑动完成就触发 -> options:', o)
+            console.log('级联选择:受控不更新');
+            console.log('滑动完成就触发 -> values:', v);
+            console.log('滑动完成就触发 -> options:', o);
           }}
         />
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default PickerViewCascade
+export default PickerViewCascade;

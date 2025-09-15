@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import Cell from '../cell'
-import NumberInput from '../number-input'
-import Theme from '../theme'
+import Cell from '../cell';
+import NumberInput from '../number-input';
+import Theme from '../theme';
 
-import { pickCellProps } from './helper'
-import type { FieldNumberInputProps } from './interface'
+import { pickCellProps } from './helper';
+import type { FieldNumberInputProps } from './interface';
 
 /**
  * Field 输入框
@@ -18,13 +18,13 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
   textInputBordered,
   ...restProps
 }) => {
-  const { cellProps, otherProps } = pickCellProps(restProps)
+  const { cellProps, otherProps } = pickCellProps(restProps);
 
   if (cellProps.vertical) {
-    textAlign = 'left'
+    textAlign = 'left';
   }
 
-  const TOKENS = Theme.useThemeTokens()
+  const TOKENS = Theme.useThemeTokens();
 
   return (
     <Cell
@@ -46,7 +46,7 @@ const FieldNumberInput: React.FC<FieldNumberInputProps> = ({
         />
       }
     />
-  )
-}
+  );
+};
 
-export default memo(FieldNumberInput)
+export default memo(FieldNumberInput);

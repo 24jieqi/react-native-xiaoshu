@@ -3,9 +3,9 @@
  * description: 单独使用 Cell。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast } from '@fruits-chain/react-native-xiaoshu';
 
 const CellBase: React.FC = () => {
   return (
@@ -28,35 +28,35 @@ const CellBase: React.FC = () => {
         title="onPress 点击事件"
         isLink
         onPress={() => {
-          Toast('onPress 点击整个单元格')
+          Toast('onPress 点击整个单元格');
         }}
       />
       <Cell
         title="onLongPress 点击事件"
         isLink
         onLongPress={() => {
-          Toast('onLongPress 点击整个单元格')
+          Toast('onLongPress 点击整个单元格');
         }}
       />
       <Cell
         title="onPressIn 点击事件"
         isLink
         onPressIn={() => {
-          Toast('onPressIn 点击整个单元格')
+          Toast('onPressIn 点击整个单元格');
         }}
       />
       <Cell
         title="onPressOut 点击事件"
         isLink
         onPressOut={() => {
-          Toast('onPressOut 点击整个单元格')
+          Toast('onPressOut 点击整个单元格');
         }}
       />
       <Cell
         title="onPressLink 点击箭头事件"
         isLink
         onPressLink={() => {
-          Toast('点击箭头')
+          Toast('点击箭头');
         }}
       />
       <Cell title="标题" extra="这里的有一个可以扩展说明的文案" />
@@ -65,7 +65,7 @@ const CellBase: React.FC = () => {
         value="7个"
         extra="这里的有一个可以扩展说明的文案，这里的有一个可以扩展说明的文案"
         onPress={() => {
-          Toast('点击整个单元格')
+          Toast('点击整个单元格');
         }}
         isLink
       />
@@ -73,7 +73,7 @@ const CellBase: React.FC = () => {
       <Cell title="标题" value={`多行文本\n多行文本`} />
       <Cell title="最后一项" value="一般不显示分割线" divider={false} />
     </>
-  )
-}
+  );
+};
 
-export default CellBase
+export default CellBase;

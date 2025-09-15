@@ -3,23 +3,23 @@ import {
   Card,
   Blank,
   ButtonBar,
-} from '@fruits-chain/react-native-xiaoshu'
-import React from 'react'
-import { ScrollView } from 'react-native'
+} from '@fruits-chain/react-native-xiaoshu';
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import Layout from '~/layouts/layout'
-import type * as Routes from '~/routes'
+import Layout from '~/layouts/layout';
+import type * as Routes from '~/routes';
 
-import FontSize from './font-size'
+import FontSize from './font-size';
 
-type DemoProps = Routes.RootStackScreenProps<'DemoHome'>
+type DemoProps = Routes.RootStackScreenProps<'DemoHome'>;
 
 const navDatas: {
-  title: string
+  title: string;
   datas: {
-    title: string
-    name: keyof Routes.RootStackParamList
-  }[]
+    title: string;
+    name: keyof Routes.RootStackParamList;
+  }[];
 }[] = [
   {
     title: '案例',
@@ -267,7 +267,7 @@ const navDatas: {
       },
     ],
   },
-]
+];
 
 const Demo: React.FC<DemoProps> = ({ navigation }) => {
   return (
@@ -289,20 +289,21 @@ const Demo: React.FC<DemoProps> = ({ navigation }) => {
                     isLink
                     title={subitem.title}
                     onPress={() => {
-                      navigation.navigate(subitem.name as any)
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      navigation.navigate(subitem.name as any);
                     }}
                     divider={index + 1 !== item.datas.length}
                   />
-                )
+                );
               })}
             </Cell.Group>
-          )
+          );
         })}
 
         <ButtonBar divider={false} />
       </ScrollView>
     </Layout.Page>
-  )
-}
+  );
+};
 
-export default Demo
+export default Demo;

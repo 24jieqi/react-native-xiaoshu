@@ -7,10 +7,10 @@ import {
   SuccessCircleOutline,
   VolumeOutline,
   WarningCircleOutline,
-} from '@fruits-chain/icons-react-native'
-import React from 'react'
+} from '@fruits-chain/icons-react-native';
+import React from 'react';
 
-import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
+import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const NoticeBarCustom = () => {
   return (
@@ -54,7 +54,7 @@ const NoticeBarCustom = () => {
         message="一袋米要抗几楼，一袋米要抗二楼"
       />
     </Space>
-  )
-}
+  );
+};
 
-export default NoticeBarCustom
+export default NoticeBarCustom;

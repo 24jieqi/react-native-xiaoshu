@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -11,10 +11,10 @@ export const varCreator = (TOKENS: TokensType) => {
     action_sheet_text_font_size: TOKENS.font_size_5,
     action_sheet_cancel_padding_top: TOKENS.space_2,
     action_sheet_cancel_padding_color: TOKENS.gray_2,
-  }
-}
+  };
+};
 
-export type ActionSheetTheme = ReturnType<typeof varCreator>
+export type ActionSheetTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: ActionSheetTheme) => {
   return StyleSheet.create({
@@ -40,5 +40,5 @@ export const styleCreator = (cv: ActionSheetTheme) => {
       height: cv.action_sheet_cancel_padding_top,
       backgroundColor: cv.action_sheet_cancel_padding_color,
     },
-  })
-}
+  });
+};

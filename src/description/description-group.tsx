@@ -1,8 +1,8 @@
-import React, { useMemo, memo } from 'react'
-import { View } from 'react-native'
+import React, { useMemo, memo } from 'react';
+import { View } from 'react-native';
 
-import DescriptionContext from './context'
-import type { DescriptionGroupProps } from './interface'
+import DescriptionContext from './context';
+import type { DescriptionGroupProps } from './interface';
 
 const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
   colon = true,
@@ -52,13 +52,13 @@ const DescriptionGroup: React.FC<DescriptionGroupProps> = ({
       empty,
       showEmpty,
     ],
-  )
+  );
 
   return (
     <DescriptionContext.Provider value={value}>
       <View {...restProps} />
     </DescriptionContext.Provider>
-  )
-}
+  );
+};
 
-export default memo(DescriptionGroup)
+export default memo(DescriptionGroup);

@@ -1,17 +1,29 @@
-import isUndefined from 'lodash/isUndefined'
-import React, { useEffect, useRef, useMemo, memo } from 'react'
-import type { ViewStyle, ViewProps, AnimatableNumericValue } from 'react-native'
-import { TouchableWithoutFeedback, Animated, View } from 'react-native'
+import isUndefined from 'lodash/isUndefined';
+import React, { useEffect, useRef, useMemo, memo } from 'react';
+import type {
+  ViewStyle,
+  ViewProps,
+  AnimatableNumericValue,
+} from 'react-native';
+import { TouchableWithoutFeedback, Animated, View } from 'react-native';
 
-import { getDefaultValue, callInterceptor, renderTextLikeJSX } from '../helpers'
-import type { ExcludeUndefined } from '../helpers/types'
-import { useControllableValue, usePersistFn, useDifferentState } from '../hooks'
-import LoadingCircular from '../loading/loading-circular'
-import { varCreator as varCreatorLoading } from '../loading/style'
-import Theme from '../theme'
+import {
+  getDefaultValue,
+  callInterceptor,
+  renderTextLikeJSX,
+} from '../helpers';
+import type { ExcludeUndefined } from '../helpers/types';
+import {
+  useControllableValue,
+  usePersistFn,
+  useDifferentState,
+} from '../hooks';
+import LoadingCircular from '../loading/loading-circular';
+import { varCreator as varCreatorLoading } from '../loading/style';
+import Theme from '../theme';
 
-import type { SwitchProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { SwitchProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Switch 开关
@@ -34,68 +46,68 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
   testID,
   ...restProps
 }: SwitchProps<ActiveValueT, InactiveValueT>) {
-  const translateX = useRef(new Animated.Value(0))
+  const translateX = useRef(new Animated.Value(0));
   const [value, onChange] = useControllableValue<ActiveValueT | InactiveValueT>(
     restProps,
     {
       defaultValue: inactiveValue,
     },
-  )
+  );
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_LOADING] = Theme.useStyle({
     varCreator: varCreatorLoading,
-  })
-  const unitSize = getDefaultValue(size, CV.switch_size)!
-  const nodeEdgeDistance = 2
+  });
+  const unitSize = getDefaultValue(size, CV.switch_size)!;
+  const nodeEdgeDistance = 2;
 
   const [switchWidth, setSwitchWidth] = useDifferentState(
     unitSize * CV.switch_width_ratio,
-  )
+  );
   const [switchHeight, nodeSize, translateXValueEnd, translateXValueStart] =
     useMemo(() => {
-      const _switchHeight = unitSize * CV.switch_height_ratio
-      const _nodeSize = unitSize * CV.switch_node_size_ratio
-      const _isInnerNode = _switchHeight - _nodeSize < nodeEdgeDistance * 2
+      const _switchHeight = unitSize * CV.switch_height_ratio;
+      const _nodeSize = unitSize * CV.switch_node_size_ratio;
+      const _isInnerNode = _switchHeight - _nodeSize < nodeEdgeDistance * 2;
       const _nodeRealSize = _isInnerNode
         ? _nodeSize - nodeEdgeDistance * 2
-        : _nodeSize
+        : _nodeSize;
       const _innerPadding = _isInnerNode
         ? nodeEdgeDistance
-        : (_switchHeight - _nodeSize) / 2
-      const _translateXValueEnd = switchWidth - _nodeRealSize - _innerPadding
-      const _translateXValueStart = _innerPadding
+        : (_switchHeight - _nodeSize) / 2;
+      const _translateXValueEnd = switchWidth - _nodeRealSize - _innerPadding;
+      const _translateXValueStart = _innerPadding;
 
       return [
         _switchHeight,
         _nodeRealSize,
         _translateXValueEnd,
         _translateXValueStart,
-      ]
+      ];
     }, [
       CV.switch_height_ratio,
       CV.switch_node_size_ratio,
       switchWidth,
       unitSize,
-    ])
+    ]);
 
-  const active = value === activeValue
+  const active = value === activeValue;
 
   const onPressTouchable = () => {
-    onPress?.()
+    onPress?.();
     if (!disabled && !loading) {
-      const newValue = active ? inactiveValue : activeValue
+      const newValue = active ? inactiveValue : activeValue;
       callInterceptor(beforeChange, {
         args: [newValue],
         done: () => {
-          onChange(newValue)
+          onChange(newValue);
         },
-      })
+      });
     }
-  }
+  };
 
   useEffect(() => {
     const actionValue = Animated.timing(
@@ -105,17 +117,17 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         duration: CV.switch_transition_duration,
         useNativeDriver: true,
       },
-    )
+    );
 
-    actionValue.start()
+    actionValue.start();
 
     return () => {
       // 停止动画
       if (actionValue) {
-        actionValue.stop()
+        actionValue.stop();
       }
-    }
-  }, [active, CV.switch_transition_duration])
+    };
+  }, [active, CV.switch_transition_duration]);
 
   const switchStyles: ViewStyle[] = [
     STYLES.switch,
@@ -130,7 +142,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         : inactiveColor || CV.switch_background_color,
     },
     disabled ? STYLES.disabled : {},
-  ]
+  ];
   const nodeStyleSummary: ViewStyle[] = [
     STYLES.node,
     {
@@ -147,10 +159,10 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         },
       ],
     },
-  ]
+  ];
 
-  const childrenMinEdgeDistance = switchHeight / 3
-  const childrenMaxEdgeDistance = nodeSize + nodeEdgeDistance * 3
+  const childrenMinEdgeDistance = switchHeight / 3;
+  const childrenMaxEdgeDistance = nodeSize + nodeEdgeDistance * 3;
   const activeChildrenStyle: ViewStyle = {
     height: switchHeight,
     paddingLeft: childrenMinEdgeDistance,
@@ -165,7 +177,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         }) as AnimatableNumericValue,
       },
     ],
-  }
+  };
   const inactiveChildrenStyle: ViewStyle = {
     marginTop: -switchHeight,
     height: switchHeight,
@@ -181,20 +193,20 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         }) as AnimatableNumericValue,
       },
     ],
-  }
+  };
 
   const onLayoutChildren = usePersistFn<
     ExcludeUndefined<ViewProps['onLayout']>
   >(e => {
-    setSwitchWidth(v => Math.max(v, e.nativeEvent.layout.width))
-  })
+    setSwitchWidth(v => Math.max(v, e.nativeEvent.layout.width));
+  });
 
   const activeChildrenJSX = renderTextLikeJSX(activeChildren, [
     STYLES.children_text,
-  ])
+  ]);
   const inactiveChildrenJSX = renderTextLikeJSX(inactiveChildren, [
     STYLES.children_text,
-  ])
+  ]);
 
   return (
     <TouchableWithoutFeedback onPress={onPressTouchable} testID={testID}>
@@ -231,7 +243,7 @@ function Switch<ActiveValueT = boolean, InactiveValueT = boolean>({
         </View>
       </View>
     </TouchableWithoutFeedback>
-  )
+  );
 }
 
 export default memo(Switch) as <
@@ -239,4 +251,4 @@ export default memo(Switch) as <
   InactiveValueT = boolean,
 >(
   p: SwitchProps<ActiveValueT, InactiveValueT>,
-) => React.ReactElement
+) => React.ReactElement;

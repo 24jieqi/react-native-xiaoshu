@@ -1,14 +1,14 @@
-import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
-import { View, Text } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { memo } from 'react';
+import { View, Text } from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import DividerLine from './divider-line'
-import DividerLineDashed from './divider-line-dashed'
-import type { DividerProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import DividerLine from './divider-line';
+import DividerLineDashed from './divider-line-dashed';
+import type { DividerProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Divider 分割线
@@ -31,14 +31,14 @@ const Divider: React.FC<DividerProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
-  const isVertical = direction === 'vertical'
-  const Line = dashed ? DividerLineDashed : DividerLine
+  });
+  const isVertical = direction === 'vertical';
+  const Line = dashed ? DividerLineDashed : DividerLine;
 
   color = getDefaultValue(
     color,
     type === 'dark' ? CV.divider_color_dark : CV.divider_color_light,
-  )!
+  )!;
 
   return (
     <View
@@ -77,7 +77,7 @@ const Divider: React.FC<DividerProps> = ({
         <Line theme={theme} color={color} position="center" />
       )}
     </View>
-  )
-}
+  );
+};
 
-export default memo(Divider)
+export default memo(Divider);

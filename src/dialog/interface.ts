@@ -1,145 +1,145 @@
-import type { PropsWithChildren, ReactNode } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react';
 import type {
   ColorValue,
   StyleProp,
   ViewStyle,
   TouchableWithoutFeedbackProps,
   DimensionValue,
-} from 'react-native'
+} from 'react-native';
 
-import type { NumberInputProps } from '../number-input/interface'
-import type { PopupPropsCommon } from '../popup/interface'
-import type { TextInputProps } from '../text-input/interface'
+import type { NumberInputProps } from '../number-input/interface';
+import type { PopupPropsCommon } from '../popup/interface';
+import type { TextInputProps } from '../text-input/interface';
 
-import type { DialogTheme } from './style'
+import type { DialogTheme } from './style';
 
-export type DialogType = 'alert' | 'confirm'
+export type DialogType = 'alert' | 'confirm';
 
-type MessageAlign = 'center' | 'left' | 'right'
+type MessageAlign = 'center' | 'left' | 'right';
 
-export type DialogAction = 'cancel' | 'confirm' | 'overlay'
+export type DialogAction = 'cancel' | 'confirm' | 'overlay';
 
 interface DialogCommon extends PopupPropsCommon {
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>;
 
   /**
    * 标题
    */
-  title?: ReactNode
+  title?: ReactNode;
 
   /**
    * 弹窗宽度
    * @default 300
    */
-  width?: DimensionValue
+  width?: DimensionValue;
 
   /**
    * 文本内容，支持通过\n换行
    */
-  message?: ReactNode
+  message?: ReactNode;
 
   /**
    * 内容对齐方式，可选值为`'center' | 'left' | 'right'`
    * @default 'center'
    */
-  messageAlign?: MessageAlign
+  messageAlign?: MessageAlign;
 
   /**
    * 是否展示确认按钮
    * @default true
    */
-  showConfirmButton?: boolean
+  showConfirmButton?: boolean;
 
   /**
    * 是否展示取消按钮
    * @default false
    */
-  showCancelButton?: boolean
+  showCancelButton?: boolean;
 
   /**
    * 确认按钮文案
    * @default '确认'
    */
-  confirmButtonText?: string
+  confirmButtonText?: string;
 
   /**
    * 确认按钮颜色
    */
-  confirmButtonColor?: ColorValue
+  confirmButtonColor?: ColorValue;
 
   /**
    * 确认按钮文案 粗体
    * @default true
    */
-  confirmButtonTextBold?: boolean
+  confirmButtonTextBold?: boolean;
 
   /**
    * 取消按钮文案
    * @default '取消'
    */
-  cancelButtonText?: string
+  cancelButtonText?: string;
 
   /**
    * 取消按钮颜色
    */
-  cancelButtonColor?: ColorValue
+  cancelButtonColor?: ColorValue;
 
   /**
    * 取消按钮文案 粗体
    * @default false
    */
-  cancelButtonTextBold?: boolean
+  cancelButtonTextBold?: boolean;
 
   /**
    * 是否显示关闭按钮
    * @default false
    */
-  showClose?: boolean
+  showClose?: boolean;
 
   /**
    * 点击关闭按钮
    */
-  onPressClose?: TouchableWithoutFeedbackProps['onPress']
+  onPressClose?: TouchableWithoutFeedbackProps['onPress'];
 
   /**
    * 按钮翻转顺序
    * @default false
    */
-  buttonReverse?: boolean
+  buttonReverse?: boolean;
 }
 
 export interface DialogProps extends DialogCommon, PropsWithChildren<{}> {
-  theme?: Partial<DialogTheme>
+  theme?: Partial<DialogTheme>;
   /**
    * 取消按钮加载中
    * @default false
    */
-  cancelButtonLoading?: boolean
+  cancelButtonLoading?: boolean;
 
   /**
    * 确定按钮加载中
    * @default false
    */
-  confirmButtonLoading?: boolean
+  confirmButtonLoading?: boolean;
 
   /**
    * 点击取消
    */
-  onPressCancel?: () => void
+  onPressCancel?: () => void;
 
   /**
    * 点击确定
    */
-  onPressConfirm?: () => void
+  onPressConfirm?: () => void;
 }
 
 /** 对话框函数使用时的组件内部状态 */
 export type DialogMethodState = {
-  visible: boolean
-  cancel: boolean
-  confirm: boolean
-  overlay: boolean
-}
+  visible: boolean;
+  cancel: boolean;
+  confirm: boolean;
+  overlay: boolean;
+};
 
 /** 对话框函数使用时的组件需要的属性 */
 export interface DialogMethodProps
@@ -147,24 +147,24 @@ export interface DialogMethodProps
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
-  beforeClose?: (action: DialogAction) => boolean | Promise<boolean>
+  beforeClose?: (action: DialogAction) => boolean | Promise<boolean>;
 
   /**
    * 操作完成后的回调
    */
-  onResponse?: (action: DialogAction) => void
+  onResponse?: (action: DialogAction) => void;
 }
 
 export interface DialogOptions
   extends Omit<DialogMethodProps, 'onResponse' | 'onRequestClose'> {}
 
 export interface DialogKeyboardProps extends DialogProps {
-  safeAreaTop?: number
+  safeAreaTop?: number;
 }
 
 export type DialogInputState = {
-  value: string | number
-} & DialogMethodState
+  value: string | number;
+} & DialogMethodState;
 
 export interface DialogInputProps
   extends Omit<
@@ -172,49 +172,49 @@ export interface DialogInputProps
       'visible' | 'onPressOverlay' | 'messageAlign' | 'onPressClose'
     >,
     Pick<DialogKeyboardProps, 'safeAreaTop'> {
-  theme?: Partial<DialogTheme>
+  theme?: Partial<DialogTheme>;
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
   beforeClose?: (
     action: Exclude<DialogAction, 'overlay'>,
     text: string,
-  ) => boolean | Promise<boolean>
+  ) => boolean | Promise<boolean>;
 
   /**
    * 点击取消
    */
   onPressCancel?: (
     text: string,
-  ) => boolean | Promise<boolean> | void | Promise<void>
+  ) => boolean | Promise<boolean> | void | Promise<void>;
 
   /**
    * 点击确定
    */
   onPressConfirm?: (
     text: string,
-  ) => boolean | Promise<boolean> | void | Promise<void>
+  ) => boolean | Promise<boolean> | void | Promise<void>;
 
   /**
    * 默认值
    */
-  defaultValue?: string
+  defaultValue?: string;
 
   /**
    * 提示文案
    */
-  placeholder?: string
+  placeholder?: string;
 
   /**
    * 输入框类型
    * @default 'text'
    */
-  type?: TextInputProps['type'] | NumberInputProps['type']
+  type?: TextInputProps['type'] | NumberInputProps['type'];
 
   /**
    * @default true
    */
-  autoFocus?: boolean
+  autoFocus?: boolean;
 
   /**
    * 自定义 TextInput 属性
@@ -222,7 +222,7 @@ export interface DialogInputProps
   textInput?: Omit<
     TextInputProps,
     'defaultValue' | 'placeholder' | 'type' | 'autoFocus'
-  >
+  >;
 
   /**
    * 自定义 NumberInput 属性
@@ -230,7 +230,7 @@ export interface DialogInputProps
   numberInput?: Omit<
     NumberInputProps,
     'defaultValue' | 'placeholder' | 'type' | 'autoFocus'
-  >
+  >;
 }
 
 export interface DialogInputOptions extends DialogInputProps {}

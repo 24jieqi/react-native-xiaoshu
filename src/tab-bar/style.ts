@@ -1,7 +1,7 @@
-import type { TextStyle } from 'react-native'
-import { StyleSheet } from 'react-native'
+import type { TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -18,10 +18,10 @@ export const varCreator = (TOKENS: TokensType) => {
     tab_bar_active_text_font_weight: '500' as TextStyle['fontWeight'],
     tab_bar_active_icon_color: TOKENS.brand_6,
     tab_bar_indicator_color: TOKENS.brand_6,
-  }
-}
+  };
+};
 
-export type TabBarTheme = ReturnType<typeof varCreator>
+export type TabBarTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: TabBarTheme) => {
   return StyleSheet.create({
@@ -79,5 +79,5 @@ export const styleCreator = (cv: TabBarTheme) => {
       fontSize: cv.tab_bar_badge_font_size,
       color: cv.tab_bar_badge_color,
     },
-  })
-}
+  });
+};

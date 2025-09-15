@@ -3,10 +3,10 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView, View } from 'react-native'
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 
-import { Divider, Space, Card } from '@fruits-chain/react-native-xiaoshu'
+import { Divider, Space, Card } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicDivider: React.FC = () => {
   return (
@@ -102,7 +102,7 @@ const BasicDivider: React.FC = () => {
         </Card>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicDivider
+export default BasicDivider;

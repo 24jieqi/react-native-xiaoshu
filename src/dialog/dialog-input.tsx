@@ -1,23 +1,23 @@
-import isNil from 'lodash/isNil'
-import React, { useEffect, useMemo, useRef, memo, useCallback } from 'react'
-import type { ViewStyle } from 'react-native'
-import { View, Keyboard } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { useEffect, useMemo, useRef, memo, useCallback } from 'react';
+import type { ViewStyle } from 'react-native';
+import { View, Keyboard } from 'react-native';
 
-import { callInterceptor, getDefaultValue } from '../helpers'
-import { usePersistFn } from '../hooks'
-import useState from '../hooks/useStateUpdate'
-import NumberInput from '../number-input'
-import TextInput from '../text-input'
-import type { TextInputInstance } from '../text-input/interface'
-import Theme from '../theme'
+import { callInterceptor, getDefaultValue } from '../helpers';
+import { usePersistFn } from '../hooks';
+import useState from '../hooks/useStateUpdate';
+import NumberInput from '../number-input';
+import TextInput from '../text-input';
+import type { TextInputInstance } from '../text-input/interface';
+import Theme from '../theme';
 
-import DialogKeyboard from './dialog-keyboard'
+import DialogKeyboard from './dialog-keyboard';
 import type {
   DialogInputProps,
   DialogAction,
   DialogInputState,
-} from './interface'
-import { varCreator } from './style'
+} from './interface';
+import { varCreator } from './style';
 
 /**
  * Dialog 弹出框
@@ -49,14 +49,14 @@ const DialogInput: React.FC<DialogInputProps> = ({
 
   ...restProps
 }) => {
-  const isInputText = type === 'textarea' || type === 'text'
-  const realValue = isInputText ? textInputValue : numberInputValue
+  const isInputText = type === 'textarea' || type === 'text';
+  const realValue = isInputText ? textInputValue : numberInputValue;
 
-  const TextInputRef = useRef<TextInputInstance>(null)
+  const TextInputRef = useRef<TextInputInstance>(null);
   const [CV] = Theme.useStyle({
     varCreator,
     theme: restProps.theme,
-  })
+  });
 
   const [state, setState] = useState<DialogInputState>({
     visible: false,
@@ -64,7 +64,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
     cancel: false,
     confirm: false,
     overlay: false,
-  })
+  });
 
   const boxStyle = useMemo<ViewStyle>(
     () => ({
@@ -75,34 +75,35 @@ const DialogInput: React.FC<DialogInputProps> = ({
       maxHeight: 200,
     }),
     [CV.dialog_input_gap],
-  )
+  );
 
-  duration = getDefaultValue(duration, CV.dialog_transition)
+  duration = getDefaultValue(duration, CV.dialog_transition);
 
   const onChangeTextPersistFn = usePersistFn((t: string) => {
     setState({
       value: t,
-    })
-    onChangeText?.(t)
-  })
+    });
+    onChangeText?.(t);
+  });
 
   const onChangePersistFn = usePersistFn((t: number) => {
     setState({
       value: t,
-    })
-    onChange?.(t)
-  })
+    });
+    onChange?.(t);
+  });
 
   const genOnPressBtn = (action: Exclude<DialogAction, 'overlay'>) => () => {
-    Keyboard.dismiss()
+    Keyboard.dismiss();
 
     setState({
       [action]: true,
-    })
+    });
 
-    const actionCallback = action === 'confirm' ? onPressConfirm : onPressCancel
+    const actionCallback =
+      action === 'confirm' ? onPressConfirm : onPressCancel;
 
-    const finalValue = !isNil(state.value) ? `${state.value}` : ''
+    const finalValue = !isNil(state.value) ? `${state.value}` : '';
 
     callInterceptor(beforeClose, {
       args: [action, finalValue],
@@ -113,49 +114,49 @@ const DialogInput: React.FC<DialogInputProps> = ({
             setState({
               [action]: false,
               visible: false,
-            })
+            });
           },
           canceled: () => {
             setState({
               [action]: false,
-            })
+            });
           },
-        })
+        });
       },
       canceled: () => {
         setState({
           [action]: false,
-        })
+        });
       },
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     setState({
       visible: true,
-    })
+    });
 
     // 当对话框完全显示的时候再去聚焦
     if (autoFocus) {
       setTimeout(() => {
-        TextInputRef.current?.focus()
-      }, duration)
+        TextInputRef.current?.focus();
+      }, duration);
     }
-  }, [duration, autoFocus])
+  }, [duration, autoFocus]);
 
   useEffect(() => {
     if (!isNil(realValue)) {
       setState({
         value: realValue,
-      })
+      });
     }
-  }, [realValue])
+  }, [realValue]);
 
   const onPressClose = useCallback(() => {
     setState({
       visible: false,
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <DialogKeyboard
@@ -194,7 +195,7 @@ const DialogInput: React.FC<DialogInputProps> = ({
         )}
       </View>
     </DialogKeyboard>
-  )
-}
+  );
+};
 
-export default memo(DialogInput)
+export default memo(DialogInput);

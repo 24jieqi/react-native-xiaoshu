@@ -3,16 +3,16 @@ import {
   Field,
   BottomBar,
   Button,
-} from '@fruits-chain/react-native-xiaoshu'
-import React from 'react'
+} from '@fruits-chain/react-native-xiaoshu';
+import React from 'react';
 
-import { KeyboardAwareScrollView } from '~/components/keyboard-aware-scroll-view'
-import Layout from '~/layouts/layout'
+import { KeyboardAwareScrollView } from '~/components/keyboard-aware-scroll-view';
+import Layout from '~/layouts/layout';
 
 const selectorOption = new Array(10).fill(0).map((_, index) => ({
   label: `选项-${index}`,
   value: index,
-}))
+}));
 
 const Issues85 = () => {
   return (
@@ -42,7 +42,7 @@ const Issues85 = () => {
         <Button text="提交" type="primary" />
       </BottomBar>
     </Layout.Page>
-  )
-}
+  );
+};
 
-export default Issues85
+export default Issues85;

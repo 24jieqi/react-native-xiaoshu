@@ -2,17 +2,17 @@ import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
-} from '@fruits-chain/icons-react-native'
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-import { ScrollView, Text } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import React from 'react';
+import type { ViewStyle } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 
-import { TabBar, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
+import { TabBar, Space, Divider } from '@fruits-chain/react-native-xiaoshu';
 
-import BasicTabBarAlign from './align'
-import BasicTabBarBase from './base'
-import BasicTabBarIndicator from './indicator'
-import BasicTabBarLabel from './label'
+import BasicTabBarAlign from './align';
+import BasicTabBarBase from './base';
+import BasicTabBarIndicator from './indicator';
+import BasicTabBarLabel from './label';
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -21,7 +21,7 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
-}
+};
 
 const bottomBar = [
   {
@@ -60,7 +60,7 @@ const bottomBar = [
       />
     ),
   },
-]
+];
 
 const BasicSwitch: React.FC = () => {
   return (
@@ -95,7 +95,7 @@ const BasicSwitch: React.FC = () => {
 
       <TabBar options={bottomBar} defaultValue={bottomBar[0].value} />
     </>
-  )
-}
+  );
+};
 
-export default BasicSwitch
+export default BasicSwitch;

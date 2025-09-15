@@ -3,16 +3,21 @@
  * description: 提供 `left`、`right`、`top`、`bottom` 四个方向，默认外边距，通过 `type` 可以设定为内边距。
  */
 
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-import { Text, View } from 'react-native'
+import React from 'react';
+import type { ViewStyle } from 'react-native';
+import { Text, View } from 'react-native';
 
-import { Blank, Card, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Blank,
+  Card,
+  Space,
+  Divider,
+} from '@fruits-chain/react-native-xiaoshu';
 
-const ctxStyle = { backgroundColor: '#f5f5f5' }
-const cardBodyStyle = { backgroundColor: '#61649f' }
-const blankStyle = { backgroundColor: '#098' }
-const dividerStyle = { backgroundColor: '#2b333e' }
+const ctxStyle = { backgroundColor: '#f5f5f5' };
+const cardBodyStyle = { backgroundColor: '#61649f' };
+const blankStyle = { backgroundColor: '#098' };
+const dividerStyle = { backgroundColor: '#2b333e' };
 
 const BasicBlankDirection: React.FC = () => {
   return (
@@ -51,8 +56,8 @@ const BasicBlankDirection: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
 const Tip = ({ text, style }: { text: string; style: ViewStyle }) => {
   return (
@@ -70,7 +75,7 @@ const Tip = ({ text, style }: { text: string; style: ViewStyle }) => {
         }}
       />
     </View>
-  )
-}
+  );
+};
 
-export default BasicBlankDirection
+export default BasicBlankDirection;

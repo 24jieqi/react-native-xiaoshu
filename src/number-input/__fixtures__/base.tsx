@@ -3,16 +3,16 @@
  * description: 非受控、受控两种使用方式，简单的输入限制
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, NumberInput } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, NumberInput } from '@fruits-chain/react-native-xiaoshu';
 
 const consoleNum = (n: number) => {
-  console.log('[新数据]  ->  ', n)
-}
+  console.log('[新数据]  ->  ', n);
+};
 
 const BasicNumberInputBase: React.FC = () => {
-  const [value, setValue] = useState<number | undefined>(undefined)
+  const [value, setValue] = useState<number | undefined>(undefined);
 
   return (
     <Cell.Group title="基础用法">
@@ -61,8 +61,8 @@ const BasicNumberInputBase: React.FC = () => {
             placeholder="请输入"
             value={value}
             onChange={n => {
-              console.log('受控 value => ', n)
-              setValue(n)
+              console.log('受控 value => ', n);
+              setValue(n);
             }}
           />
         }
@@ -75,9 +75,9 @@ const BasicNumberInputBase: React.FC = () => {
             placeholder="请输入"
             formatter={t => {
               if (t) {
-                return `-${t.replace(/-/, '')}`
+                return `-${t.replace(/-/, '')}`;
               }
-              return t
+              return t;
             }}
             limitDecimals={2}
             suffix="元"
@@ -100,7 +100,7 @@ const BasicNumberInputBase: React.FC = () => {
         divider={false}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicNumberInputBase
+export default BasicNumberInputBase;

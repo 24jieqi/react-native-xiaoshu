@@ -1,13 +1,13 @@
-import React, { memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import { View } from 'react-native'
-import { SvgXml } from 'react-native-svg'
+import React, { memo } from 'react';
+import type { ViewStyle } from 'react-native';
+import { View } from 'react-native';
+import { SvgXml } from 'react-native-svg';
 
-import type { ResultIconProps } from '../interface'
+import type { ResultIconProps } from '../interface';
 
 const SVG_STYLE: ViewStyle = {
   alignSelf: 'center',
-}
+};
 
 const ResultIconEmpty: React.FC<ResultIconProps> = ({
   style,
@@ -24,7 +24,7 @@ const ResultIconEmpty: React.FC<ResultIconProps> = ({
         />
       ) : null}
     </View>
-  )
-}
+  );
+};
 
-export default memo(ResultIconEmpty)
+export default memo(ResultIconEmpty);

@@ -3,9 +3,9 @@
  * description: 通过 ref 关联表单实例。
  */
 
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 
-import type { FormInstance } from '@fruits-chain/react-native-xiaoshu'
+import type { FormInstance } from '@fruits-chain/react-native-xiaoshu';
 import {
   Card,
   Form,
@@ -13,18 +13,18 @@ import {
   Button,
   Toast,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicFormRef: React.FC = () => {
-  const FormRef = useRef<FormInstance>(null)
+  const FormRef = useRef<FormInstance>(null);
 
   return (
     <Card title="用户登录 useRef" square>
       <Form
         ref={FormRef}
         onFinish={values => {
-          console.log(values)
-          Toast(JSON.stringify(values))
+          console.log(values);
+          Toast(JSON.stringify(values));
         }}>
         <Form.Item
           name="username"
@@ -59,7 +59,7 @@ const BasicFormRef: React.FC = () => {
             onPress={() => {
               FormRef.current?.setFieldsValue({
                 username: 'admin',
-              })
+              });
             }}
           />
 
@@ -67,13 +67,13 @@ const BasicFormRef: React.FC = () => {
             text="提交"
             type="primary"
             onPress={() => {
-              FormRef.current?.submit()
+              FormRef.current?.submit();
             }}
           />
         </Space>
       </Form>
     </Card>
-  )
-}
+  );
+};
 
-export default BasicFormRef
+export default BasicFormRef;

@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -17,10 +17,10 @@ export const varCreator = (TOKENS: TokensType) => {
     progress_page_text_line_height: TOKENS.line_height_1,
     progress_page_text_color: TOKENS.gray_6,
     progress_page_button_width: 156,
-  }
-}
+  };
+};
 
-export type ProgressTheme = ReturnType<typeof varCreator>
+export type ProgressTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: ProgressTheme) => {
   return StyleSheet.create({
@@ -37,5 +37,5 @@ export const styleCreator = (cv: ProgressTheme) => {
     btn: {
       width: cv.progress_page_button_width,
     },
-  })
-}
+  });
+};

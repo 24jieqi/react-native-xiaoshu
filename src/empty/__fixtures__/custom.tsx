@@ -2,13 +2,13 @@
  * title: 自定义
  * description: 根据自身需求自定义组件。
  */
-import React from 'react'
-import { Text, View } from 'react-native'
+import React from 'react';
+import { Text, View } from 'react-native';
 
-import { Empty, Flex, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
+import { Empty, Flex, Space, Theme } from '@fruits-chain/react-native-xiaoshu';
 
 const EmptyCustom = () => {
-  const { gray_1 } = Theme.useThemeTokens()
+  const { gray_1 } = Theme.useThemeTokens();
 
   return (
     <>
@@ -24,7 +24,7 @@ const EmptyCustom = () => {
                 style={{ color: '#098', marginLeft: 2 }}
                 suppressHighlighting={false}
                 onPress={() => {
-                  console.log('434')
+                  console.log('434');
                 }}>
                 添加元素
               </Text>
@@ -39,7 +39,7 @@ const EmptyCustom = () => {
         <Empty text="占满剩余空间 full" full />
       </View>
     </>
-  )
-}
+  );
+};
 
-export default EmptyCustom
+export default EmptyCustom;

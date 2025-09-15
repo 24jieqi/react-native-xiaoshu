@@ -1,6 +1,9 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import NavTab from './nav-tab'
-import { varCreator, styleCreator } from './style'
+import NavTab from './nav-tab';
+import { varCreator, styleCreator } from './style';
 
-export default attachPropertiesToComponent(NavTab, { varCreator, styleCreator })
+export default attachPropertiesToComponent(NavTab, {
+  varCreator,
+  styleCreator,
+});

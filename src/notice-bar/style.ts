@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -18,9 +18,9 @@ export const varCreator = (TOKENS: TokensType) => {
     notice_bar_warning_text_color: TOKENS.yellow_6,
     notice_bar_error_text_color: TOKENS.red_6,
     notice_bar_background_color_lightness: 95,
-  }
-}
-export type NoticeBarTheme = ReturnType<typeof varCreator>
+  };
+};
+export type NoticeBarTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: NoticeBarTheme) => {
   return StyleSheet.create({
@@ -43,5 +43,5 @@ export const styleCreator = (cv: NoticeBarTheme) => {
       lineHeight: cv.notice_bar_text_line_height,
       flex: 1,
     },
-  })
-}
+  });
+};

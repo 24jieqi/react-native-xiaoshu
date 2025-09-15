@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Portal from '../portal'
+import Portal from '../portal';
 
-import type { SelectorOptions, SelectorValue } from './interface'
-import SelectorMethod from './selector-method'
+import type { SelectorOptions, SelectorValue } from './interface';
+import SelectorMethod from './selector-method';
 
 const SelectorInstance = (opt: SelectorOptions) =>
   new Promise<SelectorValue[] | SelectorValue>((resolve, reject) => {
@@ -11,20 +11,20 @@ const SelectorInstance = (opt: SelectorOptions) =>
       <SelectorMethod
         {...opt}
         onChange={(v, o) => {
-          opt.onChange?.(v, o)
-          resolve(v)
+          opt.onChange?.(v, o);
+          resolve(v);
         }}
         onClose={() => {
-          opt.onClose?.()
-          reject(new Error())
+          opt.onClose?.();
+          reject(new Error());
         }}
         onClosed={() => {
-          opt.onClosed?.()
+          opt.onClosed?.();
 
-          Portal.remove(key)
+          Portal.remove(key);
         }}
       />,
-    )
-  })
+    );
+  });
 
-export default SelectorInstance
+export default SelectorInstance;

@@ -3,8 +3,8 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState, useRef, useCallback } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import React, { useState, useRef, useCallback } from 'react';
+import { View, Text, ScrollView } from 'react-native';
 
 import {
   Cell,
@@ -13,7 +13,7 @@ import {
   Portal,
   Tree,
   Theme,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const itemOptions = [
   { label: '全部商品', value: null, badge: true },
@@ -22,7 +22,7 @@ const itemOptions = [
     value: v,
     badge: v,
   })),
-]
+];
 
 const itemOptions2 = [
   { label: '全部商品', value: null },
@@ -30,7 +30,7 @@ const itemOptions2 = [
     label: `商品分类${v}`,
     value: v,
   })),
-]
+];
 
 const itemOptions3 = [
   { label: '全部商品', value: null, children: [] },
@@ -46,34 +46,34 @@ const itemOptions3 = [
       })),
     })),
   })),
-]
+];
 
 const itemOptions4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13, 14].map(v => ({
   label: `商品分类${v}`,
   value: v,
   badge: v,
-}))
+}));
 
 const BasicDropdown: React.FC = () => {
-  const { gray_2 } = Theme.useThemeTokens()
+  const { gray_2 } = Theme.useThemeTokens();
   const [values, setValues] = useState({
     v1: itemOptions[0].value,
     v2: itemOptions[3].value,
     v3: itemOptions[2].value,
     v4: itemOptions[4].value,
-  })
-  const ViewRef = useRef<View>(null)
+  });
+  const ViewRef = useRef<View>(null);
   const [popupProps, setPopupProps] = useState({
     targetHeight: 0,
     targetPageY: 0,
     visible: false,
-  })
+  });
   const onPressShade = useCallback(() => {
     setPopupProps(s => ({
       ...s,
       visible: false,
-    }))
-  }, [])
+    }));
+  }, []);
 
   return (
     <ScrollView scrollsToTop={false} style={{ backgroundColor: gray_2 }}>
@@ -103,11 +103,11 @@ const BasicDropdown: React.FC = () => {
             options={itemOptions}
             value={values.v1}
             onChange={(v, d) => {
-              console.log(d)
+              console.log(d);
               setValues(s => ({
                 ...s,
                 v1: v as number,
-              }))
+              }));
             }}
             // eslint-disable-next-line react-native/no-inline-styles
             titleStyle={{
@@ -139,7 +139,7 @@ const BasicDropdown: React.FC = () => {
               setValues(s => ({
                 ...s,
                 v1: v as number,
-              }))
+              }));
             }}
           />
           <Dropdown.Item options={itemOptions} value={itemOptions[2].value} />
@@ -160,7 +160,7 @@ const BasicDropdown: React.FC = () => {
               setValues(s => ({
                 ...s,
                 v3: v as number,
-              }))
+              }));
             }}
           />
           <Dropdown.Item
@@ -170,7 +170,7 @@ const BasicDropdown: React.FC = () => {
               setValues(s => ({
                 ...s,
                 v4: v as number,
-              }))
+              }));
             }}
           />
         </Dropdown>
@@ -189,7 +189,7 @@ const BasicDropdown: React.FC = () => {
               setValues(s => ({
                 ...s,
                 v3: v as number,
-              }))
+              }));
             }}
           />
           <Dropdown.Item
@@ -199,7 +199,7 @@ const BasicDropdown: React.FC = () => {
               setValues(s => ({
                 ...s,
                 v4: v as number,
-              }))
+              }));
             }}
           />
         </Dropdown>
@@ -216,8 +216,8 @@ const BasicDropdown: React.FC = () => {
             options={itemOptions3}
             defaultValue={null}
             onChange={(v, d) => {
-              console.log(v)
-              console.log(d)
+              console.log(v);
+              console.log(d);
             }}
           />
           <Dropdown.Item options={itemOptions3} defaultValue={null} />
@@ -234,8 +234,8 @@ const BasicDropdown: React.FC = () => {
             placeholder="商品类目"
             options={itemOptions4}
             onChange={(v, d) => {
-              console.log(v)
-              console.log(d)
+              console.log(v);
+              console.log(d);
             }}
             cancellable
           />
@@ -252,8 +252,8 @@ const BasicDropdown: React.FC = () => {
             search
             options={itemOptions3}
             onChange={(v, d) => {
-              console.log(v)
-              console.log(d)
+              console.log(v);
+              console.log(d);
             }}
             placeholder="可以多选"
           />
@@ -263,24 +263,24 @@ const BasicDropdown: React.FC = () => {
             multipleMode={Tree.MultipleMode.INDEPENDENT}
             beforeChecked={({ checked, option }) => {
               if (checked) {
-                const cValues: string[] = []
+                const cValues: string[] = [];
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const findAllValue = (c: any) => {
-                  cValues.push(c.value)
+                  cValues.push(c.value);
 
                   if (c.children?.length) {
                     c.children.forEach(cc => {
-                      findAllValue(cc)
-                    })
+                      findAllValue(cc);
+                    });
                   }
-                }
+                };
 
-                findAllValue(option)
+                findAllValue(option);
 
-                return cValues
+                return cValues;
               }
 
-              return []
+              return [];
             }}
           />
         </Dropdown>
@@ -300,8 +300,8 @@ const BasicDropdown: React.FC = () => {
                   targetHeight: height,
                   targetPageY: pageY,
                   visible: true,
-                }))
-              })
+                }));
+              });
             }}
           />
         </View>
@@ -322,7 +322,7 @@ const BasicDropdown: React.FC = () => {
                 setPopupProps(s => ({
                   ...s,
                   visible: false,
-                }))
+                }));
               }}
             />
           </Dropdown.Popup>
@@ -334,7 +334,7 @@ const BasicDropdown: React.FC = () => {
         />
       </Cell.Group>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicDropdown
+export default BasicDropdown;

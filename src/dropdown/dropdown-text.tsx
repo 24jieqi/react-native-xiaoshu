@@ -1,17 +1,17 @@
-import isNil from 'lodash/isNil'
-import omit from 'lodash/omit'
-import React, { memo } from 'react'
-import type { TextStyle, ViewStyle, StyleProp } from 'react-native'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import isNil from 'lodash/isNil';
+import omit from 'lodash/omit';
+import React, { memo } from 'react';
+import type { TextStyle, ViewStyle, StyleProp } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue, getArrowOutline } from '../helpers'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import { getDefaultValue, getArrowOutline } from '../helpers';
+import Theme from '../theme';
 
-import { useDropdownConfig } from './context'
-import DropdownBadge from './dropdown-badge'
-import type { DropdownTextProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import { useDropdownConfig } from './context';
+import DropdownBadge from './dropdown-badge';
+import type { DropdownTextProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const DropdownText: React.FC<DropdownTextProps> = ({
   textStyle,
@@ -29,38 +29,38 @@ const DropdownText: React.FC<DropdownTextProps> = ({
   activeOpacity,
   ...restProps
 }) => {
-  const config = useDropdownConfig()
+  const config = useDropdownConfig();
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme: config.theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
 
-  const showBadge = !active && !isNil(badge) && badge !== false
+  const showBadge = !active && !isNil(badge) && badge !== false;
 
   // 修正数据
-  activeColor = getDefaultValue(activeColor, config.activeColor)
+  activeColor = getDefaultValue(activeColor, config.activeColor);
   activeOpacity = getDefaultValue(
     activeOpacity,
     CV_BUTTON.button_active_opacity,
-  )
-  direction = getDefaultValue(direction, config.direction)!
+  );
+  direction = getDefaultValue(direction, config.direction)!;
 
-  const textStyleFlatten = StyleSheet.flatten(textStyle) || {}
+  const textStyleFlatten = StyleSheet.flatten(textStyle) || {};
   const textColor = disabled
     ? CV.dropdown_text_disabled_color
     : active
       ? activeColor
-      : textStyleFlatten.color || CV.dropdown_text_color
+      : textStyleFlatten.color || CV.dropdown_text_color;
 
   const itemStyles: StyleProp<ViewStyle> = [
     STYLES.text_item,
     config.titleStyle,
     style,
-  ]
+  ];
   const textStyles: StyleProp<TextStyle> = [
     STYLES.text_text,
     showBadge ? null : STYLES.text_text_gap,
@@ -69,12 +69,12 @@ const DropdownText: React.FC<DropdownTextProps> = ({
       color: textColor,
     },
     omit(textStyleFlatten, ['color']),
-  ]
-  const iconStyles = [config.iconStyle, iconStyle].filter(Boolean)
+  ];
+  const iconStyles = [config.iconStyle, iconStyle].filter(Boolean);
 
   const ArrowFill = getArrowOutline(
     active ? (direction === 'up' ? 'down' : 'up') : direction,
-  )
+  );
   const ctxJSX = (
     <>
       <View style={STYLES.text_text_container}>
@@ -96,7 +96,7 @@ const DropdownText: React.FC<DropdownTextProps> = ({
         color={active ? activeColor : CV.dropdown_text_icon_color}
       />
     </>
-  )
+  );
 
   if (pressable) {
     return (
@@ -107,14 +107,14 @@ const DropdownText: React.FC<DropdownTextProps> = ({
         activeOpacity={activeOpacity}>
         {ctxJSX}
       </TouchableOpacity>
-    )
+    );
   }
 
   return (
     <View {...restProps} style={itemStyles}>
       {ctxJSX}
     </View>
-  )
-}
+  );
+};
 
-export default memo(DropdownText)
+export default memo(DropdownText);

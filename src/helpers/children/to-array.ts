@@ -1,10 +1,10 @@
-import type React from 'react'
-import { Children } from 'react'
-import { isFragment } from 'react-is'
+import type React from 'react';
+import { Children } from 'react';
+import { isFragment } from 'react-is';
 
 export interface Option {
   /** 保留空节点 */
-  keepEmpty?: boolean
+  keepEmpty?: boolean;
 }
 
 /**
@@ -15,23 +15,23 @@ export default function childrenToArray(
   children: React.ReactNode,
   option: Option = {},
 ): React.ReactElement[] {
-  let ret: React.ReactElement[] = []
+  let ret: React.ReactElement[] = [];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Children.forEach(children, (child: any) => {
     if ((child === undefined || child === null) && !option.keepEmpty) {
-      return
+      return;
     }
 
     if (Array.isArray(child)) {
-      ret = ret.concat(childrenToArray(child))
+      ret = ret.concat(childrenToArray(child));
     } else if (isFragment(child) && child.props) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ret = ret.concat(childrenToArray((child.props as any).children, option))
+      ret = ret.concat(childrenToArray((child.props as any).children, option));
     } else {
-      ret.push(child)
+      ret.push(child);
     }
-  })
+  });
 
-  return ret
+  return ret;
 }

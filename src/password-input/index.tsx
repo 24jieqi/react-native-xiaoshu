@@ -1,15 +1,15 @@
-import { EyeOutline, EyeCloseOutline } from '@fruits-chain/icons-react-native'
-import React, { useMemo, memo, forwardRef } from 'react'
+import { EyeOutline, EyeCloseOutline } from '@fruits-chain/icons-react-native';
+import React, { useMemo, memo, forwardRef } from 'react';
 
-import { getDefaultValue } from '../helpers'
-import { useControllableValue, usePersistFn } from '../hooks'
-import TextInput from '../text-input'
-import type { TextInputInstance } from '../text-input/interface'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import { useControllableValue, usePersistFn } from '../hooks';
+import TextInput from '../text-input';
+import type { TextInputInstance } from '../text-input/interface';
+import Theme from '../theme';
 
-import type { PasswordInputProps } from './interface'
+import type { PasswordInputProps } from './interface';
 
-const hitSlop = { top: 4, bottom: 4, left: 4, right: 4 }
+const hitSlop = { top: 4, bottom: 4, left: 4, right: 4 };
 
 /**
  * 密码输入
@@ -24,25 +24,25 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
     },
     ref,
   ) {
-    const TOKENS = Theme.useThemeTokens()
+    const TOKENS = Theme.useThemeTokens();
     const [secure, onChangeSecureTextEntry] = useControllableValue(restProps, {
       valuePropName: 'secureTextEntry',
       defaultValuePropName: 'defaultSecureTextEntry',
       defaultValue: true,
       trigger: 'onChangeSecureTextEntry',
-    })
+    });
 
-    iconColor = getDefaultValue(iconColor, TOKENS.gray_6)
+    iconColor = getDefaultValue(iconColor, TOKENS.gray_6);
     const iconStyle = useMemo(
       () => ({ marginLeft: TOKENS.space_2 }),
       [TOKENS.space_2],
-    )
+    );
 
     const onPressIcon = usePersistFn(() => {
-      onChangeSecureTextEntry(!secure)
-    })
+      onChangeSecureTextEntry(!secure);
+    });
 
-    const IconSuffix = secure ? EyeCloseOutline : EyeOutline
+    const IconSuffix = secure ? EyeCloseOutline : EyeOutline;
 
     return (
       <TextInput
@@ -59,8 +59,8 @@ const PasswordInput = forwardRef<TextInputInstance, PasswordInputProps>(
           />
         }
       />
-    )
+    );
   },
-)
+);
 
-export default memo(PasswordInput)
+export default memo(PasswordInput);

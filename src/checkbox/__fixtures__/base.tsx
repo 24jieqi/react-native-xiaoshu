@@ -6,13 +6,13 @@
 import {
   ArrowUpOutline,
   ArrowDownOutline,
-} from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
+} from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
 
-import { Checkbox, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Checkbox, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const CheckboxBase: React.FC = () => {
-  const [value, setValue] = useState(true)
+  const [value, setValue] = useState(true);
 
   return (
     <Space>
@@ -21,14 +21,14 @@ const CheckboxBase: React.FC = () => {
           <Checkbox
             label="初始化时未激活"
             onChange={v => {
-              console.log('当前状态：', v)
+              console.log('当前状态：', v);
             }}
           />
           <Checkbox
             defaultValue
             label="初始化时激活"
             onChange={v => {
-              console.log('当前状态：', v)
+              console.log('当前状态：', v);
             }}
           />
           <Checkbox
@@ -135,7 +135,7 @@ const CheckboxBase: React.FC = () => {
             defaultValue="1"
             label="激活值为字符1，未激活值为字符2，默认值为字符串1"
             onChange={v => {
-              console.log('当前状态：', v)
+              console.log('当前状态：', v);
             }}
           />
           <Checkbox
@@ -143,7 +143,7 @@ const CheckboxBase: React.FC = () => {
             defaultValue="1"
             label="激活值为数字1，未激活值为false，默认值为字符串1"
             onChange={v => {
-              console.log('当前状态：', v)
+              console.log('当前状态：', v);
             }}
           />
           <Checkbox
@@ -151,7 +151,7 @@ const CheckboxBase: React.FC = () => {
             defaultValue={1}
             label="激活值为数字1，未激活值为false，默认值为数字1"
             onChange={v => {
-              console.log('当前状态：', v)
+              console.log('当前状态：', v);
             }}
           />
         </Space>
@@ -169,7 +169,7 @@ const CheckboxBase: React.FC = () => {
         </Space>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default CheckboxBase
+export default CheckboxBase;

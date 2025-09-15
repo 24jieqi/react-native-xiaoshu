@@ -3,32 +3,32 @@
  * description: 通过 `position` 控制弹出层出现的动画。`Popup` 组件已经嵌套在 `Portal` 组件内，可以随意放置位置都会在根节点渲染，`Popup.PopupComponent` 则未被嵌套，需要结合业务自行安排。
  */
 
-import React, { useState } from 'react'
-import { Text } from 'react-native'
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 
-import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu'
+import type { PopupPosition } from '@fruits-chain/react-native-xiaoshu';
 import {
   Space,
   Popup,
   Card,
   Button,
   TextInput,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
-const positions: PopupPosition[] = ['center', 'left', 'right', 'top', 'bottom']
+const positions: PopupPosition[] = ['center', 'left', 'right', 'top', 'bottom'];
 
 const BasicPopupPopup: React.FC = () => {
   const [state, setState] = useState<{
-    show: boolean
-    position: PopupPosition
-    show2: boolean
-    show3: boolean
+    show: boolean;
+    position: PopupPosition;
+    show2: boolean;
+    show3: boolean;
   }>({
     show: false,
     position: 'left',
     show2: false,
     show3: false,
-  })
+  });
   return (
     <>
       <Card title="基础用法" square>
@@ -44,10 +44,10 @@ const BasicPopupPopup: React.FC = () => {
                     ...s,
                     show: true,
                     position: p,
-                  }))
+                  }));
                 }}
               />
-            )
+            );
           })}
 
           <Button
@@ -57,7 +57,7 @@ const BasicPopupPopup: React.FC = () => {
               setState(s => ({
                 ...s,
                 show2: true,
-              }))
+              }));
             }}
           />
 
@@ -68,7 +68,7 @@ const BasicPopupPopup: React.FC = () => {
               setState(s => ({
                 ...s,
                 show3: true,
-              }))
+              }));
             }}
           />
         </Space>
@@ -83,14 +83,14 @@ const BasicPopupPopup: React.FC = () => {
           setState(s => ({
             ...s,
             show: false,
-          }))
+          }));
         }}
         onRequestClose={() => {
           setState(s => ({
             ...s,
             show: false,
-          }))
-          return true
+          }));
+          return true;
         }}
         round>
         <Popup.Header
@@ -99,7 +99,7 @@ const BasicPopupPopup: React.FC = () => {
             setState(s => ({
               ...s,
               show: false,
-            }))
+            }));
           }}
         />
 
@@ -118,7 +118,7 @@ const BasicPopupPopup: React.FC = () => {
           setState(s => ({
             ...s,
             show2: false,
-          }))
+          }));
         }}>
         <Popup.Header title="每次打开都是新的子元素" />
         <TextInput
@@ -139,12 +139,12 @@ const BasicPopupPopup: React.FC = () => {
           setState(s => ({
             ...s,
             show3: false,
-          }))
+          }));
         }}>
         <Popup.Header title="自定义 Overlay 颜色" />
       </Popup>
     </>
-  )
-}
+  );
+};
 
-export default BasicPopupPopup
+export default BasicPopupPopup;

@@ -3,12 +3,12 @@
  * description: 包裹子组件或独立使用。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Badge, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Badge, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
-import BadgeDemoItem from './component/item'
+import BadgeDemoItem from './component/item';
 
 const BadgeBase: React.FC = () => {
   return (
@@ -85,7 +85,7 @@ const BadgeBase: React.FC = () => {
         </Space>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default BadgeBase
+export default BadgeBase;

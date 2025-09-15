@@ -1,17 +1,17 @@
-import React, { memo, Children, isValidElement } from 'react'
-import type { ViewStyle } from 'react-native'
-import { View } from 'react-native'
+import React, { memo, Children, isValidElement } from 'react';
+import type { ViewStyle } from 'react-native';
+import { View } from 'react-native';
 
-import { varCreator as varCreatorBlank } from '../blank/style'
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { varCreator as varCreatorBlank } from '../blank/style';
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import type { SpaceProps } from './interface'
+import type { SpaceProps } from './interface';
 
-const NO_GAP = 0
+const NO_GAP = 0;
 
 const getMarginGap = (d: boolean | number | undefined, gap: number) =>
-  d ? (typeof d === 'number' ? d : gap) : 0
+  d ? (typeof d === 'number' ? d : gap) : 0;
 
 /**
  * Space 间距
@@ -34,14 +34,14 @@ const Space: React.FC<SpaceProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank)
+  const TOKENS = Theme.useThemeTokens();
+  const CV_BLANK = Theme.createVar(TOKENS, varCreatorBlank);
 
   const defaultGap: number =
-    typeof gap === 'string' ? CV_BLANK[`blank_size_${gap}`] : gap
-  const isVertical = direction === 'vertical'
-  const _gapVertical = getDefaultValue(gapVertical, defaultGap)!
-  const _gapHorizontal = getDefaultValue(gapHorizontal, defaultGap)!
+    typeof gap === 'string' ? CV_BLANK[`blank_size_${gap}`] : gap;
+  const isVertical = direction === 'vertical';
+  const _gapVertical = getDefaultValue(gapVertical, defaultGap)!;
+  const _gapHorizontal = getDefaultValue(gapHorizontal, defaultGap)!;
   const wrapperStyle: ViewStyle = {
     flexDirection: isVertical ? 'column' : 'row',
     flexWrap: wrap ? 'wrap' : 'nowrap',
@@ -62,22 +62,22 @@ const Space: React.FC<SpaceProps> = ({
           marginBottom: -_gapVertical,
         }
       : {}),
-  }
+  };
   const itemStyle: ViewStyle = {
     marginBottom: isVertical || wrap ? _gapVertical : 0,
     marginRight: isVertical ? 0 : _gapHorizontal,
     minWidth,
-  }
+  };
 
-  const childArray = Children.toArray(children)
-  const count = childArray.length
+  const childArray = Children.toArray(children);
+  const count = childArray.length;
 
   return (
     <View {...restProps} style={[wrapperStyle, style]}>
       {childArray.map((child, index) => {
-        let key: React.Key = index
+        let key: React.Key = index;
         if (isValidElement(child)) {
-          key = child.key ?? index
+          key = child.key ?? index;
         }
         return (
           <View
@@ -96,10 +96,10 @@ const Space: React.FC<SpaceProps> = ({
             ]}>
             {child}
           </View>
-        )
+        );
       })}
     </View>
-  )
-}
+  );
+};
 
-export default memo(Space)
+export default memo(Space);

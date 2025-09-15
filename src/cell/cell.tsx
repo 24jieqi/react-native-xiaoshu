@@ -1,15 +1,19 @@
-import noop from 'lodash/noop'
-import React, { memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import { Text, View, Pressable } from 'react-native'
+import noop from 'lodash/noop';
+import React, { memo } from 'react';
+import type { ViewStyle } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 
-import Divider from '../divider'
-import { renderTextLikeJSX, getDefaultValue, getArrowOutline } from '../helpers'
-import { useDebounceFn } from '../hooks'
-import Theme from '../theme'
+import Divider from '../divider';
+import {
+  renderTextLikeJSX,
+  getDefaultValue,
+  getArrowOutline,
+} from '../helpers';
+import { useDebounceFn } from '../hooks';
+import Theme from '../theme';
 
-import type { CellProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { CellProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Cell 单元格
@@ -52,42 +56,42 @@ const Cell: React.FC<CellProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const { run: runOnPress } = useDebounceFn(restProps.onPress || noop, {
     wait: onPressDebounceWait,
     leading: true,
     trailing: false,
-  })
+  });
 
   // 一定要绑定 Press 事件才有这个效果
-  underlayColor = getDefaultValue(underlayColor, CV.cell_active_color)
+  underlayColor = getDefaultValue(underlayColor, CV.cell_active_color);
   dividerLeftGap = getDefaultValue(
     dividerLeftGap,
     CV.cell_group_title_padding_horizontal,
-  )
+  );
   dividerRightGap = getDefaultValue(
     dividerRightGap,
     CV.cell_group_title_padding_horizontal,
-  )
+  );
 
   if (vertical) {
-    textAlign = 'left'
+    textAlign = 'left';
   }
 
-  const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : {}
+  const centerStyle: ViewStyle = center ? { alignSelf: 'center' } : {};
 
   const requiredJSX = required ? (
     <View style={STYLES.title_required} testID="CELL_REQUIRED">
       <Text style={STYLES.title_required_text}>*</Text>
     </View>
-  ) : null
+  ) : null;
   const titleJSX = renderTextLikeJSX(
     title,
     [STYLES.title_text, titleTextStyle],
     {
       numberOfLines: titleTextNumberOfLines,
     },
-  )
+  );
   const valueJSX = renderTextLikeJSX(
     value,
     [
@@ -100,9 +104,12 @@ const Cell: React.FC<CellProps> = ({
     {
       numberOfLines: valueTextNumberOfLines,
     },
-  )
-  const extraJSX = renderTextLikeJSX(extra, [STYLES.extra_text, extraTextStyle])
-  const IconArrow = getArrowOutline(arrowDirection)
+  );
+  const extraJSX = renderTextLikeJSX(extra, [
+    STYLES.extra_text,
+    extraTextStyle,
+  ]);
+  const IconArrow = getArrowOutline(arrowDirection);
   const linkJSX = isLink ? (
     <IconArrow
       testID="CELL_LINK_ARROW"
@@ -111,7 +118,7 @@ const Cell: React.FC<CellProps> = ({
       onPress={onPressLink}
       style={STYLES.icon_link}
     />
-  ) : null
+  ) : null;
 
   const ctxJSX = (
     <>
@@ -127,7 +134,7 @@ const Cell: React.FC<CellProps> = ({
       {valueExtra}
       {linkJSX}
     </>
-  )
+  );
 
   return (
     <Pressable
@@ -183,7 +190,7 @@ const Cell: React.FC<CellProps> = ({
         />
       ) : null}
     </Pressable>
-  )
-}
+  );
+};
 
-export default memo(Cell)
+export default memo(Cell);

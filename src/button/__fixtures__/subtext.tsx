@@ -3,19 +3,19 @@
  * description: 通过 `subtext` 设置更多描述。
  */
 
-import { PlusOutline } from '@fruits-chain/icons-react-native'
-import React, { memo } from 'react'
+import { PlusOutline } from '@fruits-chain/icons-react-native';
+import React, { memo } from 'react';
 
 import {
   Button,
   Card,
   Space,
   Divider,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onPress = () => {
-  console.log('点击按钮 => ', new Date().getTime())
-}
+  console.log('点击按钮 => ', new Date().getTime());
+};
 
 const ButtonSubtext: React.FC = () => {
   return (
@@ -109,7 +109,7 @@ const ButtonSubtext: React.FC = () => {
         </Space>
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonSubtext)
+export default memo(ButtonSubtext);

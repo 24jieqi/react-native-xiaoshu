@@ -2,11 +2,16 @@
  * title: 自定义
  * description: 根据自身需求自定义组件。
  */
-import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
-import React from 'react'
-import { Text, View } from 'react-native'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 
-import { Button, Flex, Result, Space } from '@fruits-chain/react-native-xiaoshu'
+import {
+  Button,
+  Flex,
+  Result,
+  Space,
+} from '@fruits-chain/react-native-xiaoshu';
 
 const ResultCustom = () => {
   return (
@@ -15,7 +20,7 @@ const ResultCustom = () => {
         status="info"
         title="自定义图标"
         renderIcon={(color, size) => {
-          return <ArrowLeftOutline color={color} size={size} />
+          return <ArrowLeftOutline color={color} size={size} />;
         }}
       />
 
@@ -29,7 +34,7 @@ const ResultCustom = () => {
               style={{ color: '#098', marginLeft: 2 }}
               suppressHighlighting={false}
               onPress={() => {
-                console.log('434')
+                console.log('434');
               }}>
               添加元素
             </Text>
@@ -48,7 +53,7 @@ const ResultCustom = () => {
         }
       />
     </Space>
-  )
-}
+  );
+};
 
-export default ResultCustom
+export default ResultCustom;

@@ -1,8 +1,8 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import ActionSheetBase from './base'
-import ActionSheetComponent from './component'
+import ActionSheetBase from './base';
+import ActionSheetComponent from './component';
 
 const BasicActionSheet: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const BasicActionSheet: React.FC = () => {
       <ActionSheetBase />
       <ActionSheetComponent />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicActionSheet
+export default BasicActionSheet;

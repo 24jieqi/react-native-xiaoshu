@@ -1,23 +1,23 @@
-import noop from 'lodash/noop'
-import React, { useEffect, useRef, useCallback, memo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { Animated, BackHandler } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import noop from 'lodash/noop';
+import React, { useEffect, useRef, useCallback, memo } from 'react';
+import type { ViewStyle, StyleProp } from 'react-native';
+import { Animated, BackHandler } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import * as helpers from '../helpers'
-import { usePersistFn } from '../hooks'
-import useState from '../hooks/useStateUpdate'
-import Overlay from '../overlay/overlay'
-import Theme from '../theme'
+import * as helpers from '../helpers';
+import { usePersistFn } from '../hooks';
+import useState from '../hooks/useStateUpdate';
+import Overlay from '../overlay/overlay';
+import Theme from '../theme';
 
-import { getPosition, getTransform } from './helper'
-import type { PopupProps, State } from './interface'
+import { getPosition, getTransform } from './helper';
+import type { PopupProps, State } from './interface';
 import {
   varCreator,
   styleCreator,
   getBorderRadius,
   PopupPositionMap,
-} from './style'
+} from './style';
 
 /**
  * Popup 弹出层
@@ -45,19 +45,19 @@ const Popup: React.FC<PopupProps> = ({
   onRequestClose,
   overlayBackgroundColor,
 }) => {
-  const insets = useSafeAreaInsets()
-  const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn || noop)
-  const onOpenPersistFn = usePersistFn(onOpenFn || noop)
-  const onOpenedPersistFn = usePersistFn(onOpenedFn || noop)
-  const onClosePersistFn = usePersistFn(onCloseFn || noop)
-  const onClosedPersistFn = usePersistFn(onClosedFn || noop)
+  const insets = useSafeAreaInsets();
+  const onPressOverlayPersistFn = usePersistFn(onPressOverlayFn || noop);
+  const onOpenPersistFn = usePersistFn(onOpenFn || noop);
+  const onOpenedPersistFn = usePersistFn(onOpenedFn || noop);
+  const onClosePersistFn = usePersistFn(onCloseFn || noop);
+  const onClosedPersistFn = usePersistFn(onClosedFn || noop);
   const [CV, STYLES, TOKENS] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
-  duration = helpers.getDefaultValue(duration, TOKENS.animation_duration_base)
+  duration = helpers.getDefaultValue(duration, TOKENS.animation_duration_base);
 
   const [state, setState] = useState<State>({
     visible,
@@ -65,21 +65,21 @@ const Popup: React.FC<PopupProps> = ({
     overlayVisible: visible,
     zIndex: helpers.getNextZIndex(),
     lazyRender,
-  })
-  const MountedRef = useRef(false)
+  });
+  const MountedRef = useRef(false);
 
   const fadeAnim = useRef(
     new Animated.Value(getPosition(visible, position)),
-  ).current
-  const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
+  ).current;
+  const fadeInstance = useRef<Animated.CompositeAnimation | null>(null);
 
   /** 点击遮罩层 */
   const onPressOverlay = useCallback(() => {
     if (closeOnPressOverlay) {
       // 关闭弹层
-      onPressOverlayPersistFn()
+      onPressOverlayPersistFn();
     }
-  }, [closeOnPressOverlay, onPressOverlayPersistFn])
+  }, [closeOnPressOverlay, onPressOverlayPersistFn]);
 
   // 监听状态变化，执行动画
   useEffect(() => {
@@ -89,21 +89,21 @@ const Popup: React.FC<PopupProps> = ({
         visible,
         zIndex: helpers.getNextZIndex(),
         lazyRender: false,
-      })
+      });
     }
 
     // 遮罩层状态实时显示
     setState({
       overlayVisible: visible,
-    })
+    });
 
     if (MountedRef.current) {
-      fadeAnim.setValue(getPosition(!visible, position))
+      fadeAnim.setValue(getPosition(!visible, position));
 
       if (visible) {
-        onOpenPersistFn()
+        onOpenPersistFn();
       } else {
-        onClosePersistFn()
+        onClosePersistFn();
       }
 
       fadeInstance.current = Animated.timing(
@@ -116,28 +116,28 @@ const Popup: React.FC<PopupProps> = ({
             ? helpers.easing.easeOutCirc
             : helpers.easing.easeInCubic,
         },
-      )
+      );
 
       fadeInstance.current.start(({ finished }) => {
         if (finished) {
-          fadeInstance.current = null
+          fadeInstance.current = null;
           if (!visible) {
-            setState({ visible, lazyRender: destroyOnClosed })
-            onClosedPersistFn()
+            setState({ visible, lazyRender: destroyOnClosed });
+            onClosedPersistFn();
           } else {
-            onOpenedPersistFn()
+            onOpenedPersistFn();
           }
         }
-      })
+      });
     }
 
     return () => {
       // 停止动画
       if (fadeInstance.current) {
-        fadeInstance.current.stop()
-        fadeInstance.current = null
+        fadeInstance.current.stop();
+        fadeInstance.current = null;
       }
-    }
+    };
   }, [
     destroyOnClosed,
     duration,
@@ -148,12 +148,12 @@ const Popup: React.FC<PopupProps> = ({
     onOpenedPersistFn,
     onOpenPersistFn,
     visible,
-  ])
+  ]);
 
   // 初始化好组件
   useEffect(() => {
-    MountedRef.current = true
-  }, [])
+    MountedRef.current = true;
+  }, []);
 
   // Android 返回按钮
   useEffect(() => {
@@ -161,15 +161,15 @@ const Popup: React.FC<PopupProps> = ({
       'hardwareBackPress',
       () => {
         if (typeof onRequestClose === 'function' && visible) {
-          return onRequestClose()
+          return onRequestClose();
         }
 
-        return false
+        return false;
       },
-    )
+    );
 
-    return () => backHandler.remove()
-  }, [onRequestClose, visible])
+    return () => backHandler.remove();
+  }, [onRequestClose, visible]);
 
   const popupStyles: StyleProp<ViewStyle> = [
     STYLES.popup,
@@ -187,10 +187,10 @@ const Popup: React.FC<PopupProps> = ({
           PopupPositionMap[position],
         ]
       : STYLES.popup_hide,
-  ]
+  ];
 
   if (state.lazyRender) {
-    return null
+    return null;
   }
 
   return (
@@ -211,7 +211,7 @@ const Popup: React.FC<PopupProps> = ({
         {children}
       </Animated.View>
     </>
-  )
-}
+  );
+};
 
-export default memo(Popup)
+export default memo(Popup);

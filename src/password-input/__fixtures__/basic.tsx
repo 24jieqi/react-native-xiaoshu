@@ -3,12 +3,12 @@
  * description: 点击图标切换输入框内容是否明文。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, PasswordInput } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, PasswordInput } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicPasswordInput: React.FC = () => {
-  const [value, setValue] = useState(false)
+  const [value, setValue] = useState(false);
 
   return (
     <>
@@ -40,7 +40,7 @@ const BasicPasswordInput: React.FC = () => {
         />
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicPasswordInput
+export default BasicPasswordInput;

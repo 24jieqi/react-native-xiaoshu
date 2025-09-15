@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -17,10 +17,10 @@ export const varCreator = (TOKENS: TokensType) => {
     nav_tab_item_text_padding_horizontal: 12,
     nav_tab_item_text_color: TOKENS.gray_7,
     nav_tab_item_text_active_color: TOKENS.gray_8,
-  }
-}
+  };
+};
 
-export type NavTabTheme = ReturnType<typeof varCreator>
+export type NavTabTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: NavTabTheme) => {
   return StyleSheet.create({
@@ -55,5 +55,5 @@ export const styleCreator = (cv: NavTabTheme) => {
     itemTextActive: {
       color: cv.nav_tab_item_text_active_color,
     },
-  })
-}
+  });
+};

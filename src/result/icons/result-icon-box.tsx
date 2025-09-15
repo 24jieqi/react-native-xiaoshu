@@ -1,13 +1,13 @@
-import React, { memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import { Svg, G, Path, Ellipse } from 'react-native-svg'
+import React, { memo } from 'react';
+import type { ViewStyle } from 'react-native';
+import { Svg, G, Path, Ellipse } from 'react-native-svg';
 
-import type { ResultIconProps } from '../interface'
+import type { ResultIconProps } from '../interface';
 
 const SVG_STYLE: ViewStyle = {
   alignSelf: 'center',
   marginBottom: 8,
-}
+};
 
 const ResultIconBox: React.FC<ResultIconProps> = ({
   style,
@@ -33,7 +33,7 @@ const ResultIconBox: React.FC<ResultIconProps> = ({
         </G>
       </G>
     </Svg>
-  )
-}
+  );
+};
 
-export default memo(ResultIconBox)
+export default memo(ResultIconBox);

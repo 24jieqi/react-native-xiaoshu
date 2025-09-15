@@ -3,27 +3,27 @@
  * 关于 this：https://www.jianshu.com/p/8b3a2513d8e5
  */
 
-import { useRef } from 'react'
+import { useRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type noop = (...args: any[]) => any
+export type noop = (...args: any[]) => any;
 
 /**
  * 持久化 function 的 Hook
  */
 function usePersistFn<T extends noop>(fn: T) {
-  const fnRef = useRef<T>(fn)
-  fnRef.current = fn
+  const fnRef = useRef<T>(fn);
+  fnRef.current = fn;
 
-  const persistFn = useRef<T>()
+  const persistFn = useRef<T>(null);
 
   if (!persistFn.current) {
     persistFn.current = function (this: T, ...args) {
-      return fnRef.current?.apply(this, args)
-    } as T
+      return fnRef.current?.apply(this, args);
+    } as T;
   }
 
-  return persistFn.current!
+  return persistFn.current!;
 }
 
-export default usePersistFn
+export default usePersistFn;

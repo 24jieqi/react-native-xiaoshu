@@ -1,15 +1,15 @@
-import isNil from 'lodash/isNil'
-import omit from 'lodash/omit'
-import React, { memo } from 'react'
-import { View, Text } from 'react-native'
+import isNil from 'lodash/isNil';
+import omit from 'lodash/omit';
+import React, { memo } from 'react';
+import { View, Text } from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import { useControllableValue } from '../hooks'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import { useControllableValue } from '../hooks';
+import Theme from '../theme';
 
-import CheckboxIcon from './checkbox-icon'
-import type { CheckboxProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import CheckboxIcon from './checkbox-icon';
+import type { CheckboxProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   theme,
@@ -33,7 +33,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
   ...restProps
 }: CheckboxProps<ActiveValueT, InactiveValueT>) {
   if (disabled) {
-    labelDisabled = disabled
+    labelDisabled = disabled;
   }
 
   const [value, onChange] = useControllableValue<ActiveValueT | InactiveValueT>(
@@ -41,25 +41,25 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
     {
       defaultValue: inactiveValue,
     },
-  )
+  );
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
-  const _gap = getDefaultValue(gap, CV.checkbox_label_margin)
+  const _gap = getDefaultValue(gap, CV.checkbox_label_margin);
   const _activeColor = getDefaultValue(
     activeColor,
     CV.checkbox_checked_icon_color,
-  )
-  const _iconSize = getDefaultValue(iconSize, CV.checkbox_icon_size)
-  const _inactiveColor = getDefaultValue(inactiveColor, CV.checkbox_icon_color)
-  const active = value === activeValue
+  );
+  const _iconSize = getDefaultValue(iconSize, CV.checkbox_icon_size);
+  const _inactiveColor = getDefaultValue(inactiveColor, CV.checkbox_icon_color);
+  const active = value === activeValue;
   const onChangeValue = () => {
-    const newValue = active ? inactiveValue : activeValue
-    onChange(newValue)
-  }
+    const newValue = active ? inactiveValue : activeValue;
+    onChange(newValue);
+  };
 
   const labelJSX = !isNil(label) ? (
     <Text
@@ -77,7 +77,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
     </Text>
   ) : (
     children
-  )
+  );
   const iconProps = {
     style: iconStyle,
     active,
@@ -86,12 +86,12 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
     disabled,
     size: _iconSize,
     onPress: onChangeValue,
-  }
+  };
   const iconJSX = renderIcon ? (
     renderIcon(iconProps)
   ) : (
     <CheckboxIcon testID="CHECKBOX_ICON" {...iconProps} />
-  )
+  );
 
   return (
     <View
@@ -101,7 +101,7 @@ function Checkbox<ActiveValueT = boolean, InactiveValueT = boolean>({
       {iconJSX}
       {labelPosition === 'right' ? labelJSX : null}
     </View>
-  )
+  );
 }
 
 export default memo(Checkbox) as <
@@ -109,4 +109,4 @@ export default memo(Checkbox) as <
   InactiveValueT = boolean,
 >(
   p: CheckboxProps<ActiveValueT, InactiveValueT>,
-) => React.ReactElement
+) => React.ReactElement;

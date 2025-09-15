@@ -1,22 +1,22 @@
-import type { ErrorInfo } from 'react'
-import React, { PureComponent } from 'react'
-import type { ViewStyle } from 'react-native'
+import type { ErrorInfo } from 'react';
+import React, { PureComponent } from 'react';
+import type { ViewStyle } from 'react-native';
 
-import Blank from '../blank'
-import Button from '../button'
-import Result from '../result'
-import ResultIconError from '../result/icons/result-icon-error'
+import Blank from '../blank';
+import Button from '../button';
+import Result from '../result';
+import ResultIconError from '../result/icons/result-icon-error';
 
-import type { ErrorBoundaryProps } from './interface'
+import type { ErrorBoundaryProps } from './interface';
 
 type ErrorBoundaryState = {
-  error: Error | null
-}
+  error: Error | null;
+};
 
 const ERROR_PAGE_STYLE: ViewStyle = {
   flex: 1,
   backgroundColor: '#fff',
-}
+};
 
 /**
  * ErrorBoundary 错误捕获
@@ -25,15 +25,15 @@ const ERROR_PAGE_STYLE: ViewStyle = {
 class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
   public static getDerivedStateFromError(error: Error) {
     // 更新 state，下次渲染可以展示错误相关的 UI
-    return { error }
+    return { error };
   }
 
   public state: ErrorBoundaryState = {
     error: null,
-  }
+  };
 
   public componentDidCatch(error: Error, info: ErrorInfo) {
-    this.props.onError?.(error, info)
+    this.props.onError?.(error, info);
   }
 
   /**
@@ -42,8 +42,8 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
   public onPressReload = () => {
     this.setState({
       error: null,
-    })
-  }
+    });
+  };
 
   public render() {
     if (this.state.error) {
@@ -53,7 +53,7 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
           name: this.state.error.name,
           message: this.state.error.message,
           onReset: this.onPressReload,
-        })
+        });
       }
 
       return (
@@ -74,11 +74,11 @@ class ErrorBoundary extends PureComponent<ErrorBoundaryProps> {
             }
           />
         </Blank>
-      )
+      );
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;

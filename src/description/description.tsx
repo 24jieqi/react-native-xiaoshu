@@ -1,13 +1,13 @@
-import isNil from 'lodash/isNil'
-import React, { memo, isValidElement } from 'react'
-import { View } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { memo, isValidElement } from 'react';
+import { View } from 'react-native';
 
-import { renderTextLikeJSX, getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { renderTextLikeJSX, getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import { useDescription } from './context'
-import type { DescriptionProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import { useDescription } from './context';
+import type { DescriptionProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const Description: React.FC<DescriptionProps> = ({
   theme,
@@ -42,39 +42,45 @@ const Description: React.FC<DescriptionProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
-  const descriptionContext = useDescription()
+  });
+  const descriptionContext = useDescription();
 
   // 整理默认值
-  const _colon = getDefaultValue(colon, descriptionContext.colon)
+  const _colon = getDefaultValue(colon, descriptionContext.colon);
   const _contentStyle = getDefaultValue(
     contentStyle,
     descriptionContext.contentStyle,
-  )
+  );
   const _contentTextStyle = getDefaultValue(
     contentTextStyle,
     descriptionContext.contentTextStyle,
-  )
-  const _labelStyle = getDefaultValue(labelStyle, descriptionContext.labelStyle)
+  );
+  const _labelStyle = getDefaultValue(
+    labelStyle,
+    descriptionContext.labelStyle,
+  );
   const _labelTextStyle = getDefaultValue(
     labelTextStyle,
     descriptionContext.labelTextStyle,
-  )
-  const _labelWidth = getDefaultValue(labelWidth, descriptionContext.labelWidth)
-  const _layout = getDefaultValue(layout, descriptionContext.layout)
-  const _size = getDefaultValue(size, descriptionContext.size)
-  const _justify = getDefaultValue(justify, descriptionContext.justify)
-  const _align = getDefaultValue(align, descriptionContext.align)
+  );
+  const _labelWidth = getDefaultValue(
+    labelWidth,
+    descriptionContext.labelWidth,
+  );
+  const _layout = getDefaultValue(layout, descriptionContext.layout);
+  const _size = getDefaultValue(size, descriptionContext.size);
+  const _justify = getDefaultValue(justify, descriptionContext.justify);
+  const _align = getDefaultValue(align, descriptionContext.align);
   const _numberOfLines = getDefaultValue(
     numberOfLines,
     descriptionContext.numberOfLines,
-  )
-  const _empty = getDefaultValue(empty, descriptionContext.empty)
-  const _showEmpty = getDefaultValue(showEmpty, descriptionContext.showEmpty)
+  );
+  const _empty = getDefaultValue(empty, descriptionContext.empty);
+  const _showEmpty = getDefaultValue(showEmpty, descriptionContext.showEmpty);
 
-  const colonStr = _colon ? '：' : ''
-  const textSizeStyle = STYLES[`size_${_size}_text`]
-  const flexDirection = _layout === 'horizontal' ? 'row' : 'column'
+  const colonStr = _colon ? '：' : '';
+  const textSizeStyle = STYLES[`size_${_size}_text`];
+  const flexDirection = _layout === 'horizontal' ? 'row' : 'column';
 
   const labelJSX = !isNil(renderLabel)
     ? renderLabel(colonStr)
@@ -84,7 +90,7 @@ const Description: React.FC<DescriptionProps> = ({
           textSizeStyle,
           _labelTextStyle,
         ])
-      : null
+      : null;
 
   const renderText = (node: React.ReactNode) =>
     renderTextLikeJSX(
@@ -108,16 +114,16 @@ const Description: React.FC<DescriptionProps> = ({
       {
         numberOfLines: _numberOfLines,
       },
-    )
+    );
   const contentJSX = isValidElement(children)
     ? children
-    : renderText(!isNil(text) ? text : children)
+    : renderText(!isNil(text) ? text : children);
 
   // 判断是否渲染空数据占位符
   const renderContentJSX =
     (isNil(contentJSX) || text === '' || children === '') && _showEmpty
       ? renderText(_empty)
-      : contentJSX
+      : contentJSX;
 
   const renderJSX = !isNil(render) ? (
     render(renderContentJSX, addonBefore, addonAfter)
@@ -127,10 +133,10 @@ const Description: React.FC<DescriptionProps> = ({
       {renderContentJSX}
       {addonAfter}
     </>
-  )
+  );
 
   if (hidden) {
-    return null
+    return null;
   }
 
   return (
@@ -149,7 +155,7 @@ const Description: React.FC<DescriptionProps> = ({
       </View>
       <View style={[STYLES.content, _contentStyle]}>{renderJSX}</View>
     </View>
-  )
-}
+  );
+};
 
-export default memo(Description)
+export default memo(Description);

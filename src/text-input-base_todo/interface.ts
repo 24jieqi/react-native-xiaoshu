@@ -1,4 +1,4 @@
-export type TODO = '暂时不实现'
+export type TODO = '暂时不实现';
 
 // import type React from 'react'
 // import type {

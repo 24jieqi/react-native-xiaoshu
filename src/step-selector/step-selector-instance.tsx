@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import Portal from '../portal'
+import Portal from '../portal';
 
-import type { StepSelectorMethodProps, StepSelectorProps } from './interface'
-import StepSelector from './step-selector'
-import StopSelectorMethod from './step-selector-method'
+import type { StepSelectorMethodProps, StepSelectorProps } from './interface';
+import StepSelector from './step-selector';
+import StopSelectorMethod from './step-selector-method';
 
 export const Instance = <T,>(opts: StepSelectorMethodProps<T>) => {
   return new Promise<T[]>((resolve, reject) => {
@@ -12,28 +12,28 @@ export const Instance = <T,>(opts: StepSelectorMethodProps<T>) => {
       <StopSelectorMethod<T>
         {...opts}
         onClosed={() => {
-          Portal.remove(key)
-          opts.onClosed?.()
+          Portal.remove(key);
+          opts.onClosed?.();
         }}
         onConfirm={(v, o, isEnd) => {
-          opts.onConfirm?.(v, o, isEnd)
-          resolve(v)
+          opts.onConfirm?.(v, o, isEnd);
+          resolve(v);
         }}
         onCancel={() => {
-          opts.onCancel?.()
-          reject(new Error())
+          opts.onCancel?.();
+          reject(new Error());
         }}
       />,
-    )
-  })
-}
+    );
+  });
+};
 
 export const Component = <T = number,>(props: StepSelectorProps<T>) => {
   return (
     <Portal>
       <StepSelector<T> {...props} />
     </Portal>
-  )
-}
+  );
+};
 
-export const StepSelectorComponent = StepSelector
+export const StepSelectorComponent = StepSelector;

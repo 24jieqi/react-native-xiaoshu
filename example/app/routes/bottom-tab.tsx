@@ -1,25 +1,25 @@
 import {
   HomeOutline,
   IdentificationOutline,
-} from '@fruits-chain/icons-react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import React from 'react'
+} from '@fruits-chain/icons-react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
 
-import Home from '~/pages/bottom-tab/home'
-import UserCenter from '~/pages/bottom-tab/user-center'
+import Home from '~/pages/bottom-tab/home';
+import UserCenter from '~/pages/bottom-tab/user-center';
 
 export type BottomTabParamList = {
-  Home: undefined
-  UserCenter: undefined
-}
+  Home: undefined;
+  UserCenter: undefined;
+};
 
-const Tab = createBottomTabNavigator<BottomTabParamList>()
+const Tab = createBottomTabNavigator<BottomTabParamList>();
 const TabBarIconHome = ({ color, size }: { color: string; size: number }) => (
   <HomeOutline size={size} color={color} />
-)
+);
 const TabBarIconUser = ({ color, size }: { color: string; size: number }) => (
   <IdentificationOutline size={size} color={color} />
-)
+);
 
 const BottomTab: React.FC = () => {
   return (
@@ -43,7 +43,7 @@ const BottomTab: React.FC = () => {
         component={UserCenter}
       />
     </Tab.Navigator>
-  )
-}
+  );
+};
 
-export default BottomTab
+export default BottomTab;

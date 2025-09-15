@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import Portal from '../portal'
+import Portal from '../portal';
 
-import Dialog from './dialog'
-import DialogInput from './dialog-input'
-import DialogKeyboard from './dialog-keyboard'
-import DialogMethod from './dialog-method'
+import Dialog from './dialog';
+import DialogInput from './dialog-input';
+import DialogKeyboard from './dialog-keyboard';
+import DialogMethod from './dialog-method';
 import type {
   DialogOptions,
   DialogAction,
   DialogInputOptions,
   DialogProps,
   DialogKeyboardProps,
-} from './interface'
+} from './interface';
 
 export const Instance = (opts: DialogOptions) => {
   return new Promise<DialogAction>(resolve => {
@@ -20,35 +20,35 @@ export const Instance = (opts: DialogOptions) => {
       <DialogMethod
         {...opts}
         onClosed={() => {
-          Portal.remove(key)
+          Portal.remove(key);
 
-          opts.onClosed?.()
+          opts.onClosed?.();
         }}
         onResponse={action => {
-          resolve(action)
+          resolve(action);
         }}
       />,
-    )
-  })
-}
+    );
+  });
+};
 
 export const confirm = (options: Omit<DialogOptions, 'showCancelButton'>) =>
   Instance({
     showCancelButton: true,
     ...options,
-  })
+  });
 
 export const input = (opts: DialogInputOptions) => {
   const key = Portal.add(
     <DialogInput
       {...opts}
       onClosed={() => {
-        Portal.remove(key)
-        opts.onClosed?.()
+        Portal.remove(key);
+        opts.onClosed?.();
       }}
     />,
-  )
-}
+  );
+};
 
 export const Component: React.FC<
   React.PropsWithChildren<DialogProps>
@@ -56,9 +56,9 @@ export const Component: React.FC<
   <Portal>
     <Dialog {...props} />
   </Portal>
-)
+);
 
-export const DialogComponent = Dialog
+export const DialogComponent = Dialog;
 
 export const Keyboard: React.FC<
   React.PropsWithChildren<DialogKeyboardProps>
@@ -66,6 +66,6 @@ export const Keyboard: React.FC<
   <Portal>
     <DialogKeyboard {...props} />
   </Portal>
-)
+);
 
-export const KeyboardComponent = DialogKeyboard
+export const KeyboardComponent = DialogKeyboard;

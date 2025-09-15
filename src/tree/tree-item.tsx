@@ -1,21 +1,21 @@
-import { SuccessOutline } from '@fruits-chain/icons-react-native'
-import React from 'react'
+import { SuccessOutline } from '@fruits-chain/icons-react-native';
+import React from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
-} from 'react-native'
+} from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import CheckboxIcon from '../checkbox/checkbox-icon'
-import Flex from '../flex'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import CheckboxIcon from '../checkbox/checkbox-icon';
+import Flex from '../flex';
+import Theme from '../theme';
 
-import type { TreeItemProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { TreeItemProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
-const hitSlop = { left: 8, right: 8 }
+const hitSlop = { left: 8, right: 8 };
 
 const TreeItem: React.FC<TreeItemProps> = ({
   theme,
@@ -38,10 +38,10 @@ const TreeItem: React.FC<TreeItemProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
 
   const leftJSX = (
     <Flex direction="row" align="center">
@@ -64,7 +64,7 @@ const TreeItem: React.FC<TreeItemProps> = ({
         {switcherIcon}
       </Flex>
     </Flex>
-  )
+  );
 
   return (
     <TouchableOpacity
@@ -126,7 +126,7 @@ const TreeItem: React.FC<TreeItemProps> = ({
         ) : null}
       </View>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default TreeItem
+export default TreeItem;

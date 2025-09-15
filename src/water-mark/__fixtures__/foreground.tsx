@@ -3,10 +3,10 @@
  * description: 前置水印，不受内容遮挡。
  */
 
-import React from 'react'
-import { ScrollView, View } from 'react-native'
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 
-import { WaterMark, Blank, Space } from '@fruits-chain/react-native-xiaoshu'
+import { WaterMark, Blank, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const UploaderBase: React.FC = () => {
   return (
@@ -47,7 +47,7 @@ const UploaderBase: React.FC = () => {
         </Blank>
       </ScrollView>
     </WaterMark>
-  )
-}
+  );
+};
 
-export default UploaderBase
+export default UploaderBase;

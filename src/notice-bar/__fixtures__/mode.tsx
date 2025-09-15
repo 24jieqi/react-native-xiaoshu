@@ -2,9 +2,9 @@
  * title: 模式
  * description: 共有两个种模式可以使用。
  */
-import React from 'react'
+import React from 'react';
 
-import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
+import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const NoticeBarMode = () => {
   return (
@@ -13,7 +13,7 @@ const NoticeBarMode = () => {
         message="可关闭：一袋米要抗几楼，一袋米要抗二楼"
         mode="closeable"
         onPressClose={() => {
-          console.log('onPressClose')
+          console.log('onPressClose');
         }}
       />
 
@@ -22,7 +22,7 @@ const NoticeBarMode = () => {
         wrapable
         mode="closeable"
         onPressClose={() => {
-          console.log('onPressClose')
+          console.log('onPressClose');
         }}
       />
 
@@ -34,7 +34,7 @@ const NoticeBarMode = () => {
         wrapable
       />
     </Space>
-  )
-}
+  );
+};
 
-export default NoticeBarMode
+export default NoticeBarMode;

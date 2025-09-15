@@ -25,7 +25,7 @@ module.exports = {
    * 在语句末尾添加分号
    * @default true
    */
-  semi: false,
+  semi: true,
 
   /**
    * 使用单引号而非双引号
@@ -68,4 +68,4 @@ module.exports = {
    * @default 'always'
    */
   arrowParens: 'avoid',
-}
+};

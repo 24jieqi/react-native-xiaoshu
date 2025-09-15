@@ -3,8 +3,8 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import React from 'react';
+import { ScrollView, Text, View } from 'react-native';
 
 import {
   Popover,
@@ -12,15 +12,15 @@ import {
   Space,
   Theme,
   Toast,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onSelect = (v: string, index: number) => {
-  Toast(`第 ${index} 个选项 => ${v}`)
-}
+  Toast(`第 ${index} 个选项 => ${v}`);
+};
 
 const BasicPopover: React.FC = () => {
-  const { white, black, gray_2 } = Theme.useThemeTokens()
-  const textStyle = { color: black }
+  const { white, black, gray_2 } = Theme.useThemeTokens();
+  const textStyle = { color: black };
 
   return (
     <ScrollView>
@@ -171,7 +171,7 @@ const BasicPopover: React.FC = () => {
         </Popover>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicPopover
+export default BasicPopover;

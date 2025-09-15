@@ -1,17 +1,17 @@
-import { PlusOutline } from '@fruits-chain/icons-react-native'
-import isNil from 'lodash/isNil'
-import React, { isValidElement } from 'react'
-import type { LayoutChangeEvent } from 'react-native'
-import { View, Text, Image } from 'react-native'
+import { PlusOutline } from '@fruits-chain/icons-react-native';
+import isNil from 'lodash/isNil';
+import React, { isValidElement } from 'react';
+import type { LayoutChangeEvent } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
-import { usePersistFn } from '../hooks'
-import Locale from '../locale'
-import Theme from '../theme'
+import { usePersistFn } from '../hooks';
+import Locale from '../locale';
+import Theme from '../theme';
 
-import type { UploaderProps, UploaderValue } from './interface'
-import { varCreator, styleCreator } from './style'
-import UploaderImage from './uploader-image'
-import useImageLayout from './useImageLayout'
+import type { UploaderProps, UploaderValue } from './interface';
+import { varCreator, styleCreator } from './style';
+import UploaderImage from './uploader-image';
+import useImageLayout from './useImageLayout';
 
 /**
  * Uploader 文件上传
@@ -36,37 +36,37 @@ const Uploader = <T extends UploaderValue>({
   onLayout,
   ...restProps
 }: UploaderProps<T>) => {
-  const locale = Locale.useLocale().Uploader
+  const locale = Locale.useLocale().Uploader;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
-  const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout()
+  const [onLayoutWrapper, getSizeImage, getMarginImage] = useImageLayout();
   const onLayoutView = usePersistFn((e: LayoutChangeEvent) => {
-    onLayoutWrapper(e)
-    onLayout?.(e)
-  })
+    onLayoutWrapper(e);
+    onLayout?.(e);
+  });
   const onPressUploadPersistFn = usePersistFn(() => {
-    onPressUpload?.()
-  })
+    onPressUpload?.();
+  });
 
   const genOnPressDelete = (item: T, index: number) => () => {
-    onPressDelete?.(item, index, list)
-  }
+    onPressDelete?.(item, index, list);
+  };
   const genOnPressImage = (item: T, index: number) => () => {
     const onPressCallback =
-      item.status === 'error' ? onPressError : onPressImage
+      item.status === 'error' ? onPressError : onPressImage;
 
-    onPressCallback?.(item, index, list)
-  }
+    onPressCallback?.(item, index, list);
+  };
 
-  const showUploadButton = showUpload && list.length < maxCount
+  const showUploadButton = showUpload && list.length < maxCount;
   const imageGap =
-    typeof colGap === 'number' ? colGap : CV[`uploader_image_gap_${colGap}`]
-  const imageSize = getSizeImage(colCount, imageGap)
-  const total = (showUploadButton ? 1 : 0) + list.length
+    typeof colGap === 'number' ? colGap : CV[`uploader_image_gap_${colGap}`];
+  const imageSize = getSizeImage(colCount, imageGap);
+  const total = (showUploadButton ? 1 : 0) + list.length;
 
   return (
     <View
@@ -95,7 +95,7 @@ const Uploader = <T extends UploaderValue>({
             onPress={genOnPressImage(item, index)}
             onPressDelete={genOnPressDelete(item, index)}
           />
-        )
+        );
       })}
 
       {showUpload && list.length < maxCount ? (
@@ -122,7 +122,7 @@ const Uploader = <T extends UploaderValue>({
         </UploaderImage>
       ) : null}
     </View>
-  )
-}
+  );
+};
 
-export default Uploader
+export default Uploader;

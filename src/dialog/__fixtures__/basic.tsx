@@ -3,13 +3,13 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import DialogBase from './base'
-import DialogInput from './input'
-import DialogKeyboard from './keyboard'
-import DialogOther from './other'
+import DialogBase from './base';
+import DialogInput from './input';
+import DialogKeyboard from './keyboard';
+import DialogOther from './other';
 
 const BasicDialog: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const BasicDialog: React.FC = () => {
 
       <DialogKeyboard />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicDialog
+export default BasicDialog;

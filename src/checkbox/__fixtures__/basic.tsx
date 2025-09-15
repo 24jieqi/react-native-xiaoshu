@@ -3,14 +3,14 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { Space } from '@fruits-chain/react-native-xiaoshu'
+import { Space } from '@fruits-chain/react-native-xiaoshu';
 
-import CheckboxBase from './base'
-import CheckboxGroup from './group'
-import CheckboxIcon from './icon'
+import CheckboxBase from './base';
+import CheckboxGroup from './group';
+import CheckboxIcon from './icon';
 
 const BasicCheckbox: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const BasicCheckbox: React.FC = () => {
         <CheckboxGroup />
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicCheckbox
+export default BasicCheckbox;

@@ -1,19 +1,19 @@
 import {
   CrossOutline,
   CrossCircleOutline,
-} from '@fruits-chain/icons-react-native'
-import isNil from 'lodash/isNil'
-import React, { useMemo, memo } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import isNil from 'lodash/isNil';
+import React, { useMemo, memo } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import LoadingCircular from '../loading/loading-circular'
-import Locale from '../locale'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import LoadingCircular from '../loading/loading-circular';
+import Locale from '../locale';
+import Theme from '../theme';
 
-import type { UploaderImageProps } from './interface'
-import { varCreator } from './style'
-import { styleCreator } from './style.image'
+import type { UploaderImageProps } from './interface';
+import { varCreator } from './style';
+import { styleCreator } from './style.image';
 
 /**
  * UploaderImage 文件上传的缩略图
@@ -32,16 +32,19 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
   isUpload,
   children,
 }) => {
-  const locale = Locale.useLocale().UploaderImage
+  const locale = Locale.useLocale().UploaderImage;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
-  const customSizeStyle = useMemo(() => ({ width: size, height: size }), [size])
+  });
+  const customSizeStyle = useMemo(
+    () => ({ width: size, height: size }),
+    [size],
+  );
 
   const customStyle = useMemo(
     () => ({
@@ -51,9 +54,9 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
       marginBottom: marginBottom,
     }),
     [size, marginRight, marginBottom],
-  )
+  );
   const canPress =
-    isUpload || (!!filepath && (status === 'done' || status === 'error'))
+    isUpload || (!!filepath && (status === 'done' || status === 'error'));
   return (
     <TouchableOpacity
       style={[STYLES.image, customStyle]}
@@ -90,7 +93,7 @@ const UploaderImage: React.FC<UploaderImageProps> = ({
         </>
       )}
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default memo(UploaderImage)
+export default memo(UploaderImage);

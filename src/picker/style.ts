@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -20,17 +20,17 @@ export const varCreator = (TOKENS: TokensType) => {
     picker_date_range_day_color: TOKENS.gray_5,
     picker_date_range_day_color_active: TOKENS.brand_6,
     picker_date_range_day_line_height: 22,
-  }
-}
+  };
+};
 
-export type PickerTheme = ReturnType<typeof varCreator>
+export type PickerTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: PickerTheme) => {
   const headerBtn = {
     lineHeight: cv.picker_header_text_line_height,
     height: cv.picker_header_text_line_height,
     fontSize: cv.picker_header_action_font_size,
-  }
+  };
 
   return StyleSheet.create({
     cancel_text: {
@@ -76,5 +76,5 @@ export const styleCreator = (cv: PickerTheme) => {
       color: cv.picker_date_range_day_color_active,
       fontWeight: 'bold',
     },
-  })
-}
+  });
+};

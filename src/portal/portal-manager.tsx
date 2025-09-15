@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { PureComponent } from 'react';
+import { View, StyleSheet } from 'react-native';
 
 export type State = {
   portals: Array<{
-    key: number
-    children: React.ReactNode
-  }>
-}
+    key: number;
+    children: React.ReactNode;
+  }>;
+};
 
 /**
  * Portal host is the component which actually renders all Portals.
@@ -14,28 +14,28 @@ export type State = {
 export default class PortalManager extends PureComponent<{}, State> {
   state: State = {
     portals: [],
-  }
+  };
 
   mount = (key: number, children: React.ReactNode) => {
     this.setState(state => ({
       portals: [...state.portals, { key, children }],
-    }))
-  }
+    }));
+  };
 
   update = (key: number, children: React.ReactNode) =>
     this.setState(state => ({
       portals: state.portals.map(item => {
         if (item.key === key) {
-          return { ...item, children }
+          return { ...item, children };
         }
-        return item
+        return item;
       }),
-    }))
+    }));
 
   unmount = (key: number) =>
     this.setState(state => ({
       portals: state.portals.filter(item => item.key !== key),
-    }))
+    }));
 
   render() {
     return this.state.portals.map(({ key, children }) => (
@@ -48,6 +48,6 @@ export default class PortalManager extends PureComponent<{}, State> {
         style={StyleSheet.absoluteFill}>
         {children}
       </View>
-    ))
+    ));
   }
 }

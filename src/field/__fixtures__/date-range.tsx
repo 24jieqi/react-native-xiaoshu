@@ -3,23 +3,23 @@
  * description: 单个时间选择器。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field, Toast } from '@fruits-chain/react-native-xiaoshu';
 
 const formatValueText = (
   _: [Date, Date],
   __: unknown,
   s: [string, string],
 ): [string, string] => {
-  return [s[0], s[1]]
-}
+  return [s[0], s[1]];
+};
 
 const BasicFieldDateRange: React.FC = () => {
   const [value, setValue] = useState<[Date | null, Date | null]>([
     new Date(),
     new Date(),
-  ])
+  ]);
 
   return (
     <Cell.Group title="Field Date Range">
@@ -46,16 +46,16 @@ const BasicFieldDateRange: React.FC = () => {
         dataPickerBeforeClose={(action, dates) => {
           if (action === 'confirm') {
             if (!dates[0]) {
-              Toast('请选择开始时间')
-              return false
+              Toast('请选择开始时间');
+              return false;
             }
             if (!dates[1]) {
-              Toast('请选择结束时间')
-              return false
+              Toast('请选择结束时间');
+              return false;
             }
           }
 
-          return true
+          return true;
         }}
       />
       <Field.DateRange
@@ -98,7 +98,7 @@ const BasicFieldDateRange: React.FC = () => {
         placeholder={['自己动手丰衣足食', '自己动手丰衣足食']}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldDateRange
+export default BasicFieldDateRange;

@@ -3,9 +3,9 @@
  * description: 把各种场景、API 都运用了
  */
 
-import { MenuOutline } from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
-import { ScrollView, Text, View, Keyboard } from 'react-native'
+import { MenuOutline } from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { ScrollView, Text, View, Keyboard } from 'react-native';
 
 import {
   Cell,
@@ -13,10 +13,10 @@ import {
   ActionSheet,
   Button,
   Popup,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const PopupSearch = () => {
-  const [value1, setValue] = useState('22')
+  const [value1, setValue] = useState('22');
 
   return (
     <Search
@@ -25,14 +25,14 @@ const PopupSearch = () => {
       value={value1}
       onChangeText={setValue}
     />
-  )
-}
+  );
+};
 
 const BasicPasswordInput: React.FC = () => {
-  const [value1, setValue] = useState('多福多寿')
-  const [visible, setVisible] = useState(false)
+  const [value1, setValue] = useState('多福多寿');
+  const [visible, setVisible] = useState(false);
 
-  console.log('value1 => ', value1)
+  console.log('value1 => ', value1);
 
   return (
     <>
@@ -41,7 +41,7 @@ const BasicPasswordInput: React.FC = () => {
           autoFocus
           placeholder="请输入关键词搜索"
           onSearch={v => {
-            console.log(v)
+            console.log(v);
           }}
         />
       </Cell.Group>
@@ -51,7 +51,7 @@ const BasicPasswordInput: React.FC = () => {
           showSearchButton={false}
           placeholder="请输入关键词搜索"
           onSearch={v => {
-            console.log(v)
+            console.log(v);
           }}
         />
       </Cell.Group>
@@ -65,7 +65,7 @@ const BasicPasswordInput: React.FC = () => {
           }
           placeholder="请输入关键词搜索"
           onSearch={v => {
-            console.log(v)
+            console.log(v);
           }}
         />
       </Cell.Group>
@@ -76,7 +76,7 @@ const BasicPasswordInput: React.FC = () => {
           autoSearch
           onSearchDebounceWait={500}
           onSearch={v => {
-            console.log(v)
+            console.log(v);
           }}
         />
       </Cell.Group>
@@ -86,10 +86,10 @@ const BasicPasswordInput: React.FC = () => {
           placeholder="请输入关键词搜索"
           value={value1}
           onChangeText={v => {
-            setValue(v.replace(/？/g, ''))
+            setValue(v.replace(/？/g, ''));
           }}
           onSearch={v => {
-            console.log(v)
+            console.log(v);
           }}
         />
       </Cell.Group>
@@ -99,7 +99,7 @@ const BasicPasswordInput: React.FC = () => {
           placeholder="请输入关键词搜索"
           showBack
           onPressBack={() => {
-            console.log('返回')
+            console.log('返回');
           }}
         />
       </Cell.Group>
@@ -109,7 +109,7 @@ const BasicPasswordInput: React.FC = () => {
           autoSearch
           placeholder="请输入关键词搜索"
           onSearch={v => {
-            console.log('autoSearch -> ', v)
+            console.log('autoSearch -> ', v);
           }}
         />
       </Cell.Group>
@@ -129,9 +129,9 @@ const BasicPasswordInput: React.FC = () => {
                   cancelText: '取消',
                 })
                   .then(v => {
-                    console.log(v)
+                    console.log(v);
                   })
-                  .catch(() => {})
+                  .catch(() => {});
               }}
             />
           }
@@ -142,7 +142,7 @@ const BasicPasswordInput: React.FC = () => {
         <Button
           text="打开 Popup"
           onPress={() => {
-            setVisible(true)
+            setVisible(true);
           }}
         />
         <Popup
@@ -150,13 +150,13 @@ const BasicPasswordInput: React.FC = () => {
           position="top"
           safeAreaInsetTop
           onClose={() => {
-            Keyboard.dismiss()
+            Keyboard.dismiss();
           }}>
           <Popup.Header
             title="输入中文"
             showClose
             onClose={() => {
-              setVisible(false)
+              setVisible(false);
             }}
           />
 
@@ -180,7 +180,7 @@ const BasicPasswordInput: React.FC = () => {
         </Popup>
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicPasswordInput
+export default BasicPasswordInput;

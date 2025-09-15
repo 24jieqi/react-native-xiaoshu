@@ -1,14 +1,14 @@
-import { Theme } from '@fruits-chain/react-native-xiaoshu'
-import React from 'react'
-import { Text } from 'react-native'
+import { Theme } from '@fruits-chain/react-native-xiaoshu';
+import React from 'react';
+import { Text } from 'react-native';
 
-import Layout from '~/layouts/layout'
-import type { RootStackScreenProps } from '~/routes'
+import Layout from '~/layouts/layout';
+import type { RootStackScreenProps } from '~/routes';
 
-type ScreenProps = RootStackScreenProps<'CustomHeaderRed'>
+type ScreenProps = RootStackScreenProps<'CustomHeaderRed'>;
 
 const CustomHeaderRed: React.FC<ScreenProps> = ({ navigation }) => {
-  const TOKENS = Theme.useThemeTokens()
+  const TOKENS = Theme.useThemeTokens();
 
   return (
     <Layout.Page
@@ -18,7 +18,7 @@ const CustomHeaderRed: React.FC<ScreenProps> = ({ navigation }) => {
       headerTintColor={TOKENS.white}>
       <Text
         onPress={() => {
-          navigation.navigate('CustomHeaderPrimary')
+          navigation.navigate('CustomHeaderPrimary');
         }}
         style={{
           color: TOKENS.black,
@@ -26,7 +26,7 @@ const CustomHeaderRed: React.FC<ScreenProps> = ({ navigation }) => {
         GO Primary
       </Text>
     </Layout.Page>
-  )
-}
+  );
+};
 
-export default CustomHeaderRed
+export default CustomHeaderRed;

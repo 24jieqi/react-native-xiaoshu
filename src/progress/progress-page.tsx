@@ -4,21 +4,21 @@ import React, {
   useEffect,
   memo,
   isValidElement,
-} from 'react'
-import type { ViewStyle } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+} from 'react';
+import type { ViewStyle } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-import Button from '../button'
-import { getDefaultValue } from '../helpers'
-import { usePersistFn } from '../hooks'
-import Locale from '../locale'
-import Result from '../result'
-import Space from '../space'
-import Theme from '../theme'
+import Button from '../button';
+import { getDefaultValue } from '../helpers';
+import { usePersistFn } from '../hooks';
+import Locale from '../locale';
+import Result from '../result';
+import Space from '../space';
+import Theme from '../theme';
 
-import type { ProgressPageProps } from './interface'
-import Progress from './progress'
-import { varCreator, styleCreator } from './style'
+import type { ProgressPageProps } from './interface';
+import Progress from './progress';
+import { varCreator, styleCreator } from './style';
 
 const ProgressPage: React.FC<ProgressPageProps> = ({
   children,
@@ -36,24 +36,24 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
   overlayZIndex = 1000,
   syncRenderChildren = false,
 }) => {
-  const locale = Locale.useLocale().ProgressPage
+  const locale = Locale.useLocale().ProgressPage;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   backgroundColor = getDefaultValue(
     backgroundColor,
     CV.progress_page_background_color,
-  )
+  );
 
   const [state, setState] = useState({
     loading: loadingOut,
     percentage: defaultPercentage,
     duration: 0,
     animated: false,
-  })
+  });
 
   const onAnimationEnd = useCallback((n: number) => {
     if (n === 100) {
@@ -62,18 +62,18 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         setState(s => ({
           ...s,
           loading: false,
-        }))
-      }, 0)
+        }));
+      }, 0);
     }
-  }, [])
+  }, []);
 
   const onPressReloadPersistFn = usePersistFn(() => {
-    onPressReload?.()
-  })
+    onPressReload?.();
+  });
 
   useEffect(() => {
     setState(s => {
-      const isReload = !s.loading && loadingOut
+      const isReload = !s.loading && loadingOut;
 
       if (isReload) {
         return {
@@ -82,12 +82,12 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           percentage: defaultPercentage,
           duration: 0,
           animated: false,
-        }
+        };
       }
 
-      return { ...s }
-    })
-  }, [defaultPercentage, loadingOut])
+      return { ...s };
+    });
+  }, [defaultPercentage, loadingOut]);
 
   useEffect(() => {
     // 做一个延迟，避免上下两次操作状态合并在一个中，reload 的时候丢失过渡状态
@@ -98,15 +98,15 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           percentage: loadingOut ? 90 : 100,
           duration: loadingOut ? 1500 : 100,
           animated: true,
-        }
-      })
-    }, 0)
-  }, [loadingOut])
+        };
+      });
+    }, 0);
+  }, [loadingOut]);
 
   const placeholderStyle: ViewStyle = {
     flex: 1,
     backgroundColor: backgroundColor,
-  }
+  };
 
   const placeholderJSX = state.loading ? (
     <View style={placeholderStyle}>
@@ -120,7 +120,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
       />
       {extraLoading}
     </View>
-  ) : null
+  ) : null;
 
   const errorJSX =
     !state.loading && fail ? (
@@ -150,13 +150,13 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
         }
         renderIcon={() => {
           if (failIcon) {
-            return failIcon
+            return failIcon;
           }
 
-          return <Result.IconWarning />
+          return <Result.IconWarning />;
         }}
       />
-    ) : null
+    ) : null;
 
   if (syncRenderChildren) {
     return (
@@ -174,7 +174,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
           </View>
         ) : null}
       </>
-    )
+    );
   }
 
   return (
@@ -183,7 +183,7 @@ const ProgressPage: React.FC<ProgressPageProps> = ({
       {placeholderJSX}
       {errorJSX}
     </>
-  )
-}
+  );
+};
 
-export default memo(ProgressPage)
+export default memo(ProgressPage);

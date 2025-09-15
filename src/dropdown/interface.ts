@@ -1,4 +1,4 @@
-import type { PropsWithChildren, MutableRefObject } from 'react'
+import type { PropsWithChildren, MutableRefObject } from 'react';
 import type {
   View,
   ViewProps,
@@ -8,38 +8,38 @@ import type {
   TextStyle,
   TouchableOpacityProps,
   ColorValue,
-} from 'react-native'
+} from 'react-native';
 
-import type { FixHitSlopProps } from '../helpers/types'
-import type { PopupPropsCommon } from '../popup/interface'
-import type { TreeOption, TreeProps } from '../tree/interface'
+import type { FixHitSlopProps } from '../helpers/types';
+import type { PopupPropsCommon } from '../popup/interface';
+import type { TreeOption, TreeProps } from '../tree/interface';
 
-import type { DropdownTheme } from './style'
+import type { DropdownTheme } from './style';
 
 export interface DropdownBadgeProps extends TextProps {
   /**
    * 徽标内容/展示的数字
    */
-  count?: string | number | boolean
+  count?: string | number | boolean;
 }
 
 export interface DropdownItemOption<T> {
   /**
    * 文字
    */
-  label: string
+  label: string;
 
   /**
    * 标识符
    */
-  value: T
+  value: T;
 
   /**
    * 徽章
    */
-  badge?: number | string | boolean
+  badge?: number | string | boolean;
 
-  children?: DropdownItemOption<T>[]
+  children?: DropdownItemOption<T>[];
 }
 
 export interface DropdownTextProps
@@ -47,116 +47,116 @@ export interface DropdownTextProps
   /**
    * 标题文案样式
    */
-  textStyle?: StyleProp<TextStyle>
+  textStyle?: StyleProp<TextStyle>;
 
   /**
    * 图标样式
    */
-  iconStyle?: StyleProp<ViewStyle>
+  iconStyle?: StyleProp<ViewStyle>;
 
   /**
    * 是否禁用菜单
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * 菜单项标题
    */
-  title: string
+  title: string;
 
   /**
    * 是否激活状态
    * @default false
    */
-  active?: boolean
+  active?: boolean;
 
   /**
    * 是否可点击 配合
    * @default true
    */
-  pressable?: boolean
+  pressable?: boolean;
 
   /**
    * 菜单标题和选项的选中态颜色
    * @default dropdown_active_color
    */
-  activeColor?: ColorValue
+  activeColor?: ColorValue;
 
   /**
    * 箭头默认朝向
    * @default 'down'
    */
-  direction?: 'up' | 'down'
+  direction?: 'up' | 'down';
 
   /**
    * 徽章
    */
-  badge?: number | string | boolean
+  badge?: number | string | boolean;
 }
 
 export interface DropdownItemProps<T>
   extends Partial<Pick<DropdownTextProps, 'iconStyle' | 'disabled' | 'testID'>>,
     Pick<TreeProps, 'search' | 'onSearch' | 'cancellable'> {
-  popupTestID?: DropdownTextProps['testID']
+  popupTestID?: DropdownTextProps['testID'];
   /**
    * 标题样式
    */
-  titleStyle?: StyleProp<ViewStyle>
+  titleStyle?: StyleProp<ViewStyle>;
 
   /**
    * 标题文案样式
    */
-  titleTextStyle?: StyleProp<TextStyle>
+  titleTextStyle?: StyleProp<TextStyle>;
 
   /**
    * 选项数组
    */
-  options: DropdownItemOption<T>[]
+  options: DropdownItemOption<T>[];
 
   /**
    * 当前选中的选项值
    */
-  value?: T
+  value?: T;
 
   /**
    * 默认值
    */
-  defaultValue?: T
+  defaultValue?: T;
 
   /**
    * 点击选项导致 value 变化时触发
    */
-  onChange?: (v: T, d: DropdownItemOption<T>) => void
+  onChange?: (v: T, d: DropdownItemOption<T>) => void;
 
   /**
    * 动画时长，单位秒
    * @default animation_duration_fast
    */
-  duration?: number
+  duration?: number;
 
   /**
    * 菜单栏 z-index 层级
    * @default 10
    */
-  zIndex?: number
+  zIndex?: number;
 
   /**
    * 是否在点击外部元素后关闭菜单
    * @default true
    */
-  closeOnPressOutside?: boolean
+  closeOnPressOutside?: boolean;
 
   /**
    * 候选项加载中
    */
-  loading?: boolean
+  loading?: boolean;
 
   /**
    * 没有值时提示文案
    * @default ''
    */
-  placeholder?: string
+  placeholder?: string;
 }
 
 export interface DropdownMultipleProps<T>
@@ -165,26 +165,26 @@ export interface DropdownMultipleProps<T>
   /**
    * 当前选中的选项值
    */
-  value?: T[]
+  value?: T[];
 
   /**
    * 默认值
    */
-  defaultValue?: T[]
+  defaultValue?: T[];
 
   /**
    * 点击选项导致 value 变化时触发
    */
-  onChange?: (v: T[], d: DropdownItemOption<T>[]) => void
+  onChange?: (v: T[], d: DropdownItemOption<T>[]) => void;
 
   /**
    * 多选的条件下，点击某个选项，返回自定义新的数据
    */
   beforeChecked?: (event: {
-    value: T[]
-    option: TreeOption
-    checked: boolean
-  }) => T[] | Promise<T[]>
+    value: T[];
+    option: TreeOption;
+    checked: boolean;
+  }) => T[] | Promise<T[]>;
 }
 
 export interface DropdownContext
@@ -204,9 +204,9 @@ export interface DropdownContext
   /**
    * 菜单的 Ref，内部使用不向外暴露
    */
-  MenuRef: MutableRefObject<View | null>
+  MenuRef: MutableRefObject<View | null>;
 
-  theme?: Partial<DropdownTheme>
+  theme?: Partial<DropdownTheme>;
 }
 
 export interface DropdownMenuProps
@@ -216,7 +216,7 @@ export interface DropdownMenuProps
    * 是否显示分割线
    * @default true
    */
-  divider?: boolean
+  divider?: boolean;
 }
 
 export interface DropdownPopupProps
@@ -226,34 +226,34 @@ export interface DropdownPopupProps
   /**
    * 触发目标高度，计算弹出层应该出现的位置（上面、下面）
    */
-  targetHeight: number
+  targetHeight: number;
 
   /**
    * 触发目标 pageY
    */
-  targetPageY: number
+  targetPageY: number;
 
   /**
    * 点击非内容的遮罩阴影
    */
-  onPressShade?: TouchableOpacityProps['onPress']
+  onPressShade?: TouchableOpacityProps['onPress'];
 
   /**
    * 是否开启顶部/底部安全区适配
    * @default true
    */
-  safeAreaInset?: boolean
+  safeAreaInset?: boolean;
 
   /**
    * 是否渲染 shade 元素，某些场景不需要遮罩非选项区域
    * @default true
    */
-  showShade?: boolean
+  showShade?: boolean;
 
   /**
    * 内容包裹层的样式
    */
-  contentStyle?: StyleProp<ViewStyle>
+  contentStyle?: StyleProp<ViewStyle>;
 }
 
 export interface DropdownSelectorMethodProps<T>
@@ -271,32 +271,32 @@ export interface DropdownSelectorMethodProps<T>
     Pick<DropdownMultipleProps<T>, 'beforeChecked'>,
     Pick<TreeProps, 'multiple' | 'multipleMode'>,
     Pick<ViewProps, 'testID'> {
-  defaultValue?: T | T[]
+  defaultValue?: T | T[];
   /**
    * 触发目标高度
    */
-  targetHeight: number
+  targetHeight: number;
 
   /**
    * 触发目标 pageY
    */
-  targetPageY: number
+  targetPageY: number;
 
   /**
    * 类似确定的回调，当选择到最末端时触发，部分业务需要把选项其他值提取出来
    */
-  onConfirm?: (v: T | T[], d: DropdownItemOption<T>[]) => void
+  onConfirm?: (v: T | T[], d: DropdownItemOption<T>[]) => void;
 
   /**
    * 取消
    */
-  onCancel?: () => void
+  onCancel?: () => void;
 
-  onClosed?: PopupPropsCommon['onClosed']
+  onClosed?: PopupPropsCommon['onClosed'];
 
   /**
    * 菜单标题和选项的选中态颜色
    * @default dropdown_active_color
    */
-  activeColor?: ColorValue
+  activeColor?: ColorValue;
 }

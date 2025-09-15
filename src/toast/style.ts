@@ -1,7 +1,7 @@
-import type { DimensionValue } from 'react-native'
-import { StyleSheet } from 'react-native'
+import type { DimensionValue } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -25,10 +25,10 @@ export const varCreator = (TOKENS: TokensType) => {
     toast_text_margin_top: TOKENS.space_2,
     toast_position_top_distance: '20%' as DimensionValue,
     toast_position_bottom_distance: '20%' as DimensionValue,
-  }
-}
+  };
+};
 
-export type ToastTheme = ReturnType<typeof varCreator>
+export type ToastTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: ToastTheme) => {
   return StyleSheet.create({
@@ -77,5 +77,5 @@ export const styleCreator = (cv: ToastTheme) => {
     text_top_0: {
       marginTop: 0,
     },
-  })
-}
+  });
+};

@@ -6,23 +6,23 @@
 import {
   CoordOutline,
   TimeCircleOutline,
-} from '@fruits-chain/icons-react-native'
-import React, { useMemo, useState } from 'react'
-import { View, Text } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import React, { useMemo, useState } from 'react';
+import { View, Text } from 'react-native';
 
-import type { TreeOption } from '@fruits-chain/react-native-xiaoshu'
-import { Card, Switch, Theme, Tree } from '@fruits-chain/react-native-xiaoshu'
+import type { TreeOption } from '@fruits-chain/react-native-xiaoshu';
+import { Card, Switch, Theme, Tree } from '@fruits-chain/react-native-xiaoshu';
 
-const defaultExpandedValues = [0, 210, 112]
+const defaultExpandedValues = [0, 210, 112];
 
 const onChange = (...rest: unknown[]) => {
-  console.log(rest[0])
-  console.log(rest[1])
-}
+  console.log(rest[0]);
+  console.log(rest[1]);
+};
 
 const TreeBase: React.FC = () => {
-  const [editable, setEditable] = useState(true)
-  const { gray_6 } = Theme.useThemeTokens()
+  const [editable, setEditable] = useState(true);
+  const { gray_6 } = Theme.useThemeTokens();
   const options: TreeOption[] = useMemo(
     () =>
       new Array(7).fill(0).map((_, index0) => ({
@@ -74,7 +74,7 @@ const TreeBase: React.FC = () => {
         })),
       })),
     [gray_6],
-  )
+  );
 
   return (
     <Card
@@ -98,7 +98,7 @@ const TreeBase: React.FC = () => {
         placeholder="请输入关键词"
       />
     </Card>
-  )
-}
+  );
+};
 
-export default TreeBase
+export default TreeBase;

@@ -7,11 +7,11 @@ import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
-} from '@fruits-chain/icons-react-native'
-import React, { useState } from 'react'
-import { View, type ViewStyle } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { View, type ViewStyle } from 'react-native';
 
-import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
+import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -20,7 +20,7 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
-}
+};
 
 const bottomBar = [
   {
@@ -59,10 +59,10 @@ const bottomBar = [
       />
     ),
   },
-]
+];
 
 const BasicTabBarLabel: React.FC = () => {
-  const [value, setValue] = useState(bottomBar[0].value)
+  const [value, setValue] = useState(bottomBar[0].value);
 
   return (
     <Space head>
@@ -101,7 +101,7 @@ const BasicTabBarLabel: React.FC = () => {
           options={bottomBar}
           value={value}
           onChange={v => {
-            setValue(v)
+            setValue(v);
           }}
         />
         <View
@@ -110,7 +110,7 @@ const BasicTabBarLabel: React.FC = () => {
         />
       </View>
     </Space>
-  )
-}
+  );
+};
 
-export default BasicTabBarLabel
+export default BasicTabBarLabel;

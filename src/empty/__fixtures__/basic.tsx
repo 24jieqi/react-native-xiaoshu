@@ -1,9 +1,9 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import EmptyBase from './base'
-import EmptyCustom from './custom'
-import EmptyIcon from './icon'
+import EmptyBase from './base';
+import EmptyCustom from './custom';
+import EmptyIcon from './icon';
 
 const BasicTag: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const BasicTag: React.FC = () => {
       <EmptyIcon />
       <EmptyCustom />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicTag
+export default BasicTag;

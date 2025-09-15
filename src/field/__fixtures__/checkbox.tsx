@@ -3,23 +3,23 @@
  * description: 单选多选。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu';
 
 const options = new Array(2).fill(0).map((_, index) => ({
   value: index,
   label: `选项_${index}`,
-}))
+}));
 
 const options2 = new Array(9).fill(0).map((_, index) => ({
   value: index,
   label: `选项_${index}`,
-}))
+}));
 
 const BasicFieldCheckbox: React.FC = () => {
-  const [value, setValue] = useState(options[1].value)
-  const [value2, setValue2] = useState([options[1].value])
+  const [value, setValue] = useState(options[1].value);
+  const [value2, setValue2] = useState([options[1].value]);
 
   return (
     <Cell.Group title="Field Checkbox">
@@ -46,8 +46,8 @@ const BasicFieldCheckbox: React.FC = () => {
         options={options}
         value={value}
         onChange={(v, option) => {
-          setValue(v as number)
-          console.log(option)
+          setValue(v as number);
+          console.log(option);
         }}
       />
       <Field.Checkbox
@@ -55,8 +55,8 @@ const BasicFieldCheckbox: React.FC = () => {
         options={options}
         value={value}
         onChange={(v, option) => {
-          setValue(v as number)
-          console.log(option)
+          setValue(v as number);
+          console.log(option);
         }}
         deselect={false}
       />
@@ -80,8 +80,8 @@ const BasicFieldCheckbox: React.FC = () => {
         options={options}
         value={value2}
         onChange={(v, option) => {
-          setValue2(v as number[])
-          console.log(option)
+          setValue2(v as number[]);
+          console.log(option);
         }}
       />
       <Field.Checkbox
@@ -91,8 +91,8 @@ const BasicFieldCheckbox: React.FC = () => {
         options={options}
         value={value2}
         onChange={(v, option) => {
-          setValue2(v as number[])
-          console.log(option)
+          setValue2(v as number[]);
+          console.log(option);
         }}
       />
 
@@ -103,7 +103,7 @@ const BasicFieldCheckbox: React.FC = () => {
         options={options2}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldCheckbox
+export default BasicFieldCheckbox;

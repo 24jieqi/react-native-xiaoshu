@@ -1,34 +1,34 @@
 import {
   ArrowRightOutline,
   CrossOutline,
-} from '@fruits-chain/icons-react-native'
-import Color from 'color'
-import isNil from 'lodash/isNil'
-import noop from 'lodash/noop'
-import React, { memo, useState, useCallback, useMemo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { TouchableWithoutFeedback, View } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import Color from 'color';
+import isNil from 'lodash/isNil';
+import noop from 'lodash/noop';
+import React, { memo, useState, useCallback, useMemo } from 'react';
+import type { ViewStyle, StyleProp } from 'react-native';
+import { TouchableWithoutFeedback, View } from 'react-native';
 
 import {
   getDefaultValue,
   renderTextLikeJSX,
   pickTouchablePropsField,
   omitTouchablePropsField,
-} from '../helpers'
-import { usePersistFn } from '../hooks'
-import Theme from '../theme'
+} from '../helpers';
+import { usePersistFn } from '../hooks';
+import Theme from '../theme';
 
-import type { NoticeBarProps, NoticeBarMode } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { NoticeBarProps, NoticeBarMode } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const getModeIcon = (mode: NoticeBarMode | undefined) => {
   switch (mode) {
     case 'closeable':
-      return CrossOutline
+      return CrossOutline;
     default:
-      return ArrowRightOutline
+      return ArrowRightOutline;
   }
-}
+};
 
 /**
  * 通知栏
@@ -54,28 +54,28 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
   style,
   ...restProps
 }) => {
-  const onPressClosePersistFn = usePersistFn(onPressClose || noop)
+  const onPressClosePersistFn = usePersistFn(onPressClose || noop);
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
-  const [visible, setVisible] = useState(true)
+  });
+  const [visible, setVisible] = useState(true);
 
   const textColor =
-    CV[`notice_bar_${status}_text_color`] || CV.notice_bar_warning_text_color
+    CV[`notice_bar_${status}_text_color`] || CV.notice_bar_warning_text_color;
   const barBackgroundColor = useMemo(
     () =>
       Color(textColor)
         .lightness(CV.notice_bar_background_color_lightness)
         .hex(),
     [CV.notice_bar_background_color_lightness, textColor],
-  )
+  );
 
   // 修正数据
-  color = getDefaultValue(color, textColor)
-  backgroundColor = getDefaultValue(backgroundColor, barBackgroundColor)
-  iconColor = getDefaultValue(iconColor, color)!
+  color = getDefaultValue(color, textColor);
+  backgroundColor = getDefaultValue(backgroundColor, barBackgroundColor);
+  iconColor = getDefaultValue(iconColor, color)!;
 
   const noticeBarStyles: StyleProp<ViewStyle> = [
     STYLES.notice_bar,
@@ -87,11 +87,11 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
       borderWidth: bordered ? 1 : 0,
     },
     style,
-  ]
+  ];
 
-  const ModeIcon = getModeIcon(mode)
-  const leftIconJSX = renderLeftIcon?.(iconColor, CV.notice_bar_icon_size)
-  const rightIconJSX = renderRightIcon?.(iconColor, CV.notice_bar_icon_size)
+  const ModeIcon = getModeIcon(mode);
+  const leftIconJSX = renderLeftIcon?.(iconColor, CV.notice_bar_icon_size);
+  const rightIconJSX = renderRightIcon?.(iconColor, CV.notice_bar_icon_size);
   const messageJSX = renderTextLikeJSX(
     message,
     [
@@ -111,17 +111,17 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
     {
       numberOfLines: wrapable ? undefined : 1,
     },
-  )
+  );
 
   const onPressModeIcon = useCallback(() => {
     if (mode === 'closeable') {
-      setVisible(false)
-      onPressClosePersistFn()
+      setVisible(false);
+      onPressClosePersistFn();
     }
-  }, [mode, onPressClosePersistFn])
+  }, [mode, onPressClosePersistFn]);
 
-  const touchableProps = pickTouchablePropsField(restProps)
-  const viewProps = omitTouchablePropsField(restProps)
+  const touchableProps = pickTouchablePropsField(restProps);
+  const viewProps = omitTouchablePropsField(restProps);
 
   if (visible) {
     return (
@@ -141,10 +141,10 @@ const NoticeBar: React.FC<NoticeBarProps> = ({
           ) : null}
         </View>
       </TouchableWithoutFeedback>
-    )
+    );
   }
 
-  return null
-}
+  return null;
+};
 
-export default memo(NoticeBar)
+export default memo(NoticeBar);

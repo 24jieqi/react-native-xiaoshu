@@ -1,17 +1,17 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { varCreator as varCreatorCell } from '../cell/style'
-import Theme from '../theme'
-import type { TokensType } from '../theme/interface'
+import { varCreator as varCreatorCell } from '../cell/style';
+import Theme from '../theme';
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = () => {
-  return {}
-}
+  return {};
+};
 
-export type SelectorTheme = ReturnType<typeof varCreator>
+export type SelectorTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: SelectorTheme, TOKENS: TokensType) => {
-  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell);
 
   return StyleSheet.create({
     text: {
@@ -22,5 +22,5 @@ export const styleCreator = (cv: SelectorTheme, TOKENS: TokensType) => {
       fontSize: CV_CELL.cell_font_size,
       color: CV_CELL.cell_value_text_color,
     },
-  })
-}
+  });
+};

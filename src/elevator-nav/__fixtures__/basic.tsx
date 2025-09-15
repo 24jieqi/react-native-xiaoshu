@@ -3,8 +3,8 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
 
 // import React, { forwardRef, useRef, useState, useImperativeHandle } from 'react'
 // import { Text, View, ScrollView } from 'react-native'
@@ -19,7 +19,7 @@ import {
   ElevatorNav,
   Button,
   TextInput,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 // const CustomKeyboardAwareScrollView = forwardRef<
 //   ScrollView,
@@ -44,8 +44,8 @@ import {
 // })
 
 const BasicTag: React.FC = () => {
-  const [more1, setMore1] = useState(false)
-  const [more2, setMore2] = useState(false)
+  const [more1, setMore1] = useState(false);
+  const [more2, setMore2] = useState(false);
 
   return (
     <>
@@ -54,14 +54,14 @@ const BasicTag: React.FC = () => {
           text={`${more1 ? '减少' : '新增'}一个 Anchor（可能会报错）`}
           size="s"
           onPress={() => {
-            setMore1(s => !s)
+            setMore1(s => !s);
           }}
         />
         <Button
           text={`${more2 ? '减少' : '新增'}一个非 Anchor`}
           size="s"
           onPress={() => {
-            setMore2(s => !s)
+            setMore2(s => !s);
           }}
         />
       </Space>
@@ -133,7 +133,7 @@ const BasicTag: React.FC = () => {
         </Space>
       </ElevatorNav>
     </>
-  )
-}
+  );
+};
 
-export default BasicTag
+export default BasicTag;

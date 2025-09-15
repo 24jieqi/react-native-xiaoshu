@@ -1,14 +1,14 @@
-import React, { memo } from 'react'
-import { View } from 'react-native'
+import React, { memo } from 'react';
+import { View } from 'react-native';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { BlankProps } from './interface'
-import { varCreator } from './style'
+import type { BlankProps } from './interface';
+import { varCreator } from './style';
 
 const getGapValue = (v: boolean | number, initialValue: number) => {
-  return typeof v === 'boolean' ? (v ? initialValue : 0) : v
-}
+  return typeof v === 'boolean' ? (v ? initialValue : 0) : v;
+};
 
 const Blank: React.FC<BlankProps> = ({
   theme,
@@ -26,15 +26,15 @@ const Blank: React.FC<BlankProps> = ({
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
+  });
 
-  const defaultGap = CV[`blank_size_${size}`]
+  const defaultGap = CV[`blank_size_${size}`];
 
   // 重置值
-  left = getGapValue(left, defaultGap)
-  right = getGapValue(right, defaultGap)
-  top = getGapValue(top, defaultGap)
-  bottom = getGapValue(bottom, defaultGap)
+  left = getGapValue(left, defaultGap);
+  right = getGapValue(right, defaultGap);
+  top = getGapValue(top, defaultGap);
+  bottom = getGapValue(bottom, defaultGap);
 
   return (
     <View
@@ -50,7 +50,7 @@ const Blank: React.FC<BlankProps> = ({
       ]}>
       {children}
     </View>
-  )
-}
+  );
+};
 
-export default memo(Blank)
+export default memo(Blank);

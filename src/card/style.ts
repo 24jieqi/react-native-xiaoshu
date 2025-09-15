@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -20,10 +20,10 @@ export const varCreator = (TOKENS: TokensType) => {
     card_footer_text_color: TOKENS.gray_7,
     card_footer_text_line_height: 20,
     card_footer_padding_vertical: TOKENS.space_2,
-  }
-}
+  };
+};
 
-export type CardTheme = ReturnType<typeof varCreator>
+export type CardTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: CardTheme) => {
   return StyleSheet.create({
@@ -88,5 +88,5 @@ export const styleCreator = (cv: CardTheme) => {
       color: cv.card_footer_text_color,
       lineHeight: cv.card_footer_text_line_height,
     },
-  })
-}
+  });
+};

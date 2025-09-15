@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import React, { memo } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import Locale from '../locale'
-import Portal from '../portal'
-import Theme from '../theme'
+import Locale from '../locale';
+import Portal from '../portal';
+import Theme from '../theme';
 
-import type { ProviderProps } from './interface'
+import type { ProviderProps } from './interface';
 
 /**
  * 统一的配置
@@ -24,7 +24,7 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
         </Theme>
       </Locale>
     </SafeAreaProvider>
-  )
-}
+  );
+};
 
-export default memo(Provider)
+export default memo(Provider);
