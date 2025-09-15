@@ -8,7 +8,7 @@ import type {
   ColorValue,
 } from 'react-native';
 
-import type { FixHitSlopProps } from '../helpers/types';
+import type { FixSVGHitSlopProps } from '../helpers/types';
 import type { SpaceProps } from '../space/interface';
 
 import type { CheckboxTheme } from './style';
@@ -39,7 +39,7 @@ interface CheckboxIconPrivateProps {
 }
 
 export interface CheckboxIconProps
-  extends FixHitSlopProps<TouchableOpacityProps>,
+  extends FixSVGHitSlopProps<TouchableOpacityProps>,
     CheckboxIconPrivateProps {
   theme?: Partial<CheckboxTheme>;
 }

@@ -1,16 +1,21 @@
-const { defineConfig } = require('eslint/config')
-const { fixupPluginRules } = require('@eslint/compat')
+const { defineConfig } = require('eslint/config');
+const { fixupPluginRules } = require('@eslint/compat');
 
-const eslint = require('@eslint/js')
-const tseslint = require('typescript-eslint')
-const reactPlugin = require('eslint-plugin-react')
-const reactHooks = require('eslint-plugin-react-hooks')
-const reactNative = require('eslint-plugin-react-native')
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended')
-const eslintConfigPrettier = require('eslint-config-prettier/flat')
-const importPlugin = require('eslint-plugin-import')
+const eslint = require('@eslint/js');
+const tseslint = require('typescript-eslint');
+const reactPlugin = require('eslint-plugin-react');
+const reactHooks = require('eslint-plugin-react-hooks');
+const reactNative = require('eslint-plugin-react-native');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+const eslintConfigPrettier = require('eslint-config-prettier/flat');
+const importPlugin = require('eslint-plugin-import');
+const testingLibrary = require('eslint-plugin-testing-library');
 
 module.exports = defineConfig([
+  {
+    files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+    ...testingLibrary.configs['flat/react'],
+  },
   {
     extends: [
       eslint.configs.recommended,
@@ -122,6 +127,8 @@ module.exports = defineConfig([
       'lib',
       'changelog.config.js',
       'eslint.config.js',
+      'jest.config.js',
+      'jest-setup.js',
     ],
   },
-])
+]);

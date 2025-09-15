@@ -1,6 +1,8 @@
 import type React from 'react';
 import type { TextStyle, StyleProp, ViewProps, ColorValue } from 'react-native';
 
+import type { FixSVGHitSlopProps } from '../helpers/types';
+
 import type { ResultTheme } from './style';
 
 export type ResultStatus = 'success' | 'error' | 'info' | 'warning';
@@ -43,7 +45,7 @@ export interface ResultProps extends ViewProps {
   title?: React.ReactNode;
 }
 
-export interface ResultIconProps extends ViewProps {
+export interface ResultIconProps extends FixSVGHitSlopProps<ViewProps> {
   width?: number;
   height?: number;
 }

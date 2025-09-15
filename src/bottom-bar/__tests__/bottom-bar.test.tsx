@@ -1,16 +1,16 @@
+import { render, screen } from '@testing-library/react-native';
 import React from 'react';
 import type { ViewStyle } from 'react-native';
 import { Text, StyleSheet, Platform } from 'react-native';
 // import RCTDeviceEventEmitter from 'react-native/Libraries/EventEmitter/RCTDeviceEventEmitter'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { create } from 'react-test-renderer';
 
 import BottomBar from '..';
-import { customRender, act } from '../../__tests__/test-utils';
+import { customRender } from '../../__tests__/test-utils';
 
 describe('Blank', () => {
   it('render snapshot', () => {
-    const tree = create(
+    const tree = render(
       <SafeAreaProvider>
         <BottomBar>
           <Text>Content</Text>
@@ -32,24 +32,24 @@ describe('Blank', () => {
       </BottomBar>,
     );
 
-    act(() => {
-      // RCTDeviceEventEmitter.DeviceEventEmitter.emit('keyboardDidShow', {})
-    });
+    // act(() => {
+    //   // RCTDeviceEventEmitter.DeviceEventEmitter.emit('keyboardDidShow', {})
+    // });
 
-    act(() => {
-      // DeviceEventEmitter.emit('keyboardDidHide', {})
-    });
+    // act(() => {
+    //   // DeviceEventEmitter.emit('keyboardDidHide', {})
+    // });
   });
 
   it('height', () => {
-    const { getByTestId } = customRender(
+    customRender(
       <BottomBar height={60} testID="height">
         <Text>Content</Text>
       </BottomBar>,
     );
 
     const style = StyleSheet.flatten<ViewStyle>(
-      getByTestId('height').props.style,
+      screen.getByTestId('height').props.style,
     );
 
     expect(style.height).toEqual(60);
