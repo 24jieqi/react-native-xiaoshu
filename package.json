@@ -1,7 +1,7 @@
 {
   "name": "@fruits-chain/react-native-xiaoshu",
   "description": "🌈 React Native UI library",
-  "version": "0.4.8",
+  "version": "0.4.9-beta.0",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
   "types": "./lib/typescript/commonjs/index.d.ts",
