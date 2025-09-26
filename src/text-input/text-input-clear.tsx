@@ -1,17 +1,17 @@
-import { CrossOutline } from '@fruits-chain/icons-react-native'
-import React, { memo } from 'react'
+import { CrossOutline } from '@fruits-chain/icons-react-native';
+import React, { memo } from 'react';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { TextInputClearProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { TextInputClearProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const TextInputClear: React.FC<TextInputClearProps> = ({ theme, onPress }) => {
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   return (
     <CrossOutline
@@ -20,7 +20,7 @@ const TextInputClear: React.FC<TextInputClearProps> = ({ theme, onPress }) => {
       size={(CV.text_input_clearable_size / 4) * 3}
       onPress={onPress}
     />
-  )
-}
+  );
+};
 
-export default memo(TextInputClear)
+export default memo(TextInputClear);

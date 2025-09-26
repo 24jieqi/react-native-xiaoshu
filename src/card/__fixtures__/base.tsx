@@ -3,15 +3,16 @@
  * description: 包含标题、内容、操作区域。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
+
 import {
   Card,
   Space,
   Button,
   Tag,
   Blank,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const CardBase: React.FC = () => {
   return (
@@ -94,6 +95,7 @@ const CardBase: React.FC = () => {
         <Card
           title="title"
           bodyPadding={{ top: true, bottom: 32 }}
+          // eslint-disable-next-line react-native/no-inline-styles
           bodyStyle={{
             paddingVertical: 40,
           }}>
@@ -109,7 +111,7 @@ const CardBase: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
-export default CardBase
+export default CardBase;

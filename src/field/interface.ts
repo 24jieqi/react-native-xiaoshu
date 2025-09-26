@@ -1,49 +1,49 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from 'react';
 import type {
   ColorValue,
   StyleProp,
   TextStyle,
   ViewProps,
   ViewStyle,
-} from 'react-native'
+} from 'react-native';
 
-import type { ButtonOptionGroupProps } from '../button/interface'
-import type { CellProps, CellPrivateProps } from '../cell/interface'
-import type { CheckboxGroupProps } from '../checkbox/interface'
+import type { ButtonOptionGroupProps } from '../button/interface';
+import type { CellProps, CellPrivateProps } from '../cell/interface';
+import type { CheckboxGroupProps } from '../checkbox/interface';
 import type {
   DatePickerSingleMethodProps,
   DatePickerRangeMethodProps,
   DatePickerRangeValue,
-} from '../date-picker/interface'
-import type { FixHitSlopProps } from '../helpers/types'
-import type { NumberInputProps } from '../number-input/interface'
-import type { PasswordInputProps } from '../password-input/interface'
-import type { SelectorProps } from '../selector/interface'
-import type { SwitchProps } from '../switch/interface'
-import type { TextInputProps } from '../text-input/interface'
+} from '../date-picker/interface';
+import type { FixHitSlopProps } from '../helpers/types';
+import type { NumberInputProps } from '../number-input/interface';
+import type { PasswordInputProps } from '../password-input/interface';
+import type { SelectorProps } from '../selector/interface';
+import type { SwitchProps } from '../switch/interface';
+import type { TextInputProps } from '../text-input/interface';
 
 export interface FieldTextProps extends Omit<CellProps, 'value'> {
   /**
    * 没有值时提示文案
    */
-  placeholder?: string
+  placeholder?: string;
 
   /**
    * 占位字符串显示的文字颜色
    * @default text_input_placeholder_text_color
    */
-  placeholderTextColor?: ColorValue
+  placeholderTextColor?: ColorValue;
 
   /**
    * 显示的文案
    */
-  value?: string | number | ReactNode
+  value?: string | number | ReactNode;
 }
 
 export interface CellPropsUsed
   extends Omit<CellPrivateProps, 'value'>,
     Pick<ViewProps, 'testID'> {
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>;
 }
 
 interface SelectorPropsUsed
@@ -58,36 +58,36 @@ export interface FieldSelectorProps
   /**
    * 没有值时提示文案
    */
-  placeholder?: string
+  placeholder?: string;
 
   /**
    * 占位字符串显示的文字颜色。
    */
-  placeholderTextColor?: ColorValue
+  placeholderTextColor?: ColorValue;
 
   /**
    * 候选项是否在加载中
    * @default false
    */
-  optionsLoading?: boolean
+  optionsLoading?: boolean;
 
   /**
    * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
    * @default true
    */
-  editable?: boolean
+  editable?: boolean;
 
   /**
    * 是否启用清除图标，且箭头会消失，点击清除图标后会清空 value
    * @default false
    */
-  clearable?: boolean
+  clearable?: boolean;
 
   /**
    * 选择器标题
    * @default '请选择'
    */
-  selectorTitle?: string
+  selectorTitle?: string;
 
   /**
    * 自定义渲染选择后的结果文案
@@ -95,13 +95,13 @@ export interface FieldSelectorProps
   renderResultText?: (
     value: SelectorPropsUsed['value'],
     options: SelectorPropsUsed['options'],
-  ) => ReactNode
+  ) => ReactNode;
 
   /**
    * 是否展示右侧箭头
    * @default true
    */
-  isLink?: boolean
+  isLink?: boolean;
 }
 
 export interface FieldTextCellPropsUsed
@@ -119,18 +119,18 @@ export interface FieldTextInputProps
   /**
    * 自定义输入框的样式，TextInputProps 的 style
    */
-  textInputStyle?: StyleProp<TextStyle>
+  textInputStyle?: StyleProp<TextStyle>;
 
   /**
    * 是否显示输入框 border，TextInputProps 的 bordered
    */
-  textInputBordered?: boolean
+  textInputBordered?: boolean;
 
   /**
    * 文字对齐，TextInputProps 的 textAlign
    * @default 'right'
    */
-  textAlign?: TextInputProps['textAlign']
+  textAlign?: TextInputProps['textAlign'];
 }
 
 export interface FieldNumberInputProps
@@ -139,18 +139,18 @@ export interface FieldNumberInputProps
   /**
    * 自定义输入框的样式，NumberInputProps 的 bordered
    */
-  textInputStyle?: StyleProp<TextStyle>
+  textInputStyle?: StyleProp<TextStyle>;
 
   /**
    * 是否显示输入框 border，NumberInputProps 的 bordered
    */
-  textInputBordered?: boolean
+  textInputBordered?: boolean;
 
   /**
    * 文字对齐，NumberInputProps 的 textAlign
    * @default 'right'
    */
-  textAlign?: NumberInputProps['textAlign']
+  textAlign?: NumberInputProps['textAlign'];
 }
 
 export interface FieldSwitchCellPropsUsed
@@ -159,6 +159,7 @@ export interface FieldSwitchCellPropsUsed
     'textAlign' | 'valueTextStyle' | 'valueTextNumberOfLines'
   > {}
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface FieldSwitchProps<ActiveValueT = any, InactiveValueT = any>
   extends SwitchProps<ActiveValueT, InactiveValueT>,
     FieldSwitchCellPropsUsed {}
@@ -177,17 +178,17 @@ export interface FieldDateProps
   /**
    * 非受控模式初始化的值
    */
-  defaultValue?: Date
+  defaultValue?: Date;
 
   /**
    * 受控模式所显示的值
    */
-  value?: Date
+  value?: Date;
 
   /**
    * 变化时的回调函数
    */
-  onChange?: (v: Date) => void
+  onChange?: (v: Date) => void;
 
   /**
    * 自定义格式化文案
@@ -196,12 +197,12 @@ export interface FieldDateProps
     v: Date,
     mode: DatePickerSingleMethodProps['mode'],
     str: string,
-  ) => string
+  ) => string;
 
   /**
    * 时间选择器顶部标题
    */
-  datePickerTitle?: string
+  datePickerTitle?: string;
 
   /**
    * 自定义时间选择器配置
@@ -218,25 +219,25 @@ export interface FieldDateProps
       | 'renderLabel'
       | 'title'
     >,
-  ) => Omit<DatePickerSingleMethodProps, 'onCancel' | 'onConfirm'>
+  ) => Omit<DatePickerSingleMethodProps, 'onCancel' | 'onConfirm'>;
 
   /**
    * 是否展示右侧箭头
    * @default true
    */
-  isLink?: boolean
+  isLink?: boolean;
 
   /**
    * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
    * @default true
    */
-  editable?: boolean
+  editable?: boolean;
 
   /**
    * 是否启用清除图标，且箭头会消失，点击清除图标后会清空 value
    * @default false
    */
-  clearable?: boolean
+  clearable?: boolean;
 }
 
 export interface FieldDateRangeProps
@@ -253,17 +254,17 @@ export interface FieldDateRangeProps
   /**
    * 非受控模式初始化的值
    */
-  defaultValue?: DatePickerRangeValue
+  defaultValue?: DatePickerRangeValue;
 
   /**
    * 受控模式所显示的值
    */
-  value?: DatePickerRangeValue
+  value?: DatePickerRangeValue;
 
   /**
    * 变化时的回调函数
    */
-  onChange?: (v: DatePickerRangeValue) => void
+  onChange?: (v: DatePickerRangeValue) => void;
 
   /**
    * 自定义格式化文案
@@ -272,17 +273,17 @@ export interface FieldDateRangeProps
     v: DatePickerRangeValue,
     mode: DatePickerSingleMethodProps['mode'],
     str: [string, string],
-  ) => [string, string]
+  ) => [string, string];
 
   /**
    * 时间选择器顶部标题
    */
-  datePickerTitle?: string
+  datePickerTitle?: string;
 
   /**
    * 时间选择器关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
    */
-  dataPickerBeforeClose?: DatePickerRangeMethodProps['beforeClose']
+  dataPickerBeforeClose?: DatePickerRangeMethodProps['beforeClose'];
 
   /**
    * 自定义时间选择器配置
@@ -300,35 +301,35 @@ export interface FieldDateRangeProps
       | 'title'
       | 'beforeClose'
     >,
-  ) => Omit<DatePickerRangeMethodProps, 'onCancel' | 'onConfirm'>
+  ) => Omit<DatePickerRangeMethodProps, 'onCancel' | 'onConfirm'>;
 
   /**
    * 没有值时提示文案
    */
-  placeholder?: [string, string]
+  placeholder?: [string, string];
 
   /**
    * 占位字符串显示的文字颜色
    * @default text_input_placeholder_text_color
    */
-  placeholderTextColor?: ColorValue
+  placeholderTextColor?: ColorValue;
 
   /**
    * @default true
    */
-  isLink?: boolean
+  isLink?: boolean;
 
   /**
    * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
    * @default true
    */
-  editable?: boolean
+  editable?: boolean;
 
   /**
    * 是否启用清除图标，且箭头会消失，点击清除图标后会清空 value
    * @default false
    */
-  clearable?: boolean
+  clearable?: boolean;
 }
 
 export interface FieldCheckboxProps
@@ -336,6 +337,7 @@ export interface FieldCheckboxProps
       Omit<CellPropsUsed, 'value' | 'isLink' | 'center' | 'textAlign'>
     >,
     Pick<
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       CheckboxGroupProps<any>,
       | 'value'
       | 'defaultValue'
@@ -358,18 +360,18 @@ export interface FieldPasswordInputProps
   /**
    * 自定义输入框的样式，PasswordInputProps 的 style
    */
-  textInputStyle?: StyleProp<TextStyle>
+  textInputStyle?: StyleProp<TextStyle>;
 
   /**
    * 是否显示输入框 border，PasswordInputProps 的 bordered
    */
-  textInputBordered?: boolean
+  textInputBordered?: boolean;
 
   /**
    * 文字对齐，PasswordInputProps 的 textAlign
    * @default 'right'
    */
-  textAlign?: PasswordInputProps['textAlign']
+  textAlign?: PasswordInputProps['textAlign'];
 }
 
 export interface FieldButtonOptionProps
@@ -377,6 +379,7 @@ export interface FieldButtonOptionProps
       Omit<CellProps, 'value' | 'isLink' | 'center' | 'textAlign' | 'theme'>
     >,
     Pick<
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ButtonOptionGroupProps<any>,
       | 'value'
       | 'defaultValue'

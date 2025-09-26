@@ -2,8 +2,9 @@
  * title: 图标集合
  * description: 内置几种图标。
  */
+import React from 'react';
 
-import { Result, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Result, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const ResultIcon = () => {
   return (
@@ -13,10 +14,11 @@ const ResultIcon = () => {
       <Result.IconError />
       <Result.IconWarning />
       <Result.IconWarning
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ backgroundColor: '#f30', alignSelf: 'center' }}
       />
     </Space>
-  )
-}
+  );
+};
 
-export default ResultIcon
+export default ResultIcon;

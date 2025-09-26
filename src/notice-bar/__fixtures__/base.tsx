@@ -3,7 +3,9 @@
  * description: 最简单的用法，适用于简短的警告提示。
  */
 
-import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
+
+import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const NoticeBarBase = () => {
   return (
@@ -25,7 +27,7 @@ const NoticeBarBase = () => {
         square={false}
       />
     </Space>
-  )
-}
+  );
+};
 
-export default NoticeBarBase
+export default NoticeBarBase;

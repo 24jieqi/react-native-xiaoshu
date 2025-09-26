@@ -1,15 +1,15 @@
-import React, { useMemo, useEffect, memo, useRef } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { Keyboard, Platform, Animated } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import React, { useMemo, useEffect, memo, useRef } from 'react';
+import type { ViewStyle, StyleProp } from 'react-native';
+import { Keyboard, Platform, Animated } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { varCreator as varCreatorDivider } from '../divider/style'
-import { getDefaultValue } from '../helpers'
-import easing from '../helpers/easing'
-import Theme from '../theme'
+import { varCreator as varCreatorDivider } from '../divider/style';
+import { getDefaultValue } from '../helpers';
+import easing from '../helpers/easing';
+import Theme from '../theme';
 
-import type { BottomBarProps } from './interface'
-import { varCreator } from './style'
+import type { BottomBarProps } from './interface';
+import { varCreator } from './style';
 
 const BottomBar: React.FC<BottomBarProps> = ({
   theme,
@@ -23,23 +23,23 @@ const BottomBar: React.FC<BottomBarProps> = ({
   style,
   ...restProps
 }) => {
-  const { bottom } = useSafeAreaInsets()
+  const { bottom } = useSafeAreaInsets();
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
+  });
   const [CV_DIVIDER] = Theme.useStyle({
     varCreator: varCreatorDivider,
-  })
+  });
 
   backgroundColor = getDefaultValue(
     backgroundColor,
     CV.bottom_bar_background_color,
-  )
-  height = getDefaultValue(height, CV.bottom_bar_height)!
+  );
+  height = getDefaultValue(height, CV.bottom_bar_height)!;
 
-  const realHeight = height + (safeAreaInsetBottom ? bottom : 0)
-  const heightAnimated = useRef(new Animated.Value(realHeight))
+  const realHeight = height + (safeAreaInsetBottom ? bottom : 0);
+  const heightAnimated = useRef(new Animated.Value(realHeight));
 
   // 监听键盘
   useEffect(() => {
@@ -52,23 +52,23 @@ const BottomBar: React.FC<BottomBarProps> = ({
           duration: 300,
           useNativeDriver: false,
           easing: easing.easeInQuint,
-        }).start()
-      })
+        }).start();
+      });
       const keyboardDidHide = Keyboard.addListener('keyboardDidHide', () => {
         Animated.timing(heightAnimated.current, {
           toValue: realHeight,
           duration: 100,
           useNativeDriver: false,
           delay: 200,
-        }).start()
-      })
+        }).start();
+      });
 
       return () => {
-        keyboardDidShow.remove()
-        keyboardDidHide.remove()
-      }
+        keyboardDidShow.remove();
+        keyboardDidHide.remove();
+      };
     }
-  }, [keyboardShowNotRender, realHeight])
+  }, [keyboardShowNotRender, realHeight]);
 
   const viewStyles = useMemo<StyleProp<ViewStyle>>(
     () => [
@@ -90,14 +90,14 @@ const BottomBar: React.FC<BottomBarProps> = ({
       safeAreaInsetBottom,
       style,
     ],
-  )
+  );
 
   // 本身隐藏
   if (hidden) {
-    return null
+    return null;
   }
 
-  return <Animated.View {...restProps} style={viewStyles} />
-}
+  return <Animated.View {...restProps} style={viewStyles} />;
+};
 
-export default memo(BottomBar)
+export default memo(BottomBar);

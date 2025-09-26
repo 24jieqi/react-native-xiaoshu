@@ -1,17 +1,16 @@
-import { Cell, Dialog } from '@fruits-chain/react-native-xiaoshu'
-import React from 'react'
-import { TouchableHighlight, View, Text, Pressable } from 'react-native'
+import { Cell, Dialog } from '@fruits-chain/react-native-xiaoshu';
+import React from 'react';
+import { TouchableHighlight, View, Text, Pressable } from 'react-native';
 
-import Layout from '~/layouts/layout'
+import Layout from '~/layouts/layout';
 
 const ViewWrapper: React.FC<React.PropsWithChildren> = ({
   children,
   ...restProps
 }) => {
-  // eslint-disable-next-line no-console
-  console.log('restProps => ', restProps)
-  return <View>{children}</View>
-}
+  console.log('restProps => ', restProps);
+  return <View>{children}</View>;
+};
 
 const Issues91 = () => {
   return (
@@ -22,12 +21,13 @@ const Issues91 = () => {
           Dialog.confirm({
             title: 'Cell',
             message: '哈哈',
-          })
+          });
         }}
       />
 
       <TouchableHighlight
         underlayColor="#f5f5f5"
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ backgroundColor: '#eee' }}
         onPress={() => {}}>
         <ViewWrapper>
@@ -44,7 +44,7 @@ const Issues91 = () => {
         </ViewWrapper>
       </Pressable>
     </Layout.Page>
-  )
-}
+  );
+};
 
-export default Issues91
+export default Issues91;

@@ -1,25 +1,25 @@
-import React, { memo } from 'react'
-import { Text, View } from 'react-native'
+import React, { memo } from 'react';
+import { Text, View } from 'react-native';
 
-import { useControllableValue } from '../hooks'
-import Theme from '../theme'
+import { useControllableValue } from '../hooks';
+import Theme from '../theme';
 
-import type { NavTabProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { NavTabProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const NavTab = <T,>({ options, theme, ...restProps }: NavTabProps<T>) => {
   const [, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
-  const [value, onChange] = useControllableValue<T>(restProps)
+  });
+  const [value, onChange] = useControllableValue<T>(restProps);
 
   return (
     <View style={STYLES.navWrapper}>
       <View style={STYLES.nav}>
         {options?.map(item => {
-          const isActive = item.value === value
+          const isActive = item.value === value;
 
           return (
             <View
@@ -31,17 +31,17 @@ const NavTab = <T,>({ options, theme, ...restProps }: NavTabProps<T>) => {
                   isActive ? STYLES.itemTextActive : null,
                 ]}
                 onPress={() => {
-                  onChange(item.value)
+                  onChange(item.value);
                 }}
                 suppressHighlighting>
                 {item.label}
               </Text>
             </View>
-          )
+          );
         })}
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default memo(NavTab) as <T>(props: NavTabProps<T>) => React.JSX.Element
+export default memo(NavTab) as <T>(props: NavTabProps<T>) => React.ReactElement;

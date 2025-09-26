@@ -1,5 +1,5 @@
-import { createContext } from 'react'
+import { createContext } from 'react';
 
-import type { FormContextProps } from './interface'
+import type { FormContextProps } from './interface';
 
-export const FormContext = createContext<FormContextProps>({})
+export const FormContext = createContext<FormContextProps>({});

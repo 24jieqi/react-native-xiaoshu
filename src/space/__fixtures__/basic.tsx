@@ -3,12 +3,12 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import SpaceSize from './size'
-import SpaceDirection from './direction'
-import SpaceOther from './other'
+import SpaceDirection from './direction';
+import SpaceOther from './other';
+import SpaceSize from './size';
 
 const BasicSpace: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const BasicSpace: React.FC = () => {
 
       <SpaceOther />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicSpace
+export default BasicSpace;

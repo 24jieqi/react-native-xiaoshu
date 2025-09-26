@@ -3,16 +3,16 @@
  * description: 普通受控组件使用方式。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, ActionSheet } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, ActionSheet } from '@fruits-chain/react-native-xiaoshu';
 
 const ActionSheetComponent: React.FC = () => {
   const [state, setState] = useState({
     cActionSheet1: {
       show: false,
     },
-  })
+  });
 
   return (
     <>
@@ -22,14 +22,14 @@ const ActionSheetComponent: React.FC = () => {
           isLink
           divider={false}
           onPress={() => {
-            console.log('组件调用 -> show')
+            console.log('组件调用 -> show');
             setState(s => ({
               ...s,
               cActionSheet1: {
                 ...s.cActionSheet1,
                 show: true,
               },
-            }))
+            }));
           }}
         />
       </Cell.Group>
@@ -47,40 +47,40 @@ const ActionSheetComponent: React.FC = () => {
           { name: '选项3' },
         ]}
         onPressOverlay={() => {
-          console.log('组件调用 -> onPressOverlay')
+          console.log('组件调用 -> onPressOverlay');
           setState(s => ({
             ...s,
             cActionSheet1: {
               ...s.cActionSheet1,
               show: false,
             },
-          }))
+          }));
         }}
         onCancel={() => {
-          console.log('组件调用 -> onCancel')
+          console.log('组件调用 -> onCancel');
           setState(s => ({
             ...s,
             cActionSheet1: {
               ...s.cActionSheet1,
               show: false,
             },
-          }))
+          }));
         }}
         onSelect={(action, index) => {
-          console.log(action)
-          console.log(index)
-          console.log('组件调用 -> onSelect')
+          console.log(action);
+          console.log(index);
+          console.log('组件调用 -> onSelect');
           setState(s => ({
             ...s,
             cActionSheet1: {
               ...s.cActionSheet1,
               show: false,
             },
-          }))
+          }));
         }}
       />
     </>
-  )
-}
+  );
+};
 
-export default ActionSheetComponent
+export default ActionSheetComponent;

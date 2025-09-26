@@ -3,9 +3,10 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView, Text } from 'react-native'
-import { Steps, Cell, Space } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
+import { ScrollView, Text } from 'react-native';
+
+import { Steps, Cell, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicDemo: React.FC = () => {
   return (
@@ -60,7 +61,7 @@ const BasicDemo: React.FC = () => {
         </Cell.Group>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicDemo
+export default BasicDemo;

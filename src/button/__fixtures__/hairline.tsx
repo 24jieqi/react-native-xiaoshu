@@ -3,18 +3,18 @@
  * description: 适用于小按钮，一像素（StyleSheet.hairlineWidth）边框。
  */
 
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
 import {
   Button,
   Card,
   Space,
   Divider,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onPress = () => {
-  console.log('点击按钮')
-}
+  console.log('点击按钮');
+};
 
 const ButtonHairline: React.FC = () => {
   return (
@@ -75,7 +75,7 @@ const ButtonHairline: React.FC = () => {
         </Space>
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonHairline)
+export default memo(ButtonHairline);

@@ -1,14 +1,14 @@
-import React, { useEffect, memo } from 'react'
+import React, { useEffect, memo } from 'react';
 
-import { callInterceptor } from '../helpers'
-import useState from '../hooks/useStateUpdate'
+import { callInterceptor } from '../helpers';
+import useState from '../hooks/useStateUpdate';
 
-import Dialog from './dialog'
+import Dialog from './dialog';
 import type {
   DialogMethodProps,
   DialogAction,
   DialogMethodState,
-} from './interface'
+} from './interface';
 
 /**
  * Dialog 弹出框
@@ -24,46 +24,46 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
     cancel: false,
     confirm: false,
     overlay: false,
-  })
+  });
 
   const genOnPressBtn = (action: DialogAction) => () => {
     setState({
       [action]: true,
-    })
+    });
 
     callInterceptor(beforeClose, {
       args: [action],
       done: () => {
-        onResponse?.(action)
+        onResponse?.(action);
         setState({
           [action]: false,
           visible: false,
-        })
+        });
       },
       canceled: () => {
         setState({
           [action]: false,
-        })
+        });
       },
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     setState({
       visible: true,
-    })
-  }, [])
+    });
+  }, []);
 
   const onRequestClose = () => {
-    genOnPressBtn('overlay')()
-    return true
-  }
+    genOnPressBtn('overlay')();
+    return true;
+  };
 
   const onPressClose = () => {
     setState({
       visible: false,
-    })
-  }
+    });
+  };
 
   return (
     <Dialog
@@ -77,7 +77,7 @@ const DialogMethod: React.FC<DialogMethodProps> = ({
       confirmButtonLoading={state.confirm}
       onPressClose={onPressClose}
     />
-  )
-}
+  );
+};
 
-export default memo(DialogMethod)
+export default memo(DialogMethod);

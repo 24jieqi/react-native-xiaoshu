@@ -3,9 +3,9 @@
  * description: 其他属性。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Blank, Card, Space, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Blank, Card, Space, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSpaceOther: React.FC = () => {
   return (
@@ -35,7 +35,7 @@ const BasicSpaceOther: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
-export default BasicSpaceOther
+export default BasicSpaceOther;

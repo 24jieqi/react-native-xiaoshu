@@ -3,14 +3,21 @@
  * description: 提供 `left`、`right`、`top`、`bottom` 四个方向，默认外边距，通过 `type` 可以设定为内边距。
  */
 
-import React from 'react'
-import { Text, View, ViewStyle } from 'react-native'
-import { Blank, Card, Space, Divider } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
+import type { ViewStyle } from 'react-native';
+import { Text, View } from 'react-native';
 
-const ctxStyle = { backgroundColor: '#f5f5f5' }
-const cardBodyStyle = { backgroundColor: '#61649f' }
-const blankStyle = { backgroundColor: '#098' }
-const dividerStyle = { backgroundColor: '#2b333e' }
+import {
+  Blank,
+  Card,
+  Space,
+  Divider,
+} from '@fruits-chain/react-native-xiaoshu';
+
+const ctxStyle = { backgroundColor: '#f5f5f5' };
+const cardBodyStyle = { backgroundColor: '#61649f' };
+const blankStyle = { backgroundColor: '#098' };
+const dividerStyle = { backgroundColor: '#2b333e' };
 
 const BasicBlankDirection: React.FC = () => {
   return (
@@ -49,14 +56,17 @@ const BasicBlankDirection: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
 const Tip = ({ text, style }: { text: string; style: ViewStyle }) => {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View
+      // eslint-disable-next-line react-native/no-inline-styles
+      style={{ flexDirection: 'row', alignItems: 'center' }}>
       <Text>{text}</Text>
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           width: 20,
           height: 20,
@@ -65,7 +75,7 @@ const Tip = ({ text, style }: { text: string; style: ViewStyle }) => {
         }}
       />
     </View>
-  )
-}
+  );
+};
 
-export default BasicBlankDirection
+export default BasicBlankDirection;

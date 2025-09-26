@@ -3,15 +3,15 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 
 import {
   Overlay,
   Button,
   Card,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicOverlay: React.FC = () => {
   const [state, setState] = useState<
@@ -20,7 +20,7 @@ const BasicOverlay: React.FC = () => {
     normal: false,
     inset: false,
     backgroundColor: false,
-  })
+  });
 
   return (
     <>
@@ -33,7 +33,7 @@ const BasicOverlay: React.FC = () => {
               setState(s => ({
                 ...s,
                 normal: true,
-              }))
+              }));
             }}
           />
         </Card>
@@ -46,7 +46,7 @@ const BasicOverlay: React.FC = () => {
               setState(s => ({
                 ...s,
                 inset: true,
-              }))
+              }));
             }}
           />
         </Card>
@@ -59,7 +59,7 @@ const BasicOverlay: React.FC = () => {
               setState(s => ({
                 ...s,
                 backgroundColor: true,
-              }))
+              }));
             }}
           />
         </Card>
@@ -71,29 +71,31 @@ const BasicOverlay: React.FC = () => {
           setState(s => ({
             ...s,
             normal: false,
-          }))
+          }));
         }}
         onRequestClose={() => {
-          console.log('???')
+          console.log('???');
           setState(s => ({
             ...s,
             normal: false,
-          }))
-          return true
+          }));
+          return true;
         }}
       />
 
       <Overlay
         visible={state.inset}
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ justifyContent: 'center', alignItems: 'center' }}
         onPress={() => {
           setState(s => ({
             ...s,
             inset: false,
-          }))
+          }));
         }}>
         <TouchableWithoutFeedback>
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               backgroundColor: '#fff',
               width: 200,
@@ -118,11 +120,11 @@ const BasicOverlay: React.FC = () => {
           setState(s => ({
             ...s,
             backgroundColor: false,
-          }))
+          }));
         }}
       />
     </>
-  )
-}
+  );
+};
 
-export default BasicOverlay
+export default BasicOverlay;

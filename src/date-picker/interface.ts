@@ -1,14 +1,14 @@
 import type {
   DatePickerViewProps,
   DatePickerColumnMode,
-} from '../date-picker-view/interface'
-import type { PopupPropsCommon } from '../popup/interface'
+} from '../date-picker-view/interface';
+import type { PopupPropsCommon } from '../popup/interface';
 
-export type DatePickerAction = 'cancel' | 'confirm' | 'overlay'
+export type DatePickerAction = 'cancel' | 'confirm' | 'overlay';
 
-export type DatePickerRangeAction = 'cancel' | 'confirm' | 'overlay' | 'clear'
+export type DatePickerRangeAction = 'cancel' | 'confirm' | 'overlay' | 'clear';
 
-export type DatePickerRangeValue = [Date | null, Date | null]
+export type DatePickerRangeValue = [Date | null, Date | null];
 
 export interface DatePickerSingleMethodProps
   extends Omit<DatePickerViewProps, 'value' | 'onChange' | 'loading'>,
@@ -16,34 +16,34 @@ export interface DatePickerSingleMethodProps
   /**
    * 顶部标题
    */
-  title?: React.ReactNode
+  title?: React.ReactNode;
 
   /**
    * 确认按钮文字
    * @default '确认'
    */
-  confirmButtonText?: string
+  confirmButtonText?: string;
 
   /**
    * 取消按钮文字
    * @default '取消'
    */
-  cancelButtonText?: string
+  cancelButtonText?: string;
 
   /**
    * 点击取消
    */
-  onCancel?: (value: Date) => void
+  onCancel?: (value: Date) => void;
 
   /**
    * 点击确定
    */
-  onConfirm?: (value: Date) => void
+  onConfirm?: (value: Date) => void;
 
   /**
    * 点击遮罩层
    */
-  onPressOverlay?: (value: Date) => void
+  onPressOverlay?: (value: Date) => void;
 
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
@@ -51,7 +51,7 @@ export interface DatePickerSingleMethodProps
   beforeClose?: (
     action: DatePickerAction,
     value: Date,
-  ) => boolean | Promise<boolean>
+  ) => boolean | Promise<boolean>;
 }
 
 export interface DatePickerRangeViewProps
@@ -63,68 +63,68 @@ export interface DatePickerRangeViewProps
    * 日期选择的类型
    * @default 'Y-D'
    */
-  mode?: DatePickerColumnMode
+  mode?: DatePickerColumnMode;
 
   /**
    * 默认时间组
    */
-  defaultValue?: DatePickerRangeValue
+  defaultValue?: DatePickerRangeValue;
 
   /**
    * 选中时间组
    */
-  value?: DatePickerRangeValue
+  value?: DatePickerRangeValue;
 
   /**
    * 初始值，只有初始化以及重置时生效
    * @default [null, null]
    */
-  initialValue?: DatePickerRangeValue
+  initialValue?: DatePickerRangeValue;
 
   /**
    * 确认按钮文字
    * @default '确认'
    */
-  confirmButtonText?: string
+  confirmButtonText?: string;
 
   /**
    * 重置按钮文字
    * @default '重置'
    */
-  resetButtonText?: string
+  resetButtonText?: string;
 
   /**
    * 占位文案
    * @default ['请选择', '请选择']
    */
-  placeholder?: [string, string]
+  placeholder?: [string, string];
 
   /**
    * 点击确定
    */
-  onConfirm?: (values: DatePickerRangeValue) => void
+  onConfirm?: (values: DatePickerRangeValue) => void;
 
   /**
    * 变化时的回调函数
    */
-  onChange?: (values: DatePickerRangeValue) => void
+  onChange?: (values: DatePickerRangeValue) => void;
 
   /**
    * 显示清空按钮
    * @default false
    */
-  clearable?: boolean
+  clearable?: boolean;
 
   /**
    * 点击清空按钮
    */
-  onClear?: (values: DatePickerRangeValue) => void
+  onClear?: (values: DatePickerRangeValue) => void;
 
   /**
    * 清空按钮文字
    * @default '清空'
    */
-  clearButtonText?: string
+  clearButtonText?: string;
 }
 
 export interface DatePickerRangeMethodProps
@@ -136,22 +136,22 @@ export interface DatePickerRangeMethodProps
   /**
    * 顶部标题
    */
-  title?: React.ReactNode
+  title?: React.ReactNode;
 
   /**
    * 点击取消
    */
-  onCancel?: (values: DatePickerRangeValue) => void
+  onCancel?: (values: DatePickerRangeValue) => void;
 
   /**
    * 点击确定
    */
-  onConfirm?: (values: DatePickerRangeValue) => void
+  onConfirm?: (values: DatePickerRangeValue) => void;
 
   /**
    * 点击遮罩层
    */
-  onPressOverlay?: (values: DatePickerRangeValue) => void
+  onPressOverlay?: (values: DatePickerRangeValue) => void;
 
   /**
    * 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
@@ -159,17 +159,17 @@ export interface DatePickerRangeMethodProps
   beforeClose?: (
     action: DatePickerRangeAction,
     value: DatePickerRangeValue,
-  ) => boolean | Promise<boolean>
+  ) => boolean | Promise<boolean>;
 }
 
 export interface DatePickerInstance {
   (p: DatePickerSingleMethodProps): Promise<{
-    action: DatePickerAction
-    value: Date
-  }>
+    action: DatePickerAction;
+    value: Date;
+  }>;
   range: (p: DatePickerRangeMethodProps) => Promise<{
-    action: DatePickerRangeAction
-    values: DatePickerRangeValue
-  }>
-  RangeView: React.FC<DatePickerRangeViewProps>
+    action: DatePickerRangeAction;
+    values: DatePickerRangeValue;
+  }>;
+  RangeView: React.FC<DatePickerRangeViewProps>;
 }

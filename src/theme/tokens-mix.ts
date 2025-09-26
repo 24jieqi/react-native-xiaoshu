@@ -1,4 +1,4 @@
-import TOKENS from '@fruits-chain/design-tokens-bailu'
+import TOKENS from '@fruits-chain/design-tokens-bailu';
 
 export default {
   ...TOKENS,
@@ -23,4 +23,4 @@ export default {
    * @default 'transparent'
    */
   underlay_color: 'transparent',
-}
+};

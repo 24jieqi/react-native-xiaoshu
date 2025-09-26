@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from 'react';
 import type {
   TouchableOpacityProps,
   StyleProp,
@@ -6,131 +6,133 @@ import type {
   ViewStyle,
   ViewProps,
   ColorValue,
-} from 'react-native'
+} from 'react-native';
 
-import type { FixHitSlopProps } from '../helpers/types'
-import type { SpaceProps } from '../space/interface'
+import type { FixSVGHitSlopProps } from '../helpers/types';
+import type { SpaceProps } from '../space/interface';
 
-import type { CheckboxTheme } from './style'
+import type { CheckboxTheme } from './style';
 
 interface CheckboxIconPrivateProps {
   /**
    * 是否选中、高亮
    */
-  active?: boolean
+  active?: boolean;
 
   /**
    * 选中状态颜色
    * @default checkbox_checked_icon_color
    */
-  activeColor?: ColorValue
+  activeColor?: ColorValue;
 
   /**
    * 图标大小，默认单位为 px
    * @default 20
    */
-  size?: number
+  size?: number;
 
   /**
    * 未选中状态颜色
    * @default checkbox_icon_color
    */
-  inactiveColor?: ColorValue
+  inactiveColor?: ColorValue;
 }
 
 export interface CheckboxIconProps
-  extends FixHitSlopProps<TouchableOpacityProps>,
+  extends FixSVGHitSlopProps<TouchableOpacityProps>,
     CheckboxIconPrivateProps {
-  theme?: Partial<CheckboxTheme>
+  theme?: Partial<CheckboxTheme>;
 }
 
 interface RenderIconProps extends CheckboxIconPrivateProps {
-  disabled?: boolean
-  style?: StyleProp<ViewStyle>
-  onPress?: TouchableOpacityProps['onPress']
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
+  onPress?: TouchableOpacityProps['onPress'];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface CheckboxProps<ActiveValueT = any, InactiveValueT = any>
   extends Pick<CheckboxIconPrivateProps, 'activeColor' | 'inactiveColor'>,
     ViewProps {
-  theme?: Partial<CheckboxTheme>
+  theme?: Partial<CheckboxTheme>;
   /**
    * 文案样式
    */
-  labelTextStyle?: StyleProp<TextStyle>
+  labelTextStyle?: StyleProp<TextStyle>;
 
   /**
    * 图标样式
    */
-  iconStyle?: StyleProp<ViewStyle>
+  iconStyle?: StyleProp<ViewStyle>;
 
   /**
    * 默认值
    */
-  defaultValue?: ActiveValueT | InactiveValueT
+  defaultValue?: ActiveValueT | InactiveValueT;
 
   /**
    * 当前的值
    */
-  value?: ActiveValueT | InactiveValueT
+  value?: ActiveValueT | InactiveValueT;
 
   /**
    * 状态变化
    */
-  onChange?: (value: ActiveValueT | InactiveValueT) => void
+  onChange?: (value: ActiveValueT | InactiveValueT) => void;
 
   /**
    * 选中时对应的值
    * @default true
    */
-  activeValue?: ActiveValueT
+  activeValue?: ActiveValueT;
 
   /**
    * 未选中时对应的值
    * @default false
    */
-  inactiveValue?: InactiveValueT
+  inactiveValue?: InactiveValueT;
 
   /**
    * 文案
    */
-  label?: ReactNode
+  label?: ReactNode;
 
   /**
    * 是否禁用复选框文本点击
    * @default false
    */
-  labelDisabled?: boolean
+  labelDisabled?: boolean;
 
   /**
    * 文本位置，可选值为 `'left' | 'right'`
    * @default 'right'
    */
-  labelPosition?: 'left' | 'right'
+  labelPosition?: 'left' | 'right';
 
   /**
    * 图标大小
    * @default checkbox_icon_size
    */
-  iconSize?: number
+  iconSize?: number;
 
   /**
    * 是否禁用复选框
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * 自定义图标
    */
-  renderIcon?: (p: RenderIconProps) => ReactNode
+  renderIcon?: (p: RenderIconProps) => ReactNode;
 
   /**
    * 文字与图标之间的间距
    * @default checkbox_label_margin
    */
-  gap?: number
+  gap?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface CheckboxGroupProps<ActiveValueT = any>
   extends SpaceProps,
     Partial<
@@ -139,12 +141,12 @@ export interface CheckboxGroupProps<ActiveValueT = any>
         'activeColor' | 'inactiveColor' | 'iconSize' | 'renderIcon'
       >
     > {
-  theme?: Partial<CheckboxTheme>
-  checkboxLabelTextStyle?: CheckboxProps['labelTextStyle']
-  checkboxIconLabelGap?: number
+  theme?: Partial<CheckboxTheme>;
+  checkboxLabelTextStyle?: CheckboxProps['labelTextStyle'];
+  checkboxIconLabelGap?: number;
   options: ({
-    value: ActiveValueT
-    label: string
+    value: ActiveValueT;
+    label: string;
   } & Partial<
     Pick<
       CheckboxProps,
@@ -156,37 +158,37 @@ export interface CheckboxGroupProps<ActiveValueT = any>
       | 'inactiveColor'
       | 'renderIcon'
     >
-  >)[]
+  >)[];
 
   /**
    * 是否多选
    * @default false
    */
-  multiple?: boolean
+  multiple?: boolean;
 
-  value?: ActiveValueT | ActiveValueT[]
+  value?: ActiveValueT | ActiveValueT[];
 
-  defaultValue?: ActiveValueT | ActiveValueT[]
+  defaultValue?: ActiveValueT | ActiveValueT[];
 
   onChange?: (
     value: ActiveValueT[] | ActiveValueT,
     options: { value: ActiveValueT; label: string; disabled?: boolean }[],
-  ) => void
+  ) => void;
   /**
    * 是否可以编辑，readonly 相似，保持 TextInput 自带的属性效果
    * @default true
    */
-  editable?: boolean
+  editable?: boolean;
 
   /**
    * 是否可滚动，主要用于横向排版
    * @default false
    */
-  scrollable?: boolean
+  scrollable?: boolean;
 
   /**
    * 单选的情况下是否可以取消选择
    * @default true
    */
-  deselect?: boolean
+  deselect?: boolean;
 }

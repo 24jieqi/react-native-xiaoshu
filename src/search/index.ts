@@ -1,6 +1,9 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import Search from './search'
-import { varCreator, styleCreator } from './style'
+import Search from './search';
+import { varCreator, styleCreator } from './style';
 
-export default attachPropertiesToComponent(Search, { varCreator, styleCreator })
+export default attachPropertiesToComponent(Search, {
+  varCreator,
+  styleCreator,
+});

@@ -1,15 +1,15 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import Cell from '../cell'
-import Switch from '../switch'
+import Cell from '../cell';
+import Switch from '../switch';
 
-import { pickCellProps } from './helper'
-import type { FieldSwitchProps } from './interface'
+import { pickCellProps } from './helper';
+import type { FieldSwitchProps } from './interface';
 
 function FieldSwitch<ActiveValueT = boolean, InactiveValueT = boolean>(
   props: FieldSwitchProps<ActiveValueT, InactiveValueT>,
 ) {
-  const { cellProps, otherProps } = pickCellProps(props)
+  const { cellProps, otherProps } = pickCellProps(props);
 
   return (
     <Cell
@@ -25,7 +25,7 @@ function FieldSwitch<ActiveValueT = boolean, InactiveValueT = boolean>(
       ]}
       value={<Switch<ActiveValueT, InactiveValueT> {...otherProps} />}
     />
-  )
+  );
 }
 
 export default memo(FieldSwitch) as <
@@ -33,4 +33,4 @@ export default memo(FieldSwitch) as <
   InactiveValueT = boolean,
 >(
   p: FieldSwitchProps<ActiveValueT, InactiveValueT>,
-) => JSX.Element
+) => React.ReactElement;

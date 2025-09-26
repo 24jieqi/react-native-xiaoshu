@@ -1,4 +1,4 @@
-import noop from 'lodash/noop'
+import noop from 'lodash/noop';
 import React, {
   useState,
   useRef,
@@ -8,19 +8,19 @@ import React, {
   isValidElement,
   Children,
   cloneElement,
-} from 'react'
-import type { View } from 'react-native'
-import { ScrollView, TouchableOpacity } from 'react-native'
-import RNPopoverView from 'react-native-popover-view'
+} from 'react';
+import type { View } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native';
+import RNPopoverView from 'react-native-popover-view';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import type { PopoverProps, PopoverItemProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { PopoverProps, PopoverItemProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
-const arrowSize = { width: 0, height: 0 }
+const arrowSize = { width: 0, height: 0 };
 
 const Popover = <T,>({
   children,
@@ -44,50 +44,50 @@ const Popover = <T,>({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
 
-  duration = getDefaultValue(duration, TOKENS.animation_duration_base)
+  duration = getDefaultValue(duration, TOKENS.animation_duration_base);
 
-  const touchable = useRef<View>(null)
-  const [showPopover, setShowPopover] = useState(false)
-  const animationConfig = useMemo(() => ({ duration }), [duration])
+  const touchable = useRef<View>(null);
+  const [showPopover, setShowPopover] = useState(false);
+  const animationConfig = useMemo(() => ({ duration }), [duration]);
 
   const openPopover = useCallback(() => {
-    setShowPopover(true)
-  }, [])
+    setShowPopover(true);
+  }, []);
   const closePopover = useCallback(() => {
-    setShowPopover(false)
-  }, [])
+    setShowPopover(false);
+  }, []);
 
   const _onSelect = (value: T, index: number) => {
     if (onSelect) {
-      onSelect(value, index)
+      onSelect(value, index);
     }
 
-    closePopover()
-  }
+    closePopover();
+  };
 
   const renderContent = () => {
     const items = Children.map(content, (child, index) => {
       if (!isValidElement(child)) {
-        return child
+        return child;
       }
 
       return cloneElement(child as React.ReactElement<PopoverItemProps<T>>, {
         onSelect: (v: T) => _onSelect(v, index),
         dark: dark,
-      })
-    })
+      });
+    });
 
     if (typeof renderContentComponent === 'function') {
-      return renderContentComponent(items, closePopover)
+      return renderContentComponent(items, closePopover);
     }
 
-    return <ScrollView>{items}</ScrollView>
-  }
+    return <ScrollView>{items}</ScrollView>;
+  };
 
   return (
     <>
@@ -103,7 +103,7 @@ const Popover = <T,>({
       </TouchableOpacity>
       <RNPopoverView
         {...restProps}
-        from={touchable}
+        from={touchable as React.RefObject<React.Component>}
         isVisible={showPopover}
         backgroundStyle={[STYLES.background, backgroundStyle]}
         popoverStyle={[
@@ -119,9 +119,9 @@ const Popover = <T,>({
         {renderContent()}
       </RNPopoverView>
     </>
-  )
-}
+  );
+};
 
 export default memo(Popover) as <T>(
   p: React.PropsWithChildren<PopoverProps<T>>,
-) => React.ReactElement
+) => React.ReactElement;

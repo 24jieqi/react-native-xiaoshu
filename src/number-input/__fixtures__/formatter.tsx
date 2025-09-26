@@ -3,62 +3,61 @@
  * description: 通过 `formatter` 格式化数字，以展示具有具体含义的数据，往往需要配合 `parser` 一起使用。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, NumberInput } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, NumberInput } from '@fruits-chain/react-native-xiaoshu';
 
 const consoleNum = (n: number) => {
-  console.log('[新数据]  ->  ', n)
-}
+  console.log('[新数据]  ->  ', n);
+};
 
 function trimExtraChar(value: string, char: string, regExp: RegExp) {
-  const index = value.indexOf(char)
+  const index = value.indexOf(char);
 
   if (index === -1) {
-    return value
+    return value;
   }
 
   if (char === '-' && index !== 0) {
-    return value.slice(0, index)
+    return value.slice(0, index);
   }
 
-  return value.slice(0, index + 1) + value.slice(index).replace(regExp, '')
+  return value.slice(0, index + 1) + value.slice(index).replace(regExp, '');
 }
 
 function formatNumber(value: string, allowDot = true, allowMinus = true) {
   if (allowDot) {
-    value = trimExtraChar(value, '.', /\./g)
+    value = trimExtraChar(value, '.', /\./g);
   } else {
-    value = value.split('.')[0]
+    value = value.split('.')[0];
   }
 
   if (allowMinus) {
-    value = trimExtraChar(value, '-', /-/g)
+    value = trimExtraChar(value, '-', /-/g);
   } else {
-    value = value.replace(/-/, '')
+    value = value.replace(/-/, '');
   }
 
-  const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g
+  const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g;
 
-  return value.replace(regExp, '')
+  return value.replace(regExp, '');
 }
 
-const formatterTo = (t: string, sign?: string) => {
-  !sign && (sign = ',')
-  var parts = (t || '').split('.')
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sign)
-  return parts.join('.')
-}
+const formatterTo = (t: string, sign = ',') => {
+  const parts = (t || '').split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sign);
+  return parts.join('.');
+};
 
 const parserNum = (n: string) => {
   if (n) {
-    return +Number(formatNumber(n)).toFixed(2)
+    return +Number(formatNumber(n)).toFixed(2);
   }
-  return null
-}
+  return null;
+};
 
 const BasicNumberInputFormatter: React.FC = () => {
-  const [value, setValue] = useState<number | undefined>(undefined)
+  const [value, setValue] = useState<number | undefined>(undefined);
 
   return (
     <Cell.Group title="格式化展示">
@@ -88,7 +87,7 @@ const BasicNumberInputFormatter: React.FC = () => {
         divider={false}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicNumberInputFormatter
+export default BasicNumberInputFormatter;

@@ -3,8 +3,8 @@
  * description: 适用于 bottom 方向弹出层、内部有不 autoFocus 输入框，弹出层有 autoFocus 输入框需求请参考「类似小红书弹出层评论」，针对 `iOS` 监听软键盘出现自动撑开到合适的高度。独立页面可以使用 `keyboard-aware-scroll-view` 实现，参考 `example/app/pages/demo/popup-text-input.tsx`。
  */
 
-import React, { useState } from 'react'
-import { Keyboard, ScrollView, Text } from 'react-native'
+import React, { useState } from 'react';
+import { Keyboard, ScrollView, Text } from 'react-native';
 
 import {
   Blank,
@@ -12,17 +12,17 @@ import {
   Button,
   TextInput,
   ButtonBar,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicPopupKeyboardShim: React.FC = () => {
-  const [visible, setVisible] = useState(false)
-  const [data, setData] = useState<string[]>([])
+  const [visible, setVisible] = useState(false);
+  const [data, setData] = useState<string[]>([]);
 
   return (
     <Blank top>
       <Button
         onPress={() => {
-          setVisible(true)
+          setVisible(true);
         }}
         text="底部弹出、内部有输入框"
       />
@@ -32,12 +32,12 @@ const BasicPopupKeyboardShim: React.FC = () => {
         position="bottom"
         round
         onClose={() => {
-          Keyboard.dismiss()
+          Keyboard.dismiss();
         }}>
         <Popup.Header
           title="底部弹出、内部有输入框"
           onClose={() => {
-            setVisible(false)
+            setVisible(false);
           }}
         />
         <Blank>
@@ -48,23 +48,26 @@ const BasicPopupKeyboardShim: React.FC = () => {
             onChangeText={text => {
               setData(
                 text ? new Array(20).fill(0).map((_, i) => `${text}-${i}`) : [],
-              )
+              );
             }}
           />
         </Blank>
 
-        <ScrollView style={{ maxHeight: 200 }}>
+        <ScrollView
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ maxHeight: 200 }}>
           {data.map(item => {
             return (
               <Text
                 key={item}
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                   paddingVertical: 8,
                   paddingHorizontal: 12,
                 }}>
                 {item}
               </Text>
-            )
+            );
           })}
         </ScrollView>
 
@@ -76,7 +79,7 @@ const BasicPopupKeyboardShim: React.FC = () => {
         </ButtonBar>
       </Popup>
     </Blank>
-  )
-}
+  );
+};
 
-export default BasicPopupKeyboardShim
+export default BasicPopupKeyboardShim;

@@ -1,6 +1,6 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from 'react';
 
-import type { DescriptionContextState } from './interface'
+import type { DescriptionContextState } from './interface';
 
 const DescriptionContext = createContext<DescriptionContextState>({
   colon: true,
@@ -8,8 +8,8 @@ const DescriptionContext = createContext<DescriptionContextState>({
   size: 'm',
   empty: '--',
   showEmpty: false,
-})
+});
 
-export const useDescription = () => useContext(DescriptionContext)
+export const useDescription = () => useContext(DescriptionContext);
 
-export default DescriptionContext
+export default DescriptionContext;

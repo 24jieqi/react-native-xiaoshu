@@ -2,11 +2,12 @@
  * title: 基本
  * description: 简单的展示。
  */
+import React from 'react';
 
-import { Empty } from '@fruits-chain/react-native-xiaoshu'
+import { Empty } from '@fruits-chain/react-native-xiaoshu';
 
 const EmptyBase = () => {
-  return <Empty />
-}
+  return <Empty />;
+};
 
-export default EmptyBase
+export default EmptyBase;

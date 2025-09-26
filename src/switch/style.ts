@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -15,10 +15,10 @@ export const varCreator = (TOKENS: TokensType) => {
     switch_disabled_opacity: TOKENS.opacity_60,
     switch_children_text_font_size: TOKENS.font_size_3,
     switch_children_text_color: TOKENS.white,
-  }
-}
+  };
+};
 
-export type SwitchTheme = ReturnType<typeof varCreator>
+export type SwitchTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: SwitchTheme) => {
   return StyleSheet.create({
@@ -51,5 +51,5 @@ export const styleCreator = (cv: SwitchTheme) => {
     disabled: {
       opacity: cv.switch_disabled_opacity,
     },
-  })
-}
+  });
+};

@@ -3,19 +3,19 @@
  * description: 简化版按钮，适合用于选择场景，和 Checkbox 组件有相似的作用。
  */
 
-import React, { memo } from 'react'
+import { ArrowDownOutline } from '@fruits-chain/icons-react-native';
+import React, { memo } from 'react';
 
 import {
   Button,
   Card,
   Space,
   Divider,
-} from '@fruits-chain/react-native-xiaoshu'
-import { ArrowDownOutline } from '@fruits-chain/icons-react-native'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onPress = () => {
-  console.log('点击按钮')
-}
+  console.log('点击按钮');
+};
 
 const ButtonOption: React.FC = () => {
   return (
@@ -198,7 +198,7 @@ const ButtonOption: React.FC = () => {
         </Space>
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonOption)
+export default memo(ButtonOption);

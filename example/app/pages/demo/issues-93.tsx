@@ -1,8 +1,8 @@
-import { Tabs } from '@fruits-chain/react-native-xiaoshu'
-import React from 'react'
-import { Text } from 'react-native'
+import { Tabs } from '@fruits-chain/react-native-xiaoshu';
+import React from 'react';
+import { Text } from 'react-native';
 
-import Layout from '~/layouts/layout'
+import Layout from '~/layouts/layout';
 
 const Issues93 = () => {
   return (
@@ -20,7 +20,7 @@ const Issues93 = () => {
         </Tabs.TabPane>
       </Tabs>
     </Layout.Page>
-  )
-}
+  );
+};
 
-export default Issues93
+export default Issues93;

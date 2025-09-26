@@ -1,4 +1,4 @@
-import type { Locale } from '../interface'
+import type { Locale } from '../interface';
 
 const localeValues: Locale = {
   ButtonBar: {
@@ -79,6 +79,6 @@ const localeValues: Locale = {
     labelIng: 'Uploading...',
     labelFail: `failed, try again`,
   },
-}
+};
 
-export default localeValues
+export default localeValues;

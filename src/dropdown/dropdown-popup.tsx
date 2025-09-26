@@ -1,21 +1,21 @@
-import React, { useCallback, useMemo, memo } from 'react'
-import type { ViewStyle, LayoutChangeEvent } from 'react-native'
+import React, { useCallback, useMemo, memo } from 'react';
+import type { ViewStyle, LayoutChangeEvent } from 'react-native';
 import {
   TouchableWithoutFeedback,
   View,
   useWindowDimensions,
-} from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import useState from '../hooks/useStateUpdate'
-import Popup from '../popup/popup'
-import Theme from '../theme'
+import useState from '../hooks/useStateUpdate';
+import Popup from '../popup/popup';
+import Theme from '../theme';
 
-import { useDropdownConfig } from './context'
-import type { DropdownPopupProps } from './interface'
-import { varCreator } from './style'
+import { useDropdownConfig } from './context';
+import type { DropdownPopupProps } from './interface';
+import { varCreator } from './style';
 
-const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' }
+const POPUP_STYLE: ViewStyle = { backgroundColor: 'transparent' };
 
 const DropdownPopup: React.FC<DropdownPopupProps> = ({
   zIndex,
@@ -30,30 +30,30 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
   children,
   ...restProps
 }) => {
-  const insets = useSafeAreaInsets()
-  const { height: windowHeight } = useWindowDimensions()
-  const { theme } = useDropdownConfig()
+  const insets = useSafeAreaInsets();
+  const { height: windowHeight } = useWindowDimensions();
+  const { theme } = useDropdownConfig();
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
+  });
 
   const [wrapperStyle, setWrapperStyle] = useState<ViewStyle>({
     maxHeight: 0,
-  })
+  });
 
   /** 弹出层可以的最大高度 */
   const onLayoutPlace = useCallback((e: LayoutChangeEvent) => {
     setWrapperStyle({
       maxHeight: e.nativeEvent.layout.height,
-    })
-  }, [])
+    });
+  }, []);
 
   const [_isBottom, _shadeStyles, _boxStyles] = useMemo(() => {
-    const topHeight = targetPageY - insets.top
+    const topHeight = targetPageY - insets.top;
     const bottomHeight =
-      windowHeight - targetPageY - targetHeight - insets.bottom
-    const isBottom = topHeight >= bottomHeight
+      windowHeight - targetPageY - targetHeight - insets.bottom;
+    const isBottom = topHeight >= bottomHeight;
 
     const shadeStyles: ViewStyle = {
       position: 'absolute',
@@ -66,7 +66,7 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
       ...(isBottom
         ? { top: targetPageY, bottom: 0 }
         : { top: 0, height: targetPageY + targetHeight }),
-    }
+    };
 
     const boxStyles: ViewStyle = {
       position: 'absolute',
@@ -80,9 +80,9 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
       ...(isBottom
         ? { top: 0, height: targetPageY }
         : { top: targetPageY + targetHeight, bottom: 0 }),
-    }
+    };
 
-    return [isBottom, shadeStyles, boxStyles]
+    return [isBottom, shadeStyles, boxStyles];
   }, [
     insets.bottom,
     insets.top,
@@ -90,15 +90,15 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
     targetPageY,
     windowHeight,
     zIndex,
-  ])
+  ]);
 
-  const placeholderHeight = _isBottom ? insets.top : insets.bottom
+  const placeholderHeight = _isBottom ? insets.top : insets.bottom;
   const placeholderJSX = (
     <TouchableWithoutFeedback
       onPress={closeOnPressOutside ? onPressShade : undefined}>
       <View style={{ height: placeholderHeight }} />
     </TouchableWithoutFeedback>
-  )
+  );
 
   return (
     <>
@@ -135,7 +135,7 @@ const DropdownPopup: React.FC<DropdownPopupProps> = ({
         </Popup>
       </View>
     </>
-  )
-}
+  );
+};
 
-export default memo(DropdownPopup)
+export default memo(DropdownPopup);

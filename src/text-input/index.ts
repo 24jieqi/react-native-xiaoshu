@@ -1,9 +1,9 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import { varCreator, styleCreator } from './style'
-import TextInput from './text-input'
+import { varCreator, styleCreator } from './style';
+import TextInput from './text-input';
 
 export default attachPropertiesToComponent(TextInput, {
   varCreator,
   styleCreator,
-})
+});

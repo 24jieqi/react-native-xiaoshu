@@ -2,8 +2,9 @@
  * title: 内置状态
  * description: 共有四种样式 primary、success、warning、error。
  */
+import React from 'react';
 
-import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu'
+import { NoticeBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const NoticeBarStatus = () => {
   return (
@@ -13,7 +14,7 @@ const NoticeBarStatus = () => {
       <NoticeBar message="一袋米要抗几楼，一袋米要抗二楼" status="warning" />
       <NoticeBar message="一袋米要抗几楼，一袋米要抗二楼" status="error" />
     </Space>
-  )
-}
+  );
+};
 
-export default NoticeBarStatus
+export default NoticeBarStatus;

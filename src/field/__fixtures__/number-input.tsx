@@ -3,11 +3,12 @@
  * description: 适用于纯数字输入。
  */
 
-import React, { useState } from 'react'
-import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react';
+
+import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicFieldTextInput: React.FC = () => {
-  const [text1, setText1] = useState<number | undefined>(undefined)
+  const [text1, setText1] = useState<number | undefined>(undefined);
 
   return (
     <Cell.Group title="Field NumberInput">
@@ -15,8 +16,9 @@ const BasicFieldTextInput: React.FC = () => {
         title="非受控输入框"
         placeholder="请输入"
         onChange={v => {
-          console.log(v)
+          console.log(v);
         }}
+        // eslint-disable-next-line react-native/no-inline-styles
         textInputStyle={{
           fontSize: 20,
         }}
@@ -25,7 +27,7 @@ const BasicFieldTextInput: React.FC = () => {
         title="非受控输入框:禁止输入"
         placeholder="请输入"
         onChange={v => {
-          console.log(v)
+          console.log(v);
         }}
         editable={false}
       />
@@ -34,7 +36,7 @@ const BasicFieldTextInput: React.FC = () => {
         type="digit"
         placeholder="请输入"
         onChange={v => {
-          console.log(v)
+          console.log(v);
         }}
       />
       <Field.NumberInput
@@ -42,7 +44,7 @@ const BasicFieldTextInput: React.FC = () => {
         placeholder="请输入"
         defaultValue={100}
         onChange={v => {
-          console.log(v)
+          console.log(v);
         }}
       />
       <Field.NumberInput
@@ -50,7 +52,7 @@ const BasicFieldTextInput: React.FC = () => {
         placeholder="请输入"
         limitDecimals={3}
         onChange={v => {
-          console.log(v)
+          console.log(v);
         }}
       />
       <Field.NumberInput
@@ -64,7 +66,7 @@ const BasicFieldTextInput: React.FC = () => {
             size="xs"
             danger
             onPress={() => {
-              setText1(undefined)
+              setText1(undefined);
             }}
           />
         }
@@ -86,7 +88,7 @@ const BasicFieldTextInput: React.FC = () => {
         textInputBordered
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldTextInput
+export default BasicFieldTextInput;

@@ -3,8 +3,8 @@
  * description: 左右、上下布局，自定义 label、text 样式，自定义内容区域渲染、排版。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
 import {
   Description,
@@ -13,7 +13,7 @@ import {
   Button,
   Uploader,
   Theme,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const list = [
   {
@@ -24,10 +24,10 @@ const list = [
     key: (new Date().getTime() + 1).toString(),
     filepath: 'https://img.yzcdn.cn/vant/tree.jpg',
   },
-]
+];
 
 const DescriptionBase: React.FC = () => {
-  const { gray_1 } = Theme.useThemeTokens()
+  const { gray_1 } = Theme.useThemeTokens();
 
   return (
     <Space>
@@ -39,7 +39,11 @@ const DescriptionBase: React.FC = () => {
           <Description label="标题的题" text="一袋米要抗几楼" />
           <Description label="children 是 字符串">一袋米要抗几楼</Description>
           <Description label="children 是 ReactElement">
-            <Text style={{ color: '#987' }}>一袋米要抗几楼</Text>
+            <Text
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ color: '#987' }}>
+              一袋米要抗几楼
+            </Text>
           </Description>
           <Description label="标题的题" text="一袋米要抗二楼" />
           <Description label="标题的题" text="一袋米要给多了" />
@@ -69,6 +73,7 @@ const DescriptionBase: React.FC = () => {
           <Description
             align="center"
             justify="center"
+            // eslint-disable-next-line react-native/no-inline-styles
             contentStyle={{ flexBasis: 200, flexGrow: 0 }}
             label="对齐"
             text="一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞"
@@ -76,6 +81,7 @@ const DescriptionBase: React.FC = () => {
           <Description layout="vertical" label="配合 Uploader 组件使用">
             <Uploader
               list={list}
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{ flex: 1 }}
               showUpload={false}
               deletable={false}
@@ -88,7 +94,9 @@ const DescriptionBase: React.FC = () => {
         <Description.Group
           labelWidth={140}
           colon={false}
+          // eslint-disable-next-line react-native/no-inline-styles
           labelTextStyle={{ color: '#333' }}
+          // eslint-disable-next-line react-native/no-inline-styles
           contentTextStyle={{ color: '#f30' }}>
           <Description
             label="Description.Group"
@@ -99,11 +107,13 @@ const DescriptionBase: React.FC = () => {
           <Description
             label="labelTextStyle"
             text="一袋米要抗二楼"
+            // eslint-disable-next-line react-native/no-inline-styles
             labelTextStyle={{ color: '#690' }}
           />
           <Description
             label="contentTextStyle"
             text="一袋米要给多了"
+            // eslint-disable-next-line react-native/no-inline-styles
             contentTextStyle={{ color: '#098' }}
           />
           <Description label="bold" text="一袋米要给多了" bold />
@@ -145,11 +155,13 @@ const DescriptionBase: React.FC = () => {
             label="render"
             addonAfter={<Button type="ghost" size="xs" text="修改" />}
             text="10000"
+            // eslint-disable-next-line react-native/no-inline-styles
             contentTextStyle={{ flex: 1 }}
           />
           <Description
             label="children"
             addonAfter={<Button type="ghost" size="xs" text="修改" />}
+            // eslint-disable-next-line react-native/no-inline-styles
             contentTextStyle={{ flex: 1 }}>
             <Text>children</Text>
             <Text>children</Text>
@@ -158,7 +170,7 @@ const DescriptionBase: React.FC = () => {
         </Description.Group>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default DescriptionBase
+export default DescriptionBase;

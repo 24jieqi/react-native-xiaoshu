@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -9,10 +9,10 @@ export const varCreator = (TOKENS: TokensType) => {
     floating_panel_header_padding: TOKENS.space_3,
     floating_panel_header_text_font_size: TOKENS.font_size_7,
     floating_panel_header_text_color: TOKENS.gray_8,
-  }
-}
+  };
+};
 
-export type FloatingPanelTheme = ReturnType<typeof varCreator>
+export type FloatingPanelTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: FloatingPanelTheme) => {
   return StyleSheet.create({
@@ -50,5 +50,5 @@ export const styleCreator = (cv: FloatingPanelTheme) => {
     wrapper: {
       flex: 1,
     },
-  })
-}
+  });
+};

@@ -1,16 +1,14 @@
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import PortalConsumer from './portal-consumer'
-import PortalHost, { portal, PortalContext } from './portal-host'
+import PortalConsumer from './portal-consumer';
+import PortalHost, { portal, PortalContext } from './portal-host';
 
 export type PortalProps = {
   /**
    * Content of the `Portal`.
    */
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
 /**
  * Portal allows to render a component at a different place in the parent tree.
@@ -36,11 +34,11 @@ export type PortalProps = {
  * ```
  */
 class Portal extends Component<PortalProps> {
-  static Host = PortalHost
-  static add = portal.add
-  static remove = portal.remove
+  static Host = PortalHost;
+  static add = portal.add;
+  static remove = portal.remove;
   render() {
-    const { children } = this.props
+    const { children } = this.props;
 
     return (
       <PortalContext.Consumer>
@@ -48,8 +46,8 @@ class Portal extends Component<PortalProps> {
           <PortalConsumer manager={manager}>{children}</PortalConsumer>
         )}
       </PortalContext.Consumer>
-    )
+    );
   }
 }
 
-export default Portal
+export default Portal;

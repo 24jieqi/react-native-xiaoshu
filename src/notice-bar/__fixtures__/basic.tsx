@@ -1,11 +1,11 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import NoticeBarBase from './base'
-import NoticeBarStatus from './status'
-import NoticeBarSize from './size'
-import NoticeBarMode from './mode'
-import NoticeBarCustom from './custom'
+import NoticeBarBase from './base';
+import NoticeBarCustom from './custom';
+import NoticeBarMode from './mode';
+import NoticeBarSize from './size';
+import NoticeBarStatus from './status';
 
 const BasicNoticeBar: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const BasicNoticeBar: React.FC = () => {
 
       <NoticeBarCustom />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicNoticeBar
+export default BasicNoticeBar;

@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react'
-import React from 'react'
+import type { ReactNode } from 'react';
+import React from 'react';
 // import {} from ''
 
-import Space from '../space'
+import Space from '../space';
 
 export const renderAlignCenter = (
   context: ReactNode,
@@ -15,8 +15,8 @@ export const renderAlignCenter = (
       {context}
       {addonAfter}
     </Space>
-  )
-}
+  );
+};
 
 export const renderDateRangeAlignFlexStart = (
   context: ReactNode,
@@ -29,5 +29,5 @@ export const renderDateRangeAlignFlexStart = (
       {context}
       {addonAfter}
     </Space>
-  )
-}
+  );
+};

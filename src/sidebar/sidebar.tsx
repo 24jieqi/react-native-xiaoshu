@@ -1,18 +1,18 @@
-import isNil from 'lodash/isNil'
-import isUndefined from 'lodash/isUndefined'
-import React, { memo } from 'react'
-import { View, Text, ScrollView, TouchableHighlight } from 'react-native'
+import isNil from 'lodash/isNil';
+import isUndefined from 'lodash/isUndefined';
+import React, { memo } from 'react';
+import { View, Text, ScrollView, TouchableHighlight } from 'react-native';
 
-import Badge from '../badge'
-import { useControllableValue } from '../hooks'
-import Loading from '../loading'
-import Locale from '../locale'
-import Result from '../result'
-import ResultIconEmpty from '../result/icons/result-icon-empty'
-import Theme from '../theme'
+import Badge from '../badge';
+import { useControllableValue } from '../hooks';
+import Loading from '../loading';
+import Locale from '../locale';
+import Result from '../result';
+import ResultIconEmpty from '../result/icons/result-icon-empty';
+import Theme from '../theme';
 
-import type { SidebarProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { SidebarProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const Sidebar: React.FC<SidebarProps> = ({
   theme,
@@ -26,15 +26,15 @@ const Sidebar: React.FC<SidebarProps> = ({
   const [value, onChange] = useControllableValue(restProps, {
     valuePropName: 'activeValue',
     defaultValuePropName: 'defaultActiveValue',
-  })
-  const locale = Locale.useLocale().Sidebar
+  });
+  const locale = Locale.useLocale().Sidebar;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
-  const isEmpty = loading || options.length === 0
-  const curIndex = options.findIndex(o => o.value === value)
+  });
+  const isEmpty = loading || options.length === 0;
+  const curIndex = options.findIndex(o => o.value === value);
 
   return (
     <View
@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               status="warning"
               subtitle={locale.labelNoData}
               renderIcon={() => {
-                return <ResultIconEmpty width={60} height={60} />
+                return <ResultIconEmpty width={60} height={60} />;
               }}
             />
           ) : (
@@ -67,9 +67,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         {!loading && options.length > 0 ? (
           <View style={STYLES.list}>
             {options.map((item, index) => {
-              const isActive = value === item.value
-              const isPrev = index + 1 === curIndex
-              const isNext = index - 1 === curIndex
+              const isActive = value === item.value;
+              const isPrev = index + 1 === curIndex;
+              const isNext = index - 1 === curIndex;
               const textJSX = (
                 <Text
                   style={[
@@ -81,14 +81,14 @@ const Sidebar: React.FC<SidebarProps> = ({
                   ]}>
                   {item.label}
                 </Text>
-              )
+              );
 
               return (
                 <TouchableHighlight
                   key={item.value}
                   underlayColor={CV.sidebar_item_underlay_color}
                   onPress={() => {
-                    onChange(item.value)
+                    onChange(item.value);
                   }}
                   disabled={item.disabled}
                   style={[
@@ -109,13 +109,13 @@ const Sidebar: React.FC<SidebarProps> = ({
                     </View>
                   </>
                 </TouchableHighlight>
-              )
+              );
             })}
           </View>
         ) : null}
       </ScrollView>
     </View>
-  )
-}
+  );
+};
 
-export default memo(Sidebar)
+export default memo(Sidebar);

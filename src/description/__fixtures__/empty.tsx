@@ -3,16 +3,16 @@
  * description: 支持自定义空数据占位符。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Description, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Description, Card, Space } from '@fruits-chain/react-native-xiaoshu';
 
-const d = new Date()
+const d = new Date();
 
 const dd: [Date, Date] = [
   new Date(2016, 6, 20, 18, 40, 10),
   new Date(2026, 2, 10, 12, 20, 50),
-]
+];
 
 const DescriptionEmpty: React.FC = () => {
   return (
@@ -80,7 +80,7 @@ const DescriptionEmpty: React.FC = () => {
         </Description.Group>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default DescriptionEmpty
+export default DescriptionEmpty;

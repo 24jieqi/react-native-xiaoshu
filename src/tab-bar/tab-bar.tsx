@@ -1,21 +1,21 @@
-import isNil from 'lodash/isNil'
-import isNumber from 'lodash/isNumber'
-import React, { useState, useRef, memo, useCallback, useEffect } from 'react'
-import type { LayoutChangeEvent, LayoutRectangle } from 'react-native'
-import { Text, TouchableOpacity, ScrollView, Animated } from 'react-native'
+import isNil from 'lodash/isNil';
+import isNumber from 'lodash/isNumber';
+import React, { useState, useRef, memo, useCallback, useEffect } from 'react';
+import type { LayoutChangeEvent, LayoutRectangle } from 'react-native';
+import { Text, TouchableOpacity, ScrollView, Animated } from 'react-native';
 
-import BottomBar from '../bottom-bar'
-import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue } from '../helpers'
+import BottomBar from '../bottom-bar';
+import { varCreator as varCreatorButton } from '../button/style';
+import { getDefaultValue } from '../helpers';
 import {
   useControllableValue,
   useOriginalDeepCopy,
   useUpdateEffect,
-} from '../hooks'
-import Theme from '../theme'
+} from '../hooks';
+import Theme from '../theme';
 
-import type { TabBarProps, TabValue } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { TabBarProps, TabValue } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const TabBar = <T extends TabValue>({
   theme,
@@ -35,62 +35,62 @@ const TabBar = <T extends TabValue>({
   style,
   ...restProps
 }: TabBarProps<T>) => {
-  const _labelBulge = isNumber(labelBulge) ? labelBulge : labelBulge ? 1.2 : 0
-  const tabNum = options.length
-  const isTabAdaption = tabAlign === 'center'
-  const isTabTextCompact = isNil(indicatorWidth)
-  const isIndicatorWidthLayout = isTabTextCompact || indicatorWidth === 0
+  const _labelBulge = isNumber(labelBulge) ? labelBulge : labelBulge ? 1.2 : 0;
+  const tabNum = options.length;
+  const isTabAdaption = tabAlign === 'center';
+  const isTabTextCompact = isNil(indicatorWidth);
+  const isIndicatorWidthLayout = isTabTextCompact || indicatorWidth === 0;
   const [value, onChange] = useControllableValue(restProps, {
     defaultValue: options[0]?.value,
-  })
+  });
   const [CV, STYLES, TOKENS] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
 
-  const optionsDeepCopy = useOriginalDeepCopy(options)
+  const optionsDeepCopy = useOriginalDeepCopy(options);
   const [state, setState] = useState({
     layoutFinish: false,
-  })
+  });
   const layouts = useRef<{ tab: LayoutRectangle; text: LayoutRectangle }[]>(
     new Array(tabNum).fill({}),
-  )
-  const AnimatedIndicatorLeft = useRef(new Animated.Value(0))
-  const AnimatedIndicatorWidth = useRef(new Animated.Value(0))
-  const ScrollViewRef = useRef<ScrollView>(null)
-  const ScrollViewWidthRef = useRef(0)
+  );
+  const AnimatedIndicatorLeft = useRef(new Animated.Value(0));
+  const AnimatedIndicatorWidth = useRef(new Animated.Value(0));
+  const ScrollViewRef = useRef<ScrollView>(null);
+  const ScrollViewWidthRef = useRef(0);
 
   if (indicator && isNil(height)) {
-    height = 40
+    height = 40;
   }
 
-  textColor = getDefaultValue(textColor, CV.tab_bar_text_color)
-  iconColor = getDefaultValue(iconColor, CV.tab_bar_icon_color)
+  textColor = getDefaultValue(textColor, CV.tab_bar_text_color);
+  iconColor = getDefaultValue(iconColor, CV.tab_bar_icon_color);
   activeTextColor = getDefaultValue(
     activeTextColor,
     CV.tab_bar_active_text_color,
-  )
+  );
   activeIconColor = getDefaultValue(
     activeIconColor,
     CV.tab_bar_active_icon_color,
-  )
-  indicatorColor = getDefaultValue(indicatorColor, CV.tab_bar_indicator_color)
+  );
+  indicatorColor = getDefaultValue(indicatorColor, CV.tab_bar_indicator_color);
 
   const navigateTo = useCallback(
     (n: number) => {
-      const targetLayout = layouts.current[n]
+      const targetLayout = layouts.current[n];
       const left =
         targetLayout.tab.x +
         (targetLayout.tab.width -
           (isIndicatorWidthLayout ? targetLayout.text.width : indicatorWidth)) /
-          2
+          2;
       const width = isIndicatorWidthLayout
         ? targetLayout.text.width
-        : indicatorWidth
+        : indicatorWidth;
 
       Animated.parallel([
         Animated.timing(AnimatedIndicatorLeft.current, {
@@ -103,14 +103,14 @@ const TabBar = <T extends TabValue>({
           useNativeDriver: false,
           duration: TOKENS.animation_duration_base,
         }),
-      ]).start()
+      ]).start();
 
       if (!isTabAdaption) {
-        const hh = ScrollViewWidthRef.current / 2
+        const hh = ScrollViewWidthRef.current / 2;
         ScrollViewRef.current?.scrollTo({
           x: targetLayout.tab.x + targetLayout.tab.width / 2 - hh,
           animated: true,
-        })
+        });
       }
     },
     [
@@ -119,61 +119,61 @@ const TabBar = <T extends TabValue>({
       isIndicatorWidthLayout,
       isTabAdaption,
     ],
-  )
+  );
 
   const initIndicator = useCallback(() => {
-    const layoutItems = layouts.current.filter(item => item.tab && item.text)
+    const layoutItems = layouts.current.filter(item => item.tab && item.text);
 
     if (layoutItems.length === layouts.current.length) {
       setState(s => ({
         ...s,
         layoutFinish: true,
-      }))
+      }));
     }
-  }, [])
+  }, []);
 
   useUpdateEffect(() => {
     setState({
       layoutFinish: false,
-    })
-  }, [optionsDeepCopy])
+    });
+  }, [optionsDeepCopy]);
 
   useEffect(() => {
     if (state.layoutFinish) {
-      const n = optionsDeepCopy.findIndex(item => item.value === value)
+      const n = optionsDeepCopy.findIndex(item => item.value === value);
 
-      navigateTo(n)
+      navigateTo(n);
     }
-  }, [value, optionsDeepCopy, state.layoutFinish, navigateTo])
+  }, [value, optionsDeepCopy, state.layoutFinish, navigateTo]);
 
   const onLayoutScrollView = useCallback((e: LayoutChangeEvent) => {
-    ScrollViewWidthRef.current = e.nativeEvent.layout.width
-  }, [])
+    ScrollViewWidthRef.current = e.nativeEvent.layout.width;
+  }, []);
 
   const genOnPress = (v: T) => () => {
-    onChange(v)
-  }
+    onChange(v);
+  };
 
   const genOnLayoutTab = (i: number) => (e: LayoutChangeEvent) => {
     layouts.current[i] = {
       text: layouts.current[i]?.text,
       tab: e.nativeEvent.layout,
-    }
+    };
 
-    initIndicator()
-  }
+    initIndicator();
+  };
 
   const genOnLayoutText = (i: number) => (e: LayoutChangeEvent) => {
     layouts.current[i] = {
       tab: layouts.current[i]?.tab,
       text: e.nativeEvent.layout,
-    }
+    };
 
-    initIndicator()
-  }
+    initIndicator();
+  };
 
   const tabs = optionsDeepCopy.map((item, index) => {
-    const isActive = item.value === value
+    const isActive = item.value === value;
 
     return (
       <TouchableOpacity
@@ -223,8 +223,8 @@ const TabBar = <T extends TabValue>({
           ) : null}
         </Text>
       </TouchableOpacity>
-    )
-  })
+    );
+  });
 
   const indicatorJSX =
     indicator && state.layoutFinish ? (
@@ -239,7 +239,7 @@ const TabBar = <T extends TabValue>({
           bottom: 0,
         }}
       />
-    ) : null
+    ) : null;
 
   return (
     <BottomBar {...restProps} height={height} style={[STYLES.tab_bar, style]}>
@@ -269,9 +269,9 @@ const TabBar = <T extends TabValue>({
         </ScrollView>
       )}
     </BottomBar>
-  )
-}
+  );
+};
 
 export default memo(TabBar) as <T extends TabValue>(
   p: TabBarProps<T>,
-) => JSX.Element
+) => React.ReactElement;

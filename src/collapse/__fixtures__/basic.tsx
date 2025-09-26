@@ -1,10 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * title: 综合用法
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useCallback, useState } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import React, { useCallback, useState } from 'react';
+import { View, Text, ScrollView } from 'react-native';
 
 import {
   Collapse,
@@ -12,19 +13,19 @@ import {
   Space,
   Button,
   Popup,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicCollapse: React.FC = () => {
-  const [value, setValue] = useState(false)
-  const [visible, setVisible] = useState(false)
-  const [openKey, setOpenKey] = useState<number | undefined>()
+  const [value, setValue] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [openKey, setOpenKey] = useState<number | undefined>();
 
   return (
     <ScrollView>
       <Button
         text="打开弹出"
         onPress={() => {
-          setVisible(true)
+          setVisible(true);
         }}
       />
 
@@ -32,7 +33,7 @@ const BasicCollapse: React.FC = () => {
         <Popup.Header
           title="测试"
           onClose={() => {
-            setVisible(false)
+            setVisible(false);
           }}
         />
         {new Array(5).fill(0).map((_, index) => {
@@ -42,11 +43,11 @@ const BasicCollapse: React.FC = () => {
               collapse={index === openKey}
               title={`${index} 项`}
               onCollapse={collapse => {
-                setOpenKey(collapse ? index : undefined)
+                setOpenKey(collapse ? index : undefined);
               }}>
               <View style={{ height: 300 }} />
             </Collapse>
-          )
+          );
         })}
       </Popup>
 
@@ -54,7 +55,7 @@ const BasicCollapse: React.FC = () => {
         <Collapse
           title="标题11"
           onAnimationEnd={v => {
-            console.log('动画结束:title 固定 => ', v)
+            console.log('动画结束:title 固定 => ', v);
           }}>
           <Text style={{ lineHeight: 20 }}>文案</Text>
           <View style={{ height: 20 }} />
@@ -119,7 +120,7 @@ const BasicCollapse: React.FC = () => {
           renderTitle={useCallback((v: boolean) => {
             return (
               <Text>{`不要这样写 useCallback：${v ? '好的' : `\n不好`}`}</Text>
-            )
+            );
           }, [])}
           renderTitleExtra={useCallback(
             (v: boolean, arrowJSX: React.ReactNode) => {
@@ -128,7 +129,7 @@ const BasicCollapse: React.FC = () => {
                   <Text>{v ? '点击收齐' : '点击展开'}</Text>
                   {arrowJSX}
                 </Space>
-              )
+              );
             },
             [],
           )}
@@ -139,10 +140,10 @@ const BasicCollapse: React.FC = () => {
                 <View style={{ height: 400 }} />
                 <Text style={{ lineHeight: 20 }}>文案</Text>
               </>
-            )
+            );
           }, [])}
           onAnimationEnd={v => {
-            console.log('动画结束:title 动态变化 => ', v)
+            console.log('动画结束:title 动态变化 => ', v);
           }}
         />
 
@@ -251,7 +252,7 @@ const BasicCollapse: React.FC = () => {
                 <Text>{`不要这样写 useCallback：${
                   v ? '好的' : `\n不好\n不好\n`
                 }`}</Text>
-              )
+              );
             }, [])}
             renderTitleExtra={useCallback(
               (v: boolean, arrowJSX: React.ReactNode) => {
@@ -260,7 +261,7 @@ const BasicCollapse: React.FC = () => {
                     <Text>{v ? '点击收齐' : '点击展开'}</Text>
                     {arrowJSX}
                   </Space>
-                )
+                );
               },
               [],
             )}
@@ -271,10 +272,10 @@ const BasicCollapse: React.FC = () => {
                   <View style={{ height: 400 }} />
                   <Text style={{ lineHeight: 20 }}>文案</Text>
                 </>
-              )
+              );
             }, [])}
             onAnimationEnd={v => {
-              console.log('动画结束 => ', v)
+              console.log('动画结束 => ', v);
             }}
           />
 
@@ -315,7 +316,7 @@ const BasicCollapse: React.FC = () => {
         </Space>
       </Cell.Group>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicCollapse
+export default BasicCollapse;

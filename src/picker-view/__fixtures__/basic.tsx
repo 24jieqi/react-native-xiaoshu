@@ -3,12 +3,12 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import PickerViewSingle from './single'
-import PickerViewMultiple from './multiple'
-import PickerViewCascade from './cascade'
+import PickerViewCascade from './cascade';
+import PickerViewMultiple from './multiple';
+import PickerViewSingle from './single';
 
 const BasicMultiple: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const BasicMultiple: React.FC = () => {
 
       <PickerViewCascade />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicMultiple
+export default BasicMultiple;

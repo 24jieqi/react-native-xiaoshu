@@ -3,9 +3,8 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
-import { Text, View } from 'react-native'
+import React from 'react';
+import { ScrollView, Text, View } from 'react-native';
 
 import {
   Popover,
@@ -13,21 +12,22 @@ import {
   Space,
   Theme,
   Toast,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onSelect = (v: string, index: number) => {
-  Toast(`第 ${index} 个选项 => ${v}`)
-}
+  Toast(`第 ${index} 个选项 => ${v}`);
+};
 
 const BasicPopover: React.FC = () => {
-  const { white, black, gray_2 } = Theme.useThemeTokens()
-  const textStyle = { color: black }
+  const { white, black, gray_2 } = Theme.useThemeTokens();
+  const textStyle = { color: black };
 
   return (
     <ScrollView>
       <Space gap={300} tail style={{ backgroundColor: gray_2 }}>
         <Popover<string>
           trigger="onLongPress"
+          // eslint-disable-next-line react-native/no-inline-styles
           triggerStyle={{ backgroundColor: '#f30' }}
           popoverStyle={{ backgroundColor: black }}
           statusBarTranslucent
@@ -127,7 +127,9 @@ const BasicPopover: React.FC = () => {
           <Text style={textStyle}>内置文案 UI:单选项:深色</Text>
         </Popover>
 
-        <View style={{ flexDirection: 'row' }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ flexDirection: 'row' }}>
           <Popover
             dark
             statusBarTranslucent
@@ -142,7 +144,9 @@ const BasicPopover: React.FC = () => {
           </Popover>
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ flexDirection: 'row' }}>
           <Popover
             statusBarTranslucent
             shadow
@@ -167,7 +171,7 @@ const BasicPopover: React.FC = () => {
         </Popover>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicPopover
+export default BasicPopover;

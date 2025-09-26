@@ -3,9 +3,9 @@
  * description: 采用函数的方式使用，自定义标题、message、按钮，异步操作配合 `beforeClose` 控制点击按钮的 loading 状态。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell, Dialog } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Dialog } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicDialogBase: React.FC = () => {
   return (
@@ -19,8 +19,8 @@ const BasicDialogBase: React.FC = () => {
             message: '提示弹窗',
             width: 200,
           }).then(action => {
-            console.log('提示弹窗：', action)
-          })
+            console.log('提示弹窗：', action);
+          });
         }}
       />
       <Cell
@@ -32,8 +32,8 @@ const BasicDialogBase: React.FC = () => {
             message:
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
           }).then(action => {
-            console.log('提示弹窗：', action)
-          })
+            console.log('提示弹窗：', action);
+          });
         }}
       />
       <Cell
@@ -46,8 +46,8 @@ const BasicDialogBase: React.FC = () => {
             message:
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
           }).then(action => {
-            console.log('提示弹窗：', action)
-          })
+            console.log('提示弹窗：', action);
+          });
         }}
       />
       <Cell
@@ -58,8 +58,8 @@ const BasicDialogBase: React.FC = () => {
             title:
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森',
           }).then(action => {
-            console.log('提示弹窗：', action)
-          })
+            console.log('提示弹窗：', action);
+          });
         }}
       />
       <Cell
@@ -70,8 +70,8 @@ const BasicDialogBase: React.FC = () => {
             message:
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞，一袋米我洗了那么多泥，和那堆黑瓦，瓦坷垃，颗颗有泥，谁给你一袋米呦，辛辣天森',
           }).then(action => {
-            console.log('提示弹窗（无标题）：', action)
-          })
+            console.log('提示弹窗（无标题）：', action);
+          });
         }}
       />
       <Cell
@@ -86,9 +86,9 @@ const BasicDialogBase: React.FC = () => {
             if (action === 'confirm') {
               Dialog({
                 message: 'confirm',
-              })
+              });
             }
-          })
+          });
         }}
       />
       <Cell
@@ -99,7 +99,7 @@ const BasicDialogBase: React.FC = () => {
             title: '提示',
             message:
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
-          })
+          });
         }}
       />
       <Cell
@@ -112,7 +112,7 @@ const BasicDialogBase: React.FC = () => {
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
             confirmButtonColor: '#F30',
             confirmButtonText: '删除',
-          })
+          });
         }}
       />
       <Cell
@@ -126,7 +126,7 @@ const BasicDialogBase: React.FC = () => {
             cancelButtonTextBold: true,
             // 默认值就是 true
             // confirmButtonTextBold: true,
-          })
+          });
         }}
       />
       <Cell
@@ -137,7 +137,7 @@ const BasicDialogBase: React.FC = () => {
             title: '提示',
             message: '确定要删除这个数据吗？',
             onClosed: () => {
-              console.log('onClosedOnClosedOnClosedOnClosed')
+              console.log('onClosedOnClosedOnClosedOnClosed');
             },
             confirmButtonColor: '#690',
             confirmButtonText: '删除吗',
@@ -147,20 +147,20 @@ const BasicDialogBase: React.FC = () => {
               new Promise(resolve => {
                 setTimeout(() => {
                   if (action === 'cancel') {
-                    resolve(false)
+                    resolve(false);
                   } else {
-                    resolve(true)
+                    resolve(true);
                   }
-                }, 3000)
+                }, 3000);
               }),
           }).then(action => {
             if (action === 'confirm') {
-              console.log('确认弹窗->确定')
+              console.log('确认弹窗->确定');
             }
             if (action === 'cancel') {
-              console.log('确认弹窗->取消')
+              console.log('确认弹窗->取消');
             }
-          })
+          });
         }}
       />
       <Cell
@@ -172,11 +172,11 @@ const BasicDialogBase: React.FC = () => {
             title: '提示',
             message: '自定义 Overlay 颜色',
             overlayBackgroundColor: '#098',
-          })
+          });
         }}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicDialogBase
+export default BasicDialogBase;

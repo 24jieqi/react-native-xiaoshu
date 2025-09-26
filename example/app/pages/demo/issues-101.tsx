@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { Text } from 'react-native'
-import { Space, Button, Popup } from '@fruits-chain/react-native-xiaoshu'
+import { Space, Button, Popup } from '@fruits-chain/react-native-xiaoshu';
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 
-import Layout from '~/layouts/layout'
+import Layout from '~/layouts/layout';
 
 const Issues101 = () => {
-  const [visible1, setVisible1] = useState(false)
-  const [visible2, setVisible2] = useState(false)
+  const [visible1, setVisible1] = useState(false);
+  const [visible2, setVisible2] = useState(false);
 
   return (
     <Layout.Page>
@@ -15,7 +15,7 @@ const Issues101 = () => {
           type="primary"
           text="默认 Popup"
           onPress={() => {
-            setVisible1(true)
+            setVisible1(true);
           }}
         />
       </Space>
@@ -24,7 +24,7 @@ const Issues101 = () => {
         <Popup.Header
           title="Popup-1"
           onClose={() => {
-            setVisible1(false)
+            setVisible1(false);
           }}
         />
         <Text>再打开一个 popup</Text>
@@ -33,7 +33,7 @@ const Issues101 = () => {
           type="primary"
           text="再打开一个"
           onPress={() => {
-            setVisible2(true)
+            setVisible2(true);
           }}
         />
       </Popup>
@@ -42,13 +42,13 @@ const Issues101 = () => {
         <Popup.Header
           title="Popup-2"
           onClose={() => {
-            setVisible2(false)
+            setVisible2(false);
           }}
         />
         <Text>第二个</Text>
       </Popup>
     </Layout.Page>
-  )
-}
+  );
+};
 
-export default Issues101
+export default Issues101;

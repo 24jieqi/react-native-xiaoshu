@@ -1,13 +1,14 @@
-import type { ViewStyle } from 'react-native'
-import { Dimensions } from 'react-native'
+import type { ViewStyle } from 'react-native';
+import { Dimensions } from 'react-native';
 
-import type { PopupPosition } from './interface'
+import type { PopupPosition } from './interface';
 
 const isTopOrBottom = (position: PopupPosition) =>
-  position === 'top' || position === 'bottom'
+  position === 'top' || position === 'bottom';
 
 export const getTransform = (
   position: PopupPosition,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any,
 ): ViewStyle => {
   if (position === 'center') {
@@ -25,10 +26,10 @@ export const getTransform = (
       //     translateY: 0,
       //   },
       // ],
-    }
+    };
   }
 
-  const isY = isTopOrBottom(position)
+  const isY = isTopOrBottom(position);
 
   return {
     transform: [
@@ -40,37 +41,37 @@ export const getTransform = (
             translateX: value,
           },
     ],
-  }
-}
+  };
+};
 
 export const getPosition = (visible: boolean, position: PopupPosition) => {
   if (position === 'center') {
-    return visible ? 1 : 0
+    return visible ? 1 : 0;
   }
 
   if (visible) {
-    return 0
+    return 0;
   }
 
-  const screen = Dimensions.get('window')
+  const screen = Dimensions.get('window');
 
-  const x = screen.width * (visible ? 0 : 1)
-  const y = screen.height * (visible ? 0 : 1)
+  const x = screen.width * (visible ? 0 : 1);
+  const y = screen.height * (visible ? 0 : 1);
 
   switch (position) {
     case 'top':
-      return -y
+      return -y;
 
     case 'bottom':
-      return y
+      return y;
 
     case 'left':
-      return -x
+      return -x;
 
     case 'right':
-      return x
+      return x;
 
     default:
-      return 0
+      return 0;
   }
-}
+};

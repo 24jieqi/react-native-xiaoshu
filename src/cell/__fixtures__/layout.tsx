@@ -3,9 +3,9 @@
  * description: Cell 支持右侧文案左右、居中对齐，标题与内容上下布局。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell } from '@fruits-chain/react-native-xiaoshu'
+import { Cell } from '@fruits-chain/react-native-xiaoshu';
 
 const CellLayout: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const CellLayout: React.FC = () => {
       <Cell title="标题" value={`多行文本\n多行文本`} center isLink />
       <Cell title="最后一项" value="一般不显示分割线" divider={false} />
     </>
-  )
-}
+  );
+};
 
-export default CellLayout
+export default CellLayout;

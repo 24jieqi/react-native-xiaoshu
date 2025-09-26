@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   wrapper: {
@@ -14,4 +14,4 @@ export default StyleSheet.create({
     top: 0,
     zIndex: 3,
   },
-})
+});

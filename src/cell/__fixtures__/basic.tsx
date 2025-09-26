@@ -1,12 +1,13 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { Cell } from '@fruits-chain/react-native-xiaoshu'
-import CellBase from './base'
-import CellDivider from './divider'
-import CellLayout from './layout'
-import CellExtra from './extra'
-import CellGroup from './group'
+import { Cell } from '@fruits-chain/react-native-xiaoshu';
+
+import CellBase from './base';
+import CellDivider from './divider';
+import CellExtra from './extra';
+import CellGroup from './group';
+import CellLayout from './layout';
 
 const BasicCell: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ const BasicCell: React.FC = () => {
 
       <CellGroup />
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicCell
+export default BasicCell;

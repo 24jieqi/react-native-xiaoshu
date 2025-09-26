@@ -1,11 +1,11 @@
-import React, { useMemo, memo } from 'react'
-import type { DimensionValue, ViewStyle } from 'react-native'
-import { View } from 'react-native'
+import React, { useMemo, memo } from 'react';
+import type { DimensionValue, ViewStyle } from 'react-native';
+import { View } from 'react-native';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { DividerLineProps } from './interface'
-import { varCreator } from './style'
+import type { DividerLineProps } from './interface';
+import { varCreator } from './style';
 
 /**
  * 分割线
@@ -17,11 +17,11 @@ const DividerLine: React.FC<DividerLineProps> = ({
   adaptive = true,
   direction = 'horizontal',
 }) => {
-  const isVertical = direction === 'vertical'
+  const isVertical = direction === 'vertical';
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
+  });
 
   const viewStyle = useMemo(() => {
     if (isVertical) {
@@ -30,7 +30,7 @@ const DividerLine: React.FC<DividerLineProps> = ({
         width: 1,
         height: '100%' as DimensionValue,
         backgroundColor: color,
-      }
+      };
     }
 
     const s: ViewStyle = {
@@ -38,24 +38,24 @@ const DividerLine: React.FC<DividerLineProps> = ({
       maxWidth: 'auto',
       height: 1,
       backgroundColor: color,
-    }
+    };
 
     if (position === 'left') {
-      s.marginRight = CV.divider_margin_horizontal
+      s.marginRight = CV.divider_margin_horizontal;
     }
 
     if (position === 'right') {
-      s.marginLeft = CV.divider_margin_horizontal
+      s.marginLeft = CV.divider_margin_horizontal;
     }
 
     if (!adaptive) {
       s.maxWidth =
         position === 'left'
           ? CV.divider_content_left_width
-          : CV.divider_content_right_width
+          : CV.divider_content_right_width;
     }
 
-    return s
+    return s;
   }, [
     adaptive,
     color,
@@ -64,9 +64,9 @@ const DividerLine: React.FC<DividerLineProps> = ({
     CV.divider_margin_horizontal,
     CV.divider_content_left_width,
     CV.divider_content_right_width,
-  ])
+  ]);
 
-  return <View style={viewStyle} />
-}
+  return <View style={viewStyle} />;
+};
 
-export default memo(DividerLine)
+export default memo(DividerLine);

@@ -1,10 +1,10 @@
-import type { TouchableWithoutFeedbackProps, FlexStyle } from 'react-native'
+import type { TouchableWithoutFeedbackProps, FlexStyle } from 'react-native';
 
-import type { FixHitSlopProps } from '../helpers/types'
+import type { FixHitSlopProps } from '../helpers/types';
 
-export type FlexJustify = 'start' | 'end' | 'center' | 'between' | 'around'
+export type FlexJustify = 'start' | 'end' | 'center' | 'between' | 'around';
 
-export type FlexAlign = 'start' | 'center' | 'end' | 'baseline' | 'stretch'
+export type FlexAlign = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
 
 export interface FlexProps
   extends FixHitSlopProps<TouchableWithoutFeedbackProps> {
@@ -12,25 +12,25 @@ export interface FlexProps
    * flexDirection
    * @default 'row'
    */
-  direction?: FlexStyle['flexDirection']
+  direction?: FlexStyle['flexDirection'];
 
   /**
    * flexWrap
    * @default 'nowrap'
    */
-  wrap?: FlexStyle['flexWrap']
+  wrap?: FlexStyle['flexWrap'];
 
   /**
    * justifyContent
    * @default 'start'
    */
-  justify?: FlexJustify
+  justify?: FlexJustify;
 
   /**
    * alignItems
    * @default 'center'
    */
-  align?: FlexAlign
+  align?: FlexAlign;
 }
 
 export interface FlexItemProps
@@ -38,5 +38,5 @@ export interface FlexItemProps
   /**
    * @default 1
    */
-  flex?: FlexStyle['flex']
+  flex?: FlexStyle['flex'];
 }

@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -10,10 +10,10 @@ export const varCreator = (TOKENS: TokensType) => {
     search_gap: TOKENS.space_2,
     search_back_icon_color: TOKENS.gray_8,
     search_text_input_background_color: TOKENS.gray_3,
-  }
-}
+  };
+};
 
-export type SearchTheme = ReturnType<typeof varCreator>
+export type SearchTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: SearchTheme) => {
   return StyleSheet.create({
@@ -47,5 +47,5 @@ export const styleCreator = (cv: SearchTheme) => {
       marginRight: cv.search_gap,
       // backgroundColor: '#f30',
     },
-  })
-}
+  });
+};

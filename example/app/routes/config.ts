@@ -1,5 +1,5 @@
-import TOKENS from '@fruits-chain/design-tokens-bailu'
-import type { TextStyle } from 'react-native'
+import TOKENS from '@fruits-chain/design-tokens-bailu';
+import type { TextStyle } from 'react-native';
 
 export const buildHeaderTitleStyle = (p?: TextStyle): TextStyle => {
   return {
@@ -8,8 +8,8 @@ export const buildHeaderTitleStyle = (p?: TextStyle): TextStyle => {
     // color: '#11151A',
     fontWeight: 'bold',
     ...p,
-  }
-}
+  };
+};
 
 export const darkTheme = {
   dark: true,
@@ -21,7 +21,7 @@ export const darkTheme = {
     border: TOKENS.gray_7,
     notification: '#436195',
   },
-}
+};
 
 export const lightTheme = {
   dark: false,
@@ -33,4 +33,4 @@ export const lightTheme = {
     border: TOKENS.gray_2,
     notification: '#436195',
   },
-}
+};

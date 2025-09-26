@@ -3,17 +3,19 @@
  * description: 适用于单行、多行文本输入。
  */
 
-import React, { useState } from 'react'
-import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react';
+
+import { Cell, Field, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicFieldTextInput: React.FC = () => {
-  const [text1, setText1] = useState('')
+  const [text1, setText1] = useState('');
 
   return (
     <Cell.Group title="Field TextInput">
       <Field.TextInput
         title="非受控输入框"
         placeholder="请输入"
+        // eslint-disable-next-line react-native/no-inline-styles
         textInputStyle={{
           fontSize: 20,
         }}
@@ -29,7 +31,7 @@ const BasicFieldTextInput: React.FC = () => {
         placeholder="请输入"
         defaultValue="自带默认数据"
         onChange={v => {
-          console.log(v)
+          console.log(v);
         }}
       />
       <Field.TextInput
@@ -43,7 +45,7 @@ const BasicFieldTextInput: React.FC = () => {
             size="xs"
             danger
             onPress={() => {
-              setText1('')
+              setText1('');
             }}
           />
         }
@@ -58,6 +60,7 @@ const BasicFieldTextInput: React.FC = () => {
       <Field.TextInput
         vertical
         title="自定义 valueStyle"
+        // eslint-disable-next-line react-native/no-inline-styles
         valueStyle={{ marginTop: 16 }}
         placeholder="请输入"
         value={text1}
@@ -81,7 +84,7 @@ const BasicFieldTextInput: React.FC = () => {
         divider={false}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldTextInput
+export default BasicFieldTextInput;

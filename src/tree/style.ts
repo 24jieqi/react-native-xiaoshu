@@ -1,7 +1,7 @@
-import Color from 'color'
-import { StyleSheet } from 'react-native'
+import Color from 'color';
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -19,10 +19,10 @@ export const varCreator = (TOKENS: TokensType) => {
     tree_item_switcher_lightness: 95,
     tree_item_disabled_text_color: TOKENS.gray_5,
     tree_item_highlight_text_color: TOKENS.brand_6,
-  }
-}
+  };
+};
 
-export type TreeTheme = ReturnType<typeof varCreator>
+export type TreeTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: TreeTheme) => {
   return StyleSheet.create({
@@ -57,5 +57,5 @@ export const styleCreator = (cv: TreeTheme) => {
     tree_item_highlight_text: {
       color: cv.tree_item_highlight_text_color,
     },
-  })
-}
+  });
+};

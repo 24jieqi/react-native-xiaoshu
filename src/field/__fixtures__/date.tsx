@@ -3,15 +3,16 @@
  * description: 单个时间选择器。
  */
 
-import React, { useState } from 'react'
-import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+import React, { useState } from 'react';
 
-const formatValueText = (_: Date, __: any, s: string) => {
-  return `自定义：${s}`
-}
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu';
+
+const formatValueText = (_: Date, __: unknown, s: string) => {
+  return `自定义：${s}`;
+};
 
 const BasicFieldDate: React.FC = () => {
-  const [value, setValue] = useState(new Date())
+  const [value, setValue] = useState(new Date());
 
   return (
     <Cell.Group title="Field Date">
@@ -27,6 +28,7 @@ const BasicFieldDate: React.FC = () => {
           confirmButtonText: 'OKK',
           duration: 600,
         })}
+        // eslint-disable-next-line react-native/no-inline-styles
         valueTextStyle={{
           fontSize: 20,
         }}
@@ -64,7 +66,7 @@ const BasicFieldDate: React.FC = () => {
         placeholder="自己动手丰衣足食"
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldDate
+export default BasicFieldDate;

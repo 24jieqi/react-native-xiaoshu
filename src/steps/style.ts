@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -15,10 +15,10 @@ export const varCreator = (TOKENS: TokensType) => {
     steps_line_normal_color: '#5A9CFF',
     steps_title_color: TOKENS.white,
     steps_title_dot_color: 'rgba(255, 255, 255, 0.4)',
-  }
-}
+  };
+};
 
-export type StepsTheme = ReturnType<typeof varCreator>
+export type StepsTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: StepsTheme, TOKENS: TokensType) => {
   return StyleSheet.create({
@@ -85,5 +85,5 @@ export const styleCreator = (cv: StepsTheme, TOKENS: TokensType) => {
       color: cv.steps_title_color,
       marginHorizontal: TOKENS.space_1,
     },
-  })
-}
+  });
+};

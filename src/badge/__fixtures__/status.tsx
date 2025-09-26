@@ -3,11 +3,12 @@
  * description: 我们添加了多种预设色彩的徽标样式，用作不同场景使用。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
-import { Badge, Card, Space } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
+import { Text } from 'react-native';
 
-import BadgeDemoItem from './component/item'
+import { Badge, Card, Space } from '@fruits-chain/react-native-xiaoshu';
+
+import BadgeDemoItem from './component/item';
 
 const BadgeStatus: React.FC = () => {
   return (
@@ -71,7 +72,7 @@ const BadgeStatus: React.FC = () => {
         </Space>
       </Card>
     </Space>
-  )
-}
+  );
+};
 
-export default BadgeStatus
+export default BadgeStatus;

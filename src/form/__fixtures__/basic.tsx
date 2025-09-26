@@ -1,12 +1,13 @@
-import React from 'react'
-import { Space } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
 
-import Base from './base'
-import Ref from './ref'
-import Context from './context'
-import Deps from './deps'
-import List from './list'
-import UseFormInstance from './use-form-instance'
+import { Space } from '@fruits-chain/react-native-xiaoshu';
+
+import Base from './base';
+import Context from './context';
+import Deps from './deps';
+import List from './list';
+import Ref from './ref';
+import UseFormInstance from './use-form-instance';
 
 const BasicForm: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const BasicForm: React.FC = () => {
       <List />
       <UseFormInstance />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicForm
+export default BasicForm;

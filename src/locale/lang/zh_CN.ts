@@ -1,4 +1,4 @@
-import type { Locale } from '../interface'
+import type { Locale } from '../interface';
 
 const localeValues: Locale = {
   ButtonBar: {
@@ -79,6 +79,6 @@ const localeValues: Locale = {
     labelIng: '上传中...',
     labelFail: `上传失败\n点击重试`,
   },
-}
+};
 
-export default localeValues
+export default localeValues;

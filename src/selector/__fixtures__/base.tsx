@@ -3,11 +3,11 @@
  * description: 通过函数的方式使用，使用 `options` 填充选项，可以使用 `onChange` 响应改变后的值，也可以采用 Promise 的方式。`beforeChange` 可以拿到当前选择的值，也可以阻断弹出层关闭，返回 `boolean | Promise<boolean>`。
  */
 
-import React from 'react'
-import { Text, View } from 'react-native'
+import React from 'react';
+import { Text, View } from 'react-native';
 
-import { SelectorOption, Toast } from '@fruits-chain/react-native-xiaoshu'
-import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
+import type { SelectorOption } from '@fruits-chain/react-native-xiaoshu';
+import { Toast, Cell, Selector } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSelectorBase: React.FC = () => {
   return (
@@ -16,13 +16,13 @@ const BasicSelectorBase: React.FC = () => {
         title="单选"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
@@ -31,22 +31,22 @@ const BasicSelectorBase: React.FC = () => {
             value: 1,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
       <Cell
         title="单选:可取消"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
@@ -56,30 +56,47 @@ const BasicSelectorBase: React.FC = () => {
             cancellable: true,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
       <Cell
         title="单选:自定义渲染"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
               render: ({ label }) => (
+                // eslint-disable-next-line react-native/no-inline-styles
                 <View style={{ flex: 1 }}>
-                  <Text style={{ color: '#f30' }}>{label}</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#f30' }}>
+                    {label}
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
                 </View>
               ),
-            })
+            });
           }
 
           Selector({
@@ -88,22 +105,22 @@ const BasicSelectorBase: React.FC = () => {
             value: 1,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
       <Cell
         title="单选:超过一屏"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 20; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
@@ -112,22 +129,22 @@ const BasicSelectorBase: React.FC = () => {
             defaultValue: v[v.length - 2].value,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
       <Cell
         title="自定义顶部边距"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 20; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
@@ -136,9 +153,9 @@ const BasicSelectorBase: React.FC = () => {
             safeAreaInsetTop: 140,
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
       <Cell
@@ -148,120 +165,137 @@ const BasicSelectorBase: React.FC = () => {
           Selector({
             title: '测试选项',
             options: [],
-          }).catch(() => {})
+          }).catch(() => {});
         }}
       />
       <Cell
         title="函数响应，非 Promise"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
             title: '测试选项',
             options: v,
-            onChange: (v, o) => {
-              console.log(v)
-              console.log(o)
+            onChange: (vv, o) => {
+              console.log(vv);
+              console.log(o);
             },
-          }).catch(() => {})
+          }).catch(() => {});
         }}
       />
       <Cell
         title="beforeChange"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
             title: '测试选项',
             options: v,
-            beforeChange: (v, o) => {
-              console.log(v)
-              console.log(o)
+            beforeChange: (vv, o) => {
+              console.log(vv);
+              console.log(o);
               return new Promise<boolean>(resolve => {
                 const { close } = Toast.loading({
                   message: '核对中...',
                   forbidPress: true,
-                })
+                });
 
                 setTimeout(() => {
-                  close()
-                  resolve(true)
-                }, 500)
-              })
+                  close();
+                  resolve(true);
+                }, 500);
+              });
             },
-          }).catch(() => {})
+          }).catch(() => {});
         }}
       />
       <Cell
         title="多选"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
-            })
+            });
           }
 
           Selector({
             multiple: true,
             title: '测试选项',
             options: v,
-            onChange: (v, o) => {
-              console.log(v)
-              console.log(o)
+            onChange: (vv, o) => {
+              console.log(vv);
+              console.log(o);
             },
-          }).catch(() => {})
+          }).catch(() => {});
         }}
       />
       <Cell
         title="多选:自定义渲染"
         isLink
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 3; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
               render: ({ label }) => (
+                // eslint-disable-next-line react-native/no-inline-styles
                 <View style={{ flex: 1 }}>
-                  <Text style={{ color: '#f30' }}>{label}</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
-                  <Text style={{ color: '#999' }}>（优选）</Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#f30' }}>
+                    {label}
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
+                  <Text
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{ color: '#999' }}>
+                    （优选）
+                  </Text>
                 </View>
               ),
-            })
+            });
           }
 
           Selector({
             multiple: true,
             title: '测试选项',
             options: v,
-            onChange: (v, o) => {
-              console.log(v)
-              console.log(o)
+            onChange: (vv, o) => {
+              console.log(vv);
+              console.log(o);
             },
-          }).catch(() => {})
+          }).catch(() => {});
         }}
       />
       <Cell
@@ -269,14 +303,14 @@ const BasicSelectorBase: React.FC = () => {
         isLink
         divider={false}
         onPress={() => {
-          const v: SelectorOption[] = []
+          const v: SelectorOption[] = [];
 
           for (let index = 0; index < 20; index++) {
             v.push({
               label: `文案_${index}`,
               value: index,
               disabled: index < 5,
-            })
+            });
           }
 
           Selector({
@@ -286,13 +320,13 @@ const BasicSelectorBase: React.FC = () => {
             defaultValue: [1, 3, 4, 5],
           })
             .then(k => {
-              console.log(k)
+              console.log(k);
             })
-            .catch(() => {})
+            .catch(() => {});
         }}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicSelectorBase
+export default BasicSelectorBase;

@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
-import { TouchableOpacity, View } from 'react-native'
+import React, { memo } from 'react';
+import { TouchableOpacity, View } from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import Theme from '../theme';
 
-import type { PopoverItemProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { PopoverItemProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const PopoverItem = <T,>({
   children,
@@ -22,10 +22,10 @@ const PopoverItem = <T,>({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
 
   return (
     <TouchableOpacity
@@ -33,7 +33,7 @@ const PopoverItem = <T,>({
       disabled={disabled}
       onPress={() => {
         if (typeof onSelect === 'function') {
-          onSelect(value)
+          onSelect(value);
         }
       }}
       style={style}>
@@ -46,9 +46,9 @@ const PopoverItem = <T,>({
         {children}
       </View>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 export default memo(PopoverItem) as <T>(
   p: React.PropsWithChildren<PopoverItemProps<T>>,
-) => React.ReactElement
+) => React.ReactElement;

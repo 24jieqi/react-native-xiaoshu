@@ -3,9 +3,10 @@
  * description: 数据读入前会有文本块样式。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
-import { Card, Button, Space, Blank } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
+import { Text } from 'react-native';
+
+import { Card, Button, Space, Blank } from '@fruits-chain/react-native-xiaoshu';
 
 const CardLoading: React.FC = () => {
   return (
@@ -40,7 +41,7 @@ const CardLoading: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
-export default CardLoading
+export default CardLoading;

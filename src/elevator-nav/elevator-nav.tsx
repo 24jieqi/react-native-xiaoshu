@@ -1,14 +1,14 @@
-import React, { memo, useMemo, useRef } from 'react'
-import type { ScrollViewProps } from 'react-native'
-import { View, ScrollView } from 'react-native'
+import React, { memo, useMemo, useRef } from 'react';
+import type { ScrollViewProps } from 'react-native';
+import { View, ScrollView } from 'react-native';
 
-import type { ExcludeUndefined } from '../helpers/types'
-import { usePersistFn, useDifferentState, useUpdateEffect } from '../hooks'
-import TabBar from '../tab-bar'
+import type { ExcludeUndefined } from '../helpers/types';
+import { usePersistFn, useDifferentState, useUpdateEffect } from '../hooks';
+import TabBar from '../tab-bar';
 
-import { ElevatorContextProvider, useElevator } from './context'
-import type { ElevatorNavProps } from './interface'
-import STYLES from './style'
+import { ElevatorContextProvider, useElevator } from './context';
+import type { ElevatorNavProps } from './interface';
+import STYLES from './style';
 
 const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
   triggerOffset = 100,
@@ -20,14 +20,14 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
   onMomentumScrollEnd,
   ...restProps
 }) => {
-  const ScrollComponent = scrollComponent
-  const { registerScroll, elevator } = useElevator()
-  const ScrollViewRef = useRef<ScrollView>()
-  const ScrollTop = useRef(0)
-  const [showNav, setShowNav] = useDifferentState(false)
+  const ScrollComponent = scrollComponent;
+  const { registerScroll, elevator } = useElevator();
+  const ScrollViewRef = useRef<ScrollView>(null);
+  const ScrollTop = useRef(0);
+  const [showNav, setShowNav] = useDifferentState(false);
   const [tabBarValue, setTabBarValue] = useDifferentState<string | undefined>(
     undefined,
-  )
+  );
   const tabBarOptions = useMemo(
     () =>
       elevator.map(item => ({
@@ -35,60 +35,60 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
         label: item.label,
       })),
     [elevator],
-  )
+  );
   const tabBarKey = useMemo(
     () => JSON.stringify(tabBarOptions),
     [tabBarOptions],
-  )
-  const ActionChangeTabBarValue = useRef(false)
+  );
+  const ActionChangeTabBarValue = useRef(false);
   const initTabBar = usePersistFn((y: number) => {
-    const _showNav = y >= triggerOffset - tabBarHeight
+    const _showNav = y >= triggerOffset - tabBarHeight;
 
     // 滚动距离增加 tabBarHeight，UI 上已经滚动过去了
     // TODO 从体验上看，top 过了内容高度的三之一就算滚到了
-    const overElevators = elevator.filter(item => item.top <= y + tabBarHeight)
+    const overElevators = elevator.filter(item => item.top <= y + tabBarHeight);
 
-    const _tabBarValue = overElevators[overElevators.length - 1]?.label
+    const _tabBarValue = overElevators[overElevators.length - 1]?.label;
 
-    setShowNav(_showNav)
+    setShowNav(_showNav);
     if (_showNav && _tabBarValue && !ActionChangeTabBarValue.current) {
-      setTabBarValue(_tabBarValue)
+      setTabBarValue(_tabBarValue);
     }
-  })
+  });
 
   useUpdateEffect(() => {
     // 当布局变化时重新定位
-    initTabBar(ScrollTop.current)
-  }, [tabBarOptions])
+    initTabBar(ScrollTop.current);
+  }, [tabBarOptions]);
 
   // TODO 修复类型报错
-  registerScroll(ScrollViewRef as React.MutableRefObject<ScrollView>)
+  registerScroll(ScrollViewRef as React.MutableRefObject<ScrollView>);
 
   const onScrollPersist = usePersistFn<
     ExcludeUndefined<ScrollViewProps['onScroll']>
   >(e => {
-    onScroll?.(e)
+    onScroll?.(e);
 
-    ScrollTop.current = e.nativeEvent.contentOffset.y
+    ScrollTop.current = e.nativeEvent.contentOffset.y;
 
-    initTabBar(ScrollTop.current)
-  })
+    initTabBar(ScrollTop.current);
+  });
   const onChangeTabBar = usePersistFn((v: string) => {
-    setTabBarValue(v)
+    setTabBarValue(v);
 
-    ActionChangeTabBarValue.current = true
+    ActionChangeTabBarValue.current = true;
 
     ScrollViewRef.current?.scrollTo({
       y: elevator.filter(item => item.label === v)[0].top,
       animated: true,
-    })
-  })
+    });
+  });
   const onMomentumScrollEndPersist = usePersistFn<
     ExcludeUndefined<ScrollViewProps['onMomentumScrollEnd']>
   >(e => {
-    onMomentumScrollEnd?.(e)
-    ActionChangeTabBarValue.current = false
-  })
+    onMomentumScrollEnd?.(e);
+    ActionChangeTabBarValue.current = false;
+  });
 
   return (
     <View style={STYLES.wrapper} collapsable={false}>
@@ -115,8 +115,8 @@ const ElevatorNavInner: React.FC<React.PropsWithChildren<ElevatorNavProps>> = ({
         {children}
       </ScrollComponent>
     </View>
-  )
-}
+  );
+};
 
 const ElevatorNav: React.FC<
   React.PropsWithChildren<ElevatorNavProps>
@@ -125,7 +125,7 @@ const ElevatorNav: React.FC<
     <ElevatorContextProvider>
       <ElevatorNavInner {...props} />
     </ElevatorContextProvider>
-  )
-}
+  );
+};
 
-export default memo(ElevatorNav)
+export default memo(ElevatorNav);

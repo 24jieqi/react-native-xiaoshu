@@ -1,22 +1,22 @@
-import { ArrowLeftOutline } from '@fruits-chain/icons-react-native'
-import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { ArrowLeftOutline } from '@fruits-chain/icons-react-native';
+import isNil from 'lodash/isNil';
+import React, { memo } from 'react';
+import { View, TouchableOpacity } from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import Divider from '../divider'
-import { getDefaultValue, renderTextLikeJSX } from '../helpers'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import Divider from '../divider';
+import { getDefaultValue, renderTextLikeJSX } from '../helpers';
+import Theme from '../theme';
 
-import type { NavBarProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { NavBarProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const BACK_ARROW_HIT_SLOP = {
   left: 10,
   right: 10,
   // top: 0,
   // bottom: 0,
-}
+};
 
 /**
  * NavBar 导航栏
@@ -41,15 +41,18 @@ const NavBar: React.FC<NavBarProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
 
-  backArrowColor = getDefaultValue(backArrowColor, CV.nav_bar_icon_color)
-  backArrowSize = getDefaultValue(backArrowSize, CV.nav_bar_arrow_size)
+  backArrowColor = getDefaultValue(backArrowColor, CV.nav_bar_icon_color);
+  backArrowSize = getDefaultValue(backArrowSize, CV.nav_bar_arrow_size);
 
-  const titleJSX = renderTextLikeJSX(title, [STYLES.title_text, titleTextStyle])
+  const titleJSX = renderTextLikeJSX(title, [
+    STYLES.title_text,
+    titleTextStyle,
+  ]);
 
   return (
     <>
@@ -78,7 +81,7 @@ const NavBar: React.FC<NavBarProps> = ({
       </View>
       {divider ? <Divider /> : null}
     </>
-  )
-}
+  );
+};
 
-export default memo(NavBar)
+export default memo(NavBar);

@@ -3,15 +3,15 @@
  * description: 普通组件。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Selector } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSelectorComponent: React.FC = () => {
   const [state, setState] = useState<{
-    show: boolean
-    option: { value: number; label: string }[]
-    value?: number
+    show: boolean;
+    option: { value: number; label: string }[];
+    value?: number;
   }>({
     show: false,
     option: [
@@ -20,7 +20,7 @@ const BasicSelectorComponent: React.FC = () => {
       { value: 3, label: '3333333' },
     ],
     value: undefined,
-  })
+  });
 
   return (
     <>
@@ -29,11 +29,11 @@ const BasicSelectorComponent: React.FC = () => {
           title="组件调用"
           isLink
           onPress={() => {
-            console.log('组件调用 -> show')
+            console.log('组件调用 -> show');
             setState(s => ({
               ...s,
               show: true,
-            }))
+            }));
           }}
         />
         <Cell
@@ -41,11 +41,11 @@ const BasicSelectorComponent: React.FC = () => {
           isLink
           divider={false}
           onPress={() => {
-            console.log('组件调用 -> rest')
+            console.log('组件调用 -> rest');
             setState(s => ({
               ...s,
               value: undefined,
-            }))
+            }));
           }}
         />
       </Cell.Group>
@@ -56,25 +56,25 @@ const BasicSelectorComponent: React.FC = () => {
         options={state.option}
         value={state.value}
         onClose={() => {
-          console.log('组件调用 -> onClose')
+          console.log('组件调用 -> onClose');
           setState(s => ({
             ...s,
             show: false,
-          }))
+          }));
         }}
         onChange={(v, option) => {
-          console.log(v)
-          console.log(option)
-          console.log('组件调用 -> onChange')
+          console.log(v);
+          console.log(option);
+          console.log('组件调用 -> onChange');
           setState(s => ({
             ...s,
             value: v as number,
             show: false,
-          }))
+          }));
         }}
       />
     </>
-  )
-}
+  );
+};
 
-export default BasicSelectorComponent
+export default BasicSelectorComponent;

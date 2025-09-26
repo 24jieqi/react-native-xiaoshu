@@ -1,30 +1,30 @@
-import TOKENS from '@fruits-chain/design-tokens-bailu'
-import Color from 'color'
+import TOKENS from '@fruits-chain/design-tokens-bailu';
+import Color from 'color';
 
-import type { ThemeProviderProps, TokensType } from './interface'
+import type { ThemeProviderProps, TokensType } from './interface';
 
-const graded = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const
-const colors = ['brand', 'yellow', 'green', 'red'] as const
+const graded = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
+const colors = ['brand', 'yellow', 'green', 'red'] as const;
 
 const resetColorKey: string[] = colors
   .map(key => {
-    return graded.map(i => `${key}_${i}`)
+    return graded.map(i => `${key}_${i}`);
   })
   .reduce((prev, curr) => {
-    return [...prev, ...curr]
-  }, [])
+    return [...prev, ...curr];
+  }, []);
 
-const resetColorMap: Partial<TokensType> = {}
+const resetColorMap: Partial<TokensType> = {};
 
 resetColorKey.forEach(key => {
-  const color = TOKENS[key]
+  const color = TOKENS[key];
 
   // TODO 找到一个合适的颜色
-  resetColorMap[key] = Color(color).darken(0.3).hex()
-})
+  resetColorMap[key] = Color(color).darken(0.3).hex();
+});
 
-const darkTextColor = '#f9f9f9'
-const darkSubtextColor = '#B9BEC5'
+const darkTextColor = '#f9f9f9';
+const darkSubtextColor = '#B9BEC5';
 
 export const dark: ThemeProviderProps['theme'] = {
   white: '#2b2b2b',
@@ -76,4 +76,4 @@ export const dark: ThemeProviderProps['theme'] = {
   tag_text_color: darkTextColor,
 
   toast_background_color: 'rgb(229,229,231)',
-}
+};

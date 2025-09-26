@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -30,13 +30,13 @@ export const varCreator = (TOKENS: TokensType) => {
     cell_required_color: TOKENS.red_6,
     cell_required_width: TOKENS.space_3,
     cell_icon_link_margin_left: TOKENS.space_2,
-  }
-}
+  };
+};
 
-export type CellTheme = ReturnType<typeof varCreator>
+export type CellTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: CellTheme) => {
-  const innerHeight = cv.cell_title_height
+  const innerHeight = cv.cell_title_height;
 
   return StyleSheet.create({
     group_title: {
@@ -139,5 +139,5 @@ export const styleCreator = (cv: CellTheme) => {
       flexDirection: 'row',
       alignItems: 'center',
     },
-  })
-}
+  });
+};

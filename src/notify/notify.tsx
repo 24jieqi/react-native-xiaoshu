@@ -1,13 +1,13 @@
-import isNil from 'lodash/isNil'
-import React, { isValidElement, memo } from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import isNil from 'lodash/isNil';
+import React, { isValidElement, memo } from 'react';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import Popup from '../popup/popup'
-import Theme from '../theme'
+import Popup from '../popup/popup';
+import Theme from '../theme';
 
-import type { NotifyProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { NotifyProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Notify 消息提示
@@ -26,12 +26,12 @@ const Notify: React.FC<React.PropsWithChildren<NotifyProps>> = ({
   onPress,
   ...restProps
 }) => {
-  const insets = useSafeAreaInsets()
+  const insets = useSafeAreaInsets();
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   const messageJSX = !isNil(message) ? (
     isValidElement(message) ? (
@@ -51,7 +51,7 @@ const Notify: React.FC<React.PropsWithChildren<NotifyProps>> = ({
     )
   ) : (
     children
-  )
+  );
 
   return (
     <Popup {...restProps} overlay={false} position="top">
@@ -75,7 +75,7 @@ const Notify: React.FC<React.PropsWithChildren<NotifyProps>> = ({
         </View>
       </TouchableWithoutFeedback>
     </Popup>
-  )
-}
+  );
+};
 
-export default memo(Notify)
+export default memo(Notify);

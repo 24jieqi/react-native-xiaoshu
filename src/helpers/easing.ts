@@ -1,6 +1,6 @@
 // copy from react-native-easing
 // 过渡效果预览 https://easings.net/
-import { Easing } from 'react-native'
+import { Easing } from 'react-native';
 
 export default {
   step0: Easing.step0,
@@ -70,4 +70,4 @@ export default {
   easeInBounce: Easing.out(Easing.bounce),
   easeOutBounce: Easing.in(Easing.bounce),
   easeInOutBounce: Easing.inOut(Easing.out(Easing.bounce)),
-}
+};

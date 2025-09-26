@@ -3,14 +3,14 @@
  * description: 行动点不可用的时候，一般需要文案解释。
  */
 
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
 import {
   Button,
   Card,
   Space,
   Divider,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const ButtonDisabled: React.FC = () => {
   return (
@@ -35,7 +35,7 @@ const ButtonDisabled: React.FC = () => {
         </Space>
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonDisabled)
+export default memo(ButtonDisabled);

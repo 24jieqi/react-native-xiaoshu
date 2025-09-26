@@ -1,21 +1,21 @@
-import { CrossOutline } from '@fruits-chain/icons-react-native'
-import isNil from 'lodash/isNil'
-import React, { useRef, useCallback, memo, isValidElement } from 'react'
-import { View, Text, Animated } from 'react-native'
+import { CrossOutline } from '@fruits-chain/icons-react-native';
+import isNil from 'lodash/isNil';
+import React, { useRef, useCallback, memo, isValidElement } from 'react';
+import { View, Text, Animated } from 'react-native';
 
-import Button from '../button'
-import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers'
-import { usePersistFn } from '../hooks'
-import Locale from '../locale'
-import Popup from '../popup/popup'
-import Theme from '../theme'
+import Button from '../button';
+import { getDefaultValue, easing, renderTextLikeJSX } from '../helpers';
+import { usePersistFn } from '../hooks';
+import Locale from '../locale';
+import Popup from '../popup/popup';
+import Theme from '../theme';
 
-import type { DialogProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { DialogProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const defaultOnRequestClose = () => {
-  return true
-}
+  return true;
+};
 
 /**
  * Dialog 弹出框
@@ -51,23 +51,23 @@ const Dialog: React.FC<DialogProps> = ({
   onRequestClose = defaultOnRequestClose,
   ...resetProps
 }) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current
-  const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
-  const locale = Locale.useLocale().Dialog
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeInstance = useRef<Animated.CompositeAnimation | null>(null);
+  const locale = Locale.useLocale().Dialog;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
-  width = getDefaultValue(width, CV.dialog_width)
-  duration = getDefaultValue(duration, CV.dialog_transition)
+  width = getDefaultValue(width, CV.dialog_width);
+  duration = getDefaultValue(duration, CV.dialog_transition);
 
   const showDialog = useCallback(
     (show: boolean) => {
       if (fadeInstance.current) {
-        fadeInstance.current.stop()
-        fadeInstance.current = null
+        fadeInstance.current.stop();
+        fadeInstance.current = null;
       }
 
       fadeInstance.current = Animated.timing(
@@ -78,25 +78,25 @@ const Dialog: React.FC<DialogProps> = ({
           useNativeDriver: true,
           easing: show ? easing.easeOutCirc : easing.easeInCubic,
         },
-      )
+      );
 
-      fadeInstance.current.start()
+      fadeInstance.current.start();
     },
     [duration, fadeAnim],
-  )
+  );
   const onOpenPersistFn = usePersistFn(() => {
-    showDialog(true)
-    onOpenFn?.()
-  })
+    showDialog(true);
+    onOpenFn?.();
+  });
   const onClosePersistFn = usePersistFn(() => {
-    showDialog(false)
-    onCloseFn?.()
-  })
+    showDialog(false);
+    onCloseFn?.();
+  });
 
   const titleJSX = renderTextLikeJSX(title, [
     STYLES.title_text,
     isNil(message) ? STYLES.title_isolated : null,
-  ])
+  ]);
   const messageJSX = !isNil(message) ? (
     isValidElement(message) ? (
       message
@@ -111,39 +111,41 @@ const Dialog: React.FC<DialogProps> = ({
         {message}
       </Text>
     )
-  ) : null
+  ) : null;
 
   const cancelButtonProps = {
     color: cancelButtonColor || CV.dialog_cancel_button_text_color,
     text: cancelButtonText ?? locale.cancelButtonText,
     loading: cancelButtonLoading,
     onPress: onPressCancel,
-  }
+  };
 
   const confirmButtonProps = {
     color: confirmButtonColor || CV.dialog_confirm_button_text_color,
     text: confirmButtonText ?? locale.confirmButtonText,
     loading: confirmButtonLoading,
     onPress: onPressConfirm,
-  }
+  };
 
   // TODO 优化逆转按钮变量变换
-  const _showCancelButton = buttonReverse ? showConfirmButton : showCancelButton
+  const _showCancelButton = buttonReverse
+    ? showConfirmButton
+    : showCancelButton;
   const _showConfirmButton = buttonReverse
     ? showCancelButton
-    : showConfirmButton
+    : showConfirmButton;
   const _cancelButtonTextBold = buttonReverse
     ? confirmButtonTextBold
-    : cancelButtonTextBold
+    : cancelButtonTextBold;
   const _confirmButtonTextBold = buttonReverse
     ? cancelButtonTextBold
-    : confirmButtonTextBold
+    : confirmButtonTextBold;
   const _cancelButtonProps = buttonReverse
     ? confirmButtonProps
-    : cancelButtonProps
+    : cancelButtonProps;
   const _confirmButtonProps = buttonReverse
     ? cancelButtonProps
-    : confirmButtonProps
+    : confirmButtonProps;
 
   return (
     <Popup
@@ -223,7 +225,7 @@ const Dialog: React.FC<DialogProps> = ({
         ) : null}
       </Animated.View>
     </Popup>
-  )
-}
+  );
+};
 
-export default memo(Dialog)
+export default memo(Dialog);

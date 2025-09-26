@@ -1,5 +1,9 @@
-import type { ViewProps } from 'react-native'
+import type { ViewProps } from 'react-native';
+import type { SvgProps } from 'react-native-svg';
 
-export type FixHitSlopProps<T> = Omit<T, 'hitSlop'> & Pick<ViewProps, 'hitSlop'>
-export type ExcludeUndefined<T> = Exclude<T, undefined>
-export type ExcludeUndefinedNull<T> = Exclude<T, undefined | null>
+export type FixHitSlopProps<T> = Omit<T, 'hitSlop'> &
+  Pick<ViewProps, 'hitSlop'>;
+export type FixSVGHitSlopProps<T> = Omit<T, 'hitSlop'> &
+  Pick<SvgProps, 'hitSlop'>;
+export type ExcludeUndefined<T> = Exclude<T, undefined>;
+export type ExcludeUndefinedNull<T> = Exclude<T, undefined | null>;

@@ -1,17 +1,17 @@
-import isUndefined from 'lodash/isUndefined'
-import React, { useEffect, useRef, useState, memo } from 'react'
+import isUndefined from 'lodash/isUndefined';
+import React, { useEffect, useRef, useState, memo } from 'react';
 import {
   TouchableOpacity,
   Animated,
   BackHandler,
   StyleSheet,
-} from 'react-native'
+} from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import type { OverlayProps } from './interface'
-import { varCreator } from './style'
+import type { OverlayProps } from './interface';
+import { varCreator } from './style';
 
 /**
  * Overlay 遮罩层
@@ -34,21 +34,21 @@ const Overlay: React.FC<OverlayProps> = ({
   const [CV, , TOKENS] = Theme.useStyle({
     varCreator,
     theme,
-  })
-  const fadeAnim = useRef(new Animated.Value(0))
-  const fadeInstance = useRef<Animated.CompositeAnimation | null>(null)
-  const [localVisible, setLocalVisible] = useState(visible)
+  });
+  const fadeAnim = useRef(new Animated.Value(0));
+  const fadeInstance = useRef<Animated.CompositeAnimation | null>(null);
+  const [localVisible, setLocalVisible] = useState(visible);
 
-  duration = getDefaultValue(duration, TOKENS.animation_duration_base)
+  duration = getDefaultValue(duration, TOKENS.animation_duration_base);
   backgroundColor = getDefaultValue(
     backgroundColor,
     CV.overlay_background_color,
-  )
+  );
 
   // 监听状态变化，执行动画
   useEffect(() => {
     if (visible) {
-      setLocalVisible(true)
+      setLocalVisible(true);
     }
     fadeInstance.current = Animated.timing(
       fadeAnim.current, // 动画中的变量值
@@ -57,25 +57,25 @@ const Overlay: React.FC<OverlayProps> = ({
         duration: duration,
         useNativeDriver: true,
       },
-    )
+    );
 
     fadeInstance.current.start(({ finished }) => {
       if (finished) {
-        fadeInstance.current = null
+        fadeInstance.current = null;
         if (!visible) {
-          setLocalVisible(false)
+          setLocalVisible(false);
         }
       }
-    })
+    });
 
     return () => {
       // 停止动画
       if (fadeInstance.current) {
-        fadeInstance.current.stop()
-        fadeInstance.current = null
+        fadeInstance.current.stop();
+        fadeInstance.current = null;
       }
-    }
-  }, [visible, duration])
+    };
+  }, [visible, duration]);
 
   // Android 返回按钮
   useEffect(() => {
@@ -83,21 +83,21 @@ const Overlay: React.FC<OverlayProps> = ({
       'hardwareBackPress',
       () => {
         if (typeof onRequestClose === 'function' && visible) {
-          return onRequestClose()
+          return onRequestClose();
         }
 
-        return false
+        return false;
       },
-    )
+    );
 
-    return () => backHandler.remove()
-  }, [visible, onRequestClose])
+    return () => backHandler.remove();
+  }, [visible, onRequestClose]);
 
   if (!localVisible) {
     // TODO 优化文档报错
     // 直接返回 null dumi 报错 -、-
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    return <></>
+
+    return <></>;
   }
 
   return (
@@ -120,8 +120,8 @@ const Overlay: React.FC<OverlayProps> = ({
         {children}
       </TouchableOpacity>
     </Animated.View>
-  )
-}
+  );
+};
 
 const STYLES = StyleSheet.create({
   overlay: {
@@ -139,6 +139,6 @@ const STYLES = StyleSheet.create({
   touchable: {
     flex: 1,
   },
-})
+});
 
-export default memo(Overlay)
+export default memo(Overlay);

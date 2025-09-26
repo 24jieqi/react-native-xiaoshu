@@ -3,18 +3,18 @@
  * description: 按钮有五种类型：主按钮（默认）、朦胧按钮、边框按钮、幽灵按钮和链接按钮。
  */
 
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
 import {
   Button,
   Card,
   Space,
   Divider,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const onPress = () => {
-  console.log('点击按钮 => ', new Date().getTime())
-}
+  console.log('点击按钮 => ', new Date().getTime());
+};
 
 const ButtonType: React.FC = () => {
   return (
@@ -49,7 +49,7 @@ const ButtonType: React.FC = () => {
         </Space>
       </Space>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(ButtonType)
+export default memo(ButtonType);

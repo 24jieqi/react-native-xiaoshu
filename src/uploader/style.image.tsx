@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { UploaderTheme } from './style'
+import type { UploaderTheme } from './style';
 
 export const styleCreator = (cv: UploaderTheme) => {
   return StyleSheet.create({
@@ -43,5 +43,5 @@ export const styleCreator = (cv: UploaderTheme) => {
       marginTop: 4,
       lineHeight: 20,
     },
-  })
-}
+  });
+};

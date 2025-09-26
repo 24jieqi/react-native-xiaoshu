@@ -3,14 +3,14 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { Space, Blank } from '@fruits-chain/react-native-xiaoshu'
+import { Space, Blank } from '@fruits-chain/react-native-xiaoshu';
 
-import DatePickerViewSingle from './single'
-import DatePickerViewRangeView from './range-view'
-import DatePickerViewRange from './range'
+import DatePickerViewRange from './range';
+import DatePickerViewRangeView from './range-view';
+import DatePickerViewSingle from './single';
 
 const BasicDatePickerView: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const BasicDatePickerView: React.FC = () => {
         </Space>
       </Blank>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicDatePickerView
+export default BasicDatePickerView;

@@ -1,13 +1,14 @@
-import omit from 'lodash/omit'
-import React from 'react'
-import { ScrollView } from 'react-native'
+import omit from 'lodash/omit';
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { useControllableValue } from '../hooks'
-import Space from '../space'
+import { useControllableValue } from '../hooks';
+import Space from '../space';
 
-import ButtonOption from './button-option'
-import type { ButtonOptionGroupProps } from './interface'
+import ButtonOption from './button-option';
+import type { ButtonOptionGroupProps } from './interface';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ButtonOptionGroup<T = any>({
   theme,
   activeHighlight = true,
@@ -24,7 +25,7 @@ function ButtonOptionGroup<T = any>({
 }: ButtonOptionGroupProps<T>) {
   const [value, onChange] = useControllableValue<T | T[] | null>(restProps, {
     defaultValue: multiple ? [] : undefined,
-  })
+  });
 
   const contentJSX = (
     <Space
@@ -33,7 +34,7 @@ function ButtonOptionGroup<T = any>({
       {options.map(item => {
         const selected = multiple
           ? ((value as T[]) || []).indexOf(item.value) > -1
-          : value === item.value
+          : value === item.value;
 
         return (
           <ButtonOption
@@ -48,43 +49,43 @@ function ButtonOptionGroup<T = any>({
             active={selected}
             onPress={() => {
               if (!editable) {
-                return
+                return;
               }
 
               if (multiple) {
-                const oldValue = (value as T[]) || []
-                const _value = oldValue.filter(v => v !== item.value)
+                const oldValue = (value as T[]) || [];
+                const _value = oldValue.filter(v => v !== item.value);
                 const newValue =
                   _value.length === oldValue.length
                     ? [item.value, ...oldValue]
-                    : _value
+                    : _value;
                 const newOptions = newValue.map(v => {
-                  const optionIndex = options.findIndex(o => o.value === v)
+                  const optionIndex = options.findIndex(o => o.value === v);
 
                   return {
                     ...options[optionIndex],
-                  }
-                })
+                  };
+                });
 
-                onChange(newValue, newOptions)
+                onChange(newValue, newOptions);
               } else {
                 if (item.value === value) {
                   if (deselect) {
-                    onChange(null, [])
+                    onChange(null, []);
                   }
                 } else {
                   onChange(
                     item.value,
                     options.filter(o => o.value === item.value),
-                  )
+                  );
                 }
               }
             }}
           />
-        )
+        );
       })}
     </Space>
-  )
+  );
 
   if (scrollable && !restProps.wrap) {
     return (
@@ -94,10 +95,10 @@ function ButtonOptionGroup<T = any>({
         showsHorizontalScrollIndicator={false}>
         {contentJSX}
       </ScrollView>
-    )
+    );
   }
 
-  return contentJSX
+  return contentJSX;
 }
 
-export default ButtonOptionGroup
+export default ButtonOptionGroup;

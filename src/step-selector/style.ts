@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -8,10 +8,10 @@ export const varCreator = (TOKENS: TokensType) => {
     step_selector_option_index_width: TOKENS.space_6,
     step_selector_option_index_text_color: TOKENS.gray_6,
     step_selector_option_index_text_font_size: TOKENS.font_size_5,
-  }
-}
+  };
+};
 
-export type StepSelector = ReturnType<typeof varCreator>
+export type StepSelector = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: StepSelector) => {
   return StyleSheet.create({
@@ -78,5 +78,5 @@ export const styleCreator = (cv: StepSelector) => {
     line_bar_bottom: {
       bottom: 0,
     },
-  })
-}
+  });
+};

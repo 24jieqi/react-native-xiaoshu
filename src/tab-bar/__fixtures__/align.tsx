@@ -3,15 +3,15 @@
  * description: 默认子选项居中对齐，如果选项太多可以左对齐，且出现滚动。
  */
 
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-
-import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
-} from '@fruits-chain/icons-react-native'
+} from '@fruits-chain/icons-react-native';
+import React from 'react';
+import type { ViewStyle } from 'react-native';
+
+import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -20,7 +20,7 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
-}
+};
 
 const bottomBar = [
   {
@@ -59,13 +59,13 @@ const bottomBar = [
       />
     ),
   },
-]
+];
 
 const bottomBar2 = bottomBar.map(({ value, label }) => ({
   badge: '4',
   value: 10 + value,
   label: `${label}_${label}`,
-}))
+}));
 
 const bottomBar3 = [
   ...bottomBar2,
@@ -74,7 +74,7 @@ const bottomBar3 = [
     value: value * 2,
     label: `${label}_2`,
   })),
-]
+];
 
 const BasicTabBarAlign: React.FC = () => {
   return (
@@ -109,7 +109,7 @@ const BasicTabBarAlign: React.FC = () => {
         indicatorWidth={0}
       />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicTabBarAlign
+export default BasicTabBarAlign;

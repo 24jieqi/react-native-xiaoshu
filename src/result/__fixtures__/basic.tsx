@@ -1,11 +1,11 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from 'react';
+import { ScrollView } from 'react-native';
 
-import { Space } from '@fruits-chain/react-native-xiaoshu'
+import { Space } from '@fruits-chain/react-native-xiaoshu';
 
-import ResultIcon from './icon'
-import ResultStatus from './status'
-import ResultCustom from './custom'
+import ResultCustom from './custom';
+import ResultIcon from './icon';
+import ResultStatus from './status';
 
 const BasicResult: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const BasicResult: React.FC = () => {
         <ResultCustom />
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicResult
+export default BasicResult;

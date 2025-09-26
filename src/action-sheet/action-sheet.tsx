@@ -1,16 +1,16 @@
-import isNil from 'lodash/isNil'
-import React, { memo, isValidElement } from 'react'
-import { Text, View, ScrollView } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { memo, isValidElement } from 'react';
+import { Text, View, ScrollView } from 'react-native';
 
-import Button from '../button'
-import Divider from '../divider'
-import { useSafeHeight } from '../hooks'
-import Popup from '../popup/popup'
-import PopupHeader from '../popup/popup-header'
-import Theme from '../theme'
+import Button from '../button';
+import Divider from '../divider';
+import { useSafeHeight } from '../hooks';
+import Popup from '../popup/popup';
+import PopupHeader from '../popup/popup-header';
+import Theme from '../theme';
 
-import type { ActionSheetProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { ActionSheetProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * ActionSheet 动作面板
@@ -30,15 +30,15 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
   onSelect,
   ...restProps
 }) => {
-  const safeHeight = useSafeHeight({ top: safeAreaInsetTop })
+  const safeHeight = useSafeHeight({ top: safeAreaInsetTop });
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
-  const isTitleDef = !isNil(title)
-  const isCancelTextDef = !isNil(cancelText)
-  const isDescriptionDef = !isNil(description)
+  });
+  const isTitleDef = !isNil(title);
+  const isCancelTextDef = !isNil(cancelText);
+  const isDescriptionDef = !isNil(description);
 
   /** 描述文案 纯文字或自定义 JSX */
   const descriptionJSX = isDescriptionDef ? (
@@ -58,7 +58,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
         <Divider />
       </>
     )
-  ) : null
+  ) : null;
 
   return (
     <Popup {...restProps} safeAreaInsetBottom position="bottom" round={round}>
@@ -81,12 +81,12 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
                 textStyle={[STYLES.button_text, item.textStyle]}
                 onPress={() => {
                   if (!item.disabled && !item.loading) {
-                    item.callback?.()
-                    onSelect?.(item, index)
+                    item.callback?.();
+                    onSelect?.(item, index);
                   }
                 }}
               />
-            )
+            );
           })}
         </ScrollView>
 
@@ -106,7 +106,7 @@ const ActionSheet: React.FC<ActionSheetProps> = ({
         ) : null}
       </View>
     </Popup>
-  )
-}
+  );
+};
 
-export default memo(ActionSheet)
+export default memo(ActionSheet);

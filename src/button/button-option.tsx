@@ -1,14 +1,14 @@
-import Color from 'color'
-import isNil from 'lodash/isNil'
-import React, { isValidElement, memo, useMemo } from 'react'
-import type { ViewStyle, StyleProp } from 'react-native'
-import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import Color from 'color';
+import isNil from 'lodash/isNil';
+import React, { isValidElement, memo, useMemo } from 'react';
+import type { ViewStyle, StyleProp } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
-import { renderTextLikeJSX } from '../helpers'
-import Theme from '../theme'
+import { renderTextLikeJSX } from '../helpers';
+import Theme from '../theme';
 
-import type { ButtonOptionProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { ButtonOptionProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const ButtonOption: React.FC<ButtonOptionProps> = ({
   theme,
@@ -31,36 +31,36 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   const inactiveBackgroundColor = useMemo(() => {
     if (type === 'outline') {
-      return TOKENS.white
+      return TOKENS.white;
     }
 
     if (type === 'white') {
-      return TOKENS.white
+      return TOKENS.white;
     }
 
-    return TOKENS.gray_2
-  }, [TOKENS.gray_2, TOKENS.white, type])
+    return TOKENS.gray_2;
+  }, [TOKENS.gray_2, TOKENS.white, type]);
   const inactiveBorderColor = useMemo(() => {
     if (restProps.disabled) {
       if (type === 'white') {
-        return TOKENS.white
+        return TOKENS.white;
       }
-      return CV.button_option_disabled_border_color
+      return CV.button_option_disabled_border_color;
     }
 
     if (type === 'outline') {
-      return TOKENS.gray_5
+      return TOKENS.gray_5;
     }
 
     if (type === 'white') {
-      return TOKENS.white
+      return TOKENS.white;
     }
 
-    return inactiveBackgroundColor
+    return inactiveBackgroundColor;
   }, [
     CV.button_option_disabled_border_color,
     TOKENS.gray_5,
@@ -68,11 +68,11 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
     inactiveBackgroundColor,
     restProps.disabled,
     type,
-  ])
+  ]);
   const activeBackgroundColor = useMemo(
     () => Color(CV.button_primary_color).fade(0.89).string(),
     [CV.button_primary_color],
-  )
+  );
 
   const buttonStyles: StyleProp<ViewStyle> = [
     STYLES.button,
@@ -90,7 +90,7 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
     round ? STYLES.button_round : null,
     restProps.disabled ? STYLES.button_disabled : null,
     style,
-  ]
+  ];
 
   const childrenJSX = isValidElement(children)
     ? children
@@ -104,11 +104,11 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
           fontSize: CV[`button_${size}_font_size`],
         },
         textStyle,
-      ])
-  const badgeTextJSX = renderTextLikeJSX(badge, [STYLES.option_badge_text])
+      ]);
+  const badgeTextJSX = renderTextLikeJSX(badge, [STYLES.option_badge_text]);
   const badgeJSX = !isNil(badgeTextJSX) ? (
     <View style={STYLES.option_badge}>{badgeTextJSX}</View>
-  ) : null
+  ) : null;
 
   return (
     <TouchableOpacity
@@ -119,7 +119,7 @@ const ButtonOption: React.FC<ButtonOptionProps> = ({
       {childrenJSX}
       {badgeJSX}
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default memo(ButtonOption)
+export default memo(ButtonOption);

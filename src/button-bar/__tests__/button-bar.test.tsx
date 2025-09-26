@@ -1,12 +1,12 @@
-import React from 'react'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { create } from 'react-test-renderer'
+import { render } from '@testing-library/react-native';
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import ButtonBar from '../'
+import ButtonBar from '../';
 
 describe('ButtonBar', () => {
   it('render snapshot', () => {
-    const tree = create(
+    const tree = render(
       <SafeAreaProvider>
         <ButtonBar
           accessibilityLabel="ButtonBar"
@@ -20,8 +20,8 @@ describe('ButtonBar', () => {
           ]}
         />
       </SafeAreaProvider>,
-    ).toJSON()
+    ).toJSON();
 
-    expect(tree).toMatchSnapshot()
-  })
-})
+    expect(tree).toMatchSnapshot();
+  });
+});

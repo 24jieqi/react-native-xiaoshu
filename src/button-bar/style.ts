@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
     button_bar_button_space: TOKENS.space_2,
     button_bar_button_min_width: 92,
-  }
-}
+  };
+};
 
-export type ButtonTheme = ReturnType<typeof varCreator>
+export type ButtonTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: ButtonTheme) => {
   return StyleSheet.create({
@@ -28,5 +28,5 @@ export const styleCreator = (cv: ButtonTheme) => {
     btn: {
       minWidth: cv.button_bar_button_min_width,
     },
-  })
-}
+  });
+};

@@ -1,14 +1,14 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import { attachPropertiesToComponent } from '../helpers'
-import Portal from '../portal'
+import { attachPropertiesToComponent } from '../helpers';
+import Portal from '../portal';
 
-import type { PopupProps, PopupPageProps } from './interface'
-import Popup from './popup'
-import PopupHeader from './popup-header'
-import PopupKeyboardShim from './popup-keyboard-shim'
-import PopupPage from './popup-page'
-import { varCreator, styleCreator } from './style'
+import type { PopupProps, PopupPageProps } from './interface';
+import Popup from './popup';
+import PopupHeader from './popup-header';
+import PopupKeyboardShim from './popup-keyboard-shim';
+import PopupPage from './popup-page';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Popup 弹出层
@@ -19,16 +19,16 @@ const PopupContainer: React.FC<PopupProps> = props => {
     <Portal>
       <Popup {...props} />
     </Portal>
-  )
-}
+  );
+};
 
 const PopupPageContainer: React.FC<PopupPageProps> = props => {
   return (
     <Portal>
       <PopupPage {...props} />
     </Portal>
-  )
-}
+  );
+};
 
 export default attachPropertiesToComponent(memo(PopupContainer), {
   varCreator,
@@ -38,4 +38,4 @@ export default attachPropertiesToComponent(memo(PopupContainer), {
   Page: PopupPageContainer,
   PageComponent: PopupPage,
   KeyboardShim: PopupKeyboardShim,
-})
+});

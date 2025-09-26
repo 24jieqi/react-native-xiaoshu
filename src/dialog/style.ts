@@ -1,7 +1,7 @@
-import type { TextStyle } from 'react-native'
-import { StyleSheet } from 'react-native'
+import type { TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -26,10 +26,10 @@ export const varCreator = (TOKENS: TokensType) => {
     dialog_confirm_button_text_color: TOKENS.brand_6,
     dialog_cancel_button_text_color: TOKENS.gray_8,
     dialog_input_gap: TOKENS.space_4,
-  }
-}
+  };
+};
 
-export type DialogTheme = ReturnType<typeof varCreator>
+export type DialogTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: DialogTheme) => {
   return StyleSheet.create({
@@ -93,5 +93,5 @@ export const styleCreator = (cv: DialogTheme) => {
     btn_text_bold: {
       fontWeight: 'bold',
     },
-  })
-}
+  });
+};

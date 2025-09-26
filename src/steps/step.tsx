@@ -1,16 +1,16 @@
-import { SuccessOutline } from '@fruits-chain/icons-react-native'
-import isNil from 'lodash/isNil'
-import React, { useContext, useEffect, useState } from 'react'
-import type { FC } from 'react'
-import type { TextStyle } from 'react-native'
-import { Dimensions, View } from 'react-native'
+import { SuccessOutline } from '@fruits-chain/icons-react-native';
+import isNil from 'lodash/isNil';
+import React, { useContext, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import type { TextStyle } from 'react-native';
+import { Dimensions, View } from 'react-native';
 
-import { renderTextLikeJSX } from '../helpers'
-import Theme from '../theme'
+import { renderTextLikeJSX } from '../helpers';
+import Theme from '../theme';
 
-import { maxSteps, StepsContext } from './context'
-import type { StepsItemPropsType } from './interface'
-import { varCreator, styleCreator } from './style'
+import { maxSteps, StepsContext } from './context';
+import type { StepsItemPropsType } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /** Step */
 const Step: FC<StepsItemPropsType> = ({
@@ -20,19 +20,19 @@ const Step: FC<StepsItemPropsType> = ({
   title,
   theme,
 }) => {
-  const { current, data } = useContext(StepsContext)
+  const { current, data } = useContext(StepsContext);
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
-  const windowWidth = Dimensions.get('window').width
-  const stepWidth = windowWidth / maxSteps
-  const [elementCount, setElementCount] = useState(0)
+  });
+  const windowWidth = Dimensions.get('window').width;
+  const stepWidth = windowWidth / maxSteps;
+  const [elementCount, setElementCount] = useState(0);
 
-  let resIcon: React.ReactNode = null
-  let resStatus = status ? status : current >= index ? 'finish' : 'wait'
-  let titleStyle: TextStyle | null = null
+  let resIcon: React.ReactNode = null;
+  const resStatus = status ? status : current >= index ? 'finish' : 'wait';
+  let titleStyle: TextStyle | null = null;
 
   switch (resStatus) {
     case 'finish':
@@ -43,26 +43,26 @@ const Step: FC<StepsItemPropsType> = ({
             size={CV.steps_icon_success_active_size}
           />
         </View>
-      )
+      );
       // resIcon = <StepSuccess style={STYLES.dotActive} />
-      titleStyle = STYLES.activeTitleText
-      break
+      titleStyle = STYLES.activeTitleText;
+      break;
     case 'wait':
-      resIcon = <View style={STYLES.dot} />
-      titleStyle = STYLES.titleText
-      break
+      resIcon = <View style={STYLES.dot} />;
+      titleStyle = STYLES.titleText;
+      break;
     default:
-      break
+      break;
   }
   if (!isNil(icon)) {
-    resIcon = icon
+    resIcon = icon;
   }
   useEffect(() => {
-    setElementCount(data?.length || 0)
-  }, [data?.length])
+    setElementCount(data?.length || 0);
+  }, [data?.length]);
 
-  const isFirst = index === 0
-  const isLast = index === elementCount - 1
+  const isFirst = index === 0;
+  const isLast = index === elementCount - 1;
 
   return (
     <View style={[STYLES.stepWrap, { width: stepWidth }]}>
@@ -94,6 +94,6 @@ const Step: FC<StepsItemPropsType> = ({
       <View style={STYLES.stepIconWrap}>{resIcon}</View>
       {renderTextLikeJSX(title, titleStyle)}
     </View>
-  )
-}
-export default Step
+  );
+};
+export default Step;

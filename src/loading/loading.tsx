@@ -1,14 +1,14 @@
-import isNil from 'lodash/isNil'
-import React, { isValidElement, memo } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { isValidElement, memo } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import type { LoadingProps } from './interface'
-import Circular from './loading-circular'
-import Spinner from './loading-spinner'
-import { varCreator } from './style'
+import type { LoadingProps } from './interface';
+import Circular from './loading-circular';
+import Spinner from './loading-spinner';
+import { varCreator } from './style';
 
 /**
  * Loading 加载
@@ -31,9 +31,9 @@ const Loading: React.FC<LoadingProps> = ({
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
-  const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)!
-  const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)!
+  });
+  const ICON_COLOR = getDefaultValue(color, CV.loading_icon_color)!;
+  const ICON_SIZE = getDefaultValue(size, CV.loading_icon_size)!;
 
   const textJSX = !isNil(children) ? (
     isValidElement(children) ? (
@@ -52,7 +52,7 @@ const Loading: React.FC<LoadingProps> = ({
         {children}
       </Text>
     )
-  ) : null
+  ) : null;
 
   return (
     <View
@@ -74,8 +74,8 @@ const Loading: React.FC<LoadingProps> = ({
 
       {textJSX}
     </View>
-  )
-}
+  );
+};
 
 const STYLES = StyleSheet.create({
   loading: {
@@ -86,6 +86,6 @@ const STYLES = StyleSheet.create({
   loading_vertical: {
     flexDirection: 'column',
   },
-})
+});
 
-export default memo(Loading)
+export default memo(Loading);

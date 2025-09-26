@@ -1,13 +1,13 @@
-import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
-import { View, TouchableWithoutFeedback } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { memo } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
 
-import Divider from '../divider'
-import { renderTextLikeJSX } from '../helpers'
-import Theme from '../theme'
+import Divider from '../divider';
+import { renderTextLikeJSX } from '../helpers';
+import Theme from '../theme';
 
-import type { CellGroupProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { CellGroupProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * CellGroup 单元格组
@@ -30,7 +30,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   /** 标题 可能是自定义 JSX */
   const titleJSX = renderTextLikeJSX(
@@ -39,14 +39,14 @@ const CellGroup: React.FC<CellGroupProps> = ({
     {
       onPress: onPressTitleText,
     },
-  )
+  );
 
   const groupNameJSX = (
     <View style={[STYLES.group_title, style]}>
       {titleJSX}
       {extra}
     </View>
-  )
+  );
 
   const bodyJSX = (
     <>
@@ -54,7 +54,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
       {children}
       {bodyBottomDivider ? <Divider /> : null}
     </>
-  )
+  );
 
   return (
     <>
@@ -70,7 +70,7 @@ const CellGroup: React.FC<CellGroupProps> = ({
 
       {bodyStyle ? <View style={bodyStyle}>{bodyJSX}</View> : bodyJSX}
     </>
-  )
-}
+  );
+};
 
-export default memo(CellGroup)
+export default memo(CellGroup);

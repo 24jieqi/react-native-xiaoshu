@@ -3,15 +3,15 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Text } from 'react-native';
 
-import { StepSelector, Cell } from '@fruits-chain/react-native-xiaoshu'
-import { Text } from 'react-native'
+import { StepSelector, Cell } from '@fruits-chain/react-native-xiaoshu';
 
 const request = (pId: string, index: number) =>
   new Promise<{
-    options: { value: string; label: string; index: string }[]
-    placeholder: string
+    options: { value: string; label: string; index: string }[];
+    placeholder: string;
   }>(resolve => {
     setTimeout(() => {
       resolve({
@@ -26,12 +26,12 @@ const request = (pId: string, index: number) =>
                 ),
               })),
         placeholder: index === 0 ? '' : `请选择${index}`,
-      })
-    }, 500)
-  })
+      });
+    }, 500);
+  });
 
 const BasicStepSelector: React.FC = () => {
-  const [state, setState] = useState(false)
+  const [state, setState] = useState(false);
 
   return (
     <>
@@ -43,11 +43,11 @@ const BasicStepSelector: React.FC = () => {
             StepSelector({
               request: request,
               onConfirm: (v, o, isEnd) => {
-                console.log('v => ', v)
-                console.log('o => ', o)
-                console.log('isEnd => ', isEnd)
+                console.log('v => ', v);
+                console.log('o => ', o);
+                console.log('isEnd => ', isEnd);
               },
-            }).catch(() => {})
+            }).catch(() => {});
           }}
         />
         <Cell
@@ -57,12 +57,18 @@ const BasicStepSelector: React.FC = () => {
             StepSelector({
               request: request,
               onConfirm: (v, o, isEnd) => {
-                console.log('v => ', v)
-                console.log('o => ', o)
-                console.log('isEnd => ', isEnd)
+                console.log('v => ', v);
+                console.log('o => ', o);
+                console.log('isEnd => ', isEnd);
               },
-              loading: <Text style={{ textAlign: 'center' }}>加载中...</Text>,
-            }).catch(() => {})
+              loading: (
+                <Text
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  style={{ textAlign: 'center' }}>
+                  加载中...
+                </Text>
+              ),
+            }).catch(() => {});
           }}
         />
         <Cell
@@ -74,11 +80,11 @@ const BasicStepSelector: React.FC = () => {
               request: request,
               defaultValue: ['10', '111', '212'],
               onConfirm: (v, o, isEnd) => {
-                console.log('v => ', v)
-                console.log('o => ', o)
-                console.log('isEnd => ', isEnd)
+                console.log('v => ', v);
+                console.log('o => ', o);
+                console.log('isEnd => ', isEnd);
               },
-            }).catch(() => {})
+            }).catch(() => {});
           }}
         />
       </Cell.Group>
@@ -87,7 +93,7 @@ const BasicStepSelector: React.FC = () => {
         <Cell
           title="选择"
           onPress={() => {
-            setState(true)
+            setState(true);
           }}
           isLink
           divider={false}
@@ -98,20 +104,20 @@ const BasicStepSelector: React.FC = () => {
           request={request}
           visible={state}
           onChange={(v, o, e) => {
-            console.log(v)
-            console.log(o)
+            console.log(v);
+            console.log(o);
 
             if (e) {
-              setState(false)
+              setState(false);
             }
           }}
           onPressClose={() => {
-            setState(false)
+            setState(false);
           }}
         />
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicStepSelector
+export default BasicStepSelector;

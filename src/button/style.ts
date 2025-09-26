@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -42,10 +42,10 @@ export const varCreator = (TOKENS: TokensType) => {
     button_option_badge_text_color: TOKENS.red_6,
     button_option_disabled_border_color: TOKENS.gray_4,
     button_option_disabled_text_color: TOKENS.gray_5,
-  }
-}
+  };
+};
 
-export type ButtonTheme = ReturnType<typeof varCreator>
+export type ButtonTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: ButtonTheme) => {
   return StyleSheet.create({
@@ -98,5 +98,5 @@ export const styleCreator = (cv: ButtonTheme) => {
       fontSize: cv.button_option_badge_text_font_size,
       color: cv.button_option_badge_text_color,
     },
-  })
-}
+  });
+};

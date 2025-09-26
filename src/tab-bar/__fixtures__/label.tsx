@@ -3,15 +3,15 @@
  * description: 比较特殊的场景，文字突出的表现方式，适合出现在分类场景。
  */
 
-import React, { useState } from 'react'
-import { View, type ViewStyle } from 'react-native'
-
-import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
-} from '@fruits-chain/icons-react-native'
+} from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { View, type ViewStyle } from 'react-native';
+
+import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -20,7 +20,7 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
-}
+};
 
 const bottomBar = [
   {
@@ -59,10 +59,10 @@ const bottomBar = [
       />
     ),
   },
-]
+];
 
 const BasicTabBarLabel: React.FC = () => {
-  const [value, setValue] = useState(bottomBar[0].value)
+  const [value, setValue] = useState(bottomBar[0].value);
 
   return (
     <Space head>
@@ -74,14 +74,14 @@ const BasicTabBarLabel: React.FC = () => {
         indicatorWidth={20}
         safeAreaInsetBottom={false}
         options={[
-          ...bottomBar.map(({ iconRender, ...props }) => props),
-          ...bottomBar.map(({ iconRender, ...props }) => ({
-            ...props,
-            value: `${props.value}_1`,
+          ...bottomBar.map(({ iconRender: _, ...other }) => other),
+          ...bottomBar.map(({ iconRender: _, ...other }) => ({
+            ...other,
+            value: `${other.value}_1`,
           })),
-          ...bottomBar.map(({ iconRender, ...props }) => ({
-            ...props,
-            value: `${props.value}_2`,
+          ...bottomBar.map(({ iconRender: _, ...other }) => ({
+            ...other,
+            value: `${other.value}_2`,
           })),
         ]}
       />
@@ -89,7 +89,7 @@ const BasicTabBarLabel: React.FC = () => {
         labelBulge
         activeTextColor="#333"
         safeAreaInsetBottom={false}
-        options={[...bottomBar.map(({ iconRender, ...props }) => props)]}
+        options={[...bottomBar.map(({ iconRender: _, ...props }) => props)]}
       />
 
       <View>
@@ -101,13 +101,16 @@ const BasicTabBarLabel: React.FC = () => {
           options={bottomBar}
           value={value}
           onChange={v => {
-            setValue(v)
+            setValue(v);
           }}
         />
-        <View style={{ height: 40, backgroundColor: '#098' }} />
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{ height: 40, backgroundColor: '#098' }}
+        />
       </View>
     </Space>
-  )
-}
+  );
+};
 
-export default BasicTabBarLabel
+export default BasicTabBarLabel;

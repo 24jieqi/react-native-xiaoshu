@@ -2,7 +2,10 @@
  * title: 咨询按钮组
  * description: 在内部放置两个以上按钮，其中一个有相对更大的空间占比。
  */
-import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu'
+
+import React from 'react';
+
+import { ButtonBar, Button, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const ButtonBarConfirm = () => {
   return (
@@ -28,7 +31,7 @@ const ButtonBarConfirm = () => {
         <Button text="确定" type="primary" />
       </ButtonBar.Confirm>
     </Space>
-  )
-}
+  );
+};
 
-export default ButtonBarConfirm
+export default ButtonBarConfirm;

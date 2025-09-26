@@ -3,7 +3,8 @@
  * description: 对话框内有输入框的情况。
  */
 
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState } from 'react';
+import { Keyboard } from 'react-native';
 
 import {
   Cell,
@@ -12,26 +13,25 @@ import {
   Button,
   Blank,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
-import { Keyboard } from 'react-native'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const BasicDialogKeyboard: React.FC = () => {
   const [state, setState] = useState({
     cDialog1: {
       show: false,
     },
-  })
+  });
 
   const closeDialog1 = useCallback(() => {
-    Keyboard.dismiss()
+    Keyboard.dismiss();
     setState(s => ({
       ...s,
       cDialog1: {
         ...s.cDialog1,
         show: false,
       },
-    }))
-  }, [])
+    }));
+  }, []);
 
   return (
     <>
@@ -41,14 +41,14 @@ const BasicDialogKeyboard: React.FC = () => {
           isLink
           divider={false}
           onPress={() => {
-            console.log('简单输入框')
+            console.log('简单输入框');
             setState(s => ({
               ...s,
               cDialog1: {
                 ...s.cDialog1,
                 show: true,
               },
-            }))
+            }));
           }}
         />
       </Cell.Group>
@@ -88,7 +88,7 @@ const BasicDialogKeyboard: React.FC = () => {
         </Blank>
       </Dialog.Keyboard>
     </>
-  )
-}
+  );
+};
 
-export default BasicDialogKeyboard
+export default BasicDialogKeyboard;

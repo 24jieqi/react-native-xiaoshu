@@ -1,13 +1,13 @@
-import isUndefined from 'lodash/isUndefined'
-import React, { memo } from 'react'
+import isUndefined from 'lodash/isUndefined';
+import React, { memo } from 'react';
 
-import Locale from '../locale'
-import Result from '../result'
-import ResultIconEmpty from '../result/icons/result-icon-empty'
-import Theme from '../theme'
+import Locale from '../locale';
+import Result from '../result';
+import ResultIconEmpty from '../result/icons/result-icon-empty';
+import Theme from '../theme';
 
-import type { EmptyProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { EmptyProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Empty 空元素
@@ -23,18 +23,18 @@ const Empty: React.FC<EmptyProps> = ({
   icon,
   full = false,
 }) => {
-  const locale = Locale.useLocale().Empty
+  const locale = Locale.useLocale().Empty;
   const [, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
 
   const iconJSX = !isUndefined(icon) ? (
     icon
   ) : (
     <ResultIconEmpty style={[STYLES.icon, iconStyle]} />
-  )
+  );
 
   return (
     <Result
@@ -45,7 +45,7 @@ const Empty: React.FC<EmptyProps> = ({
       subtitle={text ?? locale.text}
       subtitleTextStyle={[STYLES.text, textStyle]}
     />
-  )
-}
+  );
+};
 
-export default memo(Empty)
+export default memo(Empty);

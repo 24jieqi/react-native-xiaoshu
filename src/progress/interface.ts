@@ -1,156 +1,156 @@
-import type { PropsWithChildren, ReactNode } from 'react'
-import type { ColorValue, ViewProps } from 'react-native'
+import type { PropsWithChildren, ReactNode } from 'react';
+import type { ColorValue, ViewProps } from 'react-native';
 
-import type { ProgressTheme } from './style'
+import type { ProgressTheme } from './style';
 
 export interface ProgressProps extends Pick<ViewProps, 'testID'> {
-  theme?: Partial<ProgressTheme>
+  theme?: Partial<ProgressTheme>;
 
   /**
    * 进度百分比
    * @default 0
    */
-  percentage?: number
+  percentage?: number;
 
   /**
    * 进度条粗细
    * @default progress_height
    */
-  strokeHeight?: number
+  strokeHeight?: number;
 
   /**
    * 进度条颜色
    * @default progress_color
    */
-  color?: ColorValue
+  color?: ColorValue;
 
   /**
    * 轨道颜色
    *
    * @default progress_background_color
    */
-  trackColor?: ColorValue
+  trackColor?: ColorValue;
 
   /**
    * 进度文字内容
    * @default `${percentage}%`
    */
-  pivotText?: string
+  pivotText?: string;
 
   /**
    * 进度文字背景色
    * @default 同进度条颜色
    */
-  pivotColor?: ColorValue
+  pivotColor?: ColorValue;
 
   /**
    * 进度文字颜色
    * @default progress_pivot_text_color
    */
-  textColor?: ColorValue
+  textColor?: ColorValue;
 
   /**
    * 是否置灰
    * @default false
    */
-  inactive?: boolean
+  inactive?: boolean;
 
   /**
    * 是否显示进度文字
    * @default true
    */
-  showPivot?: boolean
+  showPivot?: boolean;
 
   /**
    * 是否为方形按钮
    * @default false
    */
-  square?: boolean
+  square?: boolean;
 
   /**
    * 是否开启进度条变动动画
    * @default false
    */
-  animated?: boolean
+  animated?: boolean;
 
   /**
    * 动画持续时间
    * @description animation_duration_base
    */
-  animationDuration?: number
+  animationDuration?: number;
 
   /**
    * 动画结束时的回调函数
    */
-  onAnimationEnd?: (percentage: number) => void
+  onAnimationEnd?: (percentage: number) => void;
 }
 
 export interface ProgressPageProps extends PropsWithChildren<{}> {
-  theme?: Partial<ProgressTheme>
+  theme?: Partial<ProgressTheme>;
   /**
    * 页面是否在加载中
    * @default false
    */
-  loading?: boolean
+  loading?: boolean;
 
   /**
    * 初始起点进度百分值
    * @default 10
    */
-  defaultPercentage?: number
+  defaultPercentage?: number;
 
   /**
    * 背景色，默认会占满个屏幕
    * @default progress_page_background_color
    */
-  backgroundColor?: ColorValue
+  backgroundColor?: ColorValue;
 
   /**
    * 加载出错
    */
-  fail?: boolean
+  fail?: boolean;
 
   /**
    * 加载失败提示
    * @default '加载失败，请稍后再试～'
    */
-  failMessage?: ReactNode
+  failMessage?: ReactNode;
 
   /**
    * 自定义加载出错的图标
    */
-  failIcon?: ReactNode
+  failIcon?: ReactNode;
 
   /**
    * 加载失败点击重新加载
    */
-  onPressReload?: () => void
+  onPressReload?: () => void;
 
   /**
    * 刷新按钮文案
    * @default '点击刷新'
    */
-  refreshText?: string
+  refreshText?: string;
 
   /**
    * 加载失败额外扩展区域
    */
-  failExtra?: ReactNode
+  failExtra?: ReactNode;
 
   /**
    * loading 时自定义显示扩展元素
    */
-  extraLoading?: ReactNode
+  extraLoading?: ReactNode;
 
   /**
    * 同步渲染 children 遮罩层的 zIndex
    * @default 1000
    */
-  overlayZIndex?: number
+  overlayZIndex?: number;
 
   /**
    * 同步渲染 children
    * @default false
    */
-  syncRenderChildren?: boolean
+  syncRenderChildren?: boolean;
 }

@@ -1,54 +1,50 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable no-unmodified-loop-condition */
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-import React, { createContext, Component } from 'react'
-import type { EmitterSubscription } from 'react-native'
+import React, { createContext, Component } from 'react';
+import type { EmitterSubscription } from 'react-native';
 import {
   DeviceEventEmitter,
-  // eslint-disable-next-line import/named
   NativeEventEmitter,
   StyleSheet,
   View,
-} from 'react-native'
+} from 'react-native';
 
-import PortalManager from './portal-manager'
+import PortalManager from './portal-manager';
 
 export type PortalHostProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export type Operation =
   | { type: 'mount'; key: number; children: React.ReactNode }
   | { type: 'update'; key: number; children: React.ReactNode }
-  | { type: 'unmount'; key: number }
+  | { type: 'unmount'; key: number };
 
 export type PortalMethods = {
-  mount: (children: React.ReactNode) => number
-  update: (key: number, children: React.ReactNode) => void
-  unmount: (key: number) => void
-}
+  mount: (children: React.ReactNode) => number;
+  update: (key: number, children: React.ReactNode) => void;
+  unmount: (key: number) => void;
+};
 
-export const PortalContext = createContext<PortalMethods>(null as any)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const PortalContext = createContext<PortalMethods>(null as any);
 // events
-const addType = 'REACT_NATIVE_XIAOSHU_ADD_PORTAL'
-const removeType = 'REACT_NATIVE_XIAOSHU_REMOVE_PORTAL'
+const addType = 'REACT_NATIVE_XIAOSHU_ADD_PORTAL';
+const removeType = 'REACT_NATIVE_XIAOSHU_REMOVE_PORTAL';
 // fix react native web does not support DeviceEventEmitter
-const TopViewEventEmitter = DeviceEventEmitter || new NativeEventEmitter()
+const TopViewEventEmitter = DeviceEventEmitter || new NativeEventEmitter();
 
 class PortalGuard {
-  private nextKey = 10000
+  private nextKey = 10000;
   add = (e: React.ReactNode) => {
-    const key = this.nextKey++
-    TopViewEventEmitter.emit(addType, e, key)
-    return key
-  }
-  remove = (key: number) => TopViewEventEmitter.emit(removeType, key)
+    const key = this.nextKey++;
+    TopViewEventEmitter.emit(addType, e, key);
+    return key;
+  };
+  remove = (key: number) => TopViewEventEmitter.emit(removeType, key);
 }
 /**
  * portal
  */
-export const portal = new PortalGuard()
+export const portal = new PortalGuard();
 /**
  * Portal host renders all of its children `Portal` elements.
  * For example, you can wrap a screen in `Portal.Host` to render items above the screen.
@@ -74,102 +70,104 @@ export const portal = new PortalGuard()
  * Here any `Portal` elements under `<App />` are rendered alongside `<App />` and will appear above `<App />` like a `Modal`.
  */
 export default class PortalHost extends Component<PortalHostProps> {
-  static displayName = 'Portal.Host'
+  static displayName = 'Portal.Host';
 
-  nextKey = 0
-  queue: Operation[] = []
-  manager: PortalManager | undefined | null
+  nextKey = 0;
+  queue: Operation[] = [];
+  manager: PortalManager | undefined | null;
 
-  addTypeEmitter: EmitterSubscription
-  removeTypeEmitter: EmitterSubscription
+  addTypeEmitter: EmitterSubscription;
+  removeTypeEmitter: EmitterSubscription;
 
   componentDidMount() {
-    const manager = this.manager
-    const queue = this.queue
+    const manager = this.manager;
+    const queue = this.queue;
 
-    this.addTypeEmitter = TopViewEventEmitter.addListener(addType, this.mount)
+    this.addTypeEmitter = TopViewEventEmitter.addListener(addType, this.mount);
     this.removeTypeEmitter = TopViewEventEmitter.addListener(
       removeType,
       this.unmount,
-    )
+    );
 
     while (queue.length && manager) {
-      const action = queue.pop()
+      const action = queue.pop();
       if (!action) {
-        continue
+        continue;
       }
       // tslint:disable-next-line:switch-default
       switch (action.type) {
         case 'mount':
-          manager.mount(action.key, action.children)
-          break
+          manager.mount(action.key, action.children);
+          break;
         case 'update':
-          manager.update(action.key, action.children)
-          break
+          manager.update(action.key, action.children);
+          break;
         case 'unmount':
-          manager.unmount(action.key)
-          break
+          manager.unmount(action.key);
+          break;
       }
     }
   }
 
   componentWillUnmount() {
     if (this.addTypeEmitter.remove) {
-      this.addTypeEmitter.remove()
+      this.addTypeEmitter.remove();
     } else {
       // TODO 旧版本如何做兼容
-      // @ts-ignore
-      TopViewEventEmitter.removeListener?.(addType, this.mount)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      TopViewEventEmitter.removeListener?.(addType, this.mount);
     }
 
     if (this.removeTypeEmitter.remove) {
-      this.removeTypeEmitter.remove()
+      this.removeTypeEmitter.remove();
     } else {
       // TODO 旧版本如何做兼容
-      // @ts-ignore
-      TopViewEventEmitter.removeListener?.(removeType, this.unmount)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      TopViewEventEmitter.removeListener?.(removeType, this.unmount);
     }
   }
 
   setManager = (manager?: PortalManager | undefined | null) => {
-    this.manager = manager
-  }
+    this.manager = manager;
+  };
 
   mount = (children: React.ReactNode, _key?: number) => {
-    const key = _key || this.nextKey++
+    const key = _key || this.nextKey++;
     if (this.manager) {
-      this.manager.mount(key, children)
+      this.manager.mount(key, children);
     } else {
-      this.queue.push({ type: 'mount', key, children })
+      this.queue.push({ type: 'mount', key, children });
     }
 
-    return key
-  }
+    return key;
+  };
 
   update = (key: number, children: React.ReactNode) => {
     if (this.manager) {
-      this.manager.update(key, children)
+      this.manager.update(key, children);
     } else {
-      const op: Operation = { type: 'mount', key, children }
+      const op: Operation = { type: 'mount', key, children };
       const index = this.queue.findIndex(
         o => o.type === 'mount' || (o.type === 'update' && o.key === key),
-      )
+      );
 
       if (index > -1) {
-        this.queue[index] = op
+        this.queue[index] = op;
       } else {
-        this.queue.push(op)
+        this.queue.push(op);
       }
     }
-  }
+  };
 
   unmount = (key: number) => {
     if (this.manager) {
-      this.manager.unmount(key)
+      this.manager.unmount(key);
     } else {
-      this.queue.push({ type: 'unmount', key })
+      this.queue.push({ type: 'unmount', key });
     }
-  }
+  };
 
   render() {
     return (
@@ -185,7 +183,7 @@ export default class PortalHost extends Component<PortalHostProps> {
         </View>
         <PortalManager ref={this.setManager} />
       </PortalContext.Provider>
-    )
+    );
   }
 }
 
@@ -193,4 +191,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-})
+});

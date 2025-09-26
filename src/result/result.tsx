@@ -2,38 +2,38 @@ import {
   CrossOutline,
   SuccessOutline,
   WarningOutline,
-} from '@fruits-chain/icons-react-native'
-import React, { memo } from 'react'
-import { View } from 'react-native'
+} from '@fruits-chain/icons-react-native';
+import React, { memo } from 'react';
+import { View } from 'react-native';
 
-import { renderTextLikeJSX } from '../helpers'
-import Space from '../space'
-import Theme from '../theme'
+import { renderTextLikeJSX } from '../helpers';
+import Space from '../space';
+import Theme from '../theme';
 
-import type { ResultProps, ResultStatus } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { ResultProps, ResultStatus } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const renderStatusIcon = (status: ResultStatus, size: number) => {
   const props = {
     size,
     color: '#fff',
-  }
+  };
 
   switch (status) {
     case 'success':
-      return <SuccessOutline {...props} />
+      return <SuccessOutline {...props} />;
 
     case 'warning':
     case 'info':
-      return <WarningOutline {...props} />
+      return <WarningOutline {...props} />;
 
     case 'error':
-      return <CrossOutline {...props} />
+      return <CrossOutline {...props} />;
 
     default:
-      return null
+      return null;
   }
-}
+};
 
 /**
  * Result结果
@@ -55,9 +55,9 @@ const Result: React.FC<ResultProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
-  const color = CV[`result_${status}_color`]
-  const iconSize = (CV.result_icon_size / 4) * 3
+  });
+  const color = CV[`result_${status}_color`];
+  const iconSize = (CV.result_icon_size / 4) * 3;
 
   const iconJSX = renderIcon ? (
     renderIcon(color, iconSize)
@@ -71,12 +71,12 @@ const Result: React.FC<ResultProps> = ({
       ]}>
       {renderStatusIcon(status, iconSize)}
     </View>
-  )
-  const titleJSX = renderTextLikeJSX(title, [STYLES.titleText, titleTextStyle])
+  );
+  const titleJSX = renderTextLikeJSX(title, [STYLES.titleText, titleTextStyle]);
   const subtitleJSX = renderTextLikeJSX(subtitle, [
     STYLES.subtitleText,
     subtitleTextStyle,
-  ])
+  ]);
 
   return (
     <Space {...restProps}>
@@ -85,7 +85,7 @@ const Result: React.FC<ResultProps> = ({
       {subtitleJSX}
       {extra}
     </Space>
-  )
-}
+  );
+};
 
-export default memo(Result)
+export default memo(Result);

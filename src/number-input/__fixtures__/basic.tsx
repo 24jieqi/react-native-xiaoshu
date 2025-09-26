@@ -3,12 +3,12 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React from 'react'
+import React from 'react';
 
-import NumberInputBase from './base'
-import NumberInputFormatter from './formatter'
-import NumberInputExtra from './extra'
-import NumberInputLimit from './limit'
+import NumberInputBase from './base';
+import NumberInputExtra from './extra';
+import NumberInputFormatter from './formatter';
+import NumberInputLimit from './limit';
 
 const BasicNumberInput: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const BasicNumberInput: React.FC = () => {
 
       <NumberInputExtra />
     </>
-  )
-}
+  );
+};
 
-export default BasicNumberInput
+export default BasicNumberInput;

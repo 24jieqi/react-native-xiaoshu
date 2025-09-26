@@ -1,7 +1,7 @@
-import type { TextStyle } from 'react-native'
-import { StyleSheet } from 'react-native'
+import type { TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -18,10 +18,10 @@ export const varCreator = (TOKENS: TokensType) => {
     badge_status_success: TOKENS.green_6,
     badge_status_warning: TOKENS.yellow_6,
     badge_status_error: TOKENS.red_6,
-  }
-}
+  };
+};
 
-export type BadgeTheme = ReturnType<typeof varCreator>
+export type BadgeTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: BadgeTheme) => {
   return StyleSheet.create({
@@ -73,5 +73,5 @@ export const styleCreator = (cv: BadgeTheme) => {
         },
       ],
     },
-  })
-}
+  });
+};

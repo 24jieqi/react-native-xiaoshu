@@ -1,6 +1,6 @@
-import isNil from 'lodash/isNil'
-import isUndefined from 'lodash/isUndefined'
-import noop from 'lodash/noop'
+import isNil from 'lodash/isNil';
+import isUndefined from 'lodash/isUndefined';
+import noop from 'lodash/noop';
 import React, {
   useState,
   useRef,
@@ -9,16 +9,13 @@ import React, {
   useImperativeHandle,
   memo,
   forwardRef,
-} from 'react'
+} from 'react';
 import type {
   ViewStyle,
   TextStyle,
   StyleProp,
-  NativeSyntheticEvent,
-  TextInputFocusEventData,
-  TextInputEndEditingEventData,
-  TextInputChangeEventData,
-} from 'react-native'
+  TextInputProps as RNTextInputProps,
+} from 'react-native';
 import {
   View,
   InputAccessoryView,
@@ -28,25 +25,27 @@ import {
   Keyboard,
   Platform,
   useColorScheme,
-} from 'react-native'
+} from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import { getDefaultValue, renderTextLikeJSX } from '../helpers'
-import { usePersistFn, useControllableValue } from '../hooks'
-import Locale from '../locale'
-import Theme from '../theme'
+import type { ExcludeUndefined } from 'src/helpers/types';
 
-import type { TextInputProps, TextInputInstance } from './interface'
-import { varCreator, styleCreator } from './style'
-import TextInputClear from './text-input-clear'
+import { varCreator as varCreatorButton } from '../button/style';
+import { getDefaultValue, renderTextLikeJSX } from '../helpers';
+import { usePersistFn, useControllableValue } from '../hooks';
+import Locale from '../locale';
+import Theme from '../theme';
 
-const defaultFormatter = <T,>(t: T): T => t
+import type { TextInputProps, TextInputInstance } from './interface';
+import { varCreator, styleCreator } from './style';
+import TextInputClear from './text-input-clear';
 
-let nextInputAccessoryViewID = 0
+const defaultFormatter = <T,>(t: T): T => t;
 
-const getNextInputAccessoryViewID = () => ++nextInputAccessoryViewID
+let nextInputAccessoryViewID = 0;
 
-const iOSPlatform = Platform.OS === 'ios'
+const getNextInputAccessoryViewID = () => ++nextInputAccessoryViewID;
+
+const iOSPlatform = Platform.OS === 'ios';
 
 /**
  * 自定义输入项
@@ -54,7 +53,7 @@ const iOSPlatform = Platform.OS === 'ios'
  * @description 动态切换输入内容可见，请手动控制 secureTextEntry，如果只是切换 type 在 iOS 正式环境可能会不生效
  */
 const TextInput = forwardRef<TextInputInstance, TextInputProps>(
-  (
+  function TextInputForwardRef(
     {
       theme,
       addonGroupStyle,
@@ -93,77 +92,77 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
       ...resetProps
     },
     ref,
-  ) => {
+  ) {
     // 修正数据
     if (type === 'textarea') {
-      multiline = true
-      clearable = false
+      multiline = true;
+      clearable = false;
     } else {
-      returnKeyType = getDefaultValue(returnKeyType, 'done')
+      returnKeyType = getDefaultValue(returnKeyType, 'done');
     }
 
     if (showWordLimit && isUndefined(resetProps.maxLength)) {
-      showWordLimit = false
+      showWordLimit = false;
     }
 
-    const locale = Locale.useLocale().TextInput
+    const locale = Locale.useLocale().TextInput;
     const [CV, STYLES] = Theme.useStyle({
       varCreator,
       styleCreator,
       theme,
-    })
+    });
     const [CV_BUTTON] = Theme.useStyle({
       varCreator: varCreatorButton,
-    })
+    });
 
-    const onChangeTextPersistFn = usePersistFn(onChangeText || noop)
-    const onEndEditingPersistFn = usePersistFn(onEndEditing || noop)
-    const onFocusPersistFn = usePersistFn(onFocus || noop)
-    const onBlurPersistFn = usePersistFn(onBlur || noop)
-    const formatterPersistFn = usePersistFn(formatter || defaultFormatter)
-    const [value, onChange] = useControllableValue(resetProps)
-    const [focus, setFocus] = useState(false)
-    const TextInputRef = useRef<TextInputInstance>(null)
-    const colorScheme = useColorScheme()
+    const onChangeTextPersistFn = usePersistFn(onChangeText || noop);
+    const onEndEditingPersistFn = usePersistFn(onEndEditing || noop);
+    const onFocusPersistFn = usePersistFn(onFocus || noop);
+    const onBlurPersistFn = usePersistFn(onBlur || noop);
+    const formatterPersistFn = usePersistFn(formatter || defaultFormatter);
+    const [value, onChange] = useControllableValue(resetProps);
+    const [focus, setFocus] = useState(false);
+    const TextInputRef = useRef<TextInputInstance>(null);
+    const colorScheme = useColorScheme();
     const inputAccessoryViewID = useMemo(
       () => `TextInput_${getNextInputAccessoryViewID()}`,
       [],
-    )
+    );
     /** 当前值 */
-    const Value = useRef(value)
-    Value.current = value
+    const Value = useRef(value);
+    Value.current = value;
     /** 显示禁用样子 bordered 才显示 */
     const showDisabledInput =
-      bordered && !isNil(resetProps.editable) && !resetProps.editable
+      bordered && !isNil(resetProps.editable) && !resetProps.editable;
     /** 输入框最小高度 */
-    const textInputMinHeight = CV[`text_input_${size}_min_height`]
+    const textInputMinHeight = CV[`text_input_${size}_min_height`];
     /** 所有文字/文案相关的大小 */
-    const textInputFontSize = CV[`text_input_${size}_font_size`]
+    const textInputFontSize = CV[`text_input_${size}_font_size`];
 
     selectionColor = getDefaultValue(
       selectionColor,
       CV.text_input_selection_color,
-    )
+    );
     placeholderTextColor = getDefaultValue(
       placeholderTextColor,
       CV.text_input_placeholder_text_color,
-    )
+    );
 
     // 转发实例
     useImperativeHandle(ref, () => {
-      return TextInputRef.current!
-    })
+      return TextInputRef.current!;
+    });
 
     /** 点击完成收起软键盘 */
     const onPressFinish = useCallback(() => {
-      Keyboard.dismiss()
-      setFocus(false)
-    }, [])
+      Keyboard.dismiss();
+      setFocus(false);
+    }, []);
 
     /** 点击视觉上的输入框，聚焦，多行文本 */
     const onPressTextInput = useCallback(() => {
-      TextInputRef.current?.focus()
-    }, [])
+      TextInputRef.current?.focus();
+    }, []);
 
     /**
      * 当文字变化
@@ -172,73 +171,81 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     const onChangeTextTextInput = useCallback(
       (t: string) => {
         if (formatTrigger === 'onChangeText') {
-          t = formatterPersistFn(t)
+          t = formatterPersistFn(t);
         }
 
-        onChange(t)
-        onChangeTextPersistFn(t)
+        onChange(t);
+        onChangeTextPersistFn(t);
       },
       [formatTrigger, formatterPersistFn, onChange, onChangeTextPersistFn],
-    )
+    );
 
     /** 编辑结束的时候 */
-    const onEndEditingTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => {
+    const onEndEditingTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onEndEditing']>
+    >(
+      e => {
         if (formatTrigger === 'onEndEditing') {
-          e.nativeEvent.text = formatterPersistFn(e.nativeEvent.text)
+          e.nativeEvent.text = formatterPersistFn(e.nativeEvent.text);
         }
 
         if (Value.current !== e.nativeEvent.text) {
-          onChange(e.nativeEvent.text)
+          onChange(e.nativeEvent.text);
         }
 
-        onEndEditingPersistFn(e)
+        onEndEditingPersistFn(e);
       },
       [onEndEditingPersistFn, formatterPersistFn, formatTrigger, onChange],
-    )
+    );
 
     /** 当文本框内容变化时 */
-    const onChangeTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-        onChange(e.nativeEvent.text)
+    const onChangeTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onChange']>
+    >(
+      e => {
+        onChange(e.nativeEvent.text);
       },
       [onChange],
-    )
+    );
 
     /**
      * 点击清除按钮
      * @description 目前不能在输入框聚焦的时候触发点击，输入框失去焦点后才能触发点击，可能是软键盘的问题？
      */
     const onPressClearable = useCallback(() => {
-      TextInputRef.current?.clear()
-      onChange('')
-      onChangeTextPersistFn('')
-      onPressTextInput()
-    }, [onChangeTextPersistFn, onPressTextInput, onChange])
+      TextInputRef.current?.clear();
+      onChange('');
+      onChangeTextPersistFn('');
+      onPressTextInput();
+    }, [onChangeTextPersistFn, onPressTextInput, onChange]);
 
     /** 输入框聚焦 */
-    const onFocusTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-        setFocus(true)
-        onFocusPersistFn(e)
+    const onFocusTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onFocus']>
+    >(
+      e => {
+        setFocus(true);
+        onFocusPersistFn(e);
       },
       [onFocusPersistFn],
-    )
+    );
 
     /** 输入框失焦 */
-    const onBlurTextInput = useCallback(
-      (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-        setFocus(false)
-        onBlurPersistFn(e)
+    const onBlurTextInput = useCallback<
+      ExcludeUndefined<RNTextInputProps['onBlur']>
+    >(
+      e => {
+        setFocus(false);
+        onBlurPersistFn(e);
       },
       [onBlurPersistFn],
-    )
+    );
 
     const textInputTextStyle: TextStyle = {
       fontSize: textInputFontSize,
-    }
+    };
 
-    const isTextarea = type === 'textarea'
+    const isTextarea = type === 'textarea';
     // textarea 模式就是纯输入框
     const addonBeforeJSX = isTextarea
       ? null
@@ -247,7 +254,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           STYLES.addon_text_before,
           textInputTextStyle,
           addonBeforeTextStyle,
-        ])
+        ]);
     const addonAfterJSX = isTextarea
       ? null
       : renderTextLikeJSX(addonAfter, [
@@ -255,7 +262,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           STYLES.addon_text_after,
           textInputTextStyle,
           addonAfterTextStyle,
-        ])
+        ]);
     const prefixJSX = isTextarea
       ? null
       : renderTextLikeJSX(prefix, [
@@ -263,7 +270,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           STYLES.input_fix_text_pre,
           textInputTextStyle,
           prefixTextStyle,
-        ])
+        ]);
     const suffixJSX = isTextarea
       ? null
       : renderTextLikeJSX(suffix, [
@@ -271,7 +278,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           STYLES.input_fix_text_suf,
           textInputTextStyle,
           suffixTextStyle,
-        ])
+        ]);
     const customTextInputWidthStyle: TextStyle = !isNil(inputWidth)
       ? {
           flexShrink: 1,
@@ -279,13 +286,13 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           flexBasis: inputWidth,
           width: inputWidth,
         }
-      : {}
+      : {};
     /** 在添加了 addonXxx 的情况下，需要输入框部分自适应宽 */
     const inputAddonModeStyle = {
       flex: 1,
-    }
+    };
     /** 输入框不确定是否要排除边框 */
-    const inputUncertainHeight = bordered ? 2 : 0
+    const inputUncertainHeight = bordered ? 2 : 0;
     const inputStyles: StyleProp<ViewStyle> = [
       STYLES.input,
       isTextarea
@@ -309,7 +316,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
         ? inputAddonModeStyle
         : null,
       customTextInputWidthStyle,
-    ]
+    ];
 
     /**
      * 显示辅助工具栏
@@ -318,12 +325,12 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
     const showInputAccessoryView =
       iOSPlatform &&
       type !== 'text' &&
-      (isNil(resetProps.editable) || !!resetProps.editable)
+      (isNil(resetProps.editable) || !!resetProps.editable);
     const keyboardAppearance =
       isUndefined(resetProps.keyboardAppearance) ||
       resetProps.keyboardAppearance === 'default'
         ? colorScheme || 'light'
-        : resetProps.keyboardAppearance
+        : resetProps.keyboardAppearance;
 
     const textInputJSX = (
       <TouchableOpacity
@@ -373,7 +380,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           </Text>
         ) : null}
       </TouchableOpacity>
-    )
+    );
 
     const inputJSX = (
       <>
@@ -419,7 +426,7 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           textInputJSX
         )}
       </>
-    )
+    );
 
     if (addonAfterJSX || addonBeforeJSX) {
       return (
@@ -428,11 +435,11 @@ const TextInput = forwardRef<TextInputInstance, TextInputProps>(
           {inputJSX}
           {addonAfterJSX}
         </View>
-      )
+      );
     }
 
-    return inputJSX
+    return inputJSX;
   },
-)
+);
 
-export default memo(TextInput)
+export default memo(TextInput);

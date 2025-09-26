@@ -1,19 +1,19 @@
-import Color from 'color'
-import isNil from 'lodash/isNil'
-import isUndefined from 'lodash/isUndefined'
-import noop from 'lodash/noop'
-import React, { memo, useMemo } from 'react'
-import type { ViewStyle, TextStyle, StyleProp } from 'react-native'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import Color from 'color';
+import isNil from 'lodash/isNil';
+import isUndefined from 'lodash/isUndefined';
+import noop from 'lodash/noop';
+import React, { memo, useMemo } from 'react';
+import type { ViewStyle, TextStyle, StyleProp } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-import Flex from '../flex'
-import { getDefaultValue, renderTextLikeJSX } from '../helpers'
-import { useDebounceFn } from '../hooks'
-import Loading from '../loading'
-import Theme from '../theme'
+import Flex from '../flex';
+import { getDefaultValue, renderTextLikeJSX } from '../helpers';
+import { useDebounceFn } from '../hooks';
+import Loading from '../loading';
+import Theme from '../theme';
 
-import type { ButtonProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { ButtonProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Button 按钮
@@ -47,18 +47,18 @@ const Button: React.FC<ButtonProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const { run: runOnPress } = useDebounceFn(restProps.onPress || noop, {
     wait: onPressDebounceWait,
     leading: true,
     trailing: false,
-  })
+  });
 
   color = getDefaultValue(
     color,
     danger ? CV.button_danger_color : CV.button_primary_color,
-  )
-  textColor = getDefaultValue(textColor, CV.button_text_color)
+  );
+  textColor = getDefaultValue(textColor, CV.button_text_color);
 
   const [_backgroundColor, _borderColor, _textColor, _borderWidth] =
     useMemo(() => {
@@ -66,8 +66,8 @@ const Button: React.FC<ButtonProps> = ({
         case 'hazy': {
           const hazyColor = Color(color)
             .lightness(CV.button_hazy_lightness)
-            .hex()
-          return [hazyColor, hazyColor, color, 0]
+            .hex();
+          return [hazyColor, hazyColor, color, 0];
         }
 
         case 'outline': {
@@ -76,11 +76,11 @@ const Button: React.FC<ButtonProps> = ({
             CV.button_border_color,
             color,
             1,
-          ]
+          ];
         }
 
         case 'ghost': {
-          return [CV.button_ghost_background_color, color, color, 1]
+          return [CV.button_ghost_background_color, color, color, 1];
         }
 
         case 'link':
@@ -89,11 +89,11 @@ const Button: React.FC<ButtonProps> = ({
             CV.button_ghost_background_color,
             color,
             0,
-          ]
+          ];
 
         case 'primary':
         default:
-          return [color, color, textColor, 0]
+          return [color, color, textColor, 0];
       }
     }, [
       CV.button_border_color,
@@ -102,7 +102,7 @@ const Button: React.FC<ButtonProps> = ({
       color,
       textColor,
       type,
-    ])
+    ]);
 
   const buttonStyles: StyleProp<ViewStyle> = [
     STYLES.button,
@@ -123,7 +123,7 @@ const Button: React.FC<ButtonProps> = ({
     disabled ? STYLES.button_disabled : null,
     loading ? STYLES.button_loading : null,
     style,
-  ]
+  ];
   const commonTextStyle = StyleSheet.flatten<TextStyle>([
     STYLES.text,
     {
@@ -131,15 +131,15 @@ const Button: React.FC<ButtonProps> = ({
       color: _textColor,
       marginLeft: renderLeftIcon ? CV.button_icon_gap : 0,
     },
-  ])
+  ]);
 
   const textStyleSummary = StyleSheet.flatten<TextStyle>([
     commonTextStyle,
     textStyle,
-  ])
+  ]);
   const iconSize = (CV[`button_${size}_loading_size`] ||
-    textStyleSummary.fontSize)!
-  const iconColor = textStyleSummary.color as string
+    textStyleSummary.fontSize)!;
+  const iconColor = textStyleSummary.color as string;
 
   const contextJSX = loading ? (
     <Loading
@@ -173,7 +173,7 @@ const Button: React.FC<ButtonProps> = ({
         },
       )}
     </>
-  )
+  );
 
   return (
     <TouchableOpacity
@@ -191,7 +191,7 @@ const Button: React.FC<ButtonProps> = ({
       }>
       {contextJSX}
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default memo(Button)
+export default memo(Button);

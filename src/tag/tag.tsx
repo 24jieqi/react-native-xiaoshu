@@ -1,14 +1,14 @@
-import { CrossOutline } from '@fruits-chain/icons-react-native'
-import Color from 'color'
-import isNil from 'lodash/isNil'
-import React, { memo, useMemo } from 'react'
-import type { TextStyle, ViewStyle } from 'react-native'
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import { CrossOutline } from '@fruits-chain/icons-react-native';
+import Color from 'color';
+import isNil from 'lodash/isNil';
+import React, { memo, useMemo } from 'react';
+import type { TextStyle, ViewStyle } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
-import Theme from '../theme'
+import Theme from '../theme';
 
-import type { TagProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { TagProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 /**
  * Tag 标签
@@ -35,41 +35,41 @@ const Tag: React.FC<TagProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
-  const mainColor = !isNil(color) ? color : CV.tag_primary_color
+  });
+  const mainColor = !isNil(color) ? color : CV.tag_primary_color;
   const { innerTypeStyle, textTypeStyle } = useMemo(() => {
-    const tempInnerStyle: ViewStyle = {}
-    const tempTextStyle: TextStyle = {}
+    const tempInnerStyle: ViewStyle = {};
+    const tempTextStyle: TextStyle = {};
     switch (type) {
       case 'primary': {
-        tempInnerStyle.backgroundColor = mainColor
-        tempInnerStyle.borderColor = mainColor
-        tempTextStyle.color = CV.tag_text_color
-        break
+        tempInnerStyle.backgroundColor = mainColor;
+        tempInnerStyle.borderColor = mainColor;
+        tempTextStyle.color = CV.tag_text_color;
+        break;
       }
       case 'ghost': {
-        tempInnerStyle.backgroundColor = CV.tag_ghost_background_color
-        tempInnerStyle.borderColor = mainColor
-        tempInnerStyle.borderWidth = hairline ? StyleSheet.hairlineWidth : 1
-        tempTextStyle.color = mainColor
-        break
+        tempInnerStyle.backgroundColor = CV.tag_ghost_background_color;
+        tempInnerStyle.borderColor = mainColor;
+        tempInnerStyle.borderWidth = hairline ? StyleSheet.hairlineWidth : 1;
+        tempTextStyle.color = mainColor;
+        break;
       }
       case 'hazy': {
         const hazyColor = Color(mainColor)
           .lightness(CV.tag_hazy_lightness)
-          .hex()
-        tempInnerStyle.backgroundColor = hazyColor
-        tempInnerStyle.borderColor = hazyColor
-        tempTextStyle.color = mainColor
-        break
+          .hex();
+        tempInnerStyle.backgroundColor = hazyColor;
+        tempInnerStyle.borderColor = hazyColor;
+        tempTextStyle.color = mainColor;
+        break;
       }
       default:
-        break
+        break;
     }
     return {
       innerTypeStyle: tempInnerStyle,
       textTypeStyle: tempTextStyle,
-    }
+    };
   }, [
     CV.tag_text_color,
     CV.tag_ghost_background_color,
@@ -77,15 +77,15 @@ const Tag: React.FC<TagProps> = ({
     hairline,
     type,
     mainColor,
-  ])
+  ]);
   const { innerSizeStyle, textSizeStyle } = useMemo(() => {
-    const tempInnerStyle: ViewStyle = STYLES[`tag_inner_${size}`]
-    const tempTextStyle: TextStyle = STYLES[`tag_text_${size}`]
+    const tempInnerStyle: ViewStyle = STYLES[`tag_inner_${size}`];
+    const tempTextStyle: TextStyle = STYLES[`tag_text_${size}`];
     return {
       innerSizeStyle: tempInnerStyle,
       textSizeStyle: tempTextStyle,
-    }
-  }, [STYLES, size])
+    };
+  }, [STYLES, size]);
 
   const textStyle = StyleSheet.flatten<TextStyle>([
     /** 类型样式 */
@@ -95,7 +95,7 @@ const Tag: React.FC<TagProps> = ({
     !isNil(textColor) && {
       color: textColor,
     },
-  ])
+  ]);
 
   // 关闭的图标
   const renderCloseIcon = () => {
@@ -108,10 +108,10 @@ const Tag: React.FC<TagProps> = ({
           size={CV[`tag_${size}_close_icon`]}
           color={textStyle.color as string}
         />
-      )
+      );
     }
-    return null
-  }
+    return null;
+  };
 
   if (visible) {
     return (
@@ -129,10 +129,10 @@ const Tag: React.FC<TagProps> = ({
           {renderCloseIcon()}
         </View>
       </View>
-    )
+    );
   }
 
-  return null
-}
+  return null;
+};
 
-export default memo(Tag)
+export default memo(Tag);

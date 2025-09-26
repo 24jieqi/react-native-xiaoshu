@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -32,10 +32,10 @@ export const varCreator = (TOKENS: TokensType) => {
     text_input_accessory_text_color: TOKENS.brand_6,
     text_input_word_limit_text_font_size: TOKENS.font_size_3,
     text_input_word_limit_text_color: TOKENS.gray_7,
-  }
-}
+  };
+};
 
-export type TextInputTheme = ReturnType<typeof varCreator>
+export type TextInputTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: TextInputTheme, TOKENS: TokensType) => {
   return StyleSheet.create({
@@ -145,5 +145,5 @@ export const styleCreator = (cv: TextInputTheme, TOKENS: TokensType) => {
       lineHeight: (cv.text_input_accessory_height / 3) * 2,
       fontWeight: 'bold',
     },
-  })
-}
+  });
+};

@@ -1,18 +1,18 @@
-import React, { useState, useEffect, memo } from 'react'
+import React, { useState, useEffect, memo } from 'react';
 
-import { callInterceptor } from '../helpers'
-import { usePersistFn } from '../hooks'
+import { callInterceptor } from '../helpers';
+import { usePersistFn } from '../hooks';
 
-import ActionSheet from './action-sheet'
+import ActionSheet from './action-sheet';
 import type {
   ActionSheetMethodProps,
   ActionSheetAction,
   Action,
-} from './interface'
+} from './interface';
 
 interface LocalAction extends Action {
   /** 记录谁被点击了 */
-  _loading?: boolean
+  _loading?: boolean;
 }
 
 /**
@@ -25,15 +25,15 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
   onResponse,
   ...restProps
 }) => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
   const [localActions, setLocalActions] = useState<LocalAction[]>(() => {
     return actions.map(ac => {
       if (typeof ac === 'string') {
-        return { name: ac }
+        return { name: ac };
       }
-      return ac
-    })
-  })
+      return ac;
+    });
+  });
 
   const genOnPressBtn =
     (action: ActionSheetAction) => (item?: Action, index?: number) => {
@@ -41,13 +41,13 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
         setLocalActions(las =>
           las.map(ac => {
             if (ac._loading) {
-              ac.loading = false
-              ac._loading = false
+              ac.loading = false;
+              ac._loading = false;
             }
-            return ac
+            return ac;
           }),
-        )
-      }
+        );
+      };
 
       if (action === 'item') {
         setLocalActions(las =>
@@ -57,33 +57,33 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
                 ...ac,
                 loading: true,
                 _loading: true,
-              }
+              };
             }
 
-            return ac
+            return ac;
           }),
-        )
+        );
       }
 
       callInterceptor(beforeClose, {
         args: [action, item, index],
         done: () => {
-          canceled()
-          setVisible(false)
-          onResponse?.(action, item, index)
+          canceled();
+          setVisible(false);
+          onResponse?.(action, item, index);
         },
         canceled,
-      })
-    }
+      });
+    };
 
   useEffect(() => {
-    setVisible(true)
-  }, [])
+    setVisible(true);
+  }, []);
 
   const onRequestClose = usePersistFn(() => {
-    genOnPressBtn('overlay')()
-    return true
-  })
+    genOnPressBtn('overlay')();
+    return true;
+  });
 
   return (
     <ActionSheet
@@ -95,7 +95,7 @@ const ActionSheetMethod: React.FC<ActionSheetMethodProps> = ({
       onCancel={genOnPressBtn('cancel')}
       onSelect={(item, index) => genOnPressBtn('item')(item, index)}
     />
-  )
-}
+  );
+};
 
-export default memo(ActionSheetMethod)
+export default memo(ActionSheetMethod);

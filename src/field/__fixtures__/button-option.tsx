@@ -3,18 +3,19 @@
  * description: 适合单选、多选场景。
  */
 
-import React from 'react'
-import { Cell, Field } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
+
+import { Cell, Field } from '@fruits-chain/react-native-xiaoshu';
 
 const options = new Array(3).fill(0).map((_, index) => ({
   value: index,
   label: `选项_${index}`,
-}))
+}));
 
 const options2 = new Array(8).fill(0).map((_, index) => ({
   value: index,
   label: `选项_${index}`,
-}))
+}));
 
 const BasicFieldButtonOption: React.FC = () => {
   return (
@@ -55,7 +56,7 @@ const BasicFieldButtonOption: React.FC = () => {
         multiple
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicFieldButtonOption
+export default BasicFieldButtonOption;

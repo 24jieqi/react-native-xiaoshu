@@ -3,15 +3,15 @@
  * description: 不同的设施指示器不一样。
  */
 
-import React from 'react'
-import type { ViewStyle } from 'react-native'
-
-import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu'
 import {
   EyeOutline,
   SearchOutline,
   VolumeOutline,
-} from '@fruits-chain/icons-react-native'
+} from '@fruits-chain/icons-react-native';
+import React from 'react';
+import type { ViewStyle } from 'react-native';
+
+import { TabBar, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const bottomBarIconStyle: ViewStyle = {
   alignSelf: 'center',
@@ -20,7 +20,7 @@ const bottomBarIconStyle: ViewStyle = {
   // 无论大小图标都保持同一个占用空间
   width: 20,
   height: 20,
-}
+};
 
 const bottomBar = [
   {
@@ -59,7 +59,7 @@ const bottomBar = [
       />
     ),
   },
-]
+];
 
 const BasicTabBarIndicator: React.FC = () => {
   return (
@@ -91,7 +91,7 @@ const BasicTabBarIndicator: React.FC = () => {
         indicatorWidth={0}
       />
     </Space>
-  )
-}
+  );
+};
 
-export default BasicTabBarIndicator
+export default BasicTabBarIndicator;

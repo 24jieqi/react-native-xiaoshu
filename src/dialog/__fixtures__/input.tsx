@@ -3,9 +3,9 @@
  * description: 对话框内有一个输入框，支持数字、单/多行字符串，对应 numberInput、textInput 可以自定义输入框一些属性。异步操作配合 `beforeClose`、`onPressCancel`、`onPressConfirm` 控制点击按钮的 loading 状态。
  */
 
-import React from 'react'
+import React from 'react';
 
-import { Cell, Dialog, Toast } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Dialog, Toast } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicDialogInput: React.FC = () => {
   return (
@@ -18,9 +18,9 @@ const BasicDialogInput: React.FC = () => {
             title: '输入框？',
             placeholder: '请输入内容',
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -32,9 +32,9 @@ const BasicDialogInput: React.FC = () => {
             title: '输入框？',
             placeholder: '请输入内容',
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -45,10 +45,10 @@ const BasicDialogInput: React.FC = () => {
             title: '输入框？',
             placeholder: '请输入内容',
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
             showClose: true,
-          })
+          });
         }}
       />
       <Cell
@@ -61,9 +61,9 @@ const BasicDialogInput: React.FC = () => {
             message:
               '一袋米要抗几楼，一袋米要抗二楼，一袋米要给多了，一袋米由我洗嘞',
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -75,18 +75,18 @@ const BasicDialogInput: React.FC = () => {
             placeholder: '请输入内容',
             onPressConfirm: t => {
               if (t.trim()) {
-                console.log(t)
+                console.log(t);
                 return new Promise<void>(resolve => {
                   setTimeout(() => {
-                    resolve()
-                  }, 2000)
-                })
+                    resolve();
+                  }, 2000);
+                });
               } else {
-                Toast('请输入内容')
-                return false
+                Toast('请输入内容');
+                return false;
               }
             },
-          })
+          });
         }}
       />
       <Cell
@@ -98,9 +98,9 @@ const BasicDialogInput: React.FC = () => {
             defaultValue: '43434',
             placeholder: '请输入内容',
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -114,9 +114,9 @@ const BasicDialogInput: React.FC = () => {
             defaultValue: '343434',
 
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -132,9 +132,9 @@ const BasicDialogInput: React.FC = () => {
             defaultValue: '343434',
 
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -150,9 +150,9 @@ const BasicDialogInput: React.FC = () => {
               maxLength: 16,
             },
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -168,9 +168,9 @@ const BasicDialogInput: React.FC = () => {
               maxLength: 12,
             },
             onPressConfirm: t => {
-              console.log(t)
+              console.log(t);
             },
-          })
+          });
         }}
       />
       <Cell
@@ -191,21 +191,21 @@ const BasicDialogInput: React.FC = () => {
             },
             onPressConfirm: t => {
               if (!t.trim()) {
-                Toast('请填写取消原因')
-                return false
+                Toast('请填写取消原因');
+                return false;
               }
 
               return new Promise<boolean>(resolve => {
                 setTimeout(() => {
-                  resolve(true)
-                }, 600)
-              })
+                  resolve(true);
+                }, 600);
+              });
             },
-          })
+          });
         }}
       />
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicDialogInput
+export default BasicDialogInput;

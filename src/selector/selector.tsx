@@ -1,18 +1,18 @@
-import omit from 'lodash/omit'
-import pick from 'lodash/pick'
-import React, { memo, useState } from 'react'
+import omit from 'lodash/omit';
+import pick from 'lodash/pick';
+import React, { memo, useState } from 'react';
 
-import Button from '../button'
-import ButtonBar from '../button-bar'
-import { useSafeHeight, usePersistFn, useUpdateEffect } from '../hooks'
-import Locale from '../locale'
-import Popup from '../popup/popup'
-import PopupHeader from '../popup/popup-header'
-import PopupPage from '../popup/popup-page'
-import Tree from '../tree'
-import type { TreeProps, TreeValue } from '../tree/interface'
+import Button from '../button';
+import ButtonBar from '../button-bar';
+import { useSafeHeight, usePersistFn, useUpdateEffect } from '../hooks';
+import Locale from '../locale';
+import Popup from '../popup/popup';
+import PopupHeader from '../popup/popup-header';
+import PopupPage from '../popup/popup-page';
+import Tree from '../tree';
+import type { TreeProps, TreeValue } from '../tree/interface';
 
-import type { SelectorProps, SelectorValue } from './interface'
+import type { SelectorProps, SelectorValue } from './interface';
 
 const treePropsField = [
   'multiple',
@@ -31,7 +31,7 @@ const treePropsField = [
   'placeholder',
   'minHeight',
   'cancellable',
-]
+];
 
 /**
  * Selector 弹出层式 Select
@@ -49,12 +49,12 @@ const Selector: React.FC<SelectorProps> = ({
   onClose,
   ...restProps
 }) => {
-  const treeProps = pick(restProps, treePropsField) as TreeProps
-  const popupProps = omit(restProps, treePropsField)
-  const isMultiple = treeProps.multiple
+  const treeProps = pick(restProps, treePropsField) as TreeProps;
+  const popupProps = omit(restProps, treePropsField);
+  const isMultiple = treeProps.multiple;
 
-  const safeHeight = useSafeHeight({ top: safeAreaInsetTop, bottom: false })
-  const locale = Locale.useLocale().Selector
+  const safeHeight = useSafeHeight({ top: safeAreaInsetTop, bottom: false });
+  const locale = Locale.useLocale().Selector;
   // const [valueMultiple, onChangeMultiple] = useControllableValue<
   //   SelectorValue[]
   // >(omit(restProps, 'onChange'), {
@@ -70,34 +70,34 @@ const Selector: React.FC<SelectorProps> = ({
       : Array.isArray(treeProps.defaultValue)
         ? treeProps.defaultValue
         : [],
-  )
+  );
 
   // 同步外面的数据
   useUpdateEffect(() => {
     if (treeProps.multiple) {
-      setValueMultiple(treeProps.value as SelectorValue[])
+      setValueMultiple(treeProps.value as SelectorValue[]);
     }
-  }, [treeProps.multiple, treeProps.value])
+  }, [treeProps.multiple, treeProps.value]);
 
   const onChangeMultiplePersistFn = usePersistFn((v: TreeValue[]) => {
     if (onChangeImmediate) {
-      setValueMultiple(onChangeImmediate(v) as SelectorValue[])
+      setValueMultiple(onChangeImmediate(v) as SelectorValue[]);
     } else {
-      setValueMultiple(v)
+      setValueMultiple(v);
     }
-  })
+  });
 
   /**
    * 点击确定按钮
    */
   const onPressOk = usePersistFn(() => {
-    const _onChange = treeProps.onChange as SelectorProps['onChange']
+    const _onChange = treeProps.onChange as SelectorProps['onChange'];
 
     _onChange?.(
       valueMultiple,
       valueMultiple.map(i => Tree.findNodeByValue(treeProps.options, i)!),
-    )
-  })
+    );
+  });
 
   const contentJSX = (
     <>
@@ -106,7 +106,9 @@ const Selector: React.FC<SelectorProps> = ({
       <Tree
         {...treeProps}
         value={
-          isMultiple ? valueMultiple : treeProps.value ?? treeProps.defaultValue
+          isMultiple
+            ? valueMultiple
+            : (treeProps.value ?? treeProps.defaultValue)
         }
         onChange={isMultiple ? onChangeMultiplePersistFn : treeProps.onChange}
       />
@@ -125,7 +127,7 @@ const Selector: React.FC<SelectorProps> = ({
         </ButtonBar>
       ) : null}
     </>
-  )
+  );
 
   if (treeProps.search) {
     return (
@@ -139,7 +141,7 @@ const Selector: React.FC<SelectorProps> = ({
         safeAreaInsetBottom>
         {contentJSX}
       </PopupPage>
-    )
+    );
   }
 
   return (
@@ -155,7 +157,7 @@ const Selector: React.FC<SelectorProps> = ({
       safeAreaInsetBottom>
       {contentJSX}
     </Popup>
-  )
-}
+  );
+};
 
-export default memo(Selector)
+export default memo(Selector);

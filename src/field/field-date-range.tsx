@@ -1,22 +1,22 @@
-import { SwapRightOutline } from '@fruits-chain/icons-react-native'
-import isUndefined from 'lodash/isUndefined'
-import omit from 'lodash/omit'
-import React, { useMemo, memo } from 'react'
-import type { TextStyle, StyleProp } from 'react-native'
-import { Keyboard } from 'react-native'
+import { SwapRightOutline } from '@fruits-chain/icons-react-native';
+import isUndefined from 'lodash/isUndefined';
+import omit from 'lodash/omit';
+import React, { useMemo, memo } from 'react';
+import type { TextStyle, StyleProp } from 'react-native';
+import { Keyboard } from 'react-native';
 
-import Cell from '../cell'
-import { varCreator as varCreatorCell } from '../cell/style'
-import DatePicker from '../date-picker'
-import type { DatePickerRangeValue } from '../date-picker/interface'
-import { formatDate } from '../date-picker-view/helper'
-import { getDefaultValue, renderTextLikeJSX } from '../helpers'
-import { useControllableValue, usePersistFn } from '../hooks'
-import { varCreator as varCreatorTextInput } from '../text-input/style'
-import TextInputClear from '../text-input/text-input-clear'
-import Theme from '../theme'
+import Cell from '../cell';
+import { varCreator as varCreatorCell } from '../cell/style';
+import DatePicker from '../date-picker';
+import type { DatePickerRangeValue } from '../date-picker/interface';
+import { formatDate } from '../date-picker-view/helper';
+import { getDefaultValue, renderTextLikeJSX } from '../helpers';
+import { useControllableValue, usePersistFn } from '../hooks';
+import { varCreator as varCreatorTextInput } from '../text-input/style';
+import TextInputClear from '../text-input/text-input-clear';
+import Theme from '../theme';
 
-import type { FieldDateRangeProps } from './interface'
+import type { FieldDateRangeProps } from './interface';
 
 const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   mode = 'Y-D',
@@ -41,31 +41,31 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
   ...restProps
 }) => {
   if (restProps.vertical) {
-    textAlign = 'left'
+    textAlign = 'left';
   }
 
-  const TOKENS = Theme.useThemeTokens()
-  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell)
-  const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput)
+  const TOKENS = Theme.useThemeTokens();
+  const CV_CELL = Theme.createVar(TOKENS, varCreatorCell);
+  const CV_TEXT_INPUT = Theme.createVar(TOKENS, varCreatorTextInput);
 
   // 修正数据
   placeholderTextColor = getDefaultValue(
     placeholderTextColor,
     CV_TEXT_INPUT.text_input_placeholder_text_color,
-  )
+  );
 
   const [value, onChange] = useControllableValue<
     DatePickerRangeValue | undefined
-  >(restProps)
+  >(restProps);
   const valueTexts = useMemo<[string, string] | undefined>(
     () =>
       value?.[0] && value[1]
         ? [formatDate(mode, value[0]), formatDate(mode, value[1])]
         : undefined,
     [value, mode],
-  )
+  );
 
-  const hasValue = !isUndefined(valueTexts)
+  const hasValue = !isUndefined(valueTexts);
 
   const valueTextStyles = useMemo<StyleProp<TextStyle>>(() => {
     return [
@@ -80,7 +80,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
             color: placeholderTextColor,
           }
         : null,
-    ]
+    ];
   }, [
     CV_CELL.cell_font_size,
     CV_CELL.cell_title_line_height,
@@ -88,10 +88,10 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
     valueTextStyle,
     hasValue,
     placeholderTextColor,
-  ])
+  ]);
 
   const onPress = usePersistFn(() => {
-    Keyboard.dismiss()
+    Keyboard.dismiss();
 
     const option = {
       defaultValue: value,
@@ -103,16 +103,16 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
       renderLabel,
       title: datePickerTitle,
       beforeClose: dataPickerBeforeClose,
-    }
+    };
 
     DatePicker.range(
       datePickerCustomOption ? datePickerCustomOption(option) : option,
     ).then(({ action, values: _values }) => {
       if (action === 'confirm') {
-        onChange(_values)
+        onChange(_values);
       }
-    })
-  })
+    });
+  });
 
   const swapRightJSX = (
     <SwapRightOutline
@@ -125,11 +125,11 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
         marginHorizontal: TOKENS.space_1 / 2,
       }}
     />
-  )
+  );
   const showTexts =
     hasValue && formatValueText && value
       ? formatValueText(value, mode, valueTexts)
-      : (valueTexts as [string, string])
+      : (valueTexts as [string, string]);
 
   return (
     <Cell
@@ -176,7 +176,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
             {restProps.valueExtra}
             <TextInputClear
               onPress={() => {
-                onChange(undefined)
+                onChange(undefined);
               }}
             />
           </>
@@ -185,7 +185,7 @@ const FieldDateRange: React.FC<FieldDateRangeProps> = ({
         )
       }
     />
-  )
-}
+  );
+};
 
-export default memo(FieldDateRange)
+export default memo(FieldDateRange);

@@ -3,62 +3,62 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState, useEffect, useCallback, memo, useRef } from 'react'
-import { ScrollView } from 'react-native'
+import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
+import { ScrollView } from 'react-native';
 
 import {
   Progress,
   Button,
   Card,
   Space,
-} from '@fruits-chain/react-native-xiaoshu'
+} from '@fruits-chain/react-native-xiaoshu';
 
 const TestRender = () => {
-  const index = useRef(0)
+  const index = useRef(0);
   useEffect(() => {
-    index.current += 1
-    console.log('TestRender => ', index.current)
+    index.current += 1;
+    console.log('TestRender => ', index.current);
 
     return () => {
-      console.log('dddd')
-    }
-  }, [])
+      console.log('dddd');
+    };
+  }, []);
 
-  return <Button text="测试按钮" />
-}
+  return <Button text="测试按钮" />;
+};
 
-const TestRenderMemo = memo(TestRender)
+const TestRenderMemo = memo(TestRender);
 
 const BasicProgress: React.FC = () => {
   const [state, setState] = useState({
     loading: true,
     percentage: 0,
     fail: true,
-  })
+  });
 
   const onPressReload = useCallback(() => {
     setState(s => ({
       ...s,
       loading: true,
-    }))
+    }));
 
     setTimeout(() => {
       setState(s => ({
         ...s,
         fail: false,
         loading: false,
-      }))
-    }, 1000)
-  }, [])
+      }));
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
       setState(s => ({
         ...s,
         loading: false,
-      }))
-    }, 100)
-  }, [])
+      }));
+    }, 100);
+  }, []);
 
   return (
     <Progress.Page
@@ -85,13 +85,13 @@ const BasicProgress: React.FC = () => {
                 text="数值++"
                 onPress={() => {
                   setState(s => {
-                    const p = s.percentage + 10
+                    const p = s.percentage + 10;
 
                     return {
                       ...s,
                       percentage: p > 100 ? 0 : p,
-                    }
-                  })
+                    };
+                  });
                 }}
               />
             </Space>
@@ -128,7 +128,7 @@ const BasicProgress: React.FC = () => {
         </Space>
       </ScrollView>
     </Progress.Page>
-  )
-}
+  );
+};
 
-export default BasicProgress
+export default BasicProgress;

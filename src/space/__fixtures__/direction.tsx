@@ -3,10 +3,10 @@
  * description: 组件 `direction` 属性可以改变子组件排版方向，横向排版子组件太多可以通过 `wrap` 达到换行的效果。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Blank, Card, Space, Button } from '@fruits-chain/react-native-xiaoshu'
+import { Blank, Card, Space, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicSpaceDirection: React.FC = () => {
   return (
@@ -70,7 +70,7 @@ const BasicSpaceDirection: React.FC = () => {
         </Card>
       </Space>
     </Blank>
-  )
-}
+  );
+};
 
-export default BasicSpaceDirection
+export default BasicSpaceDirection;

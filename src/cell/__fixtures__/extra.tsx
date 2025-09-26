@@ -3,34 +3,45 @@
  * description: 单元格支持各个部件的 style 覆盖。
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Cell, Tag } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Tag } from '@fruits-chain/react-native-xiaoshu';
 
 const CellExtra: React.FC = () => {
   return (
     <>
       <Cell
-        title={<Text style={{ alignSelf: 'center' }}>自定义 title JSX</Text>}
+        title={
+          <Text
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ alignSelf: 'center' }}>
+            自定义 title JSX
+          </Text>
+        }
         value="显示文案"
       />
       <Cell
         title="标题"
+        // eslint-disable-next-line react-native/no-inline-styles
         valueStyle={{ justifyContent: 'center', alignItems: 'center' }}
         value={<Text>自定义 value JSX</Text>}
       />
       <Cell
         title="自定义样式"
+        // eslint-disable-next-line react-native/no-inline-styles
         titleStyle={{
           backgroundColor: '#f5f5f5',
         }}
+        // eslint-disable-next-line react-native/no-inline-styles
         titleTextStyle={{
           color: '#f30',
         }}
+        // eslint-disable-next-line react-native/no-inline-styles
         valueStyle={{
           backgroundColor: '#000',
         }}
+        // eslint-disable-next-line react-native/no-inline-styles
         valueTextStyle={{
           color: '#fff',
         }}
@@ -44,6 +55,7 @@ const CellExtra: React.FC = () => {
         titleExtra={
           <Tag
             size="s"
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               alignSelf: 'center',
               marginRight: 4,
@@ -58,6 +70,7 @@ const CellExtra: React.FC = () => {
         valueExtra={
           <Tag
             size="s"
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               alignSelf: 'center',
               marginLeft: 4,
@@ -73,6 +86,7 @@ const CellExtra: React.FC = () => {
         valueExtra={
           <Tag
             size="s"
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               alignSelf: 'center',
               marginLeft: 4,
@@ -83,7 +97,7 @@ const CellExtra: React.FC = () => {
       />
       <Cell title="最后一项" value="一般不显示分割线" divider={false} />
     </>
-  )
-}
+  );
+};
 
-export default CellExtra
+export default CellExtra;

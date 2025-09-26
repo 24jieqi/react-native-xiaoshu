@@ -3,9 +3,9 @@
  * description: 结合业务自定义对话框的内容。
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Cell, Dialog } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Dialog } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicDialogOther: React.FC = () => {
   const [state, setState] = useState({
@@ -14,7 +14,7 @@ const BasicDialogOther: React.FC = () => {
       cancel: false,
       confirm: false,
     },
-  })
+  });
   return (
     <>
       <Cell.Group title="组件调用">
@@ -23,14 +23,14 @@ const BasicDialogOther: React.FC = () => {
           isLink
           divider={false}
           onPress={() => {
-            console.log('组件调用')
+            console.log('组件调用');
             setState(s => ({
               ...s,
               cDialog1: {
                 ...s.cDialog1,
                 show: true,
               },
-            }))
+            }));
           }}
         />
       </Cell.Group>
@@ -49,27 +49,27 @@ const BasicDialogOther: React.FC = () => {
               confirm: false,
               show: false,
             },
-          }))
+          }));
         }}
         onPressCancel={() => {
-          console.log('onPressCancel')
+          console.log('onPressCancel');
           setState(s => ({
             ...s,
             cDialog1: {
               ...s.cDialog1,
               cancel: true,
             },
-          }))
+          }));
         }}
         onPressConfirm={() => {
-          console.log('onPressConfirm')
+          console.log('onPressConfirm');
           setState(s => ({
             ...s,
             cDialog1: {
               ...s.cDialog1,
               confirm: true,
             },
-          }))
+          }));
 
           setTimeout(() => {
             setState(s => ({
@@ -79,13 +79,13 @@ const BasicDialogOther: React.FC = () => {
                 confirm: false,
                 show: false,
               },
-            }))
-          }, 1000)
+            }));
+          }, 1000);
         }}
         message="哈哈哈哈哈哈哈嗝"
       />
     </>
-  )
-}
+  );
+};
 
-export default BasicDialogOther
+export default BasicDialogOther;

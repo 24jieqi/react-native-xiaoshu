@@ -3,14 +3,14 @@
  * description: 把各种场景、API 都运用了
  */
 
-import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { SuccessOutline } from '@fruits-chain/icons-react-native';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
 
-import { Cell, TextInput, Button } from '@fruits-chain/react-native-xiaoshu'
-import { SuccessOutline } from '@fruits-chain/icons-react-native'
+import { Cell, TextInput, Button } from '@fruits-chain/react-native-xiaoshu';
 
 const BasicTextInput: React.FC = () => {
-  const [value2, setValue2] = useState('')
+  const [value2, setValue2] = useState('');
 
   return (
     <>
@@ -44,20 +44,20 @@ const BasicTextInput: React.FC = () => {
               placeholder="受控"
               value={value2}
               onChangeText={e => {
-                console.log('onChangeText => ', e)
+                console.log('onChangeText => ', e);
               }}
               onChange={e => {
-                setValue2(e)
-                console.log('onChange => ', e)
+                setValue2(e);
+                console.log('onChange => ', e);
               }}
               onFocus={e => {
-                console.log('onFocus => ', e.nativeEvent.text)
+                console.log('onFocus => ', e.nativeEvent);
               }}
               onBlur={e => {
-                console.log('onBlur => ', e.nativeEvent.text)
+                console.log('onBlur => ', e.nativeEvent);
               }}
               onEndEditing={e => {
-                console.log('onEndEditing => ', e.nativeEvent.text)
+                console.log('onEndEditing => ', e.nativeEvent.text);
               }}
             />
           }
@@ -74,7 +74,7 @@ const BasicTextInput: React.FC = () => {
             <TextInput
               placeholder="内容左对齐"
               onChange={t => {
-                console.log('内容左对齐 => ', t)
+                console.log('内容左对齐 => ', t);
               }}
             />
           }
@@ -134,6 +134,7 @@ const BasicTextInput: React.FC = () => {
                   type="primary"
                   size="xs"
                   text="发送验证码"
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{ marginLeft: 8 }}
                 />
               }
@@ -259,18 +260,24 @@ const BasicTextInput: React.FC = () => {
       <Cell.Group title="其他用法">
         <Text>自定义宽</Text>
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             flexDirection: 'row',
             backgroundColor: '#fff',
             alignItems: 'center',
             paddingVertical: 8,
           }}>
-          <Text style={{ marginRight: 8 }}>采购量</Text>
+          <Text
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ marginRight: 8 }}>
+            采购量
+          </Text>
           <TextInput
             placeholder="请输入"
             addonAfter="件"
             inputWidth={90}
             bordered
+            // eslint-disable-next-line react-native/no-inline-styles
             addonGroupStyle={{ marginRight: 8 }}
           />
           <TextInput
@@ -282,36 +289,55 @@ const BasicTextInput: React.FC = () => {
         </View>
         <Text>自定义大小</Text>
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             backgroundColor: '#fff',
             paddingHorizontal: 12,
           }}>
           <TextInput size="xl" placeholder="请输入 xl" bordered />
-          <View style={{ height: 10 }} />
+          <View
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ height: 10 }}
+          />
           <TextInput size="l" placeholder="请输入 l" bordered />
-          <View style={{ height: 10 }} />
+          <View
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ height: 10 }}
+          />
           <TextInput placeholder="请输入 m" bordered />
-          <View style={{ height: 10 }} />
+          <View
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ height: 10 }}
+          />
           <TextInput size="s" placeholder="请输入 s" bordered />
-          <View style={{ height: 10 }} />
+          <View
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{ height: 10 }}
+          />
         </View>
         <Text>可能高度消失</Text>
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             height: 200,
             justifyContent: 'flex-end',
           }}>
           <View
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               minHeight: 40,
               backgroundColor: '#fff',
             }}>
             <TextInput placeholder="请输入" />
-            <View style={{ height: 20, backgroundColor: '#ddd' }} />
+            <View
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{ height: 20, backgroundColor: '#ddd' }}
+            />
           </View>
         </View>
         <Text>自定义使用</Text>
         <TextInput
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{ backgroundColor: '#f5f5f5', fontSize: 20, height: 50 }}
           placeholder="请输入内容"
         />
@@ -319,7 +345,7 @@ const BasicTextInput: React.FC = () => {
         <Text>placeholder</Text>
       </Cell.Group>
     </>
-  )
-}
+  );
+};
 
-export default BasicTextInput
+export default BasicTextInput;

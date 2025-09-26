@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -14,10 +14,10 @@ export const varCreator = (TOKENS: TokensType) => {
     uploader_upload_text_font_size: TOKENS.font_size_3,
     uploader_upload_text_line_height: 20,
     uploader_upload_text_margin_top: TOKENS.space_1,
-  }
-}
+  };
+};
 
-export type UploaderTheme = ReturnType<typeof varCreator>
+export type UploaderTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: UploaderTheme) => {
   return StyleSheet.create({
@@ -33,5 +33,5 @@ export const styleCreator = (cv: UploaderTheme) => {
       marginTop: cv.uploader_upload_text_margin_top,
       textAlign: 'center',
     },
-  })
-}
+  });
+};

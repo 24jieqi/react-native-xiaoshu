@@ -1,30 +1,30 @@
-import React, { useRef, memo, useEffect } from 'react'
-import type { ColorValue, ViewProps } from 'react-native'
-import { View, Animated, StyleSheet, Easing } from 'react-native'
+import React, { useRef, memo, useEffect } from 'react';
+import type { ColorValue, ViewProps } from 'react-native';
+import { View, Animated, StyleSheet, Easing } from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import Theme from '../theme';
 
-import type { LoadingTheme } from './style'
-import { varCreator } from './style'
+import type { LoadingTheme } from './style';
+import { varCreator } from './style';
 
 export interface SpinnerProps extends ViewProps {
-  theme?: Partial<LoadingTheme>
+  theme?: Partial<LoadingTheme>;
   /**
    * 大小
    */
-  size?: number
+  size?: number;
 
   /**
    * 颜色
    */
-  color?: ColorValue
+  color?: ColorValue;
 }
 
-const PETAL_COUNT = 8
-const PETALS = new Array(PETAL_COUNT).fill(0)
-const A_OPACITY = 1 / PETAL_COUNT
-const A_ROTATE = 360 / PETAL_COUNT
+const PETAL_COUNT = 8;
+const PETALS = new Array(PETAL_COUNT).fill(0);
+const A_OPACITY = 1 / PETAL_COUNT;
+const A_ROTATE = 360 / PETAL_COUNT;
 
 const useLoop = (
   AnimatedValue: Animated.Value,
@@ -40,11 +40,17 @@ const useLoop = (
       duration: config.duration,
       easing: config.easing,
       useNativeDriver: true,
-    })
+    });
 
-    Animated.loop(spinAnimation).start()
-  }, [AnimatedValue, initValue, config.duration, config.toValue, config.easing])
-}
+    Animated.loop(spinAnimation).start();
+  }, [
+    AnimatedValue,
+    initValue,
+    config.duration,
+    config.toValue,
+    config.easing,
+  ]);
+};
 
 const Spinner: React.FC<SpinnerProps> = ({
   theme,
@@ -55,17 +61,17 @@ const Spinner: React.FC<SpinnerProps> = ({
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
-  const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current
+  });
+  const AnimatedSpinnerValue = useRef(new Animated.Value(0)).current;
 
-  size = getDefaultValue(size, CV.loading_icon_size)
-  color = getDefaultValue(color, CV.loading_icon_color)
+  size = getDefaultValue(size, CV.loading_icon_size);
+  color = getDefaultValue(color, CV.loading_icon_color);
 
   useLoop(AnimatedSpinnerValue, 0, {
     toValue: 1,
     duration: CV.loading_icon_animation_duration,
     easing: Easing.linear,
-  })
+  });
 
   return (
     <Animated.View
@@ -110,11 +116,11 @@ const Spinner: React.FC<SpinnerProps> = ({
               ]}
             />
           </View>
-        )
+        );
       })}
     </Animated.View>
-  )
-}
+  );
+};
 
 const STYLES = StyleSheet.create({
   icon: {
@@ -146,6 +152,6 @@ const STYLES = StyleSheet.create({
     // borderRadius: 1,
     // backgroundColor: '#000',
   },
-})
+});
 
-export default memo(Spinner)
+export default memo(Spinner);

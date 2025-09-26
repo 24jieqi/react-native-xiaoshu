@@ -1,4 +1,4 @@
-import type { PickerOption } from '../interface'
+import type { PickerOption } from '../interface';
 
 /**
  * 按照某个方向找到可用选项的下标
@@ -8,21 +8,21 @@ const findAvailableOptionsIndex = (
   start: number,
   end: number,
 ) => {
-  const isNext = end - start >= 0
+  const isNext = end - start >= 0;
 
   for (
     let iii = start;
     isNext ? iii <= end : iii >= end;
     iii += isNext ? 1 : -1
   ) {
-    const item = options[iii]
+    const item = options[iii];
     if (!item.disabled) {
-      return iii
+      return iii;
     }
   }
 
-  return -1
-}
+  return -1;
+};
 
 export const findUsableOptionIndex = (
   options: PickerOption[],
@@ -32,34 +32,33 @@ export const findUsableOptionIndex = (
   index: number,
   /** 是否可以翻转查找 */
   reverse = true,
-  // eslint-disable-next-line max-params
 ) => {
-  const maxIndex = options.length - 1
+  const maxIndex = options.length - 1;
   // 两端的情况不能反转查找
   if (reverse && (index === 0 || index === maxIndex)) {
-    reverse = false
+    reverse = false;
   }
 
   // 顶端不能继续向上找
   if (index === 0 && !next) {
-    next = true
+    next = true;
   }
 
   // 末端不能继续向下找
   if (index === maxIndex && next) {
-    next = false
+    next = false;
   }
 
   const getEnd = (cNext: boolean) => {
-    return cNext ? maxIndex : 0
-  }
+    return cNext ? maxIndex : 0;
+  };
 
   // 以当前为起点向某个方向找
-  let nIndex = findAvailableOptionsIndex(options, index, getEnd(next))
+  let nIndex = findAvailableOptionsIndex(options, index, getEnd(next));
 
   if (nIndex === -1 && reverse) {
-    nIndex = findAvailableOptionsIndex(options, index, getEnd(!next))
+    nIndex = findAvailableOptionsIndex(options, index, getEnd(!next));
   }
 
-  return nIndex
-}
+  return nIndex;
+};

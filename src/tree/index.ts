@@ -1,6 +1,6 @@
-import { attachPropertiesToComponent } from '../helpers'
+import { attachPropertiesToComponent } from '../helpers';
 
-import { varCreator, styleCreator } from './style'
+import { varCreator, styleCreator } from './style';
 import Tree, {
   findNodeByValue,
   findAllChildrenValue,
@@ -8,8 +8,8 @@ import Tree, {
   findAllParentNodeByValue,
   flattenDeepWidthChildren,
   buildHighlightLabelConfig,
-} from './tree'
-import { TreeMultipleMode } from './var'
+} from './tree';
+import { TreeMultipleMode } from './var';
 
 export default attachPropertiesToComponent(Tree, {
   varCreator,
@@ -21,4 +21,4 @@ export default attachPropertiesToComponent(Tree, {
   findAllParentNodeByValue,
   flattenDeepWidthChildren,
   buildHighlightLabelConfig,
-})
+});

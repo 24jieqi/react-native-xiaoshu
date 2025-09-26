@@ -1,3 +1,173 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`ActionSheet render snapshot 1`] = `null`;
+exports[`ActionSheet render snapshot 1`] = `
+[
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0.7)",
+        "bottom": 0,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 2002,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "opacity": 1,
+        }
+      }
+    />
+  </View>,
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "#FFFFFF",
+        "borderBottomLeftRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderTopLeftRadius": 16,
+        "borderTopRightRadius": 16,
+        "bottom": 0,
+        "height": "auto",
+        "left": 0,
+        "overflow": "hidden",
+        "paddingBottom": 0,
+        "paddingTop": 0,
+        "position": "absolute",
+        "right": 0,
+        "transform": [
+          {
+            "translateY": 0,
+          },
+        ],
+        "zIndex": 2002,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "maxHeight": 1334,
+        }
+      }
+    >
+      <RCTScrollView
+        bounces={false}
+      >
+        <View>
+          <View
+            accessibilityLabel="一个"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderColor": "transparent",
+                "borderRadius": 4,
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "flexDirection": "column",
+                "height": 52,
+                "justifyContent": "center",
+                "opacity": 1,
+                "paddingHorizontal": 8,
+              }
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                numberOfLines={1}
+                style={
+                  {
+                    "color": "#11151A",
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginLeft": 0,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                一个
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>,
+]
+`;

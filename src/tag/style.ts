@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -22,10 +22,10 @@ export const varCreator = (TOKENS: TokensType) => {
     tag_primary_color: TOKENS.brand_6,
     tag_ghost_background_color: 'transparent',
     tag_hazy_lightness: 95,
-  }
-}
+  };
+};
 
-export type TagTheme = ReturnType<typeof varCreator>
+export type TagTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: TagTheme) => {
   return StyleSheet.create({
@@ -69,5 +69,5 @@ export const styleCreator = (cv: TagTheme) => {
     close_icon_size_s: {
       fontSize: cv.tag_s_close_icon,
     },
-  })
-}
+  });
+};

@@ -1,23 +1,23 @@
-import isNil from 'lodash/isNil'
-import React, { memo } from 'react'
-import type { ViewStyle } from 'react-native'
-import { View } from 'react-native'
+import isNil from 'lodash/isNil';
+import React, { memo } from 'react';
+import type { ViewStyle } from 'react-native';
+import { View } from 'react-native';
 
-import Space from '../space'
-import Theme from '../theme'
+import Space from '../space';
+import Theme from '../theme';
 
-import ButtonBar from './button-bar'
-import type { ButtonBarConfirmProps } from './interface'
-import { varCreator } from './style'
+import ButtonBar from './button-bar';
+import type { ButtonBarConfirmProps } from './interface';
+import { varCreator } from './style';
 
 const customButtonBarStyle: ViewStyle = {
   flexDirection: 'row',
   alignItems: 'center',
-}
+};
 
 const customChildrenStyle: ViewStyle = {
   flex: 1,
-}
+};
 
 const ButtonBarConfirm: React.FC<ButtonBarConfirmProps> = ({
   children,
@@ -25,8 +25,8 @@ const ButtonBarConfirm: React.FC<ButtonBarConfirmProps> = ({
 
   ...restProps
 }) => {
-  const TOKENS = Theme.useThemeTokens()
-  const CV = Theme.createVar(TOKENS, varCreator)
+  const TOKENS = Theme.useThemeTokens();
+  const CV = Theme.createVar(TOKENS, varCreator);
 
   return (
     <ButtonBar {...restProps} alone style={customButtonBarStyle}>
@@ -41,7 +41,7 @@ const ButtonBarConfirm: React.FC<ButtonBarConfirmProps> = ({
       ) : null}
       <View style={customChildrenStyle}>{children}</View>
     </ButtonBar>
-  )
-}
+  );
+};
 
-export default memo(ButtonBarConfirm)
+export default memo(ButtonBarConfirm);

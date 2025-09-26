@@ -3,10 +3,10 @@
  * description: 使用 `Row` 和 `Col` 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 Row 内。`Row` 的 `justify`、`align` 控制排版，`Col` 的 `span` 设置所占比例。
  */
 
-import React from 'react'
-import { Text, ScrollView, StyleSheet } from 'react-native'
+import React from 'react';
+import { Text, ScrollView, StyleSheet } from 'react-native';
 
-import { Row, Col, Space, Card } from '@fruits-chain/react-native-xiaoshu'
+import { Row, Col, Space, Card } from '@fruits-chain/react-native-xiaoshu';
 
 const Styles = StyleSheet.create({
   card: {
@@ -21,7 +21,7 @@ const Styles = StyleSheet.create({
     backgroundColor: '#876',
     flex: 1,
   },
-})
+});
 
 const BasicGrid: React.FC = () => {
   return (
@@ -146,7 +146,7 @@ const BasicGrid: React.FC = () => {
         </Card>
       </Space>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default BasicGrid
+export default BasicGrid;

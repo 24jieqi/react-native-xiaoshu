@@ -1,17 +1,17 @@
-import omit from 'lodash/omit'
-import pick from 'lodash/pick'
-import React, { memo } from 'react'
-import { Text, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import omit from 'lodash/omit';
+import pick from 'lodash/pick';
+import React, { memo } from 'react';
+import { Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import Locale from '../locale'
-import PickerView from '../picker-view'
-import type { PickerViewProps } from '../picker-view/interface'
-import Popup from '../popup'
-import Theme from '../theme'
+import Locale from '../locale';
+import PickerView from '../picker-view';
+import type { PickerViewProps } from '../picker-view/interface';
+import Popup from '../popup';
+import Theme from '../theme';
 
-import type { PickerProps } from './interface'
-import { varCreator, styleCreator } from './style'
+import type { PickerProps } from './interface';
+import { varCreator, styleCreator } from './style';
 
 const PICKER_VIEW_PROPS_KEYS = [
   'value',
@@ -21,7 +21,7 @@ const PICKER_VIEW_PROPS_KEYS = [
   'itemHeight',
   'visibleItemCount',
   'onChange',
-]
+];
 
 const Picker: React.FC<PickerProps> = ({
   theme,
@@ -36,13 +36,13 @@ const Picker: React.FC<PickerProps> = ({
 
   ...restProps
 }) => {
-  const locale = Locale.useLocale().Picker
+  const locale = Locale.useLocale().Picker;
   const [CV, STYLES] = Theme.useStyle({
     varCreator,
     styleCreator,
     theme,
-  })
-  const insets = useSafeAreaInsets()
+  });
+  const insets = useSafeAreaInsets();
 
   const headerTitleJSX = (
     <Popup.Header
@@ -65,13 +65,13 @@ const Picker: React.FC<PickerProps> = ({
         </Text>
       }
     />
-  )
+  );
 
   const pickerViewProps = pick(
     restProps,
     PICKER_VIEW_PROPS_KEYS,
-  ) as PickerViewProps
-  const popupProps = omit(restProps, PICKER_VIEW_PROPS_KEYS)
+  ) as PickerViewProps;
+  const popupProps = omit(restProps, PICKER_VIEW_PROPS_KEYS);
 
   return (
     <Popup {...popupProps} visible={visible} position="bottom" round>
@@ -81,7 +81,7 @@ const Picker: React.FC<PickerProps> = ({
 
       <View style={{ height: insets.bottom + CV.picker_bottom_gap }} />
     </Popup>
-  )
-}
+  );
+};
 
-export default memo(Picker)
+export default memo(Picker);

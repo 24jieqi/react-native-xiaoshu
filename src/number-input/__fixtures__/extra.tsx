@@ -3,14 +3,14 @@
  * description: 前置/后置标签等
  */
 
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { Text } from 'react-native';
 
-import { Cell, NumberInput, Space } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, NumberInput, Space } from '@fruits-chain/react-native-xiaoshu';
 
 const consoleNum = (n: number) => {
-  console.log('[新数据]  ->  ', n)
-}
+  console.log('[新数据]  ->  ', n);
+};
 
 const BasicNumberInputExtra: React.FC = () => {
   return (
@@ -93,6 +93,7 @@ const BasicNumberInputExtra: React.FC = () => {
         tail
         direction="horizontal"
         align="center"
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ backgroundColor: '#fff' }}>
         <Text>采购量</Text>
         <NumberInput
@@ -115,7 +116,7 @@ const BasicNumberInputExtra: React.FC = () => {
         />
       </Space>
     </Cell.Group>
-  )
-}
+  );
+};
 
-export default BasicNumberInputExtra
+export default BasicNumberInputExtra;

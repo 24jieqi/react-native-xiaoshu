@@ -3,13 +3,13 @@
  * description: Cell.Group 使用案例。
  */
 
-import React from 'react'
-import { Text, View } from 'react-native'
+import React from 'react';
+import { Text, View } from 'react-native';
 
-import { Cell, Toast, Space, Theme } from '@fruits-chain/react-native-xiaoshu'
+import { Cell, Toast, Space, Theme } from '@fruits-chain/react-native-xiaoshu';
 
 const CellGroup: React.FC = () => {
-  const { gray_1, gray_3 } = Theme.useThemeTokens()
+  const { gray_1, gray_3 } = Theme.useThemeTokens();
 
   return (
     <Space>
@@ -17,10 +17,10 @@ const CellGroup: React.FC = () => {
         title="分组标题"
         extra={<Text>extra</Text>}
         onPressTitle={() => {
-          Toast('onPressTitle')
+          Toast('onPressTitle');
         }}
         onPressTitleText={() => {
-          Toast('onPressTitleText')
+          Toast('onPressTitleText');
         }}>
         <Cell title="标题" value="显示文案" />
         <Cell required title="必填" value="显示文案" />
@@ -28,12 +28,14 @@ const CellGroup: React.FC = () => {
       </Cell.Group>
 
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           backgroundColor: gray_1,
           paddingVertical: 24,
         }}>
         <Cell.Group
           title="内容区域有上下分割线"
+          // eslint-disable-next-line react-native/no-inline-styles
           titleTextStyle={{ color: '#f30', backgroundColor: gray_3 }}
           bodyTopDivider
           bodyBottomDivider>
@@ -43,7 +45,7 @@ const CellGroup: React.FC = () => {
         </Cell.Group>
       </View>
     </Space>
-  )
-}
+  );
+};
 
-export default CellGroup
+export default CellGroup;

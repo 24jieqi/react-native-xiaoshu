@@ -1,65 +1,65 @@
-import React from 'react'
+import React from 'react';
 // import type { ViewStyle } from 'react-native'
-import { Keyboard } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { Keyboard } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import DemoHome from '~/pages/demo/demo'
-import DemoFull from '~/pages/demo/full'
+import DemoHome from '~/pages/demo/demo';
+import DemoFull from '~/pages/demo/full';
 
-import DemoActionSheet from '../../../src/action-sheet/__fixtures__/basic'
-import DemoBadge from '../../../src/badge/__fixtures__/basic'
-import DemoBlank from '../../../src/blank/__fixtures__/basic'
-import DemoButton from '../../../src/button/__fixtures__/basic'
-import DemoButtonBar from '../../../src/button-bar/__fixtures__/basic'
-import DemoCard from '../../../src/card/__fixtures__/basic'
-import DemoCell from '../../../src/cell/__fixtures__/basic'
-import DemoCheckbox from '../../../src/checkbox/__fixtures__/basic'
-import DemoCollapse from '../../../src/collapse/__fixtures__/basic'
-import DemoDatePicker from '../../../src/date-picker/__fixtures__/basic'
-import DemoDatePickerView from '../../../src/date-picker-view/__fixtures__/basic'
-import DemoDescription from '../../../src/description/__fixtures__/basic'
-import DemoDialog from '../../../src/dialog/__fixtures__/basic'
-import DemoDivider from '../../../src/divider/__fixtures__/basic'
-import DemoDropdown from '../../../src/dropdown/__fixtures__/basic'
-import DemoElevatorNav from '../../../src/elevator-nav/__fixtures__/basic'
-import DemoEmpty from '../../../src/empty/__fixtures__/basic'
-import DemoErrorBoundary from '../../../src/error-boundary/__fixtures__/basic'
-import DemoField from '../../../src/field/__fixtures__/basic'
-import DemoFlex from '../../../src/flex/__fixtures__/basic'
-import DemoFloatingPanel from '../../../src/floating-panel/__fixtures__/basic'
-import DemoForm from '../../../src/form/__fixtures__/basic'
-import DemoGrid from '../../../src/grid/__fixtures__/basic'
-import DemoLoading from '../../../src/loading/__fixtures__/basic'
-import DemoNavBar from '../../../src/nav-bar/__fixtures__/basic'
-import DemoNavTab from '../../../src/nav-tab/__fixtures__/basic'
-import DemoNoticeBar from '../../../src/notice-bar/__fixtures__/basic'
-import DemoNotify from '../../../src/notify/__fixtures__/basic'
-import DemoNumberInput from '../../../src/number-input/__fixtures__/basic'
-import DemoOverlay from '../../../src/overlay/__fixtures__/basic'
-import DemoPasswordInput from '../../../src/password-input/__fixtures__/basic'
-import DemoPicker from '../../../src/picker/__fixtures__/basic'
-import DemoPickerView from '../../../src/picker-view/__fixtures__/basic'
-import DemoPopover from '../../../src/popover/__fixtures__/basic'
-import DemoPopup from '../../../src/popup/__fixtures__/basic'
-import DemoProgress from '../../../src/progress/__fixtures__/basic'
-import DemoResult from '../../../src/result/__fixtures__/basic'
-import DemoSearch from '../../../src/search/__fixtures__/basic'
-import DemoSelector from '../../../src/selector/__fixtures__/basic'
-import DemoSidebar from '../../../src/sidebar/__fixtures__/basic'
-import DemoSkeleton from '../../../src/skeleton/__fixtures__/basic'
-import DemoSpace from '../../../src/space/__fixtures__/basic'
-import DemoStepSelector from '../../../src/step-selector/__fixtures__/basic'
-import DemoSteps from '../../../src/steps/__fixtures__/basic'
-import DemoSwitch from '../../../src/switch/__fixtures__/basic'
-import DemoTabBar from '../../../src/tab-bar/__fixtures__/basic'
-import DemoTabs from '../../../src/tabs/__fixtures__/basic'
-import DemoTag from '../../../src/tag/__fixtures__/basic'
-import DemoTextInput from '../../../src/text-input/__fixtures__/basic'
-import DemoToast from '../../../src/toast/__fixtures__/basic'
-import DemoTree from '../../../src/tree/__fixtures__/basic'
-import DemoUploader from '../../../src/uploader/__fixtures__/basic'
+import DemoActionSheet from '../../../src/action-sheet/__fixtures__/basic';
+import DemoBadge from '../../../src/badge/__fixtures__/basic';
+import DemoBlank from '../../../src/blank/__fixtures__/basic';
+import DemoButton from '../../../src/button/__fixtures__/basic';
+import DemoButtonBar from '../../../src/button-bar/__fixtures__/basic';
+import DemoCard from '../../../src/card/__fixtures__/basic';
+import DemoCell from '../../../src/cell/__fixtures__/basic';
+import DemoCheckbox from '../../../src/checkbox/__fixtures__/basic';
+import DemoCollapse from '../../../src/collapse/__fixtures__/basic';
+import DemoDatePicker from '../../../src/date-picker/__fixtures__/basic';
+import DemoDatePickerView from '../../../src/date-picker-view/__fixtures__/basic';
+import DemoDescription from '../../../src/description/__fixtures__/basic';
+import DemoDialog from '../../../src/dialog/__fixtures__/basic';
+import DemoDivider from '../../../src/divider/__fixtures__/basic';
+import DemoDropdown from '../../../src/dropdown/__fixtures__/basic';
+import DemoElevatorNav from '../../../src/elevator-nav/__fixtures__/basic';
+import DemoEmpty from '../../../src/empty/__fixtures__/basic';
+import DemoErrorBoundary from '../../../src/error-boundary/__fixtures__/basic';
+import DemoField from '../../../src/field/__fixtures__/basic';
+import DemoFlex from '../../../src/flex/__fixtures__/basic';
+import DemoFloatingPanel from '../../../src/floating-panel/__fixtures__/basic';
+import DemoForm from '../../../src/form/__fixtures__/basic';
+import DemoGrid from '../../../src/grid/__fixtures__/basic';
+import DemoLoading from '../../../src/loading/__fixtures__/basic';
+import DemoNavBar from '../../../src/nav-bar/__fixtures__/basic';
+import DemoNavTab from '../../../src/nav-tab/__fixtures__/basic';
+import DemoNoticeBar from '../../../src/notice-bar/__fixtures__/basic';
+import DemoNotify from '../../../src/notify/__fixtures__/basic';
+import DemoNumberInput from '../../../src/number-input/__fixtures__/basic';
+import DemoOverlay from '../../../src/overlay/__fixtures__/basic';
+import DemoPasswordInput from '../../../src/password-input/__fixtures__/basic';
+import DemoPicker from '../../../src/picker/__fixtures__/basic';
+import DemoPickerView from '../../../src/picker-view/__fixtures__/basic';
+import DemoPopover from '../../../src/popover/__fixtures__/basic';
+import DemoPopup from '../../../src/popup/__fixtures__/basic';
+import DemoProgress from '../../../src/progress/__fixtures__/basic';
+import DemoResult from '../../../src/result/__fixtures__/basic';
+import DemoSearch from '../../../src/search/__fixtures__/basic';
+import DemoSelector from '../../../src/selector/__fixtures__/basic';
+import DemoSidebar from '../../../src/sidebar/__fixtures__/basic';
+import DemoSkeleton from '../../../src/skeleton/__fixtures__/basic';
+import DemoSpace from '../../../src/space/__fixtures__/basic';
+import DemoStepSelector from '../../../src/step-selector/__fixtures__/basic';
+import DemoSteps from '../../../src/steps/__fixtures__/basic';
+import DemoSwitch from '../../../src/switch/__fixtures__/basic';
+import DemoTabBar from '../../../src/tab-bar/__fixtures__/basic';
+import DemoTabs from '../../../src/tabs/__fixtures__/basic';
+import DemoTag from '../../../src/tag/__fixtures__/basic';
+import DemoTextInput from '../../../src/text-input/__fixtures__/basic';
+import DemoToast from '../../../src/toast/__fixtures__/basic';
+import DemoTree from '../../../src/tree/__fixtures__/basic';
+import DemoUploader from '../../../src/uploader/__fixtures__/basic';
 
-import DemoWrapper from './demo-wrapper'
+import DemoWrapper from './demo-wrapper';
 
 export type DemoPaths =
   | 'DemoHome'
@@ -118,12 +118,13 @@ export type DemoPaths =
   | 'DemoTree'
   | 'DemoFloatingPanel'
   | 'DemoElevatorNav'
-  | 'DemoNavTab'
+  | 'DemoNavTab';
 
 const onScrollBeginDrag = () => {
-  Keyboard.dismiss()
-}
+  Keyboard.dismiss();
+};
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const demoConfigs: { path: DemoPaths; Page: any }[] = [
   {
     path: 'DemoHome',
@@ -595,4 +596,4 @@ export const demoConfigs: { path: DemoPaths; Page: any }[] = [
       </DemoWrapper>
     ),
   },
-]
+];

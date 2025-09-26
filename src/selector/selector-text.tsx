@@ -1,17 +1,17 @@
-import React, { memo } from 'react'
-import { Text, TouchableOpacity } from 'react-native'
+import React, { memo } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 
-import { varCreator as varCreatorButton } from '../button/style'
-import { varCreator as varCreatorCell } from '../cell/style'
-import Divider from '../divider'
-import { getArrowOutline } from '../helpers'
-import { usePersistFn } from '../hooks'
-import Space from '../space'
-import Theme from '../theme'
+import { varCreator as varCreatorButton } from '../button/style';
+import { varCreator as varCreatorCell } from '../cell/style';
+import Divider from '../divider';
+import { getArrowOutline } from '../helpers';
+import { usePersistFn } from '../hooks';
+import Space from '../space';
+import Theme from '../theme';
 
-import type { SelectorTextProps } from './interface'
-import SelectorInstance from './selector-instance'
-import { varCreator, styleCreator } from './style'
+import type { SelectorTextProps } from './interface';
+import SelectorInstance from './selector-instance';
+import { varCreator, styleCreator } from './style';
 
 const SelectorText: React.FC<SelectorTextProps> = ({
   theme,
@@ -27,13 +27,13 @@ const SelectorText: React.FC<SelectorTextProps> = ({
     varCreator,
     styleCreator,
     theme,
-  })
+  });
   const [CV_BUTTON] = Theme.useStyle({
     varCreator: varCreatorButton,
-  })
+  });
   const [CV_CELL] = Theme.useStyle({
     varCreator: varCreatorCell,
-  })
+  });
 
   const onPress = usePersistFn(() => {
     SelectorInstance({
@@ -41,11 +41,11 @@ const SelectorText: React.FC<SelectorTextProps> = ({
       options: options,
       value,
       onChange,
-    }).catch(() => {})
-  })
-  const IconArrow = getArrowOutline(arrowDirection)
-  const textIndex = options.findIndex(op => op.value === value)
-  const text = options[textIndex].label
+    }).catch(() => {});
+  });
+  const IconArrow = getArrowOutline(arrowDirection);
+  const textIndex = options.findIndex(op => op.value === value);
+  const text = options[textIndex].label;
 
   return (
     <TouchableOpacity
@@ -63,7 +63,7 @@ const SelectorText: React.FC<SelectorTextProps> = ({
         />
       </Space>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default memo(SelectorText)
+export default memo(SelectorText);

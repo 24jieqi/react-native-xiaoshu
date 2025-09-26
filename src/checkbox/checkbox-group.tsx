@@ -1,13 +1,14 @@
-import omit from 'lodash/omit'
-import React, { memo } from 'react'
-import { ScrollView } from 'react-native'
+import omit from 'lodash/omit';
+import React, { memo } from 'react';
+import { ScrollView } from 'react-native';
 
-import { useControllableValue } from '../hooks'
-import Space from '../space'
+import { useControllableValue } from '../hooks';
+import Space from '../space';
 
-import Checkbox from './checkbox'
-import type { CheckboxGroupProps } from './interface'
+import Checkbox from './checkbox';
+import type { CheckboxGroupProps } from './interface';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CheckboxGroup<T = any>({
   theme,
   options,
@@ -28,14 +29,14 @@ function CheckboxGroup<T = any>({
     {
       defaultValue: multiple ? [] : undefined,
     },
-  )
+  );
 
   const contentJSX = (
     <Space {...omit(restProps, ['value', 'defaultValue', 'onChange'])}>
       {options.map(({ value: checkboxValue, ...checkboxProps }) => {
         const selected = multiple
           ? ((value || []) as T[]).indexOf(checkboxValue) > -1
-          : value === checkboxValue
+          : value === checkboxValue;
 
         return (
           <Checkbox
@@ -55,41 +56,41 @@ function CheckboxGroup<T = any>({
             value={selected ? checkboxValue : null}
             onChange={_value => {
               if (!editable) {
-                return
+                return;
               }
 
-              const isReset = _value !== checkboxValue
+              const isReset = _value !== checkboxValue;
 
               if (multiple) {
-                const oldValue = (value || []) as T[]
+                const oldValue = (value || []) as T[];
                 const newValue = isReset
                   ? oldValue.filter(v => v !== checkboxValue)
-                  : [checkboxValue, ...oldValue]
+                  : [checkboxValue, ...oldValue];
                 const newOptions = newValue.map(v => {
-                  const optionIndex = options.findIndex(o => o.value === v)
+                  const optionIndex = options.findIndex(o => o.value === v);
 
                   return {
                     ...options[optionIndex],
-                  }
-                })
+                  };
+                });
 
-                onChange(newValue, newOptions)
+                onChange(newValue, newOptions);
               } else {
                 if (!isReset || (isReset && deselect)) {
-                  const newValue = isReset ? undefined : _value
+                  const newValue = isReset ? undefined : _value;
                   const newOptions = isReset
                     ? undefined
-                    : options.filter(o => o.value === _value)
+                    : options.filter(o => o.value === _value);
 
-                  onChange(newValue, newOptions)
+                  onChange(newValue, newOptions);
                 }
               }
             }}
           />
-        )
+        );
       })}
     </Space>
-  )
+  );
 
   if (scrollable && restProps.direction === 'horizontal' && !restProps.wrap) {
     return (
@@ -99,12 +100,13 @@ function CheckboxGroup<T = any>({
         showsHorizontalScrollIndicator={false}>
         {contentJSX}
       </ScrollView>
-    )
+    );
   }
 
-  return contentJSX
+  return contentJSX;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default memo(CheckboxGroup) as <ActiveValueT = any>(
   p: CheckboxGroupProps<ActiveValueT>,
-) => JSX.Element
+) => React.ReactElement;

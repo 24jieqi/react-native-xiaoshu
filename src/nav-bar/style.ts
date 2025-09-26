@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import type { TokensType } from '../theme/interface'
+import type { TokensType } from '../theme/interface';
 
 export const varCreator = (TOKENS: TokensType) => {
   return {
@@ -11,10 +11,10 @@ export const varCreator = (TOKENS: TokensType) => {
     nav_bar_title_text_color: TOKENS.gray_8,
     nav_bar_title_font_size: TOKENS.font_size_5,
     nav_bar_icon_color: TOKENS.gray_8,
-  }
-}
+  };
+};
 
-export type NavBarTheme = ReturnType<typeof varCreator>
+export type NavBarTheme = ReturnType<typeof varCreator>;
 
 export const styleCreator = (cv: NavBarTheme) => {
   return StyleSheet.create({
@@ -63,5 +63,5 @@ export const styleCreator = (cv: NavBarTheme) => {
       fontSize: cv.nav_bar_title_font_size,
       fontWeight: 'bold',
     },
-  })
-}
+  });
+};

@@ -1,13 +1,13 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
-import ButtonOptionGroup from '../button/button-option-group'
-import Cell from '../cell'
+import ButtonOptionGroup from '../button/button-option-group';
+import Cell from '../cell';
 
-import { pickCellProps } from './helper'
-import type { FieldButtonOptionProps } from './interface'
+import { pickCellProps } from './helper';
+import type { FieldButtonOptionProps } from './interface';
 
 const FieldButtonOption: React.FC<FieldButtonOptionProps> = restProps => {
-  const { cellProps, otherProps } = pickCellProps(restProps)
+  const { cellProps, otherProps } = pickCellProps(restProps);
 
   return (
     <Cell
@@ -22,7 +22,7 @@ const FieldButtonOption: React.FC<FieldButtonOptionProps> = restProps => {
         />
       }
     />
-  )
-}
+  );
+};
 
-export default memo(FieldButtonOption)
+export default memo(FieldButtonOption);

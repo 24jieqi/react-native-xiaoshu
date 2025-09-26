@@ -1,13 +1,13 @@
-import React, { useState, memo } from 'react'
-import type { LayoutChangeEvent } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useState, memo } from 'react';
+import type { LayoutChangeEvent } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-import { getDefaultValue } from '../helpers'
-import { usePersistFn } from '../hooks'
-import Theme from '../theme'
+import { getDefaultValue } from '../helpers';
+import { usePersistFn } from '../hooks';
+import Theme from '../theme';
 
-import type { WaterMarkProps } from './interface'
-import { varCreator } from './style'
+import type { WaterMarkProps } from './interface';
+import { varCreator } from './style';
 
 const STYLES = StyleSheet.create({
   water_mark: {
@@ -28,7 +28,7 @@ const STYLES = StyleSheet.create({
     bottom: 0,
     flexDirection: 'row',
   },
-})
+});
 
 const WaterMark: React.FC<WaterMarkProps> = ({
   theme,
@@ -49,17 +49,17 @@ const WaterMark: React.FC<WaterMarkProps> = ({
   const [CV] = Theme.useStyle({
     varCreator,
     theme,
-  })
-  const [measure, setMeasure] = useState({ width: 0, height: 0 })
+  });
+  const [measure, setMeasure] = useState({ width: 0, height: 0 });
 
-  const _color = getDefaultValue(color, CV.water_mark_text_color)
-  const _fontSize = getDefaultValue(fontSize, CV.water_mark_text_font_size)
-  const _opacity = getDefaultValue(opacity, CV.water_mark_text_opacity)
+  const _color = getDefaultValue(color, CV.water_mark_text_color);
+  const _fontSize = getDefaultValue(fontSize, CV.water_mark_text_font_size);
+  const _opacity = getDefaultValue(opacity, CV.water_mark_text_opacity);
 
   const onLayoutWrapper = usePersistFn((e: LayoutChangeEvent) => {
-    onLayout?.(e)
-    setMeasure(e.nativeEvent.layout)
-  })
+    onLayout?.(e);
+    setMeasure(e.nativeEvent.layout);
+  });
 
   const renderMark = () => {
     if (
@@ -68,15 +68,15 @@ const WaterMark: React.FC<WaterMarkProps> = ({
       textWidth === 0 ||
       textHeight === 0
     ) {
-      return null
+      return null;
     }
 
-    const texts: React.ReactNode[] = []
-    const x = Math.ceil(measure.width / textWidth)
-    const y = Math.ceil(measure.height / textHeight)
+    const texts: React.ReactNode[] = [];
+    const x = Math.ceil(measure.width / textWidth);
+    const y = Math.ceil(measure.height / textHeight);
 
     for (let index0 = 0; index0 < x * y; index0++) {
-      const ts: React.ReactNode[] = []
+      const ts: React.ReactNode[] = [];
       for (let index1 = 0; index1 < y; index1++) {
         ts.push(
           <Text
@@ -98,21 +98,21 @@ const WaterMark: React.FC<WaterMarkProps> = ({
             }}>
             {text}
           </Text>,
-        )
+        );
       }
       texts.push(
         <View key={index0} style={STYLES.text_row}>
           {ts}
         </View>,
-      )
+      );
     }
 
     return (
       <View pointerEvents="none" style={STYLES.texts}>
         {texts}
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <View
@@ -123,7 +123,7 @@ const WaterMark: React.FC<WaterMarkProps> = ({
       {children}
       {foreground ? renderMark() : null}
     </View>
-  )
-}
+  );
+};
 
-export default memo(WaterMark)
+export default memo(WaterMark);

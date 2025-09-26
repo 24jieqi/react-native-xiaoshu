@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { attachPropertiesToComponent } from '../helpers'
-import Portal from '../portal'
+import { attachPropertiesToComponent } from '../helpers';
+import Portal from '../portal';
 
-import type { OverlayProps } from './interface'
-import Overlay from './overlay'
-import { varCreator } from './style'
+import type { OverlayProps } from './interface';
+import Overlay from './overlay';
+import { varCreator } from './style';
 
 /**
  * Overlay 遮罩层
@@ -16,10 +16,10 @@ const OverlayContainer: React.FC<OverlayProps> = props => {
     <Portal>
       <Overlay {...props} />
     </Portal>
-  )
-}
+  );
+};
 
 export default attachPropertiesToComponent(OverlayContainer, {
   varCreator,
   OverlayComponent: Overlay,
-})
+});

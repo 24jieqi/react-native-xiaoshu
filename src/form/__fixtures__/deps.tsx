@@ -3,10 +3,11 @@
  * description: 使用 dependencies 动态渲染。
  */
 
-import React from 'react'
-import { Card, Form, Field } from '@fruits-chain/react-native-xiaoshu'
+import React from 'react';
 
-let index = 0
+import { Card, Form, Field } from '@fruits-chain/react-native-xiaoshu';
+
+let index = 0;
 
 const BasicFormDeps: React.FC = () => {
   return (
@@ -14,8 +15,8 @@ const BasicFormDeps: React.FC = () => {
       <Form>
         <Form.Item dependencies={['username']}>
           {() => {
-            index += 1
-            return <Field.Text title="更新用户名重新渲染次数" value={index} />
+            index += 1;
+            return <Field.Text title="更新用户名重新渲染次数" value={index} />;
           }}
         </Form.Item>
         <Form.Item name="username">
@@ -31,7 +32,7 @@ const BasicFormDeps: React.FC = () => {
         </Form.Item>
       </Form>
     </Card>
-  )
-}
+  );
+};
 
-export default BasicFormDeps
+export default BasicFormDeps;
